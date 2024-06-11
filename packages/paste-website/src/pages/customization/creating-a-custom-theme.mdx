@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
 
 <content>
 
-A custom theme can be created either manually or using the [Paste Theme Designer](https://remix.twilio.design). A [Paste Theme](/theme) is categorized into groups of [Design Tokens](/tokens). The value of any Design Token from any Group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
+A custom theme can be created either manually or using the [Paste Theme Designer](https://remix.twilio.design). A [Paste Theme](/theme) is categorized into groups of [design tokens](/tokens). The value of any design token from any group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
 
 <CustomThemeKeyList />
 
@@ -87,7 +87,7 @@ If you&rsquo;re looking for a visual approach to creating a custom theme, then t
 
 The theme designer comes with a UI so you can visually see what tokens are used in various components. For ease of use, each set of tokens is separated into categories. Once a category is selected, you can change individual token values and immediately see what component(s) will be affected by that change. Once all token changes have been made, you can then export your custom theme.
 
-Once exported from the Theme Designer, you can store that JSON object in you application and import in where you initialize the Customization Provider to provide your application with an entire custom theme.
+Once exported from the theme designer, you can store that JSON object in you application and import in where you initialize the Customization Provider to provide your application with an entire custom theme.
 
 ```jsx
 import {CustomizationProvider} from '@twilio-paste/core/customization';
@@ -118,9 +118,9 @@ The theme designer can also be used to import a custom theme if you wish to make
 
 ### Creating a branded theme
 
-Something simple, yet effective that you might want to do is apply branding to your custom application. With Paste, a quick way to do that is to change the Primary colors within in the theme to be a tint of your primary brand color.
+Something simple, yet effective that you might want to do is apply branding to your custom application. With Paste, a quick way to do that is to change the primary colors within in the theme to be a tint of your primary brand color.
 
-As an example you might provide the Customization Provider a theme object that only sets values for the follow Design Tokens, based on your own companies branding:
+As an example you might provide the Customization Provider a theme object that only sets values for the follow design tokens, based on your own company's branding:
 
 ```json
 {
@@ -171,9 +171,9 @@ This will apply your companies brand color as the primary accent to all Paste co
   ></iframe>
 </Box>
 
-### Customizating typography
+### Customizing typography
 
-Another small customization might involve changing the typography that is supplied with Paste. Maybe your companies brand guidelines stipulate that you should use a certain font family? By changing the set of typography tokens on the theme, you can make ajustments to the font family and sizing ramps used in Paste to suit your companies needs.
+Another small customization might involve changing the typography that is supplied with Paste. Maybe your company's brand guidelines stipulate that you should use a certain font family. By changing the set of typography tokens on the theme, you can make adjustments to the font family and sizing ramps used in Paste to suit your company's needs.
 
 To achieve the result displayed below, we have provided Paste with the following partial theme object.
 

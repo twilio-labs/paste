@@ -12,6 +12,7 @@ import {Card} from '@twilio-paste/card';
 import {Stack} from '@twilio-paste/stack';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import Link from 'next/link';
 import DefaultLayout from '../../layouts/DefaultLayout';
@@ -65,161 +66,165 @@ We recommend using this guide in the following ways:
 
 Baseline tips that are useful for all builders of web based experiences.
 
-<Stack orientation="vertical" spacing="space30">
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Alternative text for media content
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>Provide captions and transcripts for video content</ListItem>
-        <ListItem>Provide descriptive captions for figures</ListItem>
-        <ListItem>Provide transcripts for audio content</ListItem>
-        <ListItem>
-          Provide alternative text for images that convey information{' '}
-          <Anchor showExternal href="https://www.w3.org/WAI/tutorials/images/decision-tree/">
-            (Learn more about this)
-          </Anchor>
-        </ListItem>
-        <ListItem>
-          Ensure PDF content is accessible (include tags){' '}
-          <Anchor showExternal href="https://webaim.org/techniques/acrobat/">
-            (Learn more about this)
-          </Anchor>
-        </ListItem>
-        <ListItem>
-          Avoid images of text, since this text that cannot be translated, selected, or understood by assistive
-          technology
-        </ListItem>
-        <ListItem>Provide alternatives and/or descriptions for complex visualizations</ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Other considerations
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>
-          Remove potentially insensitive or uninclusive language, and use "singular they" pronouns in UIs. Consider
-          using a service like <Anchor showExternal href="http://alexjs.com/">alexjs</Anchor> to catch any issues.
-        </ListItem>
-        <ListItem>
-          Make sure controls do not elicit unexpected or jarring behavior (For example, do not change behavior or
-          context unexpectedly when a user <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html">changes focus</Anchor>
-          or <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html">adjusts a control</Anchor>
-        </ListItem>
-        <ListItem>
-          Make sure text and background colors contrast sufficiently <Anchor showExternal href="https://accessibility.blog.gov.uk/2016/06/17/colour-contrast-why-does-it-matter/">(Read more about why this matters)</Anchor>
-        </ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-</Stack>
+<Box as="div" marginBottom="space70">
+  <Stack orientation="vertical" spacing="space30">
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Alternative text for media content
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>Provide captions and transcripts for video content</ListItem>
+          <ListItem>Provide descriptive captions for figures</ListItem>
+          <ListItem>Provide transcripts for audio content</ListItem>
+          <ListItem>
+            Provide alternative text for images that convey information{' '}
+            <Anchor showExternal href="https://www.w3.org/WAI/tutorials/images/decision-tree/">
+              (Learn more about this)
+            </Anchor>
+          </ListItem>
+          <ListItem>
+            Ensure PDF content is accessible (include tags){' '}
+            <Anchor showExternal href="https://webaim.org/techniques/acrobat/">
+              (Learn more about this)
+            </Anchor>
+          </ListItem>
+          <ListItem>
+            Avoid images of text, since this text that cannot be translated, selected, or understood by assistive
+            technology
+          </ListItem>
+          <ListItem>Provide alternatives and/or descriptions for complex visualizations</ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Other considerations
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>
+            Remove potentially insensitive or uninclusive language, and use "singular they" pronouns in UIs. Consider
+            using a service like <Anchor showExternal href="http://alexjs.com/">alexjs</Anchor> to catch any issues.
+          </ListItem>
+          <ListItem>
+            Make sure controls do not elicit unexpected or jarring behavior (For example, do not change behavior or
+            context unexpectedly when a user <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html">changes focus</Anchor>
+            or <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html">adjusts a control</Anchor>
+          </ListItem>
+          <ListItem>
+            Make sure text and background colors contrast sufficiently <Anchor showExternal href="https://accessibility.blog.gov.uk/2016/06/17/colour-contrast-why-does-it-matter/">(Read more about why this matters)</Anchor>
+          </ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+  </Stack>
+</Box>
 
 ## Considerations for product designers
 
 The tips below are important considerations for the product design process. However, they are useful for engineers as well and must be considered at all stages of product development.
 
-<Stack orientation="vertical" spacing="space30">
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Form elements and composition
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>Give all form elements permanently visible labels</ListItem>
-        <ListItem>Give grouped form elements group labels</ListItem>
-        <ListItem>Place labels above form elements</ListItem>
-        <ListItem>Mark invalid fields clearly and provide associated error messages</ListItem>
-        <ListItem>Do not auto-focus form fields, on page load</ListItem>
-        <ListItem>Break up long and complex forms into discrete sections and/or screens</ListItem>
-        <ListItem>
-          Make forms as short as possible. For example, consider offering shortcuts like autocompleting an address by
-          using the postcode.
-        </ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Text and typographic considerations
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>
-          Make sure heading levels describe a logical section/subsection structure <Anchor showExternal href="https://webaim.org/techniques/semanticstructure/">(Read more about this)</Anchor>
-        </ListItem>
-        <ListItem>Translate / spell out acronyms the first time you use them</ListItem>
-        <ListItem>Employ well-balanced, highly legible fonts (not too complex or elaborate)</ListItem>
-        <ListItem>
-          Do not use very thin font faces <Anchor showExternal href="http://www.telegraph.co.uk/science/2016/10/23/internet-is-becoming-unreadable-because-of-a-trend-towards-light/">(Read an article about why this matters)</Anchor>
-        </ListItem>
-        <ListItem>Underline links — at least in body copy</ListItem>
-        <ListItem>
-          Avoid justified body text since it creates rivers of spacing that can be hard to read. <Anchor showExternal href="https://www.w3.org/TR/WCAG20-TECHS/F88.html">(Read more about why this matters)</Anchor>
-        </ListItem>
-        <ListItem>
-          Provide enough spacing between lines of text (`line-height`) to allow for readers to track text <Anchor showExternal href="https://www.w3.org/TR/WCAG20-TECHS/C21.html">(Read more about this)</Anchor>
-        </ListItem>
-        <ListItem>
-          Avoid all-caps text <Anchor showExternal href="https://github.com/humanmade/hm-pattern-library/issues/75">(Read more about this)</Anchor>
-        </ListItem>
-        <ListItem>
-          Ensure that content is written as clearly and simply as possible <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html">(Read more about why it matters)</Anchor>
-        </ListItem>
-        <ListItem>
-          Warn users of links that have unusual behaviors, like linking off-site, or loading a new tab
-        </ListItem>
-        <ListItem>
-          Make voice activation cues in your UI obvious with the use of text labels and / or visual affordances.
-        </ListItem>
-        <ListItem>
-          Do not mark up subheadings/straplines with separate heading elements <Anchor showExternal href="https://css-tricks.com/html-for-subheadings-and-headings/">(Read more about this)</Anchor>
-        </ListItem>
-        <ListItem>Begin long, multi-section documents with a table of contents</ListItem>
-        <ListItem>
-          Make sure the purpose of a link is clearly described: "read more" vs. "read more about accessibility"
-        </ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Visual design and visual affordances
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>Include only clear, meaningful animations</ListItem>
-        <ListItem>Do not rely on color as the only means of differentiation of visual elements</ListItem>
-        <ListItem>Make UI controls look like controls; give them strong perceived affordance</ListItem>
-        <ListItem>Avoid pure white or pure black shades</ListItem>
-        <ListItem>Indicate swipe gesture support clearly, and provide simple tap-based alternatives</ListItem>
-        <ListItem>Ensure primary calls to action are easy to recognize and reach</ListItem>
-        <ListItem>Use well-established, therefore recognizable, icons and symbols</ListItem>
-        <ListItem>Don't make users perform actions to reveal content unless completely necessary</ListItem>
-        <ListItem>If content is meant to be hidden, ensure it is properly hidden to all users</ListItem>
-        <ListItem>Inform the user when there are important changes to the application state</ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-  <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Other considerations
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>Use the same design patterns to solve the same problems</ListItem>
-        <ListItem>Label and describe the same things with the same terminology</ListItem>
-        <ListItem>Do not trigger "infinite scroll" by default; provide buttons to load more items</ListItem>
-        <ListItem>
-          Avoid time constraints where possible; provide a clear warning and option to extend where not possible
-        </ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-</Stack>
+<Box as="div" marginBottom="space70">
+  <Stack orientation="vertical" spacing="space30">
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Form elements and composition
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>Give all form elements permanently visible labels</ListItem>
+          <ListItem>Give grouped form elements group labels</ListItem>
+          <ListItem>Place labels above form elements</ListItem>
+          <ListItem>Mark invalid fields clearly and provide associated error messages</ListItem>
+          <ListItem>Do not auto-focus form fields, on page load</ListItem>
+          <ListItem>Break up long and complex forms into discrete sections and/or screens</ListItem>
+          <ListItem>
+            Make forms as short as possible. For example, consider offering shortcuts like autocompleting an address by
+            using the postcode.
+          </ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Text and typographic considerations
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>
+            Make sure heading levels describe a logical section/subsection structure <Anchor showExternal href="https://webaim.org/techniques/semanticstructure/">(Read more about this)</Anchor>
+          </ListItem>
+          <ListItem>Translate / spell out acronyms the first time you use them</ListItem>
+          <ListItem>Employ well-balanced, highly legible fonts (not too complex or elaborate)</ListItem>
+          <ListItem>
+            Do not use very thin font faces <Anchor showExternal href="http://www.telegraph.co.uk/science/2016/10/23/internet-is-becoming-unreadable-because-of-a-trend-towards-light/">(Read an article about why this matters)</Anchor>
+          </ListItem>
+          <ListItem>Underline links — at least in body copy</ListItem>
+          <ListItem>
+            Avoid justified body text since it creates rivers of spacing that can be hard to read. <Anchor showExternal href="https://www.w3.org/TR/WCAG20-TECHS/F88.html">(Read more about why this matters)</Anchor>
+          </ListItem>
+          <ListItem>
+            Provide enough spacing between lines of text (`line-height`) to allow for readers to track text <Anchor showExternal href="https://www.w3.org/TR/WCAG20-TECHS/C21.html">(Read more about this)</Anchor>
+          </ListItem>
+          <ListItem>
+            Avoid all-caps text <Anchor showExternal href="https://github.com/humanmade/hm-pattern-library/issues/75">(Read more about this)</Anchor>
+          </ListItem>
+          <ListItem>
+            Ensure that content is written as clearly and simply as possible <Anchor showExternal href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html">(Read more about why it matters)</Anchor>
+          </ListItem>
+          <ListItem>
+            Warn users of links that have unusual behaviors, like linking off-site, or loading a new tab
+          </ListItem>
+          <ListItem>
+            Make voice activation cues in your UI obvious with the use of text labels and / or visual affordances.
+          </ListItem>
+          <ListItem>
+            Do not mark up subheadings/straplines with separate heading elements <Anchor showExternal href="https://css-tricks.com/html-for-subheadings-and-headings/">(Read more about this)</Anchor>
+          </ListItem>
+          <ListItem>Begin long, multi-section documents with a table of contents</ListItem>
+          <ListItem>
+            Make sure the purpose of a link is clearly described: "read more" vs. "read more about accessibility"
+          </ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Visual design and visual affordances
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>Include only clear, meaningful animations</ListItem>
+          <ListItem>Do not rely on color as the only means of differentiation of visual elements</ListItem>
+          <ListItem>Make UI controls look like controls; give them strong perceived affordance</ListItem>
+          <ListItem>Avoid pure white or pure black shades</ListItem>
+          <ListItem>Indicate swipe gesture support clearly, and provide simple tap-based alternatives</ListItem>
+          <ListItem>Ensure primary calls to action are easy to recognize and reach</ListItem>
+          <ListItem>Use well-established, therefore recognizable, icons and symbols</ListItem>
+          <ListItem>Don't make users perform actions to reveal content unless completely necessary</ListItem>
+          <ListItem>If content is meant to be hidden, ensure it is properly hidden to all users</ListItem>
+          <ListItem>Inform the user when there are important changes to the application state</ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+    <Disclosure>
+      <DisclosureHeading as="h3" variant="heading30">
+        Other considerations
+      </DisclosureHeading>
+      <DisclosureContent>
+        <UnorderedList>
+          <ListItem>Use the same design patterns to solve the same problems</ListItem>
+          <ListItem>Label and describe the same things with the same terminology</ListItem>
+          <ListItem>Do not trigger "infinite scroll" by default; provide buttons to load more items</ListItem>
+          <ListItem>
+            Avoid time constraints where possible; provide a clear warning and option to extend where not possible
+          </ListItem>
+        </UnorderedList>
+      </DisclosureContent>
+    </Disclosure>
+  </Stack>
+</Box>
 
 ## Considerations for UX and front-end engineers
 
