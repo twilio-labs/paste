@@ -2,7 +2,7 @@
   "name": "@twilio-paste/ai-chat-log",
   "version": "0.0.0",
   "category": "data display",
-  "status": "production",
+  "status": "beta",
   "description": "AI chat log is a collection of components that allow users to read a series of messages with an AI.",
   "author": "Twilio Inc.",
   "license": "MIT",

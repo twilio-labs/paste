@@ -23,6 +23,16 @@ import {
   useChatLogger,
   ChatLogger,
 } from '@twilio-paste/chat-log';
+import {
+  AIChatLog,
+  AIChatMessage,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageFeedback,
+  AIChatMessageLoading,
+  AIChatMessageMeta,
+} from '@twilio-paste/core/ai-chat-log';
+
 import Changelog from '@twilio-paste/ai-chat-log/CHANGELOG.md';
 import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {HelpText} from '@twilio-paste/help-text';
@@ -46,7 +56,7 @@ import {
   kitchenSink,
   chatLoggerExample,
 } from '../../../component-examples/ChatLogExamples.ts';
-import packageJson from '@twilio-paste/chat-log/package.json';
+import packageJson from '@twilio-paste/ai-chat-log/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
@@ -72,28 +82,32 @@ export const getStaticProps = async () => {
   };
 };
 
-<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}} language="jsx">
-  {`<ChatLog>
-  <ChatMessage variant='inbound'>
-    <ChatBubble>
-      Hello, what can I help you with?
-    </ChatBubble>
-    <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
-      <ChatMessageMetaItem>
-        <Avatar name="Gibby Radki" size="sizeIcon20" />
-        Gibby Radki ・ 3:35 PM
-      </ChatMessageMetaItem>
-    </ChatMessageMeta>
-  </ChatMessage>
-  <ChatMessage variant='outbound'>
-    <ChatBubble>
-      Hi! What is your return policy?
-    </ChatBubble>
-    <ChatMessageMeta aria-label="said by you at 3:35 PM">
-      <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
-    </ChatMessageMeta>
-  </ChatMessage>
-</ChatLog>`}
+<LivePreview scope={{
+  AIChatLog,
+  AIChatMessage,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageFeedback,
+  AIChatMessageLoading,
+  AIChatMessageMeta,
+}} language="jsx">
+  {`<AIChatLog>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody variant="default">
+      What does the SMS delivery error code 30003 mean?
+    </AIChatMessageBody>
+  </AIChatMessage>
+  <AIChatMessage variant="bot">
+    <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+    <AIChatMessageBody variant="default">
+      Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
+    </AIChatMessageBody>
+    <AIChatMessageMeta aria-label="Feedback form">
+      <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
+    </AIChatMessageMeta>
+  </AIChatMessage>
+</AIChatLog>`}
 </LivePreview>
 
 ## Guidelines
