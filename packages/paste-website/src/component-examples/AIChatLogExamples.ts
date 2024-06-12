@@ -125,24 +125,20 @@ const AIChatLogExample = () => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
         <AIChatMessageBody>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
-          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-          impedit repellat assumenda.
+          Hi, I'm getting errors codes when sending an SMS.
         </AIChatMessageBody>
       </AIChatMessage>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
-          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-          impedit repellat assumenda.
+          Error codes can be returned from various parts of the process. What error codes are you encountering?
         </AIChatMessageBody>
         <AIChatMessageMeta aria-label="Quick actions available:">
           <ButtonGroup>
             <Button variant="secondary" onClick={() => {}} size="small">
-              30007
+              21608
             </Button>
             <Button variant="secondary" onClick={() => {}} size="small">
               30007
@@ -152,21 +148,27 @@ const AIChatLogExample = () => {
             </Button>
           </ButtonGroup>
         </AIChatMessageMeta>
+      </AIChatMessage>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>
+          Error 21608 means you're trying to send a message from an unverified number. Is your number verified in your Twilio account?
+        </AIChatMessageBody>
         <AIChatMessageMeta aria-label="Feedback form">
           <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
         </AIChatMessageMeta>
       </AIChatMessage>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageAuthor aria-label="You said" bot>
+          Gibby Radki
+        </AIChatMessageAuthor>
         <AIChatMessageBody>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
-          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-          impedit repellat assumenda.
+          No, how do I verify it?
         </AIChatMessageBody>
       </AIChatMessage>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said" bot>
-          Good Bot
+          Good Bot  
         </AIChatMessageAuthor>
         <AIChatMessageBody>
           <AIChatMessageLoading onStopLoading={() => {}} />
