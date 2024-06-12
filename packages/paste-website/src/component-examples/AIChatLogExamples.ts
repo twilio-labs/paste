@@ -52,36 +52,6 @@ const MessageWithFeedback = () => {
 render(
   <MessageWithFeedback />
 )`.trim();
-export const botWithActionButtons = `
-const MessageWithActionButtons = () => {
-  return (
-    <AIChatLog>
-        <AIChatMessage variant="bot">
-          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody>
-          Error codes can be returned from various parts of the process. What error codes are you encountering?
-          </AIChatMessageBody>
-          <AIChatMessageActions aria-label="Quick actions available:">
-            <ButtonGroup>
-              <Button variant="secondary" onClick={() => {}} size="small">
-                30005
-              </Button>
-              <Button variant="secondary" onClick={() => {}} size="small">
-                30007
-              </Button>
-              <Button variant="secondary" onClick={() => {}} size="small">
-                30009
-              </Button>
-            </ButtonGroup>
-          </AIChatMessageActions>
-        </AIChatMessage>
-    </AIChatLog>
-  );
-};
-
-render(
-  <MessageWithActionButtons />
-)`.trim();
 export const botWithLoadingStopButton = `
 const MessageWithLoadingAndStop = () => {
   return (
@@ -214,6 +184,7 @@ const AIChatLoggerExample = () => {
     aiChatFactory(chatTemplates[0]),
     aiChatFactory(chatTemplates[1])
   );
+  const [loading, setLoading] = React.useState(false);
 
   const pushChat = () => {
     const template = chatTemplates[templateIdx];
@@ -222,7 +193,7 @@ const AIChatLoggerExample = () => {
 
     if (template[1] ===  "bot") {
       const id = uid(chat.content);
-      console.log(id);
+      setLoading(true);
       push({
         id,
         variant: template[1],
@@ -236,8 +207,9 @@ const AIChatLoggerExample = () => {
         ),
       });
       setTimeout(() => {
-        console.log("replacing id:", id);
-        push({...chat, id});
+        pop(id);
+        setLoading(false);
+        push(chat);
       }, 1000);
     } else {
       push(chat);
@@ -252,13 +224,13 @@ const AIChatLoggerExample = () => {
   return(
     <Stack orientation="vertical">
       <ButtonGroup>
-        <Button variant="primary" onClick={pushChat}>
+        <Button variant="primary" disabled={loading} onClick={pushChat}>
           Push Chat
         </Button>
-        <Button variant="primary" onClick={popChat}>
+        <Button variant="primary" disabled={loading} onClick={popChat}>
           Pop Chat
         </Button>
-        <Button variant="primary" onClick={clear}>
+        <Button variant="primary" disabled={loading} onClick={clear}>
           Clear Chat
         </Button>
       </ButtonGroup>

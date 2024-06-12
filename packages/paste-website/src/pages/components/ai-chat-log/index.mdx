@@ -10,6 +10,7 @@ import { Anchor } from "@twilio-paste/anchor";
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { uid } from "@twilio-paste/uid-library";
+import {Paragraph} from "@twilio-paste/paragraph";
 import {
   ChatAttachment,
   ChatAttachmentDescription,
@@ -62,7 +63,6 @@ import {
   basicBotMessage,
   basicHumanMessage,
   botWithFeedback,
-  botWithActionButtons,
   botWithLoadingStopButton,
   botWithLoading,
   kitchenSink,
@@ -179,11 +179,9 @@ A message must include the author and body. Any message text from a user or a bo
   {basicHumanMessage}
 </LivePreview>
 
-### Message Body Variants
+### Message Body Sizes
 
-The AIChatMessageBody component has two variants, `default` and `fullscreen`. The `fullscreen` variant is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
-
-#### Default
+The AIChatMessageBody component has two sizes, `default` and `fullScreen`. The `fullScreen` size is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
 
 <LivePreview
   scope={{
@@ -196,30 +194,15 @@ The AIChatMessageBody component has two variants, `default` and `fullscreen`. Th
 >
   {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-    <AIChatMessageBody variant="default">
-      What does the SMS delivery error code 30003 mean?
+    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody size="default">
+      I'm a message that should be displayed in compact elements
     </AIChatMessageBody>
   </AIChatMessage>
-</AIChatLog>`}
-</LivePreview>
-
-#### Fullscreen
-
-<LivePreview
-  scope={{
-    AIChatLog,
-    AIChatMessage,
-    AIChatMessageAuthor,
-    AIChatMessageBody,
-  }}
-  language="jsx"
->
-  {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-    <AIChatMessageBody variant="fullScreen">
-      What does the SMS delivery error code 30003 mean?
+    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody size="fullScreen">
+      I'm a message that will be displayed in full screen width
     </AIChatMessageBody>
   </AIChatMessage>
 </AIChatLog>`}
@@ -230,24 +213,6 @@ The AIChatMessageBody component has two variants, `default` and `fullscreen`. Th
 Use AIChatMessageActions to append additional information to a message such as AIChatMessageFeedback or custom action buttons .
 
 AIChatMessageActions should be a child of AIChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
-
-#### Action Buttons
-
-<LivePreview
-  scope={{
-    AIChatLog,
-    AIChatMessage,
-    AIChatMessageAuthor,
-    AIChatMessageBody,
-    AIChatMessageActions,
-    ButtonGroup,
-    Button,
-  }}
-  language="jsx"
-  noInline
->
-  {botWithActionButtons}
-</LivePreview>
 
 #### Feedback
 
@@ -290,7 +255,7 @@ The labels on feedback can be internationalized by passing using the `i18nDislik
 
 ### Loading States
 
-Use the AIChatMessageLoading component to indicate that the bot is typing or processing a response.
+Use the AIChatMessageLoading component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
 
 The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
 
@@ -398,17 +363,3 @@ You can push or pop a chat based on an action or event. In this example it's bas
 ## Composition Notes
 
 Keep content as concise as possible given the space constraints.
-
-
-### AI Chat Log vs Chat Log
-
-The main difference between AI chat Log and Chat Log is ...
-
-
-### Error messages
-
-To convey an error related to whether a message was sent, use Help Text inside the Message Meta. Limit the message to a single sentence and focus on how the user can resolve the issue. Offer a [link-style retry button](/components/button#link-style-button) when applicable.
-
-To convey an error related to other actions taken in the Chat Log, like a file upload validation error, use a [Toast](/components/toast) at the top of the individual chat window.
-
-To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).
