@@ -1,11 +1,12 @@
 import { Avatar } from "@twilio-paste/avatar";
 import type { BoxElementProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import { AIChatMessageMeta } from "./AIChatMessageMeta";
-import { AIMessageVariantContext } from "./AIMessageVariantContext";
+import { AIMessageContext } from "./AIMessageContext";
 
 export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
   /**
@@ -30,21 +31,58 @@ export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageAuthorProps
    */
   "aria-label": string;
+  /**
+   * Custom name for the user Avatar's initials to override the default Avatar content. See Avatar API documentation for more information.
+   *
+   * @type {string}
+   * @memberof AIChatMessageAuthorProps
+   */
+  avatarName?: string;
+  /**
+   * Custom src path for the user Avatar's image to override the default Avatar content. See Avatar API documentation for more information.
+   *
+   * @type {string}
+   * @memberof AIChatMessageAuthorProps
+   */
+  avatarSrc?: string;
+  /**
+   * Custom svg for the user Avatar's icon to override the default Avatar content. See Avatar API documentation for more information.
+   *
+   * @type {React.FC<React.PropsWithChildren<GenericIconProps>>}
+   * @memberof AIChatMessageAuthorProps
+   */
+  avatarIcon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
 }
 
 export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessageAuthorProps>(
-  ({ children, element = "AI_CHAT_MESSAGE_AUTHOR", ...props }, ref) => {
-    const messageVariant = React.useContext(AIMessageVariantContext);
+  ({ children, element = "AI_CHAT_MESSAGE_AUTHOR", avatarName, avatarIcon, avatarSrc, ...props }, ref) => {
+    const { variant } = React.useContext(AIMessageContext);
 
     return (
-      <AIChatMessageMeta {...props} ref={ref} aria-label={props["aria-label"]} element={element}>
-        {messageVariant === "bot" ? (
-          <Avatar name={children} size="sizeIcon50" icon={ArtificialIntelligenceIcon} element={`${element}_AVATAR}`} />
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        aria-label={props["aria-label"]}
+        element={element}
+        display="flex"
+        alignItems="center"
+        columnGap="space30"
+        fontWeight="fontWeightMedium"
+      >
+        {variant === "bot" ? (
+          <Avatar name={children} size="sizeIcon50" icon={ArtificialIntelligenceIcon} element={`${element}_AVATAR`} />
         ) : (
-          <Avatar name={children} size="sizeIcon50" color="decorative30" element={`${element}_AVATAR}`} />
+          <Avatar
+            size="sizeIcon50"
+            color="decorative30"
+            element={`${element}_AVATAR`}
+            name={avatarName || children}
+            icon={avatarIcon}
+            src={avatarSrc}
+          />
         )}
         {children}
-      </AIChatMessageMeta>
+      </Box>
     );
   },
 );

@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-extraneous-dependencies */
 import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
@@ -13,18 +15,16 @@ import * as React from "react";
 import {
   AIChatLogger,
   AIChatMessage,
+  AIChatMessageActions,
   AIChatMessageAuthor,
   AIChatMessageBody,
   AIChatMessageFeedback,
   AIChatMessageLoading,
-  AIChatMessageMeta,
-  AIMessageVariants,
-  AIPartialIDChat,
   useAIChatLogger,
 } from "../src";
+import type { AIMessageVariants, AIPartialIDChat } from "../src";
 import { AIChatMessageBodyTypeWriter } from "../src/AIChatMessageBodyTypeWriter";
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: "Components/AI Chat Log/useAIChatLogger",
 };
@@ -59,7 +59,7 @@ export const UseChatLogger: StoryFn = () => {
             eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
             nesciunt impedit repellat assumenda.
           </AIChatMessageBody>
-          <AIChatMessageMeta aria-label="Quick actions available:">
+          <AIChatMessageActions aria-label="Quick actions available:">
             <ButtonGroup>
               <Button variant="secondary" onClick={() => {}} size="small">
                 30007
@@ -71,10 +71,10 @@ export const UseChatLogger: StoryFn = () => {
                 30009
               </Button>
             </ButtonGroup>
-          </AIChatMessageMeta>
-          <AIChatMessageMeta aria-label="Feedback form">
+          </AIChatMessageActions>
+          <AIChatMessageActions aria-label="Feedback form">
             <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-          </AIChatMessageMeta>{" "}
+          </AIChatMessageActions>{" "}
         </AIChatMessage>
       ),
     },
