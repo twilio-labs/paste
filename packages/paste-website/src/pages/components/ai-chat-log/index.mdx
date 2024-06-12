@@ -1,13 +1,14 @@
 export const meta = {
-  title: 'AI Chat Log - Components',
-  package: '@twilio-paste/ai-chat-log',
-  description: 'An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot',
-  slug: '/components/ai-chat-log/',
+  title: "AI Chat Log - Components",
+  package: "@twilio-paste/ai-chat-log",
+  description:
+    "An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot",
+  slug: "/components/ai-chat-log/",
 };
 
-import {Anchor} from '@twilio-paste/anchor';
-import {Avatar} from '@twilio-paste/avatar';
-import {Box} from '@twilio-paste/box';
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
 import {
   ChatAttachment,
   ChatAttachmentDescription,
@@ -22,7 +23,7 @@ import {
   ChatMessageMetaItem,
   useChatLogger,
   ChatLogger,
-} from '@twilio-paste/chat-log';
+} from "@twilio-paste/chat-log";
 import {
   AIChatLog,
   AIChatMessage,
@@ -31,20 +32,18 @@ import {
   AIChatMessageFeedback,
   AIChatMessageLoading,
   AIChatMessageMeta,
-} from '@twilio-paste/core/ai-chat-log';
+} from "@twilio-paste/core/ai-chat-log";
 
-import Changelog from '@twilio-paste/ai-chat-log/CHANGELOG.md';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {HelpText} from '@twilio-paste/help-text';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {Button} from '@twilio-paste/button';
-import {ButtonGroup} from '@twilio-paste/button-group';
-import {Stack} from '@twilio-paste/stack';
+import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { HelpText } from "@twilio-paste/help-text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Stack } from "@twilio-paste/stack";
 
-import {SidebarCategoryRoutes} from '../../../constants';
+import { SidebarCategoryRoutes } from "../../../constants";
 import {
-  basicInboundMessage,
-  basicOutboundMessage,
   inboundMessageMeta,
   outboundMessageMeta,
   inboundMessageAttachment,
@@ -53,18 +52,27 @@ import {
   outboundComplexMessage,
   basicChatEvent,
   basicChatBookend,
-  kitchenSink,
   chatLoggerExample,
-} from '../../../component-examples/ChatLogExamples.ts';
-import packageJson from '@twilio-paste/ai-chat-log/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+} from "../../../component-examples/ChatLogExamples.ts";
+
+import {
+  basicBotMessage,
+  basicHumanMessage,
+  botWithFeedback,
+  botWithActionButtons,
+  botWithLoadingStopButton,
+  botWithLoading,
+  kitchenSink,
+} from "../../../component-examples/AIChatLogExamples";
+import packageJson from "@twilio-paste/ai-chat-log/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('AI Chat Log');
+  const feature = await getFeature("AI Chat Log");
   return {
     props: {
       data: {
@@ -75,37 +83,34 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log',
-        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log",
+        storybookUrl: "/?path=/story/components-chatlog--example-chat-log",
       },
     },
   };
 };
 
-<LivePreview scope={{
-  AIChatLog,
-  AIChatMessage,
-  AIChatMessageAuthor,
-  AIChatMessageBody,
-  AIChatMessageFeedback,
-  AIChatMessageLoading,
-  AIChatMessageMeta,
-}} language="jsx">
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+>
   {`<AIChatLog>
   <AIChatMessage variant="user">
     <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-    <AIChatMessageBody variant="default">
+    <AIChatMessageBody>
       What does the SMS delivery error code 30003 mean?
     </AIChatMessageBody>
   </AIChatMessage>
   <AIChatMessage variant="bot">
     <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-    <AIChatMessageBody variant="default">
+    <AIChatMessageBody>
       Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
     </AIChatMessageBody>
-    <AIChatMessageMeta aria-label="Feedback form">
-      <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-    </AIChatMessageMeta>
   </AIChatMessage>
 </AIChatLog>`}
 </LivePreview>
@@ -114,187 +119,208 @@ export const getStaticProps = async () => {
 
 ### About AI Chat Log
 
-A Chat Log is a way to display conversations between people and can include complex content like attachments. The chat can be between two or more people.
+An AI Chat Log is a way to display conversations between a user and AI.
 
-The Chat Log package includes these main components:
+The AI Chat Log package includes these main components:
 
-- ChatLog
-- ChatMessage
-- ChatBubble
-- ChatBookend
-- ChatEvent
-- ChatAttachment
-- ChatMessageMeta
+- AIChatLog
+- AIChatMessage
+- AIChatMessageAuthor
+- AIChatMessageBody
+- AIChatMessageMeta
+- AIChatMessageFeedback
+- AIChatMessageLoading
 
 ### Accessibility
 
-To ensure the chat is accessible, only use the Chat components within a ChatLog component and use ChatMessage to wrap ChatBubbles and ChatMessageMeta components together.
+To ensure the chat is accessible, only use the AI Chat components within an AIChatLog component and use AIChatMessage to wrap AIChatMessageBody, AIChatMessageMeta and AIChatMessageFeedback components together.
 
-The only other accessibility requirement is providing the ChatMessageMeta a descriptive label via the `aria-label` React prop.
+The only other accessibility requirement is providing the AIChatMessageMeta a descriptive label via the `aria-label` React prop.
 
-The ChatLog component has `role=”log”` which means that any new messages added to it are announced by assistive technology.
+The AIChatLog component has `role=”log”` which means that any new messages added to it are announced by assistive technology.
+
+### AI Chat Log vs Chat Log
+
+The main difference between AI chat Log and Chat Log is ...
 
 ## Examples
 
 ### Basic Message
 
-A basic message is simply text sent from a chat participant and is built with the ChatMessage and ChatBubble components. It can either be inbound or outbound.
+A message must include the author and body. Any message text from a user or a bot must be contained within the AIChatMessageBody component. Due to lengthy AI responses, the chat layout is now top-down
 
-#### Inbound
+#### Bot
 
-<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
-  {basicInboundMessage}
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+  noInline
+>
+  {basicBotMessage}
 </LivePreview>
 
-#### Outbound
+#### User
 
-<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
-  {basicOutboundMessage}
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+  noInline
+>
+  {basicHumanMessage}
+</LivePreview>
+
+### Message Body Variants
+
+The AIChatMessageBody component has two variants, `default` and `fullscreen`. The `fullscreen` variant is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
+
+#### Default
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+>
+  {`<AIChatLog>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody variant="default">
+      What does the SMS delivery error code 30003 mean?
+    </AIChatMessageBody>
+  </AIChatMessage>
+</AIChatLog>`}
+</LivePreview>
+
+#### Fullscreen
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+>
+  {`<AIChatLog>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody variant="fullScreen">
+      What does the SMS delivery error code 30003 mean?
+    </AIChatMessageBody>
+  </AIChatMessage>
+</AIChatLog>`}
 </LivePreview>
 
 ### Message with Message Meta
 
-Use Message Meta to append additional information to a message such as the name of the sender, the time, or a read receipt.
+Use Message Meta to append additional information to a message such as AIChatMessageFeedback or custom action buttons .
 
 ChatMessageMeta should be a child of ChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
 
-#### Inbound
-
-<LivePreview
-  scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}}
-  language="jsx"
-  noInline
->
-  {inboundMessageMeta}
-</LivePreview>
-
-#### Outbound
-
-<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem}} language="jsx" noInline>
-  {outboundMessageMeta}
-</LivePreview>
-
-### Message with Attachment
-
-A message can include an attachment. If sent with additional text, the attachment should be in its own ChatBubble.
-
-#### Inbound
+#### Bot with Feedback
 
 <LivePreview
   scope={{
-    ChatLog,
-    ChatMessage,
-    ChatBubble,
-    ChatAttachment,
-    ChatAttachmentDescription,
-    ChatAttachmentLink,
-    DownloadIcon,
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageFeedback,
+    AIChatMessageMeta,
   }}
   language="jsx"
   noInline
 >
-  {inboundMessageAttachment}
+  {botWithFeedback}
 </LivePreview>
 
-#### Outbound
+#### Bot with Action Buttons
 
 <LivePreview
   scope={{
-    ChatLog,
-    ChatMessage,
-    ChatBubble,
-    ChatAttachment,
-    ChatAttachmentDescription,
-    ChatAttachmentLink,
-    DownloadIcon,
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageMeta,
+    ButtonGroup,
+    Button,
   }}
   language="jsx"
   noInline
 >
-  {outboundMessageAttachment}
+  {botWithActionButtons}
 </LivePreview>
 
-### Complex Message
+### Loading States
 
-ChatMessages can contain multiple ChatBubbles and ChatMessageMetas.
+Use the AIChatMessageLoading component to indicate that the bot is typing or processing a response.
 
-#### Inbound
+The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
+
+#### Loading
 
 <LivePreview
   scope={{
-    ChatLog,
-    ChatAttachment,
-    ChatAttachmentDescription,
-    ChatAttachmentLink,
-    ChatBubble,
-    ChatMessage,
-    ChatMessageMeta,
-    ChatMessageMetaItem,
-    DownloadIcon,
-    Avatar,
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageMeta,
+    AIChatMessageLoading,
   }}
   language="jsx"
   noInline
 >
-  {inboundComplexMessage}
+  {botWithLoading}
 </LivePreview>
 
-#### Outbound
+#### Loading with Stop Button
 
 <LivePreview
   scope={{
-    ChatLog,
-    ChatAttachment,
-    ChatAttachmentDescription,
-    ChatAttachmentLink,
-    ChatBubble,
-    ChatMessage,
-    ChatMessageMeta,
-    ChatMessageMetaItem,
-    DownloadIcon,
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageMeta,
+    AIChatMessageLoading,
   }}
   language="jsx"
   noInline
 >
-  {outboundComplexMessage}
+  {botWithLoadingStopButton}
 </LivePreview>
 
-### Chat Event
-
-Chat Events are for things that can happen during the chat, like someone joining or the chat transferring to a different agent.
-
-<LivePreview scope={{ChatLog, ChatEvent}} language="jsx" noInline>
-  {basicChatEvent}
-</LivePreview>
-
-### Chat Bookend
-
-Chat Bookends are for when the chat starts, ends, and the day when the chat spans multiple days.
-
-<LivePreview scope={{ChatLog, ChatBookend, ChatBookendItem}} language="jsx" noInline>
-  {basicChatBookend}
-</LivePreview>
-
-### Example Chat Log
+### Example AI Chat Log
 
 This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
 
 <LivePreview
   scope={{
-    ChatAttachment,
-    ChatAttachmentDescription,
-    ChatAttachmentLink,
-    ChatBookend,
-    ChatBookendItem,
-    ChatBubble,
-    ChatEvent,
-    ChatLog,
-    ChatMessage,
-    ChatMessageMeta,
-    ChatMessageMetaItem,
-    Avatar,
-    DownloadIcon,
-    Box,
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageFeedback,
+    AIChatMessageLoading,
+    AIChatMessageMeta,
+    Button,
+    ButtonGroup,
   }}
   language="jsx"
   noInline
@@ -354,4 +380,4 @@ To convey an error related to whether a message was sent, use Help Text inside t
 
 To convey an error related to other actions taken in the Chat Log, like a file upload validation error, use a [Toast](/components/toast) at the top of the individual chat window.
 
-To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).
+To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).ButtonGroup,
