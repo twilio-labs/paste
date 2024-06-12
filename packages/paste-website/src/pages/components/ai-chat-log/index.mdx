@@ -2,13 +2,14 @@ export const meta = {
   title: "AI Chat Log - Components",
   package: "@twilio-paste/ai-chat-log",
   description:
-    "An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot",
+    "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot.",
   slug: "/components/ai-chat-log/",
 };
 
 import { Anchor } from "@twilio-paste/anchor";
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
+import { uid } from "@twilio-paste/uid-library";
 import {
   ChatAttachment,
   ChatAttachmentDescription,
@@ -31,7 +32,9 @@ import {
   AIChatMessageBody,
   AIChatMessageFeedback,
   AIChatMessageLoading,
-  AIChatMessageMeta,
+  AIChatLogger,
+  useAIChatLogger,
+  AIChatMessageActions
 } from "@twilio-paste/core/ai-chat-log";
 
 import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
@@ -63,6 +66,7 @@ import {
   botWithLoadingStopButton,
   botWithLoading,
   kitchenSink,
+  aiChatLoggerExample,
 } from "../../../component-examples/AIChatLogExamples";
 import packageJson from "@twilio-paste/ai-chat-log/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
@@ -127,21 +131,17 @@ The AI Chat Log package includes these main components:
 - AIChatMessage
 - AIChatMessageAuthor
 - AIChatMessageBody
-- AIChatMessageMeta
+- AIChatMessageActions
 - AIChatMessageFeedback
 - AIChatMessageLoading
 
 ### Accessibility
 
-To ensure the chat is accessible, only use the AI Chat components within an AIChatLog component and use AIChatMessage to wrap AIChatMessageBody, AIChatMessageMeta and AIChatMessageFeedback components together.
+To ensure the chat is accessible, only use the AI Chat components within an AIChatLog component and use AIChatMessage to wrap AIChatMessageBody, AIChatMessageActions and AIChatMessageFeedback components together.
 
-The only other accessibility requirement is providing the AIChatMessageMeta a descriptive label via the `aria-label` React prop.
+The only other accessibility requirement is providing the AIChatMessageActions a descriptive label via the `aria-label` React prop.
 
 The AIChatLog component has `role=”log”` which means that any new messages added to it are announced by assistive technology.
-
-### AI Chat Log vs Chat Log
-
-The main difference between AI chat Log and Chat Log is ...
 
 ## Examples
 
@@ -225,30 +225,13 @@ The AIChatMessageBody component has two variants, `default` and `fullscreen`. Th
 </AIChatLog>`}
 </LivePreview>
 
-### Message with Message Meta
+### Message with Actions
 
-Use Message Meta to append additional information to a message such as AIChatMessageFeedback or custom action buttons .
+Use AIChatMessageActions to append additional information to a message such as AIChatMessageFeedback or custom action buttons .
 
-ChatMessageMeta should be a child of ChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
+AIChatMessageActions should be a child of AIChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
 
-#### Bot with Feedback
-
-<LivePreview
-  scope={{
-    AIChatLog,
-    AIChatMessage,
-    AIChatMessageAuthor,
-    AIChatMessageBody,
-    AIChatMessageFeedback,
-    AIChatMessageMeta,
-  }}
-  language="jsx"
-  noInline
->
-  {botWithFeedback}
-</LivePreview>
-
-#### Bot with Action Buttons
+#### Action Buttons
 
 <LivePreview
   scope={{
@@ -256,7 +239,7 @@ ChatMessageMeta should be a child of ChatMessage so that the text and meta infor
     AIChatMessage,
     AIChatMessageAuthor,
     AIChatMessageBody,
-    AIChatMessageMeta,
+    AIChatMessageActions,
     ButtonGroup,
     Button,
   }}
@@ -265,6 +248,45 @@ ChatMessageMeta should be a child of ChatMessage so that the text and meta infor
 >
   {botWithActionButtons}
 </LivePreview>
+
+#### Feedback
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageFeedback,
+    AIChatMessageActions,
+  }}
+  language="jsx"
+  noInline
+>
+  {botWithFeedback}
+</LivePreview>
+
+#### Feedback Internationalization
+The labels on feedback can be internationalized by passing using the `i18nDislikeLabel` and `i18nLikeLabel` to describe the feedback options.
+
+<LivePreview
+  scope={{
+    AIChatMessageFeedback,
+    AIChatMessageActions
+  }}
+  language="jsx"
+>
+  {`<AIChatMessageActions aria-label="Feedback form">
+  <AIChatMessageFeedback
+    label="Est-ce utile?"
+    i18nDislikeLabel="pas aimer"
+    i18nLikeLabel="aimer"
+    onLike={() => {}}
+    onDislike={() => {}}
+  />
+</AIChatMessageActions>`}
+</LivePreview>
+
 
 ### Loading States
 
@@ -280,7 +302,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
     AIChatMessage,
     AIChatMessageAuthor,
     AIChatMessageBody,
-    AIChatMessageMeta,
+    AIChatMessageActions,
     AIChatMessageLoading,
   }}
   language="jsx"
@@ -297,7 +319,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
     AIChatMessage,
     AIChatMessageAuthor,
     AIChatMessageBody,
-    AIChatMessageMeta,
+    AIChatMessageActions,
     AIChatMessageLoading,
   }}
   language="jsx"
@@ -318,7 +340,7 @@ This example combines all the separate features displayed previously into one ex
     AIChatMessageBody,
     AIChatMessageFeedback,
     AIChatMessageLoading,
-    AIChatMessageMeta,
+    AIChatMessageActions,
     Button,
     ButtonGroup,
   }}
@@ -328,24 +350,24 @@ This example combines all the separate features displayed previously into one ex
   {kitchenSink}
 </LivePreview>
 
-### useChatLogger hook
+### useAIChatLogger hook
 
-The `useAIChatLogger` hook provides a hook based approach to managing chat state. It is best used with the `<ChatLogger />` component.
+The `useAIChatLogger` hook provides a hook based approach to managing AI chat state. It is best used with the `<AIChatLogger />` component.
 
-`useChatLogger` returns 3 things:
+`useAIChatLogger` returns 4 things:
 
-- An array of `chats`.
+- An array of `aiChats`.
 - A `push` method used to add a chat, optionally with a custom ID
 - A `pop` method used to remove a chat, optionally via its ID.
 - A `clear` method used to remove all chats.
 
-##### ChatLogger component
+##### AIChatLogger component
 
-The `<ChatLogger />` component handles rendering the chats it is passed via props. It handles how chats enter and leave the UI.
+The `<AIChatLogger />` component handles rendering the chats it is passed via props. It handles how chats enter and leave the UI.
 
 ```
-const { chats }= useChatLogger();
-return <ChatLogger chats={chats} />;
+const { aiChats }= useAIChatLogger();
+return <AIChatLogger aiChats={aiChats} />;
 ```
 
 ##### Adding and removing a chat
@@ -354,25 +376,34 @@ You can push or pop a chat based on an action or event. In this example it's bas
 
 <LivePreview
   scope={{
-    useChatLogger,
-    ChatBubble,
-    ChatLogger,
-    ChatMessage,
-    ChatMessageMeta,
-    ChatMessageMetaItem,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageFeedback,
+    AIChatMessageLoading,
+    AIChatMessageActions,
     Button,
     ButtonGroup,
+    useAIChatLogger,
+    AIChatLogger,
     Stack,
+    uid
   }}
   language="jsx"
   noInline
 >
-  {chatLoggerExample}
+  {aiChatLoggerExample}
 </LivePreview>
 
 ## Composition Notes
 
 Keep content as concise as possible given the space constraints.
+
+
+### AI Chat Log vs Chat Log
+
+The main difference between AI chat Log and Chat Log is ...
+
 
 ### Error messages
 
@@ -380,4 +411,4 @@ To convey an error related to whether a message was sent, use Help Text inside t
 
 To convey an error related to other actions taken in the Chat Log, like a file upload validation error, use a [Toast](/components/toast) at the top of the individual chat window.
 
-To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).ButtonGroup,
+To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).
