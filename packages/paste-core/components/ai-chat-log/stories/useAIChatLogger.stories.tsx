@@ -4,6 +4,8 @@ import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
 import { ListItem, OrderedList } from "@twilio-paste/list";
@@ -15,15 +17,14 @@ import * as React from "react";
 import {
   AIChatLogger,
   AIChatMessage,
-  AIChatMessageActions,
+  AIChatMessageAction,
+  AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
-  AIChatMessageFeedback,
   AIChatMessageLoading,
   useAIChatLogger,
 } from "../src";
 import type { AIMessageVariants, AIPartialIDChat } from "../src";
-import { AIChatMessageBodyTypeWriter } from "../src/AIChatMessageBodyTypeWriter";
 
 export default {
   title: "Components/AI Chat Log/useAIChatLogger",
@@ -59,22 +60,30 @@ export const UseChatLogger: StoryFn = () => {
             eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
             nesciunt impedit repellat assumenda.
           </AIChatMessageBody>
-          <AIChatMessageActions aria-label="Quick actions available:">
+          <AIChatMessageActionGroup aria-label="Quick actions available:">
             <ButtonGroup>
-              <Button variant="secondary" onClick={() => {}} size="small">
+              <Button variant="secondary" onClick={() => {}} size="rounded_small">
                 30007
               </Button>
-              <Button variant="secondary" onClick={() => {}} size="small">
+              <Button variant="secondary" onClick={() => {}} size="rounded_small">
                 30007
               </Button>
-              <Button variant="secondary" onClick={() => {}} size="small">
+              <Button variant="secondary" onClick={() => {}} size="rounded_small">
                 30009
               </Button>
             </ButtonGroup>
-          </AIChatMessageActions>
-          <AIChatMessageActions aria-label="Feedback form">
-            <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-          </AIChatMessageActions>{" "}
+          </AIChatMessageActionGroup>
+          <AIChatMessageActionGroup aria-label="Feedback form">
+            <AIChatMessageAction>
+              Is this helpful?
+              <Button variant="reset" size="reset">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="reset" size="reset">
+                <ThumbsDownIcon decorative={false} title="dislike result" />
+              </Button>
+            </AIChatMessageAction>
+          </AIChatMessageActionGroup>{" "}
         </AIChatMessage>
       ),
     },
@@ -97,7 +106,6 @@ export const UseChatLogger: StoryFn = () => {
             {isBot ? "Good Bot" : "Gibby Radki"}
           </AIChatMessageAuthor>
           <AIChatMessageBody>{message}</AIChatMessageBody>
-          {/* <AIChatMessageBodyTypeWriter animated={isBot}>{message}</AIChatMessageBodyTypeWriter> */}
         </AIChatMessage>
       ),
     };
