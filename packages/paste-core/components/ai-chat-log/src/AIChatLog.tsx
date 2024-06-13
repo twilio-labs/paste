@@ -26,6 +26,7 @@ export const AIChatLog = React.forwardRef<HTMLDivElement, AIChatLogProps>(
           display="flex"
           flexDirection="column"
           rowGap="space130"
+          element={`${element}_LIST`}
         >
           {children}
         </Box>

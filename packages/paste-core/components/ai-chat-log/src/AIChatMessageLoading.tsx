@@ -72,12 +72,18 @@ export const AIChatMessageLoading = React.forwardRef<HTMLDivElement, AIChatMessa
         flexDirection="column"
         rowGap="space40"
       >
-        <SkeletonLoader width={`${widths[0]}%`} height="20px" />
-        <SkeletonLoader width={`${widths[1]}%`} height="20px" />
-        <SkeletonLoader width={`${widths[2]}%`} height="20px" />
+        <SkeletonLoader width={`${widths[0]}%`} height="20px" element={`${element}_SKELETON`} />
+        <SkeletonLoader width={`${widths[1]}%`} height="20px" element={`${element}_SKELETON`} />
+        <SkeletonLoader width={`${widths[2]}%`} height="20px" element={`${element}_SKELETON`} />
         {onStopLoading ? (
-          <Box display="flex" justifyContent="center">
-            <Button variant="secondary" size="rounded_small" onClick={onStopLoading} aria-controls={messageBodyID}>
+          <Box display="flex" justifyContent="center" element={`${element}_STOP_LOADING`}>
+            <Button
+              variant="secondary"
+              size="rounded_small"
+              onClick={onStopLoading}
+              aria-controls={messageBodyID}
+              element={`${element}_STOP_BUTTON`}
+            >
               <StopIcon decorative={true} />
               {i18nStopGeneratingLabel} <ScreenReaderOnly>{i18nAIScreenReaderText}</ScreenReaderOnly>
             </Button>
