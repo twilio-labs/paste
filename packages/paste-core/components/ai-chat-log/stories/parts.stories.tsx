@@ -1,20 +1,22 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
-import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
-import { Heading } from "@twilio-paste/heading";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { InlineCode } from "@twilio-paste/inline-code";
 import * as React from "react";
 
 import {
   AIChatLog,
-  AIChatMessageActions,
+  AIChatMessage,
+  AIChatMessageAction,
+  AIChatMessageActionGroup,
+  AIChatMessageAuthor,
   AIChatMessageBody,
-  AIChatMessageBodyTypeWriter,
-  AIChatMessageFeedback,
   AIChatMessageLoading,
-  AIChatMessageRewrite,
 } from "../src";
 
 // eslint-disable-next-line import/no-default-export
@@ -84,83 +86,97 @@ export const AIMessageLoadingStopLoading = (): React.ReactNode => {
 };
 AIMessageLoadingStopLoading.storyName = "AI Message (Loading - with Stop button)";
 
-export const AIMessageFeedback = (): React.ReactNode => {
-  /* eslint-disable no-alert */
+export const AIMessageAuthor = (): React.ReactNode => {
   return (
-    <AIChatMessageActions aria-label="Feedback form">
-      <AIChatMessageFeedback onLike={() => alert("Like + 1")} onDislike={() => alert("Like - 1")} />
-    </AIChatMessageActions>
-  );
-  /* eslint-enable no-alert */
-};
-
-export const AIMessageFeedbackI18nLabels = (): React.ReactNode => {
-  /* eslint-disable no-alert */
-  return (
-    <AIChatMessageActions aria-label="Feedback form">
-      <AIChatMessageFeedback
-        label="Est-ce utile?"
-        i18nDislikeLabel="pas aimer"
-        i18nLikeLabel="aimer"
-        onLike={() => alert("Like + 1")}
-        onDislike={() => alert("Like - 1")}
-      />
-    </AIChatMessageActions>
-  );
-  /* eslint-enable no-alert */
-};
-AIMessageFeedbackI18nLabels.storyName = "AI Message Feedback (i18n)";
-
-export const AIMessageRewrite = (): React.ReactNode => {
-  return (
-    <AIChatMessageActions aria-label="message actions">
-      <AIChatMessageRewrite onRewrite={() => {}} />
-    </AIChatMessageActions>
-  );
-};
-
-export const MessageBodyTypeWriter = (): React.ReactNode => {
-  return (
-    <Box>
-      <Heading as="h2" variant="heading20">
-        With enriched text
-      </Heading>
-      <Box marginBottom="space60">
-        <AIChatMessageBodyTypeWriter>
-          <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
-          delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat
-          quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
-          <Anchor showExternal href="https://google.com">
-            434324
-          </Anchor>
-        </AIChatMessageBodyTypeWriter>
-        <br />
-        <AIChatMessageBody>
-          <Disclosure>
-            <DisclosureHeading as="h4" variant="heading40">
-              Between the World and Me by Ta-Nehisi Coates
-            </DisclosureHeading>
-            <DisclosureContent>
-              But race is the child of racism, not the father. And the process of naming “the people” has never been a
-              matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But
-              the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a
-              society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of
-              these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are
-              white.
-            </DisclosureContent>
-          </Disclosure>
-        </AIChatMessageBody>
-      </Box>
-      <Heading as="h2" variant="heading20">
-        Without enriched text [fullscreen variant]:
-      </Heading>
-
-      <Box>
-        <AIChatMessageBodyTypeWriter variant="fullScreen">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
-          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
-        </AIChatMessageBodyTypeWriter>
-      </Box>
+    <Box display="flex" flexDirection="column" rowGap="space60">
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor aria-label="you said">Nora Krantz</AIChatMessageAuthor>
+      </AIChatMessage>
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor aria-label="you said" avatarIcon={UserIcon}>
+          Nora Krantz (custom icon)
+        </AIChatMessageAuthor>
+      </AIChatMessage>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="bot said">NoraBot</AIChatMessageAuthor>
+      </AIChatMessage>
     </Box>
+  );
+};
+
+export const AIMessageActionGroup = (): React.ReactNode => {
+  /* eslint-disable no-alert */
+  return (
+    <AIChatMessageActionGroup aria-label="Feedback form">
+      <AIChatMessageAction>
+        Is this helpful?
+        <Button variant="reset" size="reset">
+          <ThumbsUpIcon decorative={false} title="like result" />
+        </Button>
+        <Button variant="reset" size="reset">
+          <ThumbsDownIcon decorative={false} title="dislike result" />
+        </Button>
+      </AIChatMessageAction>
+    </AIChatMessageActionGroup>
+  );
+  /* eslint-enable no-alert */
+};
+
+export const FullAIMessage = (): React.ReactNode => {
+  const [liked, setLiked] = React.useState(false);
+  const [disliked, setDisliked] = React.useState(false);
+  return (
+    <AIChatMessage variant="bot">
+      <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+      <AIChatMessageBody>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
+        adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt impedit
+        repellat assumenda.
+        <Box paddingTop="space70">
+          <ButtonGroup>
+            <Button variant="secondary" size="rounded_small">
+              30007
+            </Button>
+            <Button variant="secondary" size="rounded_small">
+              30007
+            </Button>
+            <Button variant="secondary" size="rounded_small">
+              30009
+            </Button>
+          </ButtonGroup>
+        </Box>
+      </AIChatMessageBody>
+      <AIChatMessageActionGroup aria-label="Feedback form">
+        <AIChatMessageAction>
+          Is this helpful?
+          <Button
+            variant="reset"
+            size="reset"
+            pressed={liked}
+            onClick={() => {
+              setLiked(!liked);
+            }}
+            _hover={{ color: "colorTextPrimaryStronger" }}
+            _pressed={{ color: "colorTextPrimary" }}
+            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
+          >
+            <ThumbsUpIcon decorative={false} title="like result" />
+          </Button>
+          <Button
+            variant="reset"
+            size="reset"
+            pressed={disliked}
+            onClick={() => {
+              setDisliked(!disliked);
+            }}
+            _hover={{ color: "colorTextPrimaryStronger" }}
+            _pressed={{ color: "colorTextPrimary" }}
+            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
+          >
+            <ThumbsDownIcon decorative={disliked} title="dislike result" />
+          </Button>
+        </AIChatMessageAction>
+      </AIChatMessageActionGroup>
+    </AIChatMessage>
   );
 };

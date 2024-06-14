@@ -22,12 +22,13 @@ const ButtonStyleMapping = {
 };
 
 const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, ...props }, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
         width={fullWidth ? "100%" : "auto"}
+        aria-pressed={pressed}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
         {...(props as any)}

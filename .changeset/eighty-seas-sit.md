@@ -3,4 +3,4 @@
 "@twilio-paste/core": minor
 ---
 
-[AIChatLog]: Added a new AIChatLog compoennt to the library to display interactions between AI entities
+[AIChatLog]: Added a new AIChatLog component to the library to display interactions between AI entities
