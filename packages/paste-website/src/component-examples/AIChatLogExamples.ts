@@ -36,15 +36,23 @@ export const botWithFeedback = `
 const MessageWithFeedback = () => {
   return (
     <AIChatLog>
-        <AIChatMessage variant="bot">
-          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
-          </AIChatMessageBody>
-          <AIChatMessageActions aria-label="Feedback form">
-            <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-          </AIChatMessageActions>
-        </AIChatMessage>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>
+          Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
+        </AIChatMessageBody>
+        <AIChatMessageActionGroup aria-label="Feedback form">
+          <AIChatMessageAction>
+            Is this helpful?
+            <Button variant="reset" size="reset">
+              <ThumbsUpIcon decorative={false} title="like result" />
+            </Button>
+            <Button variant="reset" size="reset">
+              <ThumbsDownIcon decorative={false} title="dislike result" />
+            </Button>
+          </AIChatMessageAction>
+        </AIChatMessageActionGroup>
+      </AIChatMessage>
     </AIChatLog>
   );
 };
@@ -105,7 +113,7 @@ const AIChatLogExample = () => {
         <AIChatMessageBody>
           Error codes can be returned from various parts of the process. What error codes are you encountering?
         </AIChatMessageBody>
-        <AIChatMessageActions aria-label="Quick actions available:">
+        <AIChatMessageActionGroup aria-label="Quick actions available:">
           <ButtonGroup>
             <Button variant="secondary" onClick={() => {}} size="small">
               21608
@@ -117,16 +125,16 @@ const AIChatLogExample = () => {
               30009
             </Button>
           </ButtonGroup>
-        </AIChatMessageActions>
+        </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
           Error 21608 means you're trying to send a message from an unverified number. Is your number verified in your Twilio account?
         </AIChatMessageBody>
-        <AIChatMessageActions aria-label="Feedback form">
-          <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-        </AIChatMessageActions>
+        <AIChatMessageActionGroup aria-label="Feedback form">
+          IMPLEMENT FEEDBACK FORM HERE
+        </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="user">
         <AIChatMessageAuthor aria-label="You said" bot>
