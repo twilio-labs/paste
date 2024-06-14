@@ -70,20 +70,22 @@ export const Basic = () => {
         <AIChatMessageBody>
           Error codes can be returned from various parts of the process. What error codes are you encountering?
         </AIChatMessageBody>
-        <AIChatMessageActionGroup aria-label="Quick actions available:">
+         <AIChatMessageActionGroup aria-label="Feedback form">
           <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
-              21608
+            Is this helpful?
+            <Button variant="reset" size="reset">
+              <ThumbsUpIcon decorative={false} title="like result" />
+            </Button>
+            <Button variant="reset" size="reset">
+              <ThumbsDownIcon decorative={false} title="dislike result" />
             </Button>
           </AIChatMessageAction>
           <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30007
+            <Button variant="reset" size="reset">
+              <RefreshIcon decorative={true}/> Rewrite
             </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30009
+            <Button variant="reset" size="reset">
+              <CopyIcon decorative={true}/> Copy
             </Button>
           </AIChatMessageAction>
         </AIChatMessageActionGroup>

@@ -51,7 +51,52 @@ const MessageWithFeedback = () => {
               <ThumbsDownIcon decorative={false} title="dislike result" />
             </Button>
           </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset">
+              <RefreshIcon decorative={true}/> Rewrite
+            </Button>
+            <Button variant="reset" size="reset">
+              <CopyIcon decorative={true}/> Copy
+            </Button>
+          </AIChatMessageAction>
         </AIChatMessageActionGroup>
+      </AIChatMessage>
+    </AIChatLog>
+  );
+};
+
+render(
+  <MessageWithFeedback />
+)`.trim();
+export const botWithBodyActions = `
+const MessageWithFeedback = () => {
+  return (
+    <AIChatLog>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>
+          Below is a list of actions that can be taken with flex wrapping supported:
+          <ButtonGroup>  
+            <Button variant="secondary" size="rounded_small" onClick={() => {}} >
+              View Logs
+            </Button>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+              Run Diagnostics
+            </Button>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+              Submit Bug Report
+            </Button>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+              Access Documentation
+            </Button>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+              Contact Support
+            </Button>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+              Enable Debug Mode
+            </Button>
+          </ButtonGroup>
+        </AIChatMessageBody>
       </AIChatMessage>
     </AIChatLog>
   );
@@ -112,24 +157,18 @@ const AIChatLogExample = () => {
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
           Error codes can be returned from various parts of the process. What error codes are you encountering?
-        </AIChatMessageBody>
-        <AIChatMessageActionGroup aria-label="Quick actions available:">
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
+          <ButtonGroup>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}} >
               21608
             </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
               30007
             </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
+            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
               30009
             </Button>
-          </AIChatMessageAction>
-        </AIChatMessageActionGroup>
+          </ButtonGroup>
+        </AIChatMessageBody>
       </AIChatMessage>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>

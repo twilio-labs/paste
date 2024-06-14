@@ -6,26 +6,11 @@ export const meta = {
   slug: "/components/ai-chat-log/",
 };
 
-import { Anchor } from "@twilio-paste/anchor";
-import { Avatar } from "@twilio-paste/avatar";
-import { Box } from "@twilio-paste/box";
 import { uid } from "@twilio-paste/uid-library";
-import {Paragraph} from "@twilio-paste/paragraph";
-import {
-  ChatAttachment,
-  ChatAttachmentDescription,
-  ChatAttachmentLink,
-  ChatBookend,
-  ChatBookendItem,
-  ChatBubble,
-  ChatEvent,
-  ChatLog,
-  ChatMessage,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
-  useChatLogger,
-  ChatLogger,
-} from "@twilio-paste/chat-log";
+import { HelpText } from "@twilio-paste/help-text";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Stack } from "@twilio-paste/stack";
 import {
   AIChatLog,
   AIChatMessage,
@@ -35,33 +20,16 @@ import {
   AIChatLogger,
   useAIChatLogger,
   AIChatMessageAction,
-  AIChatMessageActionGroup
+  AIChatMessageActionGroup,
 } from "@twilio-paste/core/ai-chat-log";
-import {ThumbsUpIcon} from "@twilio-paste/icons/esm/ThumbsUpIcon";
-import {ThumbsDownIcon} from "@twilio-paste/icons/esm/ThumbsDownIcon";
-
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
+import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 
 import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
-import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
-import { HelpText } from "@twilio-paste/help-text";
-import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
-import { Stack } from "@twilio-paste/stack";
 
 import { SidebarCategoryRoutes } from "../../../constants";
-import {
-  inboundMessageMeta,
-  outboundMessageMeta,
-  inboundMessageAttachment,
-  outboundMessageAttachment,
-  inboundComplexMessage,
-  outboundComplexMessage,
-  basicChatEvent,
-  basicChatBookend,
-  chatLoggerExample,
-  botWithActionButton
-} from "../../../component-examples/ChatLogExamples.ts";
 
 import {
   basicBotMessage,
@@ -71,6 +39,7 @@ import {
   botWithLoading,
   kitchenSink,
   aiChatLoggerExample,
+  botWithBodyActions,
 } from "../../../component-examples/AIChatLogExamples";
 import packageJson from "@twilio-paste/ai-chat-log/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
@@ -135,15 +104,15 @@ The AI Chat Log package includes these main components:
 - AIChatMessage
 - AIChatMessageAuthor
 - AIChatMessageBody
-- AIChatMessageAction
 - AIChatMessageActionGroup
+- AIChatMessageActionCard
 - AIChatMessageLoading
 
 ### Accessibility
 
-To ensure the chat is accessible, only use the AI Chat components within an AIChatLog component and use AIChatMessage to wrap AIChatMessageBody, AIChatMessageAction and components together.
+To ensure the chat is accessible, only use the AI Chat components within an `AIChatLog` component and use `AIChatMessage` to wrap `AIChatMessageBody`, `AIChatMessageActionGroup` and components together.
 
-The only other accessibility requirement is providing the AIChatMessageAction a descriptive label via the `aria-label` React prop.
+The only other accessibility requirement is providing the `AIChatMessageActionCard` a descriptive label via the `aria-label` React prop.
 
 The AIChatLog component has `role="log"` which means that any new messages added to it are announced by assistive technology.
 
@@ -151,7 +120,7 @@ The AIChatLog component has `role="log"` which means that any new messages added
 
 ### Basic Message
 
-A message must include the author and body. Any message text from a user or a bot must be contained within the AIChatMessageBody component. Due to lengthy AI responses, the chat layout is now top-down.
+A message must include the author and body. Any message text from a user or a bot must be contained within the `AIChatMessageBody` component. Due to lengthy AI responses, the chat layout is now top-down.
 
 #### Bot
 
@@ -185,14 +154,14 @@ A message must include the author and body. Any message text from a user or a bo
 
 ### Message Body Sizes
 
-The AIChatMessageBody component has two sizes, `default` and `fullScreen`. The `fullScreen` size is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
+The `AIChatMessageBody` component has two sizes, `size="default"` and `size="fullScreen"`. The fullScreen size is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
 
 <LivePreview
   scope={{
     AIChatLog,
     AIChatMessage,
     AIChatMessageAuthor,
-    AIChatMessageBody
+    AIChatMessageBody,
   }}
   language="jsx"
 >
@@ -214,13 +183,15 @@ The AIChatMessageBody component has two sizes, `default` and `fullScreen`. The `
 
 ### Message with Actions
 
-Use AIChatMessageAction to append additional information or custom action buttons.
+Message actions can be used to provide quick responses or actions to the user.
 
-AIChatMessageActionGroup should be a child of AIChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
+`AIChatMessageActionGroup` should be a child of `AIChatMessage` so that the text and meta information are correctly grouped together for assistive technologies. `AIChatMessageActionCard` also needs a readable `aria-label` that summarizes what the meta information says.
 
 Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessageAction`. It is recommended to use reset button variants for content within `AIChatMessageAction`.
 
-#### Feedback
+Actions can still be added in `AIChatMessageBody` which are returned from the AI response.
+
+#### Feedback in AIChatMessageAction
 
 <LivePreview
   scope={{
@@ -232,7 +203,9 @@ Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessag
     AIChatMessageActionGroup,
     Button,
     ThumbsUpIcon,
-    ThumbsDownIcon
+    ThumbsDownIcon,
+    CopyIcon,
+    RefreshIcon,
   }}
   language="jsx"
   noInline
@@ -240,7 +213,7 @@ Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessag
   {botWithFeedback}
 </LivePreview>
 
-#### Action
+#### Buttons in AIChatMessageBody from AI Response
 
 <LivePreview
   scope={{
@@ -248,34 +221,18 @@ Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessag
     AIChatMessage,
     AIChatMessageAuthor,
     AIChatMessageBody,
-    AIChatMessageAction,
-    AIChatMessageActionGroup,
     Button,
-    ThumbsUpIcon,
-    ThumbsDownIcon
+    ButtonGroup,
   }}
   language="jsx"
+  noInline
 >
-  {`<AIChatLog>
-  <AIChatMessage variant="bot">
-    <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-    <AIChatMessageBody>
-      Below is an action with a reset button
-    </AIChatMessageBody>
-    <AIChatMessageActionGroup aria-label="Feedback form">
-      <AIChatMessageAction>
-        <Button variant="reset" size="reset">
-          Perform some action
-        </Button>
-      </AIChatMessageAction>
-    </AIChatMessageActionGroup>
-  </AIChatMessage>
-</AIChatLog>`}
+  {botWithBodyActions}
 </LivePreview>
 
 ### Loading States
 
-Use the AIChatMessageLoading component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
+Use the `AIChatMessageLoading` component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
 
 The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
 
@@ -327,7 +284,7 @@ This example combines all the separate features displayed previously into one ex
     Button,
     ButtonGroup,
     ThumbsDownIcon,
-    ThumbsUpIcon
+    ThumbsUpIcon,
   }}
   language="jsx"
   noInline
@@ -370,7 +327,7 @@ You can push or pop a chat based on an action or event. In this example it's bas
     useAIChatLogger,
     AIChatLogger,
     Stack,
-    uid
+    uid,
   }}
   language="jsx"
   noInline
@@ -380,4 +337,4 @@ You can push or pop a chat based on an action or event. In this example it's bas
 
 ## Composition Notes
 
-Keep content as concise as possible given the space constraints.
+Keep any generated responses from the AI contained in the `AIChatMessageBody` component. Each chat message shouls only have one `AIChatMessageBody` component.
