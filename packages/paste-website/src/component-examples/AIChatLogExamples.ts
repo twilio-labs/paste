@@ -114,17 +114,81 @@ const AIChatLogExample = () => {
           Error codes can be returned from various parts of the process. What error codes are you encountering?
         </AIChatMessageBody>
         <AIChatMessageActionGroup aria-label="Quick actions available:">
-          <ButtonGroup>
-            <Button variant="secondary" onClick={() => {}} size="small">
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}} >
               21608
             </Button>
-            <Button variant="secondary" onClick={() => {}} size="small">
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
               30007
             </Button>
-            <Button variant="secondary" onClick={() => {}} size="small">
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
               30009
             </Button>
-          </ButtonGroup>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}} >
+              21608
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30007
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30009
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}} >
+              21608
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30007
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30009
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}} >
+              21608
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30007
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30009
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}} >
+              21608
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30007
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset" onClick={() => {}}>
+              30009
+            </Button>
+          </AIChatMessageAction>
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="bot">
@@ -133,7 +197,15 @@ const AIChatLogExample = () => {
           Error 21608 means you're trying to send a message from an unverified number. Is your number verified in your Twilio account?
         </AIChatMessageBody>
         <AIChatMessageActionGroup aria-label="Feedback form">
-          IMPLEMENT FEEDBACK FORM HERE
+          <AIChatMessageAction>
+            Is this helpful?
+            <Button variant="reset" size="reset">
+              <ThumbsUpIcon decorative={false} title="like result" />
+            </Button>
+            <Button variant="reset" size="reset">
+              <ThumbsDownIcon decorative={false} title="dislike result" />
+            </Button>
+          </AIChatMessageAction>
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="user">
