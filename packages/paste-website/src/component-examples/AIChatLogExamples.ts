@@ -129,66 +129,6 @@ const AIChatLogExample = () => {
               30009
             </Button>
           </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
-              21608
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30007
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30009
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
-              21608
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30007
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30009
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
-              21608
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30007
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30009
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}} >
-              21608
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30007
-            </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
-            <Button variant="reset" size="reset" onClick={() => {}}>
-              30009
-            </Button>
-          </AIChatMessageAction>
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="bot">
