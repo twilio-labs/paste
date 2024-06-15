@@ -1591,13 +1591,6 @@
     }
   },
   "AIChatMessageActionGroup": {
-    "aria-label": {
-      "type": "string",
-      "defaultValue": "null",
-      "required": true,
-      "externalProp": false,
-      "description": "Defines a string value that labels the current element."
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -1763,6 +1756,13 @@
       "required": false,
       "externalProp": true,
       "description": "Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element."
+    },
+    "aria-label": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element."
     },
     "aria-labelledby": {
       "type": "string",
@@ -6367,7 +6367,14 @@
       "externalProp": true
     }
   },
-  "AIChatMessageAction": {
+  "AIChatMessageActionCard": {
+    "aria-label": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Label for the action card for screen readers"
+    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -6533,13 +6540,6 @@
       "required": false,
       "externalProp": true,
       "description": "Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element."
-    },
-    "aria-label": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true,
-      "description": "Defines a string value that labels the current element."
     },
     "aria-labelledby": {
       "type": "string",
@@ -6784,7 +6784,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "AI_CHAT_MESSAGE_ACTION",
+      "defaultValue": "AI_CHAT_MESSAGE_ACTION_CARD",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
