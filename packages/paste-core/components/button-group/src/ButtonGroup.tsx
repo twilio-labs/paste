@@ -79,6 +79,8 @@ export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         ref={ref}
         element={element}
         display="inline-flex"
+        flexWrap={attached ? "nowrap" : "wrap"}
+        rowGap="space40"
         role="group"
       >
         {children}

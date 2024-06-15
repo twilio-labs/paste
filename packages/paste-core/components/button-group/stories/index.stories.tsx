@@ -1,4 +1,5 @@
 import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
@@ -42,13 +43,22 @@ export const FewButtons: StoryFn = () => (
 );
 
 export const ManyButtons: StoryFn = () => (
-  <ButtonGroup attached aria-label="An alphabetical group of buttons">
-    {[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map((letter) => (
-      <Button key={letter} variant="secondary">
-        {letter}
-      </Button>
-    ))}
-  </ButtonGroup>
+  <Box display="flex" flexDirection="column" rowGap="space60" maxWidth="size60" borderStyle="solid">
+    <ButtonGroup attached aria-label="An alphabetical group of buttons">
+      {[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map((letter) => (
+        <Button key={letter} variant="secondary">
+          {letter}
+        </Button>
+      ))}
+    </ButtonGroup>
+    <ButtonGroup aria-label="An alphabetical group of buttons">
+      {[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map((letter) => (
+        <Button key={letter} variant="secondary">
+          {letter}
+        </Button>
+      ))}
+    </ButtonGroup>
+  </Box>
 );
 
 export const PopoverButtons: StoryFn = () => {
