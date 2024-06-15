@@ -4,13 +4,6 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export interface AIChatMessageActionGroupProps extends HTMLPasteProps<"div"> {
-  /**
-   *
-   * @default null
-   * @type {string}
-   * @memberof AIChatMessageActionGroupProps
-   */
-  "aria-label": string;
   children: NonNullable<React.ReactNode>;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -30,6 +23,7 @@ export const AIChatMessageActionGroup = React.forwardRef<HTMLDivElement, AIChatM
         ref={ref}
         element={element}
         display="flex"
+        flexWrap="wrap"
         alignItems="center"
         columnGap="space30"
         fontWeight="fontWeightMedium"

@@ -17,7 +17,7 @@ import * as React from "react";
 import {
   AIChatLogger,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -73,8 +73,8 @@ export const UseChatLogger: StoryFn = () => {
               </Button>
             </ButtonGroup>
           </AIChatMessageActionGroup>
-          <AIChatMessageActionGroup aria-label="Feedback form">
-            <AIChatMessageAction>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
               Is this helpful?
               <Button variant="reset" size="reset">
                 <ThumbsUpIcon decorative={false} title="like result" />
@@ -82,7 +82,7 @@ export const UseChatLogger: StoryFn = () => {
               <Button variant="reset" size="reset">
                 <ThumbsDownIcon decorative={false} title="dislike result" />
               </Button>
-            </AIChatMessageAction>
+            </AIChatMessageActionCard>
           </AIChatMessageActionGroup>{" "}
         </AIChatMessage>
       ),

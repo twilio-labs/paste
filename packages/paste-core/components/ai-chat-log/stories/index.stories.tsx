@@ -5,6 +5,8 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { ChatComposer } from "@twilio-paste/chat-composer";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -15,7 +17,7 @@ import * as React from "react";
 import {
   AIChatLog,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -47,7 +49,7 @@ export const ExampleAIChatLog = (): React.ReactNode => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
-            <Box paddingTop="space70">
+            <ButtonGroup>
               <Button variant="secondary" onClick={() => {}} size="rounded_small">
                 30007
               </Button>
@@ -57,18 +59,28 @@ export const ExampleAIChatLog = (): React.ReactNode => {
               <Button variant="secondary" onClick={() => {}} size="rounded_small">
                 30009
               </Button>
-            </Box>
+            </ButtonGroup>
           </AIChatMessageBody>
-          <AIChatMessageActionGroup aria-label="Feedback form">
-            <AIChatMessageAction>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
               Is this helpful?
-              <Button variant="reset" size="reset">
+              <Button variant="secondary_icon" size="reset">
                 <ThumbsUpIcon decorative={false} title="like result" />
               </Button>
-              <Button variant="reset" size="reset">
+              <Button variant="secondary_icon" size="reset">
                 <ThumbsDownIcon decorative={false} title="dislike result" />
               </Button>
-            </AIChatMessageAction>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
+              <Button variant="secondary_icon" size="reset">
+                <RefreshIcon decorative />
+                Rewrite
+              </Button>
+              <Button variant="secondary_icon" size="reset">
+                <CopyIcon decorative />
+                Copy
+              </Button>
+            </AIChatMessageActionCard>
           </AIChatMessageActionGroup>
         </AIChatMessage>
         <AIChatMessage variant="user">
@@ -158,8 +170,8 @@ export const CustomizedExampleAIChatLog = (): React.ReactNode => {
               </ButtonGroup>
             </Box>
           </AIChatMessageBody>
-          <AIChatMessageActionGroup aria-label="Feedback form">
-            <AIChatMessageAction>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
               Is this helpful?
               <Button variant="reset" size="reset">
                 <ThumbsUpIcon decorative={false} title="like result" />
@@ -167,7 +179,7 @@ export const CustomizedExampleAIChatLog = (): React.ReactNode => {
               <Button variant="reset" size="reset">
                 <ThumbsDownIcon decorative={false} title="dislike result" />
               </Button>
-            </AIChatMessageAction>
+            </AIChatMessageActionCard>
           </AIChatMessageActionGroup>
         </AIChatMessage>
         <AIChatMessage variant="user">

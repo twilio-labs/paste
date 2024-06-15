@@ -22,7 +22,7 @@ import {
   AIChatLog,
   AIChatLogger,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -63,7 +63,7 @@ const BotMessage = (props): JSX.Element => {
 };
 
 // eslint-disable-next-line storybook/prefer-pascal-case
-export const createNewMessage = (message: string): Omit<AIChat, "id"> => {
+const createNewMessage = (message: string): Omit<AIChat, "id"> => {
   const messageDirection = getRandomInt(2) === 1 ? "user" : "bot";
 
   return {
@@ -82,7 +82,7 @@ export const createNewMessage = (message: string): Omit<AIChat, "id"> => {
   };
 };
 
-export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
+const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
   const [editor] = useLexicalComposerContext();
 
   const handleSend = (): void => {
@@ -99,7 +99,7 @@ export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Elem
   );
 };
 
-export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
+const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
   const handleEnterKey = React.useCallback(
@@ -159,8 +159,8 @@ export const AIChatLogComposer = (): React.ReactNode => {
               </Button>
             </ButtonGroup>
           </AIChatMessageActionGroup>
-          <AIChatMessageActionGroup aria-label="Feedback form">
-            <AIChatMessageAction>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
               Is this helpful?
               <Button variant="reset" size="reset">
                 <ThumbsUpIcon decorative={false} title="like result" />
@@ -168,7 +168,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
               <Button variant="reset" size="reset">
                 <ThumbsDownIcon decorative={false} title="dislike result" />
               </Button>
-            </AIChatMessageAction>
+            </AIChatMessageActionCard>
           </AIChatMessageActionGroup>{" "}
         </AIChatMessage>
       ),

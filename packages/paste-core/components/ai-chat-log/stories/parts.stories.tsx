@@ -12,7 +12,7 @@ import * as React from "react";
 import {
   AIChatLog,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -107,8 +107,8 @@ export const AIMessageAuthor = (): React.ReactNode => {
 export const AIMessageActionGroup = (): React.ReactNode => {
   /* eslint-disable no-alert */
   return (
-    <AIChatMessageActionGroup aria-label="Feedback form">
-      <AIChatMessageAction>
+    <AIChatMessageActionGroup>
+      <AIChatMessageActionCard aria-label="Feedback form">
         Is this helpful?
         <Button variant="reset" size="reset">
           <ThumbsUpIcon decorative={false} title="like result" />
@@ -116,7 +116,7 @@ export const AIMessageActionGroup = (): React.ReactNode => {
         <Button variant="reset" size="reset">
           <ThumbsDownIcon decorative={false} title="dislike result" />
         </Button>
-      </AIChatMessageAction>
+      </AIChatMessageActionCard>
     </AIChatMessageActionGroup>
   );
   /* eslint-enable no-alert */
@@ -146,36 +146,38 @@ export const FullAIMessage = (): React.ReactNode => {
           </ButtonGroup>
         </Box>
       </AIChatMessageBody>
-      <AIChatMessageActionGroup aria-label="Feedback form">
-        <AIChatMessageAction>
+      <AIChatMessageActionGroup>
+        <AIChatMessageActionCard aria-label="Feedback form">
           Is this helpful?
           <Button
-            variant="reset"
-            size="reset"
+            variant="secondary_icon"
+            size="icon_small"
             pressed={liked}
             onClick={() => {
               setLiked(!liked);
+              setDisliked(false);
             }}
-            _hover={{ color: "colorTextPrimaryStronger" }}
-            _pressed={{ color: "colorTextPrimary" }}
-            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
+            // _hover={{ color: "colorTextPrimaryStronger" }}
+            // _pressed={{ color: "colorTextPrimary" }}
+            // _pressed_hover={{ color: "colorTextPrimaryStronger" }}
           >
             <ThumbsUpIcon decorative={false} title="like result" />
           </Button>
           <Button
-            variant="reset"
-            size="reset"
+            variant="secondary_icon"
+            size="icon_small"
             pressed={disliked}
             onClick={() => {
               setDisliked(!disliked);
+              setLiked(false);
             }}
-            _hover={{ color: "colorTextPrimaryStronger" }}
-            _pressed={{ color: "colorTextPrimary" }}
-            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
+            // _hover={{ color: "colorTextPrimaryStronger" }}
+            // _pressed={{ color: "colorTextPrimary" }}
+            // _pressed_hover={{ color: "colorTextPrimaryStronger" }}
           >
             <ThumbsDownIcon decorative={disliked} title="dislike result" />
           </Button>
-        </AIChatMessageAction>
+        </AIChatMessageActionCard>
       </AIChatMessageActionGroup>
     </AIChatMessage>
   );

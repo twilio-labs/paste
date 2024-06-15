@@ -4,7 +4,7 @@ import * as React from "react";
 import {
   AIChatLog,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -18,8 +18,10 @@ const ExampleAIChatLog: React.FC<React.PropsWithChildren> = () => (
         Good Bot
       </AIChatMessageAuthor>
       <AIChatMessageBody size="default">Lorem ipsum dolor.</AIChatMessageBody>
-      <AIChatMessageActionGroup aria-label="Feedback form" data-testid="action_group">
-        <AIChatMessageAction data-testid="action">Is this helpful?</AIChatMessageAction>
+      <AIChatMessageActionGroup data-testid="action_group">
+        <AIChatMessageActionCard aria-label="action" data-testid="action">
+          Is this helpful?
+        </AIChatMessageActionCard>
       </AIChatMessageActionGroup>
       <AIChatMessageLoading onStopLoading={() => {}} data-testid="loading" />
     </AIChatMessage>
@@ -35,14 +37,14 @@ const CustomExampleAIChatLog: React.FC<React.PropsWithChildren> = () => (
       <AIChatMessageBody size="default" element="FOO_AI_CHAT_MESSAGE_BODY">
         Lorem ipsum dolor.
       </AIChatMessageBody>
-      <AIChatMessageActionGroup
-        aria-label="Feedback form"
-        data-testid="action_group"
-        element="FOO_AI_CHAT_MESSAGE_ACTION_GROUP"
-      >
-        <AIChatMessageAction data-testid="action" element="FOO_AI_CHAT_MESSAGE_ACTION">
+      <AIChatMessageActionGroup data-testid="action_group" element="FOO_AI_CHAT_MESSAGE_ACTION_GROUP">
+        <AIChatMessageActionCard
+          aria-label="Feedback form"
+          data-testid="action"
+          element="FOO_AI_CHAT_MESSAGE_ACTION_CARD"
+        >
           Is this helpful?
-        </AIChatMessageAction>
+        </AIChatMessageActionCard>
       </AIChatMessageActionGroup>
       <AIChatMessageLoading onStopLoading={() => {}} data-testid="loading" element="FOO_AI_CHAT_MESSAGE_LOADING" />
     </AIChatMessage>
@@ -72,7 +74,7 @@ describe("Customization", () => {
     expect(screen.getByTestId("action_group").getAttribute("data-paste-element")).toEqual(
       "AI_CHAT_MESSAGE_ACTION_GROUP",
     );
-    expect(screen.getByTestId("action").getAttribute("data-paste-element")).toEqual("AI_CHAT_MESSAGE_ACTION");
+    expect(screen.getByTestId("action").getAttribute("data-paste-element")).toEqual("AI_CHAT_MESSAGE_ACTION_CARD");
     expect(screen.getByTestId("loading").getAttribute("data-paste-element")).toEqual("AI_CHAT_MESSAGE_LOADING");
     expect(screen.getByTestId("loading").firstElementChild?.getAttribute("data-paste-element")).toEqual(
       "AI_CHAT_MESSAGE_LOADING_SKELETON",
@@ -101,7 +103,7 @@ describe("Customization", () => {
     expect(screen.getByTestId("action_group").getAttribute("data-paste-element")).toEqual(
       "FOO_AI_CHAT_MESSAGE_ACTION_GROUP",
     );
-    expect(screen.getByTestId("action").getAttribute("data-paste-element")).toEqual("FOO_AI_CHAT_MESSAGE_ACTION");
+    expect(screen.getByTestId("action").getAttribute("data-paste-element")).toEqual("FOO_AI_CHAT_MESSAGE_ACTION_CARD");
     expect(screen.getByTestId("loading").getAttribute("data-paste-element")).toEqual("FOO_AI_CHAT_MESSAGE_LOADING");
     expect(screen.getByTestId("loading").firstElementChild?.getAttribute("data-paste-element")).toEqual(
       "FOO_AI_CHAT_MESSAGE_LOADING_SKELETON",
