@@ -46,9 +46,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       <Box
         {...safelySpreadBoxProps(props)}
         {...Sizes[size]}
-        display="inline-flex"
-        flexDirection="column"
-        rowGap="space50"
+        display="inline-block"
         color="colorText"
         wordWrap="break-word"
         maxWidth="100%"
