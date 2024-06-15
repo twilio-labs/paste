@@ -15,6 +15,7 @@ const ResetStyles: BoxStyleProps = {
   textDecoration: "none",
   position: "relative",
   margin: "space0",
+  borderRadius: "borderRadius20",
   /*
    * defensively resetting from over zealous legacy global
    * styles "a {...}" when button is set as an anchor
