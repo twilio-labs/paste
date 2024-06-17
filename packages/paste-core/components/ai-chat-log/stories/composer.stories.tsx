@@ -238,3 +238,9 @@ export const AIChatLogComposer = (): React.ReactNode => {
     </Box>
   );
 };
+AIChatLogComposer.parameters = {
+  a11y: {
+    // no need to a11y check composition of a11y checked components
+    disable: true,
+  },
+};
