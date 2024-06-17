@@ -22,7 +22,7 @@ import {
   AIChatLog,
   AIChatLogger,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -63,7 +63,7 @@ const BotMessage = (props): JSX.Element => {
 };
 
 // eslint-disable-next-line storybook/prefer-pascal-case
-export const createNewMessage = (message: string): Omit<AIChat, "id"> => {
+const createNewMessage = (message: string): Omit<AIChat, "id"> => {
   const messageDirection = getRandomInt(2) === 1 ? "user" : "bot";
 
   return {
@@ -82,7 +82,7 @@ export const createNewMessage = (message: string): Omit<AIChat, "id"> => {
   };
 };
 
-export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
+const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
   const [editor] = useLexicalComposerContext();
 
   const handleSend = (): void => {
@@ -99,7 +99,7 @@ export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Elem
   );
 };
 
-export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
+const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
   const handleEnterKey = React.useCallback(
@@ -127,7 +127,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       variant: "user",
       content: (
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+          <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
@@ -145,31 +145,31 @@ export const AIChatLogComposer = (): React.ReactNode => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus
             eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
             nesciunt impedit repellat assumenda.
+            <Box marginTop="space50">
+              <ButtonGroup>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+              </ButtonGroup>
+            </Box>
           </AIChatMessageBody>
-          <AIChatMessageActionGroup aria-label="Quick actions available:">
-            <ButtonGroup>
-              <Button variant="secondary" onClick={() => {}} size="rounded_small">
-                30007
-              </Button>
-              <Button variant="secondary" onClick={() => {}} size="rounded_small">
-                30007
-              </Button>
-              <Button variant="secondary" onClick={() => {}} size="rounded_small">
-                30009
-              </Button>
-            </ButtonGroup>
-          </AIChatMessageActionGroup>
-          <AIChatMessageActionGroup aria-label="Feedback form">
-            <AIChatMessageAction>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
               Is this helpful?
-              <Button variant="reset" size="reset">
+              <Button variant="reset" size="reset" aria-label="this is a helpful response">
                 <ThumbsUpIcon decorative={false} title="like result" />
               </Button>
-              <Button variant="reset" size="reset">
+              <Button variant="reset" size="reset" aria-label="this is not a helpful response">
                 <ThumbsDownIcon decorative={false} title="dislike result" />
               </Button>
-            </AIChatMessageAction>
-          </AIChatMessageActionGroup>{" "}
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
         </AIChatMessage>
       ),
     },

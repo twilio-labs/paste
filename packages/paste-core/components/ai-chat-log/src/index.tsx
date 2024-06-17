@@ -6,8 +6,8 @@ export { AIChatMessageBody } from "./AIChatMessageBody";
 export type { AIChatMessageBodyProps } from "./AIChatMessageBody";
 export { AIChatMessageAuthor } from "./AIChatMessageAuthor";
 export type { AIChatMessageAuthorProps } from "./AIChatMessageAuthor";
-export { AIChatMessageAction } from "./AIChatMessageAction";
-export type { AIChatMessageActionProps } from "./AIChatMessageAction";
+export { AIChatMessageActionCard } from "./AIChatMessageActionCard";
+export type { AIChatMessageActionCardProps } from "./AIChatMessageActionCard";
 export { AIChatMessageLoading } from "./AIChatMessageLoading";
 export type { AIChatMessageLoadingProps } from "./AIChatMessageLoading";
 

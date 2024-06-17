@@ -9,7 +9,7 @@
   "AIChatLog": "@twilio-paste/core/ai-chat-log",
   "AIChatLogger": "@twilio-paste/core/ai-chat-log",
   "AIChatMessage": "@twilio-paste/core/ai-chat-log",
-  "AIChatMessageAction": "@twilio-paste/core/ai-chat-log",
+  "AIChatMessageActionCard": "@twilio-paste/core/ai-chat-log",
   "AIChatMessageActionGroup": "@twilio-paste/core/ai-chat-log",
   "AIChatMessageAuthor": "@twilio-paste/core/ai-chat-log",
   "AIChatMessageBody": "@twilio-paste/core/ai-chat-log",

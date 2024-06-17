@@ -132,15 +132,7 @@ const handlePropValidation = ({
   }
 
   // Toggle button validaton
-  if (
-    pressed &&
-    !(
-      variant === "secondary" ||
-      variant === "secondary_icon" ||
-      variant === "destructive_secondary" ||
-      variant === "reset"
-    )
-  ) {
+  if (pressed && !(variant === "secondary" || variant === "secondary_icon" || variant === "destructive_secondary")) {
     throw new Error(
       `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`,
     );

@@ -12,7 +12,7 @@ import * as React from "react";
 import {
   AIChatLog,
   AIChatMessage,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
@@ -105,21 +105,19 @@ export const AIMessageAuthor = (): React.ReactNode => {
 };
 
 export const AIMessageActionGroup = (): React.ReactNode => {
-  /* eslint-disable no-alert */
   return (
-    <AIChatMessageActionGroup aria-label="Feedback form">
-      <AIChatMessageAction>
+    <AIChatMessageActionGroup>
+      <AIChatMessageActionCard aria-label="Feedback form">
         Is this helpful?
-        <Button variant="reset" size="reset">
+        <Button variant="reset" size="reset" aria-label="this is a helpful response">
           <ThumbsUpIcon decorative={false} title="like result" />
         </Button>
-        <Button variant="reset" size="reset">
+        <Button variant="reset" size="reset" aria-label="this is not a helpful response">
           <ThumbsDownIcon decorative={false} title="dislike result" />
         </Button>
-      </AIChatMessageAction>
+      </AIChatMessageActionCard>
     </AIChatMessageActionGroup>
   );
-  /* eslint-enable no-alert */
 };
 
 export const FullAIMessage = (): React.ReactNode => {
@@ -146,36 +144,34 @@ export const FullAIMessage = (): React.ReactNode => {
           </ButtonGroup>
         </Box>
       </AIChatMessageBody>
-      <AIChatMessageActionGroup aria-label="Feedback form">
-        <AIChatMessageAction>
+      <AIChatMessageActionGroup>
+        <AIChatMessageActionCard aria-label="Feedback form">
           Is this helpful?
           <Button
-            variant="reset"
+            variant="secondary_icon"
+            aria-label="this is a helpful response"
             size="reset"
             pressed={liked}
             onClick={() => {
               setLiked(!liked);
+              setDisliked(false);
             }}
-            _hover={{ color: "colorTextPrimaryStronger" }}
-            _pressed={{ color: "colorTextPrimary" }}
-            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
           >
             <ThumbsUpIcon decorative={false} title="like result" />
           </Button>
           <Button
-            variant="reset"
+            variant="secondary_icon"
+            aria-label="this is not a helpful response"
             size="reset"
             pressed={disliked}
             onClick={() => {
               setDisliked(!disliked);
+              setLiked(false);
             }}
-            _hover={{ color: "colorTextPrimaryStronger" }}
-            _pressed={{ color: "colorTextPrimary" }}
-            _pressed_hover={{ color: "colorTextPrimaryStronger" }}
           >
             <ThumbsDownIcon decorative={disliked} title="dislike result" />
           </Button>
-        </AIChatMessageAction>
+        </AIChatMessageActionCard>
       </AIChatMessageActionGroup>
     </AIChatMessage>
   );
