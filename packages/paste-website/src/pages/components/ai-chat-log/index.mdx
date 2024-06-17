@@ -19,7 +19,7 @@ import {
   AIChatMessageLoading,
   AIChatLogger,
   useAIChatLogger,
-  AIChatMessageAction,
+  AIChatMessageActionCard,
   AIChatMessageActionGroup,
 } from "@twilio-paste/core/ai-chat-log";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -187,11 +187,11 @@ Message actions can be used to provide quick responses or actions to the user.
 
 `AIChatMessageActionGroup` should be a child of `AIChatMessage` so that the text and meta information are correctly grouped together for assistive technologies. `AIChatMessageActionCard` also needs a readable `aria-label` that summarizes what the meta information says.
 
-Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessageAction`. It is recommended to use reset button variants for content within `AIChatMessageAction`.
+Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessageActionCard`. It is recommended to use reset button variants for content within `AIChatMessageActionCard`.
 
 Actions can still be added in `AIChatMessageBody` which are returned from the AI response.
 
-#### Feedback in AIChatMessageAction
+#### Feedback in AIChatMessageActionCard
 
 <LivePreview
   scope={{
@@ -199,7 +199,7 @@ Actions can still be added in `AIChatMessageBody` which are returned from the AI
     AIChatMessage,
     AIChatMessageAuthor,
     AIChatMessageBody,
-    AIChatMessageAction,
+    AIChatMessageActionCard,
     AIChatMessageActionGroup,
     Button,
     ThumbsUpIcon,
@@ -279,7 +279,7 @@ This example combines all the separate features displayed previously into one ex
     AIChatMessageAuthor,
     AIChatMessageBody,
     AIChatMessageLoading,
-    AIChatMessageAction,
+    AIChatMessageActionCard,
     AIChatMessageActionGroup,
     Button,
     ButtonGroup,

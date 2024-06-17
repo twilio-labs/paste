@@ -42,7 +42,7 @@ const MessageWithFeedback = () => {
           Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
         </AIChatMessageBody>
         <AIChatMessageActionGroup aria-label="Feedback form">
-          <AIChatMessageAction>
+          <AIChatMessageActionCard>
             Is this helpful?
             <Button variant="reset" size="reset">
               <ThumbsUpIcon decorative={false} title="like result" />
@@ -50,15 +50,15 @@ const MessageWithFeedback = () => {
             <Button variant="reset" size="reset">
               <ThumbsDownIcon decorative={false} title="dislike result" />
             </Button>
-          </AIChatMessageAction>
-          <AIChatMessageAction>
+          </AIChatMessageActionCard>
+          <AIChatMessageActionCard>
             <Button variant="reset" size="reset">
               <RefreshIcon decorative={true}/> Rewrite
             </Button>
             <Button variant="reset" size="reset">
               <CopyIcon decorative={true}/> Copy
             </Button>
-          </AIChatMessageAction>
+          </AIChatMessageActionCard>
         </AIChatMessageActionGroup>
       </AIChatMessage>
     </AIChatLog>
@@ -176,7 +176,7 @@ const AIChatLogExample = () => {
           Error 21608 means you're trying to send a message from an unverified number. Is your number verified in your Twilio account?
         </AIChatMessageBody>
         <AIChatMessageActionGroup aria-label="Feedback form">
-          <AIChatMessageAction>
+          <AIChatMessageActionCard>
             Is this helpful?
             <Button variant="reset" size="reset">
               <ThumbsUpIcon decorative={false} title="like result" />
@@ -184,7 +184,7 @@ const AIChatLogExample = () => {
             <Button variant="reset" size="reset">
               <ThumbsDownIcon decorative={false} title="dislike result" />
             </Button>
-          </AIChatMessageAction>
+          </AIChatMessageActionCard>
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="user">
