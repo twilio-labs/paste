@@ -60,6 +60,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       selectedItem,
       groupItemsBy,
       groupLabelTemplate,
+      canCollapseGroupLabel,
       variant = "default",
       emptyState,
       getA11yStatusMessage,
@@ -196,6 +197,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
                 totalSize={rowVirtualizer.totalSize}
                 virtualItems={rowVirtualizer.virtualItems}
                 emptyState={emptyState}
+                canCollapseGroupLabel={canCollapseGroupLabel}
               />
             </ComboboxListbox>
           </ListBoxPositioner>

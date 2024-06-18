@@ -701,6 +701,24 @@ export const ComboboxOptionGroups: StoryFn = () => {
 
 ComboboxOptionGroups.storyName = "Combobox - Option groups";
 
+
+export const ComboboxCollapsibleGroups: StoryFn = () => {
+  return (
+    <Combobox
+      groupItemsBy="group"
+      items={groupedItems}
+      labelText="Choose a component:"
+      helpText="This is collapsible group"
+      groupLabelTemplate={(groupName: string) => <Box fontStyle="italic">{groupName}</Box>}
+      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
+      canCollapseGroupLabel={true}
+    />
+  );
+};
+
+ComboboxCollapsibleGroups.storyName = "Combobox - Collapsible groups";
+
 export const ComboboxOptionGroupsOpen: StoryFn = () => {
   return (
     <Combobox

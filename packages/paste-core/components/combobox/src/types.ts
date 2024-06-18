@@ -221,6 +221,13 @@ export interface ComboboxProps extends Omit<InputProps, "id" | "type" | "value" 
    * @memberof ComboboxProps
    */
   onInput?: never;
+
+  /**
+   * canCollapseGroupLabel, default to false if undefined. If it's true, clicking on the group label will collapse/expand items under the group.
+   * @type {boolean}
+   * @memberof ComboboxProps
+   */
+  canCollapseGroupLabel?: boolean;
 }
 
 export interface MultiselectComboboxProps
@@ -292,7 +299,7 @@ export interface MultiselectComboboxProps
 export interface ComboboxItemsProps
   extends Pick<
     ComboboxProps,
-    "groupItemsBy" | "optionTemplate" | "groupLabelTemplate" | "element" | "emptyState" | "state"
+    "groupItemsBy" | "optionTemplate" | "groupLabelTemplate" | "element" | "emptyState" | "state" | "canCollapseGroupLabel"
   > {
   items: Item[];
   selectedItems?: Item[];
