@@ -25,9 +25,9 @@ export const AIChatMessageActionGroup = React.forwardRef<HTMLDivElement, AIChatM
         display="flex"
         flexWrap="wrap"
         alignItems="center"
-        columnGap="space30"
+        columnGap="space40"
         fontWeight="fontWeightMedium"
-        paddingTop="space40"
+        marginTop="space40"
       >
         {children}
       </Box>

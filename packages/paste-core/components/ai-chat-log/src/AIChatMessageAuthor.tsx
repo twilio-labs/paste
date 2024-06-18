@@ -66,7 +66,7 @@ export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessag
         element={element}
         display="flex"
         alignItems="center"
-        columnGap="space30"
+        columnGap="space40"
         fontWeight="fontWeightMedium"
       >
         {variant === "bot" ? (
