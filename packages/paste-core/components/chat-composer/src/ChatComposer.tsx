@@ -176,7 +176,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         _disabled={getDisabledStyling()}
         fontSize={fontSize}
         lineHeight={lineHeight}
-        gridArea="composer"
+        gridArea="1/1"
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
