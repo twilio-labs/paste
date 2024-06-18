@@ -67,7 +67,6 @@ export const AIChatMessageLoading = React.forwardRef<HTMLDivElement, AIChatMessa
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        role="listitem"
         display="flex"
         flexDirection="column"
         rowGap="space40"
