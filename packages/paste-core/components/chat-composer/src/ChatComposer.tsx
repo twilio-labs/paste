@@ -64,6 +64,20 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | 
   /**
    *
    * @default null
+   * @type {BoxStyleProps["fontSize"]}
+   * @memberof ChatComposerProps
+   */
+  fontSize?: BoxStyleProps["fontSize"];
+  /**
+   *
+   * @default null
+   * @type {BoxStyleProps["lineHeight"]}
+   * @memberof ChatComposerProps
+   */
+  lineHeight?: BoxStyleProps["lineHeight"];
+  /**
+   *
+   * @default null
    * @type {string}
    * @memberof ChatComposerProps
    */
@@ -93,8 +107,10 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       placeholder = "",
       initialValue,
       config,
-      maxHeight,
+      maxHeight = "size30",
       disabled,
+      fontSize,
+      lineHeight,
       ...props
     },
     ref,
@@ -124,6 +140,8 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
           color: "colorTextWeaker",
           backgroundColor: "colorBackground",
         }}
+        fontSize={fontSize}
+        lineHeight={lineHeight}
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
