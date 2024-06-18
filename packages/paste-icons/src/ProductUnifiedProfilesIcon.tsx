@@ -34,8 +34,8 @@ const ProductUnifiedProfilesIcon = React.forwardRef<HTMLElement, ProductUnifiedP
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M8.513 9.297a2.578 2.578 0 0 1-1.251-2.202c0-1.428 1.18-2.588 2.631-2.588 1.451 0 2.631 1.16 2.631 2.588a2.58 2.58 0 0 1-1.21 2.177c1.728.563 2.98 2.168 2.98 4.054 0 .313-.26.569-.579.569H6.186a.575.575 0 0 1-.578-.569c0-1.859 1.215-3.444 2.905-4.03Zm-.095-2.202c0-.796.66-1.45 1.475-1.45.81 0 1.475.654 1.475 1.45 0 .796-.665 1.45-1.475 1.45s-1.475-.654-1.475-1.45Zm1.539 3.098c1.56 0 2.862 1.11 3.134 2.565H6.822c.272-1.456 1.573-2.565 3.135-2.565Z"
             fill="currentColor"
           />
@@ -48,8 +48,8 @@ const ProductUnifiedProfilesIcon = React.forwardRef<HTMLElement, ProductUnifiedP
             fill="currentColor"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M8.513 9.297a2.578 2.578 0 0 1-1.251-2.202c0-1.428 1.18-2.588 2.631-2.588 1.451 0 2.631 1.16 2.631 2.588a2.58 2.58 0 0 1-1.21 2.177c1.728.563 2.98 2.168 2.98 4.054 0 .313-.26.569-.579.569H6.186a.575.575 0 0 1-.578-.569c0-1.859 1.215-3.444 2.905-4.03Zm-.095-2.202c0-.796.66-1.45 1.475-1.45.81 0 1.475.654 1.475 1.45 0 .796-.665 1.45-1.475 1.45s-1.475-.654-1.475-1.45Zm1.539 3.098c1.56 0 2.862 1.11 3.134 2.565H6.822c.272-1.456 1.573-2.565 3.135-2.565Z"
             fill="currentColor"
           />
