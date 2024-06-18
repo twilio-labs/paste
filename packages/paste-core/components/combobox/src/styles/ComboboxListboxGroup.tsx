@@ -50,22 +50,23 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
     }
     if (!groupName) {
       return (
-      <Box
-        as="ul"
-        ref={ref}
-        element={`${element}_LIST`}
-        role="presentation"
-        margin="space0"
-        padding="space0"
-        listStyleType="none"
-        borderBottomStyle="solid"
-        borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderWeaker"
-        _last={{
-          borderWidth: "borderWidth0",
-        }}>
-        {children}
-      </Box>);
+        <Box
+          as="ul"
+          ref={ref}
+          element={`${element}_LIST`}
+          role="presentation"
+          margin="space0"
+          padding="space0"
+          listStyleType="none"
+          borderBottomStyle="solid"
+          borderBottomWidth="borderWidth10"
+          borderBottomColor="colorBorderWeaker"
+          _last={{
+            borderWidth: "borderWidth0",
+          }}>
+          {children}
+        </Box>
+      );
     }
     const groupLabel = groupLabelTemplate ? groupLabelTemplate(groupName) : groupName
     if (!canCollapseGroupLabel) {
@@ -109,7 +110,8 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
             </Text>
           </Box>
           {children}
-        </Box>);
+        </Box>
+      );
     }
     return (
       <Box
