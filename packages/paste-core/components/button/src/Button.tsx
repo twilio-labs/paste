@@ -100,10 +100,10 @@ const handlePropValidation = ({
   }
   if (as === "a") {
     if (!hasHref) {
-      throw new Error(`[Paste: Button] Missing href prop for link button.`);
+      throw new Error("[Paste: Button] Missing href prop for link button.");
     }
     if (variant === "link" || variant === "inverse_link") {
-      throw new Error(`[Paste: Button] Using Button component as an Anchor. Use the Paste Anchor component instead.`);
+      throw new Error("[Paste: Button] Using Button component as an Anchor. Use the Paste Anchor component instead.");
     }
     if (variant !== "primary" && variant !== "secondary" && variant !== "reset" && variant !== "inverse") {
       throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary and secondary.`);
@@ -125,10 +125,10 @@ const handlePropValidation = ({
 
   // Button validation
   if (children == null) {
-    throw new Error(`[Paste: Button] Must have non-null children.`);
+    throw new Error("[Paste: Button] Must have non-null children.");
   }
   if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
-    throw new Error(`[Paste: Button] tabIndex must be 0 or -1.`);
+    throw new Error("[Paste: Button] tabIndex must be 0 or -1.");
   }
 
   // Toggle button validaton

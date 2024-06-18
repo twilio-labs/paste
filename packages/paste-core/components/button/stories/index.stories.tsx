@@ -168,6 +168,9 @@ export const Reset = (): React.ReactNode => (
         Example using reset button in composition
       </Button>
     </Heading>
+    <Button variant="reset" size="reset" borderRadius="borderRadius0">
+      0 border radius
+    </Button>
   </>
 );
 export const ButtonAsAnchor = (): React.ReactNode => {

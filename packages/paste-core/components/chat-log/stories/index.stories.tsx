@@ -125,8 +125,6 @@ export const ScrollingChatLog: StoryFn = () => {
               <HelpText variant="error" marginTop="space0">
                 Message failed
               </HelpText>
-            </ChatMessageMetaItem>
-            <ChatMessageMetaItem>
               <Button variant="link" onClick={() => {}}>
                 Resend
               </Button>

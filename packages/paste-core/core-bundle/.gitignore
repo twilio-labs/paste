@@ -1,6 +1,7 @@
 # Automatically generated from "yarn generate-packages"
 /dist
 /account-switcher
+/ai-chat-log
 /alert
 /alert-dialog
 /anchor
