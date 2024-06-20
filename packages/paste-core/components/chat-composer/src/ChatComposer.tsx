@@ -32,9 +32,12 @@ import merge from "deepmerge";
 import * as React from "react";
 
 import { AutoLinkPlugin } from "./AutoLinkPlugin";
+import { ChatComposerContext } from "./ChatComposerContext";
 import { PlaceholderWrapper } from "./PlaceholderWrapper";
+import { ToggleEditablePlugin } from "./ToggleDisabledPlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
+import { ThemeShape } from "@twilio-paste/theme";
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
   children?: LexicalComposerProps["children"];
@@ -113,13 +116,30 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       lineHeight,
       ...props
     },
-    ref,
+    ref
   ) => {
+    const { setIsDisabled } = React.useContext(ChatComposerContext);
+
     const baseConfigWithEditorState = {
       ...baseConfig,
       editable: disabled ? false : true,
       editorState: initialValue ? () => renderInitialText(initialValue) : undefined,
     };
+
+    const getDisabledStyling = React.useCallback(() => {
+      /**
+       * If setIsDisabled is defined, then the styling will be handled by ChatComposerContainer.
+       * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style tochange
+       * from container and then composer.
+       */
+      if (!!setIsDisabled) {
+        return {};
+      }
+      return {
+        color: "colorTextWeaker" as ThemeShape["textColors"],
+        backgroundColor: "colorBackground" as ThemeShape["backgroundColors"],
+      };
+    }, [!!setIsDisabled]);
 
     return (
       <Box
@@ -136,10 +156,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         maxHeight={maxHeight}
         disabled={disabled}
         aria-disabled={disabled}
-        _disabled={{
-          color: "colorTextWeaker",
-          backgroundColor: "colorBackground",
-        }}
+        _disabled={getDisabledStyling()}
         fontSize={fontSize}
         lineHeight={lineHeight}
         gridArea="composer"
@@ -155,6 +172,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
             {onChange && <OnChangePlugin onChange={onChange} />}
             <HistoryPlugin />
             <AutoLinkPlugin />
+            <ToggleEditablePlugin disabled={disabled} />
             {children}
           </>
         </LexicalComposer>
