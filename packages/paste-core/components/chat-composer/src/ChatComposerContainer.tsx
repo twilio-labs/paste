@@ -1,6 +1,20 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { ThemeShape } from "@twilio-paste/theme";
 import * as React from "react";
+
+import { ChatComposerContext } from "./ChatComposerContext";
+
+const Styles = {
+  default: {},
+  contained: {
+    borderWidth: "borderWidth10" as ThemeShape["borderWidths"],
+    borderStyle: "solid",
+    borderRadius: "borderRadius30" as ThemeShape["radii"],
+    borderColor: "colorBorderWeaker" as ThemeShape["borderColors"],
+    boxShadow: "shadowBorderLow" as ThemeShape["shadows"],
+  },
+};
 
 export interface ChatComposerContainerProps {
   children?: React.ReactNode;
@@ -21,19 +35,33 @@ export interface ChatComposerContainerProps {
 }
 
 export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatComposerContainerProps>(
-  ({ variant, element = "CHAT_COMPOSER_CONTAINER", children, ...props }, ref) => (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      element={element}
-      ref={ref}
-      display="grid"
-      gridTemplateRows="auto auto"
-      gridTemplateAreas='"composer actions" "attatchments attatchments"'
-      gridAutoColumns="1fr auto"
-    >
-      {children}
-    </Box>
-  ),
+  ({ variant = "default", element = "CHAT_COMPOSER_CONTAINER", children, ...props }, ref) => {
+    const [isDisabled, setIsDisabled] = React.useState(false);
+
+    return (
+      <ChatComposerContext.Provider value={{ isDisabled, setIsDisabled }}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          element={element}
+          ref={ref}
+          display="grid"
+          gridTemplateRows="auto auto"
+          gridTemplateAreas='"composer actions" "attatchments attatchments"'
+          gridAutoColumns="1fr auto"
+          disabled={isDisabled}
+          aria-disabled={isDisabled}
+          _disabled={{
+            color: "colorTextWeaker",
+            backgroundColor: "colorBackground",
+          }}
+          padding="space50"
+          {...Styles[variant]}
+        >
+          {children}
+        </Box>
+      </ChatComposerContext.Provider>
+    );
+  },
 );
 
 ChatComposerContainer.displayName = "ChatComposerContainer";

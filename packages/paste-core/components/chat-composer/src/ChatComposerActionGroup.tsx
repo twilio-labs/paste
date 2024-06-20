@@ -15,7 +15,18 @@ export interface ChatComposerActionGroupProps {
 
 export const ChatComposerActionGroup = React.forwardRef<HTMLDivElement, ChatComposerActionGroupProps>(
   ({ element = "CHAT_COMPOSER_ACTION_GROUP", children, ...props }, ref) => (
-    <Box {...safelySpreadBoxProps(props)} element={element} ref={ref} gridArea="actions">
+    <Box
+      {...safelySpreadBoxProps(props)}
+      element={element}
+      ref={ref}
+      gridArea="actions"
+      display="inline-flex"
+      alignSelf="end"
+      role="group"
+      columnGap="space30"
+      marginBottom="space30"
+      marginLeft="space30"
+    >
       {children}
     </Box>
   ),
