@@ -47,6 +47,7 @@ import { PlaceholderWrapper } from "./PlaceholderWrapper";
 import { ToggleEditablePlugin } from "./ToggleEditablePlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
+import { ThemeShape } from "@twilio-paste/theme";
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
   children?: LexicalComposerProps["children"];
@@ -133,7 +134,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       editorInstanceRef,
       ...props
     },
-    ref,
+    ref
   ) => {
     const { setIsDisabled } = React.useContext(ChatComposerContext);
 
