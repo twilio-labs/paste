@@ -142,6 +142,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         }}
         fontSize={fontSize}
         lineHeight={lineHeight}
+        gridArea="composer"
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
