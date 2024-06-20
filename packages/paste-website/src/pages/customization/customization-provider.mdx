@@ -5,8 +5,11 @@ export const meta = {
   slug: '/customization/customization-provider/',
 };
 
-import {PageHeaderSeparator} from '@twilio-paste/page-header'
-import {Separator} from '@twilio-paste/separator'
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Anchor} from '@twilio-paste/anchor';
+import {Separator} from '@twilio-paste/separator';
+import {Callout} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code';
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
@@ -45,9 +48,18 @@ export const getStaticProps = async () => {
 
 <content>
 
-The `CustomizationProvider` provides a central place for customizations to be applied to an application that is using Paste.
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">This page is not for Twilio employees!</CalloutHeading>
+  <CalloutText>
+    If you're a Twilio employee, check out{' '}
+      <Anchor href="/customization/composing-custom-components-with-design-tokens">
+        How to build custom UI with Paste tokens and primitives
+      </Anchor>{' '}
+    to learn how and when to build custom components in a Twilio feature. You should not use <InlineCode>CustomizationProvider</InlineCode> inside <InlineCode>ThemeProvider</InlineCode>, and it likely won't give you the styles you expect. Customization Provider only accepts base themes of <InlineCode>default</InlineCode> and <InlineCode>dark</InlineCode> for Twilio customers to use.
+  </CalloutText>
+</Callout>
 
-Say you want to build a web application or website using Paste, but want to have your own look and feel—the `CustomizationProvider` exists to do just that.
+The `CustomizationProvider` provides a central place for customizations to be applied to an application using Paste. If you want to build a web application or website using Paste, but want to have your own look and feel—the `CustomizationProvider` exists to do just that.
 
 If you&rsquo;re a Flex customer, and want to build a Flex plugin that follows your brand guidelines, the `CustomizationProvider` can be used for that as well.
 
