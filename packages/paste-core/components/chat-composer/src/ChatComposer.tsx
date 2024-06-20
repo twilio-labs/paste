@@ -38,6 +38,7 @@ import type {
   OnChangeFunction,
 } from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
+import { ThemeShape } from "@twilio-paste/theme";
 import merge from "deepmerge";
 import * as React from "react";
 
@@ -47,7 +48,6 @@ import { PlaceholderWrapper } from "./PlaceholderWrapper";
 import { ToggleEditablePlugin } from "./ToggleEditablePlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
-import { ThemeShape } from "@twilio-paste/theme";
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
   children?: LexicalComposerProps["children"];
