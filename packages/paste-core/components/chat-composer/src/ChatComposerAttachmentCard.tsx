@@ -5,6 +5,7 @@ import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+
 import { ChatComposerContext } from "./ChatComposerContext";
 
 /*

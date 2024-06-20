@@ -28,6 +28,7 @@ import {
 } from "@twilio-paste/lexical-library";
 import type { ContentEditableProps, LexicalComposerProps, OnChangeFunction } from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
+import { ThemeShape } from "@twilio-paste/theme";
 import merge from "deepmerge";
 import * as React from "react";
 
@@ -37,7 +38,6 @@ import { PlaceholderWrapper } from "./PlaceholderWrapper";
 import { ToggleEditablePlugin } from "./ToggleDisabledPlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
-import { ThemeShape } from "@twilio-paste/theme";
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
   children?: LexicalComposerProps["children"];
@@ -132,14 +132,14 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
        * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style tochange
        * from container and then composer.
        */
-      if (!!setIsDisabled) {
+      if (setIsDisabled === undefined) {
         return {};
       }
       return {
         color: "colorTextWeaker" as ThemeShape["textColors"],
         backgroundColor: "colorBackground" as ThemeShape["backgroundColors"],
       };
-    }, [!!setIsDisabled]);
+    }, [Boolean(setIsDisabled)]);
 
     return (
       <Box
