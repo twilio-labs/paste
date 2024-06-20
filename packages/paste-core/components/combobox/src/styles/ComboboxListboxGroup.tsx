@@ -36,17 +36,12 @@ export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, "groupLab
 
 const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(
   ({ children, element = "COMBOBOX", groupName, groupLabelTemplate, canCollapseGroupLabel = false }, ref) => {
-    const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(new Set())
+    const [isCollapsed, setCollapsed] = React.useState<boolean>(false)
     const onClickLabel = (): void => {
       if (!groupName) {
         return;
       }
-      if (collapsedGroups.has(groupName)) {
-        collapsedGroups.delete(groupName);
-      } else {
-        collapsedGroups.add(groupName);
-      }
-      setCollapsedGroups(new Set(collapsedGroups));
+      setCollapsed(!isCollapsed);
     }
     if (!groupName) {
       return (
@@ -113,6 +108,11 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         </Box>
       );
     }
+    const iconProps = {
+      element: `${element}_GROUPNAME_ARROW`,
+      decorative: false,
+      title: groupName
+    }
     return (
       <Box
         as="ul"
@@ -143,11 +143,7 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
           element={`${element}_GROUPNAME`}
         >
           <Button variant="secondary_icon" element={`${element}_GROUPNAME_BUTTON`} onClick={onClickLabel}>
-            {collapsedGroups.has(groupName) ? (
-              <ChevronRightIcon element={`${element}_GROUPNAME_ARROW`} decorative={false} title={groupName} />
-            ) : (
-              <ChevronDownIcon element={`${element}_GROUPNAME_ARROW`} decorative={false} title={groupName} />
-            )}
+            {isCollapsed ? (<ChevronRightIcon {...iconProps}/>) : (<ChevronDownIcon {...iconProps} />)}
             <Text
               as="span"
               variant="secondary_icon"
@@ -161,7 +157,7 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
               </Text>
           </Button>
         </Box>
-        {!collapsedGroups.has(groupName) && children}
+        {!isCollapsed && children}
       </Box>
     );
   },
