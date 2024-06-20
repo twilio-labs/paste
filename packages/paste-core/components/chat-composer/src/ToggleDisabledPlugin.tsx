@@ -1,5 +1,6 @@
 import { useLexicalComposerContext } from "@twilio-paste/lexical-library";
 import * as React from "react";
+
 import { ChatComposerContext } from "./ChatComposerContext";
 
 export const ToggleEditablePlugin: React.FC<{ disabled: boolean | undefined }> = ({ disabled }): null => {
@@ -8,7 +9,9 @@ export const ToggleEditablePlugin: React.FC<{ disabled: boolean | undefined }> =
 
   React.useEffect(() => {
     if (disabled !== undefined) {
-      !!setIsDisabled && setIsDisabled(disabled);
+      if (setIsDisabled !== undefined) {
+        setIsDisabled(disabled);
+      }
       editor.setEditable(!disabled);
     }
   }, [disabled]);
