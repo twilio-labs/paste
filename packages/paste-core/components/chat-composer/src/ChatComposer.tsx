@@ -134,7 +134,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       editorInstanceRef,
       ...props
     },
-    ref
+    ref,
   ) => {
     const { setIsDisabled } = React.useContext(ChatComposerContext);
 
