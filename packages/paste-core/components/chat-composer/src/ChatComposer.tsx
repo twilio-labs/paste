@@ -116,7 +116,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       lineHeight,
       ...props
     },
-    ref
+    ref,
   ) => {
     const { setIsDisabled } = React.useContext(ChatComposerContext);
 
@@ -132,7 +132,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
        * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style tochange
        * from container and then composer.
        */
-      if (setIsDisabled === undefined) {
+      if (setIsDisabled !== undefined) {
         return {};
       }
       return {
