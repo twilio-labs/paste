@@ -1,12 +1,9 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
-import { $createParagraphNode, $createTextNode, $getRoot } from "@twilio-paste/lexical-library";
-import { Theme } from "@twilio-paste/theme";
 
 import * as React from "react";
 
