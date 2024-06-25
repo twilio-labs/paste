@@ -8,7 +8,7 @@ export interface ChatComposerActionGroupProps {
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default 'CHAT_COMPOSER_ACTION_GROUP'
    * @type {BoxProps['element']}
-   * @memberof PageHeaderProps
+   * @memberof ChatComposerActionGroupProps
    */
   element?: BoxProps["element"];
 }
