@@ -4,7 +4,6 @@ import { Button } from "@twilio-paste/button";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
-
 import * as React from "react";
 
 import {
