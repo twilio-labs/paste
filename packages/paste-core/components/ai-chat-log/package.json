@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "data display",
   "status": "production",
-  "description": "Ai chat log.",
+  "description": "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
