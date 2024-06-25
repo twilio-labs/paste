@@ -22,20 +22,27 @@ export interface ChatComposerContainerProps {
    * Styling of the container
    * @default 'default'
    * @type {'default' | 'contained''}
-   * @memberof PageHeaderProps
+   * @memberof ChatComposerContainerProps
    */
   variant?: "default" | "contained";
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default 'CHAT_COMPOSER_CONTAINER'
    * @type {BoxProps['element']}
-   * @memberof PageHeaderProps
+   * @memberof ChatComposerContainerProps
    */
   element?: BoxProps["element"];
+  /**
+   * Sets the maximum height of the composer before scrolling
+   * @default 'size20'
+   * @type {BoxProps['maxHeight']}
+   * @memberof ChatComposerContainerProps
+   */
+  maxHeight?: BoxProps["maxHeight"];
 }
 
 export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatComposerContainerProps>(
-  ({ variant = "default", element = "CHAT_COMPOSER_CONTAINER", children, ...props }, ref) => {
+  ({ variant = "default", element = "CHAT_COMPOSER_CONTAINER", maxHeight = "size30", children, ...props }, ref) => {
     const [isDisabled, setIsDisabled] = React.useState(false);
 
     return (
@@ -55,6 +62,8 @@ export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatCompos
             backgroundColor: "colorBackground",
           }}
           padding="space50"
+          maxHeight={maxHeight}
+          overflowY="auto"
           {...Styles[variant]}
         >
           {children}
