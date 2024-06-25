@@ -23,8 +23,8 @@ export interface ChatComposerAttachmentGroupProps {
 
 export const ChatComposerAttachmentGroup = React.forwardRef<HTMLDivElement, ChatComposerAttachmentGroupProps>(
   ({ element = "CHAT_COMPOSER_ATTACHMENT_GROUP", columns = 2, children, ...props }, ref) => {
-    const getColumnStyles = () => {
-      if (columns instanceof Array) {
+    const getColumnStyles = (): string | string[] => {
+      if (Array.isArray(columns)) {
         return columns.map((column) => `repeat(${column}, minmax(0,1fr))`);
       }
       return `repeat(${columns}, 1fr)`;
