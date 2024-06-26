@@ -1,13 +1,13 @@
 export const meta = {
-  title: 'Chat Composer',
-  package: '@twilio-paste/chat-composer',
-  description: 'A Chat Composer is an input made for users to type rich chat messages.',
-  slug: '/components/chat-composer/',
+  title: "Chat Composer",
+  package: "@twilio-paste/chat-composer",
+  description: "A Chat Composer is an input made for users to type rich chat messages.",
+  slug: "/components/chat-composer/",
 };
 
-import {Avatar} from '@twilio-paste/avatar';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
+import { Avatar } from "@twilio-paste/avatar";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
 import {
   ChatAttachment,
   ChatAttachmentDescription,
@@ -22,36 +22,50 @@ import {
   ChatMessageMetaItem,
   useChatLogger,
   ChatLogger,
-} from '@twilio-paste/chat-log';
-import {ChatComposer} from '@twilio-paste/chat-composer';
-import Changelog from '@twilio-paste/chat-composer/CHANGELOG.md';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {HelpText} from '@twilio-paste/help-text';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {Button} from '@twilio-paste/button';
-import {ButtonGroup} from '@twilio-paste/button-group';
-import {Stack} from '@twilio-paste/stack';
-import {$getRoot, $createParagraphNode, $createTextNode, ClearEditorPlugin} from '@twilio-paste/lexical-library';
+} from "@twilio-paste/chat-log";
+import {
+  ChatComposer,
+  ChatComposerContainer,
+  ChatComposerActionGroup,
+  ChatComposerAttachmentGroup,
+  ChatComposerAttachmentCard,
+  ChatComposerAttachment,
+  ChatComposerAttachmentLink,
+  ChatComposerAttachmentDescription,
+} from "@twilio-paste/chat-composer";
+import Changelog from "@twilio-paste/chat-composer/CHANGELOG.md";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { HelpText } from "@twilio-paste/help-text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Stack } from "@twilio-paste/stack";
+import { Checkbox } from "@twilio-paste/checkbox";
+import { $getRoot, $createParagraphNode, $createTextNode, ClearEditorPlugin } from "@twilio-paste/lexical-library";
+import { useRef } from "react";
 
-import {SidebarCategoryRoutes} from '../../../constants';
+import { SidebarCategoryRoutes } from "../../../constants";
 import {
   ChatDialogExample,
   RichTextExample,
   MaxHeightExample,
   SendButtonPlugin,
-  EnterKeySubmitPlugin,
+  EnterKeyWithSubmitPlugin,
   createNewMessage,
-} from '../../../component-examples/ChatComposerExamples';
-import packageJson from '@twilio-paste/chat-composer/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+  ResponsiveContainedAttachmentsExample,
+  ContainedDisabledExample
+} from "../../../component-examples/ChatComposerExamples";
+import packageJson from "@twilio-paste/chat-composer/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Chat Composer');
+  const feature = await getFeature("Chat Composer");
   return {
     props: {
       data: {
@@ -62,15 +76,28 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer',
-        storybookUrl: '/?path=/story/components-chat-composer--default',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer",
+        storybookUrl: "/?path=/story/components-chat-composer--default",
       },
     },
   };
 };
 
-<LivePreview scope={{ChatComposer}} language="jsx">
-  {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A basic chat composer" />`}
+<LivePreview
+  scope={{ ChatComposer, ChatComposerContainer, ChatComposerActionGroup, Button, SendIcon, AttachIcon }}
+  language="jsx"
+>
+  {`<ChatComposerContainer>
+  <ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A basic chat composer" />
+  <ChatComposerActionGroup>
+    <Button variant="secondary_icon" size="reset">
+      <AttachIcon decorative={false} title="Attach" />
+    </Button>
+    <Button variant="primary_icon" size="reset">
+      <SendIcon decorative={false} title="Send" />
+    </Button>
+  </ChatComposerActionGroup>
+</ChatComposerContainer>`}
 </LivePreview>
 
 ## Guidelines
@@ -80,7 +107,11 @@ export const getStaticProps = async () => {
 A Chat Composer is an input made for users to type rich chat messages. Chat Composer is best used as one part of larger chat user interface to provide a seamless authoring experience.
 Within the context of Paste, Chat Composer is most typically used alongside the [`Chat Log`](/components/chat-log) component.
 
-### Accessibility
+### ChatComposer
+
+When refering to `ChatComposer` it is the rich text area only. You can use the `ChatComposer` component only, or use it within the `ChatComposerContainer` for consistent styling across chat features.
+
+#### Accessibility
 
 Chat Composer supports a variety of aria attributes which are passed into the content editable region of the component.
 
@@ -88,53 +119,118 @@ Chat Composer supports a variety of aria attributes which are passed into the co
 - If the surrounding UI does not include a screen reader visible label, use `aria-label` to describe the input.
 - If the surrounding UI includes additional help or error text use `aria-describedby` to reference the associated element.
 
-### Lexical and plugins
+#### Lexical and plugins
 
 Chat Composer is built on top of the [Lexical](https://lexical.dev) editor. Lexical is extensible and follows a declarative approach to configuration via JSX. Developers can leverage a
 wide variety of [existing plugins](https://github.com/twilio-labs/paste/blob/main/packages/paste-libraries/lexical/src/index.tsx) via the `@twilio-paste/lexical-library` package or other
 sources. Alternatively, developers can write their own custom plugin logic. Plugins are provided to the Chat Composer via the `children` prop.
 
-#### Auto Link Plugin
+##### Auto Link Plugin
 
 Chat Composer uses a custom [`AutoLinkPlugin`](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/AutoLinkPlugin.tsx) internally
 which you can see being configured [here](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/ChatComposer.tsx#L116) as a JSX child.
 
+### Chat Composer Component Suite
+
+The Chat Composer component suite offers a variety of components designed to enhance and enrich the chat experience. Each element plays a crucial role in maintaining a consistent and cohesive styling, ensuring a seamless user interaction. The available components include:
+
+- **ChatComposerContainer**: The primary container that houses the entire chat composer interface.
+- **ChatComposerActionGroup**: A collection of action buttons and controls, allowing users to perform various actions within the chat composer.
+- **ChatComposerAttachmentGroup**: Groups multiple attachments together in responsive columns, ensuring a tidy and organized display within the chat composer.
+- **ChatComposerAttachmentCard**: A card-like component for showcasing attachment previews, making it easy for users to view details at a glance.
+- **ChatComposerAttachment**: Displays file attachments, witht eh option to set the icon for the attachment.
+- **ChatComposerAttachmentDescription**: Provides a description or additional information about an attachment, adding context for the user.
+- **ChatComposerAttachmentLink**: Creates clickable links for attachments, facilitating easy access and interaction.
+
+#### Variants
+
+ChatComposerContainer has a `default` and `contained` variant.
+ 
 ## Examples
 
-### With placeholder
+### ChatComposer with placeholder
 
 Set a placeholder value using a `placeholder` prop.
 
-<LivePreview scope={{ChatComposer}} language="jsx">
+<LivePreview scope={{ ChatComposer }} language="jsx">
   {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A placeholder chat composer" />`}
 </LivePreview>
 
-### With initial value
+### ChatComposer with initial value
 
 Set an initial value using an `initialValue` prop. This prop is limited to providing single line strings. For more complicated initial values interact with the Lexical API directly
 using the `config` prop and `editorState` callback.
 
-<LivePreview scope={{ChatComposer}} language="jsx">
+<LivePreview scope={{ ChatComposer }} language="jsx">
   {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} initialValue="This is my initial value" ariaLabel="An initial value chat composer" />`}
 </LivePreview>
 
-### With max height
+### ChatCompoer with max height
 
 Restrict the height of the composer using a `maxHeight` prop.
 
-<LivePreview noInline language="jsx" scope={{ChatComposer, $getRoot, $createParagraphNode, $createTextNode}}>
+<LivePreview noInline language="jsx" scope={{ ChatComposer, $getRoot, $createParagraphNode, $createTextNode }}>
   {MaxHeightExample}
 </LivePreview>
 
-### With rich text
+### ChatComposer with rich text
 
 Set a rich text value using one of the Lexical formatting APIs such as [`toggleFormat`](https://lexical.dev/docs/api/classes/lexical.TextNode#toggleformat)
 
-<LivePreview noInline language="jsx" scope={{ChatComposer, $getRoot, $createParagraphNode, $createTextNode}}>
+<LivePreview noInline language="jsx" scope={{ ChatComposer, $getRoot, $createParagraphNode, $createTextNode }}>
   {RichTextExample}
 </LivePreview>
 
-### With Chat Log
+### Chat Composer with responsive attachments
+
+Chat composer cmoponents suite demonstrating responsive attachments
+
+<LivePreview
+  noInline
+  language="jsx"
+  scope={{
+    SendIcon,
+    Button,
+    SendIcon,
+    AttachIcon,
+    DownloadIcon,
+    ChatComposer,
+    ChatComposerContainer,
+    ChatComposerActionGroup,
+    ChatComposerAttachmentGroup,
+    ChatComposerAttachmentCard,
+    ChatComposerAttachment,
+    ChatComposerAttachmentLink,
+    ChatComposerAttachmentDescription,
+  }}
+>
+  {ResponsiveContainedAttachmentsExample}
+</LivePreview>
+
+### Chat Composer Disabled Contained Variant
+
+When the container is disabled, styling is applied to the container component. The disabled state is managed at the implementation level. If action buttons are included, their disabled state must also be managed individually.
+
+<LivePreview
+  noInline
+  language="jsx"
+  scope={{
+    SendIcon,
+    Button,
+    SendIcon,
+    AttachIcon,
+    DownloadIcon,
+    Box,
+    Checkbox,
+    ChatComposer,
+    ChatComposerContainer,
+    ChatComposerActionGroup,
+  }}
+>
+  {ContainedDisabledExample}
+</LivePreview>
+
+### Chat Composer with Chat Log
 
 Use Chat Composer alongside other Paste components such as [Chat Log](/components/chat-log) to build more complex chat UI.
 
@@ -160,24 +256,35 @@ Use Chat Composer alongside other Paste components such as [Chat Log](/component
     Button,
     SendIcon,
     SendButtonPlugin,
-    EnterKeySubmitPlugin,
+    EnterKeyWithSubmitPlugin,
     createNewMessage,
     $getRoot,
     useChatLogger,
     DownloadIcon,
     ClearEditorPlugin,
+    ChatComposerContainer,
+    ChatComposerActionGroup,
+    SendIcon,
+    AttachIcon,
+    useRef,
   }}
 >
   {ChatDialogExample}
 </LivePreview>
 
-### Adding interactivity with plugins
+### Chat Composer with AI Chat Logger
 
-In the above example, we're using 3 Lexical plugins: `ClearEditorPlugin` that is provided by Lexical, and 2 custom plugins, `SendButtonPlugin` and `EnterKeySubmitPlugin`. We also keep track of the content provided to the composer via the `onChange` handler. Together we can add custom interactivity such as:
+Use Chat Composer alongside other Paste components such as [Chat Log](/components/ai-chat-log) to build more complex chat UI.
+
+
+
+
+### Adding interactivity to ChatComposer with plugins
+
+In the above example, we're using 2 Lexical plugins: `ClearEditorPlugin` that is provided by Lexical, and a custom plugin, `EnterKeyWithSubmitPlugin`. We also keep track of the content provided to the composer via the `onChange` handler. Together we can add custom interactivity such as:
 
 - Clear the editor on button click using `ClearEditorPlugin`
-- Submit on enter key press using `EnterKeySubmitPlugin`
-- Submit on button click using `SendButtonPlugin`
+- Submit on enter key press and submit button handler using `EnterKeyWithSubmitPlugin`
 
 Plugins are functions that must be children of the `ChatComposer` component, so that they can access the Composer context.
 
@@ -200,7 +307,7 @@ const handleComposerChange = (editorState: EditorState): void => {
 
 The `ClearEditorPlugin` supplied by Lexical allows you to build functionality into the composer that will clear the composer content when a certain action is performed.
 
-When passed as a child to `ChatComposer`, it will automatically register a `CLEAR_EDITOR_COMMAND`. You can then dispatch this command from elsewhere to clear the composer content. In the example, we created 2 plugins: `SendButtonPlugin` and `EnterKeySubmitPlugin` which both dispatch the `CLEAR_EDITOR_COMMAND`, and clear the composer content as a result.
+When passed as a child to `ChatComposer`, it will automatically register a `CLEAR_EDITOR_COMMAND`. You can then dispatch this command from elsewhere to clear the composer content. In the example, we created a plugin: `EnterKeyWithSubmitPlugin` which dispatch the `CLEAR_EDITOR_COMMAND`, and clear the composer content as a result.
 
 ```jsx
 <ChatComposer onChange={handleComposerChange}>
@@ -210,37 +317,52 @@ When passed as a child to `ChatComposer`, it will automatically register a `CLEA
 
 #### Custom plugins
 
-`SendButtonPlugin` and `EnterKeySubmitPlugin` are custom plugins that submit a user message and clear the composer content. They first must be passed to the `ChatComposer` as a child.
+`EnterKeyWithSubmitPlugin` is a custom plugin that submits a user message and clear the composer content when the enter key is pressed. They first must be passed to the `ChatComposer` as a child.
 
 ```jsx
 <ChatComposer onChange={handleComposerChange}>
   <ClearEditorPlugin />
-  <EnterKeySubmitPlugin />
-  <SendButtonPlugin />
+  <EnterKeyWithSubmitPlugin />
 </ChatComposer>
 ```
 
-Once "registered" as children of `ChatComposer`, the plugins gain access to the composer context and can dispatch commands. They can also return JSX to be rendered into the composer. Take the `SendButtonPlugin` as an example:
+Once "registered" as children of `ChatComposer`, the plugins gain access to the composer context and can dispatch commands. They can also return JSX to be rendered into the composer. It is recommended to avoid putting buttons in the Composer, instead use the container with `ChatComposerActionGroup`:
 
 ```jsx
-export const SendButtonPlugin = ({onClick}: {onClick: () => void}): JSX.Element => {
+export const EnterKeyWithSubmitPlugin = React.forwardRef(({ onKeyDown }: { onKeyDown: () => void }, ref): null => {
   // get the editor from the composer context
   const [editor] = useLexicalComposerContext();
 
-  // an event handler called from custom UI can the interact with the editor to perform certain actions
-  const handleSend = (): void => {
-    onClick();
-    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-  };
-
-  return (
-    <Box position="absolute" top="space30" right="space30">
-      <Button variant="primary_icon" size="reset" onClick={handleSend}>
-        <SendIcon decorative={false} title="Send message" />
-      </Button>
-    </Box>
+  const handleEnterKey = React.useCallback(
+    (event: KeyboardEvent) => {
+      const { shiftKey, ctrlKey } = event;
+      if (shiftKey || ctrlKey) return false;
+      event.preventDefault();
+      event.stopPropagation();
+      onKeyDown();
+      // uses the event to clear input provided by the `ClearEditorPlugin` from Lexical
+      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+      return true;
+    },
+    [editor, onKeyDown]
   );
-};
+
+  // In order to access the Lexical editor context you must use a function within the plugin. This is called by the submit button in the ChatComposerActionGroup
+  React.useImperativeHandle(ref, () => ({
+    handleSubmit() {
+      onKeyDown();
+      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+    },
+  }));
+
+  React.useEffect(() => {
+    // register the command to be dispatched when the enter key is pressed
+    return editor.registerCommand(KEY_ENTER_COMMAND, handleEnterKey, COMMAND_PRIORITY_HIGH);
+  }, [editor, handleEnterKey]);
+  return null;
+});
 ```
 
-Here we're rendering a button that when clicked can call a callback function, and dispatch the `CLEAR_EDITOR_COMMAND` for the `ClearEditorPlugin` respond to. We use it to add a new chat message in the chat log, and then clear the composer ready for the next message to be typed.
+Here we're rendering a button that when clicked can call a callback function, and dispatch the `CLEAR_EDITOR_COMMAND` for the `ClearEditorPlugin` respond to. We use it to add a new chat message in the chat log, and then clear the composer ready for the next message to be typed., ChatComposer, ChatComposerContainerimport { Composer } from "../../../components/assistant/AssistantLayout";import { add } from "lodash";
+import { Logger } from "winston";
+

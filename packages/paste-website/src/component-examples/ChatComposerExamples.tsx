@@ -111,7 +111,7 @@ export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Elem
   );
 };
 
-export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
+export const EnterKeyWithSubmitPlugin = React.forwardRef(({ onKeyDown }: { onKeyDown: () => void }, ref): null => {
   const [editor] = useLexicalComposerContext();
 
   const handleEnterKey = React.useCallback(
@@ -127,11 +127,18 @@ export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): 
     [editor, onKeyDown],
   );
 
+  React.useImperativeHandle(ref, () => ({
+    handleSubmit() {
+      onKeyDown();
+      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+    },
+  }));
+
   React.useEffect(() => {
     return editor.registerCommand(KEY_ENTER_COMMAND, handleEnterKey, COMMAND_PRIORITY_HIGH);
   }, [editor, handleEnterKey]);
   return null;
-};
+});
 
 export const ChatDialogExample = `const ChatDialog = () => {
   const {chats, push} = useChatLogger(
@@ -211,6 +218,8 @@ export const ChatDialogExample = `const ChatDialog = () => {
     push(createNewMessage(message));
   };
 
+  const submitPluginRef = useRef();
+
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
@@ -221,31 +230,138 @@ export const ChatDialogExample = `const ChatDialog = () => {
         borderWidth="borderWidth0"
         borderTopWidth="borderWidth10"
         borderColor="colorBorderWeak"
-        display="flex"
-        flexDirection="row"
-        columnGap="space30"
         paddingX="space70"
         paddingTop="space50"
       >
-        <ChatComposer
-          maxHeight="size10"
-          config={{
-            namespace: 'foo',
-            onError: (error) => {
-              throw error;
-            },
-          }}
-          ariaLabel="Message"
-          placeholder="Type here..."
-          onChange={handleComposerChange}
-        >
-          <ClearEditorPlugin />
-          <SendButtonPlugin onClick={submitMessage} />
-          <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-        </ChatComposer>
+        <ChatComposerContainer>
+          <ChatComposer
+            maxHeight="size10"
+            config={{
+              namespace: 'foo',
+              onError: (error) => {
+                throw error;
+              },
+            }}
+            ariaLabel="Message"
+            placeholder="Type here..."
+            onChange={handleComposerChange}
+          >
+            <ClearEditorPlugin />
+            <EnterKeyWithSubmitPlugin onKeyDown={submitMessage} ref={submitPluginRef} />
+          </ChatComposer>
+          <ChatComposerActionGroup>
+            <Button variant="secondary_icon" size="reset">
+              <AttachIcon decorative={false} title="Attach" />
+            </Button>
+            <Button variant="primary_icon" size="reset" onClick={submitPluginRef.current?.handleSubmit}>
+              <SendIcon decorative={false} title="Send" />
+            </Button>
+          </ChatComposerActionGroup>
+        </ChatComposerContainer>
       </Box>
     </Box>
   );
 };
 
 render(<ChatDialog />)`.trim();
+
+export const ResponsiveContainedAttachmentsExample = `const ResponsiveContainedAttachmentsExample = () => {
+  return (
+    <ChatComposerContainer>
+      <ChatComposer
+        ariaLabel="A chat with attachments"
+        initialValue="This is my initial value"
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+      />
+      <ChatComposerActionGroup>
+        <Button variant="secondary_icon" size="reset">
+          <AttachIcon decorative={false} title="Attach" />
+        </Button>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+      <ChatComposerAttachmentGroup columns={[1, 1, 2, 3]}>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
+            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+          </ChatComposerAttachment>
+        </ChatComposerAttachmentCard>
+      </ChatComposerAttachmentGroup>
+    </ChatComposerContainer>
+  )
+}
+
+render(<ResponsiveContainedAttachmentsExample />)`.trim();
+
+export const ContainedDisabledExample = `const ContainedDisabledExample = () => {
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  return (
+    <>
+      <Box marginBottom="space50">
+        <Checkbox checked={isDisabled} onClick={() => setIsDisabled((disabled) => !disabled)}>
+          Disable Input
+        </Checkbox>
+      </Box>
+      <ChatComposerContainer variant="contained">
+        <ChatComposer
+          ariaLabel="A chat that is disabled"
+          initialValue="This is my initial value"
+          config={{
+            namespace: "customer-chat",
+            onError: (e) => {
+              throw e;
+            },
+          }}
+          disabled={isDisabled}
+        />
+        <ChatComposerActionGroup>
+          <Button variant="secondary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
+            <AttachIcon decorative={false} title="Attach" />
+          </Button>
+          <Button variant="primary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
+            <SendIcon decorative={false} title="Send" />
+          </Button>
+        </ChatComposerActionGroup>
+      </ChatComposerContainer>
+    </>
+  );
+}
+
+render(<ContainedDisabledExample />)`.trim();
