@@ -75,8 +75,8 @@ const MessageWithFeedback = () => {
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
-          Below is a list of actions that can be taken with flex wrapping supported:
-          <ButtonGroup>  
+          <Paragraph>Below is a list of actions that can be taken with flex wrapping supported:</Paragraph>
+          <ButtonGroup>
             <Button variant="secondary" size="rounded_small" onClick={() => {}} >
               View Logs
             </Button>
@@ -147,7 +147,7 @@ const AIChatLogExample = () => {
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
-          Error codes can be returned from various parts of the process. What error codes are you encountering?
+          <Paragraph>Error codes can be returned from various parts of the process. What error codes are you encountering?</Paragragh>
           <ButtonGroup>
             <Button variant="secondary" size="rounded_small" onClick={() => {}} >
               21608
