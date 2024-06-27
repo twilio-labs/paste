@@ -26,10 +26,11 @@ import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
-
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
 
 import { SidebarCategoryRoutes } from "../../../constants";
+import Logo from "../../../assets/logo.svg";
 
 import {
   basicBotMessage,
@@ -40,6 +41,7 @@ import {
   kitchenSink,
   aiChatLoggerExample,
   botWithBodyActions,
+  avatarExample,
 } from "../../../component-examples/AIChatLogExamples";
 import packageJson from "@twilio-paste/ai-chat-log/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
@@ -268,6 +270,24 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
   {botWithLoadingStopButton}
 </LivePreview>
 
+### Customizing Avatar
+
+`AIChatMessageAuthor` can utilize custom icons by passing an icon to the prop `avatarIcon` or an image to the `avatarSrc` prop.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    LogoTwilioIcon,
+    Logo,
+  }}
+  language="jsx"
+  noInline
+>
+  {avatarExample}
+</LivePreview>
+
 ### Example AI Chat Log
 
 This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
@@ -337,4 +357,4 @@ You can push or pop a chat based on an action or event. In this example it's bas
 
 ## Composition Notes
 
-Keep any generated responses from the AI contained in the `AIChatMessageBody` component. Each chat message should only have one `AIChatMessageBody` component.
+Keep any generated responses from the AI contained in the `AIChatMessageBody` component. Each chat message should only have one `AIChatMessageBody` component.import { AvatarExample } from "../../../component-examples/SkeletonLoaderExamples";

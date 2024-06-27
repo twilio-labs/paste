@@ -41,17 +41,17 @@ const MessageWithFeedback = () => {
         <AIChatMessageBody>
           Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
         </AIChatMessageBody>
-        <AIChatMessageActionGroup aria-label="Feedback form">
-          <AIChatMessageActionCard>
+        <AIChatMessageActionGroup>
+          <AIChatMessageActionCard aria-label="Feedback form">
             Is this helpful?
-            <Button variant="reset" size="reset">
+            <Button variant="reset" size="reset" aria-label="this is a helpful response">
               <ThumbsUpIcon decorative={false} title="like result" />
             </Button>
             <Button variant="reset" size="reset">
-              <ThumbsDownIcon decorative={false} title="dislike result" />
+              <ThumbsDownIcon decorative={false} title="dislike result" aria-label="this is not a helpful response" />
             </Button>
           </AIChatMessageActionCard>
-          <AIChatMessageActionCard>
+          <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
             <Button variant="reset" size="reset">
               <RefreshIcon decorative={true}/> Rewrite
             </Button>
@@ -85,15 +85,6 @@ const MessageWithFeedback = () => {
             </Button>
             <Button variant="secondary" size="rounded_small" onClick={() => {}}>
               Submit Bug Report
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              Access Documentation
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              Contact Support
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              Enable Debug Mode
             </Button>
           </ButtonGroup>
         </AIChatMessageBody>
@@ -175,14 +166,14 @@ const AIChatLogExample = () => {
         <AIChatMessageBody>
           Error 21608 means you're trying to send a message from an unverified number. Is your number verified in your Twilio account?
         </AIChatMessageBody>
-        <AIChatMessageActionGroup aria-label="Feedback form">
-          <AIChatMessageActionCard>
+        <AIChatMessageActionGroup>
+          <AIChatMessageActionCard aria-label="Feedback form">
             Is this helpful?
-            <Button variant="reset" size="reset">
+            <Button variant="reset" size="reset" aria-label="this is a helpful response">
               <ThumbsUpIcon decorative={false} title="like result" />
             </Button>
             <Button variant="reset" size="reset">
-              <ThumbsDownIcon decorative={false} title="dislike result" />
+              <ThumbsDownIcon decorative={false} title="dislike result" aria-label="this is not a helpful response"/>
             </Button>
           </AIChatMessageActionCard>
         </AIChatMessageActionGroup>
@@ -300,3 +291,20 @@ const AIChatLoggerExample = () => {
 
 render(<AIChatLoggerExample />);
 `.trim();
+export const avatarExample = `
+const AvatarExample = () => {
+  return (
+    <AIChatLog>
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor avatarIcon={LogoTwilioIcon} aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+      </AIChatMessage>
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor avatarSrc={Logo.src} aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+      </AIChatMessage>
+    </AIChatLog>
+  );
+};
+
+render(
+  <AvatarExample />
+)`.trim();
