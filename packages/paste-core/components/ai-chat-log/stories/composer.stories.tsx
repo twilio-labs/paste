@@ -20,6 +20,7 @@ import {
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import {
   AIChatLog,
   AIChatLogger,
