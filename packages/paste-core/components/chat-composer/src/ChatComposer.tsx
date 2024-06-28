@@ -4,6 +4,11 @@ import {
   // The component that renders the content editable div
   ContentEditable,
   /*
+   * Adds the ability to access the Lexical editor instance from outside of the context
+   * https://lexical.dev/docs/react/plugins#lexicaleditorrefplugin
+   */
+  EditorRefPlugin,
+  /*
    * ErrorBoundary catches errors in any of the children
    * https://reactjs.org/docs/error-boundaries.html
    */
@@ -26,7 +31,12 @@ import {
    */
   RichTextPlugin,
 } from "@twilio-paste/lexical-library";
-import type { ContentEditableProps, LexicalComposerProps, OnChangeFunction } from "@twilio-paste/lexical-library";
+import type {
+  ContentEditableProps,
+  LexicalComposerProps,
+  LexicalEditor,
+  OnChangeFunction,
+} from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
 import { ThemeShape } from "@twilio-paste/theme";
 import merge from "deepmerge";
@@ -99,6 +109,13 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | 
    * @memberof ChatComposerProps
    */
   onChange?: OnChangeFunction;
+  /**
+   *
+   * @default null
+   * @type {React.MutableRefObject<LexicalEditor | null>}
+   * @memberof ChatComposerProps
+   */
+  editorInstanceRef?: React.MutableRefObject<LexicalEditor | null>;
 }
 
 export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
@@ -114,6 +131,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       disabled,
       fontSize,
       lineHeight,
+      editorInstanceRef,
       ...props
     },
     ref,
@@ -173,6 +191,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
             <HistoryPlugin />
             <AutoLinkPlugin />
             <ToggleEditablePlugin disabled={disabled} />
+            {editorInstanceRef && <EditorRefPlugin editorRef={editorInstanceRef} />}
             {children}
           </>
         </LexicalComposer>

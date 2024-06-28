@@ -4,7 +4,7 @@ import type { AIChat } from "@twilio-paste/ai-chat-log";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { ChatComposer } from "@twilio-paste/chat-composer";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -14,10 +14,12 @@ import {
   COMMAND_PRIORITY_HIGH,
   ClearEditorPlugin,
   KEY_ENTER_COMMAND,
+  LexicalEditor,
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import {
   AIChatLog,
   AIChatLogger,
@@ -202,22 +204,15 @@ export const AIChatLogComposer = (): React.ReactNode => {
     if (message === "") return;
     push(createNewMessage(message));
   };
+
+  const editorRef = React.useRef<LexicalEditor>(null);
+
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
-      <Box
-        borderStyle="solid"
-        borderWidth="borderWidth0"
-        borderTopWidth="borderWidth10"
-        borderColor="colorBorderWeak"
-        display="flex"
-        flexDirection="row"
-        columnGap="space30"
-        paddingX="space70"
-        paddingTop="space50"
-      >
+      <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"
           config={{
@@ -229,12 +224,27 @@ export const AIChatLogComposer = (): React.ReactNode => {
           ariaLabel="Message"
           placeholder="Type here..."
           onChange={handleComposerChange}
+          editorInstanceRef={editorRef}
         >
           <ClearEditorPlugin />
-          <SendButtonPlugin onClick={submitMessage} />
           <EnterKeySubmitPlugin onKeyDown={submitMessage} />
         </ChatComposer>
-      </Box>
+        <ChatComposerActionGroup>
+          <Button variant="secondary_icon" size="reset">
+            <AttachIcon decorative={false} title="Attach" />
+          </Button>
+          <Button
+            variant="primary_icon"
+            size="reset"
+            onClick={() => {
+              submitMessage();
+              editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+            }}
+          >
+            <SendIcon decorative={false} title="Send" />
+          </Button>
+        </ChatComposerActionGroup>
+      </ChatComposerContainer>
     </Box>
   );
 };
