@@ -1,5 +1,6 @@
 import type { StoryFn } from "@storybook/react";
 import {
+  AIChat,
   AIChatLogger,
   AIChatMessage,
   AIChatMessageActionCard,
@@ -12,6 +13,7 @@ import {
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
 import {
   Chat,
   ChatAttachment,
@@ -30,10 +32,6 @@ import {
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
-import * as React from "react";
-
-import { AIChat } from "@twilio-paste/ai-chat-log/src";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import {
@@ -45,6 +43,8 @@ import {
   LexicalEditor,
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
+import * as React from "react";
+
 import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "../src";
 
 export default {
@@ -172,14 +172,14 @@ export const ChatLogStory: StoryFn = () => {
     scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
   }, [chats, mounted]);
 
-  const handleComposerChange = (editorState) => {
+  const handleComposerChange = (editorState): void => {
     editorState.read(() => {
       const text = $getRoot().getTextContent();
       setMessage(text);
     });
   };
 
-  const submitMessage = () => {
+  const submitMessage = (): void => {
     if (message === "") return;
     push(createNewMessage(message));
   };
