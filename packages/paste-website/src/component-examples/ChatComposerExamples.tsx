@@ -1,8 +1,5 @@
-import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
 import type { Chat } from "@twilio-paste/chat-log";
-import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import {
   CLEAR_EDITOR_COMMAND,
   COMMAND_PRIORITY_HIGH,
@@ -94,24 +91,7 @@ export const createNewMessage = (message: string): Omit<Chat, "id"> => {
   };
 };
 
-export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const handleSend = (): void => {
-    onClick();
-    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-  };
-
-  return (
-    <Box position="absolute" top="space30" right="space30">
-      <Button variant="primary_icon" size="reset" onClick={handleSend}>
-        <SendIcon decorative={false} title="Send message" />
-      </Button>
-    </Box>
-  );
-};
-
-export const EnterKeyWithSubmitPlugin = React.forwardRef(({ onKeyDown }: { onKeyDown: () => void }, ref): null => {
+export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
   const handleEnterKey = React.useCallback(
@@ -127,21 +107,14 @@ export const EnterKeyWithSubmitPlugin = React.forwardRef(({ onKeyDown }: { onKey
     [editor, onKeyDown],
   );
 
-  React.useImperativeHandle(ref, () => ({
-    handleSubmit() {
-      onKeyDown();
-      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-    },
-  }));
-
   React.useEffect(() => {
     return editor.registerCommand(KEY_ENTER_COMMAND, handleEnterKey, COMMAND_PRIORITY_HIGH);
   }, [editor, handleEnterKey]);
   return null;
-});
+};
 
 export const ChatDialogExample = `const ChatDialog = () => {
-  const {chats, push} = useChatLogger(
+  const { chats, push } = useChatLogger(
     {
       content: (
         <ChatBookend>
@@ -153,7 +126,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Quisque ullamcorper ipsum vitae lorem euismod sodales.</ChatBubble>
@@ -177,7 +150,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
@@ -189,9 +162,9 @@ export const ChatDialogExample = `const ChatDialog = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    }
+    },
   );
-  const [message, setMessage] = React.useState('');
+  const [message, setMessage] = React.useState("");
 
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef(null);
@@ -203,7 +176,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
+    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState) => {
@@ -214,11 +187,15 @@ export const ChatDialogExample = `const ChatDialog = () => {
   };
 
   const submitMessage = () => {
-    if (message === '') return;
+    if (message === "") return;
     push(createNewMessage(message));
   };
 
-  const submitPluginRef = useRef();
+  const editorRef = React.useRef<LexicalEditor>(null);
+
+  React.useEffect(() => {
+    console.log(editorRef.current);
+  }, [editorRef.current]);
 
   return (
     <Box>
@@ -230,6 +207,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
         borderWidth="borderWidth0"
         borderTopWidth="borderWidth10"
         borderColor="colorBorderWeak"
+        columnGap="space30"
         paddingX="space70"
         paddingTop="space50"
       >
@@ -237,7 +215,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
           <ChatComposer
             maxHeight="size10"
             config={{
-              namespace: 'foo',
+              namespace: "foo",
               onError: (error) => {
                 throw error;
               },
@@ -245,15 +223,23 @@ export const ChatDialogExample = `const ChatDialog = () => {
             ariaLabel="Message"
             placeholder="Type here..."
             onChange={handleComposerChange}
+            editorInstanceRef={editorRef}
           >
             <ClearEditorPlugin />
-            <EnterKeyWithSubmitPlugin onKeyDown={submitMessage} ref={submitPluginRef} />
+            <EnterKeySubmitPlugin onKeyDown={submitMessage} />
           </ChatComposer>
           <ChatComposerActionGroup>
             <Button variant="secondary_icon" size="reset">
               <AttachIcon decorative={false} title="Attach" />
             </Button>
-            <Button variant="primary_icon" size="reset" onClick={submitPluginRef.current?.handleSubmit}>
+            <Button
+              variant="primary_icon"
+              size="reset"
+              onClick={() => {
+                submitMessage();
+                editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+              }}
+            >
               <SendIcon decorative={false} title="Send" />
             </Button>
           </ChatComposerActionGroup>
