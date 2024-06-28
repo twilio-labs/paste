@@ -5,6 +5,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -19,7 +20,6 @@ import {
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
-import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import {
   AIChatLog,
   AIChatLogger,
