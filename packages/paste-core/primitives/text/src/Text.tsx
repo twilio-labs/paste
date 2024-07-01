@@ -5,9 +5,9 @@ import {
   display,
   overflow,
   position,
-  props as stylingProps,
   space,
   styled,
+  props as stylingProps,
   typography,
   verticalAlign,
 } from "@twilio-paste/styling-library";

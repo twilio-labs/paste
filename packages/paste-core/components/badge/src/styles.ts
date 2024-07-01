@@ -21,7 +21,7 @@ export const badgeBaseStyles: BoxStyleProps = {
 };
 
 export const badgeVariantStyles: {
-  [key in typeof BadgeVariants[number]]: {
+  [key in (typeof BadgeVariants)[number]]: {
     backgroundColor: BoxStyleProps["backgroundColor"];
     color: BoxStyleProps["color"];
     borderRadius?: BoxStyleProps["borderRadius"];
@@ -121,7 +121,7 @@ export const badgeVariantStyles: {
 };
 
 export const badgeButtonStyles: {
-  [key in typeof BadgeVariants[number]]: {
+  [key in (typeof BadgeVariants)[number]]: {
     boxShadow: BoxStyleProps["boxShadow"];
   };
 } = {
@@ -186,7 +186,7 @@ export const badgeAnchorStyles: BoxStyleProps = {
   _focus: { textDecoration: "none", boxShadow: "shadowFocus" },
 };
 
-export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): BoxStyleProps => {
+export const getBadgeButtonStyles = (variant: (typeof BadgeVariants)[number]): BoxStyleProps => {
   const variantButtonStyle = badgeButtonStyles[variant];
   return {
     ...variantButtonStyle,

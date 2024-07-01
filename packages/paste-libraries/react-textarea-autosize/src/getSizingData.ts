@@ -26,7 +26,7 @@ const SIZING_STYLE = [
   "wordBreak",
 ] as const;
 
-type SizingProps = Extract<typeof SIZING_STYLE[number], keyof CSSStyleDeclaration>;
+type SizingProps = Extract<(typeof SIZING_STYLE)[number], keyof CSSStyleDeclaration>;
 
 type SizingStyle = Pick<CSSStyleDeclaration, SizingProps>;
 

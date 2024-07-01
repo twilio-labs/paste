@@ -1,4 +1,4 @@
-import { render as testRender, screen } from "@testing-library/react";
+import { screen, render as testRender } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
 

@@ -10,29 +10,28 @@ import {
 } from "../src";
 import type { MenuPrimitiveButtonProps } from "../src";
 
-const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>(function PreferencesMenu(
-  props,
-  ref,
-) {
-  const menu = useMenuPrimitiveState({ baseId: "sub-menu" });
-  return (
-    <>
-      <MenuPrimitiveButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
-        Preferences
-      </MenuPrimitiveButton>
-      <MenuPrimitive {...menu} aria-label="Preferences" data-testid="example-submenu">
-        <MenuPrimitiveItem {...menu} data-testid="example-submenu-item">
-          Settings
-        </MenuPrimitiveItem>
-        <MenuPrimitiveItem {...menu} disabled data-testid="example-disabled-submenu-item">
-          Extensions
-        </MenuPrimitiveItem>
-        <MenuPrimitiveSeparator {...menu} />
-        <MenuPrimitiveItem {...menu}>Keyboard shortcuts</MenuPrimitiveItem>
-      </MenuPrimitive>
-    </>
-  );
-});
+const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>(
+  function PreferencesMenu(props, ref) {
+    const menu = useMenuPrimitiveState({ baseId: "sub-menu" });
+    return (
+      <>
+        <MenuPrimitiveButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
+          Preferences
+        </MenuPrimitiveButton>
+        <MenuPrimitive {...menu} aria-label="Preferences" data-testid="example-submenu">
+          <MenuPrimitiveItem {...menu} data-testid="example-submenu-item">
+            Settings
+          </MenuPrimitiveItem>
+          <MenuPrimitiveItem {...menu} disabled data-testid="example-disabled-submenu-item">
+            Extensions
+          </MenuPrimitiveItem>
+          <MenuPrimitiveSeparator {...menu} />
+          <MenuPrimitiveItem {...menu}>Keyboard shortcuts</MenuPrimitiveItem>
+        </MenuPrimitive>
+      </>
+    );
+  },
+);
 
 const MenuMock = (): JSX.Element => {
   const menu = useMenuPrimitiveState({ baseId: "menu-example" });
