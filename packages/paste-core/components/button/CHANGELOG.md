@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.2
+
+### Patch Changes
+
+- [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2) [#3927](https://github.com/twilio-labs/paste/pull/3927) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button] Add border radius 20 to size="reset" buttons which can be overridden by passing a border radius token to variant="reset" and size="reset" buttons
+
 ## 14.1.1
 
 ### Patch Changes

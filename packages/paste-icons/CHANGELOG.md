@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.6.0
+
+### Minor Changes
+
+- [`b5e6d3fd1`](https://github.com/twilio-labs/paste/commit/b5e6d3fd1c85747821ba68e250b02329001f9da3) [#3962](https://github.com/twilio-labs/paste/pull/3962) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] Added 5 new icons: AuthenticationIcon, TemplateMessageIcon, TriggerIcon, ProductUnifiedProfilesIcon and UnstarIcon. Also updated 2 icons: ProductSupportIcon and SupportIcon
+
 ## 12.5.0
 
 ### Minor Changes
