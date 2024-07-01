@@ -26,6 +26,7 @@ export const ChatComposerActionGroup = React.forwardRef<HTMLDivElement, ChatComp
       columnGap="space30"
       marginBottom="space30"
       marginLeft="space30"
+      marginRight="space20"
     >
       {children}
     </Box>
