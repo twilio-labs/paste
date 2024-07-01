@@ -156,7 +156,7 @@ export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
 
 ResponsiveContainedVariantWithAttachments.storyName = "Responsive Contained Variant with Attachments";
 
-export const ResponsiveContainedVariantWithAttatchments: StoryFn = () => {
+export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
   return (
     <ChatComposerContainer variant="contained">
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
@@ -210,7 +210,7 @@ export const ResponsiveContainedVariantWithAttatchments: StoryFn = () => {
   );
 };
 
-ResponsiveContainedVariantWithAttatchments.storyName = "Responsive Contained Variant with Attatchments";
+ResponsiveContainedVariantWithAttachments.storyName = "Responsive Contained Variant with Attachments";
 
 export const ContainedDisabledVariant: StoryFn = () => {
   const [isDisabled, setIsDisabled] = React.useState(true);
