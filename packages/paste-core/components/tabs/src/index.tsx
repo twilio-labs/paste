@@ -2,6 +2,7 @@ import type { TabStateReturn } from "./Tabs";
 
 export { Tabs, useTabState } from "./Tabs";
 export type { TabsProps } from "./Tabs";
+export { TabsContext } from "./TabsContext";
 export { TabList } from "./TabList";
 export type { TabListProps } from "./TabList";
 export { Tab } from "./Tab";

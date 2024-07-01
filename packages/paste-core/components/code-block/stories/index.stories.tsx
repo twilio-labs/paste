@@ -125,6 +125,22 @@ export const CodeBlockTabs: StoryFn = () => (
     <CodeBlockTabList>
       <CodeBlockTab>Ruby</CodeBlockTab>
       <CodeBlockTab>PHP</CodeBlockTab>
+      <CodeBlockTab>Python</CodeBlockTab>
+      <CodeBlockTab>Curl</CodeBlockTab>
+      <CodeBlockTab>JavaScript</CodeBlockTab>
+      <CodeBlockTab>Java</CodeBlockTab>
+      <CodeBlockTab>C++</CodeBlockTab>
+      <CodeBlockTab>C#</CodeBlockTab>
+      <CodeBlockTab>C</CodeBlockTab>
+      <CodeBlockTab>Perl</CodeBlockTab>
+      <CodeBlockTab>Lisp</CodeBlockTab>
+      <CodeBlockTab>Rust</CodeBlockTab>
+      <CodeBlockTab>Cobol</CodeBlockTab>
+      <CodeBlockTab>Shell</CodeBlockTab>
+      <CodeBlockTab>Bash</CodeBlockTab>
+      <CodeBlockTab>Golang</CodeBlockTab>
+      <CodeBlockTab>Erlang</CodeBlockTab>
+      <CodeBlockTab>Haskell</CodeBlockTab>
     </CodeBlockTabList>
     <CodeBlockTabPanel>
       <CodeBlock externalLink="#" code={rubyCode} language="ruby" />
