@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "20.13.0",
+  "version": "20.14.0",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -72,9 +72,9 @@
   },
   "dependencies": {
     "@twilio-paste/account-switcher": "^3.0.1",
-    "@twilio-paste/ai-chat-log": "^0.0.0",
+    "@twilio-paste/ai-chat-log": "^1.0.0",
     "@twilio-paste/alert": "^14.1.0",
-    "@twilio-paste/alert-dialog": "^9.2.0",
+    "@twilio-paste/alert-dialog": "^9.2.1",
     "@twilio-paste/anchor": "^12.1.0",
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/aspect-ratio": "^10.1.0",
@@ -83,8 +83,8 @@
     "@twilio-paste/base-radio-checkbox": "^13.1.0",
     "@twilio-paste/box": "^10.3.0",
     "@twilio-paste/breadcrumb": "^11.1.1",
-    "@twilio-paste/button": "^14.1.1",
-    "@twilio-paste/button-group": "^4.1.0",
+    "@twilio-paste/button": "^14.1.2",
+    "@twilio-paste/button-group": "^4.1.1",
     "@twilio-paste/callout": "^4.1.0",
     "@twilio-paste/card": "^9.1.0",
     "@twilio-paste/chat-composer": "^5.1.1",
@@ -189,7 +189,7 @@
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^12.5.0",
+    "@twilio-paste/icons": "^12.6.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "react": "^18.0.0",
