@@ -8,20 +8,26 @@ import { useCreateThreadMutation } from "../../api/assistantAPIs";
 import { Logo } from "../../assets/Logo";
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
+import { useAssistantToaster } from "./AssistantToaster";
 
 export const AssistantHeader: React.FC = () => {
   const threadStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const createThreadMutation = useCreateThreadMutation();
+  const assistantToaster = useAssistantToaster();
 
   const handleCreateNewThread = (): void => {
     createThreadMutation.mutate(
       {},
       {
-        onSuccess: async (data) => {
-          // @ts-expect-error I don't know how to type this right now so it knows it's a response
-          const newThread = await data.json();
+        onSuccess: (data: any) => {
           if (threadStore == null) return;
-          threadStore.createAndSelectThread(newThread);
+          threadStore.createAndSelectThread(data);
+        },
+        onError: (error) => {
+          assistantToaster.push({
+            message: error.message,
+            variant: "error",
+          });
         },
       },
     );
