@@ -24,7 +24,7 @@ const baseConfig = {
   },
 };
 
-const attatchments = [
+const attachments = [
   {
     name: "Document-FINAL.doc",
     size: "123 MB",
@@ -56,7 +56,7 @@ const ExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }
       </Button>
     </ChatComposerActionGroup>
     <ChatComposerAttachmentGroup data-testid="chat-composer-attachement-group">
-      {attatchments.map((attatchment, index) => (
+      {attachments.map((attatchment, index) => (
         <ChatComposerAttachmentCard
           onDismiss={() => {
             attatchmentCloseSpy(attatchment.name);
@@ -108,7 +108,7 @@ const CustomizedExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: j
       data-testid="chat-composer-attachement-group"
       element="CUSTOM_CHAT_COMPOSER_ATTACHMENT_GROUP"
     >
-      {attatchments.map((attatchment, index) => (
+      {attachments.map((attatchment, index) => (
         <ChatComposerAttachmentCard
           onDismiss={() => {
             attatchmentCloseSpy(attatchment.name);
@@ -150,13 +150,13 @@ describe("ChatComposer", () => {
     expect(screen.getByText("Type here...")).toBeDefined();
     expect(screen.getByRole("button", { name: "Attach" })).toBeDefined();
     expect(screen.getByRole("button", { name: "Send" })).toBeDefined();
-    attatchments.forEach((attatchment) => {
+    attachments.forEach((attatchment) => {
       expect(screen.getByText(attatchment.name)).toBeDefined();
       expect(screen.getByText(attatchment.size)).toBeDefined();
     });
     screen.getAllByRole("button", { name: "Remove attachment" }).forEach((button, index) => {
       userEvent.click(button);
-      expect(spy).toHaveBeenCalledWith(attatchments[index].name);
+      expect(spy).toHaveBeenCalledWith(attachments[index].name);
     });
   });
 
@@ -176,7 +176,7 @@ describe("ChatComposer", () => {
       expect(screen.getByTestId("chat-composer-attachement-group").getAttribute("data-paste-element")).toEqual(
         "CHAT_COMPOSER_ATTACHMENT_GROUP",
       );
-      attatchments.forEach((attatchment, index) => {
+      attachments.forEach((attatchment, index) => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CHAT_COMPOSER_ATTACHMENT_CARD",
         );
@@ -207,7 +207,7 @@ describe("ChatComposer", () => {
       expect(screen.getByTestId("chat-composer-attachement-group").getAttribute("data-paste-element")).toEqual(
         "CUSTOM_CHAT_COMPOSER_ATTACHMENT_GROUP",
       );
-      attatchments.forEach((attatchment, index) => {
+      attachments.forEach((attatchment, index) => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CUSTOM_CHAT_COMPOSER_ATTACHMENT_CARD",
         );

@@ -69,7 +69,7 @@ export const ContainedVariant: StoryFn = () => {
 
 ContainedVariant.storyName = "Contained Variant";
 
-export const ContainedVariantWithAttatchments: StoryFn = () => {
+export const ContainedVariantWithAttachments: StoryFn = () => {
   return (
     <ChatComposerContainer variant="contained">
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
@@ -123,9 +123,9 @@ export const ContainedVariantWithAttatchments: StoryFn = () => {
   );
 };
 
-ContainedVariantWithAttatchments.storyName = "Contained Variant with Attatchments";
+ContainedVariantWithAttachments.storyName = "Contained Variant with Attachments";
 
-export const ResponsiveContainedVariantWithAttatchments: StoryFn = () => {
+export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
   return (
     <ChatComposerContainer variant="contained">
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
@@ -179,7 +179,7 @@ export const ResponsiveContainedVariantWithAttatchments: StoryFn = () => {
   );
 };
 
-ResponsiveContainedVariantWithAttatchments.storyName = "Responsive Contained Variant with Attatchments";
+ResponsiveContainedVariantWithAttachments.storyName = "Responsive Contained Variant with Attachments";
 
 export const ContainedDisabledVariant: StoryFn = () => {
   const [isDisabled, setIsDisabled] = React.useState(true);
@@ -212,7 +212,7 @@ export const ContainedDisabledVariant: StoryFn = () => {
 
 ContainedDisabledVariant.storyName = "Contained Disabled Variant";
 
-export const CustomizationContainedVariantWithAttatchments: StoryFn = () => {
+export const CustomizationContainedVariantWithAttachments: StoryFn = () => {
   const theme = useTheme();
 
   return (
@@ -274,8 +274,8 @@ export const CustomizationContainedVariantWithAttatchments: StoryFn = () => {
   );
 };
 
-CustomizationContainedVariantWithAttatchments.storyName = "Customization Contained Variant with Attatchments";
-CustomizationContainedVariantWithAttatchments.parameters = {
+CustomizationContainedVariantWithAttachments.storyName = "Customization Contained Variant with Attachments";
+CustomizationContainedVariantWithAttachments.parameters = {
   a11y: {
     // no need to a11y check customization
     disable: true,
