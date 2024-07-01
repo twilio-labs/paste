@@ -7,17 +7,17 @@ import * as React from "react";
 import { IconWrapper } from "./helpers/IconWrapper";
 import type { IconWrapperProps } from "./helpers/IconWrapper";
 
-export interface SupportIconProps extends IconWrapperProps {
+export interface TriggerIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
+const TriggerIcon = React.forwardRef<HTMLElement, TriggerIconProps>(
   ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
-    const titleId = `SupportIcon-${useUID()}`;
+    const titleId = `TriggerIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error("[SupportIcon]: Missing a title for non-decorative icon.");
+      throw new Error("[TriggerIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -34,9 +34,9 @@ const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
+            d="M11.557 2.045a.5.5 0 0 1 .278.575l-1.327 5.358h4.231a.5.5 0 0 1 .415.78L9.067 17.78a.5.5 0 0 1-.905-.38l1.095-5.378H5a.5.5 0 0 1-.409-.788l6.35-9.022a.5.5 0 0 1 .616-.167Zm-5.594 8.977H9.87a.5.5 0 0 1 .49.6l-.716 3.514 4.155-6.158h-3.93a.5.5 0 0 1-.485-.62l.84-3.389-4.26 6.053Z"
             fill="currentColor"
             fillRule="evenodd"
-            d="M1.5 10a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0ZM10 2.686a7.314 7.314 0 1 0 0 14.628 7.314 7.314 0 0 0 0-14.628Zm.227 3.67a1.987 1.987 0 0 0-2.213 1.977l.001.593-1.186.002v-.594a3.173 3.173 0 1 1 3.857 3.094l-.013.003a.1.1 0 0 0-.08.094v.946H9.407v-.96a1.286 1.286 0 0 1 1.028-1.242 1.986 1.986 0 0 0-.208-3.913Zm-.99 8.044a.765.765 0 1 1 1.529 0 .765.765 0 0 1-1.53 0Z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
   },
 );
 
-SupportIcon.displayName = "SupportIcon";
-export { SupportIcon };
+TriggerIcon.displayName = "TriggerIcon";
+export { TriggerIcon };

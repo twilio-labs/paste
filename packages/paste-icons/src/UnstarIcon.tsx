@@ -7,17 +7,17 @@ import * as React from "react";
 import { IconWrapper } from "./helpers/IconWrapper";
 import type { IconWrapperProps } from "./helpers/IconWrapper";
 
-export interface SupportIconProps extends IconWrapperProps {
+export interface UnstarIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
+const UnstarIcon = React.forwardRef<HTMLElement, UnstarIconProps>(
   ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
-    const titleId = `SupportIcon-${useUID()}`;
+    const titleId = `UnstarIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error("[SupportIcon]: Missing a title for non-decorative icon.");
+      throw new Error("[UnstarIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -34,9 +34,9 @@ const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
+            d="M11.342 2.813a.98.98 0 0 1 .061.146l1.32 4.035h3.82a1.507 1.507 0 0 1 .868.303 1.486 1.486 0 0 1 .553 1.505 1.48 1.48 0 0 1-.495.807l-3.288 2.55 1.42 3.885c.01.028.02.055.027.084a1.477 1.477 0 0 1-.505 1.538 1.511 1.511 0 0 1-1.753.098l-3.376-2.37-3.372 2.318a1.516 1.516 0 0 1-1.744-.104 1.49 1.49 0 0 1-.506-1.54.983.983 0 0 1 .027-.086l1.418-3.828L2.532 9.61a1.481 1.481 0 0 1-.441-1.64c.097-.266.27-.5.498-.672a1.507 1.507 0 0 1 .868-.303h3.82l1.32-4.035a.985.985 0 0 1 .062-.146 1.5 1.5 0 0 1 .555-.594 1.518 1.518 0 0 1 2.128.594Z"
             fill="currentColor"
             fillRule="evenodd"
-            d="M1.5 10a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0ZM10 2.686a7.314 7.314 0 1 0 0 14.628 7.314 7.314 0 0 0 0-14.628Zm.227 3.67a1.987 1.987 0 0 0-2.213 1.977l.001.593-1.186.002v-.594a3.173 3.173 0 1 1 3.857 3.094l-.013.003a.1.1 0 0 0-.08.094v.946H9.407v-.96a1.286 1.286 0 0 1 1.028-1.242 1.986 1.986 0 0 0-.208-3.913Zm-.99 8.044a.765.765 0 1 1 1.529 0 .765.765 0 0 1-1.53 0Z"
             clipRule="evenodd"
           />
         </svg>
@@ -45,5 +45,5 @@ const SupportIcon = React.forwardRef<HTMLElement, SupportIconProps>(
   },
 );
 
-SupportIcon.displayName = "SupportIcon";
-export { SupportIcon };
+UnstarIcon.displayName = "UnstarIcon";
+export { UnstarIcon };
