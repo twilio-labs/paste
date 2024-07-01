@@ -1,6 +1,5 @@
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import { ThemeShape } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { ChatComposerContext } from "./ChatComposerContext";
