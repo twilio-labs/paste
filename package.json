@@ -167,7 +167,7 @@
     "dotenv": "^16.0.0",
     "esbuild": "^0.15.18",
     "esbuild-plugin-version-injector": "^1.1.0",
-    "eslint": "^8.29.0",
+    "eslint": "^9.0.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-twilio-react": "2.0.0",
     "eslint-config-twilio-ts": "2.0.0",
