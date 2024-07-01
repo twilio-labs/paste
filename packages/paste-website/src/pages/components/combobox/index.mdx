@@ -192,6 +192,31 @@ it based on the name.
   {groupedLabelComboboxExample}
 </LivePreview>
 
+### Combobox with collapsible group label
+
+The `canCollapseGroupLabel` prop accepts a boolean. If true, the group label is collapsiable. 
+The default value is false.
+
+In the example below, you may click on the group label to collapse or expand the group label.
+
+<LivePreview
+  scope={{
+    Combobox,
+    ProductInsightsIcon,
+    ProductAutopilotIcon,
+    ProductStudioIcon,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    filter,
+  }}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {collapsiableGroupedLabelComboboxExample}
+</LivePreview>
+
 ### Combobox using Option Template
 
 Use the option template to display more complex options in a listbox.

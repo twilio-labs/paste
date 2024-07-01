@@ -22,6 +22,7 @@ const ComboboxItems: React.FC<
         disabledItems,
         optionTemplate,
         groupLabelTemplate,
+        canCollapseGroupLabel,
         groupItemsBy,
         totalSize,
         virtualItems,
@@ -126,6 +127,7 @@ const ComboboxItems: React.FC<
                 element={element}
                 key={groupKey}
                 groupName={isUncategorized ? undefined : groupKey}
+                canCollapseGroupLabel={canCollapseGroupLabel}
                 groupLabelTemplate={groupLabelTemplate}
               >
                 {groupedItems[groupedItemKey].map(({ index, ...item }: Record<string, unknown>) => {

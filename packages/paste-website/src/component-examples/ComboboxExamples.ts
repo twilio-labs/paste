@@ -283,6 +283,51 @@ render(
 )
 `.trim();
 
+export const collapsiableGroupedLabelComboboxExample = `
+const groupedItems = [
+  {type: 'Components', label: 'Alert'},
+  {type: 'Components', label: 'Anchor'},
+  {type: 'Components', label: 'Button'},
+  {type: 'Components', label: 'Card'},
+  {type: 'Components', label: 'Heading'},
+  {type: 'Components', label: 'List'},
+  {type: 'Components', label: 'Modal'},
+  {type: 'Components', label: 'Paragraph'},
+  {type: 'Primitives', label: 'Box'},
+  {type: 'Primitives', label: 'Text'},
+  {type: 'Primitives', label: 'Non-modal Dialog'},
+  {type: 'Layout', label: 'Grid'},
+  {label: 'Design tokens'},
+];
+
+const GroupedCombobox = () => {
+  const [inputItems, setInputItems] = React.useState(groupedItems);
+  return (
+    <Combobox
+      autocomplete
+      groupItemsBy="type"
+      items={inputItems}
+      canCollapseGroupLabel={true}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      optionTemplate={(item) => <div>{item.label}</div>}
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(
+            filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          );
+        }
+      }}
+      itemToString={item => (item ? item.label : null)}
+    />
+  );
+};
+
+render(
+  <GroupedCombobox />
+)
+`.trim();
+
 export const errorExample = `
 const products = ['SMS', 'Phone Numbers', 'Video'];
 
