@@ -40,9 +40,8 @@ export const ChatComposerAttachmentGroup = React.forwardRef<HTMLDivElement, Chat
         gridTemplateColumns={getColumnStyles()}
         flexWrap="wrap"
         columnGap="space40"
-        paddingTop="space50"
         paddingBottom="space30"
-        paddingX="space0"
+        paddingX="space10"
         rowGap="space40"
       >
         {children}

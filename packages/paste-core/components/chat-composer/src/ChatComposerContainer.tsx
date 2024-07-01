@@ -12,7 +12,8 @@ const Styles = {
     borderStyle: "solid",
     borderRadius: "borderRadius30" as ThemeShape["radii"],
     borderColor: "colorBorderWeaker" as ThemeShape["borderColors"],
-    boxShadow: "shadowBorderLow" as ThemeShape["shadows"],
+    boxShadow: "shadowLow" as ThemeShape["shadows"],
+    backgroundColor: "colorBackgroundBody" as ThemeShape["backgroundColors"],
   },
 };
 
@@ -61,9 +62,10 @@ export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatCompos
             color: "colorTextWeaker",
             backgroundColor: "colorBackground",
           }}
-          padding="space50"
+          padding="space30"
           maxHeight={maxHeight}
           overflowY="auto"
+          rowGap="space50"
           {...Styles[variant]}
         >
           {children}
