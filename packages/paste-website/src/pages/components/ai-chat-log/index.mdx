@@ -1,0 +1,363 @@
+export const meta = {
+  title: "AI Chat Log - Components",
+  package: "@twilio-paste/ai-chat-log",
+  description:
+    "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot.",
+  slug: "/components/ai-chat-log/",
+};
+
+import { uid } from "@twilio-paste/uid-library";
+import { HelpText } from "@twilio-paste/help-text";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Stack } from "@twilio-paste/stack";
+import { Paragraph } from "@twilio-paste/paragraph";
+import {
+  AIChatLog,
+  AIChatMessage,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageLoading,
+  AIChatLogger,
+  useAIChatLogger,
+  AIChatMessageActionCard,
+  AIChatMessageActionGroup,
+} from "@twilio-paste/ai-chat-log";
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
+import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
+
+import { SidebarCategoryRoutes } from "../../../constants";
+import Logo from "../../../assets/logo.svg";
+
+import {
+  basicBotMessage,
+  basicHumanMessage,
+  botWithFeedback,
+  botWithLoadingStopButton,
+  botWithLoading,
+  kitchenSink,
+  aiChatLoggerExample,
+  botWithBodyActions,
+  avatarExample,
+} from "../../../component-examples/AIChatLogExamples";
+import packageJson from "@twilio-paste/ai-chat-log/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("AI Chat Log");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log",
+        storybookUrl: "/?path=/story/components-chatlog--example-chat-log",
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+>
+  {`<AIChatLog>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody>
+      What does the SMS delivery error code 30003 mean?
+    </AIChatMessageBody>
+  </AIChatMessage>
+  <AIChatMessage variant="bot">
+    <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+    <AIChatMessageBody>
+      Here is what I found, error code 30003 means: The destination phone is unavailable or turned off, or it may be a landline or phone that doesn't support SMS.
+    </AIChatMessageBody>
+  </AIChatMessage>
+</AIChatLog>`}
+</LivePreview>
+
+## Guidelines
+
+### About AI Chat Log
+
+An AI Chat Log is a way to display conversations between a user and AI. If you are looking for a chat between 2 or more humans, please refer to [Chat Log](/components/chat-log).
+
+The AI Chat Log package includes these main components:
+
+- AIChatLog
+- AIChatMessage
+- AIChatMessageAuthor
+- AIChatMessageBody
+- AIChatMessageActionGroup
+- AIChatMessageActionCard
+- AIChatMessageLoading
+
+### Accessibility
+
+To ensure the chat is accessible, only use the AI Chat components within an `AIChatLog` component and use `AIChatMessage` to wrap `AIChatMessageBody`, `AIChatMessageActionGroup` and components together.
+
+The only other accessibility requirement is providing the `AIChatMessageActionCard` a descriptive label via the `aria-label` React prop.
+
+The AIChatLog component has `role="log"` which means that any new messages added to it are announced by assistive technology.
+
+## Examples
+
+### Basic Message
+
+A message must include the author and body. Any message text from a user or a bot must be contained within the `AIChatMessageBody` component. Due to lengthy AI responses, the chat layout is top-down.
+
+#### Bot
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+  noInline
+>
+  {basicBotMessage}
+</LivePreview>
+
+#### User
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+  noInline
+>
+  {basicHumanMessage}
+</LivePreview>
+
+### Message Body Sizes
+
+The `AIChatMessageBody` component has two sizes, `size="default"` and `size="fullScreen"`. The fullScreen size is used where the ChatLog is displayed in the full width of the page where larger font size is needed.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+  }}
+  language="jsx"
+>
+  {`<AIChatLog>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody size="default">
+      I'm a message that should be displayed in compact elements
+    </AIChatMessageBody>
+  </AIChatMessage>
+  <AIChatMessage variant="user">
+    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageBody size="fullScreen">
+      I'm a message that will be displayed in full screen width
+    </AIChatMessageBody>
+  </AIChatMessage>
+</AIChatLog>`}
+</LivePreview>
+
+### Message with Actions
+
+Message actions can be used to provide quick responses or actions to the user.
+
+`AIChatMessageActionGroup` should be a child of `AIChatMessage` so that the text and meta information are correctly grouped together for assistive technologies. `AIChatMessageActionCard` also needs a readable `aria-label` that summarizes what the meta information says.
+
+Each item within `AIChatMessageActionGroup` should be wrapped with `AIChatMessageActionCard`. It is recommended to use reset button variants for content within `AIChatMessageActionCard`.
+
+Actions can still be added in `AIChatMessageBody` which are returned from the AI response.
+
+#### Feedback in AIChatMessageActionCard
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Button,
+    ThumbsUpIcon,
+    ThumbsDownIcon,
+    CopyIcon,
+    RefreshIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {botWithFeedback}
+</LivePreview>
+
+#### Buttons in AIChatMessageBody from AI Response
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    Button,
+    ButtonGroup,
+    Paragraph,
+  }}
+  language="jsx"
+  noInline
+>
+  {botWithBodyActions}
+</LivePreview>
+
+### Loading States
+
+Use the `AIChatMessageLoading` component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
+
+The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
+
+#### Loading
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageLoading,
+  }}
+  language="jsx"
+  noInline
+>
+  {botWithLoading}
+</LivePreview>
+
+#### Loading with Stop Button
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageLoading,
+  }}
+  language="jsx"
+  noInline
+>
+  {botWithLoadingStopButton}
+</LivePreview>
+
+### Customizing Avatar
+
+`AIChatMessageAuthor` can utilize custom icons by passing an icon to the prop `avatarIcon` or an image to the `avatarSrc` prop.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    LogoTwilioIcon,
+    Logo,
+  }}
+  language="jsx"
+  noInline
+>
+  {avatarExample}
+</LivePreview>
+
+### Example AI Chat Log
+
+This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageLoading,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Button,
+    ButtonGroup,
+    ThumbsDownIcon,
+    ThumbsUpIcon,
+    Paragraph,
+  }}
+  language="jsx"
+  noInline
+>
+  {kitchenSink}
+</LivePreview>
+
+### useAIChatLogger hook
+
+The `useAIChatLogger` hook provides a hook-based approach to managing AI chat state. It is best used with the `<AIChatLogger />` component.
+
+`useAIChatLogger` returns 4 things:
+
+- An array of `aiChats`.
+- A `push` method used to add a chat, optionally with a custom ID.
+- A `pop` method used to remove a chat, optionally via its ID.
+- A `clear` method used to remove all chats.
+
+##### AIChatLogger component
+
+The `<AIChatLogger />` component handles rendering the chats it is passed via props. It handles how chats enter and leave the UI.
+
+```
+const { aiChats } = useAIChatLogger();
+return <AIChatLogger aiChats={aiChats} />;
+```
+
+##### Adding and removing a chat
+
+You can push or pop a chat based on an action or event. In this example it's based on a button click:
+
+<LivePreview
+  scope={{
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageLoading,
+    Button,
+    ButtonGroup,
+    useAIChatLogger,
+    AIChatLogger,
+    Stack,
+    uid,
+  }}
+  language="jsx"
+  noInline
+>
+  {aiChatLoggerExample}
+</LivePreview>
+
+## Composition Notes
+
+Keep any generated responses from the AI contained in the `AIChatMessageBody` component. Each chat message should only have one `AIChatMessageBody` component.

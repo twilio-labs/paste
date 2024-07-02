@@ -1,0 +1,100 @@
+export const meta = {
+  title: "AI Chat Log - API",
+  package: "@twilio-paste/ai-chat-log",
+  description:
+    "An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot",
+  slug: "/components/ai-chat-log/api",
+};
+
+import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md"; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from "@twilio-paste/ai-chat-log/package.json";
+
+import { SidebarCategoryRoutes } from "../../../constants";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData, getComponentApi } from "../../../utils/api";
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("AI Chat Log");
+  const { componentApi, componentApiTocData } = getComponentApi("@twilio-paste/ai-chat-log");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log",
+        storybookUrl: "/?path=/story/components-chatlog--example-chat-log",
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/ai-chat-log - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  AIChatLog,
+  AIChatMessage,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageFeedback,
+  AIChatMessageLoading,
+  AIChatMessageMeta,
+} from "@twilio-paste/ai-chat-log";
+
+export const Basic = () => {
+  return (
+    <AIChatLog>
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageBody>
+          Hi, I'm getting errors codes when sending an SMS.
+        </AIChatMessageBody>
+      </AIChatMessage>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>
+          Error codes can be returned from various parts of the process. What error codes are you encountering?
+        </AIChatMessageBody>
+         <AIChatMessageActionGroup aria-label="Feedback form">
+          <AIChatMessageAction>
+            Is this helpful?
+            <Button variant="reset" size="reset">
+              <ThumbsUpIcon decorative={false} title="like result" />
+            </Button>
+            <Button variant="reset" size="reset">
+              <ThumbsDownIcon decorative={false} title="dislike result" />
+            </Button>
+          </AIChatMessageAction>
+          <AIChatMessageAction>
+            <Button variant="reset" size="reset">
+              <RefreshIcon decorative={true}/> Rewrite
+            </Button>
+            <Button variant="reset" size="reset">
+              <CopyIcon decorative={true}/> Copy
+            </Button>
+          </AIChatMessageAction>
+        </AIChatMessageActionGroup>
+      </AIChatMessage>
+    </AIChatLog>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
