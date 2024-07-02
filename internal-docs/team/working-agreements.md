@@ -15,7 +15,7 @@ It's important that you are able to count on each other as part of a high-functi
 
 ## Agreeing Parties
 
-Aayush Iyer, Andi Oneto, Glorilí Alejandro, Jade Pennig, Katie Porter, Kelsey Cavitt, Loreina Chew, Nora Krantz, Sarah Li, Shadi Isber, Simon Taggart, Kyle Gilbreath
+Aayush Iyer, Andi Oneto, Glorilí Alejandro, Jade Pennig, Katie Porter, Kelsey Cavitt, Loreina Chew, Nora Krantz, Sarah Li, Shadi Isber, Simon Taggart, Kyle Gilbreath, Kristian Antrobus, Roxana Gomez
 
 ## Working Agreements
 
