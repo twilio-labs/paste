@@ -679,6 +679,12 @@
       "required": false,
       "externalProp": true
     },
+    "editorInstanceRef": {
+      "type": "MutableRefObject<LexicalEditor | null>",
+      "defaultValue": "null",
+      "required": false,
+      "externalProp": false
+    },
     "element": {
       "type": "string",
       "defaultValue": "CHAT_COMPOSER",
