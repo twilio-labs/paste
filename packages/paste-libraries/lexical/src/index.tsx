@@ -32,6 +32,7 @@ export { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 export { AutoLinkPlugin } from "@lexical/react/LexicalAutoLinkPlugin";
 export { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 export { ClearEditorPlugin } from "@lexical/react/LexicalClearEditorPlugin";
+export { EditorRefPlugin } from "@lexical/react/LexicalEditorRefPlugin";
 export { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 export type LexicalComposerProps = React.ComponentProps<typeof LexicalComposer>;

@@ -22,6 +22,7 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
       boxShadow: "shadowFocusInverse",
       color: "colorTextInverse",
       textDecoration: "underline",
+      borderRadius: "borderRadius20",
     }}
     _hover={{
       color: "colorTextInverse",
