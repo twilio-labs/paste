@@ -24,6 +24,7 @@ export const getStaticProps = async () => {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'AI Chat Log',
       },
       componentApi,
       mdxHeadings: [...mdxHeadings, ...componentApiTocData],
