@@ -16,7 +16,7 @@ The same happens with Github discussions. The discussion is a page and is split 
 
 We can then perform a similarity search using the user input as the query.
 
-Embeddings are generated using the the [embedding script](../../../packages/paste-website/scripts/search/).
+Embeddings are generated using the the [embedding script](../../../packages/paste-website/scripts/search/). For a more detailed explanation of generating embeddings and running locally refernce [generating-embeddings](./generating-embeddings.md).
 
 ## Production vs Previews (staging)
 
