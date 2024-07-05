@@ -5,7 +5,8 @@
   "scripts": {
     "start": "yarn supabase start",
     "stop": "yarn supabase stop",
-    "generate:db-types": "yarn supabase gen types typescript --local > supabase/schema.gen.ts"
+    "generate:db-types": "yarn supabase gen types typescript --local > supabase/schema.gen.ts",
+    "db:reset": "yarn supabase db reset"
   },
   "devDependencies": {
     "supabase": "^1.136.3"

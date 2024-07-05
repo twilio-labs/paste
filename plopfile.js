@@ -81,6 +81,11 @@ module.exports = function (plop) {
         path: "packages/paste-core/{{component-type}}/{{kebabCase component-name}}/tsconfig.json",
         templateFile: "tools/plop-templates/tsconfig.hbs",
       },
+      {
+        type: "add",
+        path: "packages/paste-core/{{component-type}}/{{kebabCase component-name}}/CHANGELOG.md",
+        templateFile: "tools/plop-templates/CHANGELOG.hbs",
+      },
     ],
   });
 };
