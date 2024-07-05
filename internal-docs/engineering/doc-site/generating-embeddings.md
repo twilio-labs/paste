@@ -10,7 +10,7 @@ In order to develop locally you will need to startup a local instance of Supabas
 
 After you have it setup you should be able to access Supabase at: http://127.0.0.1:54323. If you have no tables, you have not applied migrations. You can run ```yarn workspace @twilio-paste/backend db:reset``` from the root of the project.
 
-**Note**: if you see an error for vector packages go into [20230928013336_initial_schema](../../../apps/backend/supabase/migrations/20230928013336_initial_schema.sql) and change the following without committing:
+**Note**: if you see an error for vector packages go into [20230928013336_initial_schema](../../../apps/backend/supabase/migrations/20230928013336_initial_schema.sql) and change the following **without committing**:
 
 ```sql
 create extension if not exists "vector" with schema "public" version '0.5.0';
