@@ -37,6 +37,6 @@ The best way to generate data is to run the nightly embed script `generate:embed
 
 While there are other tables the only ones that concern the embeddings creation are:
 - **page**: Stores the metadata of the entry. Key columns are the checksum (used to determine whether to update the record), path (either the url of the page or the github discussion), type (github-discussion or markdown)
-- **page_sections**: contains the search embeddings. Key columns are content (plain text headings/titles), embedding (the vector spaces created from OpenAI), slug (yo string of content or the discussion/answer in GitHub).
+- **page_sections**: contains the search embeddings. Key columns are content (plain text headings/titles), embedding (the vector spaces created from OpenAI), slug (toString of content or the discussion/answer in GitHub).
 
-Both tables are related with page being thge parent. They are joined by `page.id on page_section.page_id`.
+Both tables are related with page being the parent. They are joined by `page.id on page_section.page_id`.
