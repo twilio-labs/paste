@@ -38,7 +38,6 @@ import type {
   OnChangeFunction,
 } from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
-import { ThemeShape } from "@twilio-paste/theme";
 import merge from "deepmerge";
 import * as React from "react";
 
