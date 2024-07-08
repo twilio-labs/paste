@@ -37,8 +37,8 @@ const attachments = [
   },
 ];
 
-const ExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }> = ({
-  attatchmentCloseSpy = jest.fn(),
+const ExampleChatComposerContained: React.FC<{ attachmentCloseSpy?: jest.Mock }> = ({
+  attachmentCloseSpy = jest.fn(),
 }) => (
   <ChatComposerContainer variant="contained" data-testid="chat-composer-container">
     <ChatComposer
@@ -56,10 +56,10 @@ const ExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }
       </Button>
     </ChatComposerActionGroup>
     <ChatComposerAttachmentGroup data-testid="chat-composer-attachement-group">
-      {attachments.map((attatchment, index) => (
+      {attachments.map((attachment, index) => (
         <ChatComposerAttachmentCard
           onDismiss={() => {
-            attatchmentCloseSpy(attatchment.name);
+            attachmentCloseSpy(attachment.name);
           }}
           key={`attachment=${index}`}
           data-testid={`chat-composer-attachment-card-${index}`}
@@ -68,11 +68,11 @@ const ExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }
             attachmentIcon={<DownloadIcon decorative />}
             data-testid={`chat-composer-attachment-${index}`}
           >
-            <ChatComposerAttachmentLink href={attatchment.href} data-testid={`chat-composer-attachment-link-${index}`}>
-              {attatchment.name}
+            <ChatComposerAttachmentLink href={attachment.href} data-testid={`chat-composer-attachment-link-${index}`}>
+              {attachment.name}
             </ChatComposerAttachmentLink>
             <ChatComposerAttachmentDescription data-testid={`chat-composer-attachment-description-${index}`}>
-              {attatchment.size}
+              {attachment.size}
             </ChatComposerAttachmentDescription>
           </ChatComposerAttachment>
         </ChatComposerAttachmentCard>
@@ -81,8 +81,8 @@ const ExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }
   </ChatComposerContainer>
 );
 
-const CustomizedExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: jest.Mock }> = ({
-  attatchmentCloseSpy = jest.fn(),
+const CustomizedExampleChatComposerContained: React.FC<{ attachmentCloseSpy?: jest.Mock }> = ({
+  attachmentCloseSpy = jest.fn(),
 }) => (
   <ChatComposerContainer
     variant="contained"
@@ -108,10 +108,10 @@ const CustomizedExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: j
       data-testid="chat-composer-attachement-group"
       element="CUSTOM_CHAT_COMPOSER_ATTACHMENT_GROUP"
     >
-      {attachments.map((attatchment, index) => (
+      {attachments.map((attachment, index) => (
         <ChatComposerAttachmentCard
           onDismiss={() => {
-            attatchmentCloseSpy(attatchment.name);
+            attachmentCloseSpy(attachment.name);
           }}
           key={`attachment=${index}`}
           data-testid={`chat-composer-attachment-card-${index}`}
@@ -123,17 +123,17 @@ const CustomizedExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: j
             element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT-${index}`}
           >
             <ChatComposerAttachmentLink
-              href={attatchment.href}
+              href={attachment.href}
               data-testid={`chat-composer-attachment-link-${index}`}
               element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_LINK-${index}`}
             >
-              {attatchment.name}
+              {attachment.name}
             </ChatComposerAttachmentLink>
             <ChatComposerAttachmentDescription
               data-testid={`chat-composer-attachment-description-${index}`}
               element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_DESCRIPTION-${index}`}
             >
-              {attatchment.size}
+              {attachment.size}
             </ChatComposerAttachmentDescription>
           </ChatComposerAttachment>
         </ChatComposerAttachmentCard>
@@ -145,14 +145,14 @@ const CustomizedExampleChatComposerContained: React.FC<{ attatchmentCloseSpy?: j
 describe("ChatComposer", () => {
   it("should render", () => {
     const spy = jest.fn();
-    render(<ExampleChatComposerContained attatchmentCloseSpy={spy} />);
+    render(<ExampleChatComposerContained attachmentCloseSpy={spy} />);
     expect(screen.getByRole("textbox")).toBeDefined();
     expect(screen.getByText("Type here...")).toBeDefined();
     expect(screen.getByRole("button", { name: "Attach" })).toBeDefined();
     expect(screen.getByRole("button", { name: "Send" })).toBeDefined();
-    attachments.forEach((attatchment) => {
-      expect(screen.getByText(attatchment.name)).toBeDefined();
-      expect(screen.getByText(attatchment.size)).toBeDefined();
+    attachments.forEach((attachment) => {
+      expect(screen.getByText(attachment.name)).toBeDefined();
+      expect(screen.getByText(attachment.size)).toBeDefined();
     });
     screen.getAllByRole("button", { name: "Remove attachment" }).forEach((button, index) => {
       userEvent.click(button);
@@ -176,7 +176,7 @@ describe("ChatComposer", () => {
       expect(screen.getByTestId("chat-composer-attachement-group").getAttribute("data-paste-element")).toEqual(
         "CHAT_COMPOSER_ATTACHMENT_GROUP",
       );
-      attachments.forEach((attatchment, index) => {
+      attachments.forEach((attachment, index) => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CHAT_COMPOSER_ATTACHMENT_CARD",
         );
@@ -207,7 +207,7 @@ describe("ChatComposer", () => {
       expect(screen.getByTestId("chat-composer-attachement-group").getAttribute("data-paste-element")).toEqual(
         "CUSTOM_CHAT_COMPOSER_ATTACHMENT_GROUP",
       );
-      attachments.forEach((attatchment, index) => {
+      attachments.forEach((attachment, index) => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CUSTOM_CHAT_COMPOSER_ATTACHMENT_CARD",
         );
