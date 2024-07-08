@@ -38,7 +38,6 @@ import type {
   OnChangeFunction,
 } from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
-import { ThemeShape } from "@twilio-paste/theme";
 import merge from "deepmerge";
 import * as React from "react";
 
@@ -144,7 +143,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       editorState: initialValue ? () => renderInitialText(initialValue) : undefined,
     };
 
-    const getDisabledStyling = React.useCallback(() => {
+    const getDisabledStyling = React.useCallback((): BoxStyleProps => {
       /**
        * If setIsDisabled is defined, then the styling will be handled by ChatComposerContainer.
        * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style tochange
@@ -154,8 +153,8 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         return {};
       }
       return {
-        color: "colorTextWeaker" as ThemeShape["textColors"],
-        backgroundColor: "colorBackground" as ThemeShape["backgroundColors"],
+        color: "colorTextWeaker",
+        backgroundColor: "colorBackground",
       };
     }, [Boolean(setIsDisabled)]);
 

@@ -1,19 +1,18 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps } from "@twilio-paste/box";
-import type { ThemeShape } from "@twilio-paste/theme";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { AIMessageContext } from "./AIMessageContext";
 
-const Sizes = {
+const Sizes: Record<string, BoxStyleProps> = {
   default: {
-    fontSize: "fontSize30" as ThemeShape["fontSizes"],
-    lineHeight: "lineHeight30" as ThemeShape["lineHeights"],
+    fontSize: "fontSize30",
+    lineHeight: "lineHeight30",
   },
   fullScreen: {
-    fontSize: "fontSize40" as ThemeShape["fontSizes"],
-    lineHeight: "lineHeight40" as ThemeShape["lineHeights"],
+    fontSize: "fontSize40",
+    lineHeight: "lineHeight40",
   },
 };
 

@@ -1,19 +1,18 @@
-import type { BoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import { ThemeShape } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { ChatComposerContext } from "./ChatComposerContext";
 
-const Styles = {
+const Styles: Record<string, BoxStyleProps> = {
   default: {},
   contained: {
-    borderWidth: "borderWidth10" as ThemeShape["borderWidths"],
+    borderWidth: "borderWidth10",
     borderStyle: "solid",
-    borderRadius: "borderRadius30" as ThemeShape["radii"],
-    borderColor: "colorBorderWeaker" as ThemeShape["borderColors"],
-    boxShadow: "shadowLow" as ThemeShape["shadows"],
-    backgroundColor: "colorBackgroundBody" as ThemeShape["backgroundColors"],
+    borderRadius: "borderRadius30",
+    borderColor: "colorBorderWeaker",
+    boxShadow: "shadowLow",
+    backgroundColor: "colorBackgroundBody",
   },
 };
 
