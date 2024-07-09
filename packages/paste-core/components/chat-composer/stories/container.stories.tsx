@@ -39,7 +39,7 @@ export const Default: StoryFn = () => {
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
       <ChatComposerActionGroup>
         <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
+          <AttachIcon decorative={false} title="attach a file to your message" />
         </Button>
         <Button variant="primary_icon" size="reset">
           <SendIcon decorative={false} title="Send" />
@@ -57,7 +57,7 @@ export const ContainedVariant: StoryFn = () => {
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
       <ChatComposerActionGroup>
         <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
+          <AttachIcon decorative={false} title="attach a file to your message" />
         </Button>
         <Button variant="primary_icon" size="reset">
           <SendIcon decorative={false} title="Send" />
@@ -75,7 +75,7 @@ export const ContainedVariantWithAttachments: StoryFn = () => {
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
       <ChatComposerActionGroup>
         <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
+          <AttachIcon decorative={false} title="attach a file to your message" />
         </Button>
         <Button variant="primary_icon" size="reset">
           <SendIcon decorative={false} title="Send" />
@@ -131,7 +131,7 @@ export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
       <ChatComposerActionGroup>
         <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
+          <AttachIcon decorative={false} title="attach a file to your message" />
         </Button>
         <Button variant="primary_icon" size="reset">
           <SendIcon decorative={false} title="Send" />
@@ -199,7 +199,7 @@ export const ContainedDisabledVariant: StoryFn = () => {
         />
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
-            <AttachIcon decorative={false} title="Attach" />
+            <AttachIcon decorative={false} title="attach a file to your message" />
           </Button>
           <Button variant="primary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
             <SendIcon decorative={false} title="Send" />
@@ -249,7 +249,7 @@ export const CustomizationContainedVariantWithAttachments: StoryFn = () => {
         <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset">
-            <AttachIcon decorative={false} title="Attach" />
+            <AttachIcon decorative={false} title="attach a file to your message" />
           </Button>
           <Button variant="primary_icon" size="reset">
             <SendIcon decorative={false} title="Send" />

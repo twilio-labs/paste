@@ -21,7 +21,7 @@ export interface ChatComposerContainerProps {
   /**
    * Styling of the container
    * @default 'default'
-   * @type {'default' | 'contained''}
+   * @type {'default' | 'contained'}
    * @memberof ChatComposerContainerProps
    */
   variant?: "default" | "contained";
@@ -34,7 +34,7 @@ export interface ChatComposerContainerProps {
   element?: BoxProps["element"];
   /**
    * Sets the maximum height of the composer before scrolling
-   * @default 'size20'
+   * @default 'size30'
    * @type {BoxProps['maxHeight']}
    * @memberof ChatComposerContainerProps
    */

@@ -219,7 +219,7 @@ export const ChatLogStory: StoryFn = () => {
           </ChatComposer>
           <ChatComposerActionGroup>
             <Button variant="secondary_icon" size="reset">
-              <AttachIcon decorative={false} title="Attach" />
+              <AttachIcon decorative={false} title="attach a file to your message" />
             </Button>
             <Button
               variant="primary_icon"
@@ -392,7 +392,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
         </ChatComposer>
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset">
-            <AttachIcon decorative={false} title="Attach" />
+            <AttachIcon decorative={false} title="attach a file to your message" />
           </Button>
           <Button
             variant="primary_icon"
