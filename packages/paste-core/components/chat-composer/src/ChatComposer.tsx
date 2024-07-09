@@ -44,7 +44,7 @@ import * as React from "react";
 import { AutoLinkPlugin } from "./AutoLinkPlugin";
 import { ChatComposerContext } from "./ChatComposerContext";
 import { PlaceholderWrapper } from "./PlaceholderWrapper";
-import { ToggleEditablePlugin } from "./ToggleDisabledPlugin";
+import { ToggleEditablePlugin } from "./ToggleEditablePlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
 
@@ -146,7 +146,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
     const getDisabledStyling = React.useCallback((): BoxStyleProps => {
       /**
        * If setIsDisabled is defined, then the styling will be handled by ChatComposerContainer.
-       * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style tochange
+       * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style to change
        * from container and then composer.
        */
       if (setIsDisabled !== undefined) {
