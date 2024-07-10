@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/lexical-library": patch
+"@twilio-paste/lexical-library": minor
 "@twilio-paste/core": minor
 ---
 
