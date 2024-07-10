@@ -48,7 +48,7 @@ export const Basic: React.FC<
   );
 };
 
-export const Large = (): JSX.Element => <Basic size="L" ariaLabel="Large pill group:" />;
+export const Large = (): JSX.Element => <Basic size="large" ariaLabel="Large pill group:" />;
 export const Disabled = (): JSX.Element => <Basic disabled ariaLabel="Disabled pills:" />;
 export const Selected = (): JSX.Element => <Basic selected ariaLabel="Selected pills:" />;
 export const Dismissable = (): JSX.Element => <Basic dismissable ariaLabel="Dismissable pills:" />;

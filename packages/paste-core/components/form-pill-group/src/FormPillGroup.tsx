@@ -10,7 +10,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { useEffect } from "react";
 
 /** The size variants for the FormPillGroup component. */
-export type FormPillGroupSizeVariant = "default" | "L";
+export type FormPillGroupSizeVariant = "default" | "large";
 
 export interface FormPillGroupProps
   extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
@@ -59,7 +59,7 @@ type CalculateSizeStylesResponse = Pick<BoxProps, "columnGap" | "rowGap" | "font
  * @private
  */
 export function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
-  if (size === "L") {
+  if (size === "large") {
     return {
       columnGap: "space30",
       rowGap: "space30",

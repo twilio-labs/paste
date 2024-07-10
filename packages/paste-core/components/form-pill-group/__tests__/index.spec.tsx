@@ -53,7 +53,7 @@ describe("calculateSizeStyles", () => {
   });
 
   it("should calculate the large sytyle when passed L. columnGap: space30, rowGap: space30, fontSize: fontSize30", () => {
-    const { columnGap, rowGap, fontSize } = calculateSizeStyles("L");
+    const { columnGap, rowGap, fontSize } = calculateSizeStyles("large");
     expect(columnGap).toEqual("space30");
     expect(rowGap).toEqual("space30");
     expect(fontSize).toEqual("fontSize30");
