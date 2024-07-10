@@ -1,11 +1,11 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps , BoxProps} from "@twilio-paste/box";
+import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { Composite } from "@twilio-paste/reakit-library";
 import type { CompositeProps } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
-import type { Dispatch, SetStateAction} from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { useEffect } from "react";
 import type { FontSize } from "@twilio-paste/style-props";
 
@@ -46,8 +46,7 @@ export interface FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
   size?: FormPillGroupSizeVariant;
-  setPillFontSize: Dispatch<SetStateAction<FontSize|undefined>>;
-
+  setPillFontSize: Dispatch<SetStateAction<FontSize | undefined>>;
 }
 
 /** The response from the calculateSizeStyles function. */
@@ -62,29 +61,25 @@ type CalculateSizeStylesResponse = Pick<BoxProps, "columnGap" | "rowGap" | "font
 export function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
   if (size === "L") {
     return {
-      columnGap : "space30",
-      rowGap : "space30",
-      fontSize : "fontSize30",
-    }
+      columnGap: "space30",
+      rowGap: "space30",
+      fontSize: "fontSize30",
+    };
   }
   return {
-    columnGap : "space20",
-    rowGap : "space20",
-    fontSize : undefined,
-  }
+    columnGap: "space20",
+    rowGap: "space20",
+    fontSize: undefined,
+  };
 }
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
   ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
-    const {
-      columnGap,
-      rowGap,
-      fontSize,
-    } = calculateSizeStyles(size)
+    const { columnGap, rowGap, fontSize } = calculateSizeStyles(size);
     useEffect(() => {
-      props.setPillFontSize(fontSize)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+      props.setPillFontSize(fontSize);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -103,7 +98,7 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
         {props.children}
       </Box>
     );
-  }
+  },
 );
 
 FormPillGroupStyles.displayName = "StyledFormPillGroup";

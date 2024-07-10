@@ -16,7 +16,13 @@ const PILL_NAMES = [
 ];
 
 export const Basic: React.FC<
-  React.PropsWithChildren<{ selected?: boolean; dismissable?: boolean; disabled?: boolean; ariaLabel?: string, size?: FormPillGroupSizeVariant }>
+  React.PropsWithChildren<{
+    selected?: boolean;
+    dismissable?: boolean;
+    disabled?: boolean;
+    ariaLabel?: string;
+    size?: FormPillGroupSizeVariant;
+  }>
 > = ({ selected = false, dismissable = false, disabled = false, ariaLabel = "Basic pills:", size }) => {
   const pillState = useFormPillState();
   return (
