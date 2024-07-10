@@ -126,13 +126,6 @@
       "externalProp": true,
       "description": "Sets `orientation`."
     },
-    "setPillFontSize": {
-      "type": "Dispatch<SetStateAction<FontSize | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false,
-      "description": "Set the font size of the pills."
-    },
     "setRTL": {
       "type": "Dispatch<SetStateAction<boolean>>",
       "defaultValue": null,
@@ -255,12 +248,6 @@
       "required": false,
       "externalProp": true,
       "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
-    },
-    "fontSize": {
-      "type": "\"fontSize10\" | \"fontSize20\" | \"fontSize30\" | \"fontSize40\" | \"fontSize50\" | \"fontSize60\" | \"fontSize70\" | \"fontSize80\" | \"fontSize90\" | \"fontSize100\" | \"fontSize110\" | \"fontSizeBase\" | ... 6 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "orientation": {
       "type": "Orientation",
@@ -584,12 +571,6 @@
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
-    "fontSize": {
-      "type": "\"fontSize10\" | \"fontSize20\" | \"fontSize30\" | \"fontSize40\" | \"fontSize50\" | \"fontSize60\" | \"fontSize70\" | \"fontSize80\" | \"fontSize90\" | \"fontSize100\" | \"fontSize110\" | \"fontSizeBase\" | ... 6 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "i18nErrorLabel": {
       "type": "string",
       "defaultValue": "'(error)'",
@@ -689,12 +670,6 @@
       "required": true,
       "externalProp": true,
       "description": "Sets `currentId`. This is different from `composite.move` as this only\nupdates the `currentId` state without moving focus. When the composite\nwidget gets focused by the user, the item referred by the `currentId`\nstate will get focus."
-    },
-    "setPillFontSize": {
-      "type": "Dispatch<SetStateAction<FontSize | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false
     },
     "about": {
       "type": "string",
@@ -1075,7 +1050,7 @@
       "externalProp": true
     },
     "contentEditable": {
-      "type": "\"inherit\" | Booleanish",
+      "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2283,12 +2258,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "size": {
-      "type": "FormPillGroupSizeVariant",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "slot": {
       "type": "string",
