@@ -67,7 +67,7 @@ const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | 
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
   ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
-    const { fontSize, ...otherStyles } = SizeStyles[size];
+    const { fontSize } = SizeStyles[size];
     useEffect(() => {
       props.setPillFontSize(fontSize);
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,8 +83,7 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
         padding="space0"
         display={display}
         flexWrap="wrap"
-        fontSize={fontSize}
-        {...otherStyles}
+        {...SizeStyles[size]}
       >
         {props.children}
       </Box>
