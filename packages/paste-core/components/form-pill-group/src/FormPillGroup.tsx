@@ -1,10 +1,13 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps } from "@twilio-paste/box";
+import type { BoxElementProps , BoxProps} from "@twilio-paste/box";
 import { Composite } from "@twilio-paste/reakit-library";
 import type { CompositeProps } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+
+/** The size variants for the FormPillGroup component. */
+export type FormPillGroupSizeVariant = "default" | "L";
 
 export interface FormPillGroupProps
   extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
@@ -39,26 +42,56 @@ export interface FormPillGroupProps
    * @memberof FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
+  size?: FormPillGroupSizeVariant;
+}
+
+/** The response from the calculateSizeStyles function. */
+type CalculateSizeStylesResponse = Pick<BoxProps, "columnGap" | "rowGap" | "fontSize">;
+
+/**
+ * Calculates the styles for the FormPillGroup based on the size prop.
+ */
+function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
+  if (size === "L") {
+    return {
+      columnGap : "space30",
+      rowGap : "space30",
+      fontSize : "fontSize30",
+    }
+  }
+  return {
+    columnGap : "space20",
+    rowGap : "space20",
+    fontSize : undefined,
+  }
 }
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({ element = "FORM_PILL_GROUP", display = "flex", ...props }, ref) => (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      element={element}
-      ref={ref}
-      role="listbox"
-      lineHeight="lineHeight30"
-      margin="space0"
-      padding="space0"
-      display={display}
-      flexWrap="wrap"
-      rowGap="space20"
-      columnGap="space20"
-    >
-      {props.children}
-    </Box>
-  ),
+  ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
+    const {
+      columnGap,
+      rowGap,
+      fontSize,
+    } = calculateSizeStyles(size)
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        element={element}
+        ref={ref}
+        role="listbox"
+        lineHeight="lineHeight30"
+        margin="space0"
+        padding="space0"
+        display={display}
+        flexWrap="wrap"
+        rowGap={rowGap}
+        columnGap={columnGap}
+        fontSize={fontSize}
+      >
+        {props.children}
+      </Box>
+    );
+  }
 );
 
 FormPillGroupStyles.displayName = "StyledFormPillGroup";
