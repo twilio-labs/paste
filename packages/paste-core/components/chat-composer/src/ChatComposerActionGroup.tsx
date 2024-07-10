@@ -19,7 +19,7 @@ export const ChatComposerActionGroup = React.forwardRef<HTMLDivElement, ChatComp
       {...safelySpreadBoxProps(props)}
       element={element}
       ref={ref}
-      gridArea="actions"
+      gridArea="1/2"
       display="inline-flex"
       alignSelf="end"
       role="group"
