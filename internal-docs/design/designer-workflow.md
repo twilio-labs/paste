@@ -34,8 +34,6 @@ When you are starting new work in the Paste Figma libraries, be sure to:
 - First, create a branch off of the file you want to make changes to. Scroll to this section for [branch naming conventions](#figma-branching).
 - If you’re working with library updates from another library, pull those updates into a new branch rather than the main branch.
 - Put a “🚧” emoji at the start of the page name for any in-progress component (e.g. “🚧 Button”).
-- If you are making a large architectural change to an existing component, you may want to duplicate it and rename it as a v2 (e.g. “. Button v2”). This will help us revert back to or reference the previous version if needed.
-  - _We can update this guidance once Figma rolls out branching/merging._
 - Be sure you are keeping our [library standards](./design-library-standards.md) in mind when you are working in any Paste Figma libraries.
 - For particularly complex components, consider drafting a blueprint (directly on the component page in Figma) to map out what component parts you will need, what props will be available at each layer of the component, and what other components in the library this component might be used in.
 
@@ -44,7 +42,7 @@ When you are starting new work in the Paste Figma libraries, be sure to:
 When you are ready to request review:
 
 - Request a review from **@dsys-pd** on your branch in Figma. You need 2 reviews from @dsys-pd before finalizing the work and publishing changes.
-- Put a “👀” emoji at the start of the page name to indicate that it is in review (e.g. “👀 Button”).
+- Use the 'ready for dev' Figma functionality to highlight all the components and variables that were edited.
 - Post in **#plz-design-systems** and tag **@dsys-pd** to request review.
 - Sprinkle comments throughout the page in Figma if there are specific things you need the teams’ thoughts on.
 
@@ -64,7 +62,7 @@ When you have been tagged in to review a component:
 
 After your work has been tested and approved:
 
-- Update the page name to remove any emoji status (e.g. “Button”).
+- Turn off the "ready for dev" functionality in all components that had it enabled.
 - Resolve any remaining comments in Figma to keep the file tidy.
 - Create a sticker sheet of all the component variants
 - Delete the blueprint, if you created one.
@@ -82,7 +80,7 @@ When work is final, it’s time to publish!
 
 After the new work has been published:
 
-- Post in **#ux-product-design** that a new version of the library has been published with a summary of the changes using the [template](#release-notes-template). _We can update this guidance if/when we automate a Slackbot to post these updates for us._
+- Post in **#team-ux** that a new version of the library has been published with a summary of the changes using the [template](#release-notes-template). _We can update this guidance if/when we automate a Slackbot to post these updates for us._
 
 - Copy/paste the release notes into the [running Paste Newsletter doc](https://drive.google.com/drive/folders/1sRSUjL-ZVl3V7excTSNVBD9y3GMiFLDF) for the given time period.
 
@@ -100,10 +98,9 @@ When publishing to Figma Community, Figma takes a [snapshot of the file](https:/
 
 #### Community files
 
-We currently have two Figma files available to the Community:
+We currently have one Figma files available to the Community:
 
-1. [Twilio Components](https://www.figma.com/community/file/1012844215105752327/Twilio-Components) (internally: Paste Components)
-2. [Twilio Design Language](https://www.figma.com/community/file/1012847710148583689/Twilio-Design-Language) (internally: Paste Default Theme)
+1. [Twilio Components]([https://www.figma.com/community/file/1012844215105752327/Twilio-Components](https://www.figma.com/community/file/1207476064127503112/twilio-paste-components)) (internally: Paste Components)
 
 #### How to release
 
@@ -156,7 +153,7 @@ Release date
 
 ## Figma branching
 
-[Figma](https://www.figma.com/best-practices/branching-in-figma/best-practices-when-branching/) suggests following similar branch naming conventions to your development team. Since merged branches are visible in the file version history, it’d be nice to closely follow the commit naming conventions in our [developer workflow](../engineering/developer-workflow.md).
+[Figma](https://www.figma.com/best-practices/branching-in-figma/#naming-your-branches) suggests following similar branch naming conventions to your development team. Since merged branches are visible in the file version history, it’d be nice to closely follow the commit naming conventions in our [developer workflow](../engineering/developer-workflow.md).
 
 ### Format
 
