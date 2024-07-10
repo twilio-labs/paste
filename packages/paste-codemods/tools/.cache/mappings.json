@@ -47,7 +47,6 @@
   "Card": "@twilio-paste/core/card",
   "ChatComposer": "@twilio-paste/core/chat-composer",
   "ChatComposerActionGroup": "@twilio-paste/core/chat-composer",
-  "ChatComposerAttachment": "@twilio-paste/core/chat-composer",
   "ChatComposerAttachmentCard": "@twilio-paste/core/chat-composer",
   "ChatComposerAttachmentDescription": "@twilio-paste/core/chat-composer",
   "ChatComposerAttachmentGroup": "@twilio-paste/core/chat-composer",
