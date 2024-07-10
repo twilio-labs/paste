@@ -73,6 +73,7 @@ export interface FormPillProps extends CompositeStateReturn {
    * @memberof FormPillProps
    */
   i18nErrorLabel?: string;
+  fontSize?: BoxProps['fontSize']
 }
 
 /**
@@ -103,6 +104,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       variant = "default",
       disabled = false,
       i18nErrorLabel,
+      fontSize,
       ...props
     },
     ref,
@@ -140,6 +142,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         position="relative"
         display="inline-block"
         borderRadius="borderRadiusPill"
+        fontSize={fontSize}
         {...computedStyles}
       >
         <CompositeItem
@@ -157,6 +160,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
           selected={selected}
           variant={variant}
           i18nErrorLabel={i18nErrorLabel}
+          fontSize={fontSize}
         >
           {props.children}
         </CompositeItem>

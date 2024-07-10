@@ -19,6 +19,7 @@ interface FormPillStylesProps {
   /* We can't call this `disabled` because it conflicts with the internal `CompositeItem disabled prop */
   isDisabled?: boolean;
   i18nErrorLabel?: string;
+  fontSize?: string;
 }
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
@@ -31,6 +32,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       isDisabled = false,
       isDismissable = false,
       i18nErrorLabel = "(error)",
+      fontSize = "fontSize20",
       ...props
     },
     ref,
@@ -57,7 +59,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         cursor="default"
         height="sizeIcon40"
         fontFamily="inherit"
-        fontSize="fontSize20"
+        fontSize={fontSize}
         fontWeight="fontWeightMedium"
         outline="none"
         paddingLeft="space30"

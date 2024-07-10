@@ -5,6 +5,8 @@ import type { CompositeProps } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { Dispatch, SetStateAction} from "react";
+import { useEffect } from "react";
 
 /** The size variants for the FormPillGroup component. */
 export type FormPillGroupSizeVariant = "default" | "L";
@@ -43,6 +45,8 @@ export interface FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
   size?: FormPillGroupSizeVariant;
+  setPillFontSize: Dispatch<SetStateAction<string|undefined>>;
+
 }
 
 /** The response from the calculateSizeStyles function. */
@@ -76,6 +80,10 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
       rowGap,
       fontSize,
     } = calculateSizeStyles(size)
+    useEffect(() => {
+      props.setPillFontSize(fontSize)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
       <Box
         {...safelySpreadBoxProps(props)}
