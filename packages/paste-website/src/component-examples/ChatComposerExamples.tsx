@@ -104,7 +104,7 @@ export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): 
       editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
       return true;
     },
-    [editor, onKeyDown],
+    [editor, onKeyDown]
   );
 
   React.useEffect(() => {
@@ -191,11 +191,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
     push(createNewMessage(message));
   };
 
-  const editorRef = React.useRef<LexicalEditor>(null);
-
-  React.useEffect(() => {
-    console.log(editorRef.current);
-  }, [editorRef.current]);
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
 
   return (
     <Box>
@@ -223,21 +219,21 @@ export const ChatDialogExample = `const ChatDialog = () => {
             ariaLabel="Message"
             placeholder="Type here..."
             onChange={handleComposerChange}
-            editorInstanceRef={editorRef}
+            editorInstanceRef={editorInstanceRef}
           >
             <ClearEditorPlugin />
             <EnterKeySubmitPlugin onKeyDown={submitMessage} />
           </ChatComposer>
           <ChatComposerActionGroup>
             <Button variant="secondary_icon" size="reset">
-              <AttachIcon decorative={false} title="Attach" />
+              <AttachIcon decorative={false} title="attach files to the message" />
             </Button>
             <Button
               variant="primary_icon"
               size="reset"
               onClick={() => {
                 submitMessage();
-                editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+                editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
               }}
             >
               <SendIcon decorative={false} title="Send" />
@@ -252,6 +248,13 @@ export const ChatDialogExample = `const ChatDialog = () => {
 render(<ChatDialog />)`.trim();
 
 export const ResponsiveContainedAttachmentsExample = `const ResponsiveContainedAttachmentsExample = () => {
+  const ExampleAttachment = () => (
+    <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+      <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+      <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+    </ChatComposerAttachmentCard>
+  )
+
   return (
     <ChatComposerContainer>
       <ChatComposer
@@ -266,49 +269,16 @@ export const ResponsiveContainedAttachmentsExample = `const ResponsiveContainedA
       />
       <ChatComposerActionGroup>
         <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
+          <AttachIcon decorative={false} title="attach files to the message" />
         </Button>
         <Button variant="primary_icon" size="reset">
           <SendIcon decorative={false} title="Send" />
         </Button>
       </ChatComposerActionGroup>
       <ChatComposerAttachmentGroup columns={[1, 1, 2, 3]}>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
+        {Array.from({ length: 6 }).map((_, index) => (
+          <ExampleAttachment key={index} />
+        ))}
       </ChatComposerAttachmentGroup>
     </ChatComposerContainer>
   )
@@ -339,7 +309,7 @@ export const ContainedDisabledExample = `const ContainedDisabledExample = () => 
         />
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
-            <AttachIcon decorative={false} title="Attach" />
+            <AttachIcon decorative={false} title="attach files to the message" />
           </Button>
           <Button variant="primary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
             <SendIcon decorative={false} title="Send" />

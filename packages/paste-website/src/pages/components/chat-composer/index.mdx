@@ -29,7 +29,6 @@ import {
   ChatComposerActionGroup,
   ChatComposerAttachmentGroup,
   ChatComposerAttachmentCard,
-  ChatComposerAttachment,
   ChatComposerAttachmentLink,
   ChatComposerAttachmentDescription,
 } from "@twilio-paste/chat-composer";
@@ -97,7 +96,7 @@ export const getStaticProps = async () => {
   <ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A basic chat composer" />
   <ChatComposerActionGroup>
     <Button variant="secondary_icon" size="reset">
-      <AttachIcon decorative={false} title="Attach" />
+      <AttachIcon decorative={false} title="attach files to the message" />
     </Button>
     <Button variant="primary_icon" size="reset">
       <SendIcon decorative={false} title="Send" />
@@ -111,7 +110,7 @@ export const getStaticProps = async () => {
 ### About Chat Composer
 
 A Chat Composer is an input made for users to type rich chat messages. Chat Composer is best used as one part of larger chat user interface to provide a seamless authoring experience.
-Within the context of Paste, Chat Composer is most typically used alongside the [`Chat Log`](/components/chat-log) component.
+Within the context of Paste, Chat Composer is most typically used alongside the [`Chat Log`](/components/chat-log) and [`AI Chat Log`](/components/ai-chat-log) components.
 
 ### ChatComposer
 
@@ -141,16 +140,15 @@ which you can see being configured [here](https://github.com/twilio-labs/paste/b
 The Chat Composer component suite offers a variety of components designed to enhance and enrich the chat experience. Each element plays a crucial role in maintaining a consistent and cohesive styling, ensuring a seamless user interaction. The available components include:
 
 - **ChatComposerContainer**: The primary container that houses the entire chat composer interface.
-- **ChatComposerActionGroup**: A collection of action buttons and controls, allowing users to perform various actions within the chat composer.
-- **ChatComposerAttachmentGroup**: Groups multiple attachments together in responsive columns, ensuring a tidy and organized display within the chat composer.
-- **ChatComposerAttachmentCard**: A card-like component for showcasing attachment previews, making it easy for users to view details at a glance.
-- **ChatComposerAttachment**: Displays file attachments, witht eh option to set the icon for the attachment.
+- **ChatComposerActionGroup**: A collection of action buttons and controls, allowing users to perform various actions.
+- **ChatComposerAttachmentGroup**: Groups multiple attachments together in responsive columns.
+- **ChatComposerAttachmentCard**: A card-like component for showcasing attachment previews, making it easy for users to view details at a glance with the option to set the icon for the attachment.
 - **ChatComposerAttachmentDescription**: Provides a description or additional information about an attachment, adding context for the user.
 - **ChatComposerAttachmentLink**: Creates clickable links for attachments, facilitating easy access and interaction.
 
 #### Variants
 
-ChatComposerContainer has a `default` and `contained` variant.
+ChatComposerContainer has `default` and `contained` variants. The contained variant is used as part of the new AI experience.
 
 ## Examples
 
@@ -189,7 +187,7 @@ Set a rich text value using one of the Lexical formatting APIs such as [`toggleF
 
 ### Chat Composer with responsive attachments
 
-Chat composer cmoponents suite demonstrating responsive attachments
+Chat composer components suite demonstrating responsive attachments
 
 <LivePreview
   noInline
@@ -205,7 +203,6 @@ Chat composer cmoponents suite demonstrating responsive attachments
     ChatComposerActionGroup,
     ChatComposerAttachmentGroup,
     ChatComposerAttachmentCard,
-    ChatComposerAttachment,
     ChatComposerAttachmentLink,
     ChatComposerAttachmentDescription,
   }}
@@ -213,9 +210,9 @@ Chat composer cmoponents suite demonstrating responsive attachments
   {ResponsiveContainedAttachmentsExample}
 </LivePreview>
 
-### Chat Composer Disabled Contained Variant
+### Chat Composer disabled contained variant
 
-When the container is disabled, styling is applied to the container component. The disabled state is managed at the implementation level. If action buttons are included, their disabled state must also be managed individually.
+When the container is disabled, styling is applied to the container component. The disabled state is managed at the implementation level. If action buttons are included, their disabled state must also be managed by the developer.
 
 <LivePreview
   noInline
@@ -316,7 +313,7 @@ export const ChatComposerChatLogExample = () => {
     if (message === "") return;
     push(createNewMessage(message));
   };
-  const editorRef = React.useRef<LexicalEditor>(null);
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
@@ -343,21 +340,21 @@ export const ChatComposerChatLogExample = () => {
             ariaLabel="Message"
             placeholder="Type here..."
             onChange={handleComposerChange}
-            editorInstanceRef={editorRef}
+            editorInstanceRef={editorInstanceRef}
           >
             <ClearEditorPlugin />
             <EnterKeySubmitPlugin onKeyDown={submitMessage} />
           </ChatComposer>
           <ChatComposerActionGroup>
             <Button variant="secondary_icon" size="reset">
-              <AttachIcon decorative={false} title="Attach" />
+              <AttachIcon decorative={false} title="attach files to the message" />
             </Button>
             <Button
               variant="primary_icon"
               size="reset"
               onClick={() => {
                 submitMessage();
-                editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+                editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
               }}
             >
               <SendIcon decorative={false} title="Send" />
@@ -454,7 +451,7 @@ export const ChatComposerAIChatLogExample = () => {
     if (message === "") return;
     push(createNewAIMessage(message));
   };
-  const editorRef = React.useRef<LexicalEditor>(null);
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
@@ -472,21 +469,21 @@ export const ChatComposerAIChatLogExample = () => {
           ariaLabel="Message"
           placeholder="Type here..."
           onChange={handleComposerChange}
-          editorInstanceRef={editorRef}
+          editorInstanceRef={editorInstanceRef}
         >
           <ClearEditorPlugin />
           <EnterKeySubmitPlugin onKeyDown={submitMessage} />
         </ChatComposer>
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset">
-            <AttachIcon decorative={false} title="Attach" />
+            <AttachIcon decorative={false} title="attach files to the message" />
           </Button>
           <Button
             variant="primary_icon"
             size="reset"
             onClick={() => {
               submitMessage();
-              editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+              editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
             }}
           >
             <SendIcon decorative={false} title="Send" />
@@ -536,6 +533,27 @@ When passed as a child to `ChatComposer`, it will automatically register a `CLEA
 <ChatComposer onChange={handleComposerChange}>
   <ClearEditorPlugin />
 </ChatComposer>
+```
+
+#### Accessing Lexical State
+
+To access the Lexical state out of the context we make use of the [`<EditorRedPlugin/>`](https://lexical.dev/docs/react/plugins#lexicaleditorrefplugin) provided by the library. In order to use this you must create a ref to the LexicalEditor instance and pass it to the `ChatComposer` component.
+
+```jsx
+export const ChatComposerImpl = () => {
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
+
+  return (
+    <ChatComposer
+      ariaLabel="Message"
+      placeholder="Type here..."
+      onChange={handleComposerChange}
+      editorInstanceRef={editorInstanceRef}
+    >
+      <ClearEditorPlugin />
+    </ChatComposer>
+  );
+};
 ```
 
 #### Custom plugins
