@@ -34,7 +34,7 @@ export const ChatComposerAttachmentGroup = React.forwardRef<HTMLDivElement, Chat
         {...safelySpreadBoxProps(props)}
         element={element}
         ref={ref}
-        gridArea="2/1"
+        gridArea="2/1/3/3"
         role="group"
         display="grid"
         gridTemplateColumns={getColumnStyles()}
