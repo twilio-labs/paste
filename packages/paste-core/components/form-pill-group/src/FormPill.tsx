@@ -73,6 +73,13 @@ export interface FormPillProps extends CompositeStateReturn {
    * @memberof FormPillProps
    */
   i18nErrorLabel?: string;
+  /**
+   * Font size of the inner text of the FormPill.
+   *
+   * @default undefined
+   * @type {BoxProps["fontSize"]}
+   * @memberof FormPillProps
+   */
   fontSize?: BoxProps["fontSize"];
 }
 
