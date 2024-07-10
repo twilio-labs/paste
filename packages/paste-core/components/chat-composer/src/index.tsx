@@ -1,2 +1,14 @@
 export { ChatComposer } from "./ChatComposer";
 export type { ChatComposerProps } from "./ChatComposer";
+export { ChatComposerActionGroup } from "./ChatComposerActionGroup";
+export type { ChatComposerActionGroupProps } from "./ChatComposerActionGroup";
+export { ChatComposerAttachmentGroup } from "./ChatComposerAttachmentGroup";
+export type { ChatComposerAttachmentGroupProps } from "./ChatComposerAttachmentGroup";
+export { ChatComposerContainer } from "./ChatComposerContainer";
+export type { ChatComposerContainerProps } from "./ChatComposerContainer";
+export { ChatComposerAttachmentCard } from "./ChatComposerAttachmentCard";
+export type { ChatComposerAttachmentCardProps } from "./ChatComposerAttachmentCard";
+export { ChatComposerAttachmentDescription } from "./ChatComposerAttachmentDescription";
+export type { ChatComposerAttachmentDescriptionProps } from "./ChatComposerAttachmentDescription";
+export { ChatComposerAttachmentLink } from "./ChatComposerAttachmentLink";
+export type { ChatComposerAttachmentLinkProps } from "./ChatComposerAttachmentLink";

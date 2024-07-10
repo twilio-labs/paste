@@ -1,11 +1,36 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable import/no-extraneous-dependencies */
-import type { AIChat } from "@twilio-paste/ai-chat-log";
+import type { StoryFn } from "@storybook/react";
+import {
+  AIChat,
+  AIChatLogger,
+  AIChatMessage,
+  AIChatMessageActionCard,
+  AIChatMessageActionGroup,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageLoading,
+  useAIChatLogger,
+} from "@twilio-paste/ai-chat-log";
+import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import {
+  Chat,
+  ChatAttachment,
+  ChatAttachmentDescription,
+  ChatAttachmentLink,
+  ChatBookend,
+  ChatBookendItem,
+  ChatBubble,
+  ChatEvent,
+  ChatLogger,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  useChatLogger,
+} from "@twilio-paste/chat-log";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -20,26 +45,200 @@ import {
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
-import {
-  AIChatLog,
-  AIChatLogger,
-  AIChatMessage,
-  AIChatMessageActionCard,
-  AIChatMessageActionGroup,
-  AIChatMessageAuthor,
-  AIChatMessageBody,
-  AIChatMessageLoading,
-  useAIChatLogger,
-} from "../src";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "../src";
 
 export default {
-  title: "Components/AI Chat Log",
-  component: AIChatLog,
+  title: "Components/Chat Composer/LogsExperience",
+  component: ChatComposer,
+  parameters: {
+    a11y: {
+      // no need to a11y check customization
+      disable: true,
+    },
+  },
+};
+
+const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
+  const [editor] = useLexicalComposerContext();
+
+  const handleEnterKey = React.useCallback(
+    (event: KeyboardEvent) => {
+      const { shiftKey, ctrlKey } = event;
+      if (shiftKey || ctrlKey) return false;
+      event.preventDefault();
+      event.stopPropagation();
+      onKeyDown();
+      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+      return true;
+    },
+    [editor, onKeyDown],
+  );
+
+  React.useEffect(() => {
+    return editor.registerCommand(KEY_ENTER_COMMAND, handleEnterKey, COMMAND_PRIORITY_HIGH);
+  }, [editor, handleEnterKey]);
+  return null;
 };
 
 function getRandomInt(max: number): number {
   return Math.floor(Math.random() * max);
 }
+
+const createNewMessage = (message: string): Omit<Chat, "id"> => {
+  const time = new Date().toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+
+  const messageDirection = getRandomInt(2) === 1 ? "inbound" : "outbound";
+
+  return {
+    variant: messageDirection,
+    content: (
+      <ChatMessage variant={messageDirection}>
+        <ChatBubble>{message}</ChatBubble>
+        <ChatMessageMeta aria-label={`said by you at ${time}`}>
+          <ChatMessageMetaItem>{time}</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    ),
+  };
+};
+
+export const ChatLogStory: StoryFn = () => {
+  const { chats, push } = useChatLogger(
+    {
+      content: (
+        <ChatBookend>
+          <ChatBookendItem>Today</ChatBookendItem>
+          <ChatBookendItem>
+            <strong>Chat Started</strong>・3:34 PM
+          </ChatBookendItem>
+        </ChatBookend>
+      ),
+    },
+    {
+      variant: "inbound",
+      content: (
+        <ChatMessage variant="inbound">
+          <ChatBubble>Quisque ullamcorper ipsum vitae lorem euismod sodales.</ChatBubble>
+          <ChatBubble>
+            <ChatAttachment attachmentIcon={<DownloadIcon color="colorTextIcon" decorative />}>
+              <ChatAttachmentLink href="www.google.com">Document-FINAL.doc</ChatAttachmentLink>
+              <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
+            </ChatAttachment>
+          </ChatBubble>
+          <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
+            <ChatMessageMetaItem>Gibby Radki ・ 5:04 PM</ChatMessageMetaItem>
+          </ChatMessageMeta>
+        </ChatMessage>
+      ),
+    },
+    {
+      content: (
+        <ChatEvent>
+          <strong>Lauren Gardner</strong> has joined the chat ・ 4:26 PM
+        </ChatEvent>
+      ),
+    },
+    {
+      variant: "inbound",
+      content: (
+        <ChatMessage variant="inbound">
+          <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
+          <ChatMessageMeta aria-label="said by Lauren Gardner at 4:30pm">
+            <ChatMessageMetaItem>
+              <Avatar name="Lauren Gardner" size="sizeIcon20" />
+              Lauren Gardner ・ 4:30 PM
+            </ChatMessageMetaItem>
+          </ChatMessageMeta>
+        </ChatMessage>
+      ),
+    },
+  );
+  const [message, setMessage] = React.useState("");
+
+  const [mounted, setMounted] = React.useState(false);
+  const loggerRef = React.useRef<HTMLDivElement>(null);
+  const scrollerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (!mounted || !loggerRef.current) return;
+    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
+  }, [chats, mounted]);
+
+  const handleComposerChange = (editorState): void => {
+    editorState.read(() => {
+      const text = $getRoot().getTextContent();
+      setMessage(text);
+    });
+  };
+
+  const submitMessage = (): void => {
+    if (message === "") return;
+    push(createNewMessage(message));
+  };
+
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
+
+  return (
+    <Box>
+      <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
+        <ChatLogger ref={loggerRef} chats={chats} />
+      </Box>
+      <Box
+        borderStyle="solid"
+        borderWidth="borderWidth0"
+        borderTopWidth="borderWidth10"
+        borderColor="colorBorderWeak"
+        columnGap="space30"
+        paddingX="space70"
+        paddingTop="space50"
+      >
+        <ChatComposerContainer>
+          <ChatComposer
+            maxHeight="size10"
+            config={{
+              namespace: "foo",
+              onError: (error) => {
+                throw error;
+              },
+            }}
+            ariaLabel="Message"
+            placeholder="Type here..."
+            onChange={handleComposerChange}
+            editorInstanceRef={editorInstanceRef}
+          >
+            <ClearEditorPlugin />
+            <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+          </ChatComposer>
+          <ChatComposerActionGroup>
+            <Button variant="secondary_icon" size="reset">
+              <AttachIcon decorative={false} title="attach a file to your message" />
+            </Button>
+            <Button
+              variant="primary_icon"
+              size="reset"
+              onClick={() => {
+                submitMessage();
+                editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+              }}
+            >
+              <SendIcon decorative={false} title="Send" />
+            </Button>
+          </ChatComposerActionGroup>
+        </ChatComposerContainer>
+      </Box>
+    </Box>
+  );
+};
+
+ChatLogStory.storyName = "Chat Log";
 
 const BotMessage = (props): JSX.Element => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -65,7 +264,7 @@ const BotMessage = (props): JSX.Element => {
 };
 
 // eslint-disable-next-line storybook/prefer-pascal-case
-const createNewMessage = (message: string): Omit<AIChat, "id"> => {
+const createNewAIMessage = (message: string): Omit<AIChat, "id"> => {
   const messageDirection = getRandomInt(2) === 1 ? "user" : "bot";
 
   return {
@@ -82,45 +281,6 @@ const createNewMessage = (message: string): Omit<AIChat, "id"> => {
         </AIChatMessage>
       ),
   };
-};
-
-const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const handleSend = (): void => {
-    onClick();
-    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-  };
-
-  return (
-    <Box position="absolute" top="space30" right="space30">
-      <Button variant="primary_icon" size="reset" onClick={handleSend}>
-        <SendIcon decorative={false} title="Send message" />
-      </Button>
-    </Box>
-  );
-};
-
-const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
-  const [editor] = useLexicalComposerContext();
-
-  const handleEnterKey = React.useCallback(
-    (event: KeyboardEvent) => {
-      const { shiftKey, ctrlKey } = event;
-      if (shiftKey || ctrlKey) return false;
-      event.preventDefault();
-      event.stopPropagation();
-      onKeyDown();
-      editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-      return true;
-    },
-    [editor, onKeyDown],
-  );
-
-  React.useEffect(() => {
-    return editor.registerCommand(KEY_ENTER_COMMAND, handleEnterKey, COMMAND_PRIORITY_HIGH);
-  }, [editor, handleEnterKey]);
-  return null;
 };
 
 export const AIChatLogComposer = (): React.ReactNode => {
@@ -202,7 +362,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
 
   const submitMessage = (): void => {
     if (message === "") return;
-    push(createNewMessage(message));
+    push(createNewAIMessage(message));
   };
 
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
@@ -212,6 +372,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
+
       <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"
@@ -248,6 +409,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
     </Box>
   );
 };
+AIChatLogComposer.storyName = "AI Chat Log";
 AIChatLogComposer.parameters = {
   a11y: {
     // no need to a11y check composition of a11y checked components
