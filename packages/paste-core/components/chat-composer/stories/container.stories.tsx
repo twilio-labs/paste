@@ -156,62 +156,6 @@ export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
 
 ResponsiveContainedVariantWithAttachments.storyName = "Responsive Contained Variant with Attachments";
 
-export const ResponsiveContainedVariantWithAttatchments: StoryFn = () => {
-  return (
-    <ChatComposerContainer variant="contained">
-      <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
-      <ChatComposerActionGroup>
-        <Button variant="secondary_icon" size="reset">
-          <AttachIcon decorative={false} title="Attach" />
-        </Button>
-        <Button variant="primary_icon" size="reset">
-          <SendIcon decorative={false} title="Send" />
-        </Button>
-      </ChatComposerActionGroup>
-      <ChatComposerAttachmentGroup columns={[1, 2, 3, 4]}>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
-        </ChatComposerAttachmentCard>
-      </ChatComposerAttachmentGroup>
-    </ChatComposerContainer>
-  );
-};
-
-ResponsiveContainedVariantWithAttatchments.storyName = "Responsive Contained Variant with Attatchments";
-
 export const ContainedDisabledVariant: StoryFn = () => {
   const [isDisabled, setIsDisabled] = React.useState(true);
   return (
