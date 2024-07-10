@@ -50,8 +50,11 @@ type CalculateSizeStylesResponse = Pick<BoxProps, "columnGap" | "rowGap" | "font
 
 /**
  * Calculates the styles for the FormPillGroup based on the size prop.
+ *
+ * Exported only to be used in tests.
+ * @private
  */
-function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
+export function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
   if (size === "L") {
     return {
       columnGap : "space30",
