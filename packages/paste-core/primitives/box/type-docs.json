@@ -276,20 +276,6 @@
       "required": false,
       "externalProp": false
     },
-    "-webkit-opacity": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `-webkit-opacity` property"
-    },
-    "-webkit-text-fill-color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `-webkit-text-fill-color` property"
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -309,47 +295,12 @@
       "required": false,
       "externalProp": true
     },
-    "alignContent": {
-      "type": "\"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `align-content` property"
-    },
-    "alignItems": {
-      "type": "\"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `align-items` property"
-    },
-    "alignSelf": {
-      "type": "string | (string | null)[] | { [x: string]: string | undefined; [x: number]: string | undefined; } | (\"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | ... 9 more ... | undefined)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `align-self` property"
-    },
     "alt": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Same as HTML"
-    },
-    "animation": {
-      "type": "| Animation<string & {}>\n  | (Animation<string & {}> | null | undefined)[]\n  | {\n      [x: string]: Animation<string & {}> | undefined\n      [x: number]: Animation<string & {}> | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `animation` property"
-    },
-    "appearance": {
-      "type": "| Appearance\n  | (Appearance | null | undefined)[]\n  | { [x: string]: Appearance | undefined; [x: number]: Appearance | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `appearance` property"
     },
     "aria-activedescendant": {
       "type": "string",
@@ -712,298 +663,17 @@
       "required": false,
       "externalProp": true
     },
-    "background": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `background` property"
-    },
-    "backgroundAttachment": {
-      "type": "| BackgroundAttachment\n  | (BackgroundAttachment | null | undefined)[]\n  | {\n      [x: string]: BackgroundAttachment | undefined\n      [x: number]: BackgroundAttachment | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `background-attachment` property"
-    },
-    "backgroundColor": {
-      "type": "\"inherit\" | \"none\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyInverse\" | \"colorBackgroundBrand\" | \"colorBackgroundBrand10\" | ... 55 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BackgroundColor tokens for the CSS `background-color` property"
-    },
-    "backgroundImage": {
-      "type": "| BackgroundImage\n  | (BackgroundImage | null | undefined)[]\n  | {\n      [x: string]: BackgroundImage | undefined\n      [x: number]: BackgroundImage | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `background-image` property"
-    },
-    "backgroundPosition": {
-      "type": "BackgroundPosition<0 | (string & {})> | (BackgroundPosition<0 | (string & {})> | null | undefined)[] | { [x: string]: BackgroundPosition<0 | (string & {})> | undefined; [x: number]: BackgroundPosition<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `background-position` property"
-    },
-    "backgroundRepeat": {
-      "type": "| BackgroundRepeat\n  | (BackgroundRepeat | null | undefined)[]\n  | {\n      [x: string]: BackgroundRepeat | undefined\n      [x: number]: BackgroundRepeat | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `background-repeat` property"
-    },
-    "backgroundSize": {
-      "type": "BackgroundSize<TLengthStyledSystem> | (BackgroundSize<TLengthStyledSystem> | null | undefined)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `background-size` property"
-    },
-    "border": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `border` property"
-    },
-    "borderBottom": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `border-bottom` property"
-    },
-    "borderBottomColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderColor tokens for the CSS `border-bottom-color` property"
-    },
-    "borderBottomLeftRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-left-radius` property"
-    },
-    "borderBottomRightRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-right-radius` property"
-    },
-    "borderBottomStyle": {
-      "type": "| BorderStyle\n  | (BorderStyle | null | undefined)[]\n  | {\n      [x: string]: BorderStyle | undefined\n      [x: number]: BorderStyle | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-bottom-style` property"
-    },
-    "borderBottomWidth": {
-      "type": "\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | (\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderWidth tokens for the CSS `border-bottom-width` property"
-    },
-    "borderCollapse": {
-      "type": "| BorderCollapse\n  | (BorderCollapse | null | undefined)[]\n  | {\n      [x: string]: BorderCollapse | undefined\n      [x: number]: BorderCollapse | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-collapse` property"
-    },
-    "borderColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderColor tokens for the CSS `border-color` property"
-    },
-    "borderLeft": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `border-left` property"
-    },
-    "borderLeftColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderColor tokens for the CSS `border-left-color` property"
-    },
-    "borderLeftStyle": {
-      "type": "| BorderStyle\n  | (BorderStyle | null | undefined)[]\n  | {\n      [x: string]: BorderStyle | undefined\n      [x: number]: BorderStyle | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-left-style` property"
-    },
-    "borderLeftWidth": {
-      "type": "\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | (\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderWidth tokens for the CSS `border-left-width` property"
-    },
-    "borderRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderRadius tokens for the CSS `border-radius` property"
-    },
-    "borderRight": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `border-right` property"
-    },
-    "borderRightColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderColor tokens for the CSS `border-right-color` property"
-    },
-    "borderRightStyle": {
-      "type": "| BorderStyle\n  | (BorderStyle | null | undefined)[]\n  | {\n      [x: string]: BorderStyle | undefined\n      [x: number]: BorderStyle | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-right-style` property"
-    },
-    "borderRightWidth": {
-      "type": "\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | (\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderWidth tokens for the CSS `border-right-width` property"
-    },
-    "borderSpacing": {
-      "type": "BorderSpacing<0 | (string & {})> | (BorderSpacing<0 | (string & {})> | null | undefined)[] | { [x: string]: BorderSpacing<0 | (string & {})> | undefined; [x: number]: BorderSpacing<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-spacing` property"
-    },
-    "borderStyle": {
-      "type": "| BorderStyle\n  | (BorderStyle | null | undefined)[]\n  | {\n      [x: string]: BorderStyle | undefined\n      [x: number]: BorderStyle | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-style` property"
-    },
-    "borderTop": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `border-top` property"
-    },
-    "borderTopColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderColor tokens for the CSS `border-top-color` property"
-    },
-    "borderTopLeftRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderRadius tokens for the CSS `border-top-left-radius` property"
-    },
-    "borderTopRightRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderRadius tokens for the CSS `border-top-right-radius` property"
-    },
-    "borderTopStyle": {
-      "type": "| BorderStyle\n  | (BorderStyle | null | undefined)[]\n  | {\n      [x: string]: BorderStyle | undefined\n      [x: number]: BorderStyle | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `border-top-style` property"
-    },
-    "borderTopWidth": {
-      "type": "\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | (\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderWidth tokens for the CSS `border-top-width` property"
-    },
-    "borderWidth": {
-      "type": "\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | (\"borderWidth0\" | \"borderWidth10\" | \"borderWidth20\" | \"borderWidth30\" | \"borderWidth40\" | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BorderWidth tokens for the CSS `border-width` property"
-    },
-    "bottom": {
-      "type": "Bottom<TLengthStyledSystem> | (Bottom<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Bottom<TLengthStyledSystem> | undefined; [x: number]: Bottom<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `bottom` property"
-    },
-    "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | \"shadowBorderBottomDecorative10Weaker\" | ... 65 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BoxShadow tokens for the CSS `box-shadow` property"
-    },
-    "boxSizing": {
-      "type": "| BoxSizing\n  | (BoxSizing | null | undefined)[]\n  | { [x: string]: BoxSizing | undefined; [x: number]: BoxSizing | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `box-sizing` property"
-    },
     "className": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
-    "clip": {
-      "type": "| Clip\n  | (Clip | null | undefined)[]\n  | { [x: string]: Clip | undefined; [x: number]: Clip | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `clip` property"
-    },
     "color": {
-      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrand\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 56 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Text Color tokens for the CSS `color` property"
-    },
-    "columnGap": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `column-gap` property"
-    },
-    "content": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `content` property"
+      "externalProp": true
     },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
@@ -1016,13 +686,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "cursor": {
-      "type": "| Cursor\n  | (Cursor | null | undefined)[]\n  | { [x: string]: Cursor | undefined; [x: number]: Cursor | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `cursor` property"
     },
     "dangerouslySetInnerHTML": {
       "type": "{ __html: string }",
@@ -1068,13 +731,6 @@
       "externalProp": false,
       "description": "Same as HTML"
     },
-    "display": {
-      "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `display` property"
-    },
     "draggable": {
       "type": "Booleanish",
       "defaultValue": null,
@@ -1087,159 +743,6 @@
       "required": false,
       "externalProp": false,
       "description": "Used to set a custom element name for customization."
-    },
-    "flex": {
-      "type": "| Flex<0 | (string & {})>\n  | (Flex<0 | (string & {})> | null | undefined)[]\n  | {\n      [x: string]: Flex<0 | (string & {})> | undefined\n      [x: number]: Flex<0 | (string & {})> | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex` property"
-    },
-    "flexBasis": {
-      "type": "FlexBasis<0 | (string & {})> | (FlexBasis<0 | (string & {})> | null | undefined)[] | { [x: string]: FlexBasis<0 | (string & {})> | undefined; [x: number]: FlexBasis<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex-basis` property"
-    },
-    "flexDirection": {
-      "type": "| FlexDirection\n  | (FlexDirection | null | undefined)[]\n  | {\n      [x: string]: FlexDirection | undefined\n      [x: number]: FlexDirection | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex-direction` property"
-    },
-    "flexGrow": {
-      "type": "| number\n  | \"inherit\"\n  | \"-moz-initial\"\n  | \"initial\"\n  | \"revert\"\n  | \"unset\"\n  | (FlexGrowOptions | null)[]\n  | {\n      [x: string]: FlexGrowOptions | undefined\n      [x: number]: FlexGrowOptions | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex-grow` property"
-    },
-    "flexShrink": {
-      "type": "| number\n  | \"inherit\"\n  | \"-moz-initial\"\n  | \"initial\"\n  | \"revert\"\n  | \"unset\"\n  | (FlexShrinkOptions | null)[]\n  | {\n      [x: string]: FlexShrinkOptions | undefined\n      [x: number]: FlexShrinkOptions | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex-shrink` property"
-    },
-    "flexWrap": {
-      "type": "| FlexWrap\n  | (FlexWrap | null | undefined)[]\n  | { [x: string]: FlexWrap | undefined; [x: number]: FlexWrap | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `flex-wrap` property"
-    },
-    "float": {
-      "type": "| Float\n  | (Float | null | undefined)[]\n  | { [x: string]: Float | undefined; [x: number]: Float | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `float` property"
-    },
-    "fontFamily": {
-      "type": "\"inherit\" | \"fontFamilyCode\" | \"fontFamilyDisplay\" | \"fontFamilyText\" | \"fontFamilyTextChineseSimplified\" | \"fontFamilyTextChineseTraditional\" | \"fontFamilyTextJapanese\" | \"fontFamilyTextKorean\" | (FontFamilyOptions | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Family tokens for the CSS `font-family` property"
-    },
-    "fontSize": {
-      "type": "\"inherit\" | \"100%\" | \"fontSize10\" | \"fontSize20\" | \"fontSize30\" | \"fontSize40\" | \"fontSize50\" | \"fontSize60\" | \"fontSize70\" | \"fontSize80\" | \"fontSize90\" | \"fontSize100\" | \"fontSize110\" | ... 5 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Size tokens for the CSS `font-size` property"
-    },
-    "fontStyle": {
-      "type": "| FontStyle\n  | (FontStyle | null | undefined)[]\n  | { [x: string]: FontStyle | undefined; [x: number]: FontStyle | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `font-style` property"
-    },
-    "fontVariantNumeric": {
-      "type": "| FontVariantNumeric\n  | (FontVariantNumeric | null | undefined)[]\n  | {\n      [x: string]: FontVariantNumeric | undefined\n      [x: number]: FontVariantNumeric | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "fontWeight": {
-      "type": "\"inherit\" | \"fontWeightLight\" | \"fontWeightNormal\" | \"fontWeightMedium\" | \"fontWeightSemibold\" | \"fontWeightBold\" | \"fontWeightExtrabold\" | (FontWeightOptions | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Weight tokens for the CSS `font-weight` property"
-    },
-    "gridArea": {
-      "type": "| GridArea\n  | (GridArea | null | undefined)[]\n  | { [x: string]: GridArea | undefined; [x: number]: GridArea | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridArea` property"
-    },
-    "gridAutoColumns": {
-      "type": "GridAutoColumns<0 | (string & {})> | (GridAutoColumns<0 | (string & {})> | null | undefined)[] | { [x: string]: GridAutoColumns<0 | (string & {})> | undefined; [x: number]: GridAutoColumns<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridAutoColumns` property"
-    },
-    "gridAutoFlow": {
-      "type": "| GridAutoFlow\n  | (GridAutoFlow | null | undefined)[]\n  | {\n      [x: string]: GridAutoFlow | undefined\n      [x: number]: GridAutoFlow | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridAutoFlow` property"
-    },
-    "gridAutoRows": {
-      "type": "GridAutoRows<0 | (string & {})> | (GridAutoRows<0 | (string & {})> | null | undefined)[] | { [x: string]: GridAutoRows<0 | (string & {})> | undefined; [x: number]: GridAutoRows<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridAutoRows` property"
-    },
-    "gridColumn": {
-      "type": "| GridColumn\n  | (GridColumn | null | undefined)[]\n  | { [x: string]: GridColumn | undefined; [x: number]: GridColumn | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridColumn` property"
-    },
-    "gridRow": {
-      "type": "| GridRow\n  | (GridRow | null | undefined)[]\n  | { [x: string]: GridRow | undefined; [x: number]: GridRow | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridRow` property"
-    },
-    "gridTemplateAreas": {
-      "type": "| GridTemplateAreas\n  | (GridTemplateAreas | null | undefined)[]\n  | {\n      [x: string]: GridTemplateAreas | undefined\n      [x: number]: GridTemplateAreas | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridTemplateAreas` property"
-    },
-    "gridTemplateColumns": {
-      "type": "GridTemplateColumns<0 | (string & {})> | (GridTemplateColumns<0 | (string & {})> | null | undefined)[] | { [x: string]: GridTemplateColumns<0 | (string & {})> | undefined; [x: number]: GridTemplateColumns<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridTemplateColumns` property"
-    },
-    "gridTemplateRows": {
-      "type": "GridTemplateRows<0 | (string & {})> | (GridTemplateRows<0 | (string & {})> | null | undefined)[] | { [x: string]: GridTemplateRows<0 | (string & {})> | undefined; [x: number]: GridTemplateRows<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `gridTemplateRows` property"
-    },
-    "height": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (HeightOptions | null)[]\n  | { [x: string]: HeightOptions; [x: number]: HeightOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `height` property"
     },
     "hidden": {
       "type": "boolean",
@@ -1272,13 +775,6 @@
       "required": false,
       "externalProp": true,
       "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
-    },
-    "inset": {
-      "type": "Inset<TLengthStyledSystem> | (Inset<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Inset<TLengthStyledSystem> | undefined; [x: number]: Inset<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `inset` property"
     },
     "is": {
       "type": "string",
@@ -1317,27 +813,6 @@
       "required": false,
       "externalProp": true
     },
-    "justifyContent": {
-      "type": "\"right\" | \"left\" | \"center\" | \"inherit\" | (string & {}) | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | ... 10 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `justify-content` property"
-    },
-    "justifyItems": {
-      "type": "\"right\" | \"left\" | \"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"normal\" | \"end\" | \"start\" | \"flex-end\" | \"flex-start\" | ... 5 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `justify-items` property"
-    },
-    "justifySelf": {
-      "type": "string | (\"right\" | \"left\" | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 4 more ... | undefined)[] | { ...; } | (string | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `justify-self` property"
-    },
     "label": {
       "type": "string",
       "defaultValue": null,
@@ -1351,125 +826,6 @@
       "required": false,
       "externalProp": true
     },
-    "left": {
-      "type": "Left<TLengthStyledSystem> | (Left<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Left<TLengthStyledSystem> | undefined; [x: number]: Left<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `left` property"
-    },
-    "letterSpacing": {
-      "type": "LetterSpacing<0 | (string & {})> | (LetterSpacing<0 | (string & {})> | null | undefined)[] | { [x: string]: LetterSpacing<0 | (string & {})> | undefined; [x: number]: LetterSpacing<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `letter-spacing` property"
-    },
-    "lineHeight": {
-      "type": "\"inherit\" | \"unset\" | \"lineHeight0\" | \"lineHeight05\" | \"lineHeight10\" | \"lineHeight20\" | \"lineHeight30\" | \"lineHeight40\" | \"lineHeight50\" | \"lineHeight60\" | \"lineHeight70\" | ... 8 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Line Height tokens for the CSS `line-height` property"
-    },
-    "listStyleImage": {
-      "type": "| ListStyleImage\n  | (ListStyleImage | null | undefined)[]\n  | {\n      [x: string]: ListStyleImage | undefined\n      [x: number]: ListStyleImage | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-image` property"
-    },
-    "listStylePosition": {
-      "type": "| ListStylePosition\n  | (ListStylePosition | null | undefined)[]\n  | {\n      [x: string]: ListStylePosition | undefined\n      [x: number]: ListStylePosition | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-position` property"
-    },
-    "listStyleType": {
-      "type": "| ListStyleType\n  | (ListStyleType | null | undefined)[]\n  | {\n      [x: string]: ListStyleType | undefined\n      [x: number]: ListStyleType | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-type` property"
-    },
-    "margin": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin` property"
-    },
-    "marginBottom": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-bottom` property"
-    },
-    "marginLeft": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-left` property"
-    },
-    "marginRight": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-right` property"
-    },
-    "marginTop": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-top` property"
-    },
-    "marginX": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-left` and `margin-right` properties"
-    },
-    "marginY": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-top` and `margin-bottom` properties"
-    },
-    "maxHeight": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (MaxHeightOptions | null)[]\n  | { [x: string]: MaxHeightOptions; [x: number]: MaxHeightOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `max-height` property"
-    },
-    "maxWidth": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (MaxWidthOptions | null)[]\n  | { [x: string]: MaxWidthOptions; [x: number]: MaxWidthOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `max-width` property"
-    },
-    "minHeight": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (MinHeightOptions | null)[]\n  | { [x: string]: MinHeightOptions; [x: number]: MinHeightOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `min-height` property"
-    },
-    "minWidth": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (MinWidthOptions | null)[]\n  | { [x: string]: MinWidthOptions; [x: number]: MinWidthOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `min-width` property"
-    },
     "multiple": {
       "type": "boolean",
       "defaultValue": null,
@@ -1482,20 +838,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "objectFit": {
-      "type": "| ObjectFit\n  | (ObjectFit | null | undefined)[]\n  | { [x: string]: ObjectFit | undefined; [x: number]: ObjectFit | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `object-fit` property"
-    },
-    "objectPosition": {
-      "type": "ObjectPosition<0 | (string & {})> | (ObjectPosition<0 | (string & {})> | null | undefined)[] | { [x: string]: ObjectPosition<0 | (string & {})> | undefined; [x: number]: ObjectPosition<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `object-position` property"
     },
     "onAbort": {
       "type": "ReactEventHandler<HTMLElement>",
@@ -2469,120 +1811,11 @@
       "required": false,
       "externalProp": true
     },
-    "opacity": {
-      "type": "| Opacity\n  | (Opacity | null | undefined)[]\n  | { [x: string]: Opacity | undefined; [x: number]: Opacity | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `opacity` property"
-    },
-    "order": {
-      "type": "| number\n  | \"inherit\"\n  | \"-moz-initial\"\n  | \"initial\"\n  | \"revert\"\n  | \"unset\"\n  | (OrderOptions | null)[]\n  | {\n      [x: string]: OrderOptions | undefined\n      [x: number]: OrderOptions | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `order` property"
-    },
-    "outline": {
-      "type": "Outline<0 | (string & {})> | (Outline<0 | (string & {})> | null | undefined)[] | { [x: string]: Outline<0 | (string & {})> | undefined; [x: number]: Outline<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `outline` property"
-    },
-    "overflow": {
-      "type": "| Overflow\n  | (Overflow | null | undefined)[]\n  | { [x: string]: Overflow | undefined; [x: number]: Overflow | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "overflowWrap": {
-      "type": "| OverflowWrap\n  | (OverflowWrap | null | undefined)[]\n  | {\n      [x: string]: OverflowWrap | undefined\n      [x: number]: OverflowWrap | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `overflow-wrap` property"
-    },
-    "overflowX": {
-      "type": "| OverflowX\n  | (OverflowX | null | undefined)[]\n  | { [x: string]: OverflowX | undefined; [x: number]: OverflowX | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "overflowY": {
-      "type": "| OverflowY\n  | (OverflowY | null | undefined)[]\n  | { [x: string]: OverflowY | undefined; [x: number]: OverflowY | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "padding": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding` property"
-    },
-    "paddingBottom": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-bottom` property"
-    },
-    "paddingLeft": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-left` property"
-    },
-    "paddingRight": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-right` property"
-    },
-    "paddingTop": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-top` property"
-    },
-    "paddingX": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-left` and `padding-right` properties"
-    },
-    "paddingY": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-top` and `padding-bottom` properties"
-    },
     "placeholder": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "pointerEvents": {
-      "type": "| PointerEvents\n  | (PointerEvents | null | undefined)[]\n  | {\n      [x: string]: PointerEvents | undefined\n      [x: number]: PointerEvents | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `pointer-events` property"
-    },
-    "position": {
-      "type": "| Position\n  | (Position | null | undefined)[]\n  | { [x: string]: Position | undefined; [x: number]: Position | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `position` property"
     },
     "prefix": {
       "type": "string",
@@ -2609,13 +1842,6 @@
       "externalProp": false,
       "description": "Same as HTML"
     },
-    "resize": {
-      "type": "| Resize\n  | (Resize | null | undefined)[]\n  | { [x: string]: Resize | undefined; [x: number]: Resize | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `resize` property"
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -2628,37 +1854,17 @@
       "required": false,
       "externalProp": true
     },
-    "right": {
-      "type": "Right<TLengthStyledSystem> | (Right<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Right<TLengthStyledSystem> | undefined; [x: number]: Right<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `right` property"
-    },
     "role": {
       "type": "AriaRole",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
-    "rowGap": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "security": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "size": {
-      "type": "string | number | (string & {}) | (WidthOptions | null)[] | { [x: string]: WidthOptions; [x: number]: WidthOptions; } | (HeightOptions | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for for the CSS `width` and `height` properties"
     },
     "slot": {
       "type": "string",
@@ -2703,13 +1909,6 @@
       "required": false,
       "externalProp": true
     },
-    "tableLayout": {
-      "type": "| TableLayout\n  | (TableLayout | null | undefined)[]\n  | {\n      [x: string]: TableLayout | undefined\n      [x: number]: TableLayout | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `table-layout` property"
-    },
     "target": {
       "type": "string",
       "defaultValue": null,
@@ -2717,81 +1916,11 @@
       "externalProp": false,
       "description": "Same as HTML"
     },
-    "textAlign": {
-      "type": "| TextAlign\n  | (TextAlign | null | undefined)[]\n  | { [x: string]: TextAlign | undefined; [x: number]: TextAlign | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-align` property"
-    },
-    "textDecoration": {
-      "type": "TextDecoration<0 | (string & {})> | (TextDecoration<0 | (string & {})> | null | undefined)[] | { [x: string]: TextDecoration<0 | (string & {})> | undefined; [x: number]: TextDecoration<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-decoration` property"
-    },
-    "textOverflow": {
-      "type": "| TextOverflow\n  | (TextOverflow | null | undefined)[]\n  | {\n      [x: string]: TextOverflow | undefined\n      [x: number]: TextOverflow | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-overflow` property"
-    },
-    "textShadow": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `text-shadow` property"
-    },
-    "textTransform": {
-      "type": "| TextTransform\n  | (TextTransform | null | undefined)[]\n  | {\n      [x: string]: TextTransform | undefined\n      [x: number]: TextTransform | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-transform` property. Avoid using this prop if possible, as it can have implications for screen readers and internationalization."
-    },
     "title": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "top": {
-      "type": "Top<TLengthStyledSystem> | (Top<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Top<TLengthStyledSystem> | undefined; [x: number]: Top<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `top` property"
-    },
-    "transform": {
-      "type": "| Transform\n  | (Transform | null | undefined)[]\n  | { [x: string]: Transform | undefined; [x: number]: Transform | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `transform` property"
-    },
-    "transformOrigin": {
-      "type": "TransformOrigin<0 | (string & {})> | (TransformOrigin<0 | (string & {})> | null | undefined)[] | { [x: string]: TransformOrigin<0 | (string & {})> | undefined; [x: number]: TransformOrigin<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `transform-origin` property"
-    },
-    "transition": {
-      "type": "Transition<string & {}> | (Transition<string & {}> | null | undefined)[] | { [x: string]: Transition<string & {}> | undefined; [x: number]: Transition<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `transition` property"
-    },
-    "transitionDelay": {
-      "type": "TransitionDelay<string & {}> | (TransitionDelay<string & {}> | null | undefined)[] | { [x: string]: TransitionDelay<string & {}> | undefined; [x: number]: TransitionDelay<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `transition-delay` property"
     },
     "translate": {
       "type": "\"yes\" | \"no\"",
@@ -2818,13 +1947,6 @@
       "required": false,
       "externalProp": true
     },
-    "userSelect": {
-      "type": "| UserSelect\n  | (UserSelect | null | undefined)[]\n  | { [x: string]: UserSelect | undefined; [x: number]: UserSelect | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `user-select` property"
-    },
     "variant": {
       "type": "string",
       "defaultValue": null,
@@ -2832,67 +1954,11 @@
       "externalProp": false,
       "description": "Used to style custom variants via customization."
     },
-    "verticalAlign": {
-      "type": "VerticalAlign<0 | (string & {})> | (VerticalAlign<0 | (string & {})> | null | undefined)[] | { [x: string]: VerticalAlign<0 | (string & {})> | undefined; [x: number]: VerticalAlign<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `vertical-align` property"
-    },
-    "visibility": {
-      "type": "| Visibility\n  | (Visibility | null | undefined)[]\n  | { [x: string]: Visibility | undefined; [x: number]: Visibility | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `visibility` property"
-    },
     "vocab": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "whiteSpace": {
-      "type": "| WhiteSpace\n  | (WhiteSpace | null | undefined)[]\n  | { [x: string]: WhiteSpace | undefined; [x: number]: WhiteSpace | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `white-space` property"
-    },
-    "width": {
-      "type": "| string\n  | number\n  | (string & {})\n  | (WidthOptions | null)[]\n  | { [x: string]: WidthOptions; [x: number]: WidthOptions }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Size Tokens for the CSS `width` property"
-    },
-    "willChange": {
-      "type": "| WillChange\n  | (WillChange | null | undefined)[]\n  | { [x: string]: WillChange | undefined; [x: number]: WillChange | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `will-change` property"
-    },
-    "wordBreak": {
-      "type": "| WordBreak\n  | (WordBreak | null | undefined)[]\n  | { [x: string]: WordBreak | undefined; [x: number]: WordBreak | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `word-break` property"
-    },
-    "wordWrap": {
-      "type": "| WordWrap\n  | (WordWrap | null | undefined)[]\n  | { [x: string]: WordWrap | undefined; [x: number]: WordWrap | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `word-wrap` property"
-    },
-    "zIndex": {
-      "type": "\"zIndex0\" | \"zIndex10\" | \"zIndex20\" | \"zIndex30\" | \"zIndex40\" | \"zIndex50\" | \"zIndex60\" | \"zIndex70\" | \"zIndex80\" | \"zIndex90\" | (\"zIndex0\" | \"zIndex10\" | \"zIndex20\" | \"zIndex30\" | ... 6 more ... | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of ZIndex tokens for the CSS `z-index` property"
     }
   }
 }
