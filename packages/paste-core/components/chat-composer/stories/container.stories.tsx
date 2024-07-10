@@ -175,35 +175,25 @@ export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {
             <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
           </ChatComposerAttachment>
         </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
-        <ChatComposerAttachmentCard onDismiss={() => {}}>
-          <ChatComposerAttachment attachmentIcon={<DownloadIcon decorative />}>
-            <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
       </ChatComposerAttachmentGroup>
     </ChatComposerContainer>
