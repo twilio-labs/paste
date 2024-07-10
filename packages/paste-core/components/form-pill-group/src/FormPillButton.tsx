@@ -3,6 +3,7 @@ import type { BoxElementProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import * as React from "react";
+import type { FontSize } from "@twilio-paste/style-props";
 
 import { hoverPillStyles, pillStyles } from "./FormPill.styles";
 import type { PillVariant } from "./types";
@@ -19,7 +20,7 @@ interface FormPillStylesProps {
   /* We can't call this `disabled` because it conflicts with the internal `CompositeItem disabled prop */
   isDisabled?: boolean;
   i18nErrorLabel?: string;
-  fontSize?: string;
+  fontSize?: FontSize;
 }
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(

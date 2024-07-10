@@ -7,6 +7,7 @@ import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 import type { Dispatch, SetStateAction} from "react";
 import { useEffect } from "react";
+import type { FontSize } from "@twilio-paste/style-props";
 
 /** The size variants for the FormPillGroup component. */
 export type FormPillGroupSizeVariant = "default" | "L";
@@ -45,7 +46,7 @@ export interface FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
   size?: FormPillGroupSizeVariant;
-  setPillFontSize: Dispatch<SetStateAction<string|undefined>>;
+  setPillFontSize: Dispatch<SetStateAction<FontSize|undefined>>;
 
 }
 
