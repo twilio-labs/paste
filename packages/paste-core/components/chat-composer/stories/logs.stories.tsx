@@ -372,6 +372,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
+
       <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"
