@@ -130,9 +130,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       content: (
         <AIChatMessage variant="user">
           <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Hi, I'm getting errors codes when sending an SMS.
-          </AIChatMessageBody>
+          <AIChatMessageBody>Hi, I'm getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
     },

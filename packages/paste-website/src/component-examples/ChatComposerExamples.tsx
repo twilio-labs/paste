@@ -104,7 +104,7 @@ export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): 
       editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
       return true;
     },
-    [editor, onKeyDown]
+    [editor, onKeyDown],
   );
 
   React.useEffect(() => {
