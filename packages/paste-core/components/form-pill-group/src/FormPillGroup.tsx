@@ -3,11 +3,11 @@ import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { Composite } from "@twilio-paste/reakit-library";
 import type { CompositeProps } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { FontSize } from "@twilio-paste/style-props";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 import type { Dispatch, SetStateAction } from "react";
 import { useEffect } from "react";
-import type { FontSize } from "@twilio-paste/style-props";
 
 /** The size variants for the FormPillGroup component. */
 export type FormPillGroupSizeVariant = "default" | "L";

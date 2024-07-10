@@ -1,8 +1,8 @@
 import { useCompositeState } from "@twilio-paste/reakit-library";
 import type { CompositeInitialState, CompositeStateReturn } from "@twilio-paste/reakit-library";
+import type { FontSize } from "@twilio-paste/style-props";
 import type { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
-import type { FontSize } from "@twilio-paste/style-props";
 
 export type FormPillStateReturn = CompositeStateReturn & {
   fontSize?: FontSize;

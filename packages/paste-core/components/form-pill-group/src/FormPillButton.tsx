@@ -2,8 +2,8 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
-import * as React from "react";
 import type { FontSize } from "@twilio-paste/style-props";
+import * as React from "react";
 
 import { hoverPillStyles, pillStyles } from "./FormPill.styles";
 import type { PillVariant } from "./types";
