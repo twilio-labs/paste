@@ -205,7 +205,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
     push(createNewMessage(message));
   };
 
-  const editorRef = React.useRef<LexicalEditor>(null);
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
 
   return (
     <Box>
@@ -224,7 +224,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
           ariaLabel="Message"
           placeholder="Type here..."
           onChange={handleComposerChange}
-          editorInstanceRef={editorRef}
+          editorInstanceRef={editorInstanceRef}
         >
           <ClearEditorPlugin />
           <EnterKeySubmitPlugin onKeyDown={submitMessage} />
@@ -238,7 +238,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
             size="reset"
             onClick={() => {
               submitMessage();
-              editorRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+              editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
             }}
           >
             <SendIcon decorative={false} title="Send" />
