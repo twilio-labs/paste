@@ -9,7 +9,6 @@ import * as React from "react";
 import {
   ChatComposer,
   ChatComposerActionGroup,
-  ChatComposerAttachment,
   ChatComposerAttachmentCard,
   ChatComposerAttachmentDescription,
   ChatComposerAttachmentGroup,
@@ -63,18 +62,14 @@ const ExampleChatComposerContained: React.FC<{ attachmentCloseSpy?: jest.Mock }>
           }}
           key={`attachment=${index}`}
           data-testid={`chat-composer-attachment-card-${index}`}
+          attachmentIcon={<DownloadIcon decorative />}
         >
-          <ChatComposerAttachment
-            attachmentIcon={<DownloadIcon decorative />}
-            data-testid={`chat-composer-attachment-${index}`}
-          >
-            <ChatComposerAttachmentLink href={attachment.href} data-testid={`chat-composer-attachment-link-${index}`}>
-              {attachment.name}
-            </ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription data-testid={`chat-composer-attachment-description-${index}`}>
-              {attachment.size}
-            </ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+          <ChatComposerAttachmentLink href={attachment.href} data-testid={`chat-composer-attachment-link-${index}`}>
+            {attachment.name}
+          </ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription data-testid={`chat-composer-attachment-description-${index}`}>
+            {attachment.size}
+          </ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
       ))}
     </ChatComposerAttachmentGroup>
@@ -116,26 +111,21 @@ const CustomizedExampleChatComposerContained: React.FC<{ attachmentCloseSpy?: je
           key={`attachment=${index}`}
           data-testid={`chat-composer-attachment-card-${index}`}
           element="CUSTOM_CHAT_COMPOSER_ATTACHMENT_CARD"
+          attachmentIcon={<DownloadIcon decorative />}
         >
-          <ChatComposerAttachment
-            attachmentIcon={<DownloadIcon decorative />}
-            data-testid={`chat-composer-attachment-${index}`}
-            element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT-${index}`}
+          <ChatComposerAttachmentLink
+            href={attachment.href}
+            data-testid={`chat-composer-attachment-link-${index}`}
+            element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_LINK-${index}`}
           >
-            <ChatComposerAttachmentLink
-              href={attachment.href}
-              data-testid={`chat-composer-attachment-link-${index}`}
-              element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_LINK-${index}`}
-            >
-              {attachment.name}
-            </ChatComposerAttachmentLink>
-            <ChatComposerAttachmentDescription
-              data-testid={`chat-composer-attachment-description-${index}`}
-              element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_DESCRIPTION-${index}`}
-            >
-              {attachment.size}
-            </ChatComposerAttachmentDescription>
-          </ChatComposerAttachment>
+            {attachment.name}
+          </ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription
+            data-testid={`chat-composer-attachment-description-${index}`}
+            element={`CUSTOM_CHAT_COMPOSER_ATTACHMENT_DESCRIPTION-${index}`}
+          >
+            {attachment.size}
+          </ChatComposerAttachmentDescription>
         </ChatComposerAttachmentCard>
       ))}
     </ChatComposerAttachmentGroup>
@@ -180,9 +170,6 @@ describe("ChatComposer", () => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CHAT_COMPOSER_ATTACHMENT_CARD",
         );
-        expect(screen.getByTestId(`chat-composer-attachment-${index}`).getAttribute("data-paste-element")).toEqual(
-          "CHAT_COMPOSER_ATTACHMENT",
-        );
         expect(screen.getByTestId(`chat-composer-attachment-link-${index}`).getAttribute("data-paste-element")).toEqual(
           "CHAT_COMPOSER_ATTACHMENT_LINK",
         );
@@ -210,9 +197,6 @@ describe("ChatComposer", () => {
       attachments.forEach((attachment, index) => {
         expect(screen.getByTestId(`chat-composer-attachment-card-${index}`).getAttribute("data-paste-element")).toEqual(
           "CUSTOM_CHAT_COMPOSER_ATTACHMENT_CARD",
-        );
-        expect(screen.getByTestId(`chat-composer-attachment-${index}`).getAttribute("data-paste-element")).toEqual(
-          `CUSTOM_CHAT_COMPOSER_ATTACHMENT-${index}`,
         );
         expect(screen.getByTestId(`chat-composer-attachment-link-${index}`).getAttribute("data-paste-element")).toEqual(
           `CUSTOM_CHAT_COMPOSER_ATTACHMENT_LINK-${index}`,

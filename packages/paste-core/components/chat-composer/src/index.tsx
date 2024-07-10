@@ -6,8 +6,6 @@ export { ChatComposerAttachmentGroup } from "./ChatComposerAttachmentGroup";
 export type { ChatComposerAttachmentGroupProps } from "./ChatComposerAttachmentGroup";
 export { ChatComposerContainer } from "./ChatComposerContainer";
 export type { ChatComposerContainerProps } from "./ChatComposerContainer";
-export { ChatComposerAttachment } from "./ChatComposerAttachment";
-export type { ChatComposerAttachmentProps } from "./ChatComposerAttachment";
 export { ChatComposerAttachmentCard } from "./ChatComposerAttachmentCard";
 export type { ChatComposerAttachmentCardProps } from "./ChatComposerAttachmentCard";
 export { ChatComposerAttachmentDescription } from "./ChatComposerAttachmentDescription";
