@@ -2,7 +2,9 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Stack } from "@twilio-paste/stack";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
@@ -51,6 +53,14 @@ export interface ChatComposerAttachmentCardProps extends HTMLPasteProps<"div"> {
    * @memberof ChatComposerAttachmentCardProps
    */
   onDismiss?: () => void;
+  /**
+   * Pass an icon to use for the attachment message. DownloadIcon recommended
+   *
+   * @default null
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof ChatComposerAttachmentProps
+   */
+  attachmentIcon: NonNullable<React.ReactNode>;
 }
 
 const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposerAttachmentCardProps>(
@@ -60,6 +70,7 @@ const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposer
       onDismiss,
       i18nDismissLabel = "Remove attachment",
       element = "CHAT_COMPOSER_ATTACHMENT_CARD",
+      attachmentIcon,
       ...props
     },
     ref,
@@ -82,7 +93,18 @@ const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposer
         width="100%"
         element={element}
       >
-        {children}
+        <MediaObject as="div" ref={ref} verticalAlign="center" element={`${element}_MEDIA_OBJECT`}>
+          <MediaFigure as="div" spacing="space30">
+            <Box color="colorTextIcon" element={`${element}_ICON`}>
+              {attachmentIcon}
+            </Box>
+          </MediaFigure>
+          <MediaBody as="div" element={`${element}_BODY`}>
+            <Stack orientation="vertical" spacing="space10">
+              {children}
+            </Stack>
+          </MediaBody>
+        </MediaObject>
         {onDismiss && (
           <Box
             position="absolute"
