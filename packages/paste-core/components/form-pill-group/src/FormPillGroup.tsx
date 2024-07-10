@@ -49,33 +49,25 @@ export interface FormPillGroupProps
   setPillFontSize: Dispatch<SetStateAction<FontSize | undefined>>;
 }
 
-/** The response from the calculateSizeStyles function. */
-type CalculateSizeStylesResponse = Pick<BoxProps, "columnGap" | "rowGap" | "fontSize">;
-
 /**
- * Calculates the styles for the FormPillGroup based on the size prop.
- *
- * Exported only to be used in tests.
- * @private
+ * Contains the style properties for the FormPillGroup component and the FormPill component.
  */
-export function calculateSizeStyles(size: FormPillGroupSizeVariant): CalculateSizeStylesResponse {
-  if (size === "large") {
-    return {
-      columnGap: "space30",
-      rowGap: "space30",
-      fontSize: "fontSize30",
-    };
-  }
-  return {
+const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | "rowGap" | "fontSize">> = {
+  default: {
     columnGap: "space20",
     rowGap: "space20",
     fontSize: undefined,
-  };
-}
+  },
+  large: {
+    columnGap: "space30",
+    rowGap: "space30",
+    fontSize: "fontSize30",
+  },
+};
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
   ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
-    const { columnGap, rowGap, fontSize } = calculateSizeStyles(size);
+    const { fontSize, ...otherStyles } = SizeStyles[size];
     useEffect(() => {
       props.setPillFontSize(fontSize);
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,9 +83,8 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
         padding="space0"
         display={display}
         flexWrap="wrap"
-        rowGap={rowGap}
-        columnGap={columnGap}
         fontSize={fontSize}
+        {...otherStyles}
       >
         {props.children}
       </Box>

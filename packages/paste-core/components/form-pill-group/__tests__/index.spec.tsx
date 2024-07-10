@@ -3,7 +3,6 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
-import { calculateSizeStyles } from "../src/FormPillGroup";
 import { CustomFormPillGroup } from "../stories/customization.stories";
 import { Basic, SelectableAndDismissable } from "../stories/index.stories";
 
@@ -44,21 +43,6 @@ const I18nProp = (): JSX.Element => {
     </form>
   );
 };
-
-describe("calculateSizeStyles", () => {
-  it("should calculate the default style when passed default. columnGap: space20, rowGap: space20", () => {
-    const { columnGap, rowGap } = calculateSizeStyles("default");
-    expect(columnGap).toEqual("space20");
-    expect(rowGap).toEqual("space20");
-  });
-
-  it("should calculate the large sytyle when passed L. columnGap: space30, rowGap: space30, fontSize: fontSize30", () => {
-    const { columnGap, rowGap, fontSize } = calculateSizeStyles("large");
-    expect(columnGap).toEqual("space30");
-    expect(rowGap).toEqual("space30");
-    expect(fontSize).toEqual("fontSize30");
-  });
-});
 
 describe("FormPillGroup", () => {
   describe("Rendered shape", () => {
