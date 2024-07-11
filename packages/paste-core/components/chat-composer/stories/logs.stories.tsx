@@ -71,7 +71,7 @@ const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null =>
       editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
       return true;
     },
-    [editor, onKeyDown]
+    [editor, onKeyDown],
   );
 
   React.useEffect(() => {
@@ -155,7 +155,7 @@ export const ChatLogStory: StoryFn = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    }
+    },
   );
   const [message, setMessage] = React.useState("");
 
@@ -308,7 +308,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
           </AIChatMessageActionGroup>
         </AIChatMessage>
       ),
-    }
+    },
   );
   const [message, setMessage] = React.useState("");
 
