@@ -114,15 +114,15 @@ Within the context of Paste, Chat Composer is most typically used alongside the 
 
 ### ChatComposer
 
-When referring to `ChatComposer` it is the rich text area only. You can use the `ChatComposer` component only, or use it within the `ChatComposerContainer` for consistent styling across chat features.
+When referring to `ChatComposer` it is the rich text area only. You can use the `ChatComposer` component by itself, or use it within the `ChatComposerContainer` for consistent styling across chat features.
 
 #### Accessibility
 
-Chat Composer supports a variety of aria attributes which are passed into the content editable region of the component.
+Chat Composer supports a variety of ARIA attributes which are passed into the content editable region of the component.
 
-- If the surrounding UI includes a screen reader visible label reference the label element using `aria-labelledby`.
+- If the surrounding UI includes a screen reader visible label, reference the label element using `aria-labelledby`.
 - If the surrounding UI does not include a screen reader visible label, use `aria-label` to describe the input.
-- If the surrounding UI includes additional help or error text use `aria-describedby` to reference the associated element.
+- If the surrounding UI includes additional help or error text, use `aria-describedby` to reference the associated element.
 
 #### Lexical and plugins
 
@@ -135,7 +135,7 @@ sources. Alternatively, developers can write their own custom plugin logic. Plug
 Chat Composer uses a custom [`AutoLinkPlugin`](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/AutoLinkPlugin.tsx) internally
 which you can see being configured [here](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/chat-composer/src/ChatComposer.tsx#L116) as a JSX child.
 
-### Chat Composer Component Suite
+### ChatComposer component suite
 
 The Chat Composer component suite offers a variety of components designed to enhance and enrich the chat experience. Each element plays a crucial role in maintaining a consistent and cohesive styling, ensuring a seamless user interaction. The available components include:
 
@@ -160,7 +160,7 @@ Set a placeholder value using a `placeholder` prop.
   {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A placeholder chat composer" />`}
 </LivePreview>
 
-### ChatComposer with initial value
+### Chat Composer with initial value
 
 Set an initial value using an `initialValue` prop. This prop is limited to providing single line strings. For more complicated initial values interact with the Lexical API directly
 using the `config` prop and `editorState` callback.
@@ -169,7 +169,7 @@ using the `config` prop and `editorState` callback.
   {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} initialValue="This is my initial value" ariaLabel="An initial value chat composer" />`}
 </LivePreview>
 
-### ChatCompoer with max height
+### Chat Composer with max height
 
 Restrict the height of the composer using a `maxHeight` prop.
 
@@ -177,7 +177,7 @@ Restrict the height of the composer using a `maxHeight` prop.
   {MaxHeightExample}
 </LivePreview>
 
-### ChatComposer with rich text
+### Chat Composer with rich text
 
 Set a rich text value using one of the Lexical formatting APIs such as [`toggleFormat`](https://lexical.dev/docs/api/classes/lexical.TextNode#toggleformat)
 
