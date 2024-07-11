@@ -61,6 +61,7 @@ import {
   createNewMessage,
   ResponsiveContainedAttachmentsExample,
   ContainedDisabledExample,
+  ContainedExample,
 } from "../../../component-examples/ChatComposerExamples";
 import packageJson from "@twilio-paste/chat-composer/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
@@ -146,10 +147,6 @@ The Chat Composer component suite offers a variety of components designed to enh
 - **ChatComposerAttachmentDescription**: Provides a description or additional information about an attachment, adding context for the user.
 - **ChatComposerAttachmentLink**: Creates clickable links for attachments, facilitating easy access and interaction.
 
-#### Variants
-
-ChatComposerContainer has `default` and `contained` variants. The contained variant is used as part of the new AI experience.
-
 ## Examples
 
 ### ChatComposer with placeholder
@@ -208,6 +205,27 @@ For responsive attachment cards when using the Chat Composer component suite, us
   }}
 >
   {ResponsiveContainedAttachmentsExample}
+</LivePreview>
+
+### Chat Composer contained variant
+
+The `ChatComposerContainer` component has 2 variants, `default` and `contained`.
+
+<LivePreview
+  noInline
+  language="jsx"
+  scope={{
+    SendIcon,
+    Button,
+    SendIcon,
+    AttachIcon,
+    DownloadIcon,
+    ChatComposer,
+    ChatComposerContainer,
+    ChatComposerActionGroup,
+  }}
+>
+  {ContainedExample}
 </LivePreview>
 
 ### Chat Composer disabled contained variant
@@ -423,29 +441,24 @@ export const ChatComposerAIChatLogExample = () => {
     }
   );
   const [message, setMessage] = React.useState("");
-
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef(null);
   const scrollerRef = React.useRef(null);
-
   React.useEffect(() => {
     setMounted(true);
   }, []);
-
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
     const scrollPosition: any = scrollerRef.current;
     const scrollHeight: any = loggerRef.current;
     scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
   }, [aiChats, mounted]);
-
   const handleComposerChange = (editorState): void => {
     editorState.read(() => {
       const text = $getRoot().getTextContent();
       setMessage(text);
     });
   };
-
   const submitMessage = (): void => {
     if (message === "") return;
     push({
@@ -458,15 +471,12 @@ export const ChatComposerAIChatLogExample = () => {
       ),
     });
   };
-
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
-
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
-
       <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"

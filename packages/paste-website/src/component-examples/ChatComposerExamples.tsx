@@ -321,3 +321,30 @@ export const ContainedDisabledExample = `const ContainedDisabledExample = () => 
 }
 
 render(<ContainedDisabledExample />)`.trim();
+
+export const ContainedExample = `const ContainedExample = () => {
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer
+        ariaLabel="A chat with attachments"
+        initialValue="This is my initial value"
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+      />
+      <ChatComposerActionGroup>
+        <Button variant="secondary_icon" size="reset">
+          <AttachIcon decorative={false} title="attach files to the message" />
+        </Button>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+    </ChatComposerContainer>
+  );
+}
+
+render(<ContainedExample />)`.trim();
