@@ -2324,7 +2324,7 @@
       "defaultValue": "2",
       "required": false,
       "externalProp": false,
-      "description": "Sets the number of columns in the attachement grid"
+      "description": "Sets the number of columns in the attachment grid"
     },
     "element": {
       "type": "string",

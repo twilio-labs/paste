@@ -130,11 +130,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       content: (
         <AIChatMessage variant="user">
           <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
-            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-            impedit repellat assumenda.
-          </AIChatMessageBody>
+          <AIChatMessageBody>Hi, I am getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
     },
@@ -144,9 +140,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus
-            eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
-            nesciunt impedit repellat assumenda.
+            Error codes can be returned from various parts of the process. What error codes are you encountering?
             <Box marginTop="space50">
               <ButtonGroup>
                 <Button variant="secondary" onClick={() => {}} size="rounded_small">

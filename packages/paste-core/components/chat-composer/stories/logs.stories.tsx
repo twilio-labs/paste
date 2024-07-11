@@ -263,26 +263,6 @@ const BotMessage = (props): JSX.Element => {
   );
 };
 
-// eslint-disable-next-line storybook/prefer-pascal-case
-const createNewAIMessage = (message: string): Omit<AIChat, "id"> => {
-  const messageDirection = getRandomInt(2) === 1 ? "user" : "bot";
-
-  return {
-    variant: messageDirection,
-    content:
-      messageDirection === "user" ? (
-        <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>{message}</AIChatMessageBody>
-        </AIChatMessage>
-      ) : (
-        <AIChatMessage variant="bot">
-          <BotMessage message={message} />
-        </AIChatMessage>
-      ),
-  };
-};
-
 export const AIChatLogComposer = (): React.ReactNode => {
   const { aiChats, push } = useAIChatLogger(
     {
@@ -290,11 +270,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       content: (
         <AIChatMessage variant="user">
           <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
-            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-            impedit repellat assumenda.
-          </AIChatMessageBody>
+          <AIChatMessageBody>Hi, I am getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
     },
@@ -304,9 +280,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus
-            eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
-            nesciunt impedit repellat assumenda.
+            Error codes can be returned from various parts of the process. What error codes are you encountering?
             <Box marginTop="space50">
               <ButtonGroup>
                 <Button variant="secondary" onClick={() => {}} size="rounded_small">
@@ -362,7 +336,15 @@ export const AIChatLogComposer = (): React.ReactNode => {
 
   const submitMessage = (): void => {
     if (message === "") return;
-    push(createNewAIMessage(message));
+    push({
+      variant: "user",
+      content: (
+        <AIChatMessage variant="user">
+          <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
+          <AIChatMessageBody>{message}</AIChatMessageBody>
+        </AIChatMessage>
+      ),
+    });
   };
 
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
