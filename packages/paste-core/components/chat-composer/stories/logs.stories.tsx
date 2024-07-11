@@ -71,7 +71,7 @@ const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null =>
       editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
       return true;
     },
-    [editor, onKeyDown],
+    [editor, onKeyDown]
   );
 
   React.useEffect(() => {
@@ -155,7 +155,7 @@ export const ChatLogStory: StoryFn = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    },
+    }
   );
   const [message, setMessage] = React.useState("");
 
@@ -263,26 +263,6 @@ const BotMessage = (props): JSX.Element => {
   );
 };
 
-// eslint-disable-next-line storybook/prefer-pascal-case
-const createNewAIMessage = (message: string): Omit<AIChat, "id"> => {
-  const messageDirection = getRandomInt(2) === 1 ? "user" : "bot";
-
-  return {
-    variant: messageDirection,
-    content:
-      messageDirection === "user" ? (
-        <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>{message}</AIChatMessageBody>
-        </AIChatMessage>
-      ) : (
-        <AIChatMessage variant="bot">
-          <BotMessage message={message} />
-        </AIChatMessage>
-      ),
-  };
-};
-
 export const AIChatLogComposer = (): React.ReactNode => {
   const { aiChats, push } = useAIChatLogger(
     {
@@ -328,7 +308,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
           </AIChatMessageActionGroup>
         </AIChatMessage>
       ),
-    },
+    }
   );
   const [message, setMessage] = React.useState("");
 
@@ -356,7 +336,15 @@ export const AIChatLogComposer = (): React.ReactNode => {
 
   const submitMessage = (): void => {
     if (message === "") return;
-    push(createNewAIMessage(message));
+    push({
+      variant: "user",
+      content: (
+        <AIChatMessage variant="user">
+          <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
+          <AIChatMessageBody>{message}</AIChatMessageBody>
+        </AIChatMessage>
+      ),
+    });
   };
 
   const editorInstanceRef = React.useRef<LexicalEditor>(null);

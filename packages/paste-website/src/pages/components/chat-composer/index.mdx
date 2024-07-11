@@ -382,9 +382,7 @@ export const ChatComposerAIChatLogExample = () => {
       content: (
         <AIChatMessage variant="user">
           <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Hi, I am getting errors codes when sending an SMS.
-          </AIChatMessageBody>
+          <AIChatMessageBody>Hi, I am getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
     },
@@ -422,37 +420,53 @@ export const ChatComposerAIChatLogExample = () => {
           </AIChatMessageActionGroup>
         </AIChatMessage>
       ),
-    },
+    }
   );
   const [message, setMessage] = React.useState("");
+
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef(null);
   const scrollerRef = React.useRef(null);
+
   React.useEffect(() => {
     setMounted(true);
   }, []);
+
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
     const scrollPosition: any = scrollerRef.current;
     const scrollHeight: any = loggerRef.current;
     scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
   }, [aiChats, mounted]);
+
   const handleComposerChange = (editorState): void => {
     editorState.read(() => {
       const text = $getRoot().getTextContent();
       setMessage(text);
     });
   };
+
   const submitMessage = (): void => {
     if (message === "") return;
-    push(createNewAIMessage(message));
+    push({
+      variant: "user",
+      content: (
+        <AIChatMessage variant="user">
+          <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
+          <AIChatMessageBody>{message}</AIChatMessageBody>
+        </AIChatMessage>
+      ),
+    });
   };
+
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
+
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
+
       <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"
@@ -472,7 +486,7 @@ export const ChatComposerAIChatLogExample = () => {
         </ChatComposer>
         <ChatComposerActionGroup>
           <Button variant="secondary_icon" size="reset">
-            <AttachIcon decorative={false} title="attach files to the message" />
+            <AttachIcon decorative={false} title="attach a file to your message" />
           </Button>
           <Button
             variant="primary_icon"
