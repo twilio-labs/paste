@@ -22,6 +22,7 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
       boxShadow: "shadowFocus",
       color: "colorTextLink",
       textDecoration: "underline",
+      borderRadius: "borderRadius20",
     }}
     _hover={{
       color: "colorTextLinkStronger",
