@@ -1,5 +1,19 @@
 # @twilio-paste/website
 
+## 2.23.46
+
+### Patch Changes
+
+- Updated dependencies [[`9e54abcd2`](https://github.com/twilio-labs/paste/commit/9e54abcd24da731301464ad13124df9dd4bfcae2), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`96eb7cf0f`](https://github.com/twilio-labs/paste/commit/96eb7cf0f4db02d2ed6456f6737021e762a710a5), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`b5e6d3fd1`](https://github.com/twilio-labs/paste/commit/b5e6d3fd1c85747821ba68e250b02329001f9da3)]:
+  - @twilio-paste/chat-composer@5.2.0
+  - @twilio-paste/ai-chat-log@1.0.0
+  - @twilio-paste/alert-dialog@9.2.1
+  - @twilio-paste/button-group@4.1.1
+  - @twilio-paste/lexical-library@4.2.0
+  - @twilio-paste/button@14.1.2
+  - @twilio-paste/anchor@12.1.1
+  - @twilio-paste/icons@12.6.0
+
 ## 2.23.45
 
 ### Patch Changes

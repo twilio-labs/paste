@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+- [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Lexical] added export for EditorRefPlugin
+
 ## 4.1.0
 
 ### Minor Changes

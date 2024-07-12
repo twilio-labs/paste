@@ -1,5 +1,15 @@
 # @twilio-paste/chat-composer
 
+## 5.2.0
+
+### Minor Changes
+
+- [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChatComposer] Added new components to allow contained variants, actions buttons and attachments
+
+### Patch Changes
+
+- [`9e54abcd2`](https://github.com/twilio-labs/paste/commit/9e54abcd24da731301464ad13124df9dd4bfcae2) [#3981](https://github.com/twilio-labs/paste/pull/3981) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChatComposer] updated JS Doc used for tpye gen in docs website
+
 ## 5.1.1
 
 ### Patch Changes

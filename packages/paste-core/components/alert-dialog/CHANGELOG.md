@@ -1,5 +1,11 @@
 # @twilio-paste/alert-dialog
 
+## 9.2.1
+
+### Patch Changes
+
+- [`96eb7cf0f`](https://github.com/twilio-labs/paste/commit/96eb7cf0f4db02d2ed6456f6737021e762a710a5) [#3918](https://github.com/twilio-labs/paste/pull/3918) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Changing the property name, onConfirmDisabled, in AlertDialog component. The property is called isConfirmDisabled. Non breaking change.
+
 ## 9.2.0
 
 ### Minor Changes
