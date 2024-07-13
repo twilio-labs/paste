@@ -110,6 +110,12 @@ export const badgeVariantStyles: {
     color: "colorText",
     boxShadow: "shadowBorderWeaker",
   },
+  notification_counter: {
+    borderRadius: "borderRadiusPill",
+    color: "colorTextInverse",
+    backgroundColor: "colorBackgroundErrorStrongest",
+    boxShadow: "shadowBorderErrorWeaker",
+  },
   /*
    * the following variants are outdated but still supported to prevent breaking changes
    */
