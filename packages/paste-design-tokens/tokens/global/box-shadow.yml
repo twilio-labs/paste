@@ -225,8 +225,8 @@ props:
 
   # Notification
   shadow-border-notification:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
+    value: "{!offset-0} 1px {!offset-0} {!palette-red-60}"
     comment: Shadow border for notification.
   shadow-border-bottom-notification-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
+    value: "{!offset-0} 1px {!offset-0} {!palette-red-90}"
     comment: Stronger bottom shadow border for notification.
