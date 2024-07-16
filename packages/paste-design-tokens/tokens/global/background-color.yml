@@ -205,3 +205,8 @@ props:
   color-background-decorative-40-weakest:
     value: "{!palette-purple-10}"
     comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+
+  #notification
+  color-background-notification:
+    value: "{!palette-red-60}"
+    comment: Background color used for notifications.
