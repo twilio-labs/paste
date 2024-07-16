@@ -4,7 +4,8 @@ import type { AIChat } from "@twilio-paste/ai-chat-log";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { ChatComposer } from "@twilio-paste/chat-composer";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -14,6 +15,7 @@ import {
   COMMAND_PRIORITY_HIGH,
   ClearEditorPlugin,
   KEY_ENTER_COMMAND,
+  LexicalEditor,
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
@@ -128,11 +130,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
       content: (
         <AIChatMessage variant="user">
           <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
-            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
-            impedit repellat assumenda.
-          </AIChatMessageBody>
+          <AIChatMessageBody>Hi, I am getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
     },
@@ -142,9 +140,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus
-            eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
-            nesciunt impedit repellat assumenda.
+            Error codes can be returned from various parts of the process. What error codes are you encountering?
             <Box marginTop="space50">
               <ButtonGroup>
                 <Button variant="secondary" onClick={() => {}} size="rounded_small">
@@ -202,22 +198,15 @@ export const AIChatLogComposer = (): React.ReactNode => {
     if (message === "") return;
     push(createNewMessage(message));
   };
+
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
+
   return (
     <Box>
       <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
-      <Box
-        borderStyle="solid"
-        borderWidth="borderWidth0"
-        borderTopWidth="borderWidth10"
-        borderColor="colorBorderWeak"
-        display="flex"
-        flexDirection="row"
-        columnGap="space30"
-        paddingX="space70"
-        paddingTop="space50"
-      >
+      <ChatComposerContainer variant="contained">
         <ChatComposer
           maxHeight="size10"
           config={{
@@ -229,12 +218,27 @@ export const AIChatLogComposer = (): React.ReactNode => {
           ariaLabel="Message"
           placeholder="Type here..."
           onChange={handleComposerChange}
+          editorInstanceRef={editorInstanceRef}
         >
           <ClearEditorPlugin />
-          <SendButtonPlugin onClick={submitMessage} />
           <EnterKeySubmitPlugin onKeyDown={submitMessage} />
         </ChatComposer>
-      </Box>
+        <ChatComposerActionGroup>
+          <Button variant="secondary_icon" size="reset">
+            <AttachIcon decorative={false} title="attach a file to your message" />
+          </Button>
+          <Button
+            variant="primary_icon"
+            size="reset"
+            onClick={() => {
+              submitMessage();
+              editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+            }}
+          >
+            <SendIcon decorative={false} title="Send" />
+          </Button>
+        </ChatComposerActionGroup>
+      </ChatComposerContainer>
     </Box>
   );
 };

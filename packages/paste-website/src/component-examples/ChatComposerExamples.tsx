@@ -1,8 +1,5 @@
-import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
 import type { Chat } from "@twilio-paste/chat-log";
-import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import {
   CLEAR_EDITOR_COMMAND,
   COMMAND_PRIORITY_HIGH,
@@ -94,23 +91,6 @@ export const createNewMessage = (message: string): Omit<Chat, "id"> => {
   };
 };
 
-export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const handleSend = (): void => {
-    onClick();
-    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-  };
-
-  return (
-    <Box position="absolute" top="space30" right="space30">
-      <Button variant="primary_icon" size="reset" onClick={handleSend}>
-        <SendIcon decorative={false} title="Send message" />
-      </Button>
-    </Box>
-  );
-};
-
 export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
@@ -134,7 +114,7 @@ export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): 
 };
 
 export const ChatDialogExample = `const ChatDialog = () => {
-  const {chats, push} = useChatLogger(
+  const { chats, push } = useChatLogger(
     {
       content: (
         <ChatBookend>
@@ -146,7 +126,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Quisque ullamcorper ipsum vitae lorem euismod sodales.</ChatBubble>
@@ -170,7 +150,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
@@ -182,9 +162,9 @@ export const ChatDialogExample = `const ChatDialog = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    }
+    },
   );
-  const [message, setMessage] = React.useState('');
+  const [message, setMessage] = React.useState("");
 
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef(null);
@@ -196,7 +176,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
+    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState) => {
@@ -207,9 +187,11 @@ export const ChatDialogExample = `const ChatDialog = () => {
   };
 
   const submitMessage = () => {
-    if (message === '') return;
+    if (message === "") return;
     push(createNewMessage(message));
   };
+
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
 
   return (
     <Box>
@@ -221,31 +203,148 @@ export const ChatDialogExample = `const ChatDialog = () => {
         borderWidth="borderWidth0"
         borderTopWidth="borderWidth10"
         borderColor="colorBorderWeak"
-        display="flex"
-        flexDirection="row"
         columnGap="space30"
         paddingX="space70"
         paddingTop="space50"
       >
-        <ChatComposer
-          maxHeight="size10"
-          config={{
-            namespace: 'foo',
-            onError: (error) => {
-              throw error;
-            },
-          }}
-          ariaLabel="Message"
-          placeholder="Type here..."
-          onChange={handleComposerChange}
-        >
-          <ClearEditorPlugin />
-          <SendButtonPlugin onClick={submitMessage} />
-          <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-        </ChatComposer>
+        <ChatComposerContainer>
+          <ChatComposer
+            maxHeight="size10"
+            config={{
+              namespace: "foo",
+              onError: (error) => {
+                throw error;
+              },
+            }}
+            ariaLabel="Message"
+            placeholder="Type here..."
+            onChange={handleComposerChange}
+            editorInstanceRef={editorInstanceRef}
+          >
+            <ClearEditorPlugin />
+            <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+          </ChatComposer>
+          <ChatComposerActionGroup>
+            <Button variant="secondary_icon" size="reset">
+              <AttachIcon decorative={false} title="attach files to the message" />
+            </Button>
+            <Button
+              variant="primary_icon"
+              size="reset"
+              onClick={() => {
+                submitMessage();
+                editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+              }}
+            >
+              <SendIcon decorative={false} title="Send" />
+            </Button>
+          </ChatComposerActionGroup>
+        </ChatComposerContainer>
       </Box>
     </Box>
   );
 };
 
 render(<ChatDialog />)`.trim();
+
+export const ResponsiveContainedAttachmentsExample = `const ResponsiveContainedAttachmentsExample = () => {
+  const ExampleAttachment = () => (
+    <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+      <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+      <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+    </ChatComposerAttachmentCard>
+  )
+
+  return (
+    <ChatComposerContainer>
+      <ChatComposer
+        ariaLabel="A chat with attachments"
+        initialValue="This is my initial value"
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+      />
+      <ChatComposerActionGroup>
+        <Button variant="secondary_icon" size="reset">
+          <AttachIcon decorative={false} title="attach files to the message" />
+        </Button>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+      <ChatComposerAttachmentGroup columns={[1, 1, 2, 3]}>
+        {Array.from({ length: 6 }).map((_, index) => (
+          <ExampleAttachment key={index} />
+        ))}
+      </ChatComposerAttachmentGroup>
+    </ChatComposerContainer>
+  )
+}
+
+render(<ResponsiveContainedAttachmentsExample />)`.trim();
+
+export const ContainedDisabledExample = `const ContainedDisabledExample = () => {
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  return (
+    <>
+      <Box marginBottom="space50">
+        <Checkbox checked={isDisabled} onClick={() => setIsDisabled((disabled) => !disabled)}>
+          Disable Input
+        </Checkbox>
+      </Box>
+      <ChatComposerContainer variant="contained">
+        <ChatComposer
+          ariaLabel="A chat that is disabled"
+          initialValue="This is my initial value"
+          config={{
+            namespace: "customer-chat",
+            onError: (e) => {
+              throw e;
+            },
+          }}
+          disabled={isDisabled}
+        />
+        <ChatComposerActionGroup>
+          <Button variant="secondary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
+            <AttachIcon decorative={false} title="attach files to the message" />
+          </Button>
+          <Button variant="primary_icon" size="reset" aria-disabled={isDisabled} disabled={isDisabled}>
+            <SendIcon decorative={false} title="Send" />
+          </Button>
+        </ChatComposerActionGroup>
+      </ChatComposerContainer>
+    </>
+  );
+}
+
+render(<ContainedDisabledExample />)`.trim();
+
+export const ContainedExample = `const ContainedExample = () => {
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer
+        ariaLabel="A chat with attachments"
+        initialValue="This is my initial value"
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+      />
+      <ChatComposerActionGroup>
+        <Button variant="secondary_icon" size="reset">
+          <AttachIcon decorative={false} title="attach files to the message" />
+        </Button>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+    </ChatComposerContainer>
+  );
+}
+
+render(<ContainedExample />)`.trim();

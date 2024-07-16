@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/lexical-library",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "category": "library",
   "status": "production",
   "description": "The Lexical third party library.",

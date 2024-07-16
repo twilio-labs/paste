@@ -4,6 +4,11 @@ import {
   // The component that renders the content editable div
   ContentEditable,
   /*
+   * Adds the ability to access the Lexical editor instance from outside of the context
+   * https://lexical.dev/docs/react/plugins#lexicaleditorrefplugin
+   */
+  EditorRefPlugin,
+  /*
    * ErrorBoundary catches errors in any of the children
    * https://reactjs.org/docs/error-boundaries.html
    */
@@ -26,13 +31,20 @@ import {
    */
   RichTextPlugin,
 } from "@twilio-paste/lexical-library";
-import type { ContentEditableProps, LexicalComposerProps, OnChangeFunction } from "@twilio-paste/lexical-library";
+import type {
+  ContentEditableProps,
+  LexicalComposerProps,
+  LexicalEditor,
+  OnChangeFunction,
+} from "@twilio-paste/lexical-library";
 import { StylingGlobals } from "@twilio-paste/styling-library";
 import merge from "deepmerge";
 import * as React from "react";
 
 import { AutoLinkPlugin } from "./AutoLinkPlugin";
+import { ChatComposerContext } from "./ChatComposerContext";
 import { PlaceholderWrapper } from "./PlaceholderWrapper";
+import { ToggleEditablePlugin } from "./ToggleEditablePlugin";
 import { baseConfig, renderInitialText } from "./helpers";
 import { chatComposerLexicalStyles } from "./styles";
 
@@ -64,6 +76,20 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | 
   /**
    *
    * @default null
+   * @type {BoxStyleProps["fontSize"]}
+   * @memberof ChatComposerProps
+   */
+  fontSize?: BoxStyleProps["fontSize"];
+  /**
+   *
+   * @default null
+   * @type {BoxStyleProps["lineHeight"]}
+   * @memberof ChatComposerProps
+   */
+  lineHeight?: BoxStyleProps["lineHeight"];
+  /**
+   *
+   * @default null
    * @type {string}
    * @memberof ChatComposerProps
    */
@@ -82,6 +108,13 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | 
    * @memberof ChatComposerProps
    */
   onChange?: OnChangeFunction;
+  /**
+   *
+   * @default null
+   * @type {React.MutableRefObject<LexicalEditor | null>}
+   * @memberof ChatComposerProps
+   */
+  editorInstanceRef?: React.MutableRefObject<LexicalEditor | null>;
 }
 
 export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
@@ -93,17 +126,37 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       placeholder = "",
       initialValue,
       config,
-      maxHeight,
+      maxHeight = "size30",
       disabled,
+      fontSize,
+      lineHeight,
+      editorInstanceRef,
       ...props
     },
     ref,
   ) => {
+    const { setIsDisabled } = React.useContext(ChatComposerContext);
+
     const baseConfigWithEditorState = {
       ...baseConfig,
       editable: disabled ? false : true,
       editorState: initialValue ? () => renderInitialText(initialValue) : undefined,
     };
+
+    const getDisabledStyling = React.useCallback((): BoxStyleProps => {
+      /**
+       * If setIsDisabled is defined, then the styling will be handled by ChatComposerContainer.
+       * If it is not defined, then the styling will be handled by ChatComposer. Using both causes the diabled style to change
+       * from container and then composer.
+       */
+      if (setIsDisabled !== undefined) {
+        return {};
+      }
+      return {
+        color: "colorTextWeaker",
+        backgroundColor: "colorBackground",
+      };
+    }, [Boolean(setIsDisabled)]);
 
     return (
       <Box
@@ -120,10 +173,10 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         maxHeight={maxHeight}
         disabled={disabled}
         aria-disabled={disabled}
-        _disabled={{
-          color: "colorTextWeaker",
-          backgroundColor: "colorBackground",
-        }}
+        _disabled={getDisabledStyling()}
+        fontSize={fontSize}
+        lineHeight={lineHeight}
+        gridArea="1/1"
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
@@ -136,6 +189,8 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
             {onChange && <OnChangePlugin onChange={onChange} />}
             <HistoryPlugin />
             <AutoLinkPlugin />
+            <ToggleEditablePlugin disabled={disabled} />
+            {editorInstanceRef && <EditorRefPlugin editorRef={editorInstanceRef} />}
             {children}
           </>
         </LexicalComposer>

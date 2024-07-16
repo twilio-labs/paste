@@ -23,13 +23,14 @@ export const getStaticProps = async () => {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'AI Chat Log',
       },
       navigationData,
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
         githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log",
-        storybookUrl: "/?path=/story/components-chatlog--example-chat-log",
+        storybookUrl: "/?path=/story/components-ai-chat-log--example-ai-chat-log",
       },
     },
   };
