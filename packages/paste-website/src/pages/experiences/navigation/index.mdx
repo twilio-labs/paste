@@ -1,10 +1,11 @@
 export const meta = {
   title: 'Navigation',
   description:
-    'The Navigation pattern structures the main navigation bars, Sidebar and Topbar, in a unified way across customer experiences.',
-  slug: '/patterns/navigation/',
+    'The Navigation experience structures the main navigation bars, Sidebar and Topbar, in a unified way across customer experiences.',
+  slug: '/experiences/navigation/',
 };
 
+import { SidebarCategoryRoutes } from "../../../constants";
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -14,10 +15,10 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import NavigationPattern from '../../../assets/images/patterns/navigation-pattern.png';
-import NavigationWireframe from '../../../assets/images/patterns/navigation-wireframe.png';
-import NavigationTopbar from '../../../assets/images/patterns/navigation-topbar.png';
-import NavigationSidebar from '../../../assets/images/patterns/navigation-sidebar.png';
+import NavigationPattern from '../../../assets/images/experiences/navigation-pattern.png';
+import NavigationWireframe from '../../../assets/images/experiences/navigation-wireframe.png';
+import NavigationTopbar from '../../../assets/images/experiences/navigation-topbar.png';
+import NavigationSidebar from '../../../assets/images/experiences/navigation-sidebar.png';
 
 export default DefaultLayout;
 
@@ -35,7 +36,7 @@ export const getStaticProps = async () => {
 };
 
 
-<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} categoryRoute={SidebarCategoryRoutes.EXPERIENCES} />
 
 
 <contentwrapper>
@@ -50,7 +51,7 @@ export const getStaticProps = async () => {
 
 ### General
 
-The Navigation pattern structures common elements found in Twilio products to provide customers a cohesive, expected way to find what they’re looking for. Applying this pattern across all our experiences also makes the Twilio product suite feel and behave like one family of products.
+The Navigation experience structures common elements found in Twilio products to provide customers a cohesive, expected way to find what they’re looking for. Applying this experience across all our experiences also makes the Twilio product suite feel and behave like one family of products.
 
 ### What’s a product, experience, or feature?
 

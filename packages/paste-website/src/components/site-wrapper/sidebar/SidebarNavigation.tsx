@@ -60,8 +60,14 @@ const SiteSidebarNavigation = (): JSX.Element => {
   const pathname = useLocationPathname();
 
   // take airtable feature data and mutate it into navigation data
-  const { allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate } =
-    getNormalizedNavigationData(navigationData);
+  const {
+    allPasteComponent,
+    allPasteLayout,
+    allPastePrimitive,
+    allPastePattern,
+    allPastePageTemplate,
+    allPasteExperience,
+  } = getNormalizedNavigationData(navigationData);
 
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout];
   const filteredComponentSidebarItems = allComponentSidebarItems.sort(alphabetizeComponents);
@@ -197,6 +203,14 @@ const SiteSidebarNavigation = (): JSX.Element => {
         <SidebarAnchor href={SidebarCategoryRoutes.PAGE_TEMPLATES}>Overview</SidebarAnchor>
         {allPastePageTemplate.map(({ name, slug }: { [key: string]: string }) => (
           <SidebarAnchor href={`${SidebarCategoryRoutes.PAGE_TEMPLATES}/${slug}`} key={slug}>
+            {name}
+          </SidebarAnchor>
+        ))}
+      </NavigationDisclosure>
+      <NavigationDisclosure buttonText="Experiences" categoryRoute={SidebarCategoryRoutes.EXPERIENCES}>
+        <SidebarAnchor href={SidebarCategoryRoutes.EXPERIENCES}>Overview</SidebarAnchor>
+        {allPasteExperience.map(({ name, slug }: { [key: string]: string }) => (
+          <SidebarAnchor href={`${SidebarCategoryRoutes.EXPERIENCES}/${slug}`} key={slug}>
             {name}
           </SidebarAnchor>
         ))}

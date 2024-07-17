@@ -29,7 +29,7 @@ const getCategory = (pkgPath) => {
   return "";
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, consistent-return
 const getAllPatterns = async () => {
   try {
     const patterns = await systemTable
@@ -47,7 +47,7 @@ const getAllPatterns = async () => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, consistent-return
 const getAllPageTemplates = async () => {
   try {
     const patterns = await systemTable
@@ -65,7 +65,24 @@ const getAllPageTemplates = async () => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, consistent-return
+const getAllExperiences = async () => {
+  try {
+    const experiences = await systemTable
+      .select({
+        filterByFormula: 'AND({Component Category} = "experience", Documentation, status, status != "in development")',
+        sort: [{ field: "Feature" }],
+        fields: ["Feature", "status"],
+      })
+      .all();
+    return experiences.map(({ fields }) => fields);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("getAllExperiences fetch error:", error);
+  }
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const getAllPackages = async () => {
   try {
     const root = path.resolve(process.cwd(), "../");
@@ -81,6 +98,7 @@ const getAllPackages = async () => {
       allPasteThemePackage: [],
       allPastePattern: [],
       allPastePageTemplate: [],
+      allPasteExperience: [],
     };
 
     packages.forEach(async (packageJson) => {
@@ -98,6 +116,9 @@ const getAllPackages = async () => {
 
     const pageTemplates = await getAllPageTemplates();
     data.allPastePageTemplate = [...pageTemplates];
+
+    const experiences = await getAllExperiences();
+    data.allPasteExperience = [...experiences];
 
     await fs.mkdir(dataPath, { recursive: true }, (err) => {
       if (err) {

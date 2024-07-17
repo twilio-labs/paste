@@ -1,0 +1,54 @@
+export const meta = {
+  title: 'Experiences',
+  description: 'overview page',
+  slug: '/experiences/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {PageHeader, PageHeaderSetting, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph, PageHeaderSeparator} from "@twilio-paste/page-header";
+import {Text} from '@twilio-paste/text';
+import {Separator} from '@twilio-paste/separator';
+import {SiteLink} from '../../components/SiteLink.tsx';
+import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
+import {ComponentOverviewTable} from '../../components/component-overview-table';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['experience']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
+
+<PageHeader>
+  <PageHeaderSetting>
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    </Breadcrumb>
+  </PageHeaderSetting>
+  <PageHeaderDetails>
+    <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+  </PageHeaderDetails>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</PageHeader>
+
+## What is an experience?
+
+Experiences ...
+
+For more information about how Paste is built and where experiences fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
+
+<ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.EXPERIENCES} componentsList={props.componentList} />
