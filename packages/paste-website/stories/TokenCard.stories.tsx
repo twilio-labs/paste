@@ -193,6 +193,12 @@ SizingTokenSquare.args = {
   name: "size-square-200",
 };
 
+export const SizingTokenBase = Template.bind({});
+SizingTokenBase.args = {
+  category: "sizings",
+  name: "size-base-90",
+};
+
 export const SpacingToken = Template.bind({});
 SpacingToken.args = {
   category: "spacings",
