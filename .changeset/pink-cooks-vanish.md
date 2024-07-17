@@ -4,5 +4,4 @@
 "@twilio-paste/core": minor
 ---
 
-- Add new base sizing tokens
-- Update description of existing sizing tokens
+- [Design Tokens] Add new base sizing tokens and update description of existing sizing tokens
