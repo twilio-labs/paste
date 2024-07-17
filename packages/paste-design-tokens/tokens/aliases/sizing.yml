@@ -39,3 +39,14 @@ aliases:
   size-sidebar-compact: "4.75rem" #76px
   size-sidebar: "15rem" #240px
   size-topbar: "4.75rem" #76px
+
+  size-base-0: "0" #0
+  size-base-10: "0.25rem" #4px
+  size-base-20: "0.5rem" #8px
+  size-base-30: "0.75rem" #12px
+  size-base-40: "1rem" #16px
+  size-base-50: "1.25rem" #20px
+  size-base-60: "1.5rem" #24px
+  size-base-70: "1.75rem" #28px
+  size-base-80: "2rem" #32px
+  size-base-90: "2.25rem" #36px (height of form inputs)
