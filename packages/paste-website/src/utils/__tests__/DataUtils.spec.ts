@@ -81,6 +81,16 @@ const mockNavData = [
     Code: "not applicable",
     "Product suitability": ["Console", "Flex", "SendGrid"],
   },
+  {
+    Feature: "Artificial Intelligence",
+    status: "production",
+    Figma: "yes",
+    "Design committee review": "yes",
+    "Engineer committee review": "yes",
+    Documentation: true,
+    "Component Category": "experience",
+    Code: "yes",
+  },
 ];
 
 describe("getNormalizedNavigationData", () => {
@@ -93,6 +103,7 @@ describe("getNormalizedNavigationData", () => {
       allPastePrimitive: [],
       allPastePattern: [],
       allPastePageTemplate: [],
+      allPasteExperience: [],
     });
   });
 
@@ -139,6 +150,14 @@ describe("getNormalizedNavigationData", () => {
           slug: "settings",
         },
       ],
+      allPasteExperience: [
+        {
+          name: "Artificial Intelligence",
+          packageName: "@twilio-paste/artificial-intelligence",
+          packageStatus: "production",
+          slug: "artificial-intelligence",
+        },
+      ],
     });
   });
 
@@ -162,6 +181,7 @@ describe("getNormalizedNavigationData", () => {
       allPastePrimitive: [],
       allPastePattern: [],
       allPastePageTemplate: [],
+      allPasteExperience: [],
     });
   });
 });
