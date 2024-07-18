@@ -49,11 +49,11 @@ export interface FormPillGroupProps
  * Contains the style properties for the FormPillGroup component and the FormPill component.
  */
 const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | "rowGap">> = {
-  "default": {
+  default: {
     columnGap: "space20",
     rowGap: "space20",
   },
-  "large": {
+  large: {
     columnGap: "space30",
     rowGap: "space30",
   },

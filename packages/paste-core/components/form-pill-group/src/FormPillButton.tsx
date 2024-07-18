@@ -1,5 +1,5 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps , BoxProps} from "@twilio-paste/box";
+import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import * as React from "react";
@@ -31,7 +31,7 @@ const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "
     fontSize: "fontSize30",
     height: "sizeIcon50",
   },
-}
+};
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
   (
