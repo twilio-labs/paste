@@ -77,6 +77,9 @@ export const AllBadges = (): JSX.Element => (
     <Badge as="span" variant="error_counter">
       1
     </Badge>
+    <Badge as="span" variant="notification_counter">
+      100
+    </Badge>
   </Wrapper>
 );
 export const SmallBadges = (): JSX.Element => (
@@ -125,6 +128,9 @@ export const SmallBadges = (): JSX.Element => (
     </Badge>
     <Badge as="span" size="small" variant="error_counter">
       1
+    </Badge>
+    <Badge as="span" size="small" variant="notification_counter">
+      100
     </Badge>
   </Wrapper>
 );
@@ -1031,3 +1037,52 @@ export const LongTextBadge = (): JSX.Element => (
     </Badge>
   </Wrapper>
 );
+
+export const NotificationCounterBadge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="span" variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="span" variant="notification_counter">
+        100
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="a" href="#" variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="a" href="#" variant="notification_counter">
+        100
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="notification_counter">
+        100
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="notification_counter">
+        100
+      </Badge>
+    </Wrapper>
+  </>
+);
+
+NotificationCounterBadge.storyName = "Notification Counter Badge";

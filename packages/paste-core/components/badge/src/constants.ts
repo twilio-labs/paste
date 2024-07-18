@@ -15,6 +15,7 @@ export const BadgeVariants = [
   "neutral_counter",
   "error_counter",
   "default",
+  "notification_counter",
   // the following variants are outdated but still supported to prevent breaking changes
   "info",
 ] as const;
