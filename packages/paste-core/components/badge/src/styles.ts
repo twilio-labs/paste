@@ -110,6 +110,12 @@ export const badgeVariantStyles: {
     color: "colorText",
     boxShadow: "shadowBorderWeaker",
   },
+  notification_counter: {
+    borderRadius: "borderRadiusPill",
+    backgroundColor: "colorBackgroundNotification",
+    color: "colorTextInverse",
+    boxShadow: "shadowBorderNotification",
+  },
   /*
    * the following variants are outdated but still supported to prevent breaking changes
    */
@@ -169,6 +175,9 @@ export const badgeButtonStyles: {
   },
   error_counter: {
     boxShadow: "shadowBorderBottomErrorWeaker",
+  },
+  notification_counter: {
+    boxShadow: "shadowBorderBottomNotificationStronger",
   },
   // the following variants are outdated but still supported to prevent breaking changes
   default: {
