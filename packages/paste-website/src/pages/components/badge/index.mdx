@@ -1,68 +1,68 @@
 export const meta = {
-  title: 'Badge - Components',
-  package: '@twilio-paste/badge',
-  description: 'A badge is a visually highlighted text label that describes an attribute of an object.',
-  slug: '/components/badge/',
+  title: "Badge - Components",
+  package: "@twilio-paste/badge",
+  description: "A badge is a visually highlighted text label that describes an attribute of an object.",
+  slug: "/components/badge/",
 };
 
-import Changelog from '@twilio-paste/badge/CHANGELOG.md';
+import Changelog from "@twilio-paste/badge/CHANGELOG.md";
 
-import {Badge} from '@twilio-paste/badge';
-import {Card} from '@twilio-paste/card';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Button} from '@twilio-paste/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {Radio, RadioGroup} from '@twilio-paste/radio-group';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {UsersIcon} from '@twilio-paste/icons/esm/UsersIcon';
-import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
-import {ProductElasticSIPTrunkingIcon} from '@twilio-paste/icons/esm/ProductElasticSIPTrunkingIcon';
-import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
-import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
-import {VoiceCapableIcon} from '@twilio-paste/icons/esm/VoiceCapableIcon';
-import {FaxCapableIcon} from '@twilio-paste/icons/esm/FaxCapableIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { Badge } from "@twilio-paste/badge";
+import { Card } from "@twilio-paste/card";
+import { Text } from "@twilio-paste/text";
+import { Heading } from "@twilio-paste/heading";
+import { Button } from "@twilio-paste/button";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
+import { ProductVoiceIcon } from "@twilio-paste/icons/esm/ProductVoiceIcon";
+import { ProductElasticSIPTrunkingIcon } from "@twilio-paste/icons/esm/ProductElasticSIPTrunkingIcon";
+import { SMSCapableIcon } from "@twilio-paste/icons/esm/SMSCapableIcon";
+import { MMSCapableIcon } from "@twilio-paste/icons/esm/MMSCapableIcon";
+import { VoiceCapableIcon } from "@twilio-paste/icons/esm/VoiceCapableIcon";
+import { FaxCapableIcon } from "@twilio-paste/icons/esm/FaxCapableIcon";
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
 import { ProductCommsIcon } from "@twilio-paste/icons/esm/ProductCommsIcon";
 import { ProductSendGridIcon } from "@twilio-paste/icons/esm/ProductSendGridIcon";
 import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
-import {Grid, Column} from '@twilio-paste/grid';
-import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/tabs';
-import {DisplayPill} from '@twilio-paste/display-pill-group';
+import { Grid, Column } from "@twilio-paste/grid";
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from "@twilio-paste/tabs";
+import { DisplayPill } from "@twilio-paste/display-pill-group";
 
-import {Truncate} from '@twilio-paste/truncate';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Truncate } from "@twilio-paste/truncate";
+import { styled, css } from "@twilio-paste/styling-library";
 
-import {Box} from '@twilio-paste/box';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Stack} from '@twilio-paste/stack';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
-import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { UnorderedList, ListItem } from "@twilio-paste/list";
+import { Stack } from "@twilio-paste/stack";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { PopoverContainer, PopoverBadgeButton, Popover } from "@twilio-paste/popover";
+import { Table, THead, TBody, Td, Th, Tr } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
 
-import {SidebarCategoryRoutes} from '../../../constants';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
+import { SidebarCategoryRoutes } from "../../../constants";
+import { DoDont, Do, Dont } from "../../../components/DoDont";
 import {
   tableExample,
   betaFeatureExample,
   settingsAndProducts,
   badgeModalExample,
   counterExample,
-} from '../../../component-examples/BadgeExamples';
-import packageJson from '@twilio-paste/badge/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+} from "../../../component-examples/BadgeExamples";
+import packageJson from "@twilio-paste/badge/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Badge');
+  const feature = await getFeature("Badge");
   return {
     props: {
       data: {
@@ -73,14 +73,14 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge',
-        storybookUrl: '/?path=/story/components-badge--all-badges',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge",
+        storybookUrl: "/?path=/story/components-badge--all-badges",
       },
     },
   };
 };
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
   <Badge as="span" variant="neutral">
     Neutral
@@ -127,6 +127,9 @@ export const getStaticProps = async () => {
   <Badge as="span" variant="error_counter">
     1
   </Badge>
+  <Badge as="span" variant="notification_counter">
+    100
+  </Badge>
 </Box>
 `.trim()}
 </LivePreview>
@@ -160,7 +163,7 @@ should be prefixed before the text.
 
 Use the neutral Badge to highlight neutral attributes of an object. An information icon is optional.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="neutral">
     Neutral
@@ -177,7 +180,7 @@ Use the neutral Badge to highlight neutral attributes of an object. An informati
 
 Use the warning Badge to highlight attributes of an object that the user must be made aware of to avoid incurring an error. A warning icon is recommended.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="warning">
     Warning
@@ -198,7 +201,7 @@ Do not use an error Badge unless there is additional guidance elsewhere on the p
 
 For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="error">
     Error
@@ -216,7 +219,7 @@ For additional guidance on how to compose error messages, refer to the [error st
 Use the success Badge to highlight attributes of an object that were completed or are considered to be in a good
 state. A success icon is recommended.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="success">
     Success
@@ -233,7 +236,7 @@ state. A success icon is recommended.
 
 Use the new Badge to highlight an object that is new, beta, pilot, or experimental. A new icon is recommended.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="new">
     New
@@ -251,7 +254,7 @@ Use the new Badge to highlight an object that is new, beta, pilot, or experiment
 The subaccount Badge is reserved for specific use cases only. Consult with the Console team before implementing this variant.
 A users icon is recommended.
 
-<LivePreview scope={{Box, Badge, UsersIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, UsersIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="subaccount">
     Subaccount
@@ -269,7 +272,7 @@ A users icon is recommended.
 Use the decorative Badge to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
 but would benefit from the visual affordance of differently-colored Badges. Icons are optional, and should appear before the text.
 
-<LivePreview scope={{Box, Badge, SMSCapableIcon, MMSCapableIcon, VoiceCapableIcon, FaxCapableIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, SMSCapableIcon, MMSCapableIcon, VoiceCapableIcon, FaxCapableIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="decorative10">
     <VoiceCapableIcon decorative />
@@ -295,7 +298,10 @@ but would benefit from the visual affordance of differently-colored Badges. Icon
 
 Use the brand Badge for cross-selling opportunities across platforms (e.g., Segment, SendGrid, Communications, Flex) and pricing plans. Use these sparingly.
 
-<LivePreview scope={{Box, Badge, ProductSendGridIcon, ProductSegmentIcon, ProductCommsIcon, FaxCapableIcon}} language="jsx">
+<LivePreview
+  scope={{ Box, Badge, ProductSendGridIcon, ProductSegmentIcon, ProductCommsIcon, FaxCapableIcon }}
+  language="jsx"
+>
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="brand10">
     <ProductCommsIcon decorative />
@@ -319,7 +325,7 @@ Use the counter Badge to visually highlight a count in a UI, like the number of 
 
 Counter Badges have neutral, error, and notification variants. The error variant should always include an error icon. The notification variant informs users of new or unread items, such as messages, notifications, or updates.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space80">
   <Badge as="span" variant="neutral_counter">
     100
@@ -327,7 +333,7 @@ Counter Badges have neutral, error, and notification variants. The error variant
   <Badge as="span" variant="error_counter">
     100
   </Badge>
-    <Badge as="span" variant="notification_counter">
+  <Badge as="span" variant="notification_counter">
     100
   </Badge>
 </Box>
@@ -339,7 +345,7 @@ Counter Badges have neutral, error, and notification variants. The error variant
 A badge can link to other pages.
 To do so, add an `href` prop and set `as="a"` on the Badge.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
   <Badge as="a" href="https://www.twilio.com/docs" variant="neutral">
     <InformationIcon decorative/>
@@ -384,7 +390,7 @@ of the Popover docs to add a Popover to a Badge.
 
 Use a small Badge only when vertical density is a concern. The guidelines for using variants in a small Badge are the same as in their default size.
 
-<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+<LivePreview scope={{ Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon }} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
   <Badge as="span" size="small" variant="neutral">
     Neutral
@@ -666,7 +672,7 @@ yarn add @twilio-paste/badge - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Badge} from '@twilio-paste/core/badge';
+import { Badge } from "@twilio-paste/core/badge";
 
 const BadgeExample = () => (
   <Badge as="span" variant="neutral">
