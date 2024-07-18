@@ -42,6 +42,12 @@ export interface FormPillGroupProps
    * @memberof FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
+  /**
+   * Size variant that affects the size and spacing of the pills within the FormPillGroup. 'large' and 'default' are the only supported values.
+   *
+   * @default 'default'
+   * @memberof FormPillGroupProps
+   */
   size?: FormPillGroupSizeVariant;
 }
 
