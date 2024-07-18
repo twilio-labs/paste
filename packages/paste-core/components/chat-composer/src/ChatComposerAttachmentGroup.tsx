@@ -13,7 +13,7 @@ export interface ChatComposerAttachmentGroupProps {
    */
   element?: BoxProps["element"];
   /**
-   * Sets the number of columns in the attachement grid
+   * Sets the number of columns in the attachment grid
    * @default 2
    * @type number
    * @memberof ChatComposerAttachmentGroupProps

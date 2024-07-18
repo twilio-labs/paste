@@ -1,5 +1,11 @@
 # @twilio-paste/button-group
 
+## 4.1.1
+
+### Patch Changes
+
+- [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2) [#3927](https://github.com/twilio-labs/paste/pull/3927) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button Group] allow unattached button groups to wrap to another line
+
 ## 4.1.0
 
 ### Minor Changes

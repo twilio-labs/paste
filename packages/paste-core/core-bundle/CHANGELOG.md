@@ -1,5 +1,40 @@
 # Change Log
 
+## 20.14.0
+
+### Minor Changes
+
+- [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2) [#3927](https://github.com/twilio-labs/paste/pull/3927) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AIChatLog]: Added a new AIChatLog component to the library to display interactions between AI entities
+
+* [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChatComposer] Added new components to allow contained variants, actions buttons and attachments
+
+- [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Lexical] added export for EditorRefPlugin
+
+* [`b5e6d3fd1`](https://github.com/twilio-labs/paste/commit/b5e6d3fd1c85747821ba68e250b02329001f9da3) [#3962](https://github.com/twilio-labs/paste/pull/3962) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] Added 5 new icons: AuthenticationIcon, TemplateMessageIcon, TriggerIcon, ProductUnifiedProfilesIcon and UnstarIcon. Also updated 2 icons: ProductSupportIcon and SupportIcon
+
+### Patch Changes
+
+- [`9e54abcd2`](https://github.com/twilio-labs/paste/commit/9e54abcd24da731301464ad13124df9dd4bfcae2) [#3981](https://github.com/twilio-labs/paste/pull/3981) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChatComposer] updated JS Doc used for tpye gen in docs website
+
+* [`96eb7cf0f`](https://github.com/twilio-labs/paste/commit/96eb7cf0f4db02d2ed6456f6737021e762a710a5) [#3918](https://github.com/twilio-labs/paste/pull/3918) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Changing the property name, onConfirmDisabled, in AlertDialog component. The property is called isConfirmDisabled. Non breaking change.
+
+- [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2) [#3927](https://github.com/twilio-labs/paste/pull/3927) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button Group] allow unattached button groups to wrap to another line
+
+* [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AIChatLog] Updated internal styling types
+
+- [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2) [#3927](https://github.com/twilio-labs/paste/pull/3927) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button] Add border radius 20 to size="reset" buttons which can be overridden by passing a border radius token to variant="reset" and size="reset" buttons
+
+* [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361) [#3964](https://github.com/twilio-labs/paste/pull/3964) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Anchor] Added border radius to focus styling
+
+* Updated dependencies [[`9e54abcd2`](https://github.com/twilio-labs/paste/commit/9e54abcd24da731301464ad13124df9dd4bfcae2), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`96eb7cf0f`](https://github.com/twilio-labs/paste/commit/96eb7cf0f4db02d2ed6456f6737021e762a710a5), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361), [`3302f72e4`](https://github.com/twilio-labs/paste/commit/3302f72e4f02394b0ec7636275c8437f93e637b2), [`7779a24e5`](https://github.com/twilio-labs/paste/commit/7779a24e5a3173811e52675c7d5a9f8dcf608361)]:
+  - @twilio-paste/chat-composer@5.2.0
+  - @twilio-paste/ai-chat-log@1.0.0
+  - @twilio-paste/alert-dialog@9.2.1
+  - @twilio-paste/button-group@4.1.1
+  - @twilio-paste/lexical-library@4.2.0
+  - @twilio-paste/button@14.1.2
+  - @twilio-paste/anchor@12.1.1
+
 ## 20.13.0
 
 ### Minor Changes

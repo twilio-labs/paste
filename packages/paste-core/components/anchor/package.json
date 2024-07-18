@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "12.1.0",
+  "version": "12.1.1",
   "category": "interaction",
   "status": "production",
   "description": "An Anchor is text that navigates the user from one webpage to another.",
@@ -47,7 +47,7 @@
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
     "@twilio-paste/design-tokens": "^10.2.0",
-    "@twilio-paste/icons": "^12.2.0",
+    "@twilio-paste/icons": "^12.6.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",
