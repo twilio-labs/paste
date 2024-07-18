@@ -315,9 +315,9 @@ Use the brand Badge for cross-selling opportunities across platforms (e.g., Segm
 
 ### Counter
 
-Use the counter Badge should be used to visually highlight a count in a UI.
-For example, the number of pending invitations or the number of errors.
-Counter Badges are limited to Neutral and Error variants, and the error variant should always include an error icon.
+Use the counter Badge to visually highlight a count in a UI, like the number of pending invitations or the number of errors.
+
+Counter Badges have neutral, error, and notification variants. The error variant should always include an error icon. The notification variant informs users of new or unread items, such as messages, notifications, or updates.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -325,6 +325,9 @@ Counter Badges are limited to Neutral and Error variants, and the error variant 
     100
   </Badge>
   <Badge as="span" variant="error_counter">
+    100
+  </Badge>
+    <Badge as="span" variant="notification_counter">
     100
   </Badge>
 </Box>
@@ -400,19 +403,6 @@ Use a small Badge only when vertical density is a concern. The guidelines for us
   </Badge>
   <Badge as="span" size="small" variant="subaccount">
     Subaccount
-  </Badge>
-</Box>
-`.trim()}
-</LivePreview>
-
-### Notification Counter
-
-Use a notification counter as a visual indicator to inform users of new or unread items, such as messages, notifications, or updates. 
-
-<LivePreview scope={{Box, Badge, InformationIcon}} language="jsx">
-  {`<Box display="flex" columnGap="space80">
-  <Badge as="span" variant="notification_counter">
-    100
   </Badge>
 </Box>
 `.trim()}
