@@ -7,7 +7,7 @@ import * as React from "react";
 import { selectedWrapperStyles, wrapperStyles } from "./FormPill.styles";
 import { FormPillButton } from "./FormPillButton";
 import { PillCloseIcon } from "./PillCloseIcon";
-import type { FormPillGroupSizeVariant, PillVariant } from "./types";
+import type { PillVariant } from "./types";
 
 export interface FormPillProps extends CompositeStateReturn {
   /**
@@ -73,7 +73,6 @@ export interface FormPillProps extends CompositeStateReturn {
    * @memberof FormPillProps
    */
   i18nErrorLabel?: string;
-  size?: FormPillGroupSizeVariant;
 }
 
 /**

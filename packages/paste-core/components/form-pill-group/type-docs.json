@@ -620,12 +620,6 @@
       "externalProp": false,
       "description": "Set if a pill is in a selected state"
     },
-    "size": {
-      "type": "FormPillGroupSizeVariant",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "variant": {
       "type": "PillVariant",
       "defaultValue": "'default'",
