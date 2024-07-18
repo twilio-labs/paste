@@ -3,10 +3,8 @@ import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { Composite } from "@twilio-paste/reakit-library";
 import type { CompositeProps } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
-import type { FontSize } from "@twilio-paste/style-props";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
-import type { Dispatch, SetStateAction } from "react";
 
 import type { FormPillGroupSizeVariant } from "./types";
 import { FormPillGroupContext } from "./useFormPillState";
@@ -45,7 +43,6 @@ export interface FormPillGroupProps
    */
   display?: "flex" | "inline-flex";
   size?: FormPillGroupSizeVariant;
-  setPillFontSize: Dispatch<SetStateAction<FontSize | undefined>>;
 }
 
 /**

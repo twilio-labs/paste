@@ -22,9 +22,15 @@ interface FormPillStylesProps {
   i18nErrorLabel?: string;
 }
 
-const fontSizes: Record<FormPillGroupSizeVariant, BoxProps['fontSize']> = {
-  default: undefined,
-  large: "fontSize30",
+const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "height">> = {
+  default: {
+    fontSize: undefined,
+    height: "sizeIcon40",
+  },
+  large: {
+    fontSize: "fontSize30",
+    height: "sizeIcon50",
+  },
 }
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
@@ -46,7 +52,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       return hasHoverStyles ? { ...pillStyles[variant], ...hoverPillStyles[variant] } : pillStyles[variant];
     }, [isHoverable, isDisabled, variant]);
     const { size } = React.useContext(FormPillGroupContext);
-    const fontSize = fontSizes[size];
+    const { height, fontSize } = sizeStyles[size];
 
     return (
       <Box
@@ -63,7 +69,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         borderRadius="borderRadiusPill"
         borderStyle="none"
         cursor="default"
-        height="sizeIcon40"
+        height={height}
         fontFamily="inherit"
         fontSize={fontSize}
         fontWeight="fontWeightMedium"

@@ -677,12 +677,6 @@
       "externalProp": true,
       "description": "Sets `currentId`. This is different from `composite.move` as this only\nupdates the `currentId` state without moving focus. When the composite\nwidget gets focused by the user, the item referred by the `currentId`\nstate will get focus."
     },
-    "setPillFontSize": {
-      "type": "Dispatch<SetStateAction<FontSize | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -1062,7 +1056,7 @@
       "externalProp": true
     },
     "contentEditable": {
-      "type": "\"inherit\" | Booleanish",
+      "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
