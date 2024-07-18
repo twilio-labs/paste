@@ -1,21 +1,13 @@
 import { useCompositeState } from "@twilio-paste/reakit-library";
 import type { CompositeInitialState, CompositeStateReturn } from "@twilio-paste/reakit-library";
-import type { FontSize } from "@twilio-paste/style-props";
-import type { Dispatch, SetStateAction } from "react";
-import { useState } from "react";
+import { createContext } from "react";
 
-export type FormPillStateReturn = CompositeStateReturn & {
-  fontSize?: FontSize;
-  /** Set the font size of the pills. */
-  setPillFontSize: Dispatch<SetStateAction<FontSize | undefined>>;
-};
+import type { FormPillGroupSizeVariant } from "./types";
+
 export type FormPillInitialState = Omit<CompositeInitialState, "orientation" | "loop">;
 
-export const useFormPillState = (config: FormPillInitialState = {}): FormPillStateReturn => {
-  const [fontSize, setPillFontSize] = useState<FontSize>();
+export const useFormPillState = (config: FormPillInitialState = {}): CompositeStateReturn => {
   return {
-    fontSize,
-    setPillFontSize,
     ...useCompositeState({
       ...config,
       orientation: "horizontal", // <- -> arrow keys
@@ -23,3 +15,11 @@ export const useFormPillState = (config: FormPillInitialState = {}): FormPillSta
     }),
   };
 };
+
+export interface FormPillGroupContextState {
+  size: FormPillGroupSizeVariant;
+}
+
+export const FormPillGroupContext = createContext<FormPillGroupContextState>({
+  size: "default"
+})

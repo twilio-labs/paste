@@ -7,10 +7,9 @@ import type { FontSize } from "@twilio-paste/style-props";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 import type { Dispatch, SetStateAction } from "react";
-import { useEffect } from "react";
 
-/** The size variants for the FormPillGroup component. */
-export type FormPillGroupSizeVariant = "default" | "large";
+import type { FormPillGroupSizeVariant } from "./types";
+import { FormPillGroupContext } from "./useFormPillState";
 
 export interface FormPillGroupProps
   extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
@@ -52,41 +51,36 @@ export interface FormPillGroupProps
 /**
  * Contains the style properties for the FormPillGroup component and the FormPill component.
  */
-const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | "rowGap" | "fontSize">> = {
-  default: {
+const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | "rowGap">> = {
+  "default": {
     columnGap: "space20",
     rowGap: "space20",
-    fontSize: undefined,
   },
-  large: {
+  "large": {
     columnGap: "space30",
     rowGap: "space30",
-    fontSize: "fontSize30",
   },
 };
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
   ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
-    const { fontSize } = SizeStyles[size];
-    useEffect(() => {
-      props.setPillFontSize(fontSize);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        element={element}
-        ref={ref}
-        role="listbox"
-        lineHeight="lineHeight30"
-        margin="space0"
-        padding="space0"
-        display={display}
-        flexWrap="wrap"
-        {...SizeStyles[size]}
-      >
-        {props.children}
-      </Box>
+      <FormPillGroupContext.Provider value={{ size }}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          element={element}
+          ref={ref}
+          role="listbox"
+          lineHeight="lineHeight30"
+          margin="space0"
+          padding="space0"
+          display={display}
+          flexWrap="wrap"
+          {...SizeStyles[size]}
+        >
+          {props.children}
+        </Box>
+      </FormPillGroupContext.Provider>
     );
   },
 );

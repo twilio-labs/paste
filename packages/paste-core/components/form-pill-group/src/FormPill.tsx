@@ -7,7 +7,7 @@ import * as React from "react";
 import { selectedWrapperStyles, wrapperStyles } from "./FormPill.styles";
 import { FormPillButton } from "./FormPillButton";
 import { PillCloseIcon } from "./PillCloseIcon";
-import type { PillVariant } from "./types";
+import type { FormPillGroupSizeVariant, PillVariant } from "./types";
 
 export interface FormPillProps extends CompositeStateReturn {
   /**
@@ -73,14 +73,7 @@ export interface FormPillProps extends CompositeStateReturn {
    * @memberof FormPillProps
    */
   i18nErrorLabel?: string;
-  /**
-   * Font size of the inner text of the FormPill.
-   *
-   * @default undefined
-   * @type {BoxProps["fontSize"]}
-   * @memberof FormPillProps
-   */
-  fontSize?: BoxProps["fontSize"];
+  size?: FormPillGroupSizeVariant;
 }
 
 /**
@@ -111,7 +104,6 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       variant = "default",
       disabled = false,
       i18nErrorLabel,
-      fontSize,
       ...props
     },
     ref,
@@ -149,7 +141,6 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         position="relative"
         display="inline-block"
         borderRadius="borderRadiusPill"
-        fontSize={fontSize}
         {...computedStyles}
       >
         <CompositeItem
@@ -167,7 +158,6 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
           selected={selected}
           variant={variant}
           i18nErrorLabel={i18nErrorLabel}
-          fontSize={fontSize}
         >
           {props.children}
         </CompositeItem>
