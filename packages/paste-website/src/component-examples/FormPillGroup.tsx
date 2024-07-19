@@ -26,6 +26,34 @@ render(
 )
 `.trim();
 
+export const largeExample = `
+const BasicFormPillGroup = () => {
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup {...pillState} aria-label="Products:" size="large">
+        <FormPill {...pillState}>
+         Voice
+        </FormPill>
+        <FormPill {...pillState}>
+          <ProductVideoIcon decorative />
+          Video
+        </FormPill>
+        <FormPill {...pillState}>
+          <ProductVerifyIcon decorative />
+          Verify
+        </FormPill>
+      </FormPillGroup>
+    </form>
+  );
+};
+
+render(
+  <BasicFormPillGroup />
+)
+`.trim();
+
 export const selectableExample = `
 const SelectableFormPillGroup = () => {
   const [pills] = React.useState(['SMS', 'MMS', 'Fax', 'Voice', 'Messaging', 'Chat']);

@@ -24,7 +24,7 @@ interface FormPillStylesProps {
 
 const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "height">> = {
   default: {
-    fontSize: undefined,
+    fontSize: "fontSize20",
     height: "sizeIcon40",
   },
   large: {
