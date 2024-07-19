@@ -161,7 +161,6 @@ Just because AI features are new, doesn’t mean we need to invent entirely new 
 
 <Blockquote>
 With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors.
-
 However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
 
 —[People + AI Guidebook](https://pair.withgoogle.com/guidebook/patterns#anchor-on-familiarity), Google
@@ -169,7 +168,7 @@ However, unfamiliar UI touchpoints can make it harder for users to learn to use 
 
 With AI features, there’s also a higher chance for things to go wrong. Be proactive about risks, error handling, and confidence:
 - Give customers the ability to review, edit, undo, and give feedback on output.
-- Design for poor data, common errors, biases, and customers being overly dependent on AI suggestions. Use the [error state pattern](https://paste.twilio.design/patterns/error-state) for ways to message errors.
+- Design for poor data, common errors, biases, and customers being overly dependent on AI suggestions. Use the [error state pattern](/patterns/error-state) for ways to message errors.
 - Show clear information that AI-generated output can be wrong or irrelevant.
 - Give customers a manual option to solve their problem as an “escape hatch” when AI fails.
 - Show data sources. Even better, let customers control data sources, or show our own level of confidence in the output.
@@ -202,7 +201,7 @@ The AI UI Kit includes these components:
 - [Skeleton Loader](/components/skeleton-loader)
 
 Components also used for AI chat experiences:
-- [AI Log](/components/ai-chat-log)
+- [AI Chat Log](/components/ai-chat-log)
 - [Avatar](/components/avatar)
 - [Chat Composer](/components/chat-composer)
 - [Side Panel](/components/side-panel)
@@ -260,7 +259,7 @@ Use [Twilio’s generative AI design framework cards](https://www.figma.com/comm
 
 For a chat-based AI experience, handle most errors, flows, and interactions through the chat assistant, not with typical UI interaction patterns.
 
-To develop a prompt and personality for the chat assistant, use [Twilio’s Voice and Tone guidelines](/foundations/content/voice-and-tone#the-twilio-voice), especially emphasizing the “Conversational” principle of our guidelines.
+To develop a prompt and personality for the chat assistant, use [Twilio’s Voice and Tone guidelines](/foundations/content/voice-and-tone), especially emphasizing the “Conversational” principle of our guidelines.
 
 <Box marginBottom="space70">
   <Callout variant='neutral'>
