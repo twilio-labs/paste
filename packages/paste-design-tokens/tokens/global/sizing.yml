@@ -7,43 +7,43 @@ imports:
 props:
   size-0:
     value: "{!size-0}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-10:
     value: "{!size-10}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-20:
     value: "{!size-20}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-30:
     value: "{!size-30}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-40:
     value: "{!size-40}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-50:
     value: "{!size-50}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-60:
     value: "{!size-60}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-70:
     value: "{!size-70}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-80:
     value: "{!size-80}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-90:
     value: "{!size-90}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-100:
     value: "{!size-100}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-110:
     value: "{!size-110}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
   size-120:
     value: "{!size-120}"
-    comment: Generic sizing token scale for UI components.
+    comment: Generic sizing token for layouts and containers.
 
   #square sizes
   size-square-0:
@@ -161,3 +161,35 @@ props:
   size-topbar:
     value: "{!size-topbar}"
     comment: "Sizing token for the minimum topbar height."
+
+  # base
+  size-base-0:
+    value: "{!size-base-0}"
+    comment: Generic sizing token for UI components
+  size-base-10:
+    value: "{!size-base-10}"
+    comment: Generic sizing token for UI components
+  size-base-20:
+    value: "{!size-base-20}"
+    comment: Generic sizing token for UI components
+  size-base-30:
+    value: "{!size-base-30}"
+    comment: Generic sizing token for UI components
+  size-base-40:
+    value: "{!size-base-40}"
+    comment: Generic sizing token for UI components
+  size-base-50:
+    value: "{!size-base-50}"
+    comment: Generic sizing token for UI components
+  size-base-60:
+    value: "{!size-base-60}"
+    comment: Generic sizing token for UI components
+  size-base-70:
+    value: "{!size-base-70}"
+    comment: Generic sizing token for UI components
+  size-base-80:
+    value: "{!size-base-80}"
+    comment: Generic sizing token for UI components
+  size-base-90:
+    value: "{!size-base-90}"
+    comment: Generic sizing token for UI components
