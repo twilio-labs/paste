@@ -287,7 +287,7 @@ const ExportPlacement = () => (
     </Heading>
     <Box display="flex" justifyContent="flex-end" marginBottom="space60">
       <Tooltip text="Export first 10,000 message log lines">
-        <Button variant="secondary" onClick={() => {}}>
+        <Button variant="secondary" size="small" onClick={() => {}}>
           <ExportIcon decorative />
           Export CSV
         </Button>
