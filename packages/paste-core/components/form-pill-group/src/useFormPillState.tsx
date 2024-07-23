@@ -1,10 +1,12 @@
 import { useCompositeState } from "@twilio-paste/reakit-library";
-import type { CompositeInitialState, CompositeStateReturn as FormPillStateReturn } from "@twilio-paste/reakit-library";
+import type { CompositeInitialState, CompositeStateReturn } from "@twilio-paste/reakit-library";
+import { createContext } from "react";
 
-export type { FormPillStateReturn };
+import type { FormPillGroupSizeVariant } from "./types";
+
 export type FormPillInitialState = Omit<CompositeInitialState, "orientation" | "loop">;
 
-export const useFormPillState = (config: FormPillInitialState = {}): FormPillStateReturn => {
+export const useFormPillState = (config: FormPillInitialState = {}): CompositeStateReturn => {
   return {
     ...useCompositeState({
       ...config,
@@ -13,3 +15,11 @@ export const useFormPillState = (config: FormPillInitialState = {}): FormPillSta
     }),
   };
 };
+
+export interface FormPillGroupContextState {
+  size: FormPillGroupSizeVariant;
+}
+
+export const FormPillGroupContext = createContext<FormPillGroupContextState>({
+  size: "default",
+});

@@ -4,6 +4,7 @@ import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
 import * as React from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
+import type { FormPillGroupSizeVariant } from "../src/FormPillGroup";
 
 const PILL_NAMES = [
   "Default pill",
@@ -15,12 +16,18 @@ const PILL_NAMES = [
 ];
 
 export const Basic: React.FC<
-  React.PropsWithChildren<{ selected?: boolean; dismissable?: boolean; disabled?: boolean; ariaLabel?: string }>
-> = ({ selected = false, dismissable = false, disabled = false, ariaLabel = "Basic pills:" }) => {
+  React.PropsWithChildren<{
+    selected?: boolean;
+    dismissable?: boolean;
+    disabled?: boolean;
+    ariaLabel?: string;
+    size?: FormPillGroupSizeVariant;
+  }>
+> = ({ selected = false, dismissable = false, disabled = false, ariaLabel = "Basic pills:", size }) => {
   const pillState = useFormPillState();
   return (
     <form>
-      <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel}>
+      <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel} size={size}>
         {PILL_NAMES.map((pill, index) => (
           <FormPill
             key={pill}
@@ -41,6 +48,7 @@ export const Basic: React.FC<
   );
 };
 
+export const Large = (): JSX.Element => <Basic size="large" ariaLabel="Large pill group:" />;
 export const Disabled = (): JSX.Element => <Basic disabled ariaLabel="Disabled pills:" />;
 export const Selected = (): JSX.Element => <Basic selected ariaLabel="Selected pills:" />;
 export const Dismissable = (): JSX.Element => <Basic dismissable ariaLabel="Dismissable pills:" />;
