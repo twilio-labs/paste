@@ -420,53 +420,27 @@ Text is the clearest way to indicate whether a field is required or optional. Ho
 
 ##### Single selection
 
-Component                                                                           | When to use
------------------------------------------------------------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------
-[Radio Button Group](/components/radio-button-group)                                | Use it when you have a list of up to 6 fixed items, and users need to select only one at a time.
-[Singleselect Combobox](/components/combobox)                                      | Use it when you have more than 6 options in a fixed list and users need to select only one at a time.
-[Singleselect Combobox - Autocomplete](/components/combobox#autocomplete-combobox) | Use it when you have lists with over 15 options or if users need to search through a database and select a single option at a time.
+| Component                                                                                 | When to use                                                                                                                                                |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Radio Group](/components/radio-group) or [Radio Button Group](/components/radio-button-group)                                        | Use it when you have a list of up to 6 fixed items, and users need to select only one at a time. |
+| [Select](/components/select) or [Singleselect Combobox](/components/combobox)                                      | Use it when you have more than 6 options in a fixed list and users need to select only one at a time.|
+| [Singleselect Combobox - Autocomplete](/components/combobox#autocomplete-combobox) | Use it when you have lists with over 15 options or if users need to search through a database and select a single option at a time.|
 
 ##### Multiple selection
 
-Component                                                                           | When to use
------------------------------------------------------------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------
-[Checkbox Group](/components/checkbox)                                | Use it when you have a list of up to 6 fixed items, and users can select multiple values at a time.
-[Multiselect Combobox](/components/multiselect-combobox)                                      | Use it when you have lists with over 6 options or if users need to search through a database and select multiple values at a time.
+|Component                                                                           | When to use
+|----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------|
+|[Checkbox Group](/components/checkbox)                                | Use it when you have a list of up to 6 fixed items, and users can select multiple values at a time.|
+|[Multiselect Combobox](/components/multiselect-combobox)                                      | Use it when you have lists with over 6 options or if users need to search through a database and select multiple values at a time.|
 
 ##### Numeric selection 
 
-Component                                                                           | When to use
------------------------------------------------------------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------
-[Slider](/components/slider)                                | Use it when the exact value doesn’t matter.
-[Input with number functionality](/components/input#input-with-number-functionality)                                      | Use it when the exact numeric value matters.
-[Date Picker](/components/date-picker) | Use it for selecting specific dates or date ranges.
-[Time Picker](/components/time-picker) | Use it for selecting specific times or time ranges.
-
-##### Combining search and filters
-
-If there is search functionality, it should always take priority over filters. The search should be placed higher in the hierarchy, with the expectation that users will search first and then use the filters to refine and narrow down the search results.
-
-TODO: img
-
-##### Conditional filters 
-
-A conditional filter is a type of filter that becomes available based on the initial filter selections made by the user. 
-
-TODO: img
-
-Use it when filter selections naturally lead to additional criteria, or where certain filter formulas are only necessary for very specific use cases.
-
-<DoDont>
-  <Do title="Do" preview={false} body="Consider the performance implications of loading conditional filters." />
-  <Dont
-    title="Don't"
-    preview={false}
-    body="Don’t use conditional filtering for essential filter criteria."
-  />
-</DoDont>
-<DoDont>
-  <Do title="Do" preview={false} body="Only one conditional filter should be expanded at a time." />
-</DoDont>
+|Component                                                                           | When to use
+|----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------|
+|[Slider](/components/slider)                                | Use it when the exact value doesn’t matter.|
+|[Input with number functionality](/components/input#input-with-number-functionality)                                      | Use it when the exact numeric value matters.|
+|[Date Picker](/components/date-picker) | Use it for selecting specific dates or date ranges.|
+|[Time Picker](/components/time-picker) | Use it for selecting specific times or time ranges.|
 
 ## When to use Forms
 
