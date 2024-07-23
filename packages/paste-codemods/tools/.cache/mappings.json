@@ -246,6 +246,7 @@
   "SidePanelButton": "@twilio-paste/core/side-panel",
   "SidePanelContainer": "@twilio-paste/core/side-panel",
   "SidePanelContext": "@twilio-paste/core/side-panel",
+  "SidePanelFooter": "@twilio-paste/core/side-panel",
   "SidePanelHeader": "@twilio-paste/core/side-panel",
   "SidePanelHeaderActions": "@twilio-paste/core/side-panel",
   "SidePanelPushContentWrapper": "@twilio-paste/core/side-panel",
