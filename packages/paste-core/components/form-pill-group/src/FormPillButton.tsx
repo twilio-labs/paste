@@ -1,11 +1,12 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import * as React from "react";
 
 import { hoverPillStyles, pillStyles } from "./FormPill.styles";
-import type { PillVariant } from "./types";
+import type { FormPillGroupSizeVariant, PillVariant } from "./types";
+import { FormPillGroupContext } from "./useFormPillState";
 
 interface FormPillStylesProps {
   variant?: PillVariant;
@@ -20,6 +21,17 @@ interface FormPillStylesProps {
   isDisabled?: boolean;
   i18nErrorLabel?: string;
 }
+
+const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "height">> = {
+  default: {
+    fontSize: "fontSize20",
+    height: "sizeIcon40",
+  },
+  large: {
+    fontSize: "fontSize30",
+    height: "sizeIcon50",
+  },
+};
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
   (
@@ -39,6 +51,8 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       const hasHoverStyles = isHoverable && !isDisabled;
       return hasHoverStyles ? { ...pillStyles[variant], ...hoverPillStyles[variant] } : pillStyles[variant];
     }, [isHoverable, isDisabled, variant]);
+    const { size } = React.useContext(FormPillGroupContext);
+    const { height, fontSize } = sizeStyles[size];
 
     return (
       <Box
@@ -55,9 +69,9 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         borderRadius="borderRadiusPill"
         borderStyle="none"
         cursor="default"
-        height="sizeIcon40"
+        height={height}
         fontFamily="inherit"
-        fontSize="fontSize20"
+        fontSize={fontSize}
         fontWeight="fontWeightMedium"
         outline="none"
         paddingLeft="space30"
