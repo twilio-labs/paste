@@ -17,6 +17,7 @@ const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
     // Track
     "::-webkit-scrollbar-track": {
       marginTop: "8px",
+      marginBottom: "8px",
       background: colorBackgroundBody,
       borderRadius: "10px",
     },

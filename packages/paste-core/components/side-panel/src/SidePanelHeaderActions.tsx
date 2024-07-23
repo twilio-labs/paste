@@ -7,7 +7,7 @@ const SidePanelHeaderActions = React.forwardRef<HTMLDivElement, SidePanelHeaderA
   ({ element = "SIDE_PANEL_HEADER_ACTIONS", children, ...props }, ref) => {
     return (
       <Box
-        width="100%"
+        flexGrow={1}
         display="flex"
         justifyContent="flex-end"
         columnGap="space20"

@@ -43,6 +43,17 @@ export interface SidePanelHeaderProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
 
+export interface SidePanelFooterProps extends HTMLPasteProps<"div"> {
+  children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default "SIDE_PANEL_FOOTER"
+   * @type {BoxProps['element']}
+   * @memberof SidePanelFooterProps
+   */
+  element?: BoxProps["element"];
+}
+
 export interface SidePanelHeaderActionsProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**

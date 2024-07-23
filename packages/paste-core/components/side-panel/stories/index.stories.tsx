@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
 import type { StoryFn } from "@storybook/react";
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
@@ -19,6 +20,7 @@ import * as React from "react";
 
 import {
   SidePanel,
+  SidePanelBadgeButton,
   SidePanelBody,
   SidePanelButton,
   SidePanelContainer,
@@ -28,7 +30,8 @@ import {
   SidePanelPushContentWrapper,
 } from "../src";
 import { MessagingInsightsContent } from "./components/MessagingInsightsContent";
-import { SidePanelWithContent } from "./components/SidePanelWithContent";
+import { SidePanelWithAIContent } from "./components/SidePanelWithAIContent";
+import { SidePanelWithFilterContent } from "./components/SidePanelWithFilterContent";
 import { SidebarWithContent } from "./components/SidebarWithContent";
 
 // eslint-disable-next-line import/no-default-export
@@ -41,7 +44,7 @@ export const Default: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
-      <SidePanelWithContent />
+      <SidePanelWithAIContent />
       <SidePanelPushContentWrapper>
         <Box borderStyle="solid" borderColor="colorBorder" padding="space100" width="100%" overflow="auto">
           <SidePanelButton variant="secondary" pressed={!isOpen}>
@@ -83,7 +86,7 @@ export const Basic: StoryFn = () => {
       <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
         <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
-          <SidePanelWithContent />
+          <SidePanelWithAIContent />
           <SidePanelPushContentWrapper>
             <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40" id={mainContentSkipLinkID}>
               <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
@@ -95,6 +98,78 @@ export const Basic: StoryFn = () => {
   );
 };
 Basic.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
+export const AI: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanelWithAIContent />
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space100" paddingLeft="space100">
+          <SidePanelBadgeButton variant="neutral">
+            <ArtificialIntelligenceIcon decorative />
+            Ask an assistant
+          </SidePanelBadgeButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+AI.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
+export const Filter: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanelWithFilterContent />
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space100" paddingLeft="space100">
+          <SidePanelButton variant="secondary" size="rounded_small">
+            More filters
+            <Badge as="span" variant="neutral_counter">
+              2
+            </Badge>
+          </SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+Filter.parameters = {
   padding: false,
   a11y: {
     config: {
@@ -274,7 +349,7 @@ export const Composed: StoryFn = () => {
             <MessagingInsightsContent mainContentSkipLinkID={mainContentSkipLinkID} />
           </SidePanelPushContentWrapper>
           {/* Side Panel can be placed anywhere - position fixed */}
-          <SidePanelWithContent />
+          <SidePanelWithAIContent />
         </SidePanelContainer>
       </SidebarPushContentWrapper>
     </Box>
