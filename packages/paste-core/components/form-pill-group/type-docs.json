@@ -2259,6 +2259,13 @@
       "required": false,
       "externalProp": true
     },
+    "size": {
+      "type": "FormPillGroupSizeVariant",
+      "defaultValue": "'default'",
+      "required": false,
+      "externalProp": false,
+      "description": "Size variant that affects the size and spacing of the pills within the FormPillGroup. 'large' and 'default' are the only supported values."
+    },
     "slot": {
       "type": "string",
       "defaultValue": null,
