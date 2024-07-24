@@ -1,8 +1,10 @@
 export { CornerOrnament } from "./CornerOrnament";
 export { CornerOrnamentContainer } from "./CornerOrnamentContainer";
-export { CornerOrnamentBase } from "./CornerOrnamentBase";
+export { CornerOrnamentElement } from "./CornerOrnamentElement";
 export type {
-  CornerOrnamentBaseProps,
+  CornerOrnamentElementProps,
   CornerOrnamentContainerProps,
   CornerOrnamentProps,
+  CornerOrnamentType,
+  CornerOrnamentPosition,
 } from "./types";
