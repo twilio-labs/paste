@@ -36,6 +36,7 @@
     "build": "yarn prebuild && yarn nx run-many --target=build --exclude @twilio-paste/website @twilio-paste/theme-designer @twilio-paste/nextjs-template @twilio-paste/token-contrast-checker",
     "build:js": "yarn prebuild && yarn nx run-many --target=build:js --exclude @twilio-paste/website @twilio-paste/theme-designer",
     "build:typedocs": "yarn prebuild && yarn nx run-many --target=build:typedocs",
+    "build:typedocs:clean":"rm -rf .nx/cache && yarn build && yarn build:typedocs",
     "build:core": "yarn nx run @twilio-paste/core:build",
     "build:codemods": "yarn nx run @twilio-paste/codemods:build",
     "build:tokens": "yarn nx run @twilio-paste/design-tokens:tokens",
