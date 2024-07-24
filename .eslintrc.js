@@ -88,6 +88,11 @@ module.exports = {
           "error_counter",
           "neutral_counter",
           "notification_counter",
+          // these are position names we use as keys in style objects
+          "top_end",
+          "top_start",
+          "bottom_end",
+          "bottom_start",
           // unstable props are allowed
           "^unstable_",
           // this is a temporary prop, if the console patch is removed from components this can be removed too
