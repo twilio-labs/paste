@@ -84,23 +84,6 @@ const createNewMessage = (message: string): Omit<AIChat, "id"> => {
   };
 };
 
-const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
-  const [editor] = useLexicalComposerContext();
-
-  const handleSend = (): void => {
-    onClick();
-    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
-  };
-
-  return (
-    <Box position="absolute" top="space30" right="space30">
-      <Button variant="primary_icon" size="reset" onClick={handleSend}>
-        <SendIcon decorative={false} title="Send message" />
-      </Button>
-    </Box>
-  );
-};
-
 const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
@@ -203,7 +186,7 @@ export const AIChatLogComposer = (): React.ReactNode => {
 
   return (
     <Box>
-      <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
+      <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" padding="space50" tabIndex={0}>
         <AIChatLogger ref={loggerRef} aiChats={aiChats} />
       </Box>
       <ChatComposerContainer variant="contained">

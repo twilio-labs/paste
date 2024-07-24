@@ -6,6 +6,7 @@ import { Button } from "@twilio-paste/button";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { Separator } from "@twilio-paste/separator";
 import * as React from "react";
 
 import { SidePanel, SidePanelBody, SidePanelFooter, SidePanelHeader } from "../../src";
@@ -18,8 +19,9 @@ export const SidePanelWithFilterContent: React.FC<React.PropsWithChildren> = () 
           More filters
         </Heading>
       </SidePanelHeader>
+      <Separator orientation="horizontal" verticalSpacing="space0" />
       <SidePanelBody>
-        <Box width="100%" paddingTop="space30" display="flex" flexDirection="column" rowGap="space40">
+        <Box width="100%" display="flex" paddingTop="space70" flexDirection="column" rowGap="space40">
           <Disclosure variant="contained" visible>
             <DisclosureHeading as="h4" variant="heading50">
               <Box display="flex" width="100%" justifyContent="space-between">
