@@ -1,4 +1,4 @@
-import { Box, BoxStyleProps, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Box, BoxStyleProps } from "@twilio-paste/box";
 import { IconSizeOptions } from "@twilio-paste/style-props";
 import * as React from "react";
 
@@ -18,65 +18,43 @@ export const CornerOrnament = React.forwardRef<HTMLDivElement, CornerOrnamentPro
       badge: {
         bottom_end: {
           sizeIcon80: { top: "space70", left: "space70" },
+          sizeIcon50: { top: "space80", left: "space80" },
         },
         top_end: {
-          sizeIcon80: { left: "space70", top: "space0" },
-        },
-      },
-      avatar: {
-        bottom_end: {
-          sizeIcon70: { top: "space60", left: "space60" },
-          sizeIcon80: { top: "space70", left: "space70" },
-        },
-        top_end: {
-          sizeIcon70: { left: "space50", top: "space0" },
-          sizeIcon80: { left: "space70", top: "space0" },
+          sizeIcon80: { left: "space70" },
+          sizeIcon50: { left: "space70" },
         },
       },
       icon: {
         bottom_end: {
-          sizeIcon30: { top: "space40", left: "space40" },
-          sizeIcon40: { top: "0.91rem", left: "0.91rem" },
-          sizeIcon50: { top: "1.05rem", left: "1.05rem" },
-          sizeIcon70: { top: "space60", left: "space60" },
-          sizeIcon80: { top: "space70", left: "space70" },
+          sizeIcon80: { top: "24px", left: "24px" },
+          sizeIcon50: { top: "space80", left: "space80" },
         },
         top_end: {
-          sizeIcon30: { left: "space40", top: "space0" },
-          sizeIcon40: { left: "space50", top: "space0" },
-          sizeIcon50: { left: "space60", top: "space0" },
-          sizeIcon70: { left: "space60", top: "space0" },
-          sizeIcon80: { left: "space70", top: "space0" },
+          sizeIcon80: { top: "space80", left: "space80" },
+          sizeIcon50: { top: "space80", left: "space80" },
         },
       },
       dot: {
         bottom_end: {
-          sizeIcon30: { top: "space40", left: "space40" },
-          sizeIcon40: { top: "space50", left: "space50" },
-          sizeIcon50: { top: "space60", left: "space60" },
+          sizeIcon80: { top: "space80", left: "space80" },
+          sizeIcon50: { top: "space80", left: "space80" },
         },
         top_end: {
-          sizeIcon30: { left: "space40", top: "space0" },
-          sizeIcon40: { left: "space50", top: "space0" },
-          sizeIcon50: { left: "space60", top: "space0" },
+          sizeIcon80: { top: "space80", left: "space80" },
+          sizeIcon50: { top: "space80", left: "space80" },
         },
       },
     };
 
     if (!Positions[cornerOrnamentType][position][size]) {
       throw new Error(
-        "[Paste: CornerOrnament] the size/position/type combination you have chosen is not currently supported. Please refer to our guildinges in our docs or raise a new disucssion to get this supported at https://github.com/twilio-labs/paste/discussions.",
+        "[Paste: CornerOrnament] the size and/or position you have chosen is not currently supported. Please raise a new disucssion to get this supported at https://github.com/twilio-labs/paste/discussions.",
       );
     }
 
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        position="absolute"
-        element={element}
-        ref={ref}
-        {...Positions[cornerOrnamentType][position][size]}
-      >
+      <Box position="absolute" element={element} ref={ref} {...Positions[cornerOrnamentType][position][size]}>
         {props.children}
       </Box>
     );

@@ -2,7 +2,7 @@ import { BoxProps } from "@twilio-paste/box";
 import { IconSizeOptions } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
-export type CornerOrnamentType = "badge" | "dot" | "icon" | "avatar";
+export type CornerOrnamentType = "badge" | "dot" | "icon";
 export type CornerOrnamentPosition = "bottom_end" | "top_end";
 
 export interface CornerOrnamentElementProps extends HTMLPasteProps<"div"> {
@@ -29,7 +29,7 @@ export interface CornerOrnamentContainerProps extends HTMLPasteProps<"div"> {
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default '{constantCase component-name}'
    * @type {BoxProps['element']}
-   * @memberof CornerOrnamentContainerProps
+   * @memberof CornerOrnamentProps
    */
   element?: BoxProps["element"];
   /**
@@ -43,7 +43,7 @@ export interface CornerOrnamentContainerProps extends HTMLPasteProps<"div"> {
    * The size of the CornerOrnamentElement used to determine spacing
    * @default null
    * @type {IconSizeOptions}
-   * @memberof CornerOrnamentContainerProps
+   * @memberof CornerOrnamentContextInterface
    */
   size: IconSizeOptions;
   /**
@@ -68,14 +68,14 @@ export interface CornerOrnamentProps extends HTMLPasteProps<"div"> {
 
 export interface CornerOrnamentContextInterface {
   /**
-   * The size of the CornerOrnamentElement used to determine spacing
+   * Sets the position of the CornerOrnament
    * @default null
    * @type {IconSizeOptions}
    * @memberof CornerOrnamentContextInterface
    */
   size: IconSizeOptions;
   /**
-   * The type of the corner ornament used. This determines that correct mask to apply to CornerOrnamentElement and without it the cutout will be incorrect.
+   * Sets the position of the CornerOrnament
    * @default null
    * @type {CornerOrnamentType}
    * @memberof CornerOrnamentContextInterface

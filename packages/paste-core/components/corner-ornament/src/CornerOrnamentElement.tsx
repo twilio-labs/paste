@@ -1,52 +1,56 @@
-import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Box } from "@twilio-paste/box";
 import { useUID } from "@twilio-paste/uid-library";
-import * as React from "react";
 
+import * as React from "react";
 import { useCornerOrnamentContext } from "./CornerOrnamentContext";
-import { BadgeBottomEndPath, DotBottomEndPath } from "./Masks";
-import { CornerOrnamentElementProps, CornerOrnamentPosition, CornerOrnamentType } from "./types";
+import { BadgePath, BadgeSVG, DotPath } from "./Masks";
+import { CornerOrnamentElementProps, CornerOrnamentType } from "./types";
+
+// import MaskBadge from "./assets/mask-badge.svg";
+// import MaskCircle from "./assets/mask-circle.svg";
+// import MaskDot from "./assets/mask-dot.svg";
 
 export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrnamentElementProps>(
   ({ padding, element = "CORNER_ORNAMENT_ELEMENT", ...props }, ref) => {
     const id = useUID();
-    const { cornerOrnamentType, position, size } = useCornerOrnamentContext();
+    const { cornerOrnamentType, size } = useCornerOrnamentContext();
 
-    const ClipPathMapping: Record<CornerOrnamentType, Record<CornerOrnamentPosition, string>> = {
-      badge: {
-        bottom_end: BadgeBottomEndPath,
-        top_end: BadgeBottomEndPath,
-      },
-      dot: {
-        bottom_end: DotBottomEndPath,
-        top_end: DotBottomEndPath,
-      },
-      icon: {
-        bottom_end: BadgeBottomEndPath,
-        top_end: BadgeBottomEndPath,
-      },
-      avatar: {
-        bottom_end: BadgeBottomEndPath,
-        top_end: BadgeBottomEndPath,
-      },
+    const getSVGAsset = (type: CornerOrnamentType) => {
+      switch (cornerOrnamentType) {
+        // case "badge":
+        //   return MaskBadge;
+        // case "dot":
+        //   return MaskDot;
+        default:
+          return ""; //MaskCircle; // replace with icon [lg circle]
+      }
     };
 
     return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        style={{
-          clipPath: `url("#${id}")`,
-        }}
-        element={element}
-        ref={ref}
-        size={size}
-      >
-        <Box padding={padding || "space0"}>{props.children}</Box>
-        <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
-          <defs>
-            <clipPath id={id} clipPathUnits="objectBoundingBox">
-              {<path d={ClipPathMapping[cornerOrnamentType][position]} />}
-            </clipPath>
-          </defs>
+      <Box>
+        <Box
+          style={{
+            clipPath: `url("#${id}")`,
+            // maskImage: `url(${getSVGAsset(cornerOrnamentType)})`,
+            // WebkitMaskImage: `url(${getSVGAsset(cornerOrnamentType)})`,
+            // maskSize: "100%",
+          }}
+          element={element}
+          ref={ref}
+          height={size}
+          width={size}
+        >
+          <Box padding={padding || "space10"}>{props.children}</Box>
+          <svg>
+            <defs>
+              <clipPath id={id} clipPathUnits="objectBoundingBox">
+                {
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                  cornerOrnamentType === "badge" ? <BadgePath /> : <DotPath />
+                }
+              </clipPath>
+            </defs>
+          </svg>
         </Box>
       </Box>
     );
