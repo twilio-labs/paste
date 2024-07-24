@@ -52,8 +52,8 @@ const SideModalFooterExample = () => {
         </SideModalBody>
         <SideModalFooter>
           <SideModalFooterActions>
-          <Button variant="primary">Primary action</Button>
           <Button variant="secondary">Secondary action</Button>
+          <Button variant="primary">Primary action</Button>
           </SideModalFooterActions>
         </SideModalFooter>
       </SideModal>

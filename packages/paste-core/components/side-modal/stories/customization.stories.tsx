@@ -85,8 +85,8 @@ export const CustomizedDialog: StoryFn = (_args, { parameters: { isTestEnvironme
           </SideModalBody>
           <SideModalFooter>
             <SideModalFooterActions>
-              <Button variant="primary">Save</Button>
               <Button variant="secondary">Cancel</Button>
+              <Button variant="primary">Save</Button>
             </SideModalFooterActions>
           </SideModalFooter>
         </SideModal>

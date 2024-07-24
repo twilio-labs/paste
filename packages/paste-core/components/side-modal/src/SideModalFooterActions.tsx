@@ -31,7 +31,7 @@ export interface SideModalFooterActionsProps extends HTMLPasteProps<"div"> {
 }
 
 const SideModalFooterActions = React.forwardRef<HTMLDivElement, SideModalFooterActionsProps>(
-  ({ children, element = "SIDE_MODAL_FOOTER_ACTIONS", justifyContent = "flex-start", ...props }, ref) => {
+  ({ children, element = "SIDE_MODAL_FOOTER_ACTIONS", justifyContent = "flex-end", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
