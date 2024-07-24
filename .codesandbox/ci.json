@@ -29,6 +29,7 @@
     "/packages/paste-color-contrast-utils",
     "/packages/paste-core/components/combobox",
     "/packages/paste-core/primitives/combobox",
+    "/packages/paste-core/components/corner-ornament",
     "/packages/paste-customization",
     "/packages/paste-core/components/data-grid",
     "/packages/paste-libraries/data-visualization",
