@@ -66,8 +66,8 @@ export const SidePanelWithAIContent: React.FC<React.PropsWithChildren> = () => {
           </AIChatLog>
         </Box>
       </SidePanelBody>
-      <SidePanelFooter>
-        <ChatComposerContainer>
+      <SidePanelFooter variant="chat">
+        <ChatComposerContainer variant="contained">
           <ChatComposer
             maxHeight="size10"
             config={{

@@ -46,6 +46,20 @@ export interface SidePanelHeaderProps extends HTMLPasteProps<"div"> {
 export interface SidePanelFooterProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**
+   * Variant of the Side Panel Footer. When using Side Panel in an AI Chat context, use the "chat" variant to wrap the Chat Composer component.
+   * @default "default"
+   * @type {"default" | "chat"}
+   * @memberof SidePanelFooterProps
+   */
+  variant?: "default" | "chat";
+  /**
+   * Sets the `justify-content` CSS property.
+   * @default "flex-start"
+   * @type {"flex-start" | "flex-end" | "space-between"}
+   * @memberof SidePanelFooterProps
+   */
+  justifyContent?: "flex-start" | "flex-end" | "space-between";
+  /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default "SIDE_PANEL_FOOTER"
    * @type {BoxProps['element']}

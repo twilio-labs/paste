@@ -158,7 +158,7 @@ export const Filter: StoryFn = () => {
       <SidePanelWithFilterContent />
       <SidePanelPushContentWrapper>
         <Box paddingTop="space100" paddingLeft="space100">
-          <SidePanelButton variant="secondary" size="rounded_small">
+          <SidePanelButton variant="secondary" size="rounded_small" pressed={isOpen}>
             More filters
             <Badge as="span" variant="neutral_counter">
               2
