@@ -9,7 +9,7 @@ import { CornerOrnamentElementProps, CornerOrnamentPosition, CornerOrnamentType 
 export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrnamentElementProps>(
   ({ padding, element = "CORNER_ORNAMENT_ELEMENT", ...props }, ref) => {
     const id = useUID();
-    const { cornerOrnamentType, position } = useCornerOrnamentContext();
+    const { cornerOrnamentType, position, size } = useCornerOrnamentContext();
 
     const MasksMapping: Record<CornerOrnamentType, Record<CornerOrnamentPosition, React.ReactElement>> = {
       badge: {
@@ -34,8 +34,7 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
           }}
           element={element}
           ref={ref}
-          height={"fit-content"}
-          width={"fit-content"}
+          size={size}
         >
           <Box padding={padding || "space0"}>{props.children}</Box>
           <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
