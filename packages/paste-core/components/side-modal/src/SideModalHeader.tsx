@@ -50,12 +50,13 @@ const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
         element={element}
         display="flex"
         flexDirection="row"
+        alignItems="flex-start"
       >
-        <Box display="flex" flexGrow={1} marginRight="space70" alignItems="center">
+        <Box display="flex" flexGrow={1} marginRight="space70">
           {children}
         </Box>
         <Button element={`${element}_CLOSE_BUTTON`} variant="secondary_icon" size="reset" onClick={hide}>
-          <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon20" />
+          <CloseIcon element={`${element}_CLOSE_ICON`} decorative size="sizeIcon50" />
           <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
         </Button>
       </Box>

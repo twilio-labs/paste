@@ -45,6 +45,7 @@ export const getStaticProps = async () => {
 <StoryPreview
   title="Basic Side Panel example"
   storyID="components-side-panel--basic"
+  height="500px"
   code={`
 export const SidePanelExample = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -60,10 +61,14 @@ export const SidePanelExample = (): React.ReactNode => {
             </Button>
           </SidePanelHeaderActions>
         </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
         <SidePanelBody>
           <Separator orientation="horizontal" verticalSpacing="space0" />
           Side Panel content goes here.
         </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
       </SidePanel>
       <SidePanelPushContentWrapper>
         <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
@@ -112,6 +117,7 @@ Pass the `isOpen` and `setIsOpen` props to the `SidePanelContainer` component to
 <StoryPreview
   title="Basic Side Panel example"
   storyID="components-side-panel--basic"
+  height="500px"
   code={`
 export const SidePanelExample = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -127,10 +133,14 @@ export const SidePanelExample = (): React.ReactNode => {
             </Button>
           </SidePanelHeaderActions>
         </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
         <SidePanelBody>
           <Separator orientation="horizontal" verticalSpacing="space0" />
           Side Panel content goes here.
         </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
       </SidePanel>
       <SidePanelPushContentWrapper>
         <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
@@ -148,6 +158,7 @@ To internationalize Side Panel, simply pass different text as children to the Si
 <StoryPreview
   title="Internationalized Side Panel example"
   storyID="components-side-panel--i-18-n"
+  height="500px"
   code={`
 export const SidePanelExample = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -159,7 +170,7 @@ export const SidePanelExample = (): React.ReactNode => {
           <Heading as="h3" variant="heading30">Título</Heading>
         </SidePanelHeader>
         <SidePanelBody>
-          ...
+          Side Panel content goes here.
         </SidePanelBody>
       </SidePanel>
       <SidePanelPushContentWrapper>
@@ -190,6 +201,10 @@ The Side Panel Header Actions component is a container for action buttons that a
 #### Side Panel Body
 
 The Side Panel Body is a container for the main content of the Side Panel. This is where the majority of the content will be placed.
+
+#### Side Panel Footer 
+
+The Side Panel Footer is a container for the Side Panel's overall actions, such as a [Chat Composer](/components/chat-composer) or [Button(s)](/components/button).
 
 ### Side Panel Push Content Wrapper
 
