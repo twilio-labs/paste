@@ -2,7 +2,7 @@ import { BoxProps } from "@twilio-paste/box";
 import { IconSizeOptions } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
-export type CornerOrnamentType = "badge" | "dot" | "icon";
+export type CornerOrnamentType = "badge" | "dot" | "icon" | "avatar";
 export type CornerOrnamentPosition = "bottom_end" | "top_end";
 
 export interface CornerOrnamentElementProps extends HTMLPasteProps<"div"> {

@@ -24,6 +24,10 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
         bottom_end: <BadgeBottomEndPath />,
         top_end: <BadgeBottomEndPath />,
       },
+      avatar: {
+        bottom_end: <BadgeBottomEndPath />,
+        top_end: <BadgeBottomEndPath />,
+      },
     };
 
     return (
