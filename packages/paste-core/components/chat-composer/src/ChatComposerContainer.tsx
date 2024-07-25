@@ -42,7 +42,7 @@ export interface ChatComposerContainerProps {
 }
 
 export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatComposerContainerProps>(
-  ({ variant = "default", element = "CHAT_COMPOSER_CONTAINER", maxHeight = "size30", children, ...props }, ref) => {
+  ({ variant = "default", element = "CHAT_COMPOSER_CONTAINER", maxHeight = "size40", children, ...props }, ref) => {
     const [isDisabled, setIsDisabled] = React.useState(false);
 
     return (

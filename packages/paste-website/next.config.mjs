@@ -63,6 +63,7 @@ const nextConfig = {
         permanent: true,
       },
       { source: "/articles", destination: "/blog", permanent: true },
+      { source: "/patterns/navigation", destination: "/experiences/navigation", permanent: true },
     ];
   },
   // https://nextjs.org/docs/pages/api-reference/next-config-js/headers
