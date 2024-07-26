@@ -2,16 +2,20 @@
 
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { DetailText } from "@twilio-paste/detail-text";
 import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
 import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
-import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
-import { Input } from "@twilio-paste/input";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { Label } from "@twilio-paste/label";
 import { Option, Select } from "@twilio-paste/select";
 import { Separator } from "@twilio-paste/separator";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
+import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
+import { Heading } from "@twilio-paste/heading";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { DATE_RANGES, ROOM_TYPES } from "../constants";
 import { filterByDateRange, filterByRoomType, filterBySearchString } from "../helpers";
 import type { DateRanges, FilterGroupProps, RoomTypes } from "../types";
@@ -26,6 +30,10 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 }) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
+
+  const [pills] = React.useState(["Room type", "Participants", "Date/time range"]);
+  const [selectedSet, updateSelectedSet] = React.useState(new Set([""]));
+  const pillState = useFormPillState();
 
   const [filteredTableData, setFilteredTableData] = React.useState(data);
   const [searchValue, setSearchValue] = React.useState("");
@@ -63,96 +71,53 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   return (
     <Box paddingBottom="space70">
+      <Heading as="h1" variant="heading50">
+        Filter
+      </Heading>
       <Box display="flex" alignItems="flex-end" columnGap="space50">
-        <Box>
-          <Label htmlFor={roomTypesId}>Room type</Label>
-          <Select
-            id={roomTypesId}
-            name="type"
-            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-              setFilterRoomType(event.target.value as RoomTypes);
-            }}
-            value={filterRoomType}
-          >
-            {ROOM_TYPES.map((type) => (
-              <Option value={type} key={type}>
-                {type}
-              </Option>
-            ))}
-          </Select>
-        </Box>
-        <Box>
-          <Label htmlFor={dateRangesId}>Date range</Label>
-          <Select
-            id={dateRangesId}
-            name="range"
-            value={filterDateRange}
-            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-              setFilterDateRange(event.target.value as DateRanges);
-            }}
-          >
-            {DATE_RANGES.map((range) => (
-              <Option value={range.value} key={range.value}>
-                {range.name}
-              </Option>
-            ))}
-          </Select>
-        </Box>
-        <Box display="flex" columnGap="space50" paddingLeft="space40">
-          <Button
-            variant="primary"
-            aria-label="Apply filters"
-            disabled={areButtonsDisabled}
-            onClick={handleApplyFilters}
-            data-cy="filter-group-apply-button"
-          >
-            <FilterIcon decorative />
-            Apply
+        <form>
+          <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+            {pills.map((pill) => {
+              const isSelected = selectedSet.has(pill);
+              return (
+                <FormPill
+                  key={pill}
+                  {...pillState}
+                  selected={isSelected}
+                  onSelect={() => {
+                    const newSelectedSet = new Set(selectedSet);
+                    if (newSelectedSet.has(pill)) {
+                      newSelectedSet.delete(pill);
+                    } else {
+                      newSelectedSet.add(pill);
+                    }
+                    updateSelectedSet(newSelectedSet);
+                  }}
+                  onDismiss={() => null}
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  {pill}
+                </FormPill>
+              );
+            })}
+          </FormPillGroup>
+        </form>
+      </Box>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <DetailText marginTop="space0">
+          {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+        </DetailText>
+        <ButtonGroup>
+          <Button variant="secondary" size="small">
+            <ExportIcon decorative />
+            Export CSV
           </Button>
-          <Button
-            variant="link"
-            disabled={areButtonsDisabled}
-            onClick={handleClearAll}
-            data-cy="filter-group-clear-button"
-          >
-            Clear all
+          <Button variant="secondary" size="icon_small">
+            <MoreIcon decorative={false} title="More options" />
           </Button>
-        </Box>
+        </ButtonGroup>
       </Box>
-      <Box paddingY="space50">
-        <Separator orientation="horizontal" />
-      </Box>
-      <Box display="flex" justifyContent="space-between">
-        <Box
-          width="size40"
-          as="form"
-          onSubmit={(event: React.SyntheticEvent) => {
-            event.preventDefault();
-            handleApplyFilters();
-          }}
-        >
-          <Input
-            aria-label="Search"
-            type="text"
-            placeholder="Search by SID or unique name"
-            name="search"
-            value={searchValue}
-            onChange={(event) => {
-              setSearchValue(event.target.value);
-            }}
-            insertAfter={
-              <Button variant="link" onClick={handleApplyFilters} data-cy="filter-group-search-button">
-                <SearchIcon decorative={false} title="Search" />
-              </Button>
-            }
-          />
-        </Box>
-        <Button variant="secondary">
-          <ExportIcon decorative />
-          Export CSV
-        </Button>
-      </Box>
-      <Box paddingTop="space50">
+      <Box marginTop="space60">
         {filteredTableData.length > 0 ? (
           <SampleDataGrid data={filteredTableData} />
         ) : (
