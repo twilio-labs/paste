@@ -52,6 +52,9 @@ export const Large = (): JSX.Element => <Basic size="large" ariaLabel="Large pil
 export const Disabled = (): JSX.Element => <Basic disabled ariaLabel="Disabled pills:" />;
 export const Selected = (): JSX.Element => <Basic selected ariaLabel="Selected pills:" />;
 export const Dismissable = (): JSX.Element => <Basic dismissable ariaLabel="Dismissable pills:" />;
+export const LargeAndDismissable = (): JSX.Element => (
+  <Basic size="large" dismissable ariaLabel="Large and dismissable pills:" />
+);
 
 export const OverflowWrapping = (): JSX.Element => (
   <Box maxWidth="size40">

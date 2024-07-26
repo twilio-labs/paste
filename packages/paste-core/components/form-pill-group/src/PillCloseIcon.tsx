@@ -12,6 +12,7 @@ import {
   selectedCloseColorStyles,
 } from "./FormPill.styles";
 import type { PillVariant } from "./types";
+import { FormPillGroupContext } from "./useFormPillState";
 
 interface PillCloseIconProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -29,6 +30,8 @@ export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>
   variant = "default",
   pillIsHoverable = false,
 }) => {
+  const { size } = React.useContext(FormPillGroupContext);
+
   const baseStyles = selected ? selectedBaseCloseStyles[variant] : baseCloseStyles[variant];
   let colorStyles = selected ? selectedCloseColorStyles[variant] : closeColorStyles[variant];
 
@@ -45,7 +48,7 @@ export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>
       {...computedStyles}
       position="absolute"
       right={0}
-      top={0}
+      top={size === "large" ? 2 : 0}
       display="flex"
       alignItems="center"
       justifyContent="center"
