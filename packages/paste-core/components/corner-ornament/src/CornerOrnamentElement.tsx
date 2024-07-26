@@ -1,7 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { useUID } from "@twilio-paste/uid-library";
-
 import * as React from "react";
+
 import { useCornerOrnamentContext } from "./CornerOrnamentContext";
 import { BadgeBottomEndPath, DotBottomEndPath } from "./Masks";
 import { CornerOrnamentElementProps, CornerOrnamentPosition, CornerOrnamentType } from "./types";
@@ -11,22 +11,22 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
     const id = useUID();
     const { cornerOrnamentType, position, size } = useCornerOrnamentContext();
 
-    const MasksMapping: Record<CornerOrnamentType, Record<CornerOrnamentPosition, React.ReactElement>> = {
+    const ClipPathMapping: Record<CornerOrnamentType, Record<CornerOrnamentPosition, string>> = {
       badge: {
-        bottom_end: <BadgeBottomEndPath />,
-        top_end: <BadgeBottomEndPath />,
+        bottom_end: BadgeBottomEndPath,
+        top_end: BadgeBottomEndPath,
       },
       dot: {
-        bottom_end: <DotBottomEndPath />,
-        top_end: <DotBottomEndPath />,
+        bottom_end: DotBottomEndPath,
+        top_end: DotBottomEndPath,
       },
       icon: {
-        bottom_end: <BadgeBottomEndPath />,
-        top_end: <BadgeBottomEndPath />,
+        bottom_end: BadgeBottomEndPath,
+        top_end: BadgeBottomEndPath,
       },
       avatar: {
-        bottom_end: <BadgeBottomEndPath />,
-        top_end: <BadgeBottomEndPath />,
+        bottom_end: BadgeBottomEndPath,
+        top_end: BadgeBottomEndPath,
       },
     };
 
@@ -44,7 +44,7 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
         <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
           <defs>
             <clipPath id={id} clipPathUnits="objectBoundingBox">
-              {MasksMapping[cornerOrnamentType][position]}
+              {<path d={ClipPathMapping[cornerOrnamentType][position]} />}
             </clipPath>
           </defs>
         </Box>
