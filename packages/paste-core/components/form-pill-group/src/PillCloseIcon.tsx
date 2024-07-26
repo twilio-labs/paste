@@ -60,7 +60,7 @@ export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>
       borderColor="transparent"
       transition="color 150ms ease-in, border-color 150ms ease-in, background-color 150ms ease-in"
     >
-      <CloseIcon decorative size="sizeIcon10" color="inherit" />
+      <CloseIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} color="inherit" />
     </Box>
   );
 };

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
@@ -38,8 +39,14 @@ export const Basic: React.FC<
             onDismiss={dismissable ? () => {} : undefined}
             disabled={disabled}
           >
-            {index % 3 === 2 ? <Avatar size="sizeIcon10" name="avatar example" src="./avatars/avatar4.png" /> : null}
-            {index % 3 === 1 ? <CalendarIcon decorative size="sizeIcon10" /> : null}
+            {index % 3 === 2 ? (
+              <Avatar
+                size={size === "large" ? "sizeIcon20" : "sizeIcon10"}
+                name="avatar example"
+                src="./avatars/avatar4.png"
+              />
+            ) : null}
+            {index % 3 === 1 ? <CalendarIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} /> : null}
             {pill}
           </FormPill>
         ))}

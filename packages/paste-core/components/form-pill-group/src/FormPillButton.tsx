@@ -82,7 +82,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         <Box display="flex" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
           {variant === "error" ? (
             <>
-              <ErrorIcon decorative size="sizeIcon10" />
+              <ErrorIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} />
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
             </>
           ) : null}
