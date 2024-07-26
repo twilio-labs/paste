@@ -75,14 +75,14 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         fontWeight="fontWeightMedium"
         outline="none"
         paddingLeft="space30"
-        paddingRight={isDismissable ? "space80" : "space30"}
+        paddingRight={isDismissable ? (size === "large" ? "space90" : "space80") : "space30"}
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
         {...computedStyles}
       >
         <Box display="flex" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
           {variant === "error" ? (
             <>
-              <ErrorIcon decorative size="sizeIcon10" />
+              <ErrorIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} />
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
             </>
           ) : null}
