@@ -75,7 +75,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         fontWeight="fontWeightMedium"
         outline="none"
         paddingLeft="space30"
-        paddingRight={isDismissable ? "space80" : "space30"}
+        paddingRight={isDismissable ? (size === "large" ? "space90" : "space80") : "space30"}
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
         {...computedStyles}
       >

@@ -48,12 +48,12 @@ export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>
       {...computedStyles}
       position="absolute"
       right={0}
-      top={size === "large" ? 2 : 0}
+      top={0}
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="sizeIcon40"
-      width="sizeIcon40"
+      height={size === "large" ? "sizeIcon50" : "sizeIcon40"}
+      width={size === "large" ? "sizeIcon50" : "sizeIcon40"}
       borderRadius="borderRadiusCircle"
       borderWidth="borderWidth10"
       borderStyle="solid"
