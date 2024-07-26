@@ -1,4 +1,4 @@
-import { Box, BoxStyleProps } from "@twilio-paste/box";
+import { Box, BoxStyleProps, safelySpreadBoxProps } from "@twilio-paste/box";
 import { IconSizeOptions } from "@twilio-paste/style-props";
 import * as React from "react";
 
@@ -70,7 +70,13 @@ export const CornerOrnament = React.forwardRef<HTMLDivElement, CornerOrnamentPro
     }
 
     return (
-      <Box position="absolute" element={element} ref={ref} {...Positions[cornerOrnamentType][position][size]}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        position="absolute"
+        element={element}
+        ref={ref}
+        {...Positions[cornerOrnamentType][position][size]}
+      >
         {props.children}
       </Box>
     );

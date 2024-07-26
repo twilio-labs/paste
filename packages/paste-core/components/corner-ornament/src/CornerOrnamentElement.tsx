@@ -1,4 +1,4 @@
-import { Box } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { useUID } from "@twilio-paste/uid-library";
 
 import * as React from "react";
@@ -31,23 +31,22 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
     };
 
     return (
-      <Box>
-        <Box
-          style={{
-            clipPath: `url("#${id}")`,
-          }}
-          element={element}
-          ref={ref}
-          size={size}
-        >
-          <Box padding={padding || "space0"}>{props.children}</Box>
-          <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
-            <defs>
-              <clipPath id={id} clipPathUnits="objectBoundingBox">
-                {MasksMapping[cornerOrnamentType][position]}
-              </clipPath>
-            </defs>
-          </Box>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        style={{
+          clipPath: `url("#${id}")`,
+        }}
+        element={element}
+        ref={ref}
+        size={size}
+      >
+        <Box padding={padding || "space0"}>{props.children}</Box>
+        <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
+          <defs>
+            <clipPath id={id} clipPathUnits="objectBoundingBox">
+              {MasksMapping[cornerOrnamentType][position]}
+            </clipPath>
+          </defs>
         </Box>
       </Box>
     );
