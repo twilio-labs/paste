@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface RCSCapableIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface RCSCapableIconProps extends IconWrapperProps {
 }
 
 const RCSCapableIcon = React.forwardRef<HTMLElement, RCSCapableIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `RCSCapableIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[RCSCapableIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[RCSCapableIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -56,8 +56,8 @@ const RCSCapableIcon = React.forwardRef<HTMLElement, RCSCapableIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-RCSCapableIcon.displayName = 'RCSCapableIcon';
-export {RCSCapableIcon};
+RCSCapableIcon.displayName = "RCSCapableIcon";
+export { RCSCapableIcon };
