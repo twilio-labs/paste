@@ -1,11 +1,10 @@
-import { render, screen } from "@testing-library/react";
-import * as React from "react";
-
+import { render } from "@testing-library/react";
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
-import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { IconSizeOptions } from "@twilio-paste/style-props";
+import * as React from "react";
+
 import {
   CornerOrnament,
   CornerOrnamentContainer,

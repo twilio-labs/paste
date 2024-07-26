@@ -70,7 +70,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
@@ -83,7 +83,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
@@ -96,7 +96,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
@@ -114,7 +114,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
@@ -127,7 +127,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
@@ -140,7 +140,7 @@ export const SupportedDots = (): React.ReactNode => {
             </CornerOrnamentElement>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size={"sizeBase20"} borderRadius="borderRadiusCircle" />
+              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeBase20</small>
