@@ -30,6 +30,7 @@ export const sidebarNavigationLabelNestedStyles: BoxProps = {
   ...sidebarNavigationLabelStyles,
   paddingY: "space20",
   fontSize: "fontSize20",
+  color: "colorTextInverseWeak",
 };
 
 // Selected disclosure heading styles
