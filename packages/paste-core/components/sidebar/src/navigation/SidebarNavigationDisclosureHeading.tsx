@@ -38,6 +38,13 @@ export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<
    * @memberof SidebarNavigationDisclosureHeadingProps
    */
   icon?: React.ReactNode;
+  /**
+   * Aria property to indicate if the disclosure is expanded or collapsed.
+   *
+   * @type {boolean}
+   * @memberof SidebarNavigationDisclosureHeadingProps
+   */
+  "aria-expanded"?: boolean;
 }
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
