@@ -23,13 +23,15 @@ import { SidebarAnchor } from "./SidebarAnchor";
 
 const CY_BASE = "sidebar-disclosure";
 
+interface NavigationDisclosureProps {
+  buttonText: string;
+  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+  children: SidebarNavigationDisclosureContentProps["children"];
+  onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
+}
+
 const NavigationDisclosure: React.FC<
-  React.PropsWithChildren<{
-    children: SidebarNavigationDisclosureContentProps["children"];
-    categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-    buttonText: string;
-    onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
-  }>
+  React.PropsWithChildren<NavigationDisclosureProps>
 > = ({ children, categoryRoute, buttonText, onClick }) => {
   const pathname = useLocationPathname();
   const disclosure = useSidebarNavigationDisclosureState({
