@@ -29,7 +29,7 @@ export interface CornerOrnamentContainerProps extends HTMLPasteProps<"div"> {
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default '{constantCase component-name}'
    * @type {BoxProps['element']}
-   * @memberof CornerOrnamentProps
+   * @memberof CornerOrnamentContainerProps
    */
   element?: BoxProps["element"];
   /**
@@ -43,7 +43,7 @@ export interface CornerOrnamentContainerProps extends HTMLPasteProps<"div"> {
    * The size of the CornerOrnamentElement used to determine spacing
    * @default null
    * @type {IconSizeOptions}
-   * @memberof CornerOrnamentContextInterface
+   * @memberof CornerOrnamentContainerProps
    */
   size: IconSizeOptions;
   /**
@@ -68,14 +68,14 @@ export interface CornerOrnamentProps extends HTMLPasteProps<"div"> {
 
 export interface CornerOrnamentContextInterface {
   /**
-   * Sets the position of the CornerOrnament
+   * The size of the CornerOrnamentElement used to determine spacing
    * @default null
    * @type {IconSizeOptions}
    * @memberof CornerOrnamentContextInterface
    */
   size: IconSizeOptions;
   /**
-   * Sets the position of the CornerOrnament
+   * The type of the corner ornament used. This determines that correct mask to apply to CornerOrnamentElement and without it the cutout will be incorrect.
    * @default null
    * @type {CornerOrnamentType}
    * @memberof CornerOrnamentContextInterface
