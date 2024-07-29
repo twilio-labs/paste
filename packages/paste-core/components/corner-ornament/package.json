@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "data display",
   "status": "production",
-  "description": "A component used to apply masking to an element and position another element as an ornament.",
+  "description": "A component used to apply a clip path to an element and position another element as an ornament.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
