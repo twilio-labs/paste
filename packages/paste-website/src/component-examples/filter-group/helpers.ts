@@ -16,7 +16,6 @@ export const filterBySearchString = (uniqueName: string, sid: string, searchValu
 };
 
 export const filterByRoomType = (roomType: RoomTypes, filterValue: RoomTypes): boolean => {
-  if (filterValue === "All") return true;
   return roomType === filterValue;
 };
 
