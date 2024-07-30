@@ -4,4 +4,4 @@
 "@twilio-paste/core": minor
 ---
 
-Updating the unselected Sidebar Disclosure Header.
+Updating the unselected Sidebar Disclosure Header and SidebarNavigationItems.
