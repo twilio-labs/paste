@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "data display",
   "status": "production",
-  "description": "A component used to apply a clip path to an element and position another element as an ornament.",
+  "description": "Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
