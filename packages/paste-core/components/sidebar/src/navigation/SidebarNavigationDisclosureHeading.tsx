@@ -96,7 +96,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
       }, 120);
     }, [collapsed, isCompact]);
 
-    const styles = useComputeDisclosureHeadingStyles({ nested, selected });
+    const disclosureHeadingStyles = useComputeDisclosureHeadingStyles({ nested, selected });
 
     return (
       <Box
@@ -105,7 +105,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         element={element}
         onMouseEnter={() => setShouldIconMove(true)}
         onMouseLeave={() => setShouldIconMove(false)}
-        {...styles}
+        {...disclosureHeadingStyles}
       >
         <Box
           as="span"
