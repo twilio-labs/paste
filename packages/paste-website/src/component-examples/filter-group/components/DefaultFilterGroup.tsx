@@ -21,7 +21,8 @@ import { TimePicker } from "@twilio-paste/time-picker";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-// import { filterByDateRange, filterByRoomType, filterBySearchString } from "../helpers";
+import { TABLE_DATA } from "../constants";
+import { filterByDateRange, filterByRoomType, filterBySearchString } from "../helpers";
 import type { FilterGroupProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { SampleDataGrid } from "./SampleDataGrid";
@@ -364,6 +365,19 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   const [filteredTableData, setFilteredTableData] = React.useState(data);
 
+  const handleApplyFilters = (filters: selectedFilterProps): void => {
+    console.log(filters);
+    let filteredData = TABLE_DATA;
+
+    Object.entries(filters).forEach(([type, value]) => {
+      if (type === "room-type") {
+        filteredData = filteredData.filter((item) => item.roomType === value);
+      }
+    });
+
+    setFilteredTableData(filteredData);
+  };
+
   function handleClearAll(): void {
     setSelectedFilters({});
     setFilteredTableData(data);
@@ -417,10 +431,10 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
                     onDismiss={
                       isSelected
                         ? () => {
-                            setSelectedFilters((prev) => {
-                              const { [pill]: _, ...rest } = prev;
-                              return rest;
-                            });
+                            const newFilters = { ...selectedFilters };
+                            delete newFilters[pill];
+                            setSelectedFilters(newFilters);
+                            handleApplyFilters(newFilters as selectedFilterProps);
                           }
                         : undefined
                     }
@@ -437,12 +451,14 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
                 <Popover aria-label={pill} width="size40">
                   <PopoverComponent
                     onApply={(type: string, value) => {
-                      setSelectedFilters((prev) => {
-                        return {
-                          ...prev,
-                          [type]: value,
-                        };
+                      const newFilters = { ...selectedFilters, [type]: value };
+
+                      setSelectedFilters({
+                        ...newFilters,
+                        [type]: value,
                       });
+
+                      handleApplyFilters(newFilters as selectedFilterProps);
                     }}
                     popover={popover}
                   />
