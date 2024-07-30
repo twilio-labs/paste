@@ -57,6 +57,7 @@
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/combobox": "^16.2.1",
     "@twilio-paste/combobox-primitive": "^2.1.1",
+    "@twilio-paste/corner-ornament": "^0.0.0",
     "@twilio-paste/customization": "^8.2.0",
     "@twilio-paste/data-grid": "^8.3.0",
     "@twilio-paste/data-visualization-library": "^5.0.0",
