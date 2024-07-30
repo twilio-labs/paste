@@ -429,62 +429,65 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
         Filter
       </Heading>
 
-      <form>
-        <FormPillGroup {...pillState} aria-label="Filters:" size="large">
-          {pills.map((pill) => {
-            const popover = usePopoverState({ baseId: pill });
-            const isSelected = pill in selectedFilters;
-            const PopoverComponent = filterMap[pill].component;
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {pills.map((pill) => {
+          const popover = usePopoverState({ baseId: pill });
+          const isSelected = pill in selectedFilters;
+          const PopoverComponent = filterMap[pill].component;
 
-            return (
-              <PopoverContainer key={pill} state={popover}>
-                <PopoverButton variant="reset" size="reset">
-                  <FormPill
-                    {...pillState}
-                    selected={isSelected}
-                    onSelect={() => {
-                      // popover.show();
-                    }}
-                    onDismiss={
-                      isSelected
-                        ? () => {
-                            const newFilters = { ...selectedFilters };
-                            delete newFilters[pill];
-                            setSelectedFilters(newFilters);
-                            handleApplyFilters(newFilters as selectedFilterProps);
-                          }
-                        : undefined
-                    }
-                  >
-                    {!isSelected ? <PlusIcon decorative /> : null}
-                    <PillDisplay
-                      label={filterMap[pill].label}
-                      selectedType={isSelected ? pill : null}
-                      selectedValue={selectedFilters[pill]}
-                    />
-                  </FormPill>
-                </PopoverButton>
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                // @ts-ignore
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    isSelected
+                      ? (e) => {
+                          const newFilters = { ...selectedFilters };
+                          delete newFilters[pill];
+                          setSelectedFilters(newFilters);
+                          handleApplyFilters(newFilters as selectedFilterProps);
 
-                <Popover aria-label={pill} width="size40">
-                  <PopoverComponent
-                    onApply={(type: string, value) => {
-                      const newFilters = { ...selectedFilters, [type]: value };
-
-                      setSelectedFilters({
-                        ...newFilters,
-                        [type]: value,
-                      });
-
-                      handleApplyFilters(newFilters as selectedFilterProps);
-                    }}
-                    popover={popover}
+                          e.stopPropagation();
+                          popover.hide();
+                        }
+                      : undefined
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <PillDisplay
+                    label={filterMap[pill].label}
+                    selectedType={isSelected ? pill : null}
+                    selectedValue={selectedFilters[pill]}
                   />
-                </Popover>
-              </PopoverContainer>
-            );
-          })}
-        </FormPillGroup>
-      </form>
+                </FormPill>
+              </PopoverButton>
+
+              <Popover aria-label={pill} width="size40">
+                <PopoverComponent
+                  onApply={(type: string, value) => {
+                    const newFilters = { ...selectedFilters, [type]: value };
+
+                    setSelectedFilters({
+                      ...newFilters,
+                      [type]: value,
+                    });
+
+                    handleApplyFilters(newFilters as selectedFilterProps);
+                  }}
+                  popover={popover}
+                />
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
 
       <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
         <Box display="flex" columnGap="space30">
