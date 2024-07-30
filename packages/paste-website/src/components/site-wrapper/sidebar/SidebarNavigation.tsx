@@ -30,9 +30,12 @@ interface NavigationDisclosureProps {
   onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
 }
 
-const NavigationDisclosure: React.FC<
-  React.PropsWithChildren<NavigationDisclosureProps>
-> = ({ children, categoryRoute, buttonText, onClick }) => {
+const NavigationDisclosure: React.FC<React.PropsWithChildren<NavigationDisclosureProps>> = ({
+  children,
+  categoryRoute,
+  buttonText,
+  onClick,
+}) => {
   const pathname = useLocationPathname();
   const disclosure = useSidebarNavigationDisclosureState({
     visible: pathname.startsWith(categoryRoute),

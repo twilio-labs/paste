@@ -52,11 +52,11 @@ interface UseComputeDisclosureHeadingStylesArgs {
  * Small hook that abstracts the logic of computing styles for the SidebarNavigationDisclosureHeading component.
  */
 const useComputeDisclosureHeadingStyles = ({ nested, selected }: UseComputeDisclosureHeadingStylesArgs): BoxProps => {
-  let styles: BoxProps = {}
+  let styles: BoxProps = {};
   if (nested) {
-    styles = sidebarNavigationLabelNestedStyles
+    styles = sidebarNavigationLabelNestedStyles;
   } else {
-    styles = sidebarNavigationLabelStyles
+    styles = sidebarNavigationLabelStyles;
   }
   if (selected) {
     styles = { ...styles, ...sidebarNavigationLabelSelectedStyles };
@@ -64,7 +64,7 @@ const useComputeDisclosureHeadingStyles = ({ nested, selected }: UseComputeDiscl
     styles = { ...styles, ...sidebarNavigationLabelUnselectedStyles };
   }
   return styles;
-}
+};
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({ children, element = "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING", selected, icon, ...props }, ref) => {
