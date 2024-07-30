@@ -33,7 +33,7 @@ fourWeeksAgo.setDate(fourWeeksAgo.getDate() - 28);
 
 export const FORM_DEFAULT_VALUES: DateTimeFormValues = {
   search: "",
-  type: "All",
+  type: "Group",
   range: "all",
   customDate: {
     startDate: formatDate(today),
