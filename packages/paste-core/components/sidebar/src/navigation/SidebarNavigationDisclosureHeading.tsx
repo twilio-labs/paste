@@ -12,6 +12,7 @@ import {
   sidebarNavigationLabelNestedStyles,
   sidebarNavigationLabelSelectedStyles,
   sidebarNavigationLabelStyles,
+  sidebarNavigationLabelUnselectedStyles,
 } from "./styles";
 
 export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<"div"> {
@@ -47,6 +48,31 @@ export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<
   "aria-expanded"?: boolean;
 }
 
+interface UseComputeDisclosureHeadingStylesArgs {
+  /** Whether the heading is selected */
+  selected?: boolean;
+  /** Whether the heading is nested within another heading */
+  nested: boolean;
+}
+
+/**
+ * Small hook that abstracts the logic of computing styles for the SidebarNavigationDisclosureHeading component.
+ */
+const useComputeDisclosureHeadingStyles = ({ nested, selected }: UseComputeDisclosureHeadingStylesArgs): BoxProps => {
+  let styles: BoxProps = {}
+  if (nested) {
+    styles = sidebarNavigationLabelNestedStyles
+  } else {
+    styles = sidebarNavigationLabelStyles
+  }
+  if (selected) {
+    styles = { ...styles, ...sidebarNavigationLabelSelectedStyles };
+  } else {
+    styles = { ...styles, ...sidebarNavigationLabelUnselectedStyles };
+  }
+  return styles;
+}
+
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({ children, element = "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING", selected, icon, ...props }, ref) => {
     const { collapsed, variant } = React.useContext(SidebarContext);
@@ -70,6 +96,8 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
       }, 120);
     }, [collapsed, isCompact]);
 
+    const styles = useComputeDisclosureHeadingStyles({ nested, selected });
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -77,8 +105,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         element={element}
         onMouseEnter={() => setShouldIconMove(true)}
         onMouseLeave={() => setShouldIconMove(false)}
-        {...(nested ? sidebarNavigationLabelNestedStyles : sidebarNavigationLabelStyles)}
-        {...(selected && sidebarNavigationLabelSelectedStyles)}
+        {...styles}
       >
         <Box
           as="span"
