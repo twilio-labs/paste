@@ -440,7 +440,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
               <PopoverButton
                 variant="reset"
                 size="reset"
-                // @ts-ignore
+                // @ts-expect-error types are wrong
                 borderRadius="borderRadiusPill"
               >
                 <FormPill
