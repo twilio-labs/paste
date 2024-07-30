@@ -2,7 +2,6 @@
 
 import type { FieldError, UseFormRegister, UseFormReturn } from "react-hook-form";
 
-export type RoomTypes = "All" | "Group" | "WebRTC Go" | "Peer to Peer";
 export type DateRanges = "all" | "day" | "oneWeek" | "twoWeeks";
 export type DateTimeRanges = "all" | "12hours" | "day" | "threeDays" | "custom";
 export type CustomDateInputNames =
@@ -63,3 +62,9 @@ export interface SampleDataGridProps {
   data: TableDataRow[];
   showDateTime?: boolean;
 }
+
+export type RoomTypes = "Group" | "WebRTC Go" | "Peer to Peer";
+export type ParticipantsType = { min: string; max: string };
+export type DateRangeType = { startDate: string; startTime: string; endDate: string; endTime: string };
+
+export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType;
