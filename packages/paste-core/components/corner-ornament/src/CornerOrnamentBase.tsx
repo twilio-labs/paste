@@ -4,10 +4,10 @@ import * as React from "react";
 
 import { useCornerOrnamentContext } from "./CornerOrnamentContext";
 import { BadgeBottomEndPath, DotBottomEndPath } from "./Masks";
-import { CornerOrnamentElementProps, CornerOrnamentPosition, CornerOrnamentType } from "./types";
+import { CornerOrnamentBaseProps, CornerOrnamentPosition, CornerOrnamentType } from "./types";
 
-export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrnamentElementProps>(
-  ({ padding, element = "CORNER_ORNAMENT_ELEMENT", ...props }, ref) => {
+export const CornerOrnamentBase = React.forwardRef<HTMLDivElement, CornerOrnamentBaseProps>(
+  ({ padding, element = "CORNER_ORNAMENT_BASE", ...props }, ref) => {
     const id = useUID();
     const { cornerOrnamentType, position, size } = useCornerOrnamentContext();
 
@@ -41,7 +41,7 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
         size={size}
       >
         <Box padding={padding || "space0"}>{props.children}</Box>
-        <Box as="svg" height={0} width={0} position="absolute" top={0} left={0}>
+        <Box as="svg" size={0} position="absolute" top={0} left={0}>
           <defs>
             <clipPath id={id} clipPathUnits="objectBoundingBox">
               {<path d={ClipPathMapping[cornerOrnamentType][position]} />}
@@ -53,4 +53,4 @@ export const CornerOrnamentElement = React.forwardRef<HTMLDivElement, CornerOrna
   },
 );
 
-CornerOrnamentElement.displayName = "CornerOrnamentElement";
+CornerOrnamentBase.displayName = "CornerOrnamentBase";

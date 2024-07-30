@@ -5,20 +5,20 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 export type CornerOrnamentType = "badge" | "dot" | "icon" | "avatar";
 export type CornerOrnamentPosition = "bottom_end" | "top_end";
 
-export interface CornerOrnamentElementProps extends HTMLPasteProps<"div"> {
+export interface CornerOrnamentBaseProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
-   * @default 'CORNER_ORNAMENT_ELEMENT'
+   * @default 'CORNER_ORNAMENT_BASE'
    * @type {BoxProps['element']}
-   * @memberof CornerOrnamentElementProps
+   * @memberof CornerOrnamentBaseProps
    */
   element?: BoxProps["element"];
   /**
    * Ability to set the padding of the main element
    * @default null
    * @type {'space0'}
-   * @memberof CornerOrnamentElementProps
+   * @memberof CornerOrnamentBaseProps
    */
   padding?: "space0";
 }

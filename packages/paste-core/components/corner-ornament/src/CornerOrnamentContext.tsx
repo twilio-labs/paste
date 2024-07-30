@@ -7,7 +7,7 @@ export const CornerOrnamentContext = React.createContext<CornerOrnamentContextIn
 export const useCornerOrnamentContext = (): CornerOrnamentContextInterface => {
   const context = React.useContext(CornerOrnamentContext);
   if (!context) {
-    throw new Error("useCornerOrnamentContext must be used with CornerOrnamentContextProvider");
+    throw new Error("Corner Ornaments components must be used within CornerOrnamentContainer");
   }
   return context;
 };
