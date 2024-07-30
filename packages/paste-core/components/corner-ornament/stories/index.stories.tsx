@@ -9,7 +9,7 @@ import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { CornerOrnament, CornerOrnamentContainer, CornerOrnamentElement } from "../src";
+import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -21,18 +21,18 @@ export const Default = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space60">
       <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon50">
-        <CornerOrnamentElement>
+        <CornerOrnamentBase>
           <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-        </CornerOrnamentElement>
+        </CornerOrnamentBase>
         <CornerOrnament>
           <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
           <Box backgroundColor="colorBackgroundRequired" height="6px" width="6px" borderRadius="borderRadiusCircle" />
         </CornerOrnament>
       </CornerOrnamentContainer>
       <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
-        <CornerOrnamentElement>
+        <CornerOrnamentBase>
           <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-        </CornerOrnamentElement>
+        </CornerOrnamentBase>
         <CornerOrnament>
           <ScreenReaderOnly>notification value</ScreenReaderOnly>
           <Badge as="span" variant="notification_counter" size="small">
@@ -41,9 +41,9 @@ export const Default = (): React.ReactNode => {
         </CornerOrnament>
       </CornerOrnamentContainer>
       <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
-        <CornerOrnamentElement>
-          <LogoTwilioIcon size="sizeIcon80" title="Paste brand" />
-        </CornerOrnamentElement>
+        <CornerOrnamentBase>
+          <LogoTwilioIcon size="sizeIcon80" title="Paste brand" decorative={false} />
+        </CornerOrnamentBase>
         <CornerOrnament>
           <ScreenReaderOnly>notification value</ScreenReaderOnly>
           <Badge as="span" variant="notification_counter" size="small">
@@ -65,9 +65,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon50">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -78,9 +78,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon40</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon40">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -91,9 +91,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon30</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon30">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -109,9 +109,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon50">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -122,9 +122,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon40</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon40">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -135,9 +135,9 @@ export const SupportedDots = (): React.ReactNode => {
         <Box>
           <small>sizeIcon30</small>
           <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon30">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
               <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
@@ -162,9 +162,9 @@ export const SupportedBadge = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
               <Badge as="span" variant="notification_counter" size="small">
@@ -181,9 +181,9 @@ export const SupportedBadge = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" position="top_end" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
               <Badge as="span" variant="notification_counter" size="small">
@@ -209,9 +209,9 @@ export const SupportedAvatar = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="ornament for Paste brand" />
             </CornerOrnament>
@@ -221,9 +221,9 @@ export const SupportedAvatar = (): React.ReactNode => {
         <Box>
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon70">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="ornament for Paste brand" />
             </CornerOrnament>
@@ -238,9 +238,9 @@ export const SupportedAvatar = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" position="top_end" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="ornament for Paste brand" />
             </CornerOrnament>
@@ -250,9 +250,9 @@ export const SupportedAvatar = (): React.ReactNode => {
         <Box>
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" position="top_end" size="sizeIcon70">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="ornament for Paste brand" />
             </CornerOrnament>
@@ -276,9 +276,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon40" />
             </CornerOrnament>
@@ -288,9 +288,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon70">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon30" />
             </CornerOrnament>
@@ -300,9 +300,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon50">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon10" />
             </CornerOrnament>
@@ -312,9 +312,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon40</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon40">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon05" />
             </CornerOrnament>
@@ -324,9 +324,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon30</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon30">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon05" />
             </CornerOrnament>
@@ -341,9 +341,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon80">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon40" />
             </CornerOrnament>
@@ -353,9 +353,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon70">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon30" />
             </CornerOrnament>
@@ -365,9 +365,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon50">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon10" />
             </CornerOrnament>
@@ -377,9 +377,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon40</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon40">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon05" />
             </CornerOrnament>
@@ -389,9 +389,9 @@ export const SupportedIcon = (): React.ReactNode => {
         <Box>
           <small>sizeIcon30</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon30">
-            <CornerOrnamentElement>
+            <CornerOrnamentBase>
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentElement>
+            </CornerOrnamentBase>
             <CornerOrnament>
               <LogoTwilioIcon decorative size="sizeIcon05" />
             </CornerOrnament>
@@ -428,9 +428,9 @@ export const CornerOrnamentCustomization = (): React.ReactNode => {
         }}
       >
         <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
-          <CornerOrnamentElement>
+          <CornerOrnamentBase>
             <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
-          </CornerOrnamentElement>
+          </CornerOrnamentBase>
           <CornerOrnament>
             <LogoTwilioIcon size="sizeIcon40" decorative />
           </CornerOrnament>
