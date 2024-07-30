@@ -90,3 +90,8 @@ export const sidebarNavigationItemSelectedStyles: BoxProps = {
   backgroundColor: "colorBackgroundInverseStrong",
   color: "colorTextInverse",
 };
+
+/** Unselected item styles */
+export const sidebarNavigationItemUnselectedStyles: BoxProps = {
+  color: "colorTextInverseWeak",
+};
