@@ -373,7 +373,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
             return (
               <PopoverContainer key={pill} state={popover}>
-                <PopoverButton variant="secondary_icon" size="icon_small">
+                <PopoverButton variant="reset" size="reset">
                   <FormPill
                     {...pillState}
                     selected={isSelected}
@@ -416,9 +416,15 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       </form>
 
       <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
-        <DetailText marginTop="space0">
-          {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
-        </DetailText>
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+          </DetailText>
+          <Button variant="link" onClick={handleClearAll}>
+            Clear all
+          </Button>
+        </Box>
+
         <ButtonGroup>
           <Button variant="secondary" size="small">
             <ExportIcon decorative />
