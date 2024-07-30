@@ -1,0 +1,80 @@
+export const meta = {
+  title: 'Corner Ornament',
+  package: '@twilio-paste/corner-ornament',
+  description: 'Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.',
+  slug: '/components/corner-ornament/api',
+};
+
+import Changelog from '@twilio-paste/corner-ornament/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/corner-ornament/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Corner ornament');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/corner-ornament');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/corner-ornament',
+        storybookUrl: '/?path=/story/components-corner-ornament--single-line',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/corner-ornament - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/corner-ornament';
+
+const rubyCode = `#!/usr/bin/ruby
+
+# Import the library.
+require 'tk'
+
+# Root window.
+root = TkRoot.new  {
+  title 'Push Me'
+  background '#111188'
+}
+
+# Add a label to the root window.
+lab = TkLabel.new(root) {
+  text "Hey there,\nPush a button!"
+  background '#3333AA'
+  foreground '#CCCCFF'
+}`;
+
+export const Basic = () => {
+  return (
+    <CodeBlockWrapper>
+      <CodeBlockHeader>Build a button</CodeBlockHeader>
+      <CodeBlock showLineNumbers language="ruby" code={rubyCode} />
+    </CodeBlockWrapper>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
