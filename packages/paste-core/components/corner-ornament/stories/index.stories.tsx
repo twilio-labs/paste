@@ -174,7 +174,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;small&quot;</small>
+          <small>badge size="small"</small>
         </Box>
       </Stack>
       <Heading as="h3" variant="heading30">
@@ -194,7 +194,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;small&quot;</small>
+          <small>badge size="small"</small>
         </Box>
       </Stack>
     </Stack>
