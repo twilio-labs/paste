@@ -21,8 +21,6 @@ import { TimePicker } from "@twilio-paste/time-picker";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { TABLE_DATA } from "../constants";
-import { filterByDateRange, filterByRoomType, filterBySearchString } from "../helpers";
 import type { FilterGroupProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { SampleDataGrid } from "./SampleDataGrid";
@@ -344,7 +342,7 @@ const PillDisplay: React.FC<{
     );
   }
 
-  if (selectedType === "participants" && (selectedValue as ParticipantsType)) {
+  if (selectedType === "participants") {
     const { min, max } = selectedValue as ParticipantsType;
 
     return (
@@ -366,12 +364,31 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   const [filteredTableData, setFilteredTableData] = React.useState(data);
 
   const handleApplyFilters = (filters: selectedFilterProps): void => {
-    console.log(filters);
-    let filteredData = TABLE_DATA;
+    let filteredData = data;
 
     Object.entries(filters).forEach(([type, value]) => {
       if (type === "room-type") {
         filteredData = filteredData.filter((item) => item.roomType === value);
+      }
+
+      if (type === "participants") {
+        const { min, max } = value as unknown as ParticipantsType;
+
+        filteredData = filteredData.filter(
+          (item) => item.participants >= parseInt(min, 10) && item.participants <= parseInt(max, 10),
+        );
+      }
+
+      if (type === "date-time") {
+        const { startDate, startTime, endDate, endTime } = value as unknown as DateRangeType;
+        const start = new Date(`${startDate}T${startTime}`);
+        const end = new Date(`${endDate}T${endTime}`);
+
+        filteredData = filteredData.filter((item) => {
+          const itemDate = new Date(item.dateCompleted);
+
+          return itemDate >= start && itemDate <= end;
+        });
       }
     });
 
@@ -493,7 +510,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       </Box>
       <Box marginTop="space60">
         {filteredTableData.length > 0 ? (
-          <SampleDataGrid data={filteredTableData} />
+          <SampleDataGrid data={filteredTableData} showDateTime />
         ) : (
           <EmptyState handleClearAll={handleClearAll} />
         )}
