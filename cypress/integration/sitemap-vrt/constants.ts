@@ -21,6 +21,7 @@ export const SITEMAP = [
   "/blog/2023-08-02-paste-newsletter/",
   "/blog/2023-11-08-paste-newsletter/",
   "/blog/2024-02-06-paste-2023-year-in-review/",
+  "/blog/2024-07-17-paste-newsletter/",
   "/components/account-switcher/",
   "/components/account-switcher/api",
   "/components/account-switcher/changelog",

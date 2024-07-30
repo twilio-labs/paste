@@ -1,0 +1,234 @@
+export const meta = {
+  title: "Paste Design System Newsletter - July 2024 Edition",
+  slug: "/blog/2024-07-17-paste-newsletter/",
+  date: "2024-07-17",
+  author: "Kristian Antrobus",
+  avatar: "https://avatars.githubusercontent.com/u/55083528",
+  excerpt: "What's new in Paste in July 2024? AI UI Kit, Page Header, Summary Detail components and much more!",
+};
+
+import Image from "next/image";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import { Anchor } from "@twilio-paste/anchor";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import { ResponsiveBorderedImage } from "../../components/ResponsiveBorderedImage";
+
+import AIUIKit from "../../assets/images/articles/2024-07-17-paste-newsletter/ai-ui-kit.gif";
+import PageHeaderImg from "../../assets/images/articles/2024-07-17-paste-newsletter/page-header.png";
+import SummaryDetail from "../../assets/images/articles/2024-07-17-paste-newsletter/summary-detail.gif";
+import MarketingCard from "../../assets/images/articles/2024-07-17-paste-newsletter/marketing-card.png";
+import OrderedDisplayList from "../../assets/images/articles/2024-07-17-paste-newsletter/ordered-display-list.png";
+import Illustrations from "../../assets/images/articles/2024-07-17-paste-newsletter/illustrations.png";
+import KristianProfile from "../../assets/images/articles/2024-07-17-paste-newsletter/kristian.png";
+import RoxanaProfile from "../../assets/images/articles/2024-07-17-paste-newsletter/roxana.png";
+import ShoaibProfile from "../../assets/images/articles/2024-07-17-paste-newsletter/shoaib.png";
+import JoeProfile from "../../assets/images/articles/2024-07-17-paste-newsletter/joe_fehrman.png";
+
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+Hey all, it's been a while! This newsletter summarizes our releases for all of 2024 so far, especially one release you've all been waiting for…
+
+## 📣 What was new in Paste?
+
+### The AI UI Kit is live!
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={AIUIKit}
+      alt="Gif of AI UI Kit"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+The AI UI Kit includes:
+
+- [AI experience guidelines](/experiences/artificial-intelligence) that summarize all Paste AI components and guidelines, and collect resources from the great research and work that's already been done across the Segment, Flex, and Privacy teams.
+- New [AI Chat Log](/components/ai-chat-log) components, which we've made distinct from our Conversations [Chat Log](/components/chat-log) components, in order to ensure differentiation between the two interaction types.
+- An updated [Chat Composer](/components/chat-composer) component, with a `ChatComposerContainer` for standard layout and styling of the Chat Composer. This can be used in any chat use case.
+- A new [Side Panel](/components/side-panel) component, which can be used for showing AI features side-by-side with main page content, for our upcoming update to the Filter pattern, and more.
+- A new [ArtificialIntelligenceIcon](/components/icon)
+
+Thanks to everyone for their partnership and feedback, including **Jiyeon Kang, Eileen Tong, Megan Allison, Amira Chalbi Neffati, Wai-Jee Ho, and Barbara Chicca**.
+
+### Page Header component
+
+<Box width="100%" maxWidth="600px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={PageHeaderImg} alt="Preview of Page Header component" />
+</Box>
+
+The [Page Header](/components/page-header) component controls the spacing and layout for any components used at the top of the page, including Breadcrumbs, Headings, actions, and metadata. This component helps standardize content and layout of our pages, and includes a compact variant, too, for narrow containers.
+
+### Summary Detail component
+
+<Box width="100%" display="flex" justifyContent="center" marginBottom="space60">
+  <Box
+    maxWidth="600px"
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="400px"
+      height="100%"
+      src={SummaryDetail}
+      alt="Gif of Summary Detail component"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+The [Summary Detail](/components/summary-detail) component displays a summary of information that can be expanded to show more information. It's most useful when you need to provide more actions and information than the [Disclosure](/components/disclosure) can provide. Use this component to organize information in a clear, accessible way to allow users to access detailed data only when needed.
+
+### Brand Badges and marketing Cards
+
+<Box maxWidth="600px" display="block" margin="0 auto">
+  <ResponsiveImage src={MarketingCard} alt="Preview of Marketing Card" />
+</Box>
+
+We've released new [brand Badges](/components/badge#brand) to highlight cross-selling opportunities across our platforms and on pricing plans. These Badges also mirror similar elements on [twilio.com](http://twilio.com) for enhanced cohesion across our customer touchpoints.
+
+These Badges also come with [updated guidelines on our Card component for marketing use cases](/components/card#marketing-card). We're also working on a more general card layout pattern, so stay tuned!
+
+### Ordered Display List
+
+<Box width="100%" maxWidth="600px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={OrderedDisplayList} alt="Preview of Ordered Display List" />
+</Box>
+
+The [Ordered Display List](/components/list#ordered-display-list) component helps improve the scannability and visual design of steps or instructions, especially in onboarding use cases. You can use this component with all sorts of nested content as you would with the typical List component to walk a user through complex steps.
+
+### Refined illustration foundations
+
+<Box width="100%" maxWidth="600px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={Illustrations} alt="Preview of illustration foundations" />
+</Box>
+
+Our updated [illustration foundations](/foundations/illustrations) include clearer guidelines on:
+
+- When to use illustrations
+- Which ones to use
+- How to access and request them
+
+In Figma, you can turn on the [Web Spot Image library](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=2310-5106&mode=design) for easy access to illustrations. Thanks to **Shane Brown** on the Web team for your partnership on this!
+
+### Additional updates
+
+#### New
+
+- Added [icons](/components/icon) for sentiment, different data types, e-commerce, transfer, admin dashboard, and the Conversational Insights product.
+- Added dark theme as a mode in the Paste Components Figma library.
+
+#### Updates
+
+- Thanks to **Megan Allison** for updating our content foundations, including the [voice and tone](/foundations/content/voice-and-tone) guidelines, [content checklist](/foundations/content/content-checklist), and [product style guide](/foundations/content/product-style-guide), to more closely align with the recently released [Twilio Style Guide](https://library.twilio.com/guidelines/guide/1b8c14a4-287d-47a4-8ac6-1621bfe97a6d/page/34720f98-b7f8-4436-8e66-4f814801eec1).
+
+## 👋 Welcome to the team: Roxana, Kristian & Shoaib!
+
+This year, we've added 3 new members to our team.
+
+### Roxana Gómez, Product Designer
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={RoxanaProfile} alt="Roxana Gómez" />
+</Box>
+
+Roxana joined us in January from Medellín, Colombia. She's been a Product Designer for several years. Over the past couple of years, she has been advocating for reusable systems for different teams and their benefits for speed, quality, and consistency.
+
+Outside of work you can find her playing with her dogs, doing yoga, playing MTG, binge watching anime and reading historical fiction.
+
+### Kristian Antrobus, UX Engineer
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={KristianProfile} alt="Kristian Antrobus" />
+</Box>
+
+Kristian joined us in May from Minneapolis in the US. He's been at Twilio for nearly 2 years already, most recently with the Messaging team.
+
+Outside of work, his passions include sketching technical studies, paddle boarding, and immersing himself in fantasy novels brimming with magic and adventure. He also enjoys baking and tackling home improvement projects.
+
+### Shoaib Ahmed, UX Engineer
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={ShoaibProfile} alt="Shoaib Ahmed" />
+</Box>
+
+Shoaib joined us in July from Bengaluru in India. He has been working at the intersection of design and tech for all his career. He led the design system initiative in his previous organization, combining the principles of open source systems and accessibility.
+
+Outside of work, Shoaib usually indulges himself with movies, music, anime, and biryani.
+
+## ✨ Pastemates™ spotlight
+
+_Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system._
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={JoeProfile} alt="Joe Fehrman" />
+</Box>
+
+In this edition of Pastemates, we're spotlighting Joe Fehrman! Joe Fehrman ([@cogwizzle](https://github.com/cogwizzle)) has been an incredible collaborator over the past few months. They embody the Twilio Owner spirit by digging deep into the Paste repo, understanding how the team builds, thinking long term, and contributing betterments for our consumers.
+
+Joe's contributions are already improving the developer experience both within the Paste team and for Twilio engineers at large. Their work has included helpful JSDoc additions to elevate consumers' understanding of component usage and a new variant to Form Pill Group as part of the new Filter Pattern. Not only that, but we are also working closely to facilitate upcoming contributions directly related to sprint work to deliver a lasting impact and accelerate our roadmap. Thank you, Joe!
+
+## 👀 What we're working on next
+
+| Feature                                                                   | Description                                                                                                                                                              |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Corner ornament pattern**                                               | A corner ornament is a way to relate an item count or graphic element to another element.                                                                                |
+| **Redesigned filter pattern**                                             | Filters enable users to narrow down and refine results across various types of content pages, including rich content pages, data tables, lists, data insights, and more. |
+| **Add typography and effect variables to Paste Components Figma library** | Apply typography and effect variables to the Paste Components Figma library so designers can more accurately switch themes.                                              |
+
+<Box marginBottom="space120" />
+
+As always, we're better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>
