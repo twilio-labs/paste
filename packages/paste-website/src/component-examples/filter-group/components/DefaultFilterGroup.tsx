@@ -324,15 +324,37 @@ const DateRangeFilter: React.FC = ({
   );
 };
 
-type selectedFilterProps =
-  | string
-  | { min: string; max: string }
-  | {
-      startDate: string;
-      startTime: string;
-      endDate: string;
-      endTime: string;
-    };
+type RoomTypes = "Group" | "WebRTC Go" | "Peer to Peer";
+type ParticipantsType = { min: string; max: string };
+type DateRangeType = { startDate: string; startTime: string; endDate: string; endTime: string };
+
+type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType;
+
+const PillDisplay: React.FC<{
+  label: string;
+  selectedType: string | null;
+  selectedValue: selectedFilterProps;
+}> = ({ label, selectedType, selectedValue }) => {
+  if (selectedType === "room-type" && typeof selectedValue === "string") {
+    return (
+      <span>
+        {label}: {selectedValue}
+      </span>
+    );
+  }
+
+  if (selectedType === "participants" && (selectedValue as ParticipantsType)) {
+    const { min, max } = selectedValue as ParticipantsType;
+
+    return (
+      <span>
+        {label}: {`${min} - ${max}`}
+      </span>
+    );
+  }
+
+  return <span>{label}</span>;
+};
 
 // Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data }) => {
@@ -348,14 +370,26 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   }
 
   const filterMap: {
-    [key: string]: React.FC<{
-      onApply: (type: string, value: selectedFilterProps) => void;
-      popover: ReturnType<typeof usePopoverState>;
-    }>;
+    [key: string]: {
+      label: string;
+      component: React.FC<{
+        onApply: (type: string, value: selectedFilterProps) => void;
+        popover: ReturnType<typeof usePopoverState>;
+      }>;
+    };
   } = {
-    "room-type": RoomTypeFilter,
-    participants: ParticipantsFilter,
-    "date-time": DateRangeFilter,
+    "room-type": {
+      label: "Room type",
+      component: RoomTypeFilter,
+    },
+    participants: {
+      label: "Participants",
+      component: ParticipantsFilter,
+    },
+    "date-time": {
+      label: "Date/time range",
+      component: DateRangeFilter,
+    },
   };
 
   return (
@@ -369,7 +403,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
           {pills.map((pill) => {
             const popover = usePopoverState({ baseId: pill });
             const isSelected = pill in selectedFilters;
-            const PopoverComponent = filterMap[pill];
+            const PopoverComponent = filterMap[pill].component;
 
             return (
               <PopoverContainer key={pill} state={popover}>
@@ -392,7 +426,11 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
                     }
                   >
                     {!isSelected ? <PlusIcon decorative /> : null}
-                    {pill}
+                    <PillDisplay
+                      label={filterMap[pill].label}
+                      selectedType={isSelected ? pill : null}
+                      selectedValue={selectedFilters[pill]}
+                    />
                   </FormPill>
                 </PopoverButton>
 
@@ -420,9 +458,11 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
           <DetailText marginTop="space0">
             {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
           </DetailText>
-          <Button variant="link" onClick={handleClearAll}>
-            Clear all
-          </Button>
+          {Object.keys(selectedFilters).length > 0 ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
         </Box>
 
         <ButtonGroup>
