@@ -13,41 +13,18 @@ import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover"
 import { usePopoverState } from "@twilio-paste/reakit-library";
 import * as React from "react";
 
-import type { DateRangeType, FilterGroupProps, ParticipantsType, selectedFilterProps } from "../types";
+import { applyFilters } from "../helpers";
+import type { FilterGroupProps, selectedFilterProps } from "../types";
 import { EmptyState } from "./EmptyState";
+import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
+import { SearchFilter } from "./filters/SearchFilter";
 
 // Note: update the codesandboxes if update this
-const PillDisplay: React.FC<{
-  label: string;
-  selectedType: string | null;
-  selectedValue: selectedFilterProps;
-}> = ({ label, selectedType, selectedValue }) => {
-  if (selectedType === "room-type" && typeof selectedValue === "string") {
-    return (
-      <span>
-        {label}: {selectedValue}
-      </span>
-    );
-  }
-
-  if (selectedType === "participants") {
-    const { min, max } = selectedValue as ParticipantsType;
-
-    return (
-      <span>
-        {label}: {`${min} - ${max}`}
-      </span>
-    );
-  }
-
-  return <span>{label}</span>;
-};
-
-export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data }) => {
+export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data, withSearch }) => {
   const [pills] = React.useState(["room-type", "participants", "date-time"]);
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const pillState = useFormPillState();
@@ -55,34 +32,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   const [filteredTableData, setFilteredTableData] = React.useState(data);
 
   const handleApplyFilters = (filters: selectedFilterProps): void => {
-    let filteredData = [...data];
-
-    Object.entries(filters).forEach(([type, value]) => {
-      if (type === "room-type") {
-        filteredData = filteredData.filter((item) => item.roomType === value);
-      }
-
-      if (type === "participants") {
-        const { min, max } = value as unknown as ParticipantsType;
-
-        filteredData = filteredData.filter(
-          (item) => item.participants >= parseInt(min, 10) && item.participants <= parseInt(max, 10),
-        );
-      }
-
-      if (type === "date-time") {
-        const { startDate, startTime, endDate, endTime } = value as unknown as DateRangeType;
-        const start = new Date(`${startDate}T${startTime}`);
-        const end = new Date(`${endDate}T${endTime}`);
-
-        filteredData = filteredData.filter((item) => {
-          const itemDate = new Date(item.dateCompleted);
-
-          return itemDate >= start && itemDate <= end;
-        });
-      }
-    });
-
+    const filteredData = applyFilters(filters, data);
     setFilteredTableData(filteredData);
   };
 
@@ -116,6 +66,26 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   return (
     <Box paddingBottom="space70">
+      {withSearch ? (
+        <Box marginBottom="space50" maxWidth="size30">
+          <SearchFilter
+            onChange={(e) => {
+              const newFilters = { ...selectedFilters, search: e.target.value };
+
+              if (newFilters.search === "") {
+                const { search: _, ...rest } = newFilters;
+                setSelectedFilters(rest as Record<string, selectedFilterProps>);
+                handleApplyFilters(rest as selectedFilterProps);
+                return;
+              }
+
+              setSelectedFilters(newFilters as Record<string, selectedFilterProps>);
+              handleApplyFilters(newFilters as selectedFilterProps);
+            }}
+            value={(selectedFilters.search as string) || ""}
+          />
+        </Box>
+      ) : null}
       <Heading as="h1" variant="heading50">
         Filter
       </Heading>
@@ -152,7 +122,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
                   }
                 >
                   {!isSelected ? <PlusIcon decorative /> : null}
-                  <PillDisplay
+                  <FilterPill
                     label={filterMap[pill].label}
                     selectedType={isSelected ? pill : null}
                     selectedValue={selectedFilters[pill]}

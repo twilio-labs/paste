@@ -50,8 +50,7 @@ export interface TableDataRow {
 export interface FilterGroupProps {
   children?: never;
   data: TableDataRow[];
-  defaultRoomType?: RoomTypes;
-  defaultDateRange?: DateRanges;
+  withSearch?: boolean;
 }
 
 export interface FilterGroupDateTimeProps {

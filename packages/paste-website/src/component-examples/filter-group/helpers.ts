@@ -3,7 +3,15 @@
 import { add, format, isAfter, isBefore } from "date-fns";
 import type { Duration } from "date-fns";
 
-import type { DateRanges, DateTimeRanges, RoomTypes } from "./types";
+import type {
+  DateRangeType,
+  DateRanges,
+  DateTimeRanges,
+  ParticipantsType,
+  RoomTypes,
+  TableDataRow,
+  selectedFilterProps,
+} from "./types";
 
 export const formatDate = (date: Date): string => format(date, "yyyy-MM-dd");
 export const formatDateTime = (date: Date): string => format(date, "HH:mm:ss 'UTC' yyyy-MM-dd");
@@ -70,4 +78,52 @@ export const isEndDateBeforeStartDate = (
   const computedEnd = new Date(`${endDate}T${endTime}`);
 
   return isBefore(computedEnd, computedStart);
+};
+
+export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[]): TableDataRow[] => {
+  let filteredData = [...data];
+
+  Object.entries(filters).forEach(([type, value]) => {
+    if (type === "room-type") {
+      filteredData = filteredData.filter((item) => item.roomType === value);
+    }
+
+    if (type === "participants") {
+      const { min, max } = value as unknown as ParticipantsType;
+
+      filteredData = filteredData.filter(
+        (item) => item.participants >= parseInt(min, 10) && item.participants <= parseInt(max, 10),
+      );
+    }
+
+    if (type === "date-time") {
+      const { startDate, startTime, endDate, endTime } = value as unknown as DateRangeType;
+      const start = new Date(`${startDate}T${startTime}`);
+      const end = new Date(`${endDate}T${endTime}`);
+
+      filteredData = filteredData.filter((item) => {
+        const itemDate = new Date(item.dateCompleted);
+
+        return itemDate >= start && itemDate <= end;
+      });
+    }
+
+    if (type === "search") {
+      const search = value as string;
+
+      filteredData = filteredData.filter((item) => {
+        const { uniqueName, roomType, participants, dateCompleted, sid } = item;
+
+        return (
+          uniqueName.toLowerCase().includes(search.toLowerCase()) ||
+          roomType.toLowerCase().includes(search.toLowerCase()) ||
+          participants.toString().includes(search) ||
+          dateCompleted.toString().includes(search) ||
+          sid.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+    }
+  });
+
+  return filteredData;
 };
