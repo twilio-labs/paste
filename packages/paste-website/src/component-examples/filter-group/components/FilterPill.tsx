@@ -36,7 +36,7 @@ export const FilterPill: React.FC<{
   selectedFilters: Record<string, selectedFilterProps>;
   filterMap: FilterMapType;
   pillState: ReturnType<typeof useFormPillState>;
-  onDismiss: () => void;
+  onDismiss?: () => void;
   onApply: (type: string, value: selectedFilterProps) => void;
 }> = ({ pill, selectedFilters, filterMap, pillState, onDismiss, onApply }) => {
   const popover = usePopoverState({ baseId: pill });
@@ -57,7 +57,7 @@ export const FilterPill: React.FC<{
           onDismiss={
             isSelected
               ? (e) => {
-                  onDismiss();
+                  onDismiss?.();
 
                   e.stopPropagation();
                   popover.hide();

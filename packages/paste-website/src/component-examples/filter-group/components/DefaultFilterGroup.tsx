@@ -77,6 +77,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
               if (newFilters.search === "") {
                 const { search: _, ...rest } = newFilters;
+
                 setSelectedFilters(rest as Record<string, selectedFilterProps>);
                 handleApplyFilters(rest as selectedFilterProps);
                 return;
@@ -105,7 +106,8 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
               pillState={pillState}
               onDismiss={() => {
                 const newFilters = { ...selectedFilters };
-                const { pill: _, ...rest } = newFilters;
+                const { [pill]: _, ...rest } = newFilters;
+
                 setSelectedFilters(rest);
                 handleApplyFilters(rest as selectedFilterProps);
               }}
@@ -123,12 +125,6 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
             selectedFilters={selectedFilters}
             filterMap={filterMap}
             pillState={pillState}
-            onDismiss={() => {
-              const newFilters = { ...selectedFilters };
-              const { "add-filters": _, ...rest } = newFilters;
-              setSelectedFilters(rest);
-              handleApplyFilters(rest as selectedFilterProps);
-            }}
             onApply={(type: string, value) => {
               const newFilters = { ...selectedFilters, [type]: value };
               setSelectedFilters(newFilters);
