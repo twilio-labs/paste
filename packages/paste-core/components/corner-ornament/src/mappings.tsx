@@ -45,7 +45,7 @@ export const OrnamentPositionStyleMappings: Record<
 > = {
   badge: {
     bottom_end: {
-      sizeIcon80: { top: "space70", left: "space70" },
+      sizeIcon80: { left: "space70", top: "space70" },
     },
     top_end: {
       sizeIcon80: { left: "space70", top: "spaceNegative10" },
@@ -53,8 +53,8 @@ export const OrnamentPositionStyleMappings: Record<
   },
   avatar: {
     bottom_end: {
-      sizeIcon70: { top: "space60", left: "space60" },
-      sizeIcon80: { top: "space70", left: "space70" },
+      sizeIcon70: { left: "space60", top: "space60" },
+      sizeIcon80: { left: "space70", top: "space70" },
     },
     top_end: {
       sizeIcon70: { left: "space60", top: "spaceNegative10" },
@@ -63,25 +63,25 @@ export const OrnamentPositionStyleMappings: Record<
   },
   icon: {
     bottom_end: {
-      sizeIcon30: { top: "space40", left: "space40" },
-      sizeIcon40: { top: "space50", left: "space50" },
-      sizeIcon50: { top: "space60", left: "space60" },
-      sizeIcon70: { top: "space60", left: "space60" },
-      sizeIcon80: { top: "space70", left: "space70" },
+      sizeIcon30: { left: "space40", top: "space40" },
+      sizeIcon40: { left: "space50", top: "space50" },
+      sizeIcon50: { left: "18px", top: "18px" },
+      sizeIcon70: { left: "space60", top: "space60" },
+      sizeIcon80: { left: "space70", top: "space70" },
     },
     top_end: {
-      sizeIcon30: { left: "space40", top: "spaceNegative10" },
-      sizeIcon40: { left: "space50", top: "spaceNegative10" },
-      sizeIcon50: { left: "space60", top: "spaceNegative10" },
+      sizeIcon30: { left: "13.7px", top: "spaceNegative10" },
+      sizeIcon40: { left: "16px", top: "0px" },
+      sizeIcon50: { left: "18px", top: "spaceNegative10" },
       sizeIcon70: { left: "space60", top: "spaceNegative10" },
       sizeIcon80: { left: "space70", top: "spaceNegative10" },
     },
   },
   dot: {
     bottom_end: {
-      sizeIcon30: { top: "14px", left: "14px" },
-      sizeIcon40: { top: "space50", left: "space50" },
-      sizeIcon50: { top: "space60", left: "space60" },
+      sizeIcon30: { left: "14px", top: "14px" },
+      sizeIcon40: { left: "space50", top: "space50" },
+      sizeIcon50: { left: "space60", top: "space60" },
     },
     top_end: {
       sizeIcon30: { left: "14px", top: "-3px" },
