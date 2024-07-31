@@ -108,6 +108,16 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
       });
     }
 
+    if (type === "date-range") {
+      const { startDate, endDate } = value as unknown as DateRangeType;
+
+      filteredData = filteredData.filter((item) => {
+        const itemDate = new Date(item.dateCompleted);
+
+        return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
+      });
+    }
+
     if (type === "search") {
       const search = value as string;
 

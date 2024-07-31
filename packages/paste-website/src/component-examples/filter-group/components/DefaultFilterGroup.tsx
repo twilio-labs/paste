@@ -18,10 +18,11 @@ import type { FilterGroupProps, FilterMapType, selectedFilterProps } from "../ty
 import { EmptyState } from "./EmptyState";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
-import { SearchFilter } from "./filters/SearchFilter";
-import { RoomTypeFilter } from "./filters/RoomTypeFilter";
-import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
+import { DateTimeRangeFilter } from "./filters/DateTimeRangeFilter";
+import { ParticipantsFilter } from "./filters/ParticipantsFilter";
+import { RoomTypeFilter } from "./filters/RoomTypeFilter";
+import { SearchFilter } from "./filters/SearchFilter";
 
 // Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
@@ -55,6 +56,10 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     },
     "date-time": {
       label: "Date/time range",
+      component: DateTimeRangeFilter,
+    },
+    "date-range": {
+      label: "Date range",
       component: DateRangeFilter,
     },
   };

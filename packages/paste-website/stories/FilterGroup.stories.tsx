@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { CustomDateFilterGroup } from "../src/component-examples/filter-group/components/CustomDateFilterGroup";
 import { DefaultFilterGroup } from "../src/component-examples/filter-group/components/DefaultFilterGroup";
 import { STATIC_TABLE_DATA } from "../src/component-examples/filter-group/constants";
 import type { FilterListType } from "../src/component-examples/filter-group/types";
@@ -19,4 +18,9 @@ export const SearchFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} withSearch filterList={filterList} />;
 };
 
-export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;
+export const ConditionalFilterGroupExample = (): JSX.Element => {
+  const filterList: FilterListType = ["room-type", "participants", "date-range"];
+  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
+};
+
+// export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;

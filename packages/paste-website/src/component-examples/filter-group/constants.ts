@@ -5,10 +5,10 @@ import type { DateTimeFormValues, TableDataRow } from "./types";
 
 export const ROOM_TYPES = ["All", "Group", "WebRTC Go", "Peer to Peer"];
 export const DATE_RANGES = [
-  { name: "All", value: "all" },
-  { name: "Last 24 hours", value: "day" },
-  { name: "Last 7 days", value: "oneWeek" },
-  { name: "Last 14 days", value: "twoWeeks" },
+  { name: "Last 24 hours", value: "1" },
+  { name: "Last 7 days", value: "7" },
+  { name: "Last 14 days", value: "14" },
+  { name: "Custom", value: "custom" },
 ];
 export const DATE_TIME_RANGES = [
   { name: "All", value: "all" },
