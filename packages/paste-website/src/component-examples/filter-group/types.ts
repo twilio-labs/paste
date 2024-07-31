@@ -1,5 +1,6 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
+import type { usePopoverState } from "@twilio-paste/popover";
 import type { FieldError, UseFormRegister, UseFormReturn } from "react-hook-form";
 
 export type DateRanges = "all" | "day" | "oneWeek" | "twoWeeks";
@@ -47,11 +48,15 @@ export interface TableDataRow {
   dateCompleted: Date;
 }
 
-export interface FilterGroupProps {
-  children?: never;
-  data: TableDataRow[];
-  withSearch?: boolean;
-}
+export type FilterMapType = {
+  [key: string]: {
+    label: string;
+    component: React.FC<{
+      onApply: (type: string, value: selectedFilterProps) => void;
+      popover: ReturnType<typeof usePopoverState>;
+    }>;
+  };
+};
 
 export interface FilterGroupDateTimeProps {
   children?: never;
@@ -68,3 +73,12 @@ export type DateRangeType = { startDate: string; startTime: string; endDate: str
 export type SearchFilterType = { search: string };
 
 export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType;
+
+export type FilterListType = Array<"room-type" | "participants" | "date-time" | "search">;
+
+export interface FilterGroupProps {
+  children?: never;
+  data: TableDataRow[];
+  withSearch?: boolean;
+  filterList: FilterListType;
+}

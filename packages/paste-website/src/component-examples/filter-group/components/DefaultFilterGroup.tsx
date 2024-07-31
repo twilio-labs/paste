@@ -14,18 +14,21 @@ import { usePopoverState } from "@twilio-paste/reakit-library";
 import * as React from "react";
 
 import { applyFilters } from "../helpers";
-import type { FilterGroupProps, selectedFilterProps } from "../types";
+import type { FilterGroupProps, FilterMapType, selectedFilterProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
-import { DateRangeFilter } from "./filters/DateRangeFilter";
-import { ParticipantsFilter } from "./filters/ParticipantsFilter";
-import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
+import { RoomTypeFilter } from "./filters/RoomTypeFilter";
+import { ParticipantsFilter } from "./filters/ParticipantsFilter";
+import { DateRangeFilter } from "./filters/DateRangeFilter";
 
 // Note: update the codesandboxes if update this
-export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data, withSearch }) => {
-  const [pills] = React.useState(["room-type", "participants", "date-time"]);
+export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
+  data,
+  withSearch,
+  filterList,
+}) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const pillState = useFormPillState();
 
@@ -41,15 +44,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     setFilteredTableData(data);
   }
 
-  const filterMap: {
-    [key: string]: {
-      label: string;
-      component: React.FC<{
-        onApply: (type: string, value: selectedFilterProps) => void;
-        popover: ReturnType<typeof usePopoverState>;
-      }>;
-    };
-  } = {
+  const filterMap: FilterMapType = {
     "room-type": {
       label: "Room type",
       component: RoomTypeFilter,
@@ -91,7 +86,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       </Heading>
 
       <FormPillGroup {...pillState} aria-label="Filters:" size="large">
-        {pills.map((pill) => {
+        {filterList.map((pill) => {
           const popover = usePopoverState({ baseId: pill });
           const isSelected = pill in selectedFilters;
           const PopoverComponent = filterMap[pill].component;
