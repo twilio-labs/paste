@@ -1,12 +1,15 @@
 import { Box } from "@twilio-paste/box";
-import { MultiselectCombobox } from "@twilio-paste/combobox";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { MultiselectCombobox, useMultiselectCombobox } from "@twilio-paste/combobox";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
 import React from "react";
 
-const items = ["Alert", "Anchor", "Button", "Card", "Heading", "List", "Modal", "Paragraph", "Popover", "Tooltip"];
+const items = ["Room SID", "Unique Name", "Participants"];
 
-function getFilteredItems(inputValue): string[] {
+function getFilteredItems(inputValue: string): string[] {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
   return items.filter(function filterItems(item) {
@@ -14,7 +17,7 @@ function getFilteredItems(inputValue): string[] {
   });
 }
 
-const SampleEmptyState = (): React.ReactElement => (
+const EmptyState = (): React.ReactElement => (
   <Box paddingY="space40" paddingX="space50">
     <Text as="span" fontStyle="italic" color="colorTextWeak">
       No results found
@@ -38,24 +41,87 @@ export const AddFilters: React.FC = ({
   popover?: ReturnType<typeof usePopoverState>;
 }) => {
   const [inputValue, setInputValue] = React.useState("");
+  const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  const onSelectedItemsChange = React.useCallback((comboboxItems) => {
+    setSelectedItems(comboboxItems.selectedItems);
+  }, []);
+
+  const state = useMultiselectCombobox({
+    initialSelectedItems: [],
+    onSelectedItemsChange,
+  });
 
   return (
     <Box>
       <MultiselectCombobox
-        labelText="Choose a Paste component"
-        selectedItemsLabelText="Selected Paste components"
-        helpText="Paste components are the building blocks of your product UI."
+        state={state}
+        labelText="Add filter"
+        selectedItemsLabelText="Selected filters"
         items={filteredItems}
-        initialSelectedItems={items.slice(1, 3)}
-        emptyState={SampleEmptyState}
+        emptyState={EmptyState}
         onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={(selectedItems) => {
-          console.log(selectedItems);
-        }}
+        onSelectedItemsChange={onSelectedItemsChange}
       />
+
+      <Box marginTop="space70">
+        <CheckboxGroup
+          name="rec-filters"
+          legend="Recommended filters"
+          helpText="Info that helps a user with this field."
+        >
+          {items.map((item) => (
+            <Checkbox
+              key={item}
+              id={item}
+              value={item}
+              checked={selectedItems.includes(item)}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  const selectedCheckedItems = [...selectedItems, item];
+                  state.setSelectedItems(selectedCheckedItems);
+                } else {
+                  const selectedCheckedItems = selectedItems.filter((selectedItem) => selectedItem !== item);
+                  state.setSelectedItems(selectedCheckedItems);
+                }
+              }}
+            >
+              {item}
+            </Checkbox>
+          ))}
+        </CheckboxGroup>
+      </Box>
+
+      <Box marginTop="space70">
+        <ButtonGroup>
+          <Button
+            variant="primary"
+            onClick={() => {
+              if (onApply && popover) {
+                popover.hide();
+              }
+            }}
+          >
+            Apply
+          </Button>
+          {selectedItems.length > 0 ? (
+            <Button
+              variant="link"
+              onClick={() => {
+                setInputValue("");
+                state.setSelectedItems([]);
+              }}
+            >
+              Clear all
+            </Button>
+          ) : (
+            <></>
+          )}
+        </ButtonGroup>
+      </Box>
     </Box>
   );
 };

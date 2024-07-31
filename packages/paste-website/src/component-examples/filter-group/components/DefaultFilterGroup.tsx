@@ -15,6 +15,7 @@ import type { FilterGroupProps, FilterMapType, selectedFilterProps } from "../ty
 import { EmptyState } from "./EmptyState";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
+import { AddFilters } from "./filters/AddFilters";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { DateTimeRangeFilter } from "./filters/DateTimeRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
@@ -60,6 +61,10 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       label: "Date range",
       component: DateRangeFilter,
     },
+    "add-filters": {
+      label: "Add filters",
+      component: AddFilters,
+    },
   };
 
   return (
@@ -84,6 +89,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
           />
         </Box>
       ) : null}
+
       <Heading as="h1" variant="heading50">
         Filter
       </Heading>
@@ -99,9 +105,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
               pillState={pillState}
               onDismiss={() => {
                 const newFilters = { ...selectedFilters };
-                delete newFilters[pill];
-                setSelectedFilters(newFilters);
-                handleApplyFilters(newFilters as selectedFilterProps);
+                const { pill: _, ...rest } = newFilters;
+                setSelectedFilters(rest);
+                handleApplyFilters(rest as selectedFilterProps);
               }}
               onApply={(type: string, value) => {
                 const newFilters = { ...selectedFilters, [type]: value };
@@ -111,6 +117,25 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
             />
           );
         })}
+        {withAddFilters ? (
+          <FilterPill
+            pill="add-filters"
+            selectedFilters={selectedFilters}
+            filterMap={filterMap}
+            pillState={pillState}
+            onDismiss={() => {
+              const newFilters = { ...selectedFilters };
+              const { "add-filters": _, ...rest } = newFilters;
+              setSelectedFilters(rest);
+              handleApplyFilters(rest as selectedFilterProps);
+            }}
+            onApply={(type: string, value) => {
+              const newFilters = { ...selectedFilters, [type]: value };
+              setSelectedFilters(newFilters);
+              handleApplyFilters(newFilters as selectedFilterProps);
+            }}
+          />
+        ) : null}
       </FormPillGroup>
 
       <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
