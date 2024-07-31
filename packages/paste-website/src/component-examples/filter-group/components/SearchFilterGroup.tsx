@@ -19,6 +19,7 @@ import { SampleDataGrid } from "./SampleDataGrid";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
+import { SearchFilter } from "./filters/SearchFilter";
 
 // Note: update the codesandboxes if update this
 const PillDisplay: React.FC<{
@@ -47,7 +48,7 @@ const PillDisplay: React.FC<{
   return <span>{label}</span>;
 };
 
-export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data }) => {
+export const SearchFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({ data }) => {
   const [pills] = React.useState(["room-type", "participants", "date-time"]);
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const pillState = useFormPillState();
@@ -79,6 +80,14 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
           const itemDate = new Date(item.dateCompleted);
 
           return itemDate >= start && itemDate <= end;
+        });
+      }
+
+      if (type === "search") {
+        const search = value as string;
+
+        filteredData = filteredData.filter((item) => {
+          return item.uniqueName.toLowerCase().includes(search.toLowerCase());
         });
       }
     });
@@ -116,7 +125,26 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   return (
     <Box paddingBottom="space70">
-      <Heading as="h1" variant="heading50">
+      <Box marginBottom="space50" maxWidth="size30">
+        <SearchFilter
+          onChange={(e) => {
+            const newFilters = { ...selectedFilters, search: e.target.value };
+
+            if (newFilters.search === "") {
+              const { search: _, ...rest } = newFilters;
+              setSelectedFilters(rest as Record<string, selectedFilterProps>);
+              handleApplyFilters(rest as selectedFilterProps);
+              return;
+            }
+
+            setSelectedFilters(newFilters as Record<string, selectedFilterProps>);
+            handleApplyFilters(newFilters as selectedFilterProps);
+          }}
+          value={(selectedFilters.search as string) || ""}
+        />
+      </Box>
+
+      <Heading as="h2" variant="heading50">
         Filter
       </Heading>
 
