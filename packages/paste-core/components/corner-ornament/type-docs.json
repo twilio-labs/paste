@@ -1595,14 +1595,14 @@
       "defaultValue": "null",
       "required": true,
       "externalProp": false,
-      "description": "The type of the corner ornament used. This determines that correct mask to apply to CornerOrnamentElement and without it the cutout will be incorrect."
+      "description": "The type of the corner ornament used. This determines that correct mask to apply to CornerOrnamentBase and without it the cutout will be incorrect."
     },
     "size": {
       "type": "| \"sizeIcon05\"\n  | \"sizeIcon10\"\n  | \"sizeIcon20\"\n  | \"sizeIcon30\"\n  | \"sizeIcon40\"\n  | \"sizeIcon50\"\n  | \"sizeIcon60\"\n  | \"sizeIcon70\"\n  | \"sizeIcon80\"\n  | \"sizeIcon90\"\n  | \"sizeIcon100\"\n  | \"sizeIcon110\"",
       "defaultValue": "null",
       "required": true,
       "externalProp": false,
-      "description": "The size of the CornerOrnamentElement used to determine spacing"
+      "description": "The size of the CornerOrnamentBase used to determine spacing"
     },
     "about": {
       "type": "string",
