@@ -80,5 +80,6 @@ export interface FilterGroupProps {
   children?: never;
   data: TableDataRow[];
   withSearch?: boolean;
+  withAddFilters?: boolean;
   filterList: FilterListType;
 }

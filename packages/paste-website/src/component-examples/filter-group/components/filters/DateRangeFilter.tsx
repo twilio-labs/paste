@@ -2,7 +2,6 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
-import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
