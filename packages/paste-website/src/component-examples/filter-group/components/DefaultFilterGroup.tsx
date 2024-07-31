@@ -4,13 +4,10 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { DetailText } from "@twilio-paste/detail-text";
-import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
+import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
 import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
-import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
-import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
-import { usePopoverState } from "@twilio-paste/reakit-library";
 import * as React from "react";
 
 import { applyFilters } from "../helpers";
@@ -29,6 +26,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   data,
   withSearch,
   filterList,
+  withAddFilters,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const pillState = useFormPillState();
@@ -92,55 +90,25 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
       <FormPillGroup {...pillState} aria-label="Filters:" size="large">
         {filterList.map((pill) => {
-          const popover = usePopoverState({ baseId: pill });
-          const isSelected = pill in selectedFilters;
-          const PopoverComponent = filterMap[pill].component;
-
           return (
-            <PopoverContainer key={pill} state={popover}>
-              <PopoverButton
-                variant="reset"
-                size="reset"
-                // @ts-expect-error types are wrong
-                borderRadius="borderRadiusPill"
-              >
-                <FormPill
-                  {...pillState}
-                  selected={isSelected}
-                  onDismiss={
-                    isSelected
-                      ? (e) => {
-                          const newFilters = { ...selectedFilters };
-                          delete newFilters[pill];
-                          setSelectedFilters(newFilters);
-                          handleApplyFilters(newFilters as selectedFilterProps);
-
-                          e.stopPropagation();
-                          popover.hide();
-                        }
-                      : undefined
-                  }
-                >
-                  {!isSelected ? <PlusIcon decorative /> : null}
-                  <FilterPill
-                    label={filterMap[pill].label}
-                    selectedType={isSelected ? pill : null}
-                    selectedValue={selectedFilters[pill]}
-                  />
-                </FormPill>
-              </PopoverButton>
-
-              <Popover aria-label={pill} width="size40">
-                <PopoverComponent
-                  onApply={(type: string, value) => {
-                    const newFilters = { ...selectedFilters, [type]: value };
-                    setSelectedFilters(newFilters);
-                    handleApplyFilters(newFilters as selectedFilterProps);
-                  }}
-                  popover={popover}
-                />
-              </Popover>
-            </PopoverContainer>
+            <FilterPill
+              key={pill}
+              pill={pill}
+              selectedFilters={selectedFilters}
+              filterMap={filterMap}
+              pillState={pillState}
+              onDismiss={() => {
+                const newFilters = { ...selectedFilters };
+                delete newFilters[pill];
+                setSelectedFilters(newFilters);
+                handleApplyFilters(newFilters as selectedFilterProps);
+              }}
+              onApply={(type: string, value) => {
+                const newFilters = { ...selectedFilters, [type]: value };
+                setSelectedFilters(newFilters);
+                handleApplyFilters(newFilters as selectedFilterProps);
+              }}
+            />
           );
         })}
       </FormPillGroup>

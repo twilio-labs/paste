@@ -23,4 +23,9 @@ export const ConditionalFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
 };
 
+export const AddFilterGroupExample = (): JSX.Element => {
+  const filterList: FilterListType = ["room-type", "date-time"];
+  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} withAddFilters />;
+};
+
 // export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;
