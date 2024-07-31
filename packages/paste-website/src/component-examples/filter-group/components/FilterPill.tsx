@@ -1,11 +1,11 @@
-import { FormPill, useFormPillState } from "@twilio-paste/form-pill-group";
+import { FormPill, type useFormPillState } from "@twilio-paste/form-pill-group";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
 import React from "react";
 
 import type { FilterMapType, ParticipantsType, selectedFilterProps } from "../types";
 
-export const FilterPillView: React.FC<{
+const FilterPillView: React.FC<{
   label: string;
   selectedType: string | null;
   selectedValue: selectedFilterProps;
