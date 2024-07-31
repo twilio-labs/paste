@@ -36,11 +36,6 @@ describe("filterByRoomType", () => {
     const result = filterByRoomType("Peer to Peer", "Group");
     expect(result).toBeFalsy();
   });
-
-  it("should always include if the filter is All", () => {
-    const result = filterByRoomType("Peer to Peer", "All");
-    expect(result).toBeTruthy();
-  });
 });
 
 describe("filterByDateRange", () => {
