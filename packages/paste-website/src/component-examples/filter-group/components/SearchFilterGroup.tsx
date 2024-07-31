@@ -87,7 +87,15 @@ export const SearchFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProp
         const search = value as string;
 
         filteredData = filteredData.filter((item) => {
-          return item.uniqueName.toLowerCase().includes(search.toLowerCase());
+          const { uniqueName, roomType, participants, dateCompleted, sid } = item;
+
+          return (
+            uniqueName.toLowerCase().includes(search.toLowerCase()) ||
+            roomType.toLowerCase().includes(search.toLowerCase()) ||
+            participants.toString().includes(search) ||
+            dateCompleted.toString().includes(search) ||
+            sid.toLowerCase().includes(search.toLowerCase())
+          );
         });
       }
     });
