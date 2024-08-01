@@ -31,23 +31,14 @@ export const AddFilters: React.FC = ({
   onApply,
   popover,
 }: {
-  onApply?: (
-    type: string,
-    value: {
-      startDate: string;
-      startTime: string;
-      endDate: string;
-      endTime: string;
-    },
-  ) => void;
+  onApply?: (type: string, value: Item[]) => void;
   popover?: ReturnType<typeof usePopoverState>;
 }) => {
   const [inputValue, setInputValue] = React.useState("");
-  const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   const onSelectedItemsChange = React.useCallback((comboboxItems: UseMultipleSelectionStateChange<Item>) => {
-    setSelectedItems(comboboxItems.selectedItems as string[]);
+    const { selectedItems } = comboboxItems;
   }, []);
 
   const state = useMultiselectCombobox({
@@ -66,9 +57,6 @@ export const AddFilters: React.FC = ({
         onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
-        onMouseDown={(event) => {
-          event.stopPropagation();
-        }}
       />
 
       <Box marginTop="space70">
@@ -82,15 +70,16 @@ export const AddFilters: React.FC = ({
               key={item}
               id={item}
               value={item}
-              checked={selectedItems.includes(item)}
+              checked={state.selectedItems.includes(item)}
               onChange={(e) => {
+                let selectedCheckedItems = [];
+
                 if (e.target.checked) {
-                  const selectedCheckedItems = [...selectedItems, item];
-                  state.setSelectedItems(selectedCheckedItems as never[]);
+                  selectedCheckedItems = [...state.selectedItems, item];
                 } else {
-                  const selectedCheckedItems = selectedItems.filter((selectedItem) => selectedItem !== item);
-                  state.setSelectedItems(selectedCheckedItems as never[]);
+                  selectedCheckedItems = state.selectedItems.filter((selectedItem) => selectedItem !== item);
                 }
+                state.setSelectedItems(selectedCheckedItems);
               }}
             >
               {item}
@@ -105,13 +94,14 @@ export const AddFilters: React.FC = ({
             variant="primary"
             onClick={() => {
               if (onApply && popover) {
+                onApply("add-filter", state.selectedItems);
                 popover.hide();
               }
             }}
           >
             Apply
           </Button>
-          {selectedItems.length > 0 ? (
+          {state.selectedItems.length > 0 ? (
             <Button
               variant="link"
               onClick={() => {
