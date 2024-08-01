@@ -98,8 +98,9 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
 
     if (type === "date-time") {
       const { startDate, endDate } = value as unknown as DateRangeType;
-      const start = new Date(`${startDate}T00:00:00`);
-      const end = new Date(`${endDate}T23:59:59`);
+
+      const start = startDate ? new Date(`${startDate}T00:00:00`) : -Infinity;
+      const end = endDate ? new Date(`${endDate}T23:59:59`) : Infinity;
 
       filteredData = filteredData.filter((item) => {
         const itemDate = new Date(item.dateCompleted);
@@ -111,10 +112,13 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
     if (type === "date-range") {
       const { startDate, endDate } = value as unknown as DateRangeType;
 
+      const start = startDate ? new Date(`${startDate}T00:00:00`) : -Infinity;
+      const end = endDate ? new Date(`${endDate}T23:59:59`) : Infinity;
+
       filteredData = filteredData.filter((item) => {
         const itemDate = new Date(item.dateCompleted);
 
-        return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
+        return itemDate >= start && itemDate <= end;
       });
     }
 

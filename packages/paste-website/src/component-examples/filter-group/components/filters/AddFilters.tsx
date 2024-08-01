@@ -64,6 +64,9 @@ export const AddFilters: React.FC = ({
         onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
+        onMouseDown={(event) => {
+          event.stopPropagation();
+        }}
       />
 
       <Box marginTop="space70">
