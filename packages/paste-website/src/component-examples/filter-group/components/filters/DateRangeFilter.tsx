@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
+import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
@@ -29,23 +30,24 @@ export const DateRangeFilter: React.FC = ({
   const [startDate, setStartDate] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
   const [selectedDate, setSelectedDate] = React.useState<string>("");
+  const [showError, setShowError] = React.useState(false);
 
   function getStartDate(): string {
     switch (selectedDate) {
       case "1": {
         const oneDayAgo = new Date();
         oneDayAgo.setDate(oneDayAgo.getDate() - 1);
-        return oneDayAgo.toISOString();
+        return oneDayAgo.toISOString().split("T")[0];
       }
       case "7": {
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-        return sevenDaysAgo.toISOString();
+        return sevenDaysAgo.toISOString().split("T")[0];
       }
       case "14": {
         const fourteenDaysAgo = new Date();
         fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
-        return fourteenDaysAgo.toISOString();
+        return fourteenDaysAgo.toISOString().split("T")[0];
       }
       default: {
         return startDate;
@@ -60,6 +62,7 @@ export const DateRangeFilter: React.FC = ({
         legend="Date range"
         onChange={(value) => {
           setSelectedDate(value);
+          setShowError(false);
         }}
         value={selectedDate || ""}
       >
@@ -96,20 +99,32 @@ export const DateRangeFilter: React.FC = ({
         <></>
       )}
 
+      {showError ? (
+        <Box marginTop="space50">
+          <HelpText variant="error">Please enter custom date</HelpText>
+        </Box>
+      ) : null}
+
       <Box marginTop="space70">
         <ButtonGroup>
           <Button
             variant="primary"
             onClick={() => {
               if (onApply && popover) {
-                if (selectedDate === "" || (selectedDate === "custom" && (startDate === "" || endDate === ""))) {
+                if (selectedDate === "custom" && startDate === "" && endDate === "") {
+                  setShowError(true);
+                  return;
+                }
+
+                setShowError(false);
+                if (selectedDate === "") {
                   popover.hide();
                   return;
                 }
 
                 onApply("date-range", {
-                  startDate: selectedDate === "custom" ? `${startDate}T00:00:00` : getStartDate(),
-                  endDate: selectedDate === "custom" ? `${endDate}T00:00:00` : new Date().toISOString(),
+                  startDate: selectedDate === "custom" ? startDate : getStartDate(),
+                  endDate: selectedDate === "custom" ? endDate : new Date().toISOString().split("T")[0],
                 });
                 popover.hide();
               }
@@ -124,6 +139,7 @@ export const DateRangeFilter: React.FC = ({
                 setStartDate("");
                 setEndDate("");
                 setSelectedDate("");
+                setShowError(false);
               }}
             >
               Clear all
