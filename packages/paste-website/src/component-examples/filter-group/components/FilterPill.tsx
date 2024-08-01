@@ -28,6 +28,32 @@ const FilterPillView: React.FC<{
     );
   }
 
+  if (selectedType === "date-time") {
+    const { startDate, endDate } = selectedValue as { startDate: string; endDate: string };
+
+    if (endDate === "") {
+      return (
+        <span>
+          {label}: {startDate}
+        </span>
+      );
+    }
+
+    if (startDate === "") {
+      return (
+        <span>
+          {label}: {endDate}
+        </span>
+      );
+    }
+
+    return (
+      <span>
+        {label}: {startDate} - {endDate}
+      </span>
+    );
+  }
+
   return <span>{label}</span>;
 };
 

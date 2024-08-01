@@ -3,7 +3,6 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { Heading } from "@twilio-paste/heading";
-import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import type { usePopoverState } from "@twilio-paste/popover";

@@ -8,24 +8,23 @@ export default {
   title: "Website/FilterGroupExamples",
 };
 
+const filterList: FilterListType = ["room-type", "participants", "date-range"];
 export const DefaultFilterGroupExample = (): JSX.Element => {
-  const filterList: FilterListType = ["room-type", "participants", "date-time"];
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
 };
 
 export const SearchFilterGroupExample = (): JSX.Element => {
-  const filterList: FilterListType = ["room-type", "participants", "date-time"];
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} withSearch filterList={filterList} />;
 };
 
 export const ConditionalFilterGroupExample = (): JSX.Element => {
-  const filterList: FilterListType = ["room-type", "participants", "date-range"];
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
+  const conditionalFilterList: FilterListType = ["room-type", "participants", "custom"];
+  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
 };
 
 export const AddFilterGroupExample = (): JSX.Element => {
-  const filterList: FilterListType = ["room-type", "date-time"];
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} withAddFilters />;
+  const addFilterList: FilterListType = ["room-type", "date-range"];
+  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={addFilterList} withAddFilters />;
 };
 
 // export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;
