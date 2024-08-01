@@ -1,5 +1,6 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
+import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { usePopoverState } from "@twilio-paste/popover";
 import type { FieldError, UseFormRegister, UseFormReturn } from "react-hook-form";
 
@@ -72,7 +73,7 @@ export type ParticipantsType = { min: string; max: string };
 export type DateRangeType = { startDate: string; endDate: string };
 export type SearchFilterType = { search: string };
 
-export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType;
+export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType | Item[];
 
 export type FilterListType = Array<"room-type" | "participants" | "date-range" | "search" | "custom" | "add-filters">;
 

@@ -141,3 +141,7 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
 
   return filteredData;
 };
+
+export const slugify = (text: string): string => {
+  return text.toString().toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+};
