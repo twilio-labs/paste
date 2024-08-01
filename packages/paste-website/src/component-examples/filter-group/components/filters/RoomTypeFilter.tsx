@@ -13,8 +13,7 @@ export const RoomTypeFilter: React.FC = ({
   popover?: ReturnType<typeof usePopoverState>;
 }) => {
   const roomTypes = ["Group", "WebRTC Go", "Peer to Peer"];
-  const [selectedRoomType, setSelectedRoomType] = React.useState<null | string>(null);
-  const [showError, setShowError] = React.useState(false);
+  const [selectedRoomType, setSelectedRoomType] = React.useState<string>("");
 
   return (
     <Box>
@@ -25,8 +24,7 @@ export const RoomTypeFilter: React.FC = ({
         onChange={(value) => {
           setSelectedRoomType(value);
         }}
-        value={selectedRoomType || ""}
-        errorText={showError && selectedRoomType === null ? "Please select a room type" : undefined}
+        value={selectedRoomType}
       >
         {roomTypes.map((roomType) => (
           <Radio key={roomType} id={roomType} value={roomType} name="room-type" checked={selectedRoomType === roomType}>
@@ -39,12 +37,12 @@ export const RoomTypeFilter: React.FC = ({
           <Button
             variant="primary"
             onClick={() => {
-              if (selectedRoomType === null) {
-                setShowError(true);
-                return;
-              }
-              setShowError(false);
               if (onApply && popover) {
+                if (selectedRoomType === "") {
+                  popover.hide();
+                  return;
+                }
+
                 onApply("room-type", selectedRoomType);
                 popover.hide();
               }
@@ -52,12 +50,11 @@ export const RoomTypeFilter: React.FC = ({
           >
             Apply
           </Button>
-          {selectedRoomType !== null ? (
+          {selectedRoomType !== "" ? (
             <Button
               variant="link"
               onClick={() => {
-                setShowError(false);
-                setSelectedRoomType(null);
+                setSelectedRoomType("");
               }}
             >
               Clear all

@@ -28,8 +28,7 @@ export const DateRangeFilter: React.FC = ({
 
   const [startDate, setStartDate] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
-  const [showError, setShowError] = React.useState(false);
-  const [selectedDate, setSelectedDate] = React.useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = React.useState<string>("");
 
   function getStartDate(): string {
     switch (selectedDate) {
@@ -63,7 +62,6 @@ export const DateRangeFilter: React.FC = ({
           setSelectedDate(value);
         }}
         value={selectedDate || ""}
-        errorText={showError && selectedDate === null ? "Please select a date range" : undefined}
       >
         {DATE_RANGES.map(({ name, value }) => (
           <Radio key={value} id={value} value={value} name="date-range" checked={selectedDate === value}>
@@ -78,7 +76,6 @@ export const DateRangeFilter: React.FC = ({
             <DatePicker
               id={startDateID}
               onChange={(e) => {
-                setShowError(false);
                 setStartDate(e.target.value);
               }}
               value={startDate}
@@ -89,7 +86,6 @@ export const DateRangeFilter: React.FC = ({
             <DatePicker
               id={endDateID}
               onChange={(e) => {
-                setShowError(false);
                 setEndDate(e.target.value);
               }}
               value={endDate}
@@ -106,7 +102,10 @@ export const DateRangeFilter: React.FC = ({
             variant="primary"
             onClick={() => {
               if (onApply && popover) {
-                setShowError(false);
+                if (selectedDate === "" || (selectedDate === "custom" && (startDate === "" || endDate === ""))) {
+                  popover.hide();
+                  return;
+                }
 
                 onApply("date-range", {
                   startDate: selectedDate === "custom" ? `${startDate}T00:00:00` : getStartDate(),
@@ -122,10 +121,9 @@ export const DateRangeFilter: React.FC = ({
             <Button
               variant="link"
               onClick={() => {
-                setShowError(false);
                 setStartDate("");
                 setEndDate("");
-                setSelectedDate(null);
+                setSelectedDate("");
               }}
             >
               Clear all

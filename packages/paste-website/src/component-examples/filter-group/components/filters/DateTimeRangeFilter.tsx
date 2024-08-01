@@ -7,7 +7,6 @@ import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import type { usePopoverState } from "@twilio-paste/popover";
-import { TimePicker } from "@twilio-paste/time-picker";
 import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
@@ -19,23 +18,16 @@ export const DateTimeRangeFilter: React.FC = ({
     type: string,
     value: {
       startDate: string;
-      startTime: string;
       endDate: string;
-      endTime: string;
     },
   ) => void;
   popover?: ReturnType<typeof usePopoverState>;
 }) => {
   const startDateID = useUID();
   const endDateID = useUID();
-  const startTimeID = useUID();
-  const endTimeID = useUID();
 
   const [startDate, setStartDate] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
-  const [startTime, setStartTime] = React.useState("");
-  const [endTime, setEndTime] = React.useState("");
-  const [showError, setShowError] = React.useState(false);
 
   return (
     <Box>
@@ -50,72 +42,38 @@ export const DateTimeRangeFilter: React.FC = ({
             <DatePicker
               id={startDateID}
               onChange={(e) => {
-                setShowError(false);
                 setStartDate(e.target.value);
               }}
               value={startDate}
             />
           </Box>
           <Box>
-            <Label htmlFor={startTimeID}>Start time</Label>
-            <TimePicker
-              id={startTimeID}
-              onChange={(e) => {
-                setShowError(false);
-                setStartTime(e.target.value);
-              }}
-              value={startTime}
-            />
-          </Box>
-        </Box>
-
-        <Box display="flex" columnGap="space50">
-          <Box>
             <Label htmlFor={endDateID}>End date</Label>
             <DatePicker
               id={endDateID}
               onChange={(e) => {
-                setShowError(false);
                 setEndDate(e.target.value);
               }}
               value={endDate}
             />
           </Box>
-          <Box>
-            <Label htmlFor={endTimeID}>End time</Label>
-            <TimePicker
-              id={endTimeID}
-              onChange={(e) => {
-                setShowError(false);
-                setEndTime(e.target.value);
-              }}
-              value={endTime}
-            />
-          </Box>
         </Box>
       </Box>
-      {showError ? (
-        <HelpText id="date_time_help_text" variant="error">
-          Please fill in all fields
-        </HelpText>
-      ) : null}
 
       <Box marginTop="space70">
         <ButtonGroup>
           <Button
             variant="primary"
             onClick={() => {
-              if (startDate === "" || endDate === "" || startTime === "" || endTime === "") {
-                setShowError(true);
-                return;
-              }
-              setShowError(false);
               if (onApply && popover) {
+                if (startDate === "" && endDate === "") {
+                  popover.hide();
+                  return;
+                }
+
                 onApply("date-time", {
                   startDate,
-                  startTime,
                   endDate,
-                  endTime,
                 });
                 popover.hide();
               }
@@ -123,15 +81,12 @@ export const DateTimeRangeFilter: React.FC = ({
           >
             Apply
           </Button>
-          {startDate !== "" || endDate !== "" || startTime !== "" || endTime !== "" ? (
+          {startDate !== "" || endDate !== "" ? (
             <Button
               variant="link"
               onClick={() => {
-                setShowError(false);
                 setStartDate("");
                 setEndDate("");
-                setStartTime("");
-                setEndTime("");
               }}
             >
               Clear all

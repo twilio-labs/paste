@@ -97,9 +97,9 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
     }
 
     if (type === "date-time") {
-      const { startDate, startTime, endDate, endTime } = value as unknown as DateRangeType;
-      const start = new Date(`${startDate}T${startTime}`);
-      const end = new Date(`${endDate}T${endTime}`);
+      const { startDate, endDate } = value as unknown as DateRangeType;
+      const start = new Date(`${startDate}T00:00:00`);
+      const end = new Date(`${endDate}T23:59:59`);
 
       filteredData = filteredData.filter((item) => {
         const itemDate = new Date(item.dateCompleted);
