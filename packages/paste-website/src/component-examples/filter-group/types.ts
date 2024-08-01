@@ -74,9 +74,7 @@ export type SearchFilterType = { search: string };
 
 export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType;
 
-export type FilterListType = Array<
-  "room-type" | "participants" | "date-time" | "search" | "date-range" | "add-filters"
->;
+export type FilterListType = Array<"room-type" | "participants" | "date-range" | "search" | "custom" | "add-filters">;
 
 export interface FilterGroupProps {
   children?: never;

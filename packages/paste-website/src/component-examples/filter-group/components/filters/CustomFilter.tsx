@@ -11,7 +11,7 @@ import React from "react";
 
 import { DATE_RANGES } from "../../constants";
 
-export const DateRangeFilter: React.FC = ({
+export const CustomFilter: React.FC = ({
   onApply,
   popover,
 }: {

@@ -16,7 +16,7 @@ import { EmptyState } from "./EmptyState";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
-import { DateRangeFilter } from "./filters/DateRangeFilter";
+import { CustomFilter } from "./filters/CustomFilter";
 import { DateTimeRangeFilter } from "./filters/DateTimeRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
@@ -53,13 +53,13 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       label: "Participants",
       component: ParticipantsFilter,
     },
-    "date-time": {
-      label: "Date/time range",
-      component: DateTimeRangeFilter,
-    },
     "date-range": {
       label: "Date range",
-      component: DateRangeFilter,
+      component: DateTimeRangeFilter,
+    },
+    custom: {
+      label: "Date range",
+      component: CustomFilter,
     },
     "add-filters": {
       label: "Add filters",
