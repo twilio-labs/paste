@@ -10,4 +10,5 @@ export { Popover } from "./Popover";
 export type { PopoverProps } from "./Popover";
 export { PopoverButton } from "./PopoverButton";
 export { PopoverBadgeButton } from "./PopoverBadgeButton";
-export type { PopoverButtonProps, PopoverBadgeButtonProps } from "./types";
+export { PopoverFormPillButton } from "./PopoverFormPillButton";
+export type { PopoverButtonProps, PopoverBadgeButtonProps, PopoverFormPillButtonProps } from "./types";
