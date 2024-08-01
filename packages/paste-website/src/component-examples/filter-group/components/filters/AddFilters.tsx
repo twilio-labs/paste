@@ -64,7 +64,6 @@ export const AddFilters: React.FC = ({
         onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={onSelectedItemsChange}
       />
 
       <Box marginTop="space70">

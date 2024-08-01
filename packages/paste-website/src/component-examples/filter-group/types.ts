@@ -69,7 +69,7 @@ export interface SampleDataGridProps {
 
 export type RoomTypes = "Group" | "WebRTC Go" | "Peer to Peer";
 export type ParticipantsType = { min: string; max: string };
-export type DateRangeType = { startDate: string; startTime: string; endDate: string; endTime: string };
+export type DateRangeType = { startDate: string; endDate: string };
 export type SearchFilterType = { search: string };
 
 export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType;

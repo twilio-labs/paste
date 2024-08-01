@@ -69,12 +69,17 @@ export const ParticipantsFilter: React.FC = ({
           <Button
             variant="primary"
             onClick={() => {
-              if (minValue === "" || maxValue === "") {
-                setShowError(true);
-                return;
-              }
-              setShowError(false);
               if (onApply && popover) {
+                if (minValue === "" && maxValue === "") {
+                  popover.hide();
+                  return;
+                }
+
+                if (minValue === "" || maxValue === "") {
+                  setShowError(true);
+                  return;
+                }
+
                 onApply("participants", {
                   min: minValue,
                   max: maxValue,
