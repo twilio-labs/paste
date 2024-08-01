@@ -3,6 +3,8 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
 import { MultiselectCombobox, useMultiselectCombobox } from "@twilio-paste/combobox";
+import type { Item } from "@twilio-paste/combobox/dist/types";
+import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-library";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
 import React from "react";
@@ -44,8 +46,8 @@ export const AddFilters: React.FC = ({
   const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
-  const onSelectedItemsChange = React.useCallback((comboboxItems) => {
-    setSelectedItems(comboboxItems.selectedItems);
+  const onSelectedItemsChange = React.useCallback((comboboxItems: UseMultipleSelectionStateChange<Item>) => {
+    setSelectedItems(comboboxItems.selectedItems as string[]);
   }, []);
 
   const state = useMultiselectCombobox({
@@ -84,10 +86,10 @@ export const AddFilters: React.FC = ({
               onChange={(e) => {
                 if (e.target.checked) {
                   const selectedCheckedItems = [...selectedItems, item];
-                  state.setSelectedItems(selectedCheckedItems);
+                  state.setSelectedItems(selectedCheckedItems as never[]);
                 } else {
                   const selectedCheckedItems = selectedItems.filter((selectedItem) => selectedItem !== item);
-                  state.setSelectedItems(selectedCheckedItems);
+                  state.setSelectedItems(selectedCheckedItems as never[]);
                 }
               }}
             >
