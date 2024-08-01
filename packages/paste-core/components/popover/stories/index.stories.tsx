@@ -244,8 +244,8 @@ export const FormPillPopover = (): JSX.Element => {
             {...pillState}
             selected={selected}
             onSelect={() => {
+              // note: because we're passing onClick from PopoverFormPillButton, this does not currently run
               console.log("pill selected");
-              setSelected(!selected);
             }}
             onDismiss={() => {
               console.log("pill dismissed");
@@ -254,15 +254,17 @@ export const FormPillPopover = (): JSX.Element => {
             Open popover
           </PopoverFormPillButton>
           <Popover aria-label="Popover" data-testid="form-pill-popover">
-            <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-            <Button
-              variant="primary"
-              onClick={() => {
-                setSelected(!selected);
-              }}
-            >
-              Select Form Pill
-            </Button>
+            <Box margin="space60">
+              <Button
+                variant="primary"
+                size="small"
+                onClick={() => {
+                  setSelected(!selected);
+                }}
+              >
+                Select Form Pill
+              </Button>
+            </Box>
           </Popover>
         </PopoverContainer>
       </FormPillGroup>

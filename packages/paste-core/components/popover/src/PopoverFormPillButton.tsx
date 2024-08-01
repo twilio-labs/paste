@@ -16,6 +16,8 @@ const PopoverFormPillButton = React.forwardRef<HTMLElement, PopoverFormPillButto
         {...popoverButtonProps}
         as={FormPill}
         ref={ref}
+        // @ts-expect-error Property 'toggle' does not exist on type 'Partial<PopoverState>', but it is there. This is necessary because Form Pill uses onSelect as the onClick handler.
+        onSelect={popover.toggle}
       >
         {children}
       </NonModalDialogDisclosurePrimitive>
