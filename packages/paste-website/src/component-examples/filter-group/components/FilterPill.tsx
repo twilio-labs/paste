@@ -64,7 +64,8 @@ export const FilterPill: React.FC<{
   pillState: ReturnType<typeof useFormPillState>;
   onDismiss?: () => void;
   onApply: (type: string, value: selectedFilterProps) => void;
-}> = ({ pill, selectedFilters, filterMap, pillState, onDismiss, onApply }) => {
+  onRemove?: () => void;
+}> = ({ pill, selectedFilters, filterMap, pillState, onDismiss, onApply, onRemove }) => {
   const popover = usePopoverState({ baseId: pill });
   const isSelected = pill in selectedFilters;
   const PopoverComponent = filterMap[pill].component;
@@ -101,7 +102,7 @@ export const FilterPill: React.FC<{
       </PopoverButton>
 
       <Popover aria-label={pill} width="size40">
-        <PopoverComponent onApply={onApply} popover={popover} />
+        <PopoverComponent onApply={onApply} popover={popover} onRemove={onRemove} />
       </Popover>
     </PopoverContainer>
   );

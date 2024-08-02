@@ -55,6 +55,7 @@ export type FilterMapType = {
     component: React.FC<{
       onApply: (type: string, value: selectedFilterProps) => void;
       popover: ReturnType<typeof usePopoverState>;
+      onRemove?: () => void;
     }>;
   };
 };
