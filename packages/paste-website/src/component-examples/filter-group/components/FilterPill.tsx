@@ -1,3 +1,4 @@
+import { Box } from "@twilio-paste/box";
 import { FormPill, type useFormPillState } from "@twilio-paste/form-pill-group";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
@@ -51,6 +52,14 @@ const FilterPillView: React.FC<{
       <span>
         {label}: {startDate} - {endDate}
       </span>
+    );
+  }
+
+  if (selectedType === "unique-name") {
+    return (
+      <Box display="flex" alignItems="center">
+        {label}
+      </Box>
     );
   }
 

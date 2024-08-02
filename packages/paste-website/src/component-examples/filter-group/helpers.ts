@@ -124,6 +124,18 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
         );
       });
     }
+
+    if (type === "unique-name" || type === "room-sid") {
+      const search = value as unknown as string[];
+
+      const key = type === "unique-name" ? "uniqueName" : "sid";
+
+      filteredData = filteredData.filter((item) => {
+        const itemValue = item[key].toLowerCase();
+
+        return search.some((searchValue) => itemValue === searchValue.toLowerCase());
+      });
+    }
   });
 
   return filteredData;
