@@ -551,6 +551,9 @@ props:
   color-text-icon-new:
     value: "{!palette-purple-60}"
     comment: Icon color for indicating a new status.
+  color-text-icon-notification:
+    value: "{!palette-red-50}"
+    comment: Icon color for notification elements.
 
   # decorative
   color-text-decorative-10:
