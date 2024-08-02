@@ -24,7 +24,16 @@ export const ConditionalFilterGroupExample = (): JSX.Element => {
 
 export const AddFilterGroupExample = (): JSX.Element => {
   const addFilterList: FilterListType = ["room-type", "date-range"];
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={addFilterList} withAddFilters />;
+  const addFiltersList: FilterListType = ["room-sid", "unique-name", "participants"];
+  const recommendedFiltersList: FilterListType = ["unique-name", "participants"];
+  return (
+    <DefaultFilterGroup
+      data={STATIC_TABLE_DATA}
+      filterList={addFilterList}
+      addFiltersList={addFiltersList}
+      recommendedFiltersList={recommendedFiltersList}
+    />
+  );
 };
 
 // export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;

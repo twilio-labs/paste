@@ -54,6 +54,7 @@ export const ParticipantsFilter: React.FC = ({
               setMaxValue(e.target.value);
             }}
             value={maxValue}
+            min={minValue}
           />
         </Box>
       </Box>

@@ -75,12 +75,15 @@ export type SearchFilterType = { search: string };
 
 export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType | Item[];
 
-export type FilterListType = Array<"room-type" | "participants" | "date-range" | "search" | "custom" | "add-filters">;
+export type FilterListType = Array<
+  "room-type" | "participants" | "date-range" | "search" | "custom" | "add-filters" | "room-sid" | "unique-name"
+>;
 
 export interface FilterGroupProps {
   children?: never;
   data: TableDataRow[];
   withSearch?: boolean;
-  withAddFilters?: boolean;
   filterList: FilterListType;
+  addFiltersList?: FilterListType;
+  recommendedFiltersList?: FilterListType;
 }
