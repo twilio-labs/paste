@@ -3,4 +3,4 @@
 "@twilio-paste/design-tokens": minor
 ---
 
-[Design Tokens] added a new text color for notificaiton icons "colorTextIconNotification"
+[Design Tokens] added a new text color for notification icons "colorTextIconNotification"

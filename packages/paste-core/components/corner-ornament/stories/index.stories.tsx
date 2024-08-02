@@ -5,7 +5,6 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import { Heading } from "@twilio-paste/heading";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
-
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
