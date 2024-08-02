@@ -11,7 +11,7 @@ export const CornerOrnament = React.forwardRef<HTMLDivElement, CornerOrnamentPro
 
     if (!OrnamentPositionStyleMappings[cornerOrnamentType][position][size]) {
       throw new Error(
-        "[Paste: CornerOrnament] the size/position/type combination you have chosen is not currently supported. Please refer to our guildinges in our docs or raise a new disucssion to get this supported at https://github.com/twilio-labs/paste/discussions.",
+        "[Paste: CornerOrnament] the size/position/type combination you have chosen is not currently supported. Please refer to the guidelines in our docs or raise a new discussion to get this supported at https://github.com/twilio-labs/paste/discussions.",
       );
     }
 
