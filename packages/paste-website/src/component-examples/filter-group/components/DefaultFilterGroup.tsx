@@ -27,7 +27,8 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   data,
   withSearch,
   filterList,
-  withAddFilters,
+  addFiltersList,
+  recommendedFiltersList,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const [addedFilters, setAddedFilters] = React.useState<string[]>([]);
@@ -62,9 +63,13 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       label: "Date range",
       component: CustomFilter,
     },
-    "add-filters": {
-      label: "Add filters",
-      component: AddFilters,
+    "room-sid": {
+      label: "Room SID",
+      component: CustomFilter,
+    },
+    "unique-name": {
+      label: "Unique Name",
+      component: CustomFilter,
     },
   };
 
@@ -145,16 +150,16 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
               );
             })
           : null}
-        {withAddFilters ? (
-          <FilterPill
-            pill="add-filters"
-            selectedFilters={selectedFilters}
-            filterMap={filterMap}
+        {addFiltersList && addFiltersList.length > 0 ? (
+          <AddFilters
             pillState={pillState}
             onApply={(_: string, value) => {
               const sluggedList = (value as string[]).map((item) => slugify(item));
               setAddedFilters(sluggedList);
             }}
+            addFiltersList={addFiltersList}
+            filterMap={filterMap}
+            recommendedFiltersList={recommendedFiltersList}
           />
         ) : null}
       </FormPillGroup>
