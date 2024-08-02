@@ -20,6 +20,7 @@ import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
+import { RoomSidFilter } from "./filters/RoomSidFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
 import { UniqueNameFilter } from "./filters/UniqueNameFilter";
@@ -67,7 +68,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     },
     "room-sid": {
       label: "Room SID",
-      component: CustomFilter,
+      component: RoomSidFilter,
     },
     "unique-name": {
       label: "Unique Name",
