@@ -1,3 +1,4 @@
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
@@ -5,7 +6,6 @@ import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
 import { MultiselectCombobox, useMultiselectCombobox } from "@twilio-paste/combobox";
 import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-library";
-import { FormPill, type useFormPillState } from "@twilio-paste/form-pill-group";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
@@ -32,15 +32,13 @@ const EmptyState = (): React.ReactElement => (
 
 export const AddFilters: React.FC<{
   onApply?: (type: string, value: Item[]) => void;
-  pillState: ReturnType<typeof useFormPillState>;
   addFiltersList: FilterListType;
   filterMap: FilterMapType;
   recommendedFiltersList?: FilterListType;
-}> = ({ onApply, pillState, addFiltersList, filterMap, recommendedFiltersList }) => {
+}> = ({ onApply, addFiltersList, filterMap, recommendedFiltersList }) => {
   const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue, addFiltersList), [inputValue, addFiltersList]);
   const popover = usePopoverState({ baseId: "add-filters" });
-  const formattedItems = filteredItems.map((item) => filterMap[item].label);
 
   const onSelectedItemsChange = React.useCallback((comboboxItems: UseMultipleSelectionStateChange<Item>) => {
     return comboboxItems.selectedItems;
@@ -61,6 +59,14 @@ export const AddFilters: React.FC<{
       >
         <PlusIcon decorative />
         <span>Add filters</span>
+
+        {state.selectedItems.length > 0 ? (
+          <Box marginLeft="space20">
+            <Badge variant="neutral_counter" as="span" size="small">
+              {state.selectedItems.length}
+            </Badge>
+          </Box>
+        ) : null}
       </PopoverButton>
 
       <Popover aria-label="add-filters" width="size40">
@@ -69,7 +75,7 @@ export const AddFilters: React.FC<{
             state={state}
             labelText="Add filter"
             selectedItemsLabelText="Selected filters"
-            items={formattedItems}
+            items={filteredItems.map((item) => filterMap[item].label)}
             emptyState={EmptyState}
             onInputValueChange={({ inputValue: newInputValue = "" }) => {
               setInputValue(newInputValue);
@@ -104,7 +110,9 @@ export const AddFilters: React.FC<{
                         if (e.target.checked) {
                           selectedCheckedItems = [...state.selectedItems, labelName];
                         } else {
-                          selectedCheckedItems = state.selectedItems.filter((selectedItem) => selectedItem !== item);
+                          selectedCheckedItems = state.selectedItems.filter(
+                            (selectedItem) => selectedItem !== labelName,
+                          );
                         }
                         state.setSelectedItems(selectedCheckedItems);
                       }}

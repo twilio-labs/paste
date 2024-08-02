@@ -11,7 +11,7 @@ import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import * as React from "react";
 
 import { applyFilters, slugify } from "../helpers";
-import type { FilterGroupProps, FilterMapType, selectedFilterProps } from "../types";
+import type { FilterGroupProps, FilterListType, FilterMapType, selectedFilterProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
@@ -31,7 +31,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   recommendedFiltersList,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
-  const [addedFilters, setAddedFilters] = React.useState<string[]>([]);
+  const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
   const pillState = useFormPillState();
 
   const [filteredTableData, setFilteredTableData] = React.useState(data);
@@ -125,6 +125,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
             />
           );
         })}
+
         {addedFilters.length > 0
           ? addedFilters.map((pill: string) => {
               return (
@@ -146,16 +147,25 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
                     setSelectedFilters(newFilters);
                     handleApplyFilters(newFilters as selectedFilterProps);
                   }}
+                  onRemove={() => {
+                    const newFilters = addedFilters.filter((item) => item !== pill);
+                    setAddedFilters(newFilters);
+
+                    const newSelectedFilters = { ...selectedFilters };
+                    const { [pill]: _, ...rest } = newSelectedFilters;
+
+                    setSelectedFilters(rest);
+                  }}
                 />
               );
             })
           : null}
+
         {addFiltersList && addFiltersList.length > 0 ? (
           <AddFilters
-            pillState={pillState}
             onApply={(_: string, value) => {
-              const sluggedList = (value as string[]).map((item) => slugify(item));
-              setAddedFilters(sluggedList);
+              const sluggedList = (value as FilterListType).map((item) => slugify(item));
+              setAddedFilters(sluggedList as FilterListType);
             }}
             addFiltersList={addFiltersList}
             filterMap={filterMap}
