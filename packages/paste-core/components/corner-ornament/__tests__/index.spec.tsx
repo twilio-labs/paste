@@ -15,7 +15,7 @@ const ExampleCornerOrnament: React.FC<{
 }> = ({ size, type, element }) => (
   <CornerOrnamentContainer
     data-testid="cornerOrnamentContainer"
-    cornerOrnamentType={type || "dot"}
+    cornerOrnamentType={type || "icon"}
     size={size || "sizeIcon50"}
     element={element ? `${element}_CORNER_ORNAMENT_CONTAINER` : undefined}
   >
