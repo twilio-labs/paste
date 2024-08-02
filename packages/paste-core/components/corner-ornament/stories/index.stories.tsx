@@ -22,15 +22,6 @@ export default {
 export const Default = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space60">
-      <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon50">
-        <CornerOrnamentBase>
-          <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-        </CornerOrnamentBase>
-        <CornerOrnament>
-          <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-          <Box backgroundColor="colorBackgroundRequired" height="6px" width="6px" borderRadius="borderRadiusCircle" />
-        </CornerOrnament>
-      </CornerOrnamentContainer>
       <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
         <CornerOrnamentBase>
           <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
@@ -56,103 +47,6 @@ export const Default = (): React.ReactNode => {
     </Stack>
   );
 };
-
-export const SupportedDots = (): React.ReactNode => {
-  return (
-    <Stack orientation="vertical" spacing="space60">
-      <Heading as="h3" variant="heading30">
-        bottom_end:
-      </Heading>
-      <Stack orientation="horizontal" spacing="space60">
-        <Box>
-          <small>sizeIcon50</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon50">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-        <Box>
-          <small>sizeIcon40</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon40">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-        <Box>
-          <small>sizeIcon30</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" size="sizeIcon30">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-      </Stack>
-      <Heading as="h3" variant="heading30">
-        top_end:
-      </Heading>
-      <Stack orientation="horizontal" spacing="space60">
-        <Box>
-          <small>sizeIcon50</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon50">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-        <Box>
-          <small>sizeIcon40</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon40">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-        <Box>
-          <small>sizeIcon30</small>
-          <CornerOrnamentContainer cornerOrnamentType="dot" position="top_end" size="sizeIcon30">
-            <CornerOrnamentBase>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
-            </CornerOrnamentBase>
-            <CornerOrnament>
-              <ScreenReaderOnly>ornament has notification</ScreenReaderOnly>
-              <Box backgroundColor="colorBackgroundRequired" size="sizeBase20" borderRadius="borderRadiusCircle" />
-            </CornerOrnament>
-          </CornerOrnamentContainer>
-          <small>sizeBase20</small>
-        </Box>
-      </Stack>
-    </Stack>
-  );
-};
-
-SupportedDots.storyName = "Supported Corner Ornament Dots";
 
 export const SupportedBadge = (): React.ReactNode => {
   return (
