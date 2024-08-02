@@ -8,7 +8,7 @@ export const DATE_RANGES = [
   { name: "Last 24 hours", value: "1" },
   { name: "Last 7 days", value: "7" },
   { name: "Last 14 days", value: "14" },
-  { name: "Custom", value: "custom" },
+  { name: "Custom", value: "Custom" },
 ];
 export const DATE_TIME_RANGES = [
   { name: "All", value: "all" },

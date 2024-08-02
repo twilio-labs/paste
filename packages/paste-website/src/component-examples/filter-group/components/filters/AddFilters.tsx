@@ -1,7 +1,5 @@
 import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
 import { MultiselectCombobox, useMultiselectCombobox } from "@twilio-paste/combobox";
 import type { Item } from "@twilio-paste/combobox/dist/types";
@@ -13,6 +11,7 @@ import React from "react";
 
 import { slugify } from "../../helpers";
 import type { FilterListType, FilterMapType } from "../../types";
+import { FilterAction } from "../FilterAction";
 
 function getFilteredItems(inputValue: string, addFiltersList: FilterListType): FilterListType {
   const lowerCasedInputValue = inputValue.toLowerCase();
@@ -35,10 +34,12 @@ export const AddFilters: React.FC<{
   addFiltersList: FilterListType;
   filterMap: FilterMapType;
   recommendedFiltersList?: FilterListType;
-}> = ({ onApply, addFiltersList, filterMap, recommendedFiltersList }) => {
+  value: string[];
+}> = ({ onApply, addFiltersList, filterMap, recommendedFiltersList, value }) => {
   const [inputValue, setInputValue] = React.useState("");
-  const filteredItems = React.useMemo(() => getFilteredItems(inputValue, addFiltersList), [inputValue, addFiltersList]);
+
   const popover = usePopoverState({ baseId: "add-filters" });
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue, addFiltersList), [inputValue, addFiltersList]);
 
   const onSelectedItemsChange = React.useCallback((comboboxItems: UseMultipleSelectionStateChange<Item>) => {
     return comboboxItems.selectedItems;
@@ -48,6 +49,19 @@ export const AddFilters: React.FC<{
     initialSelectedItems: [],
     onSelectedItemsChange,
   });
+
+  /*
+   * this will be used to set the selected items when the popover is triggered,
+   * for it to work, we need to fix popover closing on multiselect click
+   */
+
+  /*
+   * React.useEffect(() => {
+   *   if (popover.visible) {
+   *  state.setSelectedItems(value.map((item) => filterMap[item].label));
+   * }
+   * }, [popover.visible]);
+   */
 
   return (
     <PopoverContainer state={popover}>
@@ -60,10 +74,10 @@ export const AddFilters: React.FC<{
         <PlusIcon decorative />
         <span>Add filters</span>
 
-        {state.selectedItems.length > 0 ? (
+        {value.length > 0 ? (
           <Box marginLeft="space20">
             <Badge variant="neutral_counter" as="span" size="small">
-              {state.selectedItems.length}
+              {value.length}
             </Badge>
           </Box>
         ) : null}
@@ -125,34 +139,19 @@ export const AddFilters: React.FC<{
             </Box>
           ) : null}
 
-          <Box marginTop="space70">
-            <ButtonGroup>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  if (onApply && popover) {
-                    onApply("add-filter", state.selectedItems);
-                    popover.hide();
-                  }
-                }}
-              >
-                Apply
-              </Button>
-              {state.selectedItems.length > 0 ? (
-                <Button
-                  variant="link"
-                  onClick={() => {
-                    setInputValue("");
-                    state.setSelectedItems([]);
-                  }}
-                >
-                  Clear all
-                </Button>
-              ) : (
-                <></>
-              )}
-            </ButtonGroup>
-          </Box>
+          <FilterAction
+            onApply={() => {
+              if (onApply && popover) {
+                onApply("add-filter", state.selectedItems);
+                popover.hide();
+              }
+            }}
+            clearCondition={state.selectedItems.length > 0}
+            onClear={() => {
+              setInputValue("");
+              state.setSelectedItems([]);
+            }}
+          />
         </Box>
       </Popover>
     </PopoverContainer>

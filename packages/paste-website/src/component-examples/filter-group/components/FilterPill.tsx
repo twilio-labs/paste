@@ -28,7 +28,7 @@ const FilterPillView: React.FC<{
     );
   }
 
-  if (selectedType === "date-time") {
+  if (selectedType === "date-range" || selectedType === "custom") {
     const { startDate, endDate } = selectedValue as { startDate: string; endDate: string };
 
     if (endDate === "") {
@@ -69,6 +69,7 @@ export const FilterPill: React.FC<{
   const popover = usePopoverState({ baseId: pill });
   const isSelected = pill in selectedFilters;
   const PopoverComponent = filterMap[pill].component;
+  const value = selectedFilters[pill];
 
   return (
     <PopoverContainer key={pill} state={popover}>
@@ -93,16 +94,12 @@ export const FilterPill: React.FC<{
           }
         >
           {!isSelected ? <PlusIcon decorative /> : null}
-          <FilterPillView
-            label={filterMap[pill].label}
-            selectedType={isSelected ? pill : null}
-            selectedValue={selectedFilters[pill]}
-          />
+          <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
         </FormPill>
       </PopoverButton>
 
       <Popover aria-label={pill} width="size40">
-        <PopoverComponent onApply={onApply} popover={popover} onRemove={onRemove} />
+        <PopoverComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} />
       </Popover>
     </PopoverContainer>
   );
