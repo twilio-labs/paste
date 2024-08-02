@@ -54,15 +54,13 @@ export const AddFilters: React.FC<{
   return (
     <PopoverContainer state={popover}>
       <PopoverButton
-        variant="reset"
-        size="reset"
+        variant="secondary"
+        size="rounded_small"
         // @ts-expect-error types are wrong
         borderRadius="borderRadiusPill"
       >
-        <FormPill {...pillState}>
-          <PlusIcon decorative />
-          <span>Add filters</span>
-        </FormPill>
+        <PlusIcon decorative />
+        <span>Add filters</span>
       </PopoverButton>
 
       <Popover aria-label="add-filters" width="size40">
