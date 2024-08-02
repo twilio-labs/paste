@@ -1,9 +1,9 @@
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
 import React from "react";
+
+import { FilterAction } from "../FilterAction";
 
 export const RoomTypeFilter: React.FC = ({
   onApply,
@@ -32,38 +32,24 @@ export const RoomTypeFilter: React.FC = ({
           </Radio>
         ))}
       </RadioGroup>
-      <Box marginTop="space70">
-        <ButtonGroup>
-          <Button
-            variant="primary"
-            onClick={() => {
-              if (onApply && popover) {
-                if (selectedRoomType === "") {
-                  popover.hide();
-                  return;
-                }
 
-                onApply("room-type", selectedRoomType);
-                popover.hide();
-              }
-            }}
-          >
-            Apply
-          </Button>
-          {selectedRoomType !== "" ? (
-            <Button
-              variant="link"
-              onClick={() => {
-                setSelectedRoomType("");
-              }}
-            >
-              Clear all
-            </Button>
-          ) : (
-            <></>
-          )}
-        </ButtonGroup>
-      </Box>
+      <FilterAction
+        onApply={() => {
+          if (onApply && popover) {
+            if (selectedRoomType === "") {
+              popover.hide();
+              return;
+            }
+
+            onApply("room-type", selectedRoomType);
+            popover.hide();
+          }
+        }}
+        clearCondition={selectedRoomType !== ""}
+        onClear={() => {
+          setSelectedRoomType("");
+        }}
+      />
     </Box>
   );
 };

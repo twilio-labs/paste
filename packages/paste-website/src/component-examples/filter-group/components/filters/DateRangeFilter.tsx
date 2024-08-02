@@ -1,6 +1,4 @@
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { Heading } from "@twilio-paste/heading";
 import { Label } from "@twilio-paste/label";
@@ -9,7 +7,9 @@ import type { usePopoverState } from "@twilio-paste/popover";
 import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
-export const DateTimeRangeFilter: React.FC = ({
+import { FilterAction } from "../FilterAction";
+
+export const DateRangeFilter: React.FC = ({
   onApply,
   popover,
 }: {
@@ -59,42 +59,27 @@ export const DateTimeRangeFilter: React.FC = ({
         </Box>
       </Box>
 
-      <Box marginTop="space70">
-        <ButtonGroup>
-          <Button
-            variant="primary"
-            onClick={() => {
-              if (onApply && popover) {
-                if (startDate === "" && endDate === "") {
-                  popover.hide();
-                  return;
-                }
+      <FilterAction
+        onApply={() => {
+          if (onApply && popover) {
+            if (startDate === "" && endDate === "") {
+              popover.hide();
+              return;
+            }
 
-                onApply("date-time", {
-                  startDate,
-                  endDate,
-                });
-                popover.hide();
-              }
-            }}
-          >
-            Apply
-          </Button>
-          {startDate !== "" || endDate !== "" ? (
-            <Button
-              variant="link"
-              onClick={() => {
-                setStartDate("");
-                setEndDate("");
-              }}
-            >
-              Clear all
-            </Button>
-          ) : (
-            <></>
-          )}
-        </ButtonGroup>
-      </Box>
+            onApply("date-range", {
+              startDate,
+              endDate,
+            });
+            popover.hide();
+          }
+        }}
+        clearCondition={startDate !== "" || endDate !== ""}
+        onClear={() => {
+          setStartDate("");
+          setEndDate("");
+        }}
+      />
     </Box>
   );
 };

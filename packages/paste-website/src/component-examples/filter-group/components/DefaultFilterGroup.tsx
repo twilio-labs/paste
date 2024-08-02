@@ -3,6 +3,7 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { Item } from "@twilio-paste/combobox/dist/types";
 import { DetailText } from "@twilio-paste/detail-text";
 import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
@@ -17,7 +18,7 @@ import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
-import { DateTimeRangeFilter } from "./filters/DateTimeRangeFilter";
+import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
@@ -57,7 +58,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     },
     "date-range": {
       label: "Date range",
-      component: DateTimeRangeFilter,
+      component: DateRangeFilter,
     },
     custom: {
       label: "Date range",
@@ -170,6 +171,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
             addFiltersList={addFiltersList}
             filterMap={filterMap}
             recommendedFiltersList={recommendedFiltersList}
+            value={addedFilters}
           />
         ) : null}
       </FormPillGroup>

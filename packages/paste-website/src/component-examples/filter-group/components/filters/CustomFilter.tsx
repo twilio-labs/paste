@@ -1,6 +1,4 @@
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
@@ -10,6 +8,7 @@ import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import { DATE_RANGES } from "../../constants";
+import { FilterAction } from "../FilterAction";
 
 export const CustomFilter: React.FC = ({
   onApply,
@@ -58,21 +57,21 @@ export const CustomFilter: React.FC = ({
   return (
     <Box>
       <RadioGroup
-        name="date-range"
+        name="custom"
         legend="Date range"
         onChange={(value) => {
           setSelectedDate(value);
           setShowError(false);
         }}
-        value={selectedDate || ""}
+        value={selectedDate}
       >
         {DATE_RANGES.map(({ name, value }) => (
-          <Radio key={value} id={value} value={value} name="date-range" checked={selectedDate === value}>
+          <Radio key={value} id={value} value={value} name="custom" checked={selectedDate === value}>
             {name}
           </Radio>
         ))}
       </RadioGroup>
-      {selectedDate === "custom" ? (
+      {selectedDate === "Custom" ? (
         <Box display="flex" columnGap="space50" marginTop="space50">
           <Box>
             <Label htmlFor={startDateID}>Start</Label>
@@ -105,50 +104,35 @@ export const CustomFilter: React.FC = ({
         </Box>
       ) : null}
 
-      <Box marginTop="space70">
-        <ButtonGroup>
-          <Button
-            variant="primary"
-            onClick={() => {
-              if (onApply && popover) {
-                if (selectedDate === "custom" && startDate === "" && endDate === "") {
-                  setShowError(true);
-                  return;
-                }
+      <FilterAction
+        onApply={() => {
+          if (onApply && popover) {
+            if (selectedDate === "Custom" && startDate === "" && endDate === "") {
+              setShowError(true);
+              return;
+            }
 
-                setShowError(false);
-                if (selectedDate === "") {
-                  popover.hide();
-                  return;
-                }
+            setShowError(false);
+            if (selectedDate === "") {
+              popover.hide();
+              return;
+            }
 
-                onApply("date-range", {
-                  startDate: selectedDate === "custom" ? startDate : getStartDate(),
-                  endDate: selectedDate === "custom" ? endDate : new Date().toISOString().split("T")[0],
-                });
-                popover.hide();
-              }
-            }}
-          >
-            Apply
-          </Button>
-          {selectedDate !== null ? (
-            <Button
-              variant="link"
-              onClick={() => {
-                setStartDate("");
-                setEndDate("");
-                setSelectedDate("");
-                setShowError(false);
-              }}
-            >
-              Clear all
-            </Button>
-          ) : (
-            <></>
-          )}
-        </ButtonGroup>
-      </Box>
+            onApply("custom", {
+              startDate: selectedDate === "Custom" ? startDate : getStartDate(),
+              endDate: selectedDate === "Custom" ? endDate : new Date().toISOString().split("T")[0],
+            });
+            popover.hide();
+          }
+        }}
+        clearCondition={selectedDate !== null}
+        onClear={() => {
+          setStartDate("");
+          setEndDate("");
+          setSelectedDate("");
+          setShowError(false);
+        }}
+      />
     </Box>
   );
 };

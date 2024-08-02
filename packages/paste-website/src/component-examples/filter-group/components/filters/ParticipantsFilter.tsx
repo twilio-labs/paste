@@ -1,12 +1,11 @@
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
 import { HelpText } from "@twilio-paste/help-text";
-import { DeleteIcon } from "@twilio-paste/icons/esm/DeleteIcon";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
 import type { usePopoverState } from "@twilio-paste/popover";
 import React from "react";
+
+import { FilterAction } from "../FilterAction";
 
 export const ParticipantsFilter: React.FC = ({
   onApply,
@@ -68,54 +67,34 @@ export const ParticipantsFilter: React.FC = ({
         </HelpText>
       ) : undefined}
 
-      <Box marginTop="space70" display="flex" alignItems="center" justifyContent="space-between">
-        <ButtonGroup>
-          <Button
-            variant="primary"
-            onClick={() => {
-              if (onApply && popover) {
-                if (minValue === "" && maxValue === "") {
-                  popover.hide();
-                  return;
-                }
+      <FilterAction
+        onApply={() => {
+          if (onApply && popover) {
+            if (minValue === "" && maxValue === "") {
+              popover.hide();
+              return;
+            }
 
-                if (minValue === "" || maxValue === "") {
-                  setShowError(true);
-                  return;
-                }
+            if (minValue === "" || maxValue === "") {
+              setShowError(true);
+              return;
+            }
 
-                onApply("participants", {
-                  min: minValue,
-                  max: maxValue,
-                });
-                popover.hide();
-              }
-            }}
-          >
-            Apply
-          </Button>
-          {minValue !== "" || maxValue !== "" ? (
-            <Button
-              variant="link"
-              onClick={() => {
-                setShowError(false);
-                setMinValue("");
-                setMaxValue("");
-              }}
-            >
-              Clear all
-            </Button>
-          ) : (
-            <></>
-          )}
-        </ButtonGroup>
-        {onRemove ? (
-          <Button variant="link" onClick={onRemove}>
-            <DeleteIcon decorative />
-            <span>Remove filter</span>
-          </Button>
-        ) : null}
-      </Box>
+            onApply("participants", {
+              min: minValue,
+              max: maxValue,
+            });
+            popover.hide();
+          }
+        }}
+        clearCondition={minValue !== "" || maxValue !== ""}
+        onClear={() => {
+          setShowError(false);
+          setMinValue("");
+          setMaxValue("");
+        }}
+        onRemove={onRemove}
+      />
     </Box>
   );
 };

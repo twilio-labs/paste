@@ -56,6 +56,7 @@ export type FilterMapType = {
       onApply: (type: string, value: selectedFilterProps) => void;
       popover: ReturnType<typeof usePopoverState>;
       onRemove?: () => void;
+      value?: selectedFilterProps;
     }>;
   };
 };
