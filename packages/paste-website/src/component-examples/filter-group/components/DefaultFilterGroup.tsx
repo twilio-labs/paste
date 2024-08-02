@@ -22,6 +22,7 @@ import { DateRangeFilter } from "./filters/DateRangeFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
+import { UniqueNameFilter } from "./filters/UniqueNameFilter";
 
 // Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
@@ -70,7 +71,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     },
     "unique-name": {
       label: "Unique Name",
-      component: CustomFilter,
+      component: UniqueNameFilter,
     },
   };
 
