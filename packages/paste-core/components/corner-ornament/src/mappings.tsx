@@ -3,14 +3,10 @@ import { IconSizeOptions } from "@twilio-paste/style-props";
 
 import { CornerOrnamentPosition, CornerOrnamentType } from "./types";
 
-const BadgeBottomEndPath = "M1.015.6A.527.527 0 0 0 .5-.025a.525.525 0 1 0 .102 1.04A.367.367 0 0 1 .975.6h.04Z";
-const BadgeTopEndPath = "M.975.4H.958a.367.367 0 0 1-.356-.415A.528.528 0 0 0-.025.5a.525.525 0 1 0 1.04-.1h-.04Z";
-const IconTopEndPath =
-  "M.606-.014A.527.527 0 0 0-.025.5a.525.525 0 1 0 1.04-.106A.352.352 0 0 1 .6.05C.6.028.602.007.606-.014Z";
-const IconBottomEndPath =
-  "M1.014.606A.527.527 0 0 0 .5-.025a.525.525 0 1 0 .106 1.04A.352.352 0 0 1 .95.6c.022 0 .043.002.064.006Z";
-const AvatarBottomEndPath = "M1.023.546a.525.525 0 1 0-.477.477.35.35 0 0 1 .477-.477Z";
-const AvatarTopEndPath = "M1.023.454a.35.35 0 0 1-.477-.477.525.525 0 1 0 .477.477Z";
+const BadgeBottomEndPath = "M1.05-.05h-1.1v1.1h.593A.375.375 0 0 1 .875.5h.1c.026 0 .05.003.075.007V-.05Z";
+const BadgeTopEndPath = "M.543-.05A.375.375 0 0 0 .875.5h.1c.026 0 .05-.003.075-.008v.558h-1.1v-1.1h.593Z";
+const IconOrAvatarTopEndPath = "M1.05.437A.35.35 0 0 1 .563-.05H-.05v1.1h1.1V.437Z";
+const IconOrAvatarBottomEndPath = "M1.05-.05h-1.1v1.1h.613A.35.35 0 0 1 1.05.563V-.05Z";
 
 export const ClipPathMappings: Record<CornerOrnamentType, Record<CornerOrnamentPosition, string>> = {
   badge: {
@@ -19,12 +15,12 @@ export const ClipPathMappings: Record<CornerOrnamentType, Record<CornerOrnamentP
   },
 
   icon: {
-    bottom_end: IconBottomEndPath,
-    top_end: IconTopEndPath,
+    bottom_end: IconOrAvatarBottomEndPath,
+    top_end: IconOrAvatarTopEndPath,
   },
   avatar: {
-    bottom_end: AvatarBottomEndPath,
-    top_end: AvatarTopEndPath,
+    bottom_end: IconOrAvatarBottomEndPath,
+    top_end: IconOrAvatarTopEndPath,
   },
 };
 
