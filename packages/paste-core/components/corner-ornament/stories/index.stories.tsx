@@ -3,7 +3,8 @@ import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Heading } from "@twilio-paste/heading";
-import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Stack } from "@twilio-paste/stack";
@@ -28,18 +29,18 @@ export const Default = (): React.ReactNode => {
         <CornerOrnament>
           <ScreenReaderOnly>notification value</ScreenReaderOnly>
           <Badge as="span" variant="notification_counter" size="small">
-            9+
+            100
           </Badge>
         </CornerOrnament>
       </CornerOrnamentContainer>
       <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
         <CornerOrnamentBase>
-          <LogoTwilioIcon size="sizeIcon80" title="Paste brand" decorative={false} />
+          <NewIcon color="colorTextIcon" size="sizeIcon80" title="Paste brand" decorative={false} />
         </CornerOrnamentBase>
         <CornerOrnament>
           <ScreenReaderOnly>notification value</ScreenReaderOnly>
           <Badge as="span" variant="notification_counter" size="small">
-            9+
+            100
           </Badge>
         </CornerOrnament>
       </CornerOrnamentContainer>
@@ -63,7 +64,7 @@ export const SupportedBadge = (): React.ReactNode => {
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
               <Badge as="span" variant="notification_counter" size="small">
-                9+
+                100
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
@@ -83,7 +84,7 @@ export const SupportedBadge = (): React.ReactNode => {
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
               <Badge as="span" variant="notification_counter" size="small">
-                9+
+                100
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
@@ -177,7 +178,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon40" />
+              <NewIcon decorative color="colorTextIcon" size="sizeIcon40" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon40</small>
@@ -189,7 +190,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon30" />
+              <NewIcon decorative color="colorTextIcon" size="sizeIcon30" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
@@ -201,7 +202,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon10" />
+              <NewIcon decorative color="colorTextIcon" size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
@@ -213,7 +214,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon05" />
+              <NewIcon decorative color="colorTextIcon" size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -225,7 +226,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon05" />
+              <NewIcon decorative color="colorTextIcon" size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -242,7 +243,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon40" />
+              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon40" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon40</small>
@@ -254,7 +255,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon30" />
+              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon30" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
@@ -266,7 +267,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon10" />
+              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
@@ -278,7 +279,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon05" />
+              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -290,7 +291,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <LogoTwilioIcon decorative size="sizeIcon05" />
+              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -468,7 +469,7 @@ export const CornerOrnamentCustomization = (): React.ReactNode => {
             <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
           </CornerOrnamentBase>
           <CornerOrnament>
-            <LogoTwilioIcon size="sizeIcon40" decorative />
+            <NewIcon size="sizeIcon40" decorative />
           </CornerOrnament>
         </CornerOrnamentContainer>
       </CustomizationProvider>
