@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
         githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/corner-ornament',
-        storybookUrl: '/?path=/story/components-corner-ornament--single-line',
+        storybookUrl: '/?path=/story/components-corner-ornament--supported-badge',
       },
     },
   };
@@ -45,32 +45,19 @@ yarn add @twilio-paste/corner-ornament - or - yarn add @twilio-paste/core
 ## Usage
 
 ```jsx
-import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/corner-ornament';
+import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from '@twilio-paste/core/corner-ornament';
 
-const rubyCode = `#!/usr/bin/ruby
-
-# Import the library.
-require 'tk'
-
-# Root window.
-root = TkRoot.new  {
-  title 'Push Me'
-  background '#111188'
-}
-
-# Add a label to the root window.
-lab = TkLabel.new(root) {
-  text "Hey there,\nPush a button!"
-  background '#3333AA'
-  foreground '#CCCCFF'
-}`;
-
-export const Basic = () => {
+export const Example = () => {
   return (
-    <CodeBlockWrapper>
-      <CodeBlockHeader>Build a button</CodeBlockHeader>
-      <CodeBlock showLineNumbers language="ruby" code={rubyCode} />
-    </CodeBlockWrapper>
+    <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
+      <CornerOrnamentBase>
+        // Your ornament base here
+      </CornerOrnamentBase>
+      <CornerOrnament>
+        <ScreenReaderOnly>{Your accessible reader value here}</ScreenReaderOnly>
+        // Your corner ornament here
+      </CornerOrnament>
+    </CornerOrnamentContainer>
   );
 };
 ```
