@@ -236,21 +236,12 @@ export const FormPillPopover = (): JSX.Element => {
   const uniqueBaseID = useUID();
   const pillState = useFormPillState();
   const [selected, setSelected] = React.useState(true);
+
   return (
     <Box height="300px">
       <FormPillGroup {...pillState} aria-label="filter-group">
         <PopoverContainer baseId={uniqueBaseID}>
-          <PopoverFormPillButton
-            {...pillState}
-            selected={selected}
-            onSelect={() => {
-              // note: because we're passing onClick from PopoverFormPillButton, this does not currently run
-              console.log("pill selected");
-            }}
-            onDismiss={() => {
-              console.log("pill dismissed");
-            }}
-          >
+          <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
             Open popover
           </PopoverFormPillButton>
           <Popover aria-label="Popover" data-testid="form-pill-popover">

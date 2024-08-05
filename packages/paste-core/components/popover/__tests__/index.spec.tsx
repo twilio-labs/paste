@@ -6,7 +6,7 @@ import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { Popover, PopoverButton, PopoverContainer } from "../src";
-import { BadgePopover, InitialFocus, PopoverTop, StateHookExample } from "../stories/index.stories";
+import { BadgePopover, FormPillPopover, InitialFocus, PopoverTop, StateHookExample } from "../stories/index.stories";
 
 describe("Popover", () => {
   describe("Render", () => {
@@ -136,6 +136,39 @@ describe("Popover", () => {
         userEvent.click(renderedPopoverButton);
       });
       expect(renderedPopoverButton.getAttribute("aria-expanded")).toEqual("true");
+      expect(renderedPopover).toBeVisible();
+    });
+  });
+
+  describe("PopoverFormPill", () => {
+    it("renders PopoverFormPillButton as a FormPill", () => {
+      render(
+        <Theme.Provider theme="default">
+          <FormPillPopover />
+        </Theme.Provider>,
+      );
+      const popoverButton = screen.getByText("Open popover").closest("button");
+      expect(popoverButton).toHaveAttribute("data-paste-element", "POPOVER_FORM_PILL");
+    });
+
+    it("should render a popover badge button with aria attributes", async () => {
+      render(
+        <Theme.Provider theme="default">
+          <FormPillPopover />
+        </Theme.Provider>,
+      );
+      const renderedPopoverButton = screen.getByText("Open popover").closest("button");
+      const renderedPopover = screen.getByTestId("form-pill-popover");
+      expect(renderedPopoverButton?.getAttribute("aria-haspopup")).toEqual("dialog");
+      expect(renderedPopoverButton?.getAttribute("aria-controls")).toEqual(renderedPopover.id);
+      expect(renderedPopoverButton?.getAttribute("aria-expanded")).toEqual("false");
+      expect(renderedPopover).not.toBeVisible();
+      await waitFor(() => {
+        if (renderedPopoverButton) {
+          userEvent.click(renderedPopoverButton);
+        }
+      });
+      expect(renderedPopoverButton?.getAttribute("aria-expanded")).toEqual("true");
       expect(renderedPopover).toBeVisible();
     });
   });
