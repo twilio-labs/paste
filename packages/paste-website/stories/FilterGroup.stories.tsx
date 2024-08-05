@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { DefaultFilterGroup } from "../src/component-examples/filter-group/components/DefaultFilterGroup";
+import { MoreFilters } from "../src/component-examples/filter-group/components/filters/MoreFilters";
 import { STATIC_TABLE_DATA } from "../src/component-examples/filter-group/constants";
 import type { FilterListType } from "../src/component-examples/filter-group/types";
 
@@ -22,18 +23,24 @@ export const ConditionalFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
 };
 
-export const AddFilterGroupExample = (): JSX.Element => {
-  const addFilterList: FilterListType = ["room-type", "date-range"];
-  const addFiltersList: FilterListType = ["room-sid", "unique-name", "participants"];
-  const recommendedFiltersList: FilterListType = ["unique-name", "participants"];
-  return (
-    <DefaultFilterGroup
-      data={STATIC_TABLE_DATA}
-      filterList={addFilterList}
-      addFiltersList={addFiltersList}
-      recommendedFiltersList={recommendedFiltersList}
-    />
-  );
+/*
+ * export const AddFilterGroupExample = (): JSX.Element => {
+ *   const addFilterList: FilterListType = ["room-type", "date-range"];
+ *   const addFiltersList: FilterListType = ["room-sid", "unique-name", "participants"];
+ *   const recommendedFiltersList: FilterListType = ["unique-name", "participants"];
+ *   return (
+ *     <DefaultFilterGroup
+ *       data={STATIC_TABLE_DATA}
+ *       filterList={addFilterList}
+ *       addFiltersList={addFiltersList}
+ *       recommendedFiltersList={recommendedFiltersList}
+ *     />
+ *   );
+ * };
+ */
+
+export const MoreFilterGroupExample = (): JSX.Element => {
+  return <MoreFilters />;
 };
 
 // export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;

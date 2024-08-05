@@ -87,7 +87,7 @@ export const AddFilters: React.FC<{
         <Box>
           <MultiselectCombobox
             state={state}
-            labelText="Add filter"
+            labelText="Search"
             selectedItemsLabelText="Selected filters"
             items={filteredItems.map((item) => filterMap[item].label)}
             emptyState={EmptyState}
@@ -105,11 +105,7 @@ export const AddFilters: React.FC<{
 
           {recommendedFiltersList ? (
             <Box marginTop="space70">
-              <CheckboxGroup
-                name="rec-filters"
-                legend="Recommended filters"
-                helpText="Info that helps a user with this field."
-              >
+              <CheckboxGroup name="rec-filters" legend="Filters" helpText="Info that helps a user with this field.">
                 {recommendedFiltersList.map((item) => {
                   const labelName = filterMap[item].label;
                   return (

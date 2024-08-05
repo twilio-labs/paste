@@ -3,7 +3,6 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { Item } from "@twilio-paste/combobox/dist/types";
 import { DetailText } from "@twilio-paste/detail-text";
 import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
@@ -19,6 +18,7 @@ import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
+import { MoreFilters } from "./filters/MoreFilters";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomSidFilter } from "./filters/RoomSidFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
@@ -32,6 +32,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   filterList,
   addFiltersList,
   recommendedFiltersList,
+  onMoreFiltersClick,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
@@ -175,6 +176,12 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
             recommendedFiltersList={recommendedFiltersList}
             value={addedFilters}
           />
+        ) : null}
+
+        {onMoreFiltersClick ? (
+          <Button variant="secondary" size="rounded_small" onClick={onMoreFiltersClick}>
+            More filters
+          </Button>
         ) : null}
       </FormPillGroup>
 

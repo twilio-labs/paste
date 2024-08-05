@@ -85,6 +85,7 @@ export interface FilterGroupProps {
   children?: never;
   data: TableDataRow[];
   withSearch?: boolean;
+  onMoreFiltersClick?: () => void;
   filterList: FilterListType;
   addFiltersList?: FilterListType;
   recommendedFiltersList?: FilterListType;
