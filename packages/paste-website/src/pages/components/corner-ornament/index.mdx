@@ -31,7 +31,7 @@ import {
   badgeCornerOrnamentExample,
   badgeOverflowCornerOrnamentExample,
   iconCornerOrnamentExample,
-  avatarCornerOrnamentExample
+  avatarCornerOrnamentExample,
 } from "../../../component-examples/CornerOrnamentExamples";
 export default ComponentPageLayout;
 
@@ -114,6 +114,9 @@ Position the ornament at the top when it takes priority over its element, and at
   </CalloutText>
 </Callout>
 
+### Hiding ornament
+
+Hiding the ornament and removing the cutout are not supported by this component. Since this component is composable and the base element you are wrapping will look the same if you remove the corner ornament, we recommend removing the Corner Ornament components from the DOM tree if you want to hide the ornament.
 ## Variants
 
 ### Badges as Corner Ornaments
@@ -202,7 +205,7 @@ For item counts, make sure that you have a layout strategy for overflowing count
     ScreenReaderOnly,
     ProductAlarmsIcon,
     Button,
-    NotificationOrnamentIcon
+    NotificationOrnamentIcon,
   }}
   language="jsx"
   noInline
@@ -226,7 +229,7 @@ When using an icon as a corner ornament, make sure it has a color that has a 3:1
     ProductAlarmsIcon,
     Avatar,
     NotificationOrnamentIcon,
-    CallIncomingIcon
+    CallIncomingIcon,
   }}
   language="jsx"
   noInline
@@ -302,7 +305,7 @@ In almost all cases, Avatars should be placed at the bottom using `position="bot
     CornerOrnamentContainer,
     Stack,
     Avatar,
-    DataTableIcon
+    DataTableIcon,
   }}
   language="jsx"
   noInline
