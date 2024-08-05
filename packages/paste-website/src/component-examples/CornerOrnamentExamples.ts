@@ -55,7 +55,6 @@ render(
   <FeaturedExample />
 )`.trim();
 
-
 export const badgeCornerOrnamentExample = `
 const BadgeCornerOrnamentExample = () => {
   return (
