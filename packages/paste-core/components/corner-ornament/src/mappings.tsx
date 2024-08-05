@@ -60,6 +60,7 @@ export const OrnamentPositionStyleMappings: Record<
       sizeIcon70: { left: "19px", top: "19px" },
       sizeIcon80: { left: "25px", top: "25px" },
       sizeIcon90: { left: "25px", top: "25px" },
+      sizeIcon100: { left: "34px", top: "34px" },
       sizeIcon110: { left: "42px", top: "42px" },
     },
     top_end: {
@@ -68,6 +69,7 @@ export const OrnamentPositionStyleMappings: Record<
       sizeIcon70: { left: "19px", bottom: "19px", top: "-7px" },
       sizeIcon80: { left: "25px", bottom: "25px", top: "-5px" },
       sizeIcon90: { left: "25px", bottom: "25px", top: "-5px" },
+      sizeIcon100: { left: "34px", bottom: "34px", top: "-6px" },
       sizeIcon110: { left: "42px", bottom: "42px", top: "-2px" },
     },
   },

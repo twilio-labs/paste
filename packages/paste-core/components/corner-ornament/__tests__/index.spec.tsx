@@ -42,7 +42,7 @@ describe("CornerOrnament", () => {
 
   it("should throw errors for unsupported size and type combinations", () => {
     expect(() => {
-      render(<ExampleCornerOrnament size="sizeIcon30" type="avatar" />);
+      render(<ExampleCornerOrnament size="sizeIcon10" type="icon" />);
     }).toThrow();
   });
 

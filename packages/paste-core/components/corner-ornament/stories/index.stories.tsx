@@ -4,6 +4,7 @@ import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Heading } from "@twilio-paste/heading";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { FileVideoIcon } from "@twilio-paste/icons/esm/FileVideoIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
@@ -56,10 +57,100 @@ export const SupportedBadge = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon110">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;defaul&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon100">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;defaul&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon90">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon70</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon70">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon60">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon50</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon50">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -76,10 +167,100 @@ export const SupportedBadge = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon110" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;defaul&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon100" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;defaul&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon90" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
-          <CornerOrnamentContainer cornerOrnamentType="badge" position="top_end" size="sizeIcon80">
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon70</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon70" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon60" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ScreenReaderOnly>notification value</ScreenReaderOnly>
+              <Badge as="span" variant="notification_counter" size="small">
+                100
+              </Badge>
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>badge size=&quot;small&quot;</small>
+        </Box>
+        <Box>
+          <small>sizeIcon50</small>
+          <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon50" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -105,13 +286,49 @@ export const SupportedAvatar = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon110">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon110" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon100">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon100" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon60</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon90">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon90" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon30</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon80">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon80" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="ornament for Paste brand" />
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
@@ -120,10 +337,70 @@ export const SupportedAvatar = (): React.ReactNode => {
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon70">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon70" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="ornament for Paste brand" />
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon60">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon60" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon50</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon50">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon50" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon40</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon40">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon40" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon30</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon30">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon30" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon20">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon20" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
@@ -134,25 +411,121 @@ export const SupportedAvatar = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
-          <small>sizeIcon80</small>
-          <CornerOrnamentContainer cornerOrnamentType="avatar" position="top_end" size="sizeIcon80">
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon110" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon110" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="ornament for Paste brand" />
+              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon100" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon100" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon60</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon90" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon90" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon30</small>
+        </Box>
+        <Box>
+          <small>sizeIcon80</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon80" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon80" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
         </Box>
         <Box>
           <small>sizeIcon70</small>
-          <CornerOrnamentContainer cornerOrnamentType="avatar" position="top_end" size="sizeIcon70">
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon70" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon70" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="ornament for Paste brand" />
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon60" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon60" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon50</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon50" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon50" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon40</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon40" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon40" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon30</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon30" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon30" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon20" position="top_end">
+            <CornerOrnamentBase>
+              <FileVideoIcon title="file ornament" decorative={false} color="colorTextIcon" size="sizeIcon20" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <Avatar size="sizeIcon10" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
@@ -172,13 +545,49 @@ export const SupportedIcon = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon110">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon70" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon100">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon50" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon50</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon90">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon40" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon40</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NewIcon decorative color="colorTextIcon" size="sizeIcon40" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon40" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon40</small>
@@ -190,10 +599,22 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NewIcon decorative color="colorTextIcon" size="sizeIcon30" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon30" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
+        </Box>
+        <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon60">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
         </Box>
         <Box>
           <small>sizeIcon50</small>
@@ -202,7 +623,7 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NewIcon decorative color="colorTextIcon" size="sizeIcon10" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
@@ -214,10 +635,10 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NewIcon decorative color="colorTextIcon" size="sizeIcon05" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>sizeIcon05</small>
+          <small>sizeIcon10</small>
         </Box>
         <Box>
           <small>sizeIcon30</small>
@@ -226,7 +647,19 @@ export const SupportedIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NewIcon decorative color="colorTextIcon" size="sizeIcon05" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon05" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon05</small>
+        </Box>
+        <Box>
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon20">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon20" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -237,61 +670,121 @@ export const SupportedIcon = (): React.ReactNode => {
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon110" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon70" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon100" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon50" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon50</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon90" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon40" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon40</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon80">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon40" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon40" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon40</small>
         </Box>
         <Box>
           <small>sizeIcon70</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon70">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon70" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon30" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon30" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon30</small>
         </Box>
         <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon60" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
           <small>sizeIcon50</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon50">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon50" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon10" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon10</small>
         </Box>
         <Box>
           <small>sizeIcon40</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon40">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon40" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon05" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon30</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon30" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
         </Box>
         <Box>
-          <small>sizeIcon30</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon30">
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon20" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
+              <Avatar size="sizeIcon20" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <ErrorIcon decorative color="colorTextIcon" size="sizeIcon05" />
+              <ErrorIcon color="colorTextIcon" decorative size="sizeIcon05" />
             </CornerOrnament>
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
@@ -301,7 +794,7 @@ export const SupportedIcon = (): React.ReactNode => {
   );
 };
 
-SupportedAvatar.storyName = "Supported Corner Ornament Avatar";
+SupportedIcon.storyName = "Supported Corner Ornament Icon";
 
 export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
   return (
@@ -310,6 +803,42 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
         bottom_end:
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
+        <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon110">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon70" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon100">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon50" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon50</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon90">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon40" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon40</small>
+        </Box>
         <Box>
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
@@ -335,6 +864,18 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
           <small>sizeIcon30</small>
         </Box>
         <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon60">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon50">
             <CornerOrnamentBase>
@@ -353,10 +894,10 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
-              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon05" />
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon10" />
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>sizeIcon05</small>
+          <small>sizeIcon10</small>
         </Box>
         <Box>
           <small>sizeIcon30</small>
@@ -370,14 +911,62 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
           </CornerOrnamentContainer>
           <small>sizeIcon05</small>
         </Box>
+        <Box>
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon20">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon20" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon05" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon05</small>
+        </Box>
       </Stack>
       <Heading as="h3" variant="heading30">
         top_end:
       </Heading>
       <Stack orientation="horizontal" spacing="space60">
         <Box>
+          <small>sizeIcon110</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon110" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon70" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon70</small>
+        </Box>
+        <Box>
+          <small>sizeIcon100</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon100" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon50" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon50</small>
+        </Box>
+        <Box>
+          <small>sizeIcon90</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon90" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon40" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon40</small>
+        </Box>
+        <Box>
           <small>sizeIcon80</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon80">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
@@ -389,7 +978,7 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
         </Box>
         <Box>
           <small>sizeIcon70</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon70">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon70" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
@@ -400,8 +989,20 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
           <small>sizeIcon30</small>
         </Box>
         <Box>
+          <small>sizeIcon60</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon60" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
           <small>sizeIcon50</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon50">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon50" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
@@ -413,9 +1014,21 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
         </Box>
         <Box>
           <small>sizeIcon40</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon40">
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon40" position="top_end">
             <CornerOrnamentBase>
               <Avatar size="sizeIcon40" src="./avatars/avatar8.png" name="Paste brand" />
+            </CornerOrnamentBase>
+            <CornerOrnament>
+              <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon10" />
+            </CornerOrnament>
+          </CornerOrnamentContainer>
+          <small>sizeIcon10</small>
+        </Box>
+        <Box>
+          <small>sizeIcon30</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon30" position="top_end">
+            <CornerOrnamentBase>
+              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
               <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon05" />
@@ -424,10 +1037,10 @@ export const SupportedNotificationOrnamentIcon = (): React.ReactNode => {
           <small>sizeIcon05</small>
         </Box>
         <Box>
-          <small>sizeIcon30</small>
-          <CornerOrnamentContainer cornerOrnamentType="icon" position="top_end" size="sizeIcon30">
+          <small>sizeIcon20</small>
+          <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon20" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon30" src="./avatars/avatar8.png" name="Paste brand" />
+              <Avatar size="sizeIcon20" src="./avatars/avatar8.png" name="Paste brand" />
             </CornerOrnamentBase>
             <CornerOrnament>
               <NotificationOrnamentIcon color="colorTextIconNotification" decorative size="sizeIcon05" />
