@@ -11,11 +11,28 @@ import packageJson from "@twilio-paste/corner-ornament/package.json";
 import { Callout, CalloutHeading, CalloutTextimport } from "@twilio-paste/callout";
 import { Table, THead, TBody, Tr, Td, Th } from "@twilio-paste/table";
 import { Box } from "@twilio-paste/box";
+import { Stack } from "@twilio-paste/stack";
+import { Badge } from "@twilio-paste/badge";
+import { Button } from "@twilio-paste/button";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Avatar } from "@twilio-paste/avatar";
+import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from "@twilio-paste/corner-ornament";
+import { CartIcon } from "@twilio-paste/icons/esm/CartIcon";
+import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
+import { DataTableIcon } from "@twilio-paste/icons/esm/DataTableIcon";
+import { CallIncomingIcon } from "@twilio-paste/icons/esm/CallIncomingIcon";
+import { ProductAlarmsIcon } from "@twilio-paste/icons/esm/ProductAlarmsIcon";
 
 import { SidebarCategoryRoutes } from "../../../constants";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
-
+import {
+  featuredExample,
+  badgeCornerOrnamentExample,
+  badgeOverflowCornerOrnamentExample,
+  iconCornerOrnamentExample,
+  avatarCornerOrnamentExample
+} from "../../../component-examples/CornerOrnamentExamples";
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
@@ -37,6 +54,27 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    ProductAlarmsIcon,
+    NotificationOrnamentIcon,
+    Avatar,
+    DataTableIcon,
+    CallIncomingIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {featuredExample}
+</LivePreview>
 
 ## Guidelines
 
@@ -84,7 +122,23 @@ Use Badges as Corner Ornaments for item counts like notifications or cart counts
 
 In almost all cases, Badges should be placed at the top using `position="top_end"`.
 
-{/* TODO: add examples here */}
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    ProductAlarmsIcon,
+    Avatar,
+  }}
+  language="jsx"
+  noInline
+>
+  {badgeCornerOrnamentExample}
+</LivePreview>
 
 Use these size pairings for pairing base components with Badges:
 
@@ -132,11 +186,29 @@ Use these size pairings for pairing base components with Badges:
 #### Item count overflow strategies
 
 For item counts, make sure that you have a layout strategy for overflowing count text. This can include:
+
 - Using a “+” sign when reaching double- or triple-digits, such as “9+” items
 - Not using a corner ornament at all. Instead, place the counter Badge next to the element
 - For notification use cases, if showing count isn’t important, use NotificationOrnamentIcon as a Corner Ornament instead.
 
-{/* TODO: add example here */}
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    ProductAlarmsIcon,
+    Button,
+    NotificationOrnamentIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {badgeOverflowCornerOrnamentExample}
+</LivePreview>
 
 ### Icons as Corner Ornaments
 
@@ -144,7 +216,23 @@ Use icons as Corner Ornaments to show statuses or states.
 
 When using an icon as a corner ornament, make sure it has a color that has a 3:1 contrast ratio with the background.
 
-{/* TODO: add example here */}
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    Stack,
+    ScreenReaderOnly,
+    ProductAlarmsIcon,
+    Avatar,
+    NotificationOrnamentIcon,
+    CallIncomingIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {iconCornerOrnamentExample}
+</LivePreview>
 
 Use these size pairings for pairing base components with icons:
 
@@ -207,7 +295,20 @@ Use Avatars as Corner Ornaments to show a relationship to an entity or a user.
 
 In almost all cases, Avatars should be placed at the bottom using `position="bottom_end"`.
 
-{/* TODO: add example here */}
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    Stack,
+    Avatar,
+    DataTableIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {avatarCornerOrnamentExample}
+</LivePreview>
 
 Use these size pairings for pairing base components with Avatars:
 
