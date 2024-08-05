@@ -18,6 +18,7 @@ import type { FilterListType } from "../../types";
 import { DefaultFilterGroup } from "../DefaultFilterGroup";
 import { HostNameFilter } from "./HostNameFilter";
 import { StatusFilter } from "./StatusFilter";
+import { TagsFilter } from "./TagsFilter";
 
 const conditionalFilterList: FilterListType = ["room-type", "date-range"];
 
@@ -39,41 +40,25 @@ const moreFilters = [
   {
     label: "Status",
     type: "radio",
-    items: [
-      { label: "Active", value: "active" },
-      { label: "Completed", value: "completed" },
-      { label: "Scheduled", value: "scheduled" },
-      { label: "Cancelled", value: "cancelled" },
-    ],
+    items: ["Active", "Completed", "Scheduled", "Cancelled"],
   },
-  // {
-  //   label: "Tags",
-  //   type: "checkbox",
-  //   items: [
-  //     { label: "Training", value: "training" },
-  //     { label: "Meeting", value: "meeting" },
-  //     { label: "SUpport", value: "support" },
-  //     { label: "External", value: "external" },
-  //     { label: "Urgent", value: "urgent" },
-  //     { label: "Recurring", value: "recurring" },
-  //   ],
-  // },
+  {
+    label: "Tags",
+    type: "checkbox",
+    items: ["Training", "Meeting", "Support", "External", "Urgent", "Recurring"],
+  },
 ];
 
 const disclosureMap: {
   [key: string]: React.FC<{
     label: string;
-    items:
-      | string[]
-      | {
-          label: string;
-          value: string;
-        }[];
+    items: string[];
     setSelectedCount: (count: number | null) => void;
   }>;
 } = {
   combobox: HostNameFilter,
   radio: StatusFilter,
+  checkbox: TagsFilter,
 };
 
 const DisclosureFilter = ({
@@ -82,7 +67,7 @@ const DisclosureFilter = ({
   filter: {
     label: string;
     type: string;
-    items: string[] | { label: string; value: string }[];
+    items: string[];
     isOpen?: boolean;
   };
 }): React.ReactElement => {

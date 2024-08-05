@@ -3,15 +3,10 @@ import { Button } from "@twilio-paste/button";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
 import React from "react";
 
-type FilterItem = {
-  label: string;
-  value: string;
-};
-
 export const StatusFilter: React.FC<{
   label: string;
   setSelectedCount: (count: number | null) => void;
-  items: string[] | FilterItem[];
+  items: string[];
 }> = ({ label, setSelectedCount, items }) => {
   const [value, setValue] = React.useState<string>();
 
@@ -26,9 +21,9 @@ export const StatusFilter: React.FC<{
           setSelectedCount(1);
         }}
       >
-        {(items as FilterItem[]).map((item) => (
-          <Radio key={item.value} id={item.value} value={item.value} name="status-filter">
-            {item.label}
+        {items.map((item) => (
+          <Radio key={item} id={item} value={item} name="status-filter">
+            {item}
           </Radio>
         ))}
       </RadioGroup>
