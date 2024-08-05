@@ -25,7 +25,7 @@ const EmptyState = (): React.ReactElement => (
 
 export type HostNameFilterProps = {
   label: string;
-  items: string[] | { label: string; value: string }[];
+  items: string[];
   setSelectedCount: (count: number | null) => void;
 };
 
