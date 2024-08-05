@@ -8,6 +8,7 @@ import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
 import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { applyFilters, slugify } from "../helpers";
@@ -18,7 +19,6 @@ import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
-import { MoreFilters } from "./filters/MoreFilters";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
 import { RoomSidFilter } from "./filters/RoomSidFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
@@ -188,7 +188,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
         <Box display="flex" columnGap="space30">
           <DetailText marginTop="space0">
-            {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
           </DetailText>
           {Object.keys(selectedFilters).length > 0 ? (
             <Button variant="link" onClick={handleClearAll}>

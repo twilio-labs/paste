@@ -7,8 +7,6 @@ import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-lib
 import { Text } from "@twilio-paste/text";
 import React from "react";
 
-import { slugify } from "../../helpers";
-
 function getFilteredItems(inputValue: string, addFiltersList: string[]): string[] {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
@@ -25,22 +23,15 @@ const EmptyState = (): React.ReactElement => (
   </Box>
 );
 
-const hostNameFilters = [
-  "Luffy Lawson",
-  "Brooks Benson",
-  "Tony Tony Turner",
-  "Sanji Stevens",
-  "Robin Rye",
-  "Nami Nelson",
-  "Tony Tony Turner",
-];
-
-export const HostNameFilter: React.FC<{
+export type HostNameFilterProps = {
   label: string;
+  items: string[] | { label: string; value: string }[];
   setSelectedCount: (count: number | null) => void;
-}> = ({ label, setSelectedCount }) => {
+};
+
+export const HostNameFilter: React.FC<HostNameFilterProps> = ({ label, items, setSelectedCount }) => {
   const [inputValue, setInputValue] = React.useState("");
-  const filteredItems = React.useMemo(() => getFilteredItems(inputValue, hostNameFilters), [inputValue]);
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue, items as string[]), [inputValue, items]);
 
   const onSelectedItemsChange = React.useCallback(
     (comboboxItems: UseMultipleSelectionStateChange<Item>) => {
@@ -68,16 +59,13 @@ export const HostNameFilter: React.FC<{
         }}
         onSelectedItemsChange={(comboboxItems) => {
           const { selectedItems } = comboboxItems;
-          if (selectedItems) {
-            const sluggedItems = selectedItems.map((item) => slugify(item as string));
-            state.setSelectedItems(sluggedItems);
-          }
+          state.setSelectedItems(selectedItems || []);
         }}
       />
 
       <Box marginTop="space70">
         <CheckboxGroup name="recently-used-host-name" legend="Recently used">
-          {hostNameFilters.slice(0, 4).map((item) => {
+          {(items as string[]).slice(0, 4).map((item) => {
             return (
               <Checkbox
                 key={item}

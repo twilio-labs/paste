@@ -17,6 +17,7 @@ import { STATIC_TABLE_DATA } from "../../constants";
 import type { FilterListType } from "../../types";
 import { DefaultFilterGroup } from "../DefaultFilterGroup";
 import { HostNameFilter } from "./HostNameFilter";
+import { StatusFilter } from "./StatusFilter";
 
 const conditionalFilterList: FilterListType = ["room-type", "date-range"];
 
@@ -45,19 +46,35 @@ const moreFilters = [
       { label: "Cancelled", value: "cancelled" },
     ],
   },
-  {
-    label: "Tags",
-    type: "checkbox",
-    items: [
-      { label: "Training", value: "training" },
-      { label: "Meeting", value: "meeting" },
-      { label: "SUpport", value: "support" },
-      { label: "External", value: "external" },
-      { label: "Urgent", value: "urgent" },
-      { label: "Recurring", value: "recurring" },
-    ],
-  },
+  // {
+  //   label: "Tags",
+  //   type: "checkbox",
+  //   items: [
+  //     { label: "Training", value: "training" },
+  //     { label: "Meeting", value: "meeting" },
+  //     { label: "SUpport", value: "support" },
+  //     { label: "External", value: "external" },
+  //     { label: "Urgent", value: "urgent" },
+  //     { label: "Recurring", value: "recurring" },
+  //   ],
+  // },
 ];
+
+const disclosureMap: {
+  [key: string]: React.FC<{
+    label: string;
+    items:
+      | string[]
+      | {
+          label: string;
+          value: string;
+        }[];
+    setSelectedCount: (count: number | null) => void;
+  }>;
+} = {
+  combobox: HostNameFilter,
+  radio: StatusFilter,
+};
 
 const DisclosureFilter = ({
   filter,
@@ -70,6 +87,8 @@ const DisclosureFilter = ({
   };
 }): React.ReactElement => {
   const [selectedCount, setSelectedCount] = React.useState<null | number>(null);
+
+  const FilterComponent = disclosureMap[filter.type];
   return (
     <Box
       width="100%"
@@ -81,17 +100,22 @@ const DisclosureFilter = ({
       <Disclosure visible={filter.isOpen}>
         <DisclosureHeading as="h2" variant="heading50">
           <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space20" width="100%">
-            {filter.label}
+            <Box as="span">{filter.label}</Box>
 
             {selectedCount ? (
-              <Badge as="span" variant="neutral_counter">
+              <Badge as="span" variant="neutral_counter" size="small">
                 Selected {selectedCount}
               </Badge>
             ) : null}
           </Box>
         </DisclosureHeading>
         <DisclosureContent>
-          <HostNameFilter setSelectedCount={setSelectedCount} label={filter.label} />
+          <FilterComponent
+            key={filter.label}
+            label={filter.label}
+            items={filter.items}
+            setSelectedCount={setSelectedCount}
+          />
         </DisclosureContent>
       </Disclosure>
     </Box>
