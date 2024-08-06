@@ -6,7 +6,7 @@ import { Checkbox } from "./Checkbox";
 import type { CheckboxProps } from "./Checkbox";
 
 export interface CheckboxDisclaimerProps
-  extends Omit<CheckboxProps, "isSelectAll" | "isSelectAllChild" | "indeterminate" | "helpText" | "hasError"> {
+  extends Omit<CheckboxProps, "isSelectAll" | "isSelectAllChild" | "indeterminate" | "hasError"> {
   children: NonNullable<React.ReactNode>;
   /**
    * Sets the Checkbox Group in error state
