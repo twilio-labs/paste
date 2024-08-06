@@ -60,8 +60,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   extendedTable,
   selectedMoreFilters,
   setSelectedMoreFilters,
+  selectedFiltersDefault,
 }) => {
-  const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
+  const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>(selectedFiltersDefault || {});
   const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
   const pillState = useFormPillState();
 
@@ -82,7 +83,11 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     if (selectedMoreFilters) {
       handleApplyFilters({ ...selectedFilters, ...selectedMoreFilters } as selectedFilterProps);
     }
-  }, [selectedMoreFilters]);
+
+    if (selectedFiltersDefault) {
+      handleApplyFilters(selectedFiltersDefault as selectedFilterProps);
+    }
+  }, [selectedMoreFilters, selectedFiltersDefault]);
 
   const filterMap: FilterMapType = {
     roomType: {
