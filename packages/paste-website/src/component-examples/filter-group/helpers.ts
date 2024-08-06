@@ -7,9 +7,9 @@ import type {
   DateRangeType,
   DateRanges,
   DateTimeRanges,
+  ExtendedTableDataRow,
   ParticipantsType,
   RoomTypes,
-  TableDataRow,
   selectedFilterProps,
 } from "./types";
 
@@ -80,11 +80,11 @@ export const isEndDateBeforeStartDate = (
   return isBefore(computedEnd, computedStart);
 };
 
-export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[]): TableDataRow[] => {
+export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDataRow[]): ExtendedTableDataRow[] => {
   let filteredData = [...data];
 
   Object.entries(filters).forEach(([type, value]) => {
-    if (type === "room-type") {
+    if (type === "roomType") {
       filteredData = filteredData.filter((item) => item.roomType === value);
     }
 
@@ -96,7 +96,7 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
       );
     }
 
-    if (type === "date-range" || type === "custom") {
+    if (type === "dateCompleted" || type === "custom") {
       const { startDate, endDate } = value as unknown as DateRangeType;
 
       const start = startDate ? new Date(`${startDate}T00:00:00`) : -Infinity;
@@ -125,16 +125,16 @@ export const applyFilters = (filters: selectedFilterProps, data: TableDataRow[])
       });
     }
 
-    if (type === "unique-name" || type === "room-sid") {
+    if (["sid", "uniqueName", "hostName", "tags"].includes(type)) {
       const search = value as unknown as string[];
 
-      const key = type === "unique-name" ? "uniqueName" : "sid";
+      if (search.length > 0) {
+        filteredData = filteredData.filter((item) => {
+          const itemValue = (item[type as keyof ExtendedTableDataRow] as string).toLowerCase();
 
-      filteredData = filteredData.filter((item) => {
-        const itemValue = item[key].toLowerCase();
-
-        return search.some((searchValue) => itemValue === searchValue.toLowerCase());
-      });
+          return search.some((searchValue) => itemValue === searchValue.toLowerCase());
+        });
+      }
     }
   });
 

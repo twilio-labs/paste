@@ -49,6 +49,14 @@ export interface TableDataRow {
   dateCompleted: Date;
 }
 
+export interface ExtendedTableDataRow extends TableDataRow {
+  status: "Active" | "Completed" | "Scheduled" | "Cancelled";
+  hostName: string;
+  platform: string;
+  tags: "Training" | "Meeting" | "Support" | "External" | "Urgent" | "Recurring";
+  department: string;
+}
+
 export type FilterMapType = {
   [key: string]: {
     label: string;
@@ -70,23 +78,30 @@ export interface SampleDataGridProps {
   showDateTime?: boolean;
 }
 
+export interface ExtendedDataGridProps {
+  data: ExtendedTableDataRow[];
+  showDateTime?: boolean;
+}
+
 export type RoomTypes = "Group" | "WebRTC Go" | "Peer to Peer";
 export type ParticipantsType = { min: string; max: string };
 export type DateRangeType = { startDate: string; endDate: string };
 export type SearchFilterType = { search: string };
 
-export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType | Item[];
+export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType | Item[] | string[];
 
 export type FilterListType = Array<
-  "room-type" | "participants" | "date-range" | "search" | "custom" | "add-filters" | "room-sid" | "unique-name"
+  "roomType" | "participants" | "dateCompleted" | "search" | "custom" | "add-filters" | "sid" | "uniqueName"
 >;
 
 export interface FilterGroupProps {
   children?: never;
-  data: TableDataRow[];
+  data: ExtendedTableDataRow[] | TableDataRow[];
   withSearch?: boolean;
   onMoreFiltersClick?: () => void;
   filterList: FilterListType;
   addFiltersList?: FilterListType;
   recommendedFiltersList?: FilterListType;
+  extendedTable?: boolean;
+  selectedMoreFilters?: Record<string, string | string[]>;
 }

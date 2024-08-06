@@ -18,7 +18,7 @@ export const RoomTypeFilter: React.FC = ({
   return (
     <Box>
       <RadioGroup
-        name="room-type"
+        name="roomType"
         legend="Room type"
         helpText="Select one option"
         onChange={(value) => {
@@ -27,7 +27,7 @@ export const RoomTypeFilter: React.FC = ({
         value={selectedRoomType}
       >
         {roomTypes.map((roomType) => (
-          <Radio key={roomType} id={roomType} value={roomType} name="room-type" checked={selectedRoomType === roomType}>
+          <Radio key={roomType} id={roomType} value={roomType} name="roomType" checked={selectedRoomType === roomType}>
             {roomType}
           </Radio>
         ))}
@@ -41,7 +41,7 @@ export const RoomTypeFilter: React.FC = ({
               return;
             }
 
-            onApply("room-type", selectedRoomType);
+            onApply("roomType", selectedRoomType);
             popover.hide();
           }
         }}

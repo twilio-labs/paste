@@ -67,7 +67,7 @@ export const DateRangeFilter: React.FC = ({
               return;
             }
 
-            onApply("date-range", {
+            onApply("dateCompleted", {
               startDate,
               endDate,
             });
