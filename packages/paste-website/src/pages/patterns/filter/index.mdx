@@ -1,7 +1,7 @@
 export const meta = {
-  title: 'Filter group',
-  description: 'The filter group pattern allows the user to filter lists, tables, and any other collection of data.',
-  slug: '/patterns/filter-group/',
+  title: 'Filter',
+  description: 'The filter pattern allows the user to filter lists, tables, and any other collection of data.',
+  slug: '/patterns/filter/',
 };
 
 import {Anchor} from '@twilio-paste/anchor';
@@ -23,7 +23,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Filter group');
+  const feature = await getFeature('Filter');
   return {
     props: {
       data: {
@@ -101,6 +101,44 @@ import {Button} from '@twilio-paste/core/button';
 ## Usage
 
 ### General
+
+<StoryPreview
+  title="Basic Side Panel example"
+  storyID="website-filtergroupexamples--default-filter-group-example"
+  height="600px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
 
 The filter group pattern should be used when a user is presented with a page containing a large amount of data that they could be filtering or searching through.
 

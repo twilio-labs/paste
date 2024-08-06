@@ -7,7 +7,7 @@ import {
   filterByRoomType,
   filterBySearchString,
   isEndDateBeforeStartDate,
-} from "../component-examples/filter-group/helpers";
+} from "../component-examples/filter/helpers";
 
 describe("filterBySearchString", () => {
   it("should filter by unique name", () => {
