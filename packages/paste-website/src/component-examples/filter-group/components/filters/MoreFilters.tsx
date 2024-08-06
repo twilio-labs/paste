@@ -200,6 +200,7 @@ export const MoreFilters: React.FC = () => {
             }}
             extendedTable
             selectedMoreFilters={selectedMoreFilters}
+            setSelectedMoreFilters={setSelectedMoreFilters}
           />
         </Box>
       </SidePanelPushContentWrapper>
