@@ -70,7 +70,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon100</small>
@@ -85,7 +85,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon90</small>
@@ -180,7 +180,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon100</small>
@@ -195,7 +195,7 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon90</small>
