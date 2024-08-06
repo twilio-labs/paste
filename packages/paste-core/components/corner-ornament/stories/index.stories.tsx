@@ -6,6 +6,7 @@ import { Heading } from "@twilio-paste/heading";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { FileVideoIcon } from "@twilio-paste/icons/esm/FileVideoIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { NotificationIcon } from "@twilio-paste/icons/esm/NotificationIcon";
 import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Stack } from "@twilio-paste/stack";
@@ -60,7 +61,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon110</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon110">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon110" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -69,13 +70,13 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon100</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon100">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon100" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -84,13 +85,13 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon90</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon90">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon90" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -105,7 +106,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon80" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -120,7 +121,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon70">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon70" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -135,7 +136,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon60</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon60">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon60" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -150,7 +151,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon50">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon50" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -170,7 +171,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon110</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon110" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon110" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon110" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -179,13 +180,13 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon100</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon100" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon100" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon100" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -194,13 +195,13 @@ export const SupportedBadge = (): React.ReactNode => {
               </Badge>
             </CornerOrnament>
           </CornerOrnamentContainer>
-          <small>badge size=&quot;defaul&quot;</small>
+          <small>badge size=&quot;default&quot;</small>
         </Box>
         <Box>
           <small>sizeIcon90</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon90" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon90" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon90" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -215,7 +216,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon80</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon80" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon80" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -230,7 +231,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon70</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon70" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon70" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon70" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -245,7 +246,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon60</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon60" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon60" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon60" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
@@ -260,7 +261,7 @@ export const SupportedBadge = (): React.ReactNode => {
           <small>sizeIcon50</small>
           <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon50" position="top_end">
             <CornerOrnamentBase>
-              <Avatar size="sizeIcon50" src="./avatars/avatar8.png" name="Paste brand" />
+              <NotificationIcon size="sizeIcon50" title="notification" decorative={false} />
             </CornerOrnamentBase>
             <CornerOrnament>
               <ScreenReaderOnly>notification value</ScreenReaderOnly>
