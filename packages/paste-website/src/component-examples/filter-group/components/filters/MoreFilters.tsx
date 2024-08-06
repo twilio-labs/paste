@@ -103,7 +103,7 @@ const DisclosureFilter = ({
             <Box as="span">{filter.label}</Box>
 
             {selectedCount ? (
-              <Badge as="span" variant="neutral_counter" size="small">
+              <Badge as="span" variant="neutral_counter">
                 Selected {filter.type === "status" ? 1 : selectedCount}
               </Badge>
             ) : null}

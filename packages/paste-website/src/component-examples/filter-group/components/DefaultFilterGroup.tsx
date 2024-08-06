@@ -73,7 +73,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   function handleClearAll(): void {
     setSelectedFilters({});
-    setSelectedMoreFilters({});
+    setSelectedMoreFilters?.({});
     setFilteredTableData(data);
   }
 
@@ -119,7 +119,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   };
 
   return (
-    <Box paddingBottom="space70">
+    <Box padding="space50">
       {withSearch ? (
         <Box marginBottom="space50" maxWidth="size30">
           <SearchFilter
