@@ -1,6 +1,6 @@
 export const meta = {
   title: 'Filter',
-  description: 'The filter pattern allows the user to filter lists, tables, and any other collection of data.',
+  description: 'Filters enable users to narrow down and refine results across various types of content pages, including rich content pages, data tables, lists, data insights, and more.',
   slug: '/patterns/filter/',
 };
 
@@ -10,7 +10,6 @@ import {Card} from '@twilio-paste/card';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import {
@@ -18,6 +17,15 @@ import {
 } from '../../../component-examples/filter/Examples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import MainImage from '../../../assets/images/patterns/filter-main.png';
+import UsageImage from '../../../assets/images/patterns/filter-usage.png';
+import FilterBarImage from '../../../assets/images/patterns/filter-filter_bar.png';
+import FetchingImage from '../../../assets/images/patterns/filter-fetching.png';
+import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
+import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
+import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 
 export default DefaultLayout;
 
@@ -45,6 +53,8 @@ export const getStaticProps = async () => {
 <PageAside data={mdxHeadings} />
 
 <content>
+
+<ResponsiveImage src={MainImage} alt="a demo page with filter pattern" />
 
 ## Ingredients
 
@@ -99,11 +109,65 @@ import {Button} from '@twilio-paste/core/button';
 ```
 
 ## Usage
-
 ### General
 
+The filter pattern should be used when a user is presented with a page containing a large amount of data that they could be filtering or searching through. The filter parameters and functionality you can surface to the user will be highly dependent on the page use case.
+
+This pattern provides recommendations for selection methods, layout, and behavior to reduce complexity and improve user efficiency when using different types of filters in a feature. Before adding filters to your feature, it's essential to:
+
+- Familiarize yourself with your feature’s filter values and categories.
+  - List all filtering criteria available.
+  - Map out the relationships between different filters and choose the ones that will be part of your feature. Remember filters should give users a sense of control and not overwhelm them.
+  - Define filter categories.
+  “A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized.” [Defining Helpful Filter Categories and Values for Better UX](https://www.nngroup.com/articles/filter-categories-values/).
+
+  <ResponsiveImage src={UsageImage} alt="The filter category label should be the same as the form field label" />
+
+  - Check our [Form documentation](/components/form#selection-methods) to choose the best Selection Method for your filter use case.
+- Determine users' intent and their relationship with the product and dataset.
+  - Categorize filters into the most relevant and commonly used filters versus the more advanced or less used ones.
+  - Determine how many different types of users will access the feature and how much the filtering criteria will vary from use case to use case. If necessary, consider allowing users to [add custom filters](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.h0q1xjjeczp) to provide a more tailored experience.
+  - Identify any filter values that naturally lead to additional refinement options, and consider implementing [conditional filters](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.ml9y8ac3naoj).
+- Work with your engineer to determine any technical constraints.
+  - Ensure you have a good understanding of how the data is set up, including which filtering behaviors and combinations are not possible.
+  - Evaluate carefully the best filtering behavior for [fetching results](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.13p2794htv04). Keep in mind user intent, but also loading times and the size of the dataset.
+  - Ensure that all filter options correspond to data present in the results. Avoid including filters for data that are not visible or accessible within the dataset.
+  - Evaluate the expected growth of your filtering criteria and ensure it can manage larger datasets without notable performance decline.
+
+
+### Accessibility
+
+When using the filter pattern, ensure that users:
+- Can easily identify and understand labels for each selection method, filter value, or category.
+- Are notified of state changes. For example, when a button changes from the disabled state to the default state, or when the dataset enters a loading state.
+- Can complete all actions with the keyboard.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Check accessibility considerations for each component part of the filter feature, for example if you’re using Time Picker check its accessibility guidelines and make sure to follow.
+  </CalloutText>
+</Callout>
+
+## Variations
+
+### Filter bar
+
+A filter bar is the default way of displaying filters
+
+Use it when all filters are relevant and necessary to the search. It can also be used in combination with a [More filters Side Panel](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.2te8zormvjon) when there are secondary filter criteria.
+
+#### Ingredients
+- Heading
+- Form Pill Group
+- Detail Text (for number of results)
+- Link-style Button (for clearing results)
+- Popover
+- Form and other form field components
+- Primary Button (for applying filters)
+- Secondary Button (for clearing filters)
+
 <StoryPreview
-  title="Basic Side Panel example"
+  title="Filter bar example"
   storyID="website-filtergroupexamples--default-filter-group-example"
   height="600px"
   code={`
@@ -140,107 +204,309 @@ export const SidePanelExample = (): React.ReactNode => {
 }`}
 />
 
-The filter group pattern should be used when a user is presented with a page containing a large amount of data that they could be filtering or searching through.
+#### Surfacing results
+- When a filter value is selected by the user, the corresponding Form Pill will enter a selected state.
+- When a single filter value is selected, the filter updates to display the name of the selected filter.
+- When two or more filter values are selected per filter category, the total number of selected filters will be displayed in a counter badge.
+- In some scenarios, it is necessary to have filter values pre-selected by default to display results. Since the selection was not made by the user, the Form Pill will remain in its default state, displaying the pre-selected filter value.
 
-Which filter parameters and functionality you can surface to the user will be highly dependent on the page use case. This pattern should serve as a guide to start with as you design and build your filter group, but will likely be very unique to your specific product or use case.
-
-Be judicious in which filters you make available for your users to represent the most common methods they would be using to reduce the entire data set. Filters being included in the filter group should almost always represent data being displayed in the page data set.
-
-<DefaultFilterGroupExample />
-
-### Accessibility
-
-The filter group pattern relies on the accessibility features built into components included in the group.
-
-When using the filter group, ensure that users:
-
-- Can easily identify and understand labels for each control
-- Are notified of state changes. For example, when a button changes from the disabled state to the default state
-- Can complete all actions with the keyboard
-
-## Variations
-
-### Simple table filtering
-
-**Simple table filtering** should be used when you have a table (or data grid) of data and want to allow users
-to temporarily filter and/or search for a subset of the dataset for viewing or analysis. This variant should be used when
-you have a specific amount of parameters you want to allow users to filter by, and not allow users to add their own custom
-query logic.
-
-The following states/logic should be used in your filter group:
-
-- The default value for all filters should be the “All” option, and when the “Clear all” link style button is clicked it should revert all filter parameters back to this default state. The only filter that should have a different default would be the date / time select, which would instead show the default time range your team designated.
-- The filters would all be applied as a single call when the “Apply” button is clicked, instead of filtering the table each time a single filter parameter value is selected.
-- It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
-- The “Apply” and “Clear all” buttons should be in the disabled state on page load, and would enable when at least one of the filter parameters value is changed from the previous state.
-- When using the search input field, users can submit a search by hitting the “enter” key. If the search input is for live filtering, results should update immediately upon load without hitting enter, while being mindful of performance.
-
-Always consider opportunities to reduce cognitive load by limiting the number of filters presented. For the simple table filter group we recommend including no more than 5 filters. If you need to include more than 5 filters, please refer to the [complex table filtering](#complex-table-filtering) variation.
-
-#### Default state
-
-<DefaultFilterGroupExample />
-
-#### Dos and Don'ts
+ <ResponsiveImage src={FilterBarImage} alt="The filter bar has different states based on interaction" />
 
 <DoDont>
-  <Do title="Do" body="Include up to 5 filters in the simple table filter group." />
-  <Dont title="Don't" body="Don’t Include more than 5 filters in the simple table filter group." />
+  <Do title="Do" body="Arrange filters in a way that mirrors how users think about and interact with the data." />
+  <Do title="Do" body="Arrange filter values in a logical order; for example, dates should be in chronological order and names should be in alphabetical order." />
+  <Dont title="Don't" body="The filter bar is designed to provide prioritized, essential filters for quick application. Avoid adding too many filters, as this can clutter the screen and make it harder for users to find relevant information." />
 </DoDont>
+
+### More filters Side Panel
+
+Use it in scenarios where the list of filters is extensive and there are filters that are not a priority to the search. Prioritize the most relevant and commonly used filters in the filter bar for visibility, while offering more/advanced filtering options in a Side Panel.
+
+#### Ingredients
+- Secondary rounded Button (for more filters)
+- Side Panel
+- Neutral Counter Badge
+- Dismissible Form Pill Group (for showing filter selections)
+- Disclosure (for filter categories)
+- Link-style Button (for clearing results)
+
+<StoryPreview
+  title="More filters Side Panel example"
+  storyID="website-filtergroupexamples--more-filter-group-example"
+  height="600px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
+
+#### Surfacing results
+
+- In the “More filters” Side Panel when filters are selected a counter Badge will be displayed in the right corner of the filter value (disclosure).
+- “More filters” Button will have a counter Badge with the number of selected filter values.
 
 <DoDont>
-  <Do
-    title="Do"
-    body="The search input should utilize the placeholder copy to make it very obvious to users what they should enter into the field to search."
-  />
-  <Dont title="Don't" body="Don’t use vague placeholder copy in the search field." />
+  <Do title="Do" body="Ensure that the filters in the Filter bar and those in the Side Panel are independent and won’t need to be applied along with another filter criteria to return relevant results." />
+  <Dont title="Don't" body="Don’t use a “More Filters” Side Panel for less than three additional filters." />
 </DoDont>
 
-<DoDont>
-  <Do
-    title="Do"
-    body="The search input should be labeled directly using aria-label, so it’s accessible. By doing this, it’s not necessary to include a visible label."
-  />
-  <Dont title="Don't" body="Don’t add a visible label to the search input." />
-</DoDont>
+### Add filters
 
-### Complex table filtering
-
-**Complex table filtering** is for users who are adding more than 5 filter parameters, multi-select filter criteria,
-selecting custom query rules, and/or creating complex if/else logic without code to filter down a large data table.
+Add filters allow users to add a filter value from a predefined list of filter options. Use it in scenarios where the list of filters may not be relevant to all personas or the user would benefit from creating their own filters set.
 
 <Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">This pattern is coming soon!</CalloutHeading>
+  <CalloutHeading as="h4">Demo is coming soon!</CalloutHeading>
+</Callout>
+
+#### Surfacing results
+
+- Selected filters will be added to the filter bar where they will become functional.
+- Added filters behave as a normal filter with the only difference being they can be removed
+  - Added filters can be removed through the “Add filters” Popover or through the specific filter’s Popover.
+
+<DoDont>
+  <Do title="Do" body="Limit the primary display to max 3 prioritized filters, and offer the option to add custom filters. This behavior is designed to provide users with more choice and not overwhelm them with excessive always visible options." />
+  <Dont title="Don't" body="When your use case includes a &quot;more filters&quot; panel, avoid prompting users to add more filters, as the existing filter selection should already meet their filtering needs." />
+</DoDont>
+
+## Composition
+
+### Combining search and filters
+
+If there is search functionality, it should always take priority over filters. The search should be placed higher in the hierarchy, with the expectation that users will search first and then use the filters to refine and narrow down the search results.
+
+<StoryPreview
+  title="Filter with search example"
+  storyID="website-filtergroupexamples--search-filter-group-example"
+  height="600px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
+
+### Conditional filters
+
+A conditional filter is a type of filter that becomes available based on the initial filter selections made by the user.
+
+<StoryPreview
+  title="Conditional filter example"
+  storyID="website-filtergroupexamples--conditional-filter-group-example"
+  height="600px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
+
+Use it when filter selections naturally lead to additional criteria, or where certain filter formulas are only necessary for very specific use cases.
+
+<DoDont>
+  <Do title="Do" body="Consider the performance implications of loading conditional filters." />
+  <Do title="Do" body="Only one conditional filter should be expanded at a time." />
+  <Dont title="Don't" body="Don’t use conditional filtering for essential filter criteria." />
+</DoDont>
+
+## Behavior
+
+### Fetching results
+
+#### Batch filtering
+
+Requires the user to click an “apply” button to see the results.
+
+ <ResponsiveImage src={FetchingImage} alt="The filter bar supports batch filtering of results on click of apply" />
+
+
+When to use:
+- Use when there are categories with multiple interdependent filter values, and the user might want to take more time selecting the right group of filters.
+- Use when the dataset cannot be refreshed automatically and the system needs time to load the data.
+- Use when you want to prevent 'no results' scenarios.
+
+Loading Results:
+
+Once the user clicks the Apply button, the popover will automatically close, and a loading screen will be displayed until the data is fully loaded. It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
+
+#### Dynamic filtering
+
+Filters are applied as soon as a filter selection is made.
+
+ <ResponsiveImage src={DynamicImage} alt="The filter bar also supports batch filtering of results as soon as selection is made" />
+
+
+When to use:
+- Use when the filter experience is more explorative and users need to play around with the filters to find their desired results.
+- Use when the user is expected to make quick and several filter changes during the task.
+
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
-    We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
-    consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.
+    Be cautious when dynamically updating results, as they can divert user attention.
   </CalloutText>
 </Callout>
 
-### Insights page filtering
+Loading Results:
 
-**Insights filtering** is for users who are adding deeper query logic for their Insights products.
+Dynamic filtering is designed to allow users to experiment with different filters. The Popover will remain open until the user closes it, while the results load in the background.
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">This pattern is coming soon!</CalloutHeading>
-  <CalloutText>
-    We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
-    consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.
-  </CalloutText>
-</Callout>
+### Empty States
 
-## Starter kits
+When the applied filters and/or search does not return any results, use the [Empty State pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
 
-- [Figma](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/?node-id=1391%3A47182)
-- [Default CodeSandbox example](https://codesandbox.io/s/default-filter-group-rloskb?file=/src/App.tsx)
-- [Empty state CodeSandbox example](https://codesandbox.io/s/empty-state-filter-group-e3pvdu?file=/src/App.tsx)
-- [Custom date range CodeSandbox example](https://codesandbox.io/s/custom-date-time-filter-group-unsgkp?file=/src/App.tsx)
+<StoryPreview
+  title="Conditional filter example"
+  storyID="website-filtergroupexamples--no-result-example"
+  height="600px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter>
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
 
-## Related discussions
+### Clearing Filters
 
-- https://github.com/twilio-labs/paste/discussions/2017
-- https://github.com/twilio-labs/paste/discussions/1979
-- https://github.com/twilio-labs/paste/discussions/1702
+A clear filter option will be available when filters are selected. By default, "clear all filters" will remove all filter criteria and display all results. In use cases where there is a selected filter value by default, "clear all filters" will reset the filters to their default state.
+
+<DoDont>
+  <Do title="Do" body="Provide ways to clear all filters as a global action." />
+  <Do title="Do" body="Provide ways to clear all filters on a filter category level." />
+</DoDont>
+
+### Responsive
+
+On mobile screens, consolidate all filter options under a "Filter" button to optimize screen space and usability.
+
+ <ResponsiveImage src={Responsive1Image} alt="On smaller screens, filter modal will take full width" />
+
+
+On responsive screens, filter pills will stack vertically to make better use of available space. All action buttons (such as "More filters", “Add Filters”, "Clear All” and “table actions") to the last row on responsive screens to maintain a clean and organized layout.
+
+ <ResponsiveImage src={Responsive2Image} alt="filter pills will stack vertically to make better use of available space" />
+
+
+## Usage Guide
+
+### Figma
+
+#### Example
+
+Form Pill Group is available in the Paste Components Figma library. It has 1 base component, Form Pill, with a ⚙️ emoji in its layer name to indicate there are nested configurable properties available.
+
+In code, when there are more pills than the max width, they will wrap to the next row. To accomplish the same behavior in Figma, please use the `Row count` property to select a number of rows, or place multiple Form Pill Group components under one another.
+
+Form Pill Group also contains other Paste components as nested components, including [Avatar](/components/avatar) and [Icon](/components/icons).
+
 
 </content>
 
