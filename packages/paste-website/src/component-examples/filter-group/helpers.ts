@@ -84,8 +84,8 @@ export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDa
   let filteredData = [...data];
 
   Object.entries(filters).forEach(([type, value]) => {
-    if (type === "roomType") {
-      filteredData = filteredData.filter((item) => item.roomType === value);
+    if (["roomType", "status"].includes(type) && value !== "") {
+      filteredData = filteredData.filter((item) => item[type as keyof ExtendedTableDataRow] === value);
     }
 
     if (type === "participants") {
