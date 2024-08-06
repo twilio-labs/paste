@@ -1,0 +1,67 @@
+export const meta = {
+  title: 'Corner Ornament',
+  package: '@twilio-paste/corner-ornament',
+  description: 'Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.',
+  slug: '/components/corner-ornament/api',
+};
+
+import Changelog from '@twilio-paste/corner-ornament/CHANGELOG.md';
+import packageJson from '@twilio-paste/corner-ornament/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Corner ornament');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/corner-ornament');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/corner-ornament',
+        storybookUrl: '/?path=/story/components-corner-ornament--supported-badge',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/corner-ornament - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from '@twilio-paste/core/corner-ornament';
+
+export const Example = () => {
+  return (
+    <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
+      <CornerOrnamentBase>
+        // Your ornament base here
+      </CornerOrnamentBase>
+      <CornerOrnament>
+        <ScreenReaderOnly>{Your accessible reader value here}</ScreenReaderOnly>
+        // Your corner ornament here
+      </CornerOrnament>
+    </CornerOrnamentContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
