@@ -23,7 +23,7 @@ import { HostNameFilter } from "./HostNameFilter";
 import { StatusFilter } from "./StatusFilter";
 import { TagsFilter } from "./TagsFilter";
 
-const moreFilterDefaultList: FilterListType = ["roomType", "participants", "dateCompleted"];
+const moreFilterDefaultList: FilterListType = ["roomType", "participants", "dateCompleted", "department", "platform"];
 
 const moreFiltersSideModal = [
   {

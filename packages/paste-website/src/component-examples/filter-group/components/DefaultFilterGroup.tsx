@@ -27,7 +27,9 @@ import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
 import { DateRangeFilter } from "./filters/DateRangeFilter";
+import { DepartmentFilter } from "./filters/DepartmentFilter";
 import { ParticipantsFilter } from "./filters/ParticipantsFilter";
+import { PlatformFilter } from "./filters/PlatformFilter";
 import { RoomSidFilter } from "./filters/RoomSidFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
@@ -105,6 +107,14 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     uniqueName: {
       label: "Unique Name",
       component: UniqueNameFilter,
+    },
+    department: {
+      label: "Department",
+      component: DepartmentFilter,
+    },
+    platform: {
+      label: "Platform",
+      component: PlatformFilter,
     },
   };
 
