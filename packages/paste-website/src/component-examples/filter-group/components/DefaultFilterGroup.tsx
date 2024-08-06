@@ -1,5 +1,6 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
@@ -32,6 +33,19 @@ import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
 import { UniqueNameFilter } from "./filters/UniqueNameFilter";
 
+function countMoreFilters(selectedMoreFilters: Record<string, string | string[]>): number {
+  let count = 0;
+  for (const key in selectedMoreFilters) {
+    if (Array.isArray(selectedMoreFilters[key])) {
+      if (selectedMoreFilters[key].length > 0) count += 1;
+    } else {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
 // Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
   data,
@@ -42,6 +56,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   onMoreFiltersClick,
   extendedTable,
   selectedMoreFilters,
+  setSelectedMoreFilters,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
@@ -56,6 +71,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
   function handleClearAll(): void {
     setSelectedFilters({});
+    setSelectedMoreFilters({});
     setFilteredTableData(data);
   }
 
@@ -195,7 +211,14 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
 
         {onMoreFiltersClick ? (
           <Button variant="secondary" size="rounded_small" onClick={onMoreFiltersClick}>
-            More filters
+            <Box display="flex" alignItems="center" columnGap="space20">
+              More filters
+              {selectedMoreFilters && countMoreFilters(selectedMoreFilters) > 0 ? (
+                <Badge as="span" variant="neutral_counter" size="small">
+                  {countMoreFilters(selectedMoreFilters)}
+                </Badge>
+              ) : null}
+            </Box>
           </Button>
         ) : null}
       </FormPillGroup>
@@ -207,7 +230,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
               {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
             </Text>
           </DetailText>
-          {Object.keys(selectedFilters).length > 0 ? (
+          {filteredTableData.length !== data.length ? (
             <Button variant="link" onClick={handleClearAll}>
               Clear all
             </Button>
