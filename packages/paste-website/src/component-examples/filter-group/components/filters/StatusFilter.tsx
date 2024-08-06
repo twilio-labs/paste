@@ -14,6 +14,10 @@ export const StatusFilter: React.FC<{
     selectedMoreFilters ? (selectedMoreFilters.status as string) || "" : "",
   );
 
+  React.useEffect(() => {
+    setValue(selectedMoreFilters ? (selectedMoreFilters.status as string) || "" : "");
+  }, [selectedMoreFilters]);
+
   return (
     <Box>
       <RadioGroup

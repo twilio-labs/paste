@@ -120,8 +120,15 @@ const DisclosureFilter = ({
 
 export const MoreFilters: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [tempSelectedMoreFilters, setTempSelectedMoreFilters] = React.useState<Record<string, string | string[]>>({});
   const [selectedMoreFilters, setSelectedMoreFilters] = React.useState<Record<string, string | string[]>>({});
   const sidePanelId = useUID();
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setTempSelectedMoreFilters(selectedMoreFilters);
+    }
+  }, [isOpen]);
 
   return (
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -146,8 +153,8 @@ export const MoreFilters: React.FC = () => {
                 <DisclosureFilter
                   key={filter.label}
                   filter={filter}
-                  selectedMoreFilters={selectedMoreFilters}
-                  setSelectedMoreFilters={setSelectedMoreFilters}
+                  selectedMoreFilters={tempSelectedMoreFilters}
+                  setSelectedMoreFilters={setTempSelectedMoreFilters}
                 />
               );
             })}
@@ -158,6 +165,7 @@ export const MoreFilters: React.FC = () => {
             <Button
               variant="primary"
               onClick={() => {
+                setSelectedMoreFilters(tempSelectedMoreFilters);
                 setIsOpen(false);
               }}
             >
@@ -166,9 +174,8 @@ export const MoreFilters: React.FC = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                setSelectedMoreFilters(() => {
-                  return {};
-                });
+                const temp = {};
+                setTempSelectedMoreFilters(temp);
               }}
             >
               Clear all

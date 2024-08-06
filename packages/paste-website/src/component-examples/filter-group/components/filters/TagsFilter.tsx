@@ -14,6 +14,10 @@ export const TagsFilter: React.FC<{
     selectedMoreFilters ? (selectedMoreFilters?.tags as string[]) || [] : [],
   );
 
+  React.useEffect(() => {
+    setValues(selectedMoreFilters ? (selectedMoreFilters?.tags as string[]) || [] : []);
+  }, [selectedMoreFilters]);
+
   return (
     <Box>
       <CheckboxGroup name="recently-used-tags" legend={label}>

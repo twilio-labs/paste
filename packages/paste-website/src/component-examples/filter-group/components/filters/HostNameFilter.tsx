@@ -47,7 +47,7 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({
       setSelectedMoreFilters((prev) => {
         return {
           ...prev,
-          hostName: (comboboxItems.selectedItems as any) || [],
+          hostName: (comboboxItems.selectedItems as string[]) || [],
         };
       });
       return comboboxItems.selectedItems;
@@ -59,6 +59,10 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({
     initialSelectedItems: (selectedMoreFilters && (selectedMoreFilters.hostName as Item[])) || [],
     onSelectedItemsChange,
   });
+
+  React.useEffect(() => {
+    state.setSelectedItems((selectedMoreFilters && (selectedMoreFilters.hostName as Item[])) || []);
+  }, [selectedMoreFilters]);
 
   return (
     <Box>
