@@ -6,7 +6,7 @@ import { DefaultFilterGroup } from "./components/DefaultFilterGroup";
 import { TABLE_DATA } from "./constants";
 import type { FilterListType } from "./types";
 
-const filterList: FilterListType = ["room-type", "participants", "date-range"];
+const filterList: FilterListType = ["roomType", "participants", "dateCompleted"];
 
 export const DefaultFilterGroupExample = (): JSX.Element => (
   <Box marginBottom="space70" data-cy="filter-group-default-example">

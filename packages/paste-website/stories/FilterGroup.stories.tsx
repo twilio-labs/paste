@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { DefaultFilterGroup } from "../src/component-examples/filter-group/components/DefaultFilterGroup";
-import { MoreFilters } from "../src/component-examples/filter-group/components/filters/MoreFilters";
-import { STATIC_TABLE_DATA } from "../src/component-examples/filter-group/constants";
-import type { FilterListType } from "../src/component-examples/filter-group/types";
+import { DefaultFilterGroup } from "../src/component-examples/filter/components/DefaultFilterGroup";
+import { MoreFilters } from "../src/component-examples/filter/components/filters/MoreFilters";
+import { STATIC_TABLE_DATA } from "../src/component-examples/filter/constants";
+import type { FilterListType } from "../src/component-examples/filter/types";
 
 export default {
   title: "Website/FilterGroupExamples",
