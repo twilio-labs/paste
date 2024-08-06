@@ -37,7 +37,7 @@ const FeaturedExample = () => {
         </CornerOrnamentContainer>
         <CornerOrnamentContainer cornerOrnamentType="avatar" size="sizeIcon80">
             <CornerOrnamentBase>
-                <DataTableIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
+                <DataTableIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="data table" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <Avatar
