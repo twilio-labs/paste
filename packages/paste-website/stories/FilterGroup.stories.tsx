@@ -14,13 +14,25 @@ export const DefaultFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
 };
 
+DefaultFilterGroupExample.parameters = {
+  padding: false,
+};
+
 export const SearchFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} withSearch filterList={filterList} />;
+};
+
+SearchFilterGroupExample.parameters = {
+  padding: false,
 };
 
 export const ConditionalFilterGroupExample = (): JSX.Element => {
   const conditionalFilterList: FilterListType = ["roomType", "participants", "custom"];
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
+};
+
+ConditionalFilterGroupExample.parameters = {
+  padding: false,
 };
 
 /*
@@ -41,4 +53,8 @@ export const ConditionalFilterGroupExample = (): JSX.Element => {
 
 export const MoreFilterGroupExample = (): JSX.Element => {
   return <MoreFilters />;
+};
+
+MoreFilterGroupExample.parameters = {
+  padding: false,
 };

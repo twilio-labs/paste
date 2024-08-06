@@ -116,5 +116,5 @@ export interface FilterGroupProps {
   recommendedFiltersList?: FilterListType;
   extendedTable?: boolean;
   selectedMoreFilters?: Record<string, string | string[]>;
-  setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
+  setSelectedMoreFilters?: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
 }
