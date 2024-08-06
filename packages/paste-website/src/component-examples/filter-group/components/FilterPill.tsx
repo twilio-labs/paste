@@ -11,7 +11,7 @@ const FilterPillView: React.FC<{
   selectedType: string | null;
   selectedValue: selectedFilterProps;
 }> = ({ label, selectedType, selectedValue }) => {
-  if (selectedType === "room-type" && typeof selectedValue === "string") {
+  if (selectedType === "roomType" && typeof selectedValue === "string") {
     return (
       <span>
         {label}: {selectedValue}
@@ -29,7 +29,7 @@ const FilterPillView: React.FC<{
     );
   }
 
-  if (selectedType === "date-range" || selectedType === "custom") {
+  if (selectedType === "dateCompleted" || selectedType === "custom") {
     const { startDate, endDate } = selectedValue as { startDate: string; endDate: string };
 
     if (endDate === "") {
@@ -55,7 +55,7 @@ const FilterPillView: React.FC<{
     );
   }
 
-  if (selectedType === "unique-name") {
+  if (selectedType === "uniqueName") {
     return (
       <Box display="flex" alignItems="center">
         {label}

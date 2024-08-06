@@ -125,7 +125,7 @@ export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDa
       });
     }
 
-    if (["sid", "uniqueName", "hostName", "tags"].includes(type)) {
+    if (["sid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
       const search = value as unknown as string[];
 
       if (search.length > 0) {

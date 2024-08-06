@@ -52,9 +52,9 @@ export interface TableDataRow {
 export interface ExtendedTableDataRow extends TableDataRow {
   status: "Active" | "Completed" | "Scheduled" | "Cancelled";
   hostName: string;
+  department: string;
   platform: string;
   tags: "Training" | "Meeting" | "Support" | "External" | "Urgent" | "Recurring";
-  department: string;
 }
 
 export type FilterMapType = {
@@ -91,7 +91,19 @@ export type SearchFilterType = { search: string };
 export type selectedFilterProps = RoomTypes | ParticipantsType | DateRangeType | SearchFilterType | Item[] | string[];
 
 export type FilterListType = Array<
-  "roomType" | "participants" | "dateCompleted" | "search" | "custom" | "add-filters" | "sid" | "uniqueName"
+  | "roomType"
+  | "participants"
+  | "dateCompleted"
+  | "sid"
+  | "uniqueName"
+  | "hostName"
+  | "status"
+  | "tags"
+  | "platform"
+  | "department"
+  | "custom"
+  | "search"
+  | "add-filters"
 >;
 
 export interface FilterGroupProps {
