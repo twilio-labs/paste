@@ -99,8 +99,9 @@ The Corner Ornament component contains these elements:
 ### Accessibility
 
 Make sure Corner Ornaments clearly communicate to assistive technology what is being represented in the ornament. Ways to do this include:
-For Badges or notifications, use the [Screen Reader Only](/components/screen-reader-only) component to wrap visually-hidden text.
-For [icons](/components/icon/usage-guidelines#accessibility), specify that the icon is informative and give it a title.
+
+- For Badges or notifications, use the [Screen Reader Only](/components/screen-reader-only) component to wrap visually-hidden text.
+- For [icons](/components/icon/usage-guidelines#accessibility), specify that the icon is informative and give it a title.
 
 ### Placement
 
@@ -116,7 +117,7 @@ Position the ornament at the top when it takes priority over its element, and at
 
 ### Hiding Corner Ornament
 
-Hiding the ornament and removing the cutout are not supported by this component. Since this component is composable and the base element you are wrapping will look the same if you remove the corner ornament, we recommend removing the Corner Ornament components from the DOM tree if you want to hide the ornament.
+Since this component is composable and the base component you are wrapping will look the same if you remove the ornament, we recommend removing the Corner Ornament components from the DOM tree if you want to hide the ornament. Hiding the ornament and removing the cutout are not supported by this component.
 ## Variants
 
 ### Badges as Corner Ornaments
@@ -191,7 +192,7 @@ Use these size pairings for pairing base components with Badges:
 For item counts, make sure that you have a layout strategy for overflowing count text. This can include:
 
 - Using a “+” sign when reaching double- or triple-digits, such as “9+” items
-- Not using a corner ornament at all. Instead, place the counter Badge next to the element
+- Not using a Corner Ornament at all. Instead, place the counter Badge next to the element
 - For notification use cases, if showing count isn’t important, use NotificationOrnamentIcon as a Corner Ornament instead.
 
 <LivePreview
@@ -217,7 +218,7 @@ For item counts, make sure that you have a layout strategy for overflowing count
 
 Use icons as Corner Ornaments to show statuses or states.
 
-When using an icon as a corner ornament, make sure it has a color that has a 3:1 contrast ratio with the background.
+When using an icon as an ornament, make sure it has a color that has a 3:1 contrast ratio with the background.
 
 <LivePreview
   scope={{
