@@ -1,5 +1,7 @@
 import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
 import { Separator } from "@twilio-paste/separator";
@@ -7,22 +9,23 @@ import {
   SidePanel,
   SidePanelBody,
   SidePanelContainer,
+  SidePanelFooter,
   SidePanelHeader,
   SidePanelPushContentWrapper,
 } from "@twilio-paste/side-panel";
 import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
-import { STATIC_TABLE_DATA } from "../../constants";
+import { EXTENDED_STATIC_TABLE_DATA } from "../../constants";
 import type { FilterListType } from "../../types";
 import { DefaultFilterGroup } from "../DefaultFilterGroup";
 import { HostNameFilter } from "./HostNameFilter";
 import { StatusFilter } from "./StatusFilter";
 import { TagsFilter } from "./TagsFilter";
 
-const conditionalFilterList: FilterListType = ["room-type", "date-range"];
+const moreFilterDefaultList: FilterListType = ["roomType", "participants", "dateCompleted"];
 
-const moreFilters = [
+const moreFiltersSideModal = [
   {
     label: "Host names",
     type: "combobox",
@@ -54,6 +57,8 @@ const disclosureMap: {
     label: string;
     items: string[];
     setSelectedCount: (count: number | null) => void;
+    setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
+    selectedMoreFilters?: Record<string, string | string[]>;
   }>;
 } = {
   combobox: HostNameFilter,
@@ -63,6 +68,8 @@ const disclosureMap: {
 
 const DisclosureFilter = ({
   filter,
+  setSelectedMoreFilters,
+  selectedMoreFilters,
 }: {
   filter: {
     label: string;
@@ -70,6 +77,8 @@ const DisclosureFilter = ({
     items: string[];
     isOpen?: boolean;
   };
+  setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
+  selectedMoreFilters: Record<string, string | string[]>;
 }): React.ReactElement => {
   const [selectedCount, setSelectedCount] = React.useState<null | number>(null);
 
@@ -100,6 +109,8 @@ const DisclosureFilter = ({
             label={filter.label}
             items={filter.items}
             setSelectedCount={setSelectedCount}
+            setSelectedMoreFilters={setSelectedMoreFilters}
+            selectedMoreFilters={selectedMoreFilters}
           />
         </DisclosureContent>
       </Disclosure>
@@ -109,6 +120,7 @@ const DisclosureFilter = ({
 
 export const MoreFilters: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [selectedMoreFilters, setSelectedMoreFilters] = React.useState<Record<string, string | string[]>>({});
   const sidePanelId = useUID();
 
   return (
@@ -129,22 +141,52 @@ export const MoreFilters: React.FC = () => {
             marginBottom="space70"
             width="100%"
           >
-            {moreFilters.map((filter) => {
-              return <DisclosureFilter key={filter.label} filter={filter} />;
+            {moreFiltersSideModal.map((filter) => {
+              return (
+                <DisclosureFilter
+                  key={filter.label}
+                  filter={filter}
+                  selectedMoreFilters={selectedMoreFilters}
+                  setSelectedMoreFilters={setSelectedMoreFilters}
+                />
+              );
             })}
           </Box>
         </SidePanelBody>
-        {/* <SidePanelFooter>Footer content goes here.</SidePanelFooter> */}
+        <SidePanelFooter>
+          <ButtonGroup>
+            <Button
+              variant="primary"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              Apply
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setSelectedMoreFilters(() => {
+                  return {};
+                });
+              }}
+            >
+              Clear all
+            </Button>
+          </ButtonGroup>
+        </SidePanelFooter>
       </SidePanel>
 
       <SidePanelPushContentWrapper>
         <Box paddingRight={isOpen ? "space70" : "space0"}>
           <DefaultFilterGroup
-            data={STATIC_TABLE_DATA}
-            filterList={conditionalFilterList}
+            data={EXTENDED_STATIC_TABLE_DATA}
+            filterList={moreFilterDefaultList}
             onMoreFiltersClick={() => {
               setIsOpen((e) => !e);
             }}
+            extendedTable
+            selectedMoreFilters={selectedMoreFilters}
           />
         </Box>
       </SidePanelPushContentWrapper>

@@ -121,7 +121,7 @@ export const UniqueNameFilter: React.FC = ({
               return;
             }
 
-            onApply("unique-name", state.selectedItems);
+            onApply("uniqueName", state.selectedItems);
             popover.hide();
           }
         }}

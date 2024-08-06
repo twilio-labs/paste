@@ -27,22 +27,36 @@ export type HostNameFilterProps = {
   label: string;
   items: string[];
   setSelectedCount: (count: number | null) => void;
+  setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
+  selectedMoreFilters?: Record<string, string | string[]>;
 };
 
-export const HostNameFilter: React.FC<HostNameFilterProps> = ({ label, items, setSelectedCount }) => {
+export const HostNameFilter: React.FC<HostNameFilterProps> = ({
+  label,
+  items,
+  setSelectedCount,
+  setSelectedMoreFilters,
+  selectedMoreFilters,
+}) => {
   const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue, items as string[]), [inputValue, items]);
 
   const onSelectedItemsChange = React.useCallback(
     (comboboxItems: UseMultipleSelectionStateChange<Item>) => {
       setSelectedCount(comboboxItems?.selectedItems?.length || null);
+      setSelectedMoreFilters((prev) => {
+        return {
+          ...prev,
+          hostName: (comboboxItems.selectedItems as any) || [],
+        };
+      });
       return comboboxItems.selectedItems;
     },
-    [setSelectedCount],
+    [setSelectedCount, setSelectedMoreFilters],
   );
 
   const state = useMultiselectCombobox({
-    initialSelectedItems: [],
+    initialSelectedItems: (selectedMoreFilters && (selectedMoreFilters.hostName as Item[])) || [],
     onSelectedItemsChange,
   });
 
@@ -64,7 +78,7 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({ label, items, se
       />
 
       <Box marginTop="space70">
-        <CheckboxGroup name="recently-used-host-name" legend="Recently used">
+        <CheckboxGroup name="recently-used-hostName" legend="Recently used">
           {(items as string[]).slice(0, 4).map((item) => {
             return (
               <Checkbox

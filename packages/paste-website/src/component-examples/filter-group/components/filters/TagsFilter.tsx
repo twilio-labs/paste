@@ -7,13 +7,17 @@ export const TagsFilter: React.FC<{
   label: string;
   setSelectedCount: (count: number | null) => void;
   items: string[];
-}> = ({ label, setSelectedCount, items }) => {
-  const [values, setValues] = React.useState<string[]>([]);
+  setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
+  selectedMoreFilters?: Record<string, string | string[]>;
+}> = ({ label, setSelectedCount, items, setSelectedMoreFilters, selectedMoreFilters }) => {
+  const [values, setValues] = React.useState<string[]>(
+    selectedMoreFilters ? (selectedMoreFilters?.tags as string[]) || [] : [],
+  );
 
   return (
     <Box>
       <CheckboxGroup name="recently-used-tags" legend={label}>
-        {(items as string[]).slice(0, 4).map((item) => {
+        {(items as string[]).map((item) => {
           return (
             <Checkbox
               key={item}
@@ -21,12 +25,30 @@ export const TagsFilter: React.FC<{
               value={item}
               checked={values.includes(item)}
               onChange={(e) => {
-                setValues((prevValues) => {
-                  if (e.target.checked) {
-                    return [...prevValues, item];
-                  }
-                  return prevValues.filter((value) => value !== item);
+                if (e.target.checked) {
+                  const updatedList = [...values, item];
+                  setValues(updatedList);
+                  setSelectedMoreFilters((prev) => {
+                    return {
+                      ...prev,
+                      tags: updatedList,
+                    };
+                  });
+                  setSelectedCount(updatedList.length);
+
+                  return;
+                }
+
+                const updatedList = values.filter((value) => value !== item);
+                setValues(updatedList);
+
+                setSelectedMoreFilters((prev) => {
+                  return {
+                    ...prev,
+                    tags: updatedList,
+                  };
                 });
+                setSelectedCount(updatedList.length);
               }}
             >
               {item}
@@ -41,6 +63,12 @@ export const TagsFilter: React.FC<{
           onClick={() => {
             setValues([]);
             setSelectedCount(null);
+            setSelectedMoreFilters((prev) => {
+              return {
+                ...prev,
+                tags: [],
+              };
+            });
           }}
         >
           Clear all

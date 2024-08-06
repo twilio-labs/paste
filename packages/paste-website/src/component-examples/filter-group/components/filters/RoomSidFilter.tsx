@@ -121,7 +121,7 @@ export const RoomSidFilter: React.FC = ({
               return;
             }
 
-            onApply("room-sid", state.selectedItems);
+            onApply("sid", state.selectedItems);
             popover.hide();
           }
         }}

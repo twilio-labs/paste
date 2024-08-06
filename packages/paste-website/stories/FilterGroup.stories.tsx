@@ -9,7 +9,7 @@ export default {
   title: "Website/FilterGroupExamples",
 };
 
-const filterList: FilterListType = ["room-type", "participants", "date-range"];
+const filterList: FilterListType = ["roomType", "participants", "dateCompleted"];
 export const DefaultFilterGroupExample = (): JSX.Element => {
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
 };
@@ -19,7 +19,7 @@ export const SearchFilterGroupExample = (): JSX.Element => {
 };
 
 export const ConditionalFilterGroupExample = (): JSX.Element => {
-  const conditionalFilterList: FilterListType = ["room-type", "participants", "custom"];
+  const conditionalFilterList: FilterListType = ["roomType", "participants", "custom"];
   return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
 };
 
@@ -42,5 +42,3 @@ export const ConditionalFilterGroupExample = (): JSX.Element => {
 export const MoreFilterGroupExample = (): JSX.Element => {
   return <MoreFilters />;
 };
-
-// export const CustomDateFilterGroupExample = (): JSX.Element => <CustomDateFilterGroup data={STATIC_TABLE_DATA} />;

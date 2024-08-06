@@ -12,8 +12,15 @@ import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { applyFilters, slugify } from "../helpers";
-import type { FilterGroupProps, FilterListType, FilterMapType, selectedFilterProps } from "../types";
+import type {
+  ExtendedTableDataRow,
+  FilterGroupProps,
+  FilterListType,
+  FilterMapType,
+  selectedFilterProps,
+} from "../types";
 import { EmptyState } from "./EmptyState";
+import { ExtendedDataGrid } from "./ExtendedDataGrid";
 import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
@@ -33,6 +40,8 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   addFiltersList,
   recommendedFiltersList,
   onMoreFiltersClick,
+  extendedTable,
+  selectedMoreFilters,
 }) => {
   const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>({});
   const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
@@ -41,7 +50,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   const [filteredTableData, setFilteredTableData] = React.useState(data);
 
   const handleApplyFilters = (filters: selectedFilterProps): void => {
-    const filteredData = applyFilters(filters, data);
+    const filteredData = applyFilters(filters, data as ExtendedTableDataRow[]);
     setFilteredTableData(filteredData);
   };
 
@@ -50,8 +59,14 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
     setFilteredTableData(data);
   }
 
+  React.useEffect(() => {
+    if (selectedMoreFilters) {
+      handleApplyFilters({ ...selectedFilters, ...selectedMoreFilters } as selectedFilterProps);
+    }
+  }, [selectedMoreFilters]);
+
   const filterMap: FilterMapType = {
-    "room-type": {
+    roomType: {
       label: "Room type",
       component: RoomTypeFilter,
     },
@@ -59,7 +74,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       label: "Participants",
       component: ParticipantsFilter,
     },
-    "date-range": {
+    dateCompleted: {
       label: "Date range",
       component: DateRangeFilter,
     },
@@ -67,11 +82,11 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       label: "Date range",
       component: CustomFilter,
     },
-    "room-sid": {
+    sid: {
       label: "Room SID",
       component: RoomSidFilter,
     },
-    "unique-name": {
+    uniqueName: {
       label: "Unique Name",
       component: UniqueNameFilter,
     },
@@ -211,7 +226,11 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
       </Box>
       <Box marginTop="space60">
         {filteredTableData.length > 0 ? (
-          <SampleDataGrid data={filteredTableData} showDateTime />
+          extendedTable ? (
+            <ExtendedDataGrid data={filteredTableData as ExtendedTableDataRow[]} showDateTime />
+          ) : (
+            <SampleDataGrid data={filteredTableData} showDateTime />
+          )
         ) : (
           <EmptyState handleClearAll={handleClearAll} />
         )}
