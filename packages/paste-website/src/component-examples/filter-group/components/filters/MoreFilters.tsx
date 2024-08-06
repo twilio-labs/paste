@@ -28,7 +28,7 @@ const moreFilterDefaultList: FilterListType = ["roomType", "participants", "date
 const moreFiltersSideModal = [
   {
     label: "Host names",
-    type: "combobox",
+    type: "hostName",
     items: [
       "Luffy Lawson",
       "Brooks Benson",
@@ -42,12 +42,12 @@ const moreFiltersSideModal = [
   },
   {
     label: "Status",
-    type: "radio",
+    type: "status",
     items: ["Active", "Completed", "Scheduled", "Cancelled"],
   },
   {
     label: "Tags",
-    type: "checkbox",
+    type: "tags",
     items: ["Training", "Meeting", "Support", "External", "Urgent", "Recurring"],
   },
 ];
@@ -61,15 +61,15 @@ const disclosureMap: {
     selectedMoreFilters?: Record<string, string | string[]>;
   }>;
 } = {
-  combobox: HostNameFilter,
-  radio: StatusFilter,
-  checkbox: TagsFilter,
+  hostName: HostNameFilter,
+  status: StatusFilter,
+  tags: TagsFilter,
 };
 
 const DisclosureFilter = ({
   filter,
   setSelectedMoreFilters,
-  selectedMoreFilters,
+  tempSelectedMoreFilters,
 }: {
   filter: {
     label: string;
@@ -78,9 +78,15 @@ const DisclosureFilter = ({
     isOpen?: boolean;
   };
   setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
-  selectedMoreFilters: Record<string, string | string[]>;
+  tempSelectedMoreFilters: Record<string, string | string[]>;
 }): React.ReactElement => {
-  const [selectedCount, setSelectedCount] = React.useState<null | number>(null);
+  const [selectedCount, setSelectedCount] = React.useState<null | number>(
+    tempSelectedMoreFilters[filter.type]?.length || null,
+  );
+
+  React.useEffect(() => {
+    setSelectedCount(tempSelectedMoreFilters[filter.type]?.length || null);
+  }, [tempSelectedMoreFilters, filter.type]);
 
   const FilterComponent = disclosureMap[filter.type];
   return (
@@ -98,7 +104,7 @@ const DisclosureFilter = ({
 
             {selectedCount ? (
               <Badge as="span" variant="neutral_counter" size="small">
-                Selected {selectedCount}
+                Selected {filter.type === "status" ? 1 : selectedCount}
               </Badge>
             ) : null}
           </Box>
@@ -110,7 +116,7 @@ const DisclosureFilter = ({
             items={filter.items}
             setSelectedCount={setSelectedCount}
             setSelectedMoreFilters={setSelectedMoreFilters}
-            selectedMoreFilters={selectedMoreFilters}
+            selectedMoreFilters={tempSelectedMoreFilters}
           />
         </DisclosureContent>
       </Disclosure>
@@ -128,7 +134,7 @@ export const MoreFilters: React.FC = () => {
     if (!isOpen) {
       setTempSelectedMoreFilters(selectedMoreFilters);
     }
-  }, [isOpen]);
+  }, [isOpen, selectedMoreFilters]);
 
   return (
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -153,7 +159,7 @@ export const MoreFilters: React.FC = () => {
                 <DisclosureFilter
                   key={filter.label}
                   filter={filter}
-                  selectedMoreFilters={tempSelectedMoreFilters}
+                  tempSelectedMoreFilters={tempSelectedMoreFilters}
                   setSelectedMoreFilters={setTempSelectedMoreFilters}
                 />
               );
