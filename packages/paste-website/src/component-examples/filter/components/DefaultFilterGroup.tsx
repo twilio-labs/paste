@@ -22,6 +22,7 @@ import type {
 } from "../types";
 import { EmptyState } from "./EmptyState";
 import { ExtendedDataGrid } from "./ExtendedDataGrid";
+import { FilterPill } from "./FilterPill";
 // import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
@@ -34,7 +35,6 @@ import { RoomSidFilter } from "./filters/RoomSidFilter";
 import { RoomTypeFilter } from "./filters/RoomTypeFilter";
 import { SearchFilter } from "./filters/SearchFilter";
 import { UniqueNameFilter } from "./filters/UniqueNameFilter";
-import { FilterPill } from "./FilterPill";
 
 function countMoreFilters(selectedMoreFilters: Record<string, string | string[]>): number {
   let count = 0;
@@ -62,7 +62,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   setSelectedMoreFilters,
   selectedFiltersDefault,
 }) => {
-  const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>(selectedFiltersDefault || {});
+  const [selectedFilters, setSelectedFilters] = React.useState<Record<string, selectedFilterProps>>(
+    selectedFiltersDefault || {},
+  );
   const [addedFilters, setAddedFilters] = React.useState<FilterListType>([]);
   const pillState = useFormPillState();
 
@@ -238,7 +240,6 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
           </Button>
         ) : null}
       </FormPillGroup>
-
 
       <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
         <Box display="flex" columnGap="space30">

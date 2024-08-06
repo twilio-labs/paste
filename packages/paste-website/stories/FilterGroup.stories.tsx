@@ -61,9 +61,15 @@ MoreFilterGroupExample.parameters = {
 
 export const NoResultExample = (): JSX.Element => {
   const noResultList: FilterListType = ["roomType", "participants", "dateCompleted"];
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={noResultList} selectedFiltersDefault={{
-    participants: { min: "100", max: "200" },
-  }} />;
+  return (
+    <DefaultFilterGroup
+      data={STATIC_TABLE_DATA}
+      filterList={noResultList}
+      selectedFiltersDefault={{
+        participants: { min: "100", max: "200" },
+      }}
+    />
+  );
 };
 
 NoResultExample.parameters = {
