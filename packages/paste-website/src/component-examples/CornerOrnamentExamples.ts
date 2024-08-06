@@ -13,9 +13,9 @@ const FeaturedExample = () => {
                 </Badge>
             </CornerOrnament>
         </CornerOrnamentContainer>
-        <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80" position="top_end">
+        <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
             <CornerOrnamentBase>
-                <NotificationIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="Notifications" />
+                <ProductAlarmsIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <ScreenReaderOnly>You have a notification</ScreenReaderOnly>
@@ -123,9 +123,9 @@ export const badgeOverflowCornerOrnamentExample = `
 const BadgeOverflowCornerOrnamentExample = () => {
   return (
     <Stack orientation="horizontal" spacing="space70">
-        <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80" position="top_end">
+        <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
             <CornerOrnamentBase>
-                <CartIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart"/>
+                <CartIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <ScreenReaderOnly>notification value is</ScreenReaderOnly>
@@ -135,15 +135,15 @@ const BadgeOverflowCornerOrnamentExample = () => {
             </CornerOrnament>
         </CornerOrnamentContainer>
         <Button variant="secondary">
-            <NotificationIcon decorative={true} size="sizeIcon20" />
+            <ProductAlarmsIcon decorative={true} size="sizeIcon20" />
             Notifications
             <Badge as="span" variant="notification_counter" size="small">
                 10
             </Badge>
         </Button>
-        <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80" position="top_end">
+        <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
             <CornerOrnamentBase>
-                <NotificationIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="Notifications" />
+                <ProductAlarmsIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <ScreenReaderOnly>You have a notification</ScreenReaderOnly>
@@ -177,7 +177,7 @@ const IconCornerOrnamentExample = () => {
         </CornerOrnamentContainer>
         <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80">
             <CornerOrnamentBase>
-                <NotificationIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
+                <ProductAlarmsIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <ScreenReaderOnly>You have a notification</ScreenReaderOnly>
@@ -199,7 +199,7 @@ const IconCornerOrnamentExample = () => {
         </CornerOrnamentContainer>
         <CornerOrnamentContainer cornerOrnamentType="icon" size="sizeIcon80" position="top_end">
             <CornerOrnamentBase>
-                <NotificationIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
+                <ProductAlarmsIcon color="colorTextIcon" size="sizeIcon80" decorative={false} title="shopping cart" />
             </CornerOrnamentBase>
             <CornerOrnament>
                 <ScreenReaderOnly>You have a notification</ScreenReaderOnly>
