@@ -6,17 +6,16 @@ import React from "react";
 
 export const FilterAction: React.FC<{
   onApply: () => void;
-  onClear: () => void;
-  clearCondition?: boolean;
+  onClear: (() => void) | null;
   onRemove?: () => void;
-}> = ({ onApply, onClear, onRemove, clearCondition }) => {
+}> = ({ onApply, onClear, onRemove }) => {
   return (
     <Box marginTop="space70" display="flex" alignItems="center" justifyContent="space-between">
       <ButtonGroup>
         <Button variant="primary" onClick={onApply}>
           Apply
         </Button>
-        {clearCondition ? (
+        {onClear ? (
           <Button variant="link" onClick={onClear}>
             Clear all
           </Button>

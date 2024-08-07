@@ -55,10 +55,13 @@ export const PlatformFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={values.length > 0}
-        onClear={() => {
-          setValues([]);
-        }}
+        onClear={
+          values.length > 0
+            ? () => {
+                setValues([]);
+              }
+            : null
+        }
       />
     </Box>
   );
