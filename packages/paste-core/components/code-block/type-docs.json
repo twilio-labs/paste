@@ -5260,6 +5260,20 @@
       "required": false,
       "externalProp": true
     },
+    "i18nScrollLeftLabel": {
+      "type": "string",
+      "defaultValue": "scroll tab list to the left",
+      "required": false,
+      "externalProp": false,
+      "description": "Accessible text for the scroll left button when horizontal tabs overflow the container."
+    },
+    "i18nScrollRightLabel": {
+      "type": "string",
+      "defaultValue": "scroll tab list to the right",
+      "required": false,
+      "externalProp": false,
+      "description": "Accessible text for the scroll right button when horizontal tabs overflow the container."
+    },
     "id": {
       "type": "string",
       "defaultValue": null,
