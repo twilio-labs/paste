@@ -8,7 +8,7 @@ import type { FilterListType } from "./types";
 
 const filterList: FilterListType = ["roomType", "participants", "dateCompleted"];
 
-export const DefaultFilterExample = (): JSX.Element => (
+export const DefaultFilterGroupExample = (): JSX.Element => (
   <Box marginBottom="space70" data-cy="filter-group-default-example">
     <DefaultFilter data={TABLE_DATA} filterList={filterList} />
     <Anchor showExternal href="https://codesandbox.io/s/default-filter-group-rloskb?file=/src/App.tsx">
