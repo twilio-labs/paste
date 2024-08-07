@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.7.0
+
+### Minor Changes
+
+- [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Tokens] added a new text color for notification icons "colorTextIconNotification"
+
+* [`fe8825efc`](https://github.com/twilio-labs/paste/commit/fe8825efcfec00aeaa0b91354e4f476bcec98f51) [#3989](https://github.com/twilio-labs/paste/pull/3989) Thanks [@PixeledCode](https://github.com/PixeledCode)! - - [Design Tokens] Add new base sizing tokens and update description of existing sizing tokens
+
+- [`b04532dad`](https://github.com/twilio-labs/paste/commit/b04532dada23159d364f0d1dbe845ebc7ce81928) [#3987](https://github.com/twilio-labs/paste/pull/3987) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design tokens]: Add new notification tokens:
+  - color-background-notification
+  - shadow-border-notification
+  - shadow-border-bottom-notification-stronger
+
 ## 10.6.0
 
 ### Minor Changes

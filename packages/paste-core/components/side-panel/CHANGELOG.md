@@ -1,5 +1,11 @@
 # @twilio-paste/side-panel
 
+## 1.1.0
+
+### Minor Changes
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Create SidePanelFooter exported from the Side Panel package for actions or chat composers. Make scrollbar color of SidePanelBody slightly darker for better visibility. Small improvements to spacing and alignment of SidePanelHeader.
+
 ## 1.0.0
 
 ### Major Changes
