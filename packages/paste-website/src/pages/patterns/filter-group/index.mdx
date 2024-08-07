@@ -14,8 +14,10 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import {
-  DefaultFilterExample
-} from '../../../component-examples/filter/Examples';
+  DefaultFilterGroupExample,
+  EmptyStateFilterGroupExample,
+  CustomDateFilterGroupExample,
+} from '../../../component-examples/filter-group/Examples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
@@ -108,7 +110,7 @@ Which filter parameters and functionality you can surface to the user will be hi
 
 Be judicious in which filters you make available for your users to represent the most common methods they would be using to reduce the entire data set. Filters being included in the filter group should almost always represent data being displayed in the page data set.
 
-<DefaultFilterExample />
+<DefaultFilterGroupExample />
 
 ### Accessibility
 
@@ -141,7 +143,21 @@ Always consider opportunities to reduce cognitive load by limiting the number of
 
 #### Default state
 
-<DefaultFilterExample />
+<DefaultFilterGroupExample />
+
+#### Empty state
+
+When the applied filters and/or search does not return any results, use the [Empty State pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
+
+<EmptyStateFilterGroupExample />
+
+#### Custom date range
+
+While we don’t yet have an official custom date/time component, in the interim it is recommended to use the following combination of Popover, Date Input, and Time Input to allow customers to select a custom date/time range.
+
+When the Custom option is selected, the Popover containing the Date Inputs and Time Inputs necessary would be displayed to allow customers to enter their desired range. Once the Apply button is clicked, the Popover would hide. If a customer wants to change their original selections, they must click on the Calendar link style button to open the Popover again.
+
+<CustomDateFilterGroupExample />
 
 #### Dos and Don'ts
 
