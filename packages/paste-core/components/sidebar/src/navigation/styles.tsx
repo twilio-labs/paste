@@ -38,6 +38,10 @@ export const sidebarNavigationLabelSelectedStyles: BoxProps = {
   color: "colorTextInverse",
 };
 
+export const sidebarNavigationLabelUnselectedStyles: BoxProps = {
+  color: "colorTextInverseWeak",
+};
+
 /*
  * Item styles
  */
@@ -85,4 +89,9 @@ export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
   backgroundColor: "colorBackgroundInverseStrong",
   color: "colorTextInverse",
+};
+
+/** Unselected item styles */
+export const sidebarNavigationItemUnselectedStyles: BoxProps = {
+  color: "colorTextInverseWeak",
 };
