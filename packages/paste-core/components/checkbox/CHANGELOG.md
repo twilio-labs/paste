@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.1.2
+
+### Patch Changes
+
+- [`300c6c299`](https://github.com/twilio-labs/paste/commit/300c6c29980057c86c2711feef6700ccffc82ff1) [#4020](https://github.com/twilio-labs/paste/pull/4020) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Checkbox] exposed helpText on CheckboxDisclaimer
+
 ## 13.1.1
 
 ### Patch Changes

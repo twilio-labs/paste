@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/corner-ornament",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "data display",
   "status": "production",
   "description": "Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.",
@@ -45,7 +45,7 @@
     "@twilio-paste/box": "^10.2.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
-    "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/design-tokens": "^10.7.0",
     "@twilio-paste/style-props": "^9.1.1",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.1",

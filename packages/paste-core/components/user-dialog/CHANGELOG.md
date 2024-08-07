@@ -1,5 +1,11 @@
 # @twilio-paste/user-dialog
 
+## 2.1.2
+
+### Patch Changes
+
+- [`2aacaf780`](https://github.com/twilio-labs/paste/commit/2aacaf780a11c61932ef940afde1282e71576935) [#4000](https://github.com/twilio-labs/paste/pull/4000) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Update the size of the UserDialog's inner Avatar component.
+
 ## 2.1.1
 
 ### Patch Changes
