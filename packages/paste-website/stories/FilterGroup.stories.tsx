@@ -1,47 +1,47 @@
 import * as React from "react";
 
-import { DefaultFilterGroup } from "../src/component-examples/filter/components/DefaultFilterGroup";
+import { DefaultFilter } from "../src/component-examples/filter/components/DefaultFilter";
 import { MoreFilters } from "../src/component-examples/filter/components/filters/MoreFilters";
 import { STATIC_TABLE_DATA } from "../src/component-examples/filter/constants";
 import type { FilterListType } from "../src/component-examples/filter/types";
 
 export default {
-  title: "Website/FilterGroupExamples",
+  title: "Website/FilterExamples",
 };
 
 const filterList: FilterListType = ["roomType", "participants", "dateCompleted"];
-export const DefaultFilterGroupExample = (): JSX.Element => {
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={filterList} />;
+export const DefaultFilterExample = (): JSX.Element => {
+  return <DefaultFilter data={STATIC_TABLE_DATA} filterList={filterList} />;
 };
 
-DefaultFilterGroupExample.parameters = {
+DefaultFilterExample.parameters = {
   padding: false,
 };
 
-export const SearchFilterGroupExample = (): JSX.Element => {
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} withSearch filterList={filterList} />;
+export const SearchFilterExample = (): JSX.Element => {
+  return <DefaultFilter data={STATIC_TABLE_DATA} withSearch filterList={filterList} />;
 };
 
-SearchFilterGroupExample.parameters = {
+SearchFilterExample.parameters = {
   padding: false,
 };
 
-export const ConditionalFilterGroupExample = (): JSX.Element => {
+export const ConditionalFilterExample = (): JSX.Element => {
   const conditionalFilterList: FilterListType = ["roomType", "participants", "custom"];
-  return <DefaultFilterGroup data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
+  return <DefaultFilter data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
 };
 
-ConditionalFilterGroupExample.parameters = {
+ConditionalFilterExample.parameters = {
   padding: false,
 };
 
 /*
- * export const AddFilterGroupExample = (): JSX.Element => {
+ * export const AddFilterExample = (): JSX.Element => {
  *   const addFilterList: FilterListType = ["room-type", "date-range"];
  *   const addFiltersList: FilterListType = ["room-sid", "unique-name", "participants"];
  *   const recommendedFiltersList: FilterListType = ["unique-name", "participants"];
  *   return (
- *     <DefaultFilterGroup
+ *     <DefaultFilter
  *       data={STATIC_TABLE_DATA}
  *       filterList={addFilterList}
  *       addFiltersList={addFiltersList}
@@ -51,18 +51,18 @@ ConditionalFilterGroupExample.parameters = {
  * };
  */
 
-export const MoreFilterGroupExample = (): JSX.Element => {
+export const MoreFilterExample = (): JSX.Element => {
   return <MoreFilters />;
 };
 
-MoreFilterGroupExample.parameters = {
+MoreFilterExample.parameters = {
   padding: false,
 };
 
 export const NoResultExample = (): JSX.Element => {
   const noResultList: FilterListType = ["roomType", "participants", "dateCompleted"];
   return (
-    <DefaultFilterGroup
+    <DefaultFilter
       data={STATIC_TABLE_DATA}
       filterList={noResultList}
       selectedFiltersDefault={{

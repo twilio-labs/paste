@@ -18,7 +18,7 @@ import React from "react";
 
 import { EXTENDED_STATIC_TABLE_DATA } from "../../constants";
 import type { FilterListType } from "../../types";
-import { DefaultFilterGroup } from "../DefaultFilterGroup";
+import { DefaultFilter } from "../DefaultFilter";
 import { HostNameFilter } from "./HostNameFilter";
 import { StatusFilter } from "./StatusFilter";
 import { TagsFilter } from "./TagsFilter";
@@ -192,7 +192,7 @@ export const MoreFilters: React.FC = () => {
 
       <SidePanelPushContentWrapper>
         <Box paddingRight={isOpen ? "space70" : "space0"}>
-          <DefaultFilterGroup
+          <DefaultFilter
             data={EXTENDED_STATIC_TABLE_DATA}
             filterList={moreFilterDefaultList}
             onMoreFiltersClick={() => {

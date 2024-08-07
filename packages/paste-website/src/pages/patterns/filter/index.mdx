@@ -13,7 +13,7 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import {
-  DefaultFilterGroupExample
+  DefaultFilterExample
 } from '../../../component-examples/filter/Examples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -210,7 +210,7 @@ Use it when all filters are relevant and necessary to the search. It can also be
 
 <StoryPreview
   title="Filter bar example"
-  storyID="website-filtergroupexamples--default-filter-group-example"
+  storyID="website-filterexamples--default-filter-example"
   height="600px"
   code={`
 export const FilterPatternExample = ({data}): React.ReactNode => {
@@ -296,7 +296,7 @@ Use it in scenarios where the list of filters is extensive and there are filters
 
 <StoryPreview
   title="More filters Side Panel example"
-  storyID="website-filtergroupexamples--more-filter-group-example"
+  storyID="website-filterexamples--more-filter-group-example"
   height="600px"
   code={`
 export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode => {
@@ -417,7 +417,7 @@ If there is search functionality, it should always take priority over filters. T
 
 <StoryPreview
   title="Filter with search example"
-  storyID="website-filtergroupexamples--search-filter-group-example"
+  storyID="website-filterexamples--search-filter-group-example"
   height="600px"
   code={`
 export const SearchFilterPatternExample = ({data}): React.ReactNode => {
@@ -490,7 +490,7 @@ A conditional filter is a type of filter that becomes available based on the ini
 
 <StoryPreview
   title="Conditional filter example"
-  storyID="website-filtergroupexamples--conditional-filter-group-example"
+  storyID="website-filterexamples--conditional-filter-group-example"
   height="600px"
   code={`
 export const ConditionalFilterPatternExample = ({data}): React.ReactNode => {
@@ -602,7 +602,7 @@ When the applied filters and/or search does not return any results, use the [Emp
 
 <StoryPreview
   title="Empty filter example"
-  storyID="website-filtergroupexamples--no-result-example"
+  storyID="website-filterexamples--no-result-example"
   height="600px"
   code={`
 export const EmptyFilterPatternExample = ({data}): React.ReactNode => {

@@ -16,13 +16,13 @@ import { useForm, useFormState } from "react-hook-form";
 
 import { DATE_TIME_RANGES, FORM_DEFAULT_VALUES, ROOM_TYPES } from "../constants";
 import { filterByDateTimeRange, filterByRoomType, filterBySearchString, isEndDateBeforeStartDate } from "../helpers";
-import type { DateTimeFormValues, FilterGroupDateTimeProps } from "../types";
+import type { DateTimeFormValues, FilterDateTimeProps } from "../types";
 import { DateTimePopover } from "./DateTimePopover";
 import { EmptyState } from "./EmptyState";
 import { SampleDataGrid } from "./SampleDataGrid";
 
 // Note: update the codesandboxes if update this
-export const CustomDateFilterGroup: React.FC<React.PropsWithChildren<FilterGroupDateTimeProps>> = ({ data }) => {
+export const CustomDateFilter: React.FC<React.PropsWithChildren<FilterDateTimeProps>> = ({ data }) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 
