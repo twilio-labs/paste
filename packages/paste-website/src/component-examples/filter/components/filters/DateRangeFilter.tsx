@@ -74,11 +74,14 @@ export const DateRangeFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={startDate !== "" || endDate !== ""}
-        onClear={() => {
-          setStartDate("");
-          setEndDate("");
-        }}
+        onClear={
+          startDate !== "" || endDate !== ""
+            ? () => {
+                setStartDate("");
+                setEndDate("");
+              }
+            : null
+        }
       />
     </Box>
   );

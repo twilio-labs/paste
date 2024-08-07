@@ -125,11 +125,14 @@ export const UniqueNameFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={state.selectedItems.length > 0}
-        onClear={() => {
-          setInputValue("");
-          setSelectedItems([]);
-        }}
+        onClear={
+          state.selectedItems.length > 0
+            ? () => {
+                setInputValue("");
+                setSelectedItems([]);
+              }
+            : null
+        }
       />
     </Box>
   );

@@ -87,12 +87,15 @@ export const ParticipantsFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={minValue !== "" || maxValue !== ""}
-        onClear={() => {
-          setShowError(false);
-          setMinValue("");
-          setMaxValue("");
-        }}
+        onClear={
+          minValue !== "" || maxValue !== ""
+            ? () => {
+                setShowError(false);
+                setMinValue("");
+                setMaxValue("");
+              }
+            : null
+        }
         onRemove={onRemove}
       />
     </Box>

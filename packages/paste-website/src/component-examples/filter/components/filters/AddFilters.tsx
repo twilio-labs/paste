@@ -142,11 +142,14 @@ export const AddFilters: React.FC<{
                 popover.hide();
               }
             }}
-            clearCondition={state.selectedItems.length > 0}
-            onClear={() => {
-              setInputValue("");
-              state.setSelectedItems([]);
-            }}
+            onClear={
+              state.selectedItems.length > 0
+                ? () => {
+                    setInputValue("");
+                    state.setSelectedItems([]);
+                  }
+                : null
+            }
           />
         </Box>
       </Popover>

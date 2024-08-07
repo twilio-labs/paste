@@ -125,13 +125,16 @@ export const CustomFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={selectedDate !== null}
-        onClear={() => {
-          setStartDate("");
-          setEndDate("");
-          setSelectedDate("");
-          setShowError(false);
-        }}
+        onClear={
+          selectedDate !== null
+            ? () => {
+                setStartDate("");
+                setEndDate("");
+                setSelectedDate("");
+                setShowError(false);
+              }
+            : null
+        }
       />
     </Box>
   );

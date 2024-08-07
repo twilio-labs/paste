@@ -45,10 +45,13 @@ export const RoomTypeFilter: React.FC = ({
             popover.hide();
           }
         }}
-        clearCondition={selectedRoomType !== ""}
-        onClear={() => {
-          setSelectedRoomType("");
-        }}
+        onClear={
+          selectedRoomType !== ""
+            ? () => {
+                setSelectedRoomType("");
+              }
+            : null
+        }
       />
     </Box>
   );
