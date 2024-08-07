@@ -69,7 +69,7 @@ export type FilterMapType = {
   };
 };
 
-export interface FilterGroupDateTimeProps {
+export interface FilterDateTimeProps {
   children?: never;
   data: TableDataRow[];
 }
@@ -106,7 +106,7 @@ export type FilterListType = Array<
   | "add-filters"
 >;
 
-export interface FilterGroupProps {
+export interface FilterProps {
   children?: never;
   data: ExtendedTableDataRow[] | TableDataRow[];
   withSearch?: boolean;

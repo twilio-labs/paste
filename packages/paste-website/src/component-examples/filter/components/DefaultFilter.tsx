@@ -13,17 +13,10 @@ import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { applyFilters, slugify } from "../helpers";
-import type {
-  ExtendedTableDataRow,
-  FilterGroupProps,
-  FilterListType,
-  FilterMapType,
-  selectedFilterProps,
-} from "../types";
+import type { ExtendedTableDataRow, FilterListType, FilterMapType, FilterProps, selectedFilterProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { ExtendedDataGrid } from "./ExtendedDataGrid";
 import { FilterPill } from "./FilterPill";
-// import { FilterPill } from "./FilterPill";
 import { SampleDataGrid } from "./SampleDataGrid";
 import { AddFilters } from "./filters/AddFilters";
 import { CustomFilter } from "./filters/CustomFilter";
@@ -50,7 +43,7 @@ function countMoreFilters(selectedMoreFilters: Record<string, string | string[]>
 }
 
 // Note: update the codesandboxes if update this
-export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
+export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
   data,
   withSearch,
   filterList,
