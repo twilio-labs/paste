@@ -26,7 +26,7 @@ const CY_BASE = "sidebar-disclosure";
 const NavigationDisclosure: React.FC<
   React.PropsWithChildren<{
     children: SidebarNavigationDisclosureContentProps["children"];
-    categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+    categoryRoute: (typeof SidebarCategoryRoutes)[keyof typeof SidebarCategoryRoutes];
     buttonText: string;
     onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
   }>

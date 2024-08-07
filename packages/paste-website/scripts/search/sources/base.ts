@@ -14,7 +14,11 @@ export abstract class BaseSource {
   sections?: Section[];
 
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
-  constructor(public source: string, public path: string, public parentPath?: string) {}
+  constructor(
+    public source: string,
+    public path: string,
+    public parentPath?: string,
+  ) {}
 
   abstract load(): Promise<{ checksum: string; meta?: Json; sections: Section[] }>;
 }

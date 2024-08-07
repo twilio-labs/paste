@@ -1,5 +1,5 @@
 import { Globals as AnimatedGlobals, useReducedMotion } from "@twilio-paste/animation-library";
-import { StylingGlobals, ThemeProvider as StyledThemeProvider } from "@twilio-paste/styling-library";
+import { ThemeProvider as StyledThemeProvider, StylingGlobals } from "@twilio-paste/styling-library";
 import { DarkTheme, DefaultTheme, StyledBase, pasteGlobalStyles } from "@twilio-paste/theme";
 import * as React from "react";
 

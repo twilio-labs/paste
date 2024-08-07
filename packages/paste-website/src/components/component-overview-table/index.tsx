@@ -13,7 +13,7 @@ import { AssetStatus } from "../component-status/AssetStatus";
 import { PeerReviewStatus } from "../component-status/PeerReviewStatus";
 
 interface ComponentOverviewTableProps {
-  categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+  categoryRoute?: (typeof SidebarCategoryRoutes)[keyof typeof SidebarCategoryRoutes];
   componentsList?: [Feature];
 }
 

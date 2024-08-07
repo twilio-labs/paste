@@ -40,8 +40,7 @@ export const DefaultExample = (): JSX.Element => {
         a tyrant is to sell yourself and those you love into slavery.
       </Paragraph>
       <Paragraph marginBottom="space0">
-        —
-        <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor>
+        —<Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor>
       </Paragraph>
     </Card>
   );
@@ -287,14 +286,12 @@ export const PricingExample = (): JSX.Element => {
             </Paragraph>
             <Paragraph marginBottom="space0">
               <Box display="flex" columnGap="space20">
-                <AcceptIcon color="colorTextIconAvailable" decorative />
-                3 sources
+                <AcceptIcon color="colorTextIconAvailable" decorative />3 sources
               </Box>
             </Paragraph>
             <Paragraph marginBottom="space0">
               <Box display="flex" columnGap="space20">
-                <AcceptIcon color="colorTextIconAvailable" decorative />
-                1 warehouse destination
+                <AcceptIcon color="colorTextIconAvailable" decorative />1 warehouse destination
               </Box>
             </Paragraph>
             <Paragraph marginBottom="space0">
@@ -337,14 +334,12 @@ export const PricingExample = (): JSX.Element => {
             </Paragraph>
             <Paragraph marginBottom="space0">
               <Box display="flex" columnGap="space20">
-                <AcceptIcon color="colorTextIconAvailable" decorative />
-                3 sources
+                <AcceptIcon color="colorTextIconAvailable" decorative />3 sources
               </Box>
             </Paragraph>
             <Paragraph marginBottom="space0">
               <Box display="flex" columnGap="space20">
-                <AcceptIcon color="colorTextIconAvailable" decorative />
-                1 warehouse destination
+                <AcceptIcon color="colorTextIconAvailable" decorative />1 warehouse destination
               </Box>
             </Paragraph>
             <Paragraph marginBottom="space0">

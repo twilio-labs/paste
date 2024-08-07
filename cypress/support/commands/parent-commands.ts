@@ -53,10 +53,7 @@ Cypress.Commands.add("checkInPageNavigationLinks", () => {
   cy.get("@pageAsideAnchors").then((anchors) => {
     cy.get("@anchoredHeadings").each((anchor, idx) => {
       cy.wrap(anchor).should("have.attr", "href").and("include", "#");
-      cy.wrap(anchors[idx])
-        .should("have.attr", "href")
-        .and("include", "#")
-        .and("eql", anchor.attr("href"));
+      cy.wrap(anchors[idx]).should("have.attr", "href").and("include", "#").and("eql", anchor.attr("href"));
     });
   });
 });

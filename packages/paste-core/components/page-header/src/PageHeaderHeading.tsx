@@ -1,7 +1,7 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
-import type { HeadingVariants, asTags as AsTags } from "@twilio-paste/heading";
+import type { asTags as AsTags, HeadingVariants } from "@twilio-paste/heading";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 

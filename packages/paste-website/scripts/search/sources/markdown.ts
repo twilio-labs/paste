@@ -194,7 +194,11 @@ export class MarkdownSource extends BaseSource {
   type = "markdown" as const;
 
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
-  constructor(source: string, public filePath: string, public parentFilePath?: string) {
+  constructor(
+    source: string,
+    public filePath: string,
+    public parentFilePath?: string,
+  ) {
     const path = filePath.replace(/^pages/, "").replace(/\.mdx?$/, "");
     const parentPath = parentFilePath?.replace(/^pages/, "").replace(/\.mdx?$/, "");
 
