@@ -73,6 +73,7 @@ export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessag
           <Avatar
             name={children}
             size="sizeIcon50"
+            color="decorative20"
             icon={ArtificialIntelligenceIcon}
             element={`${element}_BOT_AVATAR`}
           />
