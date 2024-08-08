@@ -24,7 +24,7 @@ export type PopoverButtonProps = PopoverButtonBaseProps &
     element?: BoxProps["element"];
   };
 export type PopoverBadgeButtonProps = PopoverButtonBaseProps &
-  ButtonBadgeProps & {
+  Omit<ButtonBadgeProps, "as"> & {
     /**
      * Overrides the default element name to apply unique styles with the Customization Provider
      *
