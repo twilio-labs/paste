@@ -6,6 +6,7 @@ export { SidePanelBody } from "./SidePanelBody";
 export { SidePanelContainer } from "./SidePanelContainer";
 export { SidePanelButton } from "./SidePanelButton";
 export { SidePanelBadgeButton } from "./SidePanelBadgeButton";
+export { SidePanelFooter } from "./SidePanelFooter";
 export type {
   SidePanelButtonProps,
   SidePanelBadgeButtonProps,
@@ -15,5 +16,6 @@ export type {
   SidePanelHeaderActionsProps,
   SidePanelContainerProps,
   SidePanelBodyProps,
+  SidePanelFooterProps,
 } from "./types";
 export { SidePanelContext } from "./SidePanelContext";

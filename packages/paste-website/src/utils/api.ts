@@ -35,6 +35,10 @@ export type PastePackages = {
     Feature: string;
     status: string;
   }[];
+  allPasteExperience: {
+    Feature: string;
+    status: string;
+  };
 };
 
 export type Feature = {
@@ -84,12 +88,11 @@ export type ArticleData = {
 
 export const getAllComponents = async (categories: string[]): Promise<Feature[]> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), "data/feature-data.json"), "utf8");
-
   return JSON.parse(data).filter((item: Feature) => categories.includes(item["Component Category"] || ""));
 };
 
 export const getNavigationData = async (): Promise<Feature[]> => {
-  return getAllComponents(["component", "layout", "pattern", "primitive", "page template"]);
+  return getAllComponents(["component", "layout", "pattern", "primitive", "page template", "experience"]);
 };
 
 export const getFeature = async (feature: string): Promise<Feature> => {

@@ -3989,6 +3989,12 @@
       "required": false,
       "externalProp": true
     },
+    "helpText": {
+      "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
+      "defaultValue": "null",
+      "required": false,
+      "externalProp": false
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,

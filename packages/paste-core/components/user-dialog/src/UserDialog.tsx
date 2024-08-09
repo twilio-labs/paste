@@ -93,7 +93,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
           >
             <Avatar
               variant="user"
-              size="sizeIcon70"
+              size="sizeIcon40"
               name={avatarProps.name}
               icon={avatarProps.icon}
               src={avatarProps.src}

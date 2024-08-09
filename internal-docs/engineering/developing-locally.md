@@ -98,13 +98,13 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
   <tr>
    <td>DATADOG_APPLICATION_ID
    </td>
-   <td>Datadog RUM app ID
+   <td>Datadog RUM app ID. You can get this from the dashboard chart <a href="https://app.datadoghq.com/dashboard/p79-36e-cxi/paste-monitoring-dashboard?fullscreen_paused=false&fullscreen_refresh_mode=sliding&fullscreen_section=edit&fullscreen_start_ts=1719073205976&fullscreen_widget=6572526642365602&refresh_mode=sliding">here</a>
    </td>
   </tr>
   <tr>
    <td>DATADOG_CLIENT_TOKEN
    </td>
-   <td>Datadog RUM client token
+   <td><a href="https://app.datadoghq.com/organization-settings/client-tokens">Datadog RUM client token</a>  (search Paste)
    </td>
   </tr>
 </table>

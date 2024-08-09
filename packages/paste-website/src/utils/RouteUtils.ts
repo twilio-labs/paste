@@ -70,6 +70,8 @@ export const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return "Theme";
     case SidebarCategoryRoutes.PAGE_TEMPLATES:
       return "Page templates";
+    case SidebarCategoryRoutes.EXPERIENCES:
+      return "Experiences";
     default:
       return "Components";
   }

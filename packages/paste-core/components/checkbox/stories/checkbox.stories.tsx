@@ -640,6 +640,26 @@ export const CheckboxDisclaimerError = (): React.ReactNode => {
 
 CheckboxDisclaimerError.storyName = "Checkbox Disclaimer - Error";
 
+export const CheckboxDisclaimerHelpText = (): React.ReactNode => {
+  return (
+    <CheckboxDisclaimer
+      helpText="This text is designed to provide helpful information."
+      id={useUID()}
+      value="foo"
+      name="foo"
+    >
+      <Text as="span">
+        I declare the information provided above is accurate. I acknowledge that Twilio will process the information
+        provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
+        or authorities where required by local law. I understand that Twilio phone numbers may be taken out of service
+        for inaccurate or false information.
+      </Text>
+    </CheckboxDisclaimer>
+  );
+};
+
+CheckboxDisclaimerHelpText.storyName = "Checkbox Disclaimer - HelpText";
+
 export const CheckboxDisclaimerDisabled = (): React.ReactNode => {
   return (
     <CheckboxDisclaimer disabled id={useUID()} value="foo" name="foo">

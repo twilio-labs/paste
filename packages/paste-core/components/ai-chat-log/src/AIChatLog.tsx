@@ -17,7 +17,7 @@ export interface AIChatLogProps extends HTMLPasteProps<"div"> {
 export const AIChatLog = React.forwardRef<HTMLDivElement, AIChatLogProps>(
   ({ element = "AI_CHAT_LOG", children, ...props }, ref) => {
     return (
-      <Box role="log" padding="space70" element={element} ref={ref} {...safelySpreadBoxProps(props)}>
+      <Box role="log" paddingY="space70" element={element} ref={ref} {...safelySpreadBoxProps(props)}>
         <Box
           as="div"
           role="list"

@@ -416,6 +416,32 @@ Make required and optional fields distinguishable. Try to avoid optional input f
 
 Text is the clearest way to indicate whether a field is required or optional. However, the required symbol is relatively well understood. If you use the required symbol to indicate required fields, you'll see a "Required" title on the symbol. If you're building for other languages, use the `i18nLabel` prop to translate the "Required" title.
 
+#### Selection methods
+
+##### Single selection
+
+| Component                                                                                 | When to use                                                                                                                                                |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Radio Group](/components/radio-group) or [Radio Button Group](/components/radio-button-group)                                        | Use it when you have a list of up to 6 fixed items, and users need to select only one at a time. |
+| [Select](/components/select) or [Singleselect Combobox](/components/combobox)                                      | Use it when you have more than 6 options in a fixed list and users need to select only one at a time.|
+| [Singleselect Combobox - Autocomplete](/components/combobox#autocomplete-combobox) | Use it when you have lists with over 15 options or if users need to search through a database and select a single option at a time.|
+
+##### Multiple selection
+
+|Component                                                                           | When to use
+|----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------|
+|[Checkbox Group](/components/checkbox)                                | Use it when you have a list of up to 6 fixed items, and users can select multiple values at a time.|
+|[Multiselect Combobox](/components/multiselect-combobox)                                      | Use it when you have lists with over 6 options or if users need to search through a database and select multiple values at a time.|
+
+##### Numeric selection 
+
+|Component                                                                           | When to use
+|----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------|
+|[Slider](/components/slider)                                | Use it when the exact value doesn’t matter.|
+|[Input with number functionality](/components/input#input-with-number-functionality)                                      | Use it when the exact numeric value matters.|
+|[Date Picker](/components/date-picker) | Use it for selecting specific dates or date ranges.|
+|[Time Picker](/components/time-picker) | Use it for selecting specific times or time ranges.|
+
 ## When to use Forms
 
 Use a Form when users are expected to enter more than a single form component to collect user input.
