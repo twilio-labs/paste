@@ -461,7 +461,7 @@ const PopoverFormPillExample = () => {
                 setSelected(!selected);
               }}
             >
-              Select Form Pill
+              Toggle Form Pill selection
             </Button>
           </Box>
         </Popover>

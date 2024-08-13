@@ -252,7 +252,7 @@ export const FormPillPopover = (): JSX.Element => {
                   setSelected(!selected);
                 }}
               >
-                Select Form Pill
+                Toggle Form Pill selection
               </Button>
             </Box>
           </Popover>
@@ -270,7 +270,7 @@ export const FormPillPopover = (): JSX.Element => {
                   setSelected(!selected);
                 }}
               >
-                Select Form Pill
+                Toggle Form Pill selection
               </Button>
             </Box>
           </Popover>
