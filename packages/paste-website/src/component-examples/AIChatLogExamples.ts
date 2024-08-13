@@ -20,7 +20,7 @@ const BasicMessage = () => {
   return (
     <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Radki">You</AIChatMessageAuthor>
           <AIChatMessageBody>
             I would like some information on twilio error codes for undelivered messages
           </AIChatMessageBody>
@@ -139,7 +139,7 @@ const AIChatLogExample = () => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
         <AIChatMessageBody>
           Hi, I'm getting errors codes when sending an SMS.
         </AIChatMessageBody>
@@ -179,8 +179,8 @@ const AIChatLogExample = () => {
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said" bot>
-          Gibby Radki
+        <AIChatMessageAuthor aria-label="You said" bot avatarName="Gibby Radki">
+          You
         </AIChatMessageAuthor>
         <AIChatMessageBody>
           No, how do I verify it?
@@ -212,7 +212,7 @@ const aiChatFactory = ([ message, variant, metaLabel, meta ]) => {
     variant,
     content: (
       <AIChatMessage variant={variant}>
-         <AIChatMessageAuthor aria-label={metaLabel + time}>{meta}</AIChatMessageAuthor>
+         <AIChatMessageAuthor aria-label={metaLabel + time} avatarName={variant === 'bot' ? undefined : "Gibby Radki"}>{meta}</AIChatMessageAuthor>
           <AIChatMessageBody>
             {message}
           </AIChatMessageBody>
@@ -222,9 +222,9 @@ const aiChatFactory = ([ message, variant, metaLabel, meta ]) => {
 };
 
 const chatTemplates = [
-  ["Hello", "user", "You said at ", "Gibby Radki"],
+  ["Hello", "user", "You said at ", "You"],
   ["Hi there", "bot", "AI said at ", "Good Bot"],
-  ["Greetings", "user", "You said at ", "Gibby Radki"],
+  ["Greetings", "user", "You said at ", "You"],
   ["Good to meet you", "bot", "AI said at ", "Good Bot"]
 ];
 
@@ -296,10 +296,10 @@ const AvatarExample = () => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor avatarIcon={LogoTwilioIcon} aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageAuthor avatarIcon={LogoTwilioIcon} aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
       </AIChatMessage>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor avatarSrc={Logo.src} aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageAuthor avatarSrc={Logo.src} aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
       </AIChatMessage>
     </AIChatLog>
   );

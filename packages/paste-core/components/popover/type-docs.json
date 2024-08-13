@@ -2203,6 +2203,13 @@
       "externalProp": true,
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
+    "as": {
+      "type": "keyof IntrinsicElements",
+      "defaultValue": "'button'",
+      "required": false,
+      "externalProp": false,
+      "description": "The HTML tag to replace the default `<button>` tag."
+    },
     "autoCapitalize": {
       "type": "string",
       "defaultValue": null,

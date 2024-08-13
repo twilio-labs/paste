@@ -14,7 +14,7 @@ type PopoverButtonBaseProps = {
 };
 
 export type PopoverButtonProps = PopoverButtonBaseProps &
-  Omit<ButtonProps, "as"> & {
+  ButtonProps & {
     /**
      * Overrides the default element name to apply unique styles with the Customization Provider
      *
