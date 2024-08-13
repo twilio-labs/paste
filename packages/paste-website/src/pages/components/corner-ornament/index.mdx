@@ -1,0 +1,370 @@
+export const meta = {
+  title: "Corner Ornament",
+  package: "@twilio-paste/corner-ornament",
+  description:
+    "Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.",
+  slug: "/components/corner-ornament",
+};
+
+import Changelog from "@twilio-paste/corner-ornament/CHANGELOG.md";
+import packageJson from "@twilio-paste/corner-ornament/package.json";
+import { Callout, CalloutHeading, CalloutTextimport } from "@twilio-paste/callout";
+import { Table, THead, TBody, Tr, Td, Th } from "@twilio-paste/table";
+import { Box } from "@twilio-paste/box";
+import { Stack } from "@twilio-paste/stack";
+import { Badge } from "@twilio-paste/badge";
+import { Button } from "@twilio-paste/button";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Avatar } from "@twilio-paste/avatar";
+import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from "@twilio-paste/corner-ornament";
+import { CartIcon } from "@twilio-paste/icons/esm/CartIcon";
+import { NotificationOrnamentIcon } from "@twilio-paste/icons/esm/NotificationOrnamentIcon";
+import { DataTableIcon } from "@twilio-paste/icons/esm/DataTableIcon";
+import { CallIncomingIcon } from "@twilio-paste/icons/esm/CallIncomingIcon";
+import { NotificationIcon } from "@twilio-paste/icons/esm/NotificationIcon";
+
+import { SidebarCategoryRoutes } from "../../../constants";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+import {
+  featuredExample,
+  badgeCornerOrnamentExample,
+  badgeOverflowCornerOrnamentExample,
+  iconCornerOrnamentExample,
+  avatarCornerOrnamentExample,
+} from "../../../component-examples/CornerOrnamentExamples";
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("Corner ornament");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/corner-ornament",
+        storybookUrl: "/?path=/story/components-corner-ornament--supported-badge",
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    NotificationIcon,
+    NotificationOrnamentIcon,
+    Avatar,
+    DataTableIcon,
+    CallIncomingIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {featuredExample}
+</LivePreview>
+
+## Guidelines
+
+### About Combobox
+
+Use the Corner Ornament to quickly relate an item count (usually notifications) or graphic element (like an [Icon](/components/icon) or [Avatar](/components/avatar)) to another element, called a base component.
+
+Corner Ornaments are used to show:
+
+- Notification count or unread notifications
+- Cart count in commerce use cases
+- Relationships between graphic elements in dense layouts. Examples include relationships between user and status in a user list, or between model and warehouse in a table.
+
+Use a Corner Ornament only when the relationship between a base component and its ornament is immediately obvious. If there's a chance that it might be unclear, show the information in the ornament in another way, such as using visible text.
+
+The Corner Ornament component contains these elements:
+
+- `CornerOrnamentContainer`: Responsible for wrapping the components together and determining the positions based on configuration defined via props.
+- `CornerOrnamentBase`: The component that appears underneath the ornament. Only [Avatar](/components/avatar), [Icon](/components/icon), or [icon Buttons](/components/button#icon-buttons) should be used as base components.
+- `CornerOrnament`: The ornament that appears on top of the base component. Only [Avatar](/components/avatar), [Counter Badge](/components/badge#counter), or [Icon](/components/icon) can be used as ornaments.
+
+### Accessibility
+
+Make sure Corner Ornaments clearly communicate to assistive technology what is being represented in the ornament. Ways to do this include:
+
+- For Badges or notifications, use the [Screen Reader Only](/components/screen-reader-only) component to wrap visually-hidden text.
+- For [icons](/components/icon/usage-guidelines#accessibility), specify that the icon is informative and give it a title.
+
+### Placement
+
+Position the ornament at the top when it takes priority over its element, and at the bottom when the element takes priority over its ornament.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h2">Corner Ornaments for right-to-left languages</CalloutHeading>
+  <CalloutText>
+    For right-to-left languages, Corner Ornaments should be placed on the left. Do you need us to support this variant?
+    Let us know in a Github Discussion!
+  </CalloutText>
+</Callout>
+
+### Hiding Corner Ornament
+
+Since this component is composable and the base component you are wrapping will look the same if you remove the ornament, we recommend removing the Corner Ornament components from the DOM tree if you want to hide the ornament. Hiding the ornament and removing the cutout are not supported by this component.
+## Variants
+
+### Badges as Corner Ornaments
+
+Use Badges as Corner Ornaments for item counts like notifications or cart counts. Only [counter Badges](/components/badge#counter) can be used as Corner Ornaments.
+
+In almost all cases, Badges should be placed at the top using `position="top_end"`.
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    NotificationIcon,
+    Avatar,
+  }}
+  language="jsx"
+  noInline
+>
+  {badgeCornerOrnamentExample}
+</LivePreview>
+
+Use these size pairings for pairing base components with Badges:
+
+<Box marginY="space70">
+  <Table marginY="space70">
+    <THead>
+      <Tr>
+        <Th>Corner Ornament Container and Base size</Th>
+        <Th>Badge size</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>sizeIcon50</Td>
+        <Td>small</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon60</Td>
+        <Td>small</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon70</Td>
+        <Td>small</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon80</Td>
+        <Td>small</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon90</Td>
+        <Td>small</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon100</Td>
+        <Td>default</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon110</Td>
+        <Td>default</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+#### Item count overflow strategies
+
+For item counts, make sure that you have a layout strategy for overflowing count text. This can include:
+
+- Using a “+” sign when reaching double- or triple-digits, such as “9+” items
+- Not using a Corner Ornament at all. Instead, place the counter Badge next to the element
+- For notification use cases, if showing count isn’t important, use NotificationOrnamentIcon as a Corner Ornament instead.
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    CartIcon,
+    Badge,
+    Stack,
+    ScreenReaderOnly,
+    NotificationIcon,
+    Button,
+    NotificationOrnamentIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {badgeOverflowCornerOrnamentExample}
+</LivePreview>
+
+### Icons as Corner Ornaments
+
+Use icons as Corner Ornaments to show statuses or states.
+
+When using an icon as an ornament, make sure it has a color that has a 3:1 contrast ratio with the background.
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    Stack,
+    ScreenReaderOnly,
+    NotificationIcon,
+    Avatar,
+    NotificationOrnamentIcon,
+    CallIncomingIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {iconCornerOrnamentExample}
+</LivePreview>
+
+Use these size pairings for pairing base components with icons:
+
+<Box marginY="space70">
+  <Table marginY="space70">
+    <THead>
+      <Tr>
+        <Th>Corner Ornament Container and Base size</Th>
+        <Th>Icon size</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>sizeIcon20</Td>
+        <Td>sizeIcon05</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon30</Td>
+        <Td>sizeIcon05</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon40</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon50</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon60</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon70</Td>
+        <Td>sizeIcon30</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon80</Td>
+        <Td>sizeIcon40</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon90</Td>
+        <Td>sizeIcon40</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon100</Td>
+        <Td>sizeIcon50</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon110</Td>
+        <Td>sizeIcon70</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+### Avatars as Corner Ornaments
+
+Use Avatars as Corner Ornaments to show a relationship to an entity or a user.
+
+In almost all cases, Avatars should be placed at the bottom using `position="bottom_end"`.
+
+<LivePreview
+  scope={{
+    CornerOrnament,
+    CornerOrnamentBase,
+    CornerOrnamentContainer,
+    Stack,
+    Avatar,
+    DataTableIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {avatarCornerOrnamentExample}
+</LivePreview>
+
+Use these size pairings for pairing base components with Avatars:
+
+<Box marginY="space70">
+  <Table marginY="space70">
+    <THead>
+      <Tr>
+        <Th>Corner Ornament Container and Base size</Th>
+        <Th>Icon size</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>sizeIcon20</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon30</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon40</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon50</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon60</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon70</Td>
+        <Td>sizeIcon10</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon80</Td>
+        <Td>sizeIcon30</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon90</Td>
+        <Td>sizeIcon30</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon100</Td>
+        <Td>sizeIcon60</Td>
+      </Tr>
+      <Tr>
+        <Td>sizeIcon110</Td>
+        <Td>sizeIcon70</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
