@@ -3,7 +3,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { DatePicker } from "@twilio-paste/date-picker";
-import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
+import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Label } from "@twilio-paste/label";
 import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
@@ -233,15 +233,32 @@ export const BadgePopover = (): JSX.Element => {
 };
 
 export const FormPillPopover = (): JSX.Element => {
-  const uniqueBaseID = useUID();
   const pillState = useFormPillState();
   const [selected, setSelected] = React.useState(true);
 
   return (
     <Box height="300px">
-      <FormPillGroup {...pillState} aria-label="filter-group">
-        <PopoverContainer baseId={uniqueBaseID}>
+      <FormPillGroup {...pillState} aria-label="filter-group" variant="tree">
+        <PopoverContainer baseId={useUID()}>
           <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+            Open popover
+          </PopoverFormPillButton>
+          <Popover aria-label="Popover" data-testid="form-pill-popover">
+            <Box margin="space60">
+              <Button
+                variant="primary"
+                size="small"
+                onClick={() => {
+                  setSelected(!selected);
+                }}
+              >
+                Select Form Pill
+              </Button>
+            </Box>
+          </Popover>
+        </PopoverContainer>
+        <PopoverContainer baseId={useUID()}>
+          <PopoverFormPillButton {...pillState} onDismiss={() => {}}>
             Open popover
           </PopoverFormPillButton>
           <Popover aria-label="Popover" data-testid="form-pill-popover">

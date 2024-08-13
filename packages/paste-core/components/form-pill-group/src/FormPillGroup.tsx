@@ -6,7 +6,7 @@ import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import type { FormPillGroupSizeVariant } from "./types";
+import type { FormPillGroupSizeVariant, FormPillGroupUsageVariants } from "./types";
 import { FormPillGroupContext } from "./useFormPillState";
 
 export interface FormPillGroupProps
@@ -49,6 +49,13 @@ export interface FormPillGroupProps
    * @memberof FormPillGroupProps
    */
   size?: FormPillGroupSizeVariant;
+  /**
+   * The variant of the FormPillGroup to use. The 'tree' option allows for more data to be displayed on select and still allows for select states.
+   *
+   * @default 'default'
+   * @memberof FormPillGroupProps
+   */
+  variant?: FormPillGroupUsageVariants;
 }
 
 /**
@@ -66,14 +73,14 @@ const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | 
 };
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", ...props }, ref) => {
+  ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", variant = "default", ...props }, ref) => {
     return (
-      <FormPillGroupContext.Provider value={{ size }}>
+      <FormPillGroupContext.Provider value={{ size, variant }}>
         <Box
           {...safelySpreadBoxProps(props)}
           element={element}
           ref={ref}
-          role="listbox"
+          role={variant === "tree" ? "tree" : "listbox"}
           lineHeight="lineHeight30"
           margin="space0"
           padding="space0"
@@ -108,10 +115,10 @@ export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupPro
     const keyboardControlsId = useUID();
     return (
       <>
+        <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>
         <Composite as={FormPillGroupStyles} ref={ref} aria-describedby={keyboardControlsId} {...props}>
           {props.children}
         </Composite>
-        <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>
       </>
     );
   },

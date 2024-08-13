@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
 import { CustomFormPillGroup } from "../stories/customization.stories";
-import { Basic, SelectableAndDismissable } from "../stories/index.stories";
+import { Basic, FormPillTreeVariant, SelectableAndDismissable } from "../stories/index.stories";
 
 const CustomElementFormPillGroup = (): JSX.Element => {
   const pillState = useFormPillState();
@@ -208,6 +208,33 @@ describe("FormPillGroup", () => {
       render(<I18nProp />);
       const errorLabel = screen.getByText("(erreur)");
       expect(errorLabel).toBeDefined();
+    });
+  });
+
+  describe("tree variant", () => {
+    it("should have the correct role for tree variant", () => {
+      render(<FormPillTreeVariant />);
+
+      const group = screen.getByTestId("form-pill-group");
+      expect(group.getAttribute("role")).toBe("tree");
+
+      const pill = screen.getByTestId("form-pill-1");
+      expect(pill.getAttribute("role")).toBe("treeitem");
+    });
+
+    it("should be dismissable and selectable", () => {
+      const { container } = render(<FormPillTreeVariant />);
+
+      const pill = screen.getByTestId("form-pill-0");
+      fireEvent.click(pill);
+      expect(pill.getAttribute("aria-selected")).toBe("true");
+
+      fireEvent.click(pill);
+      expect(pill.getAttribute("aria-selected")).toBe("false");
+
+      const pillX = container.querySelector('[data-paste-element="FORM_PILL_CLOSE"]');
+      fireEvent.click(pillX as Element);
+      expect(pill).not.toBeInTheDocument();
     });
   });
 });

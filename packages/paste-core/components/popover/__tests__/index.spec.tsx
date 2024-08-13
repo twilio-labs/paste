@@ -140,15 +140,17 @@ describe("Popover", () => {
     });
   });
 
-  describe("PopoverFormPill", () => {
+  describe("PopoverFormPillButton", () => {
     it("renders PopoverFormPillButton as a FormPill", () => {
       render(
         <Theme.Provider theme="default">
           <FormPillPopover />
         </Theme.Provider>,
       );
-      const popoverButton = screen.getByText("Open popover").closest("button");
-      expect(popoverButton).toHaveAttribute("data-paste-element", "POPOVER_FORM_PILL");
+      const popoverControl = screen
+        .getAllByText("Open popover")[0]
+        ?.closest('[data-paste-element="POPOVER_FORM_PILL"]');
+      expect(popoverControl).toBeInTheDocument();
     });
 
     it("should render a popover badge button with aria attributes", async () => {
@@ -157,18 +159,20 @@ describe("Popover", () => {
           <FormPillPopover />
         </Theme.Provider>,
       );
-      const renderedPopoverButton = screen.getByText("Open popover").closest("button");
-      const renderedPopover = screen.getByTestId("form-pill-popover");
-      expect(renderedPopoverButton?.getAttribute("aria-haspopup")).toEqual("dialog");
-      expect(renderedPopoverButton?.getAttribute("aria-controls")).toEqual(renderedPopover.id);
-      expect(renderedPopoverButton?.getAttribute("aria-expanded")).toEqual("false");
+      const renderedPopoverControl = screen
+        .getAllByText("Open popover")[0]
+        ?.closest('[data-paste-element="POPOVER_FORM_PILL"]');
+      const renderedPopover = screen.getAllByTestId("form-pill-popover")[0];
+      expect(renderedPopoverControl?.getAttribute("aria-haspopup")).toEqual("dialog");
+      expect(renderedPopoverControl?.getAttribute("aria-controls")).toEqual(renderedPopover.id);
+      expect(renderedPopoverControl?.getAttribute("aria-expanded")).toEqual("false");
       expect(renderedPopover).not.toBeVisible();
       await waitFor(() => {
-        if (renderedPopoverButton) {
-          userEvent.click(renderedPopoverButton);
+        if (renderedPopoverControl) {
+          userEvent.click(renderedPopoverControl);
         }
       });
-      expect(renderedPopoverButton?.getAttribute("aria-expanded")).toEqual("true");
+      expect(renderedPopoverControl?.getAttribute("aria-expanded")).toEqual("true");
       expect(renderedPopover).toBeVisible();
     });
   });
