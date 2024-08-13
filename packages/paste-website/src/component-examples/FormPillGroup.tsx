@@ -54,6 +54,34 @@ render(
 )
 `.trim();
 
+export const treeVariantExample = `
+const TreeVariantExample = () => {
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup {...pillState} aria-label="Products:" variant="tree">
+        <FormPill {...pillState}>
+         Voice
+        </FormPill>
+        <FormPill {...pillState}>
+          <ProductVideoIcon decorative />
+          Video
+        </FormPill>
+        <FormPill {...pillState}>
+          <ProductVerifyIcon decorative />
+          Verify
+        </FormPill>
+      </FormPillGroup>
+    </form>
+  );
+};
+
+render(
+  <TreeVariantExample />
+)
+`.trim();
+
 export const selectableExample = `
 const SelectableFormPillGroup = () => {
   const [pills] = React.useState(['SMS', 'MMS', 'Fax', 'Voice', 'Messaging', 'Chat']);

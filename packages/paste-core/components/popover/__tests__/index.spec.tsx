@@ -6,7 +6,7 @@ import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { Popover, PopoverButton, PopoverContainer } from "../src";
-import { BadgePopover, InitialFocus, PopoverTop, StateHookExample } from "../stories/index.stories";
+import { BadgePopover, FormPillPopover, InitialFocus, PopoverTop, StateHookExample } from "../stories/index.stories";
 
 describe("Popover", () => {
   describe("Render", () => {
@@ -136,6 +136,43 @@ describe("Popover", () => {
         userEvent.click(renderedPopoverButton);
       });
       expect(renderedPopoverButton.getAttribute("aria-expanded")).toEqual("true");
+      expect(renderedPopover).toBeVisible();
+    });
+  });
+
+  describe("PopoverFormPillButton", () => {
+    it("renders PopoverFormPillButton as a FormPill", () => {
+      render(
+        <Theme.Provider theme="default">
+          <FormPillPopover />
+        </Theme.Provider>,
+      );
+      const popoverControl = screen
+        .getAllByText("Open popover")[0]
+        ?.closest('[data-paste-element="POPOVER_FORM_PILL"]');
+      expect(popoverControl).toBeInTheDocument();
+    });
+
+    it("should render a popover badge button with aria attributes", async () => {
+      render(
+        <Theme.Provider theme="default">
+          <FormPillPopover />
+        </Theme.Provider>,
+      );
+      const renderedPopoverControl = screen
+        .getAllByText("Open popover")[0]
+        ?.closest('[data-paste-element="POPOVER_FORM_PILL"]');
+      const renderedPopover = screen.getAllByTestId("form-pill-popover")[0];
+      expect(renderedPopoverControl?.getAttribute("aria-haspopup")).toEqual("dialog");
+      expect(renderedPopoverControl?.getAttribute("aria-controls")).toEqual(renderedPopover.id);
+      expect(renderedPopoverControl?.getAttribute("aria-expanded")).toEqual("false");
+      expect(renderedPopover).not.toBeVisible();
+      await waitFor(() => {
+        if (renderedPopoverControl) {
+          userEvent.click(renderedPopoverControl);
+        }
+      });
+      expect(renderedPopoverControl?.getAttribute("aria-expanded")).toEqual("true");
       expect(renderedPopover).toBeVisible();
     });
   });

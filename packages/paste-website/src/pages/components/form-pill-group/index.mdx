@@ -47,6 +47,7 @@ import {
   truncateExample,
   avatarExample,
   iconExample,
+  treeVariantExample
 } from '../../../component-examples/FormPillGroup';
 import packageJson from '@twilio-paste/form-pill-group/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -195,6 +196,14 @@ The `onSelect` event handler will fire when a user presses the spacebar or enter
 
 <LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductInterconnectIcon}} noInline>
   {selectableAndDismissableExample}
+</LivePreview>
+
+### Tree variant for filters 
+
+The `tree` variant for FormPillGroup changes the accessibility roles and DOM elements of the FormPill to be more tree-like where selecting the pill expands more options. This variant of Form Pills is only for specific and approved use cases, such as in the filter pattern (link coming soon!).
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {treeVariantExample}
 </LivePreview>
 
 ### Internationalization

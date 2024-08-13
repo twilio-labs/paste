@@ -132,6 +132,51 @@ export const I18nProp = (): React.ReactNode => {
 
 I18nProp.storyName = "I18n Prop";
 
+export const FormPillTreeVariant = (): JSX.Element => {
+  const [pills, setPills] = React.useState([...PILL_NAMES]);
+  const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set([PILL_NAMES[1], PILL_NAMES[4]]));
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup
+        {...pillState}
+        data-testid="form-pill-group"
+        aria-label="Selectable and dismissable pills:"
+        variant="tree"
+      >
+        {pills.map((pill, index) => (
+          <FormPill
+            key={pill}
+            data-testid={`form-pill-${index}`}
+            {...pillState}
+            selected={selectedSet.has(pill)}
+            variant={index > 2 ? "error" : "default"}
+            onDismiss={() => {
+              setPills(pills.filter((_, i) => i !== index));
+            }}
+            onSelect={() => {
+              const newSelectedSet = new Set(selectedSet);
+              if (newSelectedSet.has(pill)) {
+                newSelectedSet.delete(pill);
+              } else {
+                newSelectedSet.add(pill);
+              }
+              updateSelectedSet(newSelectedSet);
+            }}
+          >
+            {index % 3 === 2 ? <Avatar size="sizeIcon10" name="avatar example" src="./avatars/avatar4.png" /> : null}
+            {index % 3 === 1 ? <CalendarIcon decorative size="sizeIcon10" /> : null}
+            {pill}
+          </FormPill>
+        ))}
+      </FormPillGroup>
+    </form>
+  );
+};
+
+FormPillTreeVariant.storyName = "FormPillGroup Tree Variant";
+
 // eslint-disable-next-line import/no-default-export
 export default {
   title: "Components/Form Pill Group",

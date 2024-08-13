@@ -1,33 +1,42 @@
 export const meta = {
-  title: 'Popover',
-  package: '@twilio-paste/popover',
-  description: 'An accessible and styled popover component.',
-  slug: '/components/popover/',
+  title: "Popover",
+  package: "@twilio-paste/popover",
+  description: "An accessible and styled popover component.",
+  slug: "/components/popover/",
 };
 
-import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '@twilio-paste/popover';
-import Changelog from '@twilio-paste/popover/CHANGELOG.md';
-import packageJson from '@twilio-paste/popover/package.json';
-import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ButtonGroup} from '@twilio-paste/button-group';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {Form, FormActions, FormControl} from '@twilio-paste/form';
-import {Heading} from '@twilio-paste/heading';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Select, Option} from '@twilio-paste/select';
-import {Separator} from '@twilio-paste/separator';
-import {Text} from '@twilio-paste/text';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {
+  PopoverFormPillButton,
+  usePopoverState,
+  Popover,
+  PopoverContainer,
+  PopoverButton,
+  PopoverBadgeButton,
+} from "@twilio-paste/popover";
+import Changelog from "@twilio-paste/popover/CHANGELOG.md";
+import packageJson from "@twilio-paste/popover/package.json";
+import { AspectRatio } from "@twilio-paste/aspect-ratio";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { CheckboxGroup, Checkbox } from "@twilio-paste/checkbox";
+import { Form, FormActions, FormControl } from "@twilio-paste/form";
+import { FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
+import { Heading } from "@twilio-paste/heading";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Select, Option } from "@twilio-paste/select";
+import { Separator } from "@twilio-paste/separator";
+import { Text } from "@twilio-paste/text";
+import { useUIDSeed, useUID } from "@twilio-paste/uid-library";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { useState } from "react";
 
-import {SidebarCategoryRoutes} from '../../../constants';
+import { SidebarCategoryRoutes } from "../../../constants";
 import {
   defaultExample,
   postionExample,
@@ -38,16 +47,17 @@ import {
   i18nExample,
   interactiveContent,
   initialFocus,
-} from '../../../component-examples/PopoverExamples';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
+  popoverFormPillExample
+} from "../../../component-examples/PopoverExamples";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+import { DoDont, Do, Dont } from "../../../components/DoDont";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Popover');
+  const feature = await getFeature("Popover");
   return {
     props: {
       data: {
@@ -58,8 +68,8 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover',
-        storybookUrl: '/?path=/story/components-popover--default',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover",
+        storybookUrl: "/?path=/story/components-popover--default",
       },
     },
   };
@@ -298,6 +308,27 @@ To launch a Popover from a Badge component, use the PopoverBadgeButton component
   {badgeExample}
 </LivePreview>
 
+### PopoverFormPillButton
+
+This component should **only be used as part of the filter pattern** (link coming soon!). It renders a FormPill and accepts all of its props, which are listed [on the Form Pill Group page](/components/form-pill-group#basic).
+
+<LivePreview
+  scope={{
+    Box,
+    Popover,
+    PopoverContainer,
+    PopoverFormPillButton,
+    FormPillGroup,
+    useFormPillState,
+    useState,
+    Button,
+    useUID
+  }}
+  noInline
+>
+  {popoverFormPillExample}
+</LivePreview>
+
 ### Using state hooks
 
 Popover comes with the option of "hooking" into the internal state by using the state hook originally provided by
@@ -406,3 +437,4 @@ Popover content should use full sentences and punctuation. Titles are optional.
     body="Don’t use a Popover to guide users through a complex workflow with a series of steps or for presenting critical information. Use a Modal for workflows, and an Alert Dialog for critical information."
   />
 </DoDont>
+import {useState} from "react"

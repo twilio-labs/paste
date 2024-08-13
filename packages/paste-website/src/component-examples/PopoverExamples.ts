@@ -435,3 +435,42 @@ render(
   <I18nExample />
 )
 `.trim();
+
+export const popoverFormPillExample = `
+const PopoverFormPillExample = () => {
+  const uniqueBaseID = useUID();
+  const pillState = useFormPillState();
+  const [selected, setSelected] = useState(true);
+
+  return (
+    <FormPillGroup {...pillState} aria-label="filter-group" variant="tree">
+      <PopoverContainer baseId={uniqueBaseID}>
+        <PopoverFormPillButton
+          {...pillState}
+          selected={selected}
+          onDismiss={() => {}}
+        >
+          Open popover
+        </PopoverFormPillButton>
+        <Popover aria-label="Popover" data-testid="form-pill-popover">
+          <Box margin="space60">
+            <Button
+              variant="primary"
+              size="small"
+              onClick={() => {
+                setSelected(!selected);
+              }}
+            >
+              Toggle Form Pill selection
+            </Button>
+          </Box>
+        </Popover>
+      </PopoverContainer>
+    </FormPillGroup>
+  );
+};
+
+render(
+  <PopoverFormPillExample />
+)
+`.trim();

@@ -3,6 +3,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { DatePicker } from "@twilio-paste/date-picker";
+import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Label } from "@twilio-paste/label";
 import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
@@ -12,7 +13,14 @@ import { TimePicker } from "@twilio-paste/time-picker";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { Popover, PopoverBadgeButton, PopoverButton, PopoverContainer, usePopoverState } from "../src";
+import {
+  Popover,
+  PopoverBadgeButton,
+  PopoverButton,
+  PopoverContainer,
+  PopoverFormPillButton,
+  usePopoverState,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -220,6 +228,54 @@ export const BadgePopover = (): JSX.Element => {
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>
+    </Box>
+  );
+};
+
+export const FormPillPopover = (): JSX.Element => {
+  const pillState = useFormPillState();
+  const [selected, setSelected] = React.useState(true);
+
+  return (
+    <Box height="300px">
+      <FormPillGroup {...pillState} aria-label="filter-group" variant="tree">
+        <PopoverContainer baseId={useUID()}>
+          <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+            Open popover
+          </PopoverFormPillButton>
+          <Popover aria-label="Popover" data-testid="form-pill-popover">
+            <Box margin="space60">
+              <Button
+                variant="primary"
+                size="small"
+                onClick={() => {
+                  setSelected(!selected);
+                }}
+              >
+                Toggle Form Pill selection
+              </Button>
+            </Box>
+          </Popover>
+        </PopoverContainer>
+        <PopoverContainer baseId={useUID()}>
+          <PopoverFormPillButton {...pillState} onDismiss={() => {}}>
+            Open popover
+          </PopoverFormPillButton>
+          <Popover aria-label="Popover" data-testid="form-pill-popover">
+            <Box margin="space60">
+              <Button
+                variant="primary"
+                size="small"
+                onClick={() => {
+                  setSelected(!selected);
+                }}
+              >
+                Toggle Form Pill selection
+              </Button>
+            </Box>
+          </Popover>
+        </PopoverContainer>
+      </FormPillGroup>
     </Box>
   );
 };

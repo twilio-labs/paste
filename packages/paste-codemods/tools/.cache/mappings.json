@@ -210,6 +210,7 @@
   "PopoverBadgeButton": "@twilio-paste/core/popover",
   "PopoverButton": "@twilio-paste/core/popover",
   "PopoverContainer": "@twilio-paste/core/popover",
+  "PopoverFormPillButton": "@twilio-paste/core/popover",
   "usePopoverState": "@twilio-paste/core/popover",
   "ProductSwitcher": "@twilio-paste/core/product-switcher",
   "ProductSwitcherButton": "@twilio-paste/core/product-switcher",

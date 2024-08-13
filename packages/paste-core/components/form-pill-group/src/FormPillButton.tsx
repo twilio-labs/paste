@@ -51,7 +51,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       const hasHoverStyles = isHoverable && !isDisabled;
       return hasHoverStyles ? { ...pillStyles[variant], ...hoverPillStyles[variant] } : pillStyles[variant];
     }, [isHoverable, isDisabled, variant]);
-    const { size } = React.useContext(FormPillGroupContext);
+    const { size, variant: groupVariant } = React.useContext(FormPillGroupContext);
     const { height, fontSize } = sizeStyles[size];
 
     return (
@@ -61,9 +61,9 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         ref={ref}
         aria-selected={selected}
         aria-disabled={isDisabled}
-        role="option"
-        type="button"
-        as="button"
+        role={groupVariant === "tree" ? "treeitem" : "option"}
+        type={groupVariant === "tree" ? undefined : "button"}
+        as={groupVariant === "tree" ? "div" : "button"}
         margin="space0"
         position="relative"
         borderRadius="borderRadiusPill"
@@ -79,7 +79,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
         {...computedStyles}
       >
-        <Box display="flex" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
+        <Box display="flex" height="100%" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
           {variant === "error" ? (
             <>
               <ErrorIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} />
