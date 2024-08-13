@@ -810,7 +810,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"tree\"\n  | \"true\"\n  | \"false\"\n  | \"dialog\"\n  | \"grid\"\n  | \"listbox\"\n  | \"menu\"",
+      "type": "| boolean\n  | \"listbox\"\n  | \"tree\"\n  | \"true\"\n  | \"false\"\n  | \"dialog\"\n  | \"grid\"\n  | \"menu\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -2328,10 +2328,10 @@
     },
     "variant": {
       "type": "FormPillGroupUsageVariants",
-      "defaultValue": "'default'",
+      "defaultValue": "'listbox'",
       "required": false,
       "externalProp": false,
-      "description": "The variant of the FormPillGroup to use. The 'tree' option allows for more data to be displayed on select and still allows for select states."
+      "description": "The variant of the FormPillGroup to use. The 'tree' option allows for more data to be displayed on select and still allows for select states.\nIt changes the aria roles from listbox/option to tree/treeitem and underlying DOM elements form button to div so that the FormPill can be used to trigger other DOM elements such as a dialog.\nThe existing keyboard functionality remains uneffected."
     },
     "vocab": {
       "type": "string",
