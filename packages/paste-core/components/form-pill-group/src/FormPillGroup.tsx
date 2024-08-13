@@ -51,8 +51,10 @@ export interface FormPillGroupProps
   size?: FormPillGroupSizeVariant;
   /**
    * The variant of the FormPillGroup to use. The 'tree' option allows for more data to be displayed on select and still allows for select states.
+   * It changes the aria roles from listbox/option to tree/treeitem and underlying DOM elements form button to div so that the FormPill can be used to trigger other DOM elements such as a dialog.
+   * The existing keyboard functionality remains uneffected.
    *
-   * @default 'default'
+   * @default 'listbox'
    * @memberof FormPillGroupProps
    */
   variant?: FormPillGroupUsageVariants;
@@ -73,7 +75,7 @@ const SizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "columnGap" | 
 };
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", variant = "default", ...props }, ref) => {
+  ({ element = "FORM_PILL_GROUP", display = "flex", size = "default", variant = "listbox", ...props }, ref) => {
     return (
       <FormPillGroupContext.Provider value={{ size, variant }}>
         <Box

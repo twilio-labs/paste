@@ -23,5 +23,5 @@ export interface FormPillGroupContextState {
 
 export const FormPillGroupContext = createContext<FormPillGroupContextState>({
   size: "default",
-  variant: "default",
+  variant: "listbox",
 });
