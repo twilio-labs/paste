@@ -443,7 +443,7 @@ const PopoverFormPillExample = () => {
   const [selected, setSelected] = useState(true);
 
   return (
-    <FormPillGroup {...pillState} aria-label="filter-group">
+    <FormPillGroup {...pillState} aria-label="filter-group" variant="tree">
       <PopoverContainer baseId={uniqueBaseID}>
         <PopoverFormPillButton
           {...pillState}

@@ -47,6 +47,7 @@ import {
   truncateExample,
   avatarExample,
   iconExample,
+  treeVariantExample
 } from '../../../component-examples/FormPillGroup';
 import packageJson from '@twilio-paste/form-pill-group/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -144,6 +145,14 @@ Use `size="large"` Form Pills only for specific and approved use cases, such as 
 
 <LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
   {largeExample}
+</LivePreview>
+
+### Tree Variant 
+
+There is a `tree` variant for FormPillGroup. This changes the accessibility roles and DOM elements of the FormPill to be more tree-like where selecting the pill expands more options. This variant of Form Pills only for specific and approved use cases, such as in the filter group pattern (link coming soon!).
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {treeVariantExample}
 </LivePreview>
 
 ### Selectable
