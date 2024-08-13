@@ -82,7 +82,7 @@ export const getStaticProps = async () => {
 >
   {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody>
       What does the SMS delivery error code 30003 mean?
     </AIChatMessageBody>
@@ -171,13 +171,13 @@ The `AIChatMessageBody` component has two sizes, `size="default"` and `size="ful
 >
   {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody size="default">
       I'm a message that should be displayed in compact elements
     </AIChatMessageBody>
   </AIChatMessage>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
+    <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody size="fullScreen">
       I'm a message that will be displayed in full screen width
     </AIChatMessageBody>
@@ -275,7 +275,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
 
 ### Customizing Avatar
 
-`AIChatMessageAuthor` can utilize custom icons by passing an icon to the prop `avatarIcon` or an image to the `avatarSrc` prop.
+`AIChatMessageAuthor` can be customized by passing an icon, image, or string to the `avatarIcon`, `avatarSrc`, or `avatarName` props. [Learn more about the API](/components/ai-chat-log/api#aichatmessageauthor).
 
 <LivePreview
   scope={{
