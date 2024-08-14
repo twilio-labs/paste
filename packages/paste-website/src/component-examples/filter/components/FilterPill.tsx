@@ -1,10 +1,13 @@
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
-import { FormPill, type useFormPillState } from "@twilio-paste/form-pill-group";
+import { type useFormPillState } from "@twilio-paste/form-pill-group";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
-import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
+import { Popover, PopoverContainer, PopoverFormPillButton, usePopoverState } from "@twilio-paste/popover";
 import React from "react";
 
 import type { FilterMapType, ParticipantsType, selectedFilterProps } from "../types";
+
+const multipleSelectFilterList = new Set(["sid", "uniqueName", "hostName", "tags", "department", "platform"]);
 
 const FilterPillView: React.FC<{
   label: string;
@@ -55,10 +58,21 @@ const FilterPillView: React.FC<{
     );
   }
 
-  if (selectedType === "uniqueName") {
+  if (selectedType && multipleSelectFilterList.has(selectedType)) {
+    const value = selectedValue as string[];
+
     return (
-      <Box display="flex" alignItems="center">
+      <Box display="flex" alignItems="center" columnGap="space20">
         {label}
+        {value.length === 1 ? (
+          `: ${value[0]}`
+        ) : (
+          <Badge as="span" variant="neutral_counter" size="small">
+            <Box textAlign="center" minWidth="12px">
+              {value.length}
+            </Box>
+          </Badge>
+        )}
       </Box>
     );
   }
@@ -76,36 +90,30 @@ export const FilterPill: React.FC<{
   onRemove?: () => void;
 }> = ({ pill, selectedFilters, filterMap, pillState, onDismiss, onApply, onRemove }) => {
   const popover = usePopoverState({ baseId: pill });
+
   const isSelected = pill in selectedFilters;
   const PopoverComponent = filterMap[pill].component;
   const value = selectedFilters[pill];
 
   return (
     <PopoverContainer key={pill} state={popover}>
-      <PopoverButton
-        variant="reset"
-        size="reset"
-        // @ts-expect-error types are wrong
-        borderRadius="borderRadiusPill"
-      >
-        <FormPill
-          {...pillState}
-          selected={isSelected}
-          onDismiss={
-            isSelected
-              ? (e) => {
-                  onDismiss?.();
+      <PopoverFormPillButton
+        {...pillState}
+        selected={isSelected}
+        onDismiss={
+          isSelected
+            ? (e) => {
+                onDismiss?.();
 
-                  e.stopPropagation();
-                  popover.hide();
-                }
-              : undefined
-          }
-        >
-          {!isSelected ? <PlusIcon decorative /> : null}
-          <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
-        </FormPill>
-      </PopoverButton>
+                e.stopPropagation();
+                popover.hide();
+              }
+            : undefined
+        }
+      >
+        {!isSelected ? <PlusIcon decorative /> : null}
+        <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+      </PopoverFormPillButton>
 
       <Popover aria-label={pill} width="size40">
         <PopoverComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} />

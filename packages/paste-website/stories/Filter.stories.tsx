@@ -27,7 +27,7 @@ SearchFilterExample.parameters = {
 };
 
 export const ConditionalFilterExample = (): JSX.Element => {
-  const conditionalFilterList: FilterListType = ["roomType", "participants", "custom"];
+  const conditionalFilterList: FilterListType = ["custom"];
   return <DefaultFilter data={STATIC_TABLE_DATA} filterList={conditionalFilterList} />;
 };
 
@@ -37,17 +37,17 @@ ConditionalFilterExample.parameters = {
 
 /*
  * export const AddFilterExample = (): JSX.Element => {
- *   const addFilterList: FilterListType = ["room-type", "date-range"];
- *   const addFiltersList: FilterListType = ["room-sid", "unique-name", "participants"];
- *   const recommendedFiltersList: FilterListType = ["unique-name", "participants"];
- *   return (
- *     <DefaultFilter
- *       data={STATIC_TABLE_DATA}
- *       filterList={addFilterList}
- *       addFiltersList={addFiltersList}
- *       recommendedFiltersList={recommendedFiltersList}
- *     />
- *   );
+ * const addFilterList: FilterListType = ["roomType", "participants"];
+ * const addFiltersList: FilterListType = ["sid", "uniqueName", "participants"];
+ * const recommendedFiltersList: FilterListType = ["uniqueName", "participants"];
+ * return (
+ *  <DefaultFilter
+ *    data={STATIC_TABLE_DATA}
+ *    filterList={addFilterList}
+ *    addFiltersList={addFiltersList}
+ *    recommendedFiltersList={recommendedFiltersList}
+ *  />
+ * );
  * };
  */
 

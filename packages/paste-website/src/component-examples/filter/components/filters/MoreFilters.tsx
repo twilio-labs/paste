@@ -140,7 +140,7 @@ export const MoreFilters: React.FC = () => {
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
       <SidePanel label="">
         <SidePanelHeader>
-          <Heading as="h3" variant="heading30">
+          <Heading as="h3" variant="heading30" marginBottom="space0">
             More filters
           </Heading>
         </SidePanelHeader>
@@ -172,7 +172,6 @@ export const MoreFilters: React.FC = () => {
               variant="primary"
               onClick={() => {
                 setSelectedMoreFilters(tempSelectedMoreFilters);
-                setIsOpen(false);
               }}
             >
               Apply

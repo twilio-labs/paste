@@ -19,7 +19,7 @@ export const EmptyState: React.FC<React.PropsWithChildren<{ handleClearAll: () =
     alignItems="center"
     columnGap="space110"
   >
-    <Box width="size20" aria-hidden="true">
+    <Box height="94px" aria-hidden="true">
       <NoResultsIllustration />
     </Box>
     <Box>
@@ -27,8 +27,8 @@ export const EmptyState: React.FC<React.PropsWithChildren<{ handleClearAll: () =
         No results found
       </Heading>
       <Paragraph>Try changing the filters or the search term.</Paragraph>
-      <Button variant="secondary" onClick={handleClearAll} data-cy="filter-group-empty-state-clear-button">
-        Clear all
+      <Button variant="primary" onClick={handleClearAll} data-cy="filter-group-empty-state-clear-button">
+        Clear all filters
       </Button>
     </Box>
   </Box>

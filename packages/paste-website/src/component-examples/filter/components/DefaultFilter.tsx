@@ -147,7 +147,7 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
         Filter
       </Heading>
 
-      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large" variant="tree">
         {filterList.map((pill) => {
           return (
             <FilterPill
@@ -226,7 +226,7 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
               More filters
               {selectedMoreFilters && countMoreFilters(selectedMoreFilters) > 0 ? (
                 <Badge as="span" variant="neutral_counter" size="small">
-                  {countMoreFilters(selectedMoreFilters)}
+                  <Box minWidth="12px">{countMoreFilters(selectedMoreFilters)}</Box>
                 </Badge>
               ) : null}
             </Box>
