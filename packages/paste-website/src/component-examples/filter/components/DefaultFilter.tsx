@@ -76,9 +76,13 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
 
   React.useEffect(() => {
     if (selectedMoreFilters) {
+      setSelectedFilters((e) => {
+        return { ...e, ...(selectedMoreFilters as Record<string, selectedFilterProps>) };
+      });
       handleApplyFilters({ ...selectedFilters, ...selectedMoreFilters } as selectedFilterProps);
     }
 
+    // for EmptyState example
     if (selectedFiltersDefault) {
       handleApplyFilters(selectedFiltersDefault as selectedFilterProps);
     }
