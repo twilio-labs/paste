@@ -160,19 +160,18 @@ This pattern provides recommendations for selection methods, layout, and behavio
 - Familiarize yourself with your feature’s filter values and categories.
   - List all filtering criteria available.
   - Map out the relationships between different filters and choose the ones that will be part of your feature. Remember filters should give users a sense of control and not overwhelm them.
-  - Define filter categories.
-  “A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized.” [Defining Helpful Filter Categories and Values for Better UX](https://www.nngroup.com/articles/filter-categories-values/).
+  - Define filter categories. From Nielsen Norman Group: “A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized” ([Defining Helpful Filter Categories and Values for Better UX](https://www.nngroup.com/articles/filter-categories-values/)).
 
   <ResponsiveImage src={UsageImage} alt="The filter category label should be the same as the form field label" />
 
-  - Check our [Form documentation](/components/form#selection-methods) to choose the best Selection Method for your filter use case.
+  - Check our [Form documentation](/components/form#selection-methods) to choose the best selection method for your filter use case.
 - Determine users' intent and their relationship with the product and dataset.
   - Categorize filters into the most relevant and commonly used filters versus the more advanced or less used ones.
-  - Determine how many different types of users will access the feature and how much the filtering criteria will vary from use case to use case. If necessary, consider allowing users to [add custom filters](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.h0q1xjjeczp) to provide a more tailored experience.
-  - Identify any filter values that naturally lead to additional refinement options, and consider implementing [conditional filters](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.ml9y8ac3naoj).
-- Work with your engineer to determine any technical constraints.
+  - Determine how many different types of users will access the feature and how much the filtering criteria will vary from use case to use case. If necessary, consider allowing users to [add custom filters](#add-filters) to provide a more tailored experience.
+  - Identify any filter values that naturally lead to additional refinement options, and consider implementing [conditional filters](#conditional-filters).
+- Determine any technical constraints.
   - Ensure you have a good understanding of how the data is set up, including which filtering behaviors and combinations are not possible.
-  - Evaluate carefully the best filtering behavior for [fetching results](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.13p2794htv04). Keep in mind user intent, but also loading times and the size of the dataset.
+  - Evaluate carefully the best filtering behavior for [fetching results](#fetching-results). Keep in mind user intent, but also loading times and the size of the dataset.
   - Ensure that all filter options correspond to data present in the results. Avoid including filters for data that are not visible or accessible within the dataset.
   - Evaluate the expected growth of your filtering criteria and ensure it can manage larger datasets without notable performance decline.
 
@@ -186,7 +185,7 @@ When using the filter pattern, ensure that users:
 
 <Callout variant="neutral" marginY="space70">
   <CalloutText>
-    Check accessibility considerations for each component part of the filter feature, for example if you’re using Time Picker check its accessibility guidelines and make sure to follow.
+    Check accessibility considerations for each component part of the filter feature, for example if you’re using Time Picker, follow its accessibility guidelines.
   </CalloutText>
 </Callout>
 
@@ -194,9 +193,9 @@ When using the filter pattern, ensure that users:
 
 ### Filter bar
 
-A filter bar is the default way of displaying filters
+A filter bar is the default way of displaying filters.
 
-Use it when all filters are relevant and necessary to the search. It can also be used in combination with a [More filters Side Panel](https://docs.google.com/document/d/1QcSeyk64EfHFnwVg6onVF-E-IYR1VZ91anZMBHlsNjI/edit#heading=h.2te8zormvjon) when there are secondary filter criteria.
+Use it when all filters are relevant and necessary to the search. It can also be used in combination with a [More filters Side Panel](#more-filters-side-panel) when there are secondary filter criteria.
 
 #### Ingredients
 - Heading
@@ -284,12 +283,12 @@ export const FilterPatternExample = ({data}): React.ReactNode => {
 
 ### More filters Side Panel
 
-Use it in scenarios where the list of filters is extensive and there are filters that are not a priority to the search. Prioritize the most relevant and commonly used filters in the filter bar for visibility, while offering more/advanced filtering options in a Side Panel.
+Use it in scenarios where the list of filters is extensive and there are filters that are not a priority to the search. Prioritize the most relevant and commonly used filters in the filter bar for visibility, while offering advanced filtering options in a Side Panel.
 
 #### Ingredients
 - Secondary rounded Button (for more filters)
 - Side Panel
-- Neutral Counter Badge
+- Neutral counter Badge
 - Dismissible Form Pill Group (for showing filter selections)
 - Disclosure (for filter categories)
 - Link-style Button (for clearing results)
@@ -382,17 +381,17 @@ export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode =>
 
 #### Surfacing results
 
-- In the “More filters” Side Panel when filters are selected a counter Badge will be displayed in the right corner of the filter value (disclosure).
+- In the “More filters” Side Panel when filters are selected, a counter Badge will be displayed in the right corner of the filter value (disclosure).
 - “More filters” Button will have a counter Badge with the number of selected filter values.
 
 <DoDont>
   <Do title="Do" body="Ensure that the filters in the Filter bar and those in the Side Panel are independent and won’t need to be applied along with another filter criteria to return relevant results." />
-  <Dont title="Don't" body="Don’t use a “More Filters” Side Panel for less than three additional filters." />
+  <Dont title="Don't" body="Don’t use a “More Filters” Side Panel for fewer than 3 additional filters." />
 </DoDont>
 
 ### Add filters
 
-Add filters allow users to add a filter value from a predefined list of filter options. Use it in scenarios where the list of filters may not be relevant to all personas or the user would benefit from creating their own filters set.
+An "Add filters" Popover allows users to add a filter value from a predefined list of filter options. Use it in scenarios where the list of filters may not be relevant to all users, or the user would benefit from creating their own filters set.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Demo is coming soon!</CalloutHeading>
@@ -406,7 +405,7 @@ Add filters allow users to add a filter value from a predefined list of filter o
 
 <DoDont>
   <Do title="Do" body="Limit the primary display to max 3 prioritized filters, and offer the option to add custom filters. This behavior is designed to provide users with more choice and not overwhelm them with excessive always visible options." />
-  <Dont title="Don't" body="When your use case includes a &quot;more filters&quot; panel, avoid prompting users to add more filters, as the existing filter selection should already meet their filtering needs." />
+  <Dont title="Don't" body="When your use case includes a &quot;More filters&quot; panel, avoid prompting users to add more filters, as the existing filter selection should already meet their filtering needs." />
 </DoDont>
 
 ## Composition
@@ -561,30 +560,27 @@ Use it when filter selections naturally lead to additional criteria, or where ce
 
 #### Batch filtering
 
-Requires the user to click an “apply” button to see the results.
+Batch filtering requires the user to click an “Apply” button to see the results.
 
  <ResponsiveImage src={FetchingImage} alt="The filter bar supports batch filtering of results on click of apply" />
 
 
-When to use:
-- Use when there are categories with multiple interdependent filter values, and the user might want to take more time selecting the right group of filters.
-- Use when the dataset cannot be refreshed automatically and the system needs time to load the data.
-- Use when you want to prevent 'no results' scenarios.
+Use batch filtering when:
+- There are categories with multiple interdependent filter values, and the user might want to take more time selecting the right group of filters.
+- The dataset cannot be refreshed automatically and the system needs time to load the data.
+- You want to prevent "no results" scenarios.
 
-Loading Results:
-
-Once the user clicks the Apply button, the popover will automatically close, and a loading screen will be displayed until the data is fully loaded. It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
+To load results: Once the user clicks the "Apply" button, the Popover will automatically close, and a loading screen will be displayed until the data is fully loaded. It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
 
 #### Dynamic filtering
 
-Filters are applied as soon as a filter selection is made.
+Dynamic filters are applied as soon as a filter selection is made.
 
  <ResponsiveImage src={DynamicImage} alt="The filter bar also supports batch filtering of results as soon as selection is made" />
 
-
-When to use:
-- Use when the filter experience is more explorative and users need to play around with the filters to find their desired results.
-- Use when the user is expected to make quick and several filter changes during the task.
+Use dynamic filtering when:
+- The filter experience is more explorative and users need to play around with the filters to find their desired results.
+- The user is expected to make multiple quick filter changes during the task.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutText>
@@ -592,13 +588,11 @@ When to use:
   </CalloutText>
 </Callout>
 
-Loading Results:
+To load results: Dynamic filtering is designed to allow users to experiment with different filters. The Popover will remain open until the user closes it, while the results load in the background.
 
-Dynamic filtering is designed to allow users to experiment with different filters. The Popover will remain open until the user closes it, while the results load in the background.
+### Empty states
 
-### Empty States
-
-When the applied filters and/or search does not return any results, use the [Empty State pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
+When the applied filters and/or search does not return any results, use the [empty state pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
 
 <StoryPreview
   title="Empty filter example"
@@ -659,7 +653,7 @@ export const EmptyFilterPatternExample = ({data}): React.ReactNode => {
 }`}
 />
 
-### Clearing Filters
+### Clearing filters
 
 A clear filter option will be available when filters are selected. By default, "clear all filters" will remove all filter criteria and display all results. In use cases where there is a selected filter value by default, "clear all filters" will reset the filters to their default state.
 
@@ -670,27 +664,13 @@ A clear filter option will be available when filters are selected. By default, "
 
 ### Responsive
 
-On mobile screens, consolidate all filter options under a "Filter" button to optimize screen space and usability.
+On mobile screen sizes, consolidate all filter options under a "Filter" button to optimize screen space and usability.
 
  <ResponsiveImage src={Responsive1Image} alt="On smaller screens, filter modal will take full width" />
 
-
-On responsive screens, filter pills will stack vertically to make better use of available space. All action buttons (such as "More filters", “Add Filters”, "Clear All” and “table actions") to the last row on responsive screens to maintain a clean and organized layout.
+At smaller screen sizes, filter Pills will overflow onto the next row. All other actions (such as "More filters", “Add filters”, "Clear all” and table actions) move to the last row to maintain a clean and organized layout.
 
  <ResponsiveImage src={Responsive2Image} alt="filter pills will stack vertically to make better use of available space" />
-
-
-## Usage Guide
-
-### Figma
-
-#### Example
-
-Form Pill Group is available in the Paste Components Figma library. It has 1 base component, Form Pill, with a ⚙️ emoji in its layer name to indicate there are nested configurable properties available.
-
-In code, when there are more pills than the max width, they will wrap to the next row. To accomplish the same behavior in Figma, please use the `Row count` property to select a number of rows, or place multiple Form Pill Group components under one another.
-
-Form Pill Group also contains other Paste components as nested components, including [Avatar](/components/avatar) and [Icon](/components/icons).
 
 
 </content>
