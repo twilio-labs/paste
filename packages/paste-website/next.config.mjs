@@ -64,6 +64,7 @@ const nextConfig = {
       },
       { source: "/articles", destination: "/blog", permanent: true },
       { source: "/patterns/navigation", destination: "/experiences/navigation", permanent: true },
+      { source: "/patterns/filter-group", destination: "/patterns/filter", permanent: true },
     ];
   },
   // https://nextjs.org/docs/pages/api-reference/next-config-js/headers
