@@ -11,6 +11,7 @@ export const ParticipantsFilter: React.FC = ({
   onApply,
   popover,
   onRemove,
+  value,
 }: {
   onApply?: (
     type: string,
@@ -21,10 +22,19 @@ export const ParticipantsFilter: React.FC = ({
   ) => void;
   popover?: ReturnType<typeof usePopoverState>;
   onRemove?: () => void;
+  value?: {
+    min: string;
+    max: string;
+  };
 }) => {
   const [minValue, setMinValue] = React.useState("");
   const [maxValue, setMaxValue] = React.useState("");
   const [showError, setShowError] = React.useState(false);
+
+  React.useEffect(() => {
+    setMinValue(value?.min || "");
+    setMaxValue(value?.max || "");
+  }, [value]);
 
   return (
     <Box>

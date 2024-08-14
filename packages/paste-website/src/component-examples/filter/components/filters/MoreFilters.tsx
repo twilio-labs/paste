@@ -131,9 +131,7 @@ export const MoreFilters: React.FC = () => {
   const sidePanelId = useUID();
 
   React.useEffect(() => {
-    if (!isOpen) {
-      setTempSelectedMoreFilters(selectedMoreFilters);
-    }
+    setTempSelectedMoreFilters(selectedMoreFilters);
   }, [isOpen, selectedMoreFilters]);
 
   return (

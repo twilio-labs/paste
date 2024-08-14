@@ -11,11 +11,17 @@ const platformList = ["Zoom", "Meets", "Microsoft Teams", "Slack", "Others"];
 export const PlatformFilter: React.FC = ({
   onApply,
   popover,
+  value,
 }: {
   onApply?: (type: string, value: Item[]) => void;
   popover?: ReturnType<typeof usePopoverState>;
+  value?: Item[];
 }) => {
   const [values, setValues] = React.useState<string[]>([]);
+
+  React.useEffect(() => {
+    setValues((value as string[]) || []);
+  }, [value]);
   return (
     <Box>
       <CheckboxGroup name="platform-list" legend="Platform" helpText="Select one or more options">
@@ -33,7 +39,7 @@ export const PlatformFilter: React.FC = ({
                   return;
                 }
 
-                const updatedList = values.filter((value) => value !== item);
+                const updatedList = values.filter((v) => v !== item);
                 setValues(updatedList);
               }}
             >

@@ -8,12 +8,18 @@ import { FilterAction } from "../FilterAction";
 export const RoomTypeFilter: React.FC = ({
   onApply,
   popover,
+  value,
 }: {
   onApply?: (type: string, value: string) => void;
   popover?: ReturnType<typeof usePopoverState>;
+  value?: string;
 }) => {
   const roomTypes = ["Group", "WebRTC Go", "Peer to Peer"];
   const [selectedRoomType, setSelectedRoomType] = React.useState<string>("");
+
+  React.useEffect(() => {
+    setSelectedRoomType(value || "");
+  }, [value]);
 
   return (
     <Box>
@@ -21,9 +27,7 @@ export const RoomTypeFilter: React.FC = ({
         name="roomType"
         legend="Room type"
         helpText="Select one option"
-        onChange={(value) => {
-          setSelectedRoomType(value);
-        }}
+        onChange={setSelectedRoomType}
         value={selectedRoomType}
       >
         {roomTypes.map((roomType) => (

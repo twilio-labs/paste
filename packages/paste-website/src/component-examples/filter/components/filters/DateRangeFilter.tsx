@@ -1,6 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { Heading } from "@twilio-paste/heading";
+import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import type { usePopoverState } from "@twilio-paste/popover";
@@ -12,6 +13,7 @@ import { FilterAction } from "../FilterAction";
 export const DateRangeFilter: React.FC = ({
   onApply,
   popover,
+  value,
 }: {
   onApply?: (
     type: string,
@@ -21,12 +23,22 @@ export const DateRangeFilter: React.FC = ({
     },
   ) => void;
   popover?: ReturnType<typeof usePopoverState>;
+  value?: {
+    startDate: string;
+    endDate: string;
+  };
 }) => {
   const startDateID = useUID();
   const endDateID = useUID();
 
   const [startDate, setStartDate] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
+  const [showError, setShowError] = React.useState(false);
+
+  React.useEffect(() => {
+    setStartDate(value?.startDate || "");
+    setEndDate(value?.endDate || "");
+  }, [value]);
 
   return (
     <Box>
@@ -42,6 +54,7 @@ export const DateRangeFilter: React.FC = ({
               id={startDateID}
               onChange={(e) => {
                 setStartDate(e.target.value);
+                setShowError(false);
               }}
               value={startDate}
             />
@@ -52,6 +65,7 @@ export const DateRangeFilter: React.FC = ({
               id={endDateID}
               onChange={(e) => {
                 setEndDate(e.target.value);
+                setShowError(false);
               }}
               value={endDate}
             />
@@ -59,11 +73,23 @@ export const DateRangeFilter: React.FC = ({
         </Box>
       </Box>
 
+      {showError ? (
+        <HelpText id="participants_help_text" variant="error">
+          Please enter both start and end date
+        </HelpText>
+      ) : undefined}
+
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
             if (startDate === "" && endDate === "") {
               popover.hide();
+              setShowError(false);
+              return;
+            }
+
+            if (startDate === "" || endDate === "") {
+              setShowError(true);
               return;
             }
 
@@ -79,6 +105,7 @@ export const DateRangeFilter: React.FC = ({
             ? () => {
                 setStartDate("");
                 setEndDate("");
+                setShowError(false);
               }
             : null
         }
