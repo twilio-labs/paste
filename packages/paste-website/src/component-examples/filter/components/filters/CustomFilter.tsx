@@ -79,6 +79,7 @@ export const CustomFilter: React.FC = ({
               id={startDateID}
               onChange={(e) => {
                 setStartDate(e.target.value);
+                setShowError(false);
               }}
               value={startDate}
             />
@@ -89,6 +90,7 @@ export const CustomFilter: React.FC = ({
               id={endDateID}
               onChange={(e) => {
                 setEndDate(e.target.value);
+                setShowError(false);
               }}
               value={endDate}
             />
@@ -107,7 +109,7 @@ export const CustomFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (selectedDate === "Custom" && startDate === "" && endDate === "") {
+            if (selectedDate === "Custom" && (startDate === "" || endDate === "")) {
               setShowError(true);
               return;
             }

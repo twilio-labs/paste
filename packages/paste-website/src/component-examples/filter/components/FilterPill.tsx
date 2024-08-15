@@ -1,5 +1,6 @@
 import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
+import { formatReturnDate } from "@twilio-paste/date-picker";
 import { type useFormPillState } from "@twilio-paste/form-pill-group";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverContainer, PopoverFormPillButton, usePopoverState } from "@twilio-paste/popover";
@@ -35,25 +36,9 @@ const FilterPillView: React.FC<{
   if (selectedType === "dateCompleted" || selectedType === "custom") {
     const { startDate, endDate } = selectedValue as { startDate: string; endDate: string };
 
-    if (endDate === "") {
-      return (
-        <span>
-          {label}: {startDate}
-        </span>
-      );
-    }
-
-    if (startDate === "") {
-      return (
-        <span>
-          {label}: {endDate}
-        </span>
-      );
-    }
-
     return (
       <span>
-        {label}: {startDate} - {endDate}
+        {label}: {formatReturnDate(startDate, "MMM dd, yyyy")} - {formatReturnDate(endDate, "MMM dd, yyyy")}
       </span>
     );
   }
