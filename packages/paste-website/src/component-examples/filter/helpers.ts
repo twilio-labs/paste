@@ -80,6 +80,22 @@ export const isEndDateBeforeStartDate = (
   return isBefore(computedEnd, computedStart);
 };
 
+export const isValueEmpty = (type: string, value: selectedFilterProps): boolean => {
+  if (type === "roomType" || type === "status") {
+    return value === "";
+  }
+
+  if (["participants", "dateCompleted", "custom"].includes(type)) {
+    return Object.values(value)?.includes("");
+  }
+
+  if (["sid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
+    return (value as string[])?.length === 0;
+  }
+
+  return false;
+};
+
 export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDataRow[]): ExtendedTableDataRow[] => {
   let filteredData = [...data];
 

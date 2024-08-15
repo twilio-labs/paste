@@ -38,7 +38,7 @@ export const DateRangeFilter: React.FC = ({
   React.useEffect(() => {
     setStartDate(value?.startDate || "");
     setEndDate(value?.endDate || "");
-  }, [value]);
+  }, [value, popover?.visible]);
 
   return (
     <Box>
@@ -82,13 +82,7 @@ export const DateRangeFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (startDate === "" && endDate === "") {
-              popover.hide();
-              setShowError(false);
-              return;
-            }
-
-            if (startDate === "" || endDate === "") {
+            if ((startDate === "" && endDate !== "") || (startDate !== "" && endDate === "")) {
               setShowError(true);
               return;
             }

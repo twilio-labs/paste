@@ -21,7 +21,8 @@ export const PlatformFilter: React.FC = ({
 
   React.useEffect(() => {
     setValues((value as string[]) || []);
-  }, [value]);
+  }, [value, popover?.visible]);
+
   return (
     <Box>
       <CheckboxGroup name="platform-list" legend="Platform" helpText="Select one or more options">
@@ -52,11 +53,6 @@ export const PlatformFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (values.length === 0) {
-              popover.hide();
-              return;
-            }
-
             onApply("platform", values);
             popover.hide();
           }

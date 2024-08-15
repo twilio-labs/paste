@@ -116,11 +116,6 @@ export const UniqueNameFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (state.selectedItems.length === 0) {
-              popover.hide();
-              return;
-            }
-
             onApply("uniqueName", state.selectedItems);
             popover.hide();
           }

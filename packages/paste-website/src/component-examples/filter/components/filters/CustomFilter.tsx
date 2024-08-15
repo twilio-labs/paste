@@ -13,23 +13,36 @@ import { FilterAction } from "../FilterAction";
 export const CustomFilter: React.FC = ({
   onApply,
   popover,
+  value: Value,
 }: {
   onApply?: (
     type: string,
     value: {
       startDate: string;
       endDate: string;
+      type: string;
     },
   ) => void;
   popover?: ReturnType<typeof usePopoverState>;
+  value?: {
+    startDate: string;
+    endDate: string;
+    type: string;
+  };
 }) => {
   const startDateID = useUID();
   const endDateID = useUID();
 
-  const [startDate, setStartDate] = React.useState("");
-  const [endDate, setEndDate] = React.useState("");
-  const [selectedDate, setSelectedDate] = React.useState<string>("");
+  const [startDate, setStartDate] = React.useState(Value?.startDate || "");
+  const [endDate, setEndDate] = React.useState(Value?.endDate || "");
+  const [selectedDate, setSelectedDate] = React.useState<string>(Value?.type || "");
   const [showError, setShowError] = React.useState(false);
+
+  React.useEffect(() => {
+    setStartDate(Value?.startDate || "");
+    setEndDate(Value?.endDate || "");
+    setSelectedDate(Value?.type || "");
+  }, [Value, popover?.visible]);
 
   function getStartDate(): string {
     switch (selectedDate) {
@@ -113,16 +126,12 @@ export const CustomFilter: React.FC = ({
               setShowError(true);
               return;
             }
-
             setShowError(false);
-            if (selectedDate === "") {
-              popover.hide();
-              return;
-            }
 
             onApply("custom", {
               startDate: selectedDate === "Custom" ? startDate : getStartDate(),
               endDate: selectedDate === "Custom" ? endDate : new Date().toISOString().split("T")[0],
+              type: selectedDate,
             });
             popover.hide();
           }

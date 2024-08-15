@@ -12,7 +12,7 @@ import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
-import { applyFilters, slugify } from "../helpers";
+import { applyFilters, isValueEmpty, slugify } from "../helpers";
 import type { ExtendedTableDataRow, FilterListType, FilterMapType, FilterProps, selectedFilterProps } from "../types";
 import { EmptyState } from "./EmptyState";
 import { ExtendedDataGrid } from "./ExtendedDataGrid";
@@ -123,6 +123,20 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
     },
   };
 
+  function removeFilter(filter: string): void {
+    const newFilters = { ...selectedFilters };
+    const { [filter]: _, ...rest } = newFilters;
+
+    setSelectedFilters(rest);
+    handleApplyFilters(rest as selectedFilterProps);
+  }
+
+  function addFilter(type: string, value: selectedFilterProps): void {
+    const newFilters = { ...selectedFilters, [type]: value };
+    setSelectedFilters(newFilters);
+    handleApplyFilters(newFilters as selectedFilterProps);
+  }
+
   return (
     <Box padding="space50">
       {withSearch ? (
@@ -161,16 +175,14 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
               filterMap={filterMap}
               pillState={pillState}
               onDismiss={() => {
-                const newFilters = { ...selectedFilters };
-                const { [pill]: _, ...rest } = newFilters;
-
-                setSelectedFilters(rest);
-                handleApplyFilters(rest as selectedFilterProps);
+                removeFilter(pill);
               }}
               onApply={(type: string, value) => {
-                const newFilters = { ...selectedFilters, [type]: value };
-                setSelectedFilters(newFilters);
-                handleApplyFilters(newFilters as selectedFilterProps);
+                if (isValueEmpty(type, value)) {
+                  removeFilter(type);
+                  return;
+                }
+                addFilter(type, value);
               }}
             />
           );
@@ -186,25 +198,20 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
                   filterMap={filterMap}
                   pillState={pillState}
                   onDismiss={() => {
-                    const newFilters = { ...selectedFilters };
-                    const { [pill]: _, ...rest } = newFilters;
-
-                    setSelectedFilters(rest);
-                    handleApplyFilters(rest as selectedFilterProps);
+                    removeFilter(pill);
                   }}
                   onApply={(type: string, value) => {
-                    const newFilters = { ...selectedFilters, [type]: value };
-                    setSelectedFilters(newFilters);
-                    handleApplyFilters(newFilters as selectedFilterProps);
+                    if (!value || (Array.isArray(value) && value.length === 0)) {
+                      removeFilter(type);
+                      return;
+                    }
+                    addFilter(type, value);
                   }}
                   onRemove={() => {
                     const newFilters = addedFilters.filter((item) => item !== pill);
                     setAddedFilters(newFilters);
 
-                    const newSelectedFilters = { ...selectedFilters };
-                    const { [pill]: _, ...rest } = newSelectedFilters;
-
-                    setSelectedFilters(rest);
+                    removeFilter(pill);
                   }}
                 />
               );

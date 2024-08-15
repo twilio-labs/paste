@@ -19,7 +19,7 @@ export const RoomTypeFilter: React.FC = ({
 
   React.useEffect(() => {
     setSelectedRoomType(value || "");
-  }, [value]);
+  }, [value, popover?.visible]);
 
   return (
     <Box>
@@ -40,11 +40,6 @@ export const RoomTypeFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (selectedRoomType === "") {
-              popover.hide();
-              return;
-            }
-
             onApply("roomType", selectedRoomType);
             popover.hide();
           }

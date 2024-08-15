@@ -34,7 +34,7 @@ export const ParticipantsFilter: React.FC = ({
   React.useEffect(() => {
     setMinValue(value?.min || "");
     setMaxValue(value?.max || "");
-  }, [value]);
+  }, [value, popover?.visible]);
 
   return (
     <Box>
@@ -80,12 +80,7 @@ export const ParticipantsFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (minValue === "" && maxValue === "") {
-              popover.hide();
-              return;
-            }
-
-            if (minValue === "" || maxValue === "") {
+            if ((minValue === "" && maxValue !== "") || (minValue !== "" && maxValue === "")) {
               setShowError(true);
               return;
             }

@@ -21,7 +21,8 @@ export const DepartmentFilter: React.FC = ({
 
   React.useEffect(() => {
     setValues((value as string[]) || []);
-  }, [value]);
+  }, [value, popover?.visible]);
+
   return (
     <Box>
       <CheckboxGroup name="department-list" legend="Department" helpText="Select one or more options">
@@ -52,11 +53,6 @@ export const DepartmentFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            if (values.length === 0) {
-              popover.hide();
-              return;
-            }
-
             onApply("department", values);
             popover.hide();
           }
