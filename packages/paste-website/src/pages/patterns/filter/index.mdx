@@ -85,7 +85,7 @@ This pattern provides recommendations for selection methods, layout, and behavio
       <ListItem>List all filtering criteria available.</ListItem>
       <ListItem>Map out the relationships between different filters and choose the ones that will be part of your feature. Remember filters should give users a sense of control and not overwhelm them.</ListItem>
       <Blockquote
-        name="Define filter categories"
+        name="Defining Helpful Filter Categories and Values for Better UX"
         source="Nielsen Norman Group"
         sourceUrl="https://www.nngroup.com/articles/filter-categories-values/"
       >
@@ -219,7 +219,7 @@ export const FilterPatternExample = ({data}): React.ReactNode => {
 
 <DoDont>
   <Do title="Do" body="Arrange filters in a way that mirrors how users think about and interact with the data." />
-  <Dont title="Don't" body="The filter bar is designed to provide prioritized, essential filters for quick application. Avoid adding too many filters, as this can clutter the screen and make it harder for users to find relevant information." />
+  <Dont title="Don't" body="Don't overload the filter bar with too many filters. It's designed for prioritized, essential filters to keep the screen uncluttered and easy to navigate." />
   <Do title="Do" body="Arrange filter values in a logical order; for example, dates should be in chronological order and names should be in alphabetical order." />
 </DoDont>
 
@@ -338,25 +338,8 @@ export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode =>
 An "Add filters" Popover allows users to add a filter value from a predefined list of filter options. Use it in scenarios where the list of filters may not be relevant to all users, or the user would benefit from creating their own filters set.
 
 <Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Demo is coming soon!</CalloutHeading>
+  <CalloutHeading as="h4">Demo coming soon!</CalloutHeading>
 </Callout>
-
-#### Surfacing results
-
-<UnorderedList>
-  <ListItem>Selected filters will be added to the filter bar where they will become functional.</ListItem>
-  <ListItem>
-    Added filters behave as a normal filter with the only difference being they can be removed
-    <UnorderedList>
-      <ListItem>Added filters can be removed through the “Add filters” Popover or through the specific filter’s Popover.</ListItem>
-    </UnorderedList>
-  </ListItem>
-</UnorderedList>
-
-<DoDont>
-  <Do title="Do" body="Limit the primary display to max 3 prioritized filters, and offer the option to add custom filters. This behavior is designed to provide users with more choice and not overwhelm them with excessive always visible options." />
-  <Dont title="Don't" body="When your use case includes a &quot;More filters&quot; panel, avoid prompting users to add more filters, as the existing filter selection should already meet their filtering needs." />
-</DoDont>
 
 ## Composition
 
@@ -501,7 +484,6 @@ Use it when filter selections naturally lead to additional criteria, or where ce
 <DoDont>
   <Do title="Do" body="Consider the performance implications of loading conditional filters." />
   <Dont title="Don't" body="Don’t use conditional filtering for essential filter criteria." />
-  <Do title="Do" body="Only one conditional filter should be expanded at a time." />
 </DoDont>
 
 ## Behavior
