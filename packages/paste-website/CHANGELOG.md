@@ -1,5 +1,22 @@
 # @twilio-paste/website
 
+## 2.23.47
+
+### Patch Changes
+
+- Updated dependencies [[`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1), [`9838a4f18`](https://github.com/twilio-labs/paste/commit/9838a4f18bd0ef1a12cf4231766fb45fca44ecde), [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201), [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450), [`2aacaf780`](https://github.com/twilio-labs/paste/commit/2aacaf780a11c61932ef940afde1282e71576935), [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`fe8825efc`](https://github.com/twilio-labs/paste/commit/fe8825efcfec00aeaa0b91354e4f476bcec98f51), [`e4135e818`](https://github.com/twilio-labs/paste/commit/e4135e81862a040a9d106ba63ae44d3c787e8524), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450), [`300c6c299`](https://github.com/twilio-labs/paste/commit/300c6c29980057c86c2711feef6700ccffc82ff1), [`4441e59af`](https://github.com/twilio-labs/paste/commit/4441e59af9ada2fb809f5fba88c8eaf1788da45d), [`7ee977291`](https://github.com/twilio-labs/paste/commit/7ee9772916b62c5bde305ac6492255ac7355c46d), [`4ea2bcc63`](https://github.com/twilio-labs/paste/commit/4ea2bcc63e479a6815a13d0b880436031a23c28e), [`b04532dad`](https://github.com/twilio-labs/paste/commit/b04532dada23159d364f0d1dbe845ebc7ce81928), [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450), [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1)]:
+  - @twilio-paste/popover@13.3.0
+  - @twilio-paste/chat-composer@5.2.1
+  - @twilio-paste/form-pill-group@8.1.0
+  - @twilio-paste/design-tokens@10.7.0
+  - @twilio-paste/user-dialog@2.1.2
+  - @twilio-paste/ai-chat-log@1.0.1
+  - @twilio-paste/icons@12.7.0
+  - @twilio-paste/side-modal@4.1.3
+  - @twilio-paste/checkbox@13.1.2
+  - @twilio-paste/badge@8.3.0
+  - @twilio-paste/corner-ornament@1.0.0
+
 ## 2.23.46
 
 ### Patch Changes

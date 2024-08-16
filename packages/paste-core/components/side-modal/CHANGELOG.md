@@ -1,5 +1,11 @@
 # @twilio-paste/side-modal
 
+## 4.1.3
+
+### Patch Changes
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Modal] Increase size of close icon.
+
 ## 4.1.2
 
 ### Patch Changes

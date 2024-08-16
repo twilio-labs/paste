@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/user-dialog",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "category": "navigation",
   "status": "production",
   "description": "User dialog is a menu that contains user profile-related actions.",
@@ -60,8 +60,8 @@
     "@twilio-paste/button": "^14.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
-    "@twilio-paste/icons": "^12.2.0",
+    "@twilio-paste/design-tokens": "^10.7.0",
+    "@twilio-paste/icons": "^12.7.0",
     "@twilio-paste/listbox-primitive": "^3.0.0",
     "@twilio-paste/media-object": "^10.1.0",
     "@twilio-paste/non-modal-dialog-primitive": "^2.0.1",

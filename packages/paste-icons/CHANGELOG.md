@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.7.0
+
+### Minor Changes
+
+- [`e4135e818`](https://github.com/twilio-labs/paste/commit/e4135e81862a040a9d106ba63ae44d3c787e8524) [#4006](https://github.com/twilio-labs/paste/pull/4006) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add 2 new icons: SupportRequestIcon and RCSCapableIcon
+
+* [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] Added new Icon NotificationOrnamentIcon for use in Corner Ornament Component
+
 ## 12.6.0
 
 ### Minor Changes

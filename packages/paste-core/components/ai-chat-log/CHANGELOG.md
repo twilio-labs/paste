@@ -1,5 +1,13 @@
 # @twilio-paste/ai-chat-log
 
+## 1.0.1
+
+### Patch Changes
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [AI Chat Log] Remove padding-x on AI Chat Log to prevent double padding when log is used within a Side Panel container.
+
+* [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1) [#4026](https://github.com/twilio-labs/paste/pull/4026) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AIChatLog] Correctly set the color of the AI icon
+
 ## 1.0.0
 
 ### Major Changes
