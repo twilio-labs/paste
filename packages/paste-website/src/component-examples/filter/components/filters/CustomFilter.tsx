@@ -36,7 +36,7 @@ export const CustomFilter: React.FC = ({
   const [startDate, setStartDate] = React.useState(Value?.startDate || "");
   const [endDate, setEndDate] = React.useState(Value?.endDate || "");
   const [selectedDate, setSelectedDate] = React.useState<string>(Value?.type || "");
-  const [showError, setShowError] = React.useState(false);
+  const [showError, setShowError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setStartDate(Value?.startDate || "");
@@ -74,7 +74,7 @@ export const CustomFilter: React.FC = ({
         legend="Date range"
         onChange={(value) => {
           setSelectedDate(value);
-          setShowError(false);
+          setShowError(null);
         }}
         value={selectedDate}
       >
@@ -92,7 +92,7 @@ export const CustomFilter: React.FC = ({
               id={startDateID}
               onChange={(e) => {
                 setStartDate(e.target.value);
-                setShowError(false);
+                setShowError(null);
               }}
               value={startDate}
             />
@@ -103,7 +103,7 @@ export const CustomFilter: React.FC = ({
               id={endDateID}
               onChange={(e) => {
                 setEndDate(e.target.value);
-                setShowError(false);
+                setShowError(null);
               }}
               value={endDate}
             />
@@ -115,7 +115,7 @@ export const CustomFilter: React.FC = ({
 
       {showError ? (
         <Box marginTop="space50">
-          <HelpText variant="error">Please enter custom date</HelpText>
+          <HelpText variant="error">{showError}</HelpText>
         </Box>
       ) : null}
 
@@ -123,10 +123,16 @@ export const CustomFilter: React.FC = ({
         onApply={() => {
           if (onApply && popover) {
             if (selectedDate === "Custom" && (startDate === "" || endDate === "")) {
-              setShowError(true);
+              setShowError("Please enter custom date");
               return;
             }
-            setShowError(false);
+
+            if (selectedDate === "Custom" && startDate > endDate) {
+              setShowError("End date has to be after the start date");
+              return;
+            }
+
+            setShowError(null);
 
             onApply("custom", {
               startDate: selectedDate === "Custom" ? startDate : getStartDate(),
@@ -142,7 +148,7 @@ export const CustomFilter: React.FC = ({
                 setStartDate("");
                 setEndDate("");
                 setSelectedDate("");
-                setShowError(false);
+                setShowError(null);
               }
             : null
         }

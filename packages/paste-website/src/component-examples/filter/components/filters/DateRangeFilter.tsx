@@ -33,7 +33,7 @@ export const DateRangeFilter: React.FC = ({
 
   const [startDate, setStartDate] = React.useState("");
   const [endDate, setEndDate] = React.useState("");
-  const [showError, setShowError] = React.useState(false);
+  const [showError, setShowError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setStartDate(value?.startDate || "");
@@ -54,7 +54,7 @@ export const DateRangeFilter: React.FC = ({
               id={startDateID}
               onChange={(e) => {
                 setStartDate(e.target.value);
-                setShowError(false);
+                setShowError(null);
               }}
               value={startDate}
             />
@@ -65,7 +65,7 @@ export const DateRangeFilter: React.FC = ({
               id={endDateID}
               onChange={(e) => {
                 setEndDate(e.target.value);
-                setShowError(false);
+                setShowError(null);
               }}
               value={endDate}
             />
@@ -75,7 +75,7 @@ export const DateRangeFilter: React.FC = ({
 
       {showError ? (
         <HelpText id="participants_help_text" variant="error">
-          Please enter both start and end date
+          {showError}
         </HelpText>
       ) : undefined}
 
@@ -83,7 +83,12 @@ export const DateRangeFilter: React.FC = ({
         onApply={() => {
           if (onApply && popover) {
             if ((startDate === "" && endDate !== "") || (startDate !== "" && endDate === "")) {
-              setShowError(true);
+              setShowError("Please enter both start and end date");
+              return;
+            }
+
+            if (startDate > endDate) {
+              setShowError("End date has to be after the start date");
               return;
             }
 
@@ -99,7 +104,7 @@ export const DateRangeFilter: React.FC = ({
             ? () => {
                 setStartDate("");
                 setEndDate("");
-                setShowError(false);
+                setShowError(null);
               }
             : null
         }

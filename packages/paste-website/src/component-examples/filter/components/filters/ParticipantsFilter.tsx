@@ -29,7 +29,7 @@ export const ParticipantsFilter: React.FC = ({
 }) => {
   const [minValue, setMinValue] = React.useState("");
   const [maxValue, setMaxValue] = React.useState("");
-  const [showError, setShowError] = React.useState(false);
+  const [showError, setShowError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setMinValue(value?.min || "");
@@ -47,7 +47,7 @@ export const ParticipantsFilter: React.FC = ({
             type="number"
             placeholder="ex. 1"
             onChange={(e) => {
-              setShowError(false);
+              setShowError(null);
               setMinValue(e.target.value);
             }}
             value={minValue}
@@ -62,7 +62,7 @@ export const ParticipantsFilter: React.FC = ({
             type="number"
             placeholder="ex. 100"
             onChange={(e) => {
-              setShowError(false);
+              setShowError(null);
               setMaxValue(e.target.value);
             }}
             value={maxValue}
@@ -73,7 +73,7 @@ export const ParticipantsFilter: React.FC = ({
 
       {showError ? (
         <HelpText id="participants_help_text" variant="error">
-          Please enter both min and max value
+          {showError}
         </HelpText>
       ) : undefined}
 
@@ -81,7 +81,12 @@ export const ParticipantsFilter: React.FC = ({
         onApply={() => {
           if (onApply && popover) {
             if ((minValue === "" && maxValue !== "") || (minValue !== "" && maxValue === "")) {
-              setShowError(true);
+              setShowError("Please enter both min and max value");
+              return;
+            }
+
+            if (minValue !== "" && maxValue !== "" && parseInt(minValue, 10) > parseInt(maxValue, 10)) {
+              setShowError("Min value has to be less than max value");
               return;
             }
 
@@ -95,7 +100,7 @@ export const ParticipantsFilter: React.FC = ({
         onClear={
           minValue !== "" || maxValue !== ""
             ? () => {
-                setShowError(false);
+                setShowError(null);
                 setMinValue("");
                 setMaxValue("");
               }
