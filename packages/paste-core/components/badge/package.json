@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/badge",
-  "version": "8.2.0",
+  "version": "8.3.0",
   "category": "data display",
   "status": "production",
   "description": "A Badge is a visual text label that describes an attribute of an object.",
@@ -50,8 +50,8 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.6.0",
-    "@twilio-paste/icons": "^12.4.0",
+    "@twilio-paste/design-tokens": "^10.7.0",
+    "@twilio-paste/icons": "^12.7.0",
     "@twilio-paste/spinner": "^14.1.0",
     "@twilio-paste/stack": "^8.1.0",
     "@twilio-paste/style-props": "^9.1.0",

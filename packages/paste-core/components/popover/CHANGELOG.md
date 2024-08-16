@@ -1,5 +1,15 @@
 # Change Log
 
+## 13.3.0
+
+### Minor Changes
+
+- [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201) [#4018](https://github.com/twilio-labs/paste/pull/4018) Thanks [@nkrantz](https://github.com/nkrantz)! - [Popover] Added a new button variant to trigger the popover PopoverFormPillButton, only to be used as part of complex filters pattern
+
+### Patch Changes
+
+- [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1) [#4026](https://github.com/twilio-labs/paste/pull/4026) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Popover] Fix typings that were not exposing additional props on using a reset button variant
+
 ## 13.2.0
 
 ### Minor Changes

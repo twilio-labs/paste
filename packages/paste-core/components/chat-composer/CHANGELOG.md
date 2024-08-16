@@ -1,5 +1,13 @@
 # @twilio-paste/chat-composer
 
+## 5.2.1
+
+### Patch Changes
+
+- [`9838a4f18`](https://github.com/twilio-labs/paste/commit/9838a4f18bd0ef1a12cf4231766fb45fca44ecde) [#3994](https://github.com/twilio-labs/paste/pull/3994) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Increase max-height of ChatComposerContainer so that it's greater than the max-height of ChatComposer and doesn't create a vertical scrollbar when the default max-height is reached.
+
+* [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Add width="100%" to ChatComposerContainer to prevent composer from shrinking when no value
+
 ## 5.2.0
 
 ### Minor Changes

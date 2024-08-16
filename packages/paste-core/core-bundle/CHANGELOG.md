@@ -1,5 +1,65 @@
 # Change Log
 
+## 20.15.0
+
+### Minor Changes
+
+- [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201) [#4018](https://github.com/twilio-labs/paste/pull/4018) Thanks [@nkrantz](https://github.com/nkrantz)! - [FormPillGroup] added a new variant 'tree' to support different interactions for FormPill where selecting the item triggers other flows instead of updating state directly. Reference Filters Pattern for in depth use case.
+
+* [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Tokens] added a new text color for notification icons "colorTextIconNotification"
+
+- [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201) [#4018](https://github.com/twilio-labs/paste/pull/4018) Thanks [@nkrantz](https://github.com/nkrantz)! - [Popover] Added a new button variant to trigger the popover PopoverFormPillButton, only to be used as part of complex filters pattern
+
+* [`fe8825efc`](https://github.com/twilio-labs/paste/commit/fe8825efcfec00aeaa0b91354e4f476bcec98f51) [#3989](https://github.com/twilio-labs/paste/pull/3989) Thanks [@PixeledCode](https://github.com/PixeledCode)! - - [Design Tokens] Add new base sizing tokens and update description of existing sizing tokens
+
+- [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] Added new Icon NotificationOrnamentIcon for use in Corner Ornament Component
+
+* [`7ee977291`](https://github.com/twilio-labs/paste/commit/7ee9772916b62c5bde305ac6492255ac7355c46d) [#3993](https://github.com/twilio-labs/paste/pull/3993) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Badge] Added a new notification variant
+
+- [`4ea2bcc63`](https://github.com/twilio-labs/paste/commit/4ea2bcc63e479a6815a13d0b880436031a23c28e) [#3978](https://github.com/twilio-labs/paste/pull/3978) Thanks [@cogwizzle](https://github.com/cogwizzle)! - [Form Pill Group] Adding size property to the FormPillGroup component. Sizes include default and "large".
+
+* [`b04532dad`](https://github.com/twilio-labs/paste/commit/b04532dada23159d364f0d1dbe845ebc7ce81928) [#3987](https://github.com/twilio-labs/paste/pull/3987) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design tokens]: Add new notification tokens:
+  - color-background-notification
+  - shadow-border-notification
+  - shadow-border-bottom-notification-stronger
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Create SidePanelFooter exported from the Side Panel package for actions or chat composers. Make scrollbar color of SidePanelBody slightly darker for better visibility. Small improvements to spacing and alignment of SidePanelHeader.
+
+* [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Corner Ornament] Release a new component that controls the posiitoning of another elements in relation to a parent component to be displayed as a corner ornament
+
+### Patch Changes
+
+- [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1) [#4026](https://github.com/twilio-labs/paste/pull/4026) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Popover] Fix typings that were not exposing additional props on using a reset button variant
+
+* [`9838a4f18`](https://github.com/twilio-labs/paste/commit/9838a4f18bd0ef1a12cf4231766fb45fca44ecde) [#3994](https://github.com/twilio-labs/paste/pull/3994) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Increase max-height of ChatComposerContainer so that it's greater than the max-height of ChatComposer and doesn't create a vertical scrollbar when the default max-height is reached.
+
+- [`2aacaf780`](https://github.com/twilio-labs/paste/commit/2aacaf780a11c61932ef940afde1282e71576935) [#4000](https://github.com/twilio-labs/paste/pull/4000) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Update the size of the UserDialog's inner Avatar component.
+
+* [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [AI Chat Log] Remove padding-x on AI Chat Log to prevent double padding when log is used within a Side Panel container.
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Add width="100%" to ChatComposerContainer to prevent composer from shrinking when no value
+
+* [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Modal] Increase size of close icon.
+
+- [`300c6c299`](https://github.com/twilio-labs/paste/commit/300c6c29980057c86c2711feef6700ccffc82ff1) [#4020](https://github.com/twilio-labs/paste/pull/4020) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Checkbox] exposed helpText on CheckboxDisclaimer
+
+* [`4441e59af`](https://github.com/twilio-labs/paste/commit/4441e59af9ada2fb809f5fba88c8eaf1788da45d) [#4003](https://github.com/twilio-labs/paste/pull/4003) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Form Pill Group]: Fix position of dismiss button for large pill size
+
+- [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1) [#4026](https://github.com/twilio-labs/paste/pull/4026) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AIChatLog] Correctly set the color of the AI icon
+
+- Updated dependencies [[`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1), [`9838a4f18`](https://github.com/twilio-labs/paste/commit/9838a4f18bd0ef1a12cf4231766fb45fca44ecde), [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201), [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450), [`2aacaf780`](https://github.com/twilio-labs/paste/commit/2aacaf780a11c61932ef940afde1282e71576935), [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`fe8825efc`](https://github.com/twilio-labs/paste/commit/fe8825efcfec00aeaa0b91354e4f476bcec98f51), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`300c6c299`](https://github.com/twilio-labs/paste/commit/300c6c29980057c86c2711feef6700ccffc82ff1), [`4441e59af`](https://github.com/twilio-labs/paste/commit/4441e59af9ada2fb809f5fba88c8eaf1788da45d), [`7ee977291`](https://github.com/twilio-labs/paste/commit/7ee9772916b62c5bde305ac6492255ac7355c46d), [`4ea2bcc63`](https://github.com/twilio-labs/paste/commit/4ea2bcc63e479a6815a13d0b880436031a23c28e), [`b04532dad`](https://github.com/twilio-labs/paste/commit/b04532dada23159d364f0d1dbe845ebc7ce81928), [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715), [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450), [`0da577fc5`](https://github.com/twilio-labs/paste/commit/0da577fc516a9b01274c77c77346a7b322004ba1)]:
+  - @twilio-paste/popover@13.3.0
+  - @twilio-paste/chat-composer@5.2.1
+  - @twilio-paste/form-pill-group@8.1.0
+  - @twilio-paste/design-tokens@10.7.0
+  - @twilio-paste/user-dialog@2.1.2
+  - @twilio-paste/ai-chat-log@1.0.1
+  - @twilio-paste/side-modal@4.1.3
+  - @twilio-paste/checkbox@13.1.2
+  - @twilio-paste/badge@8.3.0
+  - @twilio-paste/side-panel@1.1.0
+  - @twilio-paste/corner-ornament@1.0.0
+
 ## 20.14.0
 
 ### Minor Changes

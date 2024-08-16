@@ -1,5 +1,17 @@
 # @twilio-paste/form-pill-group
 
+## 8.1.0
+
+### Minor Changes
+
+- [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201) [#4018](https://github.com/twilio-labs/paste/pull/4018) Thanks [@nkrantz](https://github.com/nkrantz)! - [FormPillGroup] added a new variant 'tree' to support different interactions for FormPill where selecting the item triggers other flows instead of updating state directly. Reference Filters Pattern for in depth use case.
+
+* [`4ea2bcc63`](https://github.com/twilio-labs/paste/commit/4ea2bcc63e479a6815a13d0b880436031a23c28e) [#3978](https://github.com/twilio-labs/paste/pull/3978) Thanks [@cogwizzle](https://github.com/cogwizzle)! - [Form Pill Group] Adding size property to the FormPillGroup component. Sizes include default and "large".
+
+### Patch Changes
+
+- [`4441e59af`](https://github.com/twilio-labs/paste/commit/4441e59af9ada2fb809f5fba88c8eaf1788da45d) [#4003](https://github.com/twilio-labs/paste/pull/4003) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Form Pill Group]: Fix position of dismiss button for large pill size
+
 ## 8.0.1
 
 ### Patch Changes

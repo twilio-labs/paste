@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 8.3.0
+
+### Minor Changes
+
+- [`7ee977291`](https://github.com/twilio-labs/paste/commit/7ee9772916b62c5bde305ac6492255ac7355c46d) [#3993](https://github.com/twilio-labs/paste/pull/3993) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Badge] Added a new notification variant
+
 ## 8.2.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.11.0
+
+### Minor Changes
+
+- [`8cdebfe6c`](https://github.com/twilio-labs/paste/commit/8cdebfe6cd3abf294dda460812e00a382f78a201) [#4018](https://github.com/twilio-labs/paste/pull/4018) Thanks [@nkrantz](https://github.com/nkrantz)! - [Popover] Added a new button variant to trigger the popover PopoverFormPillButton, only to be used as part of complex filters pattern
+
+* [`d3d74e540`](https://github.com/twilio-labs/paste/commit/d3d74e54083f2ad46a15a236d90ac94ecba79450) [#4009](https://github.com/twilio-labs/paste/pull/4009) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Corner Ornament] Release a new component that controls the posiitoning of another elements in relation to a parent component to be displayed as a corner ornament
+
+### Patch Changes
+
+- [`b315321db`](https://github.com/twilio-labs/paste/commit/b315321dbc67caaaf2c2aebd319b2712ccd13715) [#4002](https://github.com/twilio-labs/paste/pull/4002) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New export from side-panel package
+
 ## 0.10.0
 
 ### Minor Changes

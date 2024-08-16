@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/chat-composer",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "category": "user input",
   "status": "production",
   "description": "A Chat Composer is an input made for users to type rich chat messages.",
@@ -50,8 +50,8 @@
     "@twilio-paste/button": "^14.1.2",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
-    "@twilio-paste/icons": "^12.6.0",
+    "@twilio-paste/design-tokens": "^10.7.0",
+    "@twilio-paste/icons": "^12.7.0",
     "@twilio-paste/lexical-library": "^4.2.0",
     "@twilio-paste/media-object": "^10.1.0",
     "@twilio-paste/screen-reader-only": "^13.1.0",
