@@ -45,7 +45,7 @@ export const SiteHeader: React.FC<{
           <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
             <SiteHeaderSearch />
           </Box>
-          {/* <AssistantLink /> */} TODO: replace when AI connection is fixed
+          {/* <AssistantLink /> TODO: replace when AI connection is fixed */}
           <ContactUsMenu />
           <DarkModeToggle />
           <FigmaButton />
