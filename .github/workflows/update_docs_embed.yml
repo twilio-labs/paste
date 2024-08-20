@@ -62,11 +62,11 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Link Supabase project
-        run: yarn workspace @twilio-paste/backend supabase link --project-ref $PROJECT_ID
+      # - name: Link Supabase project
+      #   run: yarn workspace @twilio-paste/backend supabase link --project-ref $PROJECT_ID
 
-      - name: Run migrations
-        run: yarn workspace @twilio-paste/backend supabase db push
+      # - name: Run migrations
+      #   run: yarn workspace @twilio-paste/backend supabase db push
 
       - name: Update embeddings
         if: ${{ !inputs.refresh }}
