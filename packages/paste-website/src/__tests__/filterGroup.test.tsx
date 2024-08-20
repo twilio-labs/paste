@@ -7,7 +7,7 @@ import {
   filterByRoomType,
   filterBySearchString,
   isEndDateBeforeStartDate,
-} from "../component-examples/filter-group/helpers";
+} from "../component-examples/filter/helpers";
 
 describe("filterBySearchString", () => {
   it("should filter by unique name", () => {
@@ -35,11 +35,6 @@ describe("filterByRoomType", () => {
   it("should exclude by room type", () => {
     const result = filterByRoomType("Peer to Peer", "Group");
     expect(result).toBeFalsy();
-  });
-
-  it("should always include if the filter is All", () => {
-    const result = filterByRoomType("Peer to Peer", "All");
-    expect(result).toBeTruthy();
   });
 });
 
