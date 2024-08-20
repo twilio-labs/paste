@@ -3,6 +3,7 @@ import { Button } from "@twilio-paste/button";
 import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
 import Image from "next/image";
+import Link from "next/link";
 import * as React from "react";
 
 import { Logo } from "../../assets/Logo";
@@ -32,6 +33,10 @@ export const AssistantEmptyState: React.FC<{ onCannedThreadCreation: (message: s
             <Paragraph>
               Create different threads to interact with PasteBot, and revisit your conversations. It can help with
               writing Code, understanding component guidelines and Design guidelines.
+            </Paragraph>
+            <Paragraph>
+              PasteBot is an experimental feature. Share your feedback with the Paste team on{" "}
+              <Link href="https://github.com/twilio-labs/paste/discussions/new/choose">Github Discussions</Link>.
             </Paragraph>
           </Box>
           <Image src={EmptyDoSomething} width={400} aria-hidden="true" alt="" priority />

@@ -32,9 +32,9 @@ export const ContactUsMenu: React.FC = () => {
           })
         }
       >
-        <ProductSupportIcon decorative={false} title="Contact us" size="sizeIcon40" />
+        <ProductSupportIcon decorative={false} title="Get help" size="sizeIcon40" />
       </MenuButton>
-      <Menu {...menu} aria-label="Contact us">
+      <Menu {...menu} aria-label="Get help">
         <MenuItem
           {...menu}
           href="/assistant"
@@ -44,14 +44,14 @@ export const ContactUsMenu: React.FC = () => {
         </MenuItem>
         <MenuItem
           {...menu}
-          href="https://github.com/twilio-labs/paste/discussions"
+          href="https://github.com/twilio-labs/paste/discussions/new?category=general "
           onClick={() => handleClick("Contact Us", "click-ask-question", "Ask question")}
         >
           Ask a question
         </MenuItem>
         <MenuItem
           {...menu}
-          href="https://github.com/twilio-labs/paste/discussions"
+          href="https://github.com/twilio-labs/paste/discussions/new?category=ideas"
           onClick={() => handleClick("Contact Us", "click-request-feature", "Request feature")}
         >
           Request a feature
