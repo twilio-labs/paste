@@ -1,0 +1,611 @@
+export const meta = {
+  title: 'Filter',
+  description: 'Filters enable users to narrow down and refine results across various types of content pages, including rich content pages, data tables, lists, data insights, and more.',
+  slug: '/patterns/filter/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {Blockquote} from '../../../components/Blockquote';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import MainImage from '../../../assets/images/patterns/filter-main.png';
+import UsageImage from '../../../assets/images/patterns/filter-usage.png';
+import FilterBarImage from '../../../assets/images/patterns/filter-filter_bar.png';
+import FetchingImage from '../../../assets/images/patterns/filter-fetching.png';
+import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
+import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
+import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Filter');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<ResponsiveImage src={MainImage} alt="a demo page with filter pattern" />
+
+```jsx
+// import the components for filter group patterns as required
+
+import { FormPillGroup, useFormPillState } from "@twilio-paste/core/form-pill-group";
+import {Input} from '@twilio-paste/core/input';
+import {MultiselectCombobox, useMultiselectCombobox} from "@twilio-paste/core/combobox";
+import {Button} from '@twilio-paste/core/button';
+import {ButtonGroup} from "@twilio-paste/core/button-group";
+import {Disclosure, DisclosureContent, DisclosureHeading} from "@twilio-paste/core/disclosure";
+import {Badge} from "@twilio-paste/core/badge";
+import {Checkbox, CheckboxGroup} from "@twilio-paste/core/checkbox";
+import {Radio, RadioGroup} from "@twilio-paste/core/radio-group";
+import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/core/popover";
+```
+
+## Usage
+
+The filter pattern should be used when a user is presented with a page containing a large amount of data that they could be filtering or searching through. The filter parameters and functionality you can surface to the user will be highly dependent on the page use case.
+
+This pattern provides recommendations for selection methods, layout, and behavior to reduce complexity and improve user efficiency when using different types of filters in a feature. Before adding filters to your feature, it's essential to:
+
+<OrderedList>
+  <ListItem>
+    Familiarize yourself with your feature’s filter values and categories.
+    <UnorderedList>
+      <ListItem>List all filtering criteria available.</ListItem>
+      <ListItem>Map out the relationships between different filters and choose the ones that will be part of your feature. Remember filters should give users a sense of control and not overwhelm them.</ListItem>
+      <Blockquote
+        name="Defining Helpful Filter Categories and Values for Better UX"
+        source="Nielsen Norman Group"
+        sourceUrl="https://www.nngroup.com/articles/filter-categories-values/"
+      >
+        A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized
+      </Blockquote>
+      <ResponsiveImage src={UsageImage} alt="The filter category label should be the same as the form field label" />
+      <ListItem>Check our <Anchor href="/components/form#selection-methods">Form documentation</Anchor> to choose the best selection method for your filter use case.</ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Determine users' intent and their relationship with the product and dataset.
+    <UnorderedList>
+      <ListItem>Categorize filters into the most relevant and commonly used filters versus the more advanced or less used ones.</ListItem>
+      <ListItem>Determine how many different types of users will access the feature and how much the filtering criteria will vary from use case to use case. If necessary, consider allowing users to <Anchor href="#add-filters">add custom filters</Anchor> to provide a more tailored experience.</ListItem>
+      <ListItem>Identify any filter values that naturally lead to additional refinement options, and consider implementing <Anchor href="#conditional-filters">conditional filters</Anchor>.</ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Determine any technical constraints.
+    <UnorderedList>
+      <ListItem>Ensure you have a good understanding of how the data is set up, including which filtering behaviors and combinations are not possible.</ListItem>
+      <ListItem>Evaluate carefully the best filtering behavior for <Anchor href="#fetching-results">fetching results</Anchor>. Keep in mind user intent, but also loading times and the size of the dataset.</ListItem>
+      <ListItem>Ensure that all filter options correspond to data present in the results. Avoid including filters for data that are not visible or accessible within the dataset.</ListItem>
+      <ListItem>Evaluate the expected growth of your filtering criteria and ensure it can manage larger datasets without notable performance decline.</ListItem>
+    </UnorderedList>
+  </ListItem>
+</OrderedList>
+
+### Accessibility
+
+When using the filter pattern, ensure that users:
+<UnorderedList>
+  <ListItem>Can easily identify and understand labels for each selection method, filter value, or category.</ListItem>
+  <ListItem>Are notified of state changes. For example, when a button changes from the disabled state to the default state, or when the dataset enters a loading state.</ListItem>
+  <ListItem>Can complete all actions with the keyboard.</ListItem>
+</UnorderedList>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Check accessibility considerations for each component part of the filter feature, for example if you’re using Time Picker, follow its accessibility guidelines.
+  </CalloutText>
+</Callout>
+
+## Variations
+
+### Filter bar
+
+A filter bar is the default way of displaying filters.
+
+Use it when all filters are relevant and necessary to the search. It can also be used in combination with a [More filters Side Panel](#more-filters-side-panel) when there are secondary filter criteria.
+
+#### Ingredients
+- [Heading](/components/heading)
+- [Form Pill Group](/components/form-pill-group)
+- [Detail Text](/components/detail-text) (for number of results)
+- [Popover](/components/popover)
+- [Form](/components/form) and other form field components
+- [Primary Button](/components/button#primary-button) (for applying filters)
+- [Secondary Button](/components/button#secondary-button) (for clearing filters)
+- [Link-style Button](/components/button#link-style-button) (for clearing results)
+
+<StoryPreview
+  title="Filter bar example"
+  storyID="website-filterexamples--default-filter-example"
+  height="600px"
+  code={`
+export const FilterPatternExample = ({data}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  const pillState = useFormPillState();
+  const popover = usePopoverState({ baseId: pill });
+  return (
+    <>
+      <Heading as="h1" variant="heading50">Filter</Heading>
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {filterList.map((pill) => {
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    // Remove the filter from the selected filters
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+                </FormPill>
+              </PopoverButton>
+              <Popover aria-label={pill} width="size40">
+                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
+          </DetailText>
+          {filteredTableData.length !== data.length ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
+        </Box>
+      </Box>
+      <DataGrid data={filteredTableData} />
+    </>
+  )
+}`}
+/>
+
+#### Surfacing results
+<UnorderedList>
+  <ListItem>When a filter value is selected by the user, the corresponding Form Pill will enter a selected state.</ListItem>
+  <ListItem>When a single filter value is selected, the filter updates to display the name of the selected filter.</ListItem>
+  <ListItem>When two or more filter values are selected per filter category, the total number of selected filters will be displayed in a counter badge.</ListItem>
+  <ListItem>In some scenarios, it is necessary to have filter values pre-selected by default to display results. Since the selection was not made by the user, the Form Pill will remain in its default state, displaying the pre-selected filter value.</ListItem>
+</UnorderedList>
+
+ <ResponsiveImage src={FilterBarImage} alt="The filter bar has different states based on interaction" />
+
+<DoDont>
+  <Do title="Do" body="Arrange filters in a way that mirrors how users think about and interact with the data." />
+  <Dont title="Don't" body="Don't overload the filter bar with too many filters. It's designed for prioritized, essential filters to keep the screen uncluttered and easy to navigate." />
+  <Do title="Do" body="Arrange filter values in a logical order; for example, dates should be in chronological order and names should be in alphabetical order." />
+</DoDont>
+
+### More filters Side Panel
+
+Use it in scenarios where the list of filters is extensive and there are filters that are not a priority to the search. Prioritize the most relevant and commonly used filters in the filter bar for visibility, while offering advanced filtering options in a Side Panel.
+
+#### Ingredients
+- [Secondary rounded Button](/components/button#rounded-small-button) (for more filters)
+- [Side Panel](/components/side-panel)
+- [Neutral counter Badge](/components/badge)
+- [Dismissible Form Pill Group](/components/form-pill-group#dismissible) (for showing filter selections)
+- [Disclosure](/components/disclosure) (for filter categories)
+- [Link-style Button](/components/button#link-style-button) (for clearing results)
+
+<StoryPreview
+  title="More filters Side Panel example"
+  storyID="website-filterexamples--more-filter-example"
+  height="600px"
+  code={`
+export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const pillState = useFormPillState();
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  return (
+    <>
+      <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <SidePanel>
+          <SidePanelHeader>
+            <Heading as="h3" variant="heading30">
+              More filters
+            </Heading>
+          </SidePanelHeader>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          <SidePanelBody>
+            <Box
+              display="flex"
+              flexDirection="column"
+              rowGap="space40"
+              marginTop="space70"
+              marginBottom="space70"
+              width="100%"
+            >
+              {filterList.map((filter) => {
+                return (
+                <Disclosure>
+                  <DisclosureHeading as="h2" variant="heading50">
+                    <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space20" width="100%">
+                      <Box as="span">{filter.label}</Box>
+                        {selectedCount ? (
+                          <Badge as="span" variant="neutral_counter" size="small">
+                            Selected {filter.type === "status" ? 1 : selectedCount}
+                          </Badge>
+                        ) : null}
+                      </Box>
+                  </DisclosureHeading>
+                  <DisclosureContent>
+                    <FilterComponent
+                      key={filter.label}
+                      label={filter.label}
+                      items={filter.items}
+                      setSelectedCount={setSelectedCount}
+                      setSelectedMoreFilters={setSelectedMoreFilters}
+                      selectedMoreFilters={tempSelectedMoreFilters}
+                    />
+                  </DisclosureContent>
+                </Disclosure>
+                );
+              })}
+            </Box>
+          </SidePanelBody>
+          <SidePanelFooter>
+            <ButtonGroup>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  // Apply filters
+                }}
+              >
+                Apply
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  // Clear all filters
+                }}
+              >
+                Clear all
+              </Button>
+            </ButtonGroup>
+          </SidePanelFooter>
+        </SidePanel>
+        <SidePanelPushContentWrapper>
+        // Filter components from other examples
+        </SidePanelPushContentWrapper>
+      </SidePanelContainer>
+    </>
+  )
+}`}
+/>
+
+#### Surfacing results
+
+<UnorderedList>
+  <ListItem>In the “More filters” Side Panel when filters are selected, a counter Badge will be displayed in the right corner of the filter value (disclosure)</ListItem>
+  <ListItem>“More filters” Button will have a counter Badge with the number of selected filter values.</ListItem>
+</UnorderedList>
+
+<DoDont>
+  <Do title="Do" body="Ensure that the filters in the Filter bar and those in the Side Panel are independent and won’t need to be applied along with another filter criteria to return relevant results." />
+  <Dont title="Don't" body="Don’t use a “More Filters” Side Panel for fewer than 3 additional filters." />
+</DoDont>
+
+### Add filters
+
+An "Add filters" Popover allows users to add a filter value from a predefined list of filter options. Use it in scenarios where the list of filters may not be relevant to all users, or the user would benefit from creating their own filters set.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Demo coming soon!</CalloutHeading>
+</Callout>
+
+## Composition
+
+### Combining search and filters
+
+If there is search functionality, it should always take priority over filters. The search should be placed higher in the hierarchy, with the expectation that users will search first and then use the filters to refine and narrow down the search results.
+
+<StoryPreview
+  title="Filter with search example"
+  storyID="website-filterexamples--search-filter-example"
+  height="600px"
+  code={`
+export const SearchFilterPatternExample = ({data}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const pillState = useFormPillState();
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  return (
+    <>
+      <Heading as="h1" variant="heading50">Filter</Heading>
+      <>
+        <Label htmlFor="search-filter">Search</Label>
+        <Input
+          id="search-filter"
+          type="search"
+          insertBefore={<SearchIcon decorative />}
+          name="search-filter"
+          onChange={onChange}
+        />
+      </>
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {filterList.map((pill) => {
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    // Remove the filter from the selected filters
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+                </FormPill>
+              </PopoverButton>
+              <Popover aria-label={pill} width="size40">
+                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
+          </DetailText>
+          {filteredTableData.length !== data.length ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
+        </Box>
+      </Box>
+      <DataGrid data={filteredTableData} />
+    </>
+  )
+}`}
+/>
+
+### Conditional filters
+
+A conditional filter is a type of filter that becomes available based on the initial filter selections made by the user.
+
+<StoryPreview
+  title="Conditional filter example"
+  storyID="website-filterexamples--conditional-filter-example"
+  height="600px"
+  code={`
+export const ConditionalFilterPatternExample = ({data}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const pillState = useFormPillState();
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  return (
+    <>
+      <Heading as="h1" variant="heading50">Filter</Heading>
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {filterList.map((pill) => {
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    // Remove the filter from the selected filters
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+                </FormPill>
+              </PopoverButton>
+              <Popover aria-label={pill} width="size40">
+                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
+          </DetailText>
+          {filteredTableData.length !== data.length ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
+        </Box>
+      </Box>
+      <DataGrid data={filteredTableData} />
+    </>
+  )
+}`}
+/>
+
+Use it when filter selections naturally lead to additional criteria, or where certain filter formulas are only necessary for very specific use cases.
+
+<DoDont>
+  <Do title="Do" body="Consider the performance implications of loading conditional filters." />
+  <Dont title="Don't" body="Don’t use conditional filtering for essential filter criteria." />
+</DoDont>
+
+## Behavior
+
+### Fetching results
+
+#### Batch filtering
+
+Batch filtering requires the user to click an “Apply” button to see the results.
+
+ <ResponsiveImage src={FetchingImage} alt="The filter bar supports batch filtering of results on click of apply" />
+
+
+Use batch filtering when:
+<UnorderedList>
+  <ListItem>There are categories with multiple interdependent filter values, and the user might want to take more time selecting the right group of filters.</ListItem>
+  <ListItem>The dataset cannot be refreshed automatically and the system needs time to load the data.</ListItem>
+  <ListItem>You want to prevent "no results" scenarios.</ListItem>
+</UnorderedList>
+
+To load results: Once the user clicks the "Apply" button, the Popover will automatically close, and a loading screen will be displayed until the data is fully loaded. It is recommended to use the [Skeleton Loader](/components/skeleton-loader) when loading the results of the filters and/or search.
+
+#### Dynamic filtering
+
+Dynamic filters are applied as soon as a filter selection is made.
+
+ <ResponsiveImage src={DynamicImage} alt="The filter bar also supports batch filtering of results as soon as selection is made" />
+
+Use dynamic filtering when:
+<UnorderedList>
+  <ListItem>The filter experience is more explorative and users need to play around with the filters to find their desired results.</ListItem>
+  <ListItem>The user is expected to make multiple quick filter changes during the task.</ListItem>
+</UnorderedList>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Be cautious when dynamically updating results, as they can divert user attention.
+  </CalloutText>
+</Callout>
+
+To load results: Dynamic filtering is designed to allow users to experiment with different filters. The Popover will remain open until the user closes it, while the results load in the background.
+
+### Empty states
+
+When the applied filters and/or search does not return any results, use the [empty state pattern](/patterns/empty-state) to inform the user and provide a method to reset all filter and search criteria.
+
+<StoryPreview
+  title="Empty filter example"
+  storyID="website-filterexamples--no-result-example"
+  height="600px"
+  code={`
+export const EmptyFilterPatternExample = ({data}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const pillState = useFormPillState();
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  return (
+    <>
+      <Heading as="h1" variant="heading50">Filter</Heading>
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {filterList.map((pill) => {
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    // Remove the filter from the selected filters
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+                </FormPill>
+              </PopoverButton>
+              <Popover aria-label={pill} width="size40">
+                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
+          </DetailText>
+          {filteredTableData.length !== data.length ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
+        </Box>
+      </Box>
+      <DataGrid data={filteredTableData} />
+    </>
+  )
+}`}
+/>
+
+### Clearing filters
+
+A clear filter option will be available when filters are selected. By default, "clear all filters" will remove all filter criteria and display all results. In use cases where there is a selected filter value by default, "clear all filters" will reset the filters to their default state.
+
+<DoDont>
+  <Do title="Do" body="Provide ways to clear all filters as a global action." />
+  <Do title="Do" body="Provide ways to clear all filters on a filter category level." />
+</DoDont>
+
+### Responsive
+
+On mobile screen sizes, consolidate all filter options under a "Filter" button to optimize screen space and usability.
+
+ <ResponsiveImage src={Responsive1Image} alt="On smaller screens, filter modal will take full width" />
+
+At smaller screen sizes, filter Pills will overflow onto the next row. All other actions (such as "More filters", “Add filters”, "Clear all” and table actions) move to the last row to maintain a clean and organized layout.
+
+ <ResponsiveImage src={Responsive2Image} alt="filter pills will stack vertically to make better use of available space" />
+
+
+</content>
+
+</contentwrapper>

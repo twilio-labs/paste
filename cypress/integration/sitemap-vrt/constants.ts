@@ -294,7 +294,7 @@ export const SITEMAP = [
   "/patterns/confirmation/",
   "/patterns/delete/",
   "/patterns/data-export/",
-  "/patterns/filter-group/",
+  "/patterns/filter/",
   "/patterns/",
   "/patterns/empty-state/",
   "/patterns/error-state/",
