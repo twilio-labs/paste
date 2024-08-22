@@ -22,6 +22,7 @@ jobs:
       SUPABASE_URL: ${{ secrets.SUPABASE_PRODUCTION_URL }}
       SUPABASE_KEY: ${{ secrets.SUPABASE_PRODUCTION_KEY }}
       SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_PRODUCTION_DB_PASSWORD }}
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout Repo
