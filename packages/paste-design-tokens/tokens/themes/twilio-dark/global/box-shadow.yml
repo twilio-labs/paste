@@ -8,19 +8,19 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-25} {!palette-gray-0-transparent-20}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-gray-0-transparent-20}"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-border-inverse-weakest:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-100}"
     comment: Weakest shadow border on interactive elements on inverse backgrounds.
   shadow-focus-shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-gray-0-transparent-20}"
     comment: Shadow for simultaneous focus and border
   shadow-focus-inset:
     value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-0-transparent-20}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-focus-inverse-inset:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} {!offset-15} rgba(255, 255, 255, 0.2)"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-0-transparent-20}"
     comment: Shadow for inset focus ring on interactive elements on inverse backgrounds.
   shadow-border-primary-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-70}"
