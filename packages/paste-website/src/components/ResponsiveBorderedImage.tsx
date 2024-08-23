@@ -15,7 +15,7 @@ const ResponsiveBorderedImage: React.FC<ImageProps> = (props) => {
       borderRadius="borderRadius20"
       overflow="hidden"
     >
-      <Image placeholder="blur" style={{ height: "100%", maxWidth: "100%" }} {...props} />
+      <Image placeholder="blur" style={{ height: "100%", minWidth: "100%" }} {...props} />
     </Box>
   );
 };
