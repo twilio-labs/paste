@@ -5,78 +5,78 @@ imports:
   - ../../../global/box-shadow.yml
 props:
   shadow-focus:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} 5px {!palette-blue-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} {!offset-25} {!palette-blue-20}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-100}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} rgba(255, 255, 255, 0.2)"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-border-inverse-weakest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-100}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-100}"
     comment: Weakest shadow border on interactive elements on inverse backgrounds.
   shadow-focus-shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-30}, {!offset-0} {!offset-0} {!offset-0} 3px {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-blue-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-30}, {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-gray-0}, {!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-55}, {!offset-0} {!offset-0} {!offset-0} {!offset-30} {!palette-blue-20}"
     comment: Shadow for simultaneous focus and border
   shadow-focus-inset:
-    value: "inset {!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-55}, inset {!offset-0} {!offset-0} {!offset-0} 3px {!palette-blue-20}"
+    value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-55}, inset {!offset-0} {!offset-0} {!offset-0} {!offset-15} {!palette-blue-20}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-focus-inverse-inset:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} 3px rgba(255, 255, 255, 0.2)"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-0}, inset {!offset-0} {!offset-0} {!offset-0} {!offset-15} rgba(255, 255, 255, 0.2)"
     comment: Shadow for inset focus ring on interactive elements on inverse backgrounds.
   shadow-border-primary:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-55}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-55}"
     comment: Default shadow border for primary interactions.
   shadow-border-destructive:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-65}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-65}"
     comment: Shadow border for destructive interactions.
   shadow-border-error-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-50}"
     comment: Shadow border for error inputs.
   shadow-border-error:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-65}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-65}"
     comment: Shadow border for error inputs.
   shadow-border-subaccount:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-yellow-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-yellow-20}"
     comment: Shadow border for subaccount badge.
   shadow-border-inverse-new-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-70}"
     comment: Shadow border for the sidebar beta badge.
 
   # Badge
   shadow-border-bottom-neutral-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-40}"
     comment: Weaker bottom shadow border for neutral status
   shadow-border-bottom-warning-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-orange-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-orange-40}"
     comment: Weaker bottom shadow border warning warning status
   shadow-border-bottom-error-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-red-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-red-40}"
     comment: Weaker bottom shadow border for error status
   shadow-border-bottom-success-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-green-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-green-40}"
     comment: Weaker bottom shadow border for success status
   shadow-border-bottom-new-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-30}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-30}"
     comment: Weaker bottom shadow border for new status
   shadow-border-bottom-decorative-10-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-gray-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-gray-40}"
     comment: Weaker bottom shadow border for decorative 10
   shadow-border-bottom-decorative-20-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-40}"
     comment: Weaker bottom shadow border for decorative 20
   shadow-border-bottom-decorative-30-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-green-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-green-40}"
     comment: Weaker bottom shadow border for decorative 30
   shadow-border-bottom-decorative-40-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-30}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-30}"
     comment: Weaker bottom shadow border for decorative 40
   shadow-border-bottom-subaccount:
-    value: "{!offset-0} 1px {!offset-0} {!palette-yellow-40}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-yellow-40}"
     comment: Bottom shadow border for subaccount badge
   shadow-border-bottom-inverse-new-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Bottom shadow border for the sidebar beta badge
 
   # User
   shadow-border-user:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-20}"
     comment: Shadow border for user.
