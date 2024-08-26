@@ -3,4 +3,4 @@
 "@twilio-paste/core": minor
 ---
 
-[Design Tokens] Update box shadown tokens. Remove hardcoded values.
+[Design Tokens] Update box shadow tokens. Remove hardcoded values.
