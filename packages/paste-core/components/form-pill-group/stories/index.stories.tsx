@@ -195,7 +195,7 @@ export const PillStringOverflowVSComposed: React.FC<
           {PILL_NAMES.map((pill, index) => (
             <FormPill
               key={pill}
-              data-testid={`form-pill-${index}`}
+              data-testid={`form-pill-${index}-01`}
               {...pillState}
               selected={selected}
               variant={index > 2 ? "error" : "default"}
@@ -221,7 +221,7 @@ export const PillStringOverflowVSComposed: React.FC<
           {PILL_NAMES.map((pill, index) => (
             <FormPill
               key={pill}
-              data-testid={`form-pill-${index}`}
+              data-testid={`form-pill-${index}-02`}
               {...pillState}
               selected={selected}
               variant={index > 2 ? "error" : "default"}
