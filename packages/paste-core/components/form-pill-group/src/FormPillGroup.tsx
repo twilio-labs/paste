@@ -88,6 +88,7 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
           padding="space0"
           display={display}
           flexWrap="wrap"
+          maxWidth="100%"
           {...SizeStyles[size]}
         >
           {props.children}

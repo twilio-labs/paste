@@ -2,6 +2,7 @@
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { Stack } from "@twilio-paste/stack";
 import * as React from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
@@ -176,6 +177,67 @@ export const FormPillTreeVariant = (): JSX.Element => {
 };
 
 FormPillTreeVariant.storyName = "FormPillGroup Tree Variant";
+
+export const PillStringOverflowVSComposed: React.FC<
+  React.PropsWithChildren<{
+    selected?: boolean;
+    dismissable?: boolean;
+    disabled?: boolean;
+    ariaLabel?: string;
+    size?: FormPillGroupSizeVariant;
+  }>
+> = ({ selected = false, dismissable = true, disabled = false, ariaLabel = "Basic pills:", size }) => {
+  const pillState = useFormPillState();
+  return (
+    <Box maxWidth="150px">
+      <Stack orientation="vertical" spacing="space80">
+        <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel} size={size}>
+          {PILL_NAMES.map((pill, index) => (
+            <FormPill
+              key={pill}
+              data-testid={`form-pill-${index}`}
+              {...pillState}
+              selected={selected}
+              variant={index > 2 ? "error" : "default"}
+              onDismiss={dismissable ? () => {} : undefined}
+              disabled={disabled}
+            >
+              {index % 3 === 2 ? (
+                <Avatar
+                  size={size === "large" ? "sizeIcon20" : "sizeIcon10"}
+                  name="avatar example"
+                  src="./avatars/avatar4.png"
+                />
+              ) : null}
+              {index % 3 === 1 ? (
+                <CalendarIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} />
+              ) : null}
+              {pill}
+            </FormPill>
+          ))}
+        </FormPillGroup>
+
+        <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel} size={size}>
+          {PILL_NAMES.map((pill, index) => (
+            <FormPill
+              key={pill}
+              data-testid={`form-pill-${index}`}
+              {...pillState}
+              selected={selected}
+              variant={index > 2 ? "error" : "default"}
+              onDismiss={dismissable ? () => {} : undefined}
+              disabled={disabled}
+            >
+              {pill}
+            </FormPill>
+          ))}
+        </FormPillGroup>
+      </Stack>
+    </Box>
+  );
+};
+
+PillStringOverflowVSComposed.storyName = "Pill String Overflow vs Composed";
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -2,6 +2,7 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
 
 import { hoverPillStyles, pillStyles } from "./FormPill.styles";
@@ -31,6 +32,24 @@ const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "
     fontSize: "fontSize30",
     height: "sizeIcon50",
   },
+};
+
+const renderChildren = (children: React.ReactNode): React.ReactNode => {
+  if (typeof children === "string") {
+    return <Truncate title={children}>{children}</Truncate>;
+  }
+
+  if (React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      children: renderChildren(children.props.children),
+    });
+  }
+
+  if (Array.isArray(children)) {
+    return children.map((child, index) => <React.Fragment key={index}>{renderChildren(child)}</React.Fragment>);
+  }
+
+  return children;
 };
 
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
@@ -77,6 +96,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         paddingLeft="space30"
         paddingRight={isDismissable ? (size === "large" ? "space90" : "space80") : "space30"}
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
+        maxWidth="100%"
         {...computedStyles}
       >
         <Box display="flex" height="100%" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
@@ -86,7 +106,8 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
             </>
           ) : null}
-          {props.children}
+
+          {renderChildren(props.children)}
         </Box>
       </Box>
     );
