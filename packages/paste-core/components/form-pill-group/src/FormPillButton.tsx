@@ -40,13 +40,13 @@ const renderChildren = (children: React.ReactNode): React.ReactNode => {
   }
 
   if (React.isValidElement(children)) {
-    return React.cloneElement(children, {
-      children: renderChildren(children.props.children),
-    });
+    return <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>;
   }
 
   if (Array.isArray(children)) {
-    return children.map((child, index) => <React.Fragment key={index}>{renderChildren(child)}</React.Fragment>);
+    return children.map((child, index) => (
+      <React.Fragment key={`PILL-CHILD-${index}`}>{renderChildren(child)}</React.Fragment>
+    ));
   }
 
   return children;
