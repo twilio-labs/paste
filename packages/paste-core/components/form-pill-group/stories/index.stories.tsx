@@ -188,13 +188,15 @@ export const PillStringOverflowVSComposed: React.FC<
   }>
 > = ({ selected = false, dismissable = true, disabled = false, ariaLabel = "Basic pills:", size }) => {
   const pillState = useFormPillState();
+  const pillState2 = useFormPillState();
+
   return (
     <Box maxWidth="150px">
       <Stack orientation="vertical" spacing="space80">
-        <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel} size={size}>
+        <FormPillGroup {...pillState} data-testid="form-pill-group-1" aria-label={ariaLabel} size={size}>
           {PILL_NAMES.map((pill, index) => (
             <FormPill
-              key={pill}
+              key={`${pill}-1`}
               data-testid={`form-pill-${index}-01`}
               {...pillState}
               selected={selected}
@@ -217,12 +219,12 @@ export const PillStringOverflowVSComposed: React.FC<
           ))}
         </FormPillGroup>
 
-        <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label={ariaLabel} size={size}>
+        <FormPillGroup {...pillState2} data-testid="form-pill-group-2" aria-label={ariaLabel} size={size}>
           {PILL_NAMES.map((pill, index) => (
             <FormPill
-              key={pill}
+              key={`${pill}-2`}
               data-testid={`form-pill-${index}-02`}
-              {...pillState}
+              {...pillState2}
               selected={selected}
               variant={index > 2 ? "error" : "default"}
               onDismiss={dismissable ? () => {} : undefined}
