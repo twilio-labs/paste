@@ -34,24 +34,6 @@ const sizeStyles: Record<FormPillGroupSizeVariant, Pick<BoxProps, "fontSize" | "
   },
 };
 
-const renderChildren = (children: React.ReactNode): React.ReactNode => {
-  if (typeof children === "string") {
-    return <Truncate title={children}>{children}</Truncate>;
-  }
-
-  if (React.isValidElement(children)) {
-    return <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>;
-  }
-
-  if (Array.isArray(children)) {
-    return children.map((child, index) => (
-      <React.Fragment key={`PILL-CHILD-${index}`}>{renderChildren(child)}</React.Fragment>
-    ));
-  }
-
-  return children;
-};
-
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
   (
     {
@@ -72,6 +54,29 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
     }, [isHoverable, isDisabled, variant]);
     const { size, variant: groupVariant } = React.useContext(FormPillGroupContext);
     const { height, fontSize } = sizeStyles[size];
+
+    const renderChildren = (children: React.ReactNode): React.ReactNode => {
+      if (typeof children === "string") {
+        return <Truncate title={children}>{children}</Truncate>;
+      }
+
+      if (React.isValidElement(children)) {
+        if (children.props.children && typeof children.props.children === "string") {
+          return (
+            <Box minWidth="0" element={`${element}_TEXT_TRUNCATE_WRAPPER`}>
+              <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>
+            </Box>
+          );
+        }
+        return <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>;
+      }
+
+      if (Array.isArray(children)) {
+        return children.map((child) => renderChildren(child));
+      }
+
+      return children;
+    };
 
     return (
       <Box
@@ -106,7 +111,6 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
             </>
           ) : null}
-
           {renderChildren(props.children)}
         </Box>
       </Box>
