@@ -168,6 +168,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               autocomplete={autocomplete}
               aria-describedby={helpText != null ? helpTextId : null}
               element={`${element}_ELEMENT`}
+              textOverflow="ellipsis"
             />
             {!autocomplete && (
               <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
