@@ -5,12 +5,12 @@ import { HelpText } from "@twilio-paste/help-text";
 import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
 import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "@twilio-paste/input-box";
 import { Label } from "@twilio-paste/label";
-import { Portal } from "@twilio-paste/reakit-library";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID } from "@twilio-paste/uid-library";
 import { useWindowSize } from "@twilio-paste/utils";
 import includes from "lodash/includes";
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { useVirtual } from "react-virtual";
 
 import { ComboboxItems } from "../ComboboxItems";
@@ -275,6 +275,12 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
     });
     const ariaExpanded = comboboxProps["aria-expanded"] || "false";
 
+    const [domReady, setDomReady] = React.useState(false);
+
+    React.useEffect(() => {
+      setDomReady(true);
+    }, []);
+
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
         <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
@@ -365,32 +371,34 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             </InputChevronWrapper>
           </Box>
         </InputBox>
-        <Portal>
-          <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
-            <ComboboxListbox
-              {...getMenuProps({ ref: parentRef })}
-              element={`${element}_LISTBOX`}
-              hidden={!isOpen}
-              aria-multiselectable="true"
-            >
-              <ComboboxItems
-                ref={scrollToIndexRef}
-                items={items}
-                element={element}
-                getItemProps={getItemProps}
-                highlightedIndex={highlightedIndex}
-                selectedItems={selectedItems}
-                disabledItems={disabledItems}
-                totalSize={rowVirtualizer.totalSize}
-                virtualItems={rowVirtualizer.virtualItems}
-                optionTemplate={optionTemplate}
-                groupItemsBy={groupItemsBy}
-                groupLabelTemplate={groupLabelTemplate}
-                emptyState={emptyState}
-              />
-            </ComboboxListbox>
-          </ListBoxPositioner>
-        </Portal>
+        {domReady &&
+          createPortal(
+            <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
+              <ComboboxListbox
+                {...getMenuProps({ ref: parentRef })}
+                element={`${element}_LISTBOX`}
+                hidden={!isOpen}
+                aria-multiselectable="true"
+              >
+                <ComboboxItems
+                  ref={scrollToIndexRef}
+                  items={items}
+                  element={element}
+                  getItemProps={getItemProps}
+                  highlightedIndex={highlightedIndex}
+                  selectedItems={selectedItems}
+                  disabledItems={disabledItems}
+                  totalSize={rowVirtualizer.totalSize}
+                  virtualItems={rowVirtualizer.virtualItems}
+                  optionTemplate={optionTemplate}
+                  groupItemsBy={groupItemsBy}
+                  groupLabelTemplate={groupLabelTemplate}
+                  emptyState={emptyState}
+                />
+              </ComboboxListbox>
+            </ListBoxPositioner>,
+            inputBoxRef.current as Element,
+          )}
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)} element={`${element}_HELP_TEXT`}>
             {helpText}

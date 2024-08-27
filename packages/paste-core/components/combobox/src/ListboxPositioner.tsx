@@ -57,8 +57,8 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({ inputBoxRe
         };
       }
     }
-
     return {
+      // TODO: adjust placement for comboboxes inside of portals (popovers/modals)
       position: "fixed",
       top: inputBoxDimensions?.bottom,
       left: inputBoxDimensions?.left,
