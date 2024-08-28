@@ -50,7 +50,61 @@ export const ExampleAIChatLog = (): React.ReactNode => {
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
             <Box marginTop="space50">
-              <ButtonGroup>
+              <ButtonGroup aria-label="code options, select the desired code">
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
                 <Button variant="secondary" onClick={() => {}} size="rounded_small">
                   30007
                 </Button>

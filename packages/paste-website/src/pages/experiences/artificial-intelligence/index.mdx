@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
+<LivePreview scope={{ButtonGroup, Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
   {`<Box width="100%" display="flex" justifyContent="center" flexDirection="column">
   <Box display="flex" flexDirection="column" alignItems="center" rowGap="space40" width="100%" padding="space130">
   <ArtificialIntelligenceIcon decorative size="sizeIcon100"/>
@@ -80,13 +80,13 @@ export const getStaticProps = async () => {
     </ChatComposerContainer>
     </Box>
 </Box>
-<Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center" rowGap="space40" columnGap="space40">
+<ButtonGroup justifyContent="center">
     <Button variant="secondary" size="rounded_small"><ProductMessagingIcon decorative />How do I set up SMS?</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />I’m unable to login to SendGrid due to 2FA</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />How can I get in touch with SendGrid support?</Button>
     <Button variant="secondary" size="rounded_small"><ProductCLIIcon decorative />How to uninstall Twilio CLI?</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />How do I report spam?</Button>
-</Box>
+</ButtonGroup>
 </Box>
 `}
 </LivePreview>
@@ -294,7 +294,7 @@ export const SidePanelExample = (): React.ReactNode => {
 
 #### Chat empty state
 
-<LivePreview scope={{Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
+<LivePreview scope={{ButtonGroup, Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
   {`<Box width="100%" display="flex" justifyContent="center" flexDirection="column">
   <Box display="flex" flexDirection="column" alignItems="center" rowGap="space40" width="100%" padding="space130">
   <ArtificialIntelligenceIcon decorative size="sizeIcon100"/>
@@ -319,13 +319,13 @@ export const SidePanelExample = (): React.ReactNode => {
     </ChatComposerContainer>
     </Box>
 </Box>
-<Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center" rowGap="space40" columnGap="space40">
+<ButtonGroup justifyContent="center">
     <Button variant="secondary" size="rounded_small"><ProductMessagingIcon decorative />How do I set up SMS?</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />I’m unable to login to SendGrid due to 2FA</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />How can I get in touch with SendGrid support?</Button>
     <Button variant="secondary" size="rounded_small"><ProductCLIIcon decorative />How to uninstall Twilio CLI?</Button>
     <Button variant="secondary" size="rounded_small"><ProductSendGridIcon decorative />How do I report spam?</Button>
-</Box>
+</ButtonGroup>
 </Box>
 `}
 </LivePreview>
