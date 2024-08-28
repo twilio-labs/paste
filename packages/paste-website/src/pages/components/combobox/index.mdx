@@ -22,6 +22,8 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code'
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
@@ -37,6 +39,7 @@ import {
   groupedComboboxExample,
   groupedLabelComboboxExample,
   stateHookCombobox,
+  popoverExample
 } from '../../../component-examples/ComboboxExamples';
 import packageJson from '@twilio-paste/combobox/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -285,6 +288,22 @@ Use an empty state to indicate to a user that their input does not match any val
 ## Composition Notes
 
 A Combobox consists of a label, an input and a listbox.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Combobox and Popover</CalloutHeading>
+  <CalloutText>
+    The Combobox listbox is rendered in a <Anchor href="https://reakit.io/docs/portal/" showExternal>Reakit Portal</Anchor> to control positioning and maintain accessibility. When Combobox is placed in a <Anchor href="/components/popover">Popover</Anchor> (which is also a Reakit Portal under the hood), add <InlineCode>usePortal=false</InlineCode> to your Combobox to prevent interaction bugs caused by nested portals.
+  </CalloutText>
+</Callout>
+
+<LivePreview
+  scope={{PopoverButton, PopoverContainer, Popover, Combobox}}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {popoverExample}
+</LivePreview>
 
 ### Positioning form fields
 

@@ -9,7 +9,7 @@ import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { Label } from "@twilio-paste/label";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
-import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import { Option, Select } from "@twilio-paste/select";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
@@ -892,7 +892,7 @@ export const ComboboxInPopover: StoryFn = () => {
     <PopoverContainer baseId="popover-example">
       <PopoverButton variant="primary">Open</PopoverButton>
       <Popover aria-label="Popover">
-        <Combobox items={items} labelText="Select an item" />
+        <Combobox items={items} labelText="Select an item" usePortal={false} />
       </Popover>
     </PopoverContainer>
   );

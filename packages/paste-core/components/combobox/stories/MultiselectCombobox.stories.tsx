@@ -7,7 +7,7 @@ import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
-import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
 import filter from "lodash/filter";
@@ -687,6 +687,7 @@ export const MultiselectComboboxInPopover: StoryFn = () => {
       <Popover aria-label="Popover">
         <Box width="size30">
           <MultiselectCombobox
+            usePortal={false}
             selectedItemsLabelText="items:"
             items={filteredItems}
             labelText="Select an item"
