@@ -14,7 +14,6 @@ import {
   sidebarNavigationItemNestedStyles,
   sidebarNavigationItemSelectedStyles,
   sidebarNavigationItemStyles,
-  sidebarNavigationItemUnselectedStyles,
 } from "./styles";
 
 export interface SidebarNavigationItemProps extends HTMLPasteProps<"a"> {
@@ -81,7 +80,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         ...(hierarchical && sidebarNavigationItemHierarchicalStyles),
         ...(isNested && sidebarNavigationItemNestedStyles),
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
-        ...(selected ? sidebarNavigationItemSelectedStyles : sidebarNavigationItemUnselectedStyles),
+        ...(selected && sidebarNavigationItemSelectedStyles),
         display: collapsed && hideItemsOnCollapse ? "none" : "flex",
         width: collapsed ? "36px" : "100%",
       }),

@@ -12,7 +12,6 @@ import {
   sidebarNavigationLabelNestedStyles,
   sidebarNavigationLabelSelectedStyles,
   sidebarNavigationLabelStyles,
-  sidebarNavigationLabelUnselectedStyles,
 } from "./styles";
 
 export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<"div"> {
@@ -60,8 +59,6 @@ const useComputeDisclosureHeadingStyles = ({ nested, selected }: UseComputeDiscl
   }
   if (selected) {
     styles = { ...styles, ...sidebarNavigationLabelSelectedStyles };
-  } else {
-    styles = { ...styles, ...sidebarNavigationLabelUnselectedStyles };
   }
   return styles;
 };
@@ -102,7 +99,6 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
     const isCompact = variant === "compact";
     const [visible, setVisible] = React.useState(!isCompact ? true : !isExpanded);
     const timeout = React.useRef(0);
-    const adjustedIcon = useAdjustIconColor({ icon, selected });
 
     React.useEffect(() => {
       clearTimeout(timeout.current);
@@ -117,6 +113,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
     }, [collapsed, isCompact]);
 
     const disclosureHeadingStyles = useComputeDisclosureHeadingStyles({ nested, selected });
+    const adjustedIcon = useAdjustIconColor({ icon, selected });
 
     return (
       <Box
