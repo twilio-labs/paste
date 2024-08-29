@@ -711,4 +711,4 @@ export const MultiselectComboboxInNarrowContainer = (): React.ReactNode => {
     </Box>
   );
 };
-MultiselectComboboxInNarrowContainer.storyName = "Narrow Contrainer";
+MultiselectComboboxInNarrowContainer.storyName = "Narrow Container";
