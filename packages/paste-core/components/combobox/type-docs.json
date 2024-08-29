@@ -6740,6 +6740,13 @@
       "required": false,
       "externalProp": true
     },
+    "usePortal": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Determines whether the Combobox Listbox (options list) is rendered inside a Portal. Defaults to `true`. Use `false` if you are using Combobox inside a Paste Popover to prevent interaction bugs."
+    },
     "variant": {
       "type": "InputVariants",
       "defaultValue": "default",
@@ -8714,6 +8721,13 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "usePortal": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Determines whether the Combobox Listbox (options list) is rendered inside a Portal. Defaults to `true`. Use `false` if you are using Combobox inside a Paste Popover to prevent interaction bugs."
     },
     "variant": {
       "type": "InputVariants",
