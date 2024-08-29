@@ -40,14 +40,12 @@ const AttachedStyled = styled.span(
 
 const UnattachedStyled = styled.span(
   css({
-    "& > button:not(:first-of-type)": {
-      marginLeft: "space40",
-    },
-    "& > button:first-of-type": {
-      marginLeft: "space0",
-    },
+    display: "flex",
+    columnGap: "space40",
   }),
 );
+
+type JustifyOptions = "flex-start" | "center" | "flex-end" | "space-between";
 
 export interface ButtonGroupProps extends HTMLPasteProps<"div"> {
   /**
@@ -65,11 +63,19 @@ export interface ButtonGroupProps extends HTMLPasteProps<"div"> {
    * @memberof ButtonGroupProps
    */
   attached?: boolean;
+  /**
+   * Sets the `justify-content` CSS property. Only used for unattached button groups.
+   *
+   * @default "flex-start"
+   * @type {JustifyOptions}
+   * @memberof ButtonGroupProps
+   */
+  justifyContent?: JustifyOptions;
   children: React.ReactElement[];
 }
 
 export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
-  ({ element = "BUTTON_GROUP", children, attached = false, ...props }, ref) => {
+  ({ element = "BUTTON_GROUP", children, attached = false, justifyContent = "flex-start", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -80,6 +86,7 @@ export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         element={element}
         display="inline-flex"
         flexWrap={attached ? "nowrap" : "wrap"}
+        justifyContent={attached ? "flex-start" : justifyContent}
         rowGap="space40"
         role="group"
       >
