@@ -57,7 +57,6 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({ inputBoxRe
         };
       }
     }
-
     return {
       position: "fixed",
       top: inputBoxDimensions?.bottom,

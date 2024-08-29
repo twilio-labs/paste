@@ -7,6 +7,7 @@ import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
 import filter from "lodash/filter";
@@ -674,6 +675,30 @@ MultiselectComboboxInModal.parameters = {
     // redundant flaky test
     disable: true,
   },
+};
+
+export const MultiselectComboboxInPopover: StoryFn = () => {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Open</PopoverButton>
+      <Popover aria-label="Popover">
+        <Box width="size30">
+          <MultiselectCombobox
+            usePortal={false}
+            selectedItemsLabelText="items:"
+            items={filteredItems}
+            labelText="Select an item"
+            onInputValueChange={({ inputValue: newInputValue = "" }) => {
+              setInputValue(newInputValue);
+            }}
+          />
+        </Box>
+      </Popover>
+    </PopoverContainer>
+  );
 };
 
 // eslint-disable-next-line import/no-default-export

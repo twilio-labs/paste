@@ -624,3 +624,48 @@ render(
   <MultiselectComboboxExample />
 )
 `.trim();
+
+export const popoverExample = `
+
+const items = [
+  "Alert",
+  "Heading",
+  "List",
+  "Paragraph",
+];
+
+function getFilteredItems(inputValue) {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return items.filter(function filterItems(item) {
+    return item.toLowerCase().includes(lowerCasedInputValue);
+  });
+}
+
+const PopoverCombobox = () => {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Open</PopoverButton>
+      <Popover aria-label="Popover">
+        <Box width="size30">
+          <MultiselectCombobox
+            usePortal={false}
+            selectedItemsLabelText="items:"
+            items={filteredItems}
+            labelText="Select an item"
+            onInputValueChange={({ inputValue: newInputValue = "" }) => {
+              setInputValue(newInputValue);
+            }}
+          />
+        </Box>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+render(
+  <PopoverCombobox />
+)
+`.trim();

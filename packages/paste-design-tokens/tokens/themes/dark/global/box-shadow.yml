@@ -27,147 +27,147 @@ props:
     value: "inset {!offset-0} {!offset-0} {!offset-0} {!offset-10} {!palette-gray-60}"
     comment: Shadow for inset focus on elements, such as DataGrid cells.
   shadow-focus-shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-60}, {!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-60}, {!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-60}"
     comment: Shadow for simultaneous focus and border
   shadow-border-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-90}"
     comment: Weaker shadow border for disabled inputs.
   shadow-border-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}"
     comment: Weak shadow border for disabled inputs.
   shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-60}"
     comment: Shadow border for inputs.
   shadow-border-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-50}"
     comment: Strong shadow border for inputs.
   shadow-border-primary-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-90}"
     comment: "Weaker shadow border for primary interactions."
   shadow-border-primary-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}"
     comment: "Weaker shadow border for primary interactions."
   shadow-border-primary:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-60}"
     comment: "Default shadow border for primary interactions."
   shadow-border-primary-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-30}"
     comment: Strong shadow border for inputs hover.
   shadow-border-primary-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-20}"
     comment: Stronger shadow border for inputs active.
   shadow-border-primary-strongest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-10}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-10}"
     comment: Strongest shadow border for inputs active.
   shadow-border-destructive-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-90}"
     comment: Weaker shadow border for destructive interactions.
   shadow-border-destructive-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}"
     comment: Weak shadow border for destructive interactions.
   shadow-border-destructive:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-60}"
     comment: Shadow border for destructive interactions.
   shadow-border-destructive-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-30}"
     comment: Strong shadow border for destructive interactions
   shadow-border-destructive-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-20}"
     comment: Stronger shadow border for destructive interactions
   shadow-border-destructive-strongest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-10}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-10}"
     comment: Strongest shadow border for destructive interactions
   shadow-border-success-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-green-70}"
     comment: Weaker shadow border for success inputs.
   shadow-border-warning-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-orange-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-orange-70}"
     comment: Weaker shadow border for warning inputs.
   shadow-border-error-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-70}"
     comment: Weaker shadow border for error inputs.
   shadow-border-error-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-70}"
     comment: Shadow border for inverse error inputs.
   shadow-border-error:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-60}"
     comment: Shadow border for error inputs.
   shadow-border-error-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-30}"
     comment: Shadow border for error inputs hover.
   shadow-border-error-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-20}"
     comment: Shadow border for error inputs hover.
   shadow-border-error-strongest:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-10}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-red-10}"
     comment: Strongest shadow border for error inputs hover.
   shadow-border-neutral-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-70}"
     comment: Weaker shadow border for neutral inputs.
   shadow-border-new-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-70}"
     comment: Weaker shadow border for new status inputs.
   shadow-border-decorative-10-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-90}"
     comment: Weaker shadow border for decorative 10
   shadow-border-decorative-20-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-70}"
     comment: Weaker shadow border for decorative 20
   shadow-border-decorative-30-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-green-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-green-70}"
     comment: Weaker shadow border for decorative 30
   shadow-border-decorative-40-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-70}"
     comment: Weaker shadow border for decorative 40
   shadow-border-subaccount:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-yellow-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-yellow-70}"
     comment: Shadow border for subaccount badge.
   shadow-border-inverse-new-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-70}"
     comment: Shadow border for the sidebar beta badge.
   shadow-border-top-primary-strongest:
-    value: "0px -1px {!offset-0} {!palette-blue-10}"
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!palette-blue-10}"
     comment: Top shadow border for selected hover status of horizontal tabs.
 
   # Badge
   shadow-border-bottom-primary:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-55}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-55}"
     comment: Bottom shadow border for primary status
   shadow-border-bottom-neutral-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-80}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-80}"
     comment: Weaker bottom shadow border for neutral status
   shadow-border-bottom-warning-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-orange-90}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-orange-90}"
     comment: Weaker bottom shadow border warning warning status
   shadow-border-bottom-error-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-red-80}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-red-80}"
     comment: Weaker bottom shadow border for error status
   shadow-border-bottom-success-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-green-90}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-green-90}"
     comment: Weaker bottom shadow border for success status
   shadow-border-bottom-new-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Weaker bottom shadow border for new status
   shadow-border-bottom-decorative-10-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-gray-90}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-gray-90}"
     comment: Weaker bottom shadow border for decorative 10
   shadow-border-bottom-decorative-20-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-blue-80}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-80}"
     comment: Weaker bottom shadow border for decorative 20
   shadow-border-bottom-decorative-30-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-green-90}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-green-90}"
     comment: Weaker bottom shadow border for decorative 30
   shadow-border-bottom-decorative-40-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Weaker bottom shadow border for decorative 40
   shadow-border-bottom-subaccount:
-    value: "{!offset-0} 1px {!offset-0} {!palette-yellow-70}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-yellow-70}"
     comment: Bottom shadow border for subaccount badge
   shadow-border-bottom-inverse-new-weaker:
-    value: "{!offset-0} 1px {!offset-0} {!palette-purple-70}"
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Bottom shadow border for the sidebar beta badge
 
   # User
   shadow-border-user:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-10}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-10}"
     comment: Shadow border for user.
