@@ -5,14 +5,13 @@ import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
 import type { InputVariants } from "@twilio-paste/input";
 import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "@twilio-paste/input-box";
 import { Label } from "@twilio-paste/label";
-import { Portal } from "@twilio-paste/reakit-library";
 import { useUID } from "@twilio-paste/uid-library";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 import { useVirtual } from "react-virtual";
 
 import { ComboboxItems } from "../ComboboxItems";
-import { ListBoxPositioner } from "../ListboxPositioner";
+import { ListboxWrapper } from "../ListboxWrapper";
 import { visuallyHiddenStyles } from "../helpers";
 import { ComboboxInputSelect } from "../styles/ComboboxInputSelect";
 import { ComboboxInputWrapper } from "../styles/ComboboxInputWrapper";
@@ -36,6 +35,7 @@ const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefine
 const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
   (
     {
+      usePortal = true,
       autocomplete,
       disabled,
       element = "COMBOBOX",
@@ -180,26 +180,24 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             )}
           </ComboboxInputWrapper>
         </InputBox>
-        <Portal>
-          <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
-            <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ ref: parentRef })}>
-              <ComboboxItems
-                ref={scrollToIndexRef}
-                items={items}
-                element={element}
-                getItemProps={getItemProps}
-                highlightedIndex={highlightedIndex}
-                disabledItems={disabledItems}
-                optionTemplate={optionTemplate}
-                groupItemsBy={groupItemsBy}
-                groupLabelTemplate={groupLabelTemplate}
-                totalSize={rowVirtualizer.totalSize}
-                virtualItems={rowVirtualizer.virtualItems}
-                emptyState={emptyState}
-              />
-            </ComboboxListbox>
-          </ListBoxPositioner>
-        </Portal>
+        <ListboxWrapper inputBoxRef={inputBoxRef} parentRef={parentRef} usePortal={usePortal}>
+          <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ ref: parentRef })}>
+            <ComboboxItems
+              ref={scrollToIndexRef}
+              items={items}
+              element={element}
+              getItemProps={getItemProps}
+              highlightedIndex={highlightedIndex}
+              disabledItems={disabledItems}
+              optionTemplate={optionTemplate}
+              groupItemsBy={groupItemsBy}
+              groupLabelTemplate={groupLabelTemplate}
+              totalSize={rowVirtualizer.totalSize}
+              virtualItems={rowVirtualizer.virtualItems}
+              emptyState={emptyState}
+            />
+          </ComboboxListbox>
+        </ListboxWrapper>
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
             {helpText}

@@ -502,3 +502,28 @@ render(
   <EmptyStateCombobox />
 )
 `.trim();
+
+export const popoverExample = `
+
+const items = [
+  "Alert",
+  "Heading",
+  "List",
+  "Paragraph",
+];
+
+const PopoverCombobox = () => {
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Open</PopoverButton>
+      <Popover aria-label="Popover">
+        <Combobox items={items} labelText="Select an item" usePortal={false} />
+      </Popover>
+    </PopoverContainer>  
+  );
+};
+
+render(
+  <PopoverCombobox />
+)
+`.trim();
