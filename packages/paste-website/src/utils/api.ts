@@ -98,7 +98,7 @@ export const getNavigationData = async (): Promise<Feature[]> => {
 export const getFeature = async (feature: string): Promise<Feature> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), "data/feature-data.json"), "utf8");
 
-  return JSON.parse(data).find((item: Feature) => item.Feature === feature);
+  return JSON.parse(data).find((item: Feature) => item.Feature.toLowerCase() === feature.toLowerCase());
 };
 
 export const getAllFeatures = async (): Promise<Feature[]> => {
