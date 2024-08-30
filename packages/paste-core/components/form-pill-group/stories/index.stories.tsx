@@ -283,8 +283,6 @@ export const PillNarrowContainerDecorationsEnd: React.FC<
   );
 };
 
-PillNarrowContainerDecorationsEnd.storyName = "Pill Narrow Container Decorations End";
-
 export const PillNarrowContainerFormattedTextContent: React.FC<
   React.PropsWithChildren<{
     selected?: boolean;
@@ -295,7 +293,6 @@ export const PillNarrowContainerFormattedTextContent: React.FC<
   }>
 > = ({ selected = false, dismissable = true, disabled = false, ariaLabel = "Basic pills:", size }) => {
   const pillState = useFormPillState();
-  const pillState2 = useFormPillState();
 
   return (
     <Box maxWidth="90px">
@@ -318,7 +315,7 @@ export const PillNarrowContainerFormattedTextContent: React.FC<
               />
             ) : null}
             {index % 3 === 1 ? <CalendarIcon decorative size={size === "large" ? "sizeIcon20" : "sizeIcon10"} /> : null}
-            <Text fontWeight="fontWeightBold" fontStyle="italic">
+            <Text as="p" fontWeight="fontWeightBold" fontStyle="italic">
               {pill}
             </Text>
           </FormPill>
@@ -327,8 +324,6 @@ export const PillNarrowContainerFormattedTextContent: React.FC<
     </Box>
   );
 };
-
-PillNarrowContainerFormattedTextContent.storyName = "Pill Narrow Container Formatted Text Content";
 
 // eslint-disable-next-line import/no-default-export
 export default {
