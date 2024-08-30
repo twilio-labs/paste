@@ -123,6 +123,19 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
     },
   };
 
+  React.useEffect(() => {
+    const newFilters = { ...selectedFilters };
+    for (const key in selectedFilters) {
+      const typedKey = key as FilterListType[0];
+      if (!addedFilters.includes(typedKey) && addFiltersList?.includes(typedKey)) {
+        delete newFilters[key];
+      }
+    }
+
+    setSelectedFilters(newFilters);
+    handleApplyFilters(newFilters as selectedFilterProps);
+  }, [addedFilters, addFiltersList]);
+
   function removeFilter(filter: string): void {
     const newFilters = { ...selectedFilters };
     const { [filter]: _, ...rest } = newFilters;
@@ -220,9 +233,8 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
 
         {addFiltersList && addFiltersList.length > 0 ? (
           <AddFilters
-            onApply={(_: string, value) => {
-              const sluggedList = (value as FilterListType).map((item) => slugify(item));
-
+            onApply={(_: string, addFilterSelectedList) => {
+              const sluggedList = (addFilterSelectedList as FilterListType).map((item) => slugify(item));
               setAddedFilters(sluggedList as FilterListType);
             }}
             addFiltersList={addFiltersList}

@@ -49,11 +49,6 @@ export const AddFilters: React.FC<{
     onSelectedItemsChange,
   });
 
-  /*
-   * this will be used to set the selected items when the popover is triggered,
-   * for it to work, we need to fix popover closing on multiselect click
-   */
-
   React.useEffect(() => {
     state.setSelectedItems(value.map((item) => filterMap[item].label));
   }, [value, popover?.visible]);
