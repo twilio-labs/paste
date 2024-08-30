@@ -35,21 +35,19 @@ ConditionalFilterExample.parameters = {
   padding: false,
 };
 
-/*
- * export const AddFilterExample = (): JSX.Element => {
- * const addFilterList: FilterListType = ["roomType", "participants"];
- * const addFiltersList: FilterListType = ["sid", "uniqueName", "participants"];
- * const recommendedFiltersList: FilterListType = ["uniqueName", "participants"];
- * return (
- *  <DefaultFilter
- *    data={STATIC_TABLE_DATA}
- *    filterList={addFilterList}
- *    addFiltersList={addFiltersList}
- *    recommendedFiltersList={recommendedFiltersList}
- *  />
- * );
- * };
- */
+export const AddFilterExample = (): JSX.Element => {
+  const addFilterList: FilterListType = ["roomType", "dateCompleted"];
+  const addFiltersList: FilterListType = ["roomSid", "uniqueName", "participants"];
+  const recommendedFiltersList: FilterListType = ["uniqueName", "participants"];
+  return (
+    <DefaultFilter
+      data={STATIC_TABLE_DATA}
+      filterList={addFilterList}
+      addFiltersList={addFiltersList}
+      recommendedFiltersList={recommendedFiltersList}
+    />
+  );
+};
 
 export const MoreFilterExample = (): JSX.Element => {
   return <MoreFilters />;

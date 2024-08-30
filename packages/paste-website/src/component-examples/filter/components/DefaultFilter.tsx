@@ -105,7 +105,7 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
       label: "Date range",
       component: CustomFilter,
     },
-    sid: {
+    roomSid: {
       label: "Room SID",
       component: RoomSidFilter,
     },
@@ -222,6 +222,7 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
           <AddFilters
             onApply={(_: string, value) => {
               const sluggedList = (value as FilterListType).map((item) => slugify(item));
+
               setAddedFilters(sluggedList as FilterListType);
             }}
             addFiltersList={addFiltersList}

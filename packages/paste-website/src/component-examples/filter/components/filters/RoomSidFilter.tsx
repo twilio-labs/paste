@@ -116,7 +116,7 @@ export const RoomSidFilter: React.FC = ({
       <FilterAction
         onApply={() => {
           if (onApply && popover) {
-            onApply("sid", state.selectedItems);
+            onApply("roomSid", state.selectedItems);
             popover.hide();
           }
         }}

@@ -16,9 +16,9 @@ import type {
 export const formatDate = (date: Date): string => format(date, "yyyy-MM-dd");
 export const formatDateTime = (date: Date): string => format(date, "HH:mm:ss 'UTC' yyyy-MM-dd");
 
-export const filterBySearchString = (uniqueName: string, sid: string, searchValue: string): boolean => {
+export const filterBySearchString = (uniqueName: string, roomSid: string, searchValue: string): boolean => {
   const lowerCaseName = uniqueName.toLocaleLowerCase();
-  const lowerCaseSid = sid.toLocaleLowerCase();
+  const lowerCaseSid = roomSid.toLocaleLowerCase();
 
   return lowerCaseName.includes(searchValue) || lowerCaseSid.includes(searchValue);
 };
@@ -89,7 +89,7 @@ export const isValueEmpty = (type: string, value: selectedFilterProps): boolean 
     return Object.values(value)?.includes("");
   }
 
-  if (["sid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
+  if (["roomSid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
     return (value as string[])?.length === 0;
   }
 
@@ -129,19 +129,19 @@ export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDa
       const search = value as string;
 
       filteredData = filteredData.filter((item) => {
-        const { uniqueName, roomType, participants, dateCompleted, sid } = item;
+        const { uniqueName, roomType, participants, dateCompleted, roomSid } = item;
 
         return (
           uniqueName.toLowerCase().includes(search.toLowerCase()) ||
           roomType.toLowerCase().includes(search.toLowerCase()) ||
           participants.toString().includes(search) ||
           dateCompleted.toString().includes(search) ||
-          sid.toLowerCase().includes(search.toLowerCase())
+          roomSid.toLowerCase().includes(search.toLowerCase())
         );
       });
     }
 
-    if (["sid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
+    if (["roomSid", "uniqueName", "hostName", "tags", "department", "platform"].includes(type)) {
       const search = value as unknown as string[];
 
       if (search.length > 0) {
@@ -158,5 +158,11 @@ export const applyFilters = (filters: selectedFilterProps, data: ExtendedTableDa
 };
 
 export const slugify = (text: string): string => {
-  return text.toString().toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+  return text
+    .toString()
+    .toLowerCase()
+    .split(/\s+/)
+    .map((word, index) => (index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)))
+    .join("")
+    .replace(/\W+/g, "");
 };
