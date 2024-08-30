@@ -40,10 +40,12 @@ export const UniqueNameFilter: React.FC = ({
   onApply,
   value,
   popover,
+  onRemove,
 }: {
   onApply?: (type: string, value: Item[]) => void;
   value?: string[];
   popover?: ReturnType<typeof usePopoverState>;
+  onRemove?: () => void;
 }) => {
   const [inputValue, setInputValue] = React.useState("");
 
@@ -128,6 +130,7 @@ export const UniqueNameFilter: React.FC = ({
               }
             : null
         }
+        onRemove={onRemove}
       />
     </Box>
   );
