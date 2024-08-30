@@ -22,17 +22,25 @@ export const RoomTypeFilter: React.FC = ({
     setSelectedRoomType(value || "");
   }, [value, popover?.visible]);
 
+  const uid = useUID();
+
   return (
     <Box>
       <RadioGroup
-        name={`roomType-${useUID()}`}
+        name={`roomType-${uid}`}
         legend="Room type"
         helpText="Select one option"
         onChange={setSelectedRoomType}
         value={selectedRoomType}
       >
         {roomTypes.map((roomType) => (
-          <Radio key={roomType} id={roomType} value={roomType} name="roomType" checked={selectedRoomType === roomType}>
+          <Radio
+            key={roomType}
+            id={roomType}
+            value={roomType}
+            name={`roomType-${uid}`}
+            checked={selectedRoomType === roomType}
+          >
             {roomType}
           </Radio>
         ))}

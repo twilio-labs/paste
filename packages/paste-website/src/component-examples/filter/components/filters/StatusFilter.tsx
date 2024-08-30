@@ -19,10 +19,11 @@ export const StatusFilter: React.FC<{
     setValue(selectedMoreFilters ? (selectedMoreFilters.status as string) || "" : "");
   }, [selectedMoreFilters]);
 
+  const uid = useUID();
   return (
     <Box>
       <RadioGroup
-        name={`status-filter-${useUID()}`}
+        name={`status-filter-${uid}`}
         value={value}
         legend={label}
         onChange={(newValue) => {
@@ -37,7 +38,7 @@ export const StatusFilter: React.FC<{
         }}
       >
         {items.map((item) => (
-          <Radio key={item} id={item} value={item} name="status-filter" checked={value === item}>
+          <Radio key={item} id={item} value={item} name={`status-filter-${uid}`} checked={value === item}>
             {item}
           </Radio>
         ))}

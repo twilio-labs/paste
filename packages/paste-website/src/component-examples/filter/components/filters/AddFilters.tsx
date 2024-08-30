@@ -103,7 +103,7 @@ export const AddFilters: React.FC<{
                   return (
                     <Checkbox
                       key={labelName}
-                      id={labelName}
+                      id={labelName + useUID()}
                       value={labelName}
                       checked={state.selectedItems.includes(labelName)}
                       onChange={(e) => {

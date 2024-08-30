@@ -89,7 +89,7 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({
             return (
               <Checkbox
                 key={item}
-                id={item}
+                id={item + useUID()}
                 value={item}
                 checked={state.selectedItems.includes(item)}
                 onChange={(e) => {

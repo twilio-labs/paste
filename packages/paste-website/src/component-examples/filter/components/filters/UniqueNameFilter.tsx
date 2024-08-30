@@ -96,7 +96,7 @@ export const UniqueNameFilter: React.FC = ({
             return (
               <Checkbox
                 key={item}
-                id={item}
+                id={item + useUID()}
                 value={item}
                 checked={state.selectedItems.includes(item)}
                 onChange={(e) => {

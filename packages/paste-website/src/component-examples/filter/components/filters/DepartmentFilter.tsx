@@ -31,7 +31,7 @@ export const DepartmentFilter: React.FC = ({
           return (
             <Checkbox
               key={item}
-              id={item}
+              id={item + useUID()}
               value={item}
               checked={values.includes(item)}
               onChange={(e) => {
