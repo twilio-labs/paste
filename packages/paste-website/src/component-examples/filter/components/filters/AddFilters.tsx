@@ -9,7 +9,6 @@ import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twil
 import { Text } from "@twilio-paste/text";
 import React from "react";
 
-import { slugify } from "../../helpers";
 import type { FilterListType, FilterMapType } from "../../types";
 import { FilterAction } from "../FilterAction";
 
@@ -55,22 +54,13 @@ export const AddFilters: React.FC<{
    * for it to work, we need to fix popover closing on multiselect click
    */
 
-  /*
-   * React.useEffect(() => {
-   *   if (popover.visible) {
-   *  state.setSelectedItems(value.map((item) => filterMap[item].label));
-   * }
-   * }, [popover.visible]);
-   */
+  React.useEffect(() => {
+    state.setSelectedItems(value.map((item) => filterMap[item].label));
+  }, [value, popover?.visible]);
 
   return (
     <PopoverContainer state={popover}>
-      <PopoverButton
-        variant="secondary"
-        size="rounded_small"
-        // @ts-expect-error types are wrong
-        borderRadius="borderRadiusPill"
-      >
+      <PopoverButton variant="secondary" size="rounded_small">
         <PlusIcon decorative />
         <span>Add filters</span>
 
@@ -87,6 +77,7 @@ export const AddFilters: React.FC<{
         <Box>
           <MultiselectCombobox
             state={state}
+            usePortal={false}
             labelText="Search"
             selectedItemsLabelText="Selected filters"
             items={filteredItems.map((item) => filterMap[item].label)}
@@ -97,8 +88,7 @@ export const AddFilters: React.FC<{
             onSelectedItemsChange={(comboboxItems) => {
               const { selectedItems } = comboboxItems;
               if (selectedItems) {
-                const sluggedItems = selectedItems.map((item) => slugify(item as string));
-                state.setSelectedItems(sluggedItems);
+                state.setSelectedItems(selectedItems);
               }
             }}
           />
