@@ -1,6 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 export const StatusFilter: React.FC<{
@@ -21,7 +22,7 @@ export const StatusFilter: React.FC<{
   return (
     <Box>
       <RadioGroup
-        name="status-filter"
+        name={`status-filter-${useUID()}`}
         value={value}
         legend={label}
         onChange={(newValue) => {

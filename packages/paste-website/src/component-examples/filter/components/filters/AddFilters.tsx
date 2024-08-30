@@ -7,6 +7,7 @@ import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-lib
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import type { FilterListType, FilterMapType } from "../../types";
@@ -92,7 +93,11 @@ export const AddFilters: React.FC<{
 
           {recommendedFiltersList ? (
             <Box marginTop="space70">
-              <CheckboxGroup name="rec-filters" legend="Filters" helpText="Info that helps a user with this field.">
+              <CheckboxGroup
+                name={`rec-filters-${useUID()}`}
+                legend="Filters"
+                helpText="Info that helps a user with this field."
+              >
                 {recommendedFiltersList.map((item) => {
                   const labelName = filterMap[item].label;
                   return (

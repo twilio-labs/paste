@@ -1,6 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 export const TagsFilter: React.FC<{
@@ -20,7 +21,7 @@ export const TagsFilter: React.FC<{
 
   return (
     <Box>
-      <CheckboxGroup name="recently-used-tags" legend={label}>
+      <CheckboxGroup name={`recently-used-tags-${useUID()}`} legend={label}>
         {(items as string[]).map((item) => {
           return (
             <Checkbox

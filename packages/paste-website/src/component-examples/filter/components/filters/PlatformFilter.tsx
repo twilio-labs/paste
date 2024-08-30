@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
 import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { usePopoverState } from "@twilio-paste/popover";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import { FilterAction } from "../FilterAction";
@@ -25,7 +26,7 @@ export const PlatformFilter: React.FC = ({
 
   return (
     <Box>
-      <CheckboxGroup name="platform-list" legend="Platform" helpText="Select one or more options">
+      <CheckboxGroup name={`platform-list-${useUID()}`} legend="Platform" helpText="Select one or more options">
         {platformList.map((item) => {
           return (
             <Checkbox

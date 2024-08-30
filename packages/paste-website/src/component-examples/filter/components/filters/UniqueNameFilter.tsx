@@ -5,6 +5,7 @@ import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-library";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import { slugify } from "../../helpers";
@@ -90,7 +91,7 @@ export const UniqueNameFilter: React.FC = ({
       />
 
       <Box marginTop="space70">
-        <CheckboxGroup name="recently-used-filters" legend="Recently used">
+        <CheckboxGroup name={`recently-used-unique-filters-${useUID()}`} legend="Recently used">
           {uniqueNameList.slice(0, 3).map((item) => {
             return (
               <Checkbox

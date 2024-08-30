@@ -70,7 +70,7 @@ export const CustomFilter: React.FC = ({
   return (
     <Box>
       <RadioGroup
-        name="custom"
+        name={`custom-${useUID()}`}
         legend="Date range"
         onChange={(value) => {
           setSelectedDate(value);

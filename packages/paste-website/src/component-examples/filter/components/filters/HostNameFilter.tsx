@@ -5,6 +5,7 @@ import { MultiselectCombobox, useMultiselectCombobox } from "@twilio-paste/combo
 import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-library";
 import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 function getFilteredItems(inputValue: string, addFiltersList: string[]): string[] {
@@ -83,7 +84,7 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({
       />
 
       <Box marginTop="space70">
-        <CheckboxGroup name="recently-used-hostName" legend="Recently used">
+        <CheckboxGroup name={`recently-used-hostName-${useUID()}`} legend="Recently used">
           {(items as string[]).slice(0, 4).map((item) => {
             return (
               <Checkbox
