@@ -714,7 +714,7 @@ export default {
   ],
 } as Meta;
 
-export const MultiselectComboboxInNarrowContainer = (): React.ReactNode => {
+export const MultiselectComboboxInNarrowContainer = (): StoryFn => {
   const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
