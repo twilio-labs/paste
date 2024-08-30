@@ -100,6 +100,7 @@ export const LineChartOptions = {
 
 export const LineChartExample = `
 const LineChartExample = () => {
+  applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const themedLineChartOptions = usePasteHighchartsTheme(LineChartOptions);
   return <HighchartsReact highcharts={Highcharts} options={themedLineChartOptions} />;
 };
