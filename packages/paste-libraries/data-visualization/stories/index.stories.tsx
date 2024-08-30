@@ -20,6 +20,10 @@ export default {
   title: "Libraries/data-visualization",
   parameters: {
     chromatic: { disableSnapshot: true },
+    a11y: {
+      // no need to a11y check composition of a11y checked components
+      disable: true,
+    },
   },
 } as Meta;
 
@@ -28,8 +32,8 @@ export const LineChart: StoryFn = () => {
 
   return (
     <Stack orientation="vertical" spacing="space100">
-      <HighchartsReact highcharts={Highcharts} options={themedLineChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={lineChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={themedLineChartOptions} key="chart1" />
+      <HighchartsReact highcharts={Highcharts} options={lineChartOptions} key="chart2" />
     </Stack>
   );
 };

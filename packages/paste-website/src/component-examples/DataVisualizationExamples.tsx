@@ -65,6 +65,9 @@ export const LineChartCaption = (): JSX.Element => (
 export const LineChartOptions = {
   title: { text: "Solar Employment Growth by Sector, 2010-2016" },
   subtitle: { text: "Source: thesolarfoundation.com" },
+  accessibility: {
+    description: "This chart shows the solar employment growth by sector from 2010 to 2016.",
+  },
   chart: {
     // this controls animation of updates, to disable animation on initial render you have to disable animation on the series
     animation: !inCypress(),
