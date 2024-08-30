@@ -62,7 +62,9 @@ export const AddFilters: React.FC<{
         {value.length > 0 ? (
           <Box marginLeft="space20">
             <Badge variant="neutral_counter" as="span" size="small">
-              {value.length}
+              <Box textAlign="center" minWidth="12px">
+                {value.length}
+              </Box>
             </Badge>
           </Box>
         ) : null}
