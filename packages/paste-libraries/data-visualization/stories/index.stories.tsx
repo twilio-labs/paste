@@ -3,10 +3,11 @@ import { Stack } from "@twilio-paste/stack";
 /* eslint-disable import/no-extraneous-dependencies */
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
 import * as React from "react";
 /* eslint-enable */
 
-import { usePasteHighchartsTheme } from "../src";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "../src";
 import { basicAreaChartOptions } from "./options/basicAreaChartOptions";
 import { columnChartOptions } from "./options/columnChartOptions";
 import { lineChartOptions } from "./options/lineChartOptions";
@@ -23,6 +24,18 @@ export default {
 } as Meta;
 
 export const LineChart: StoryFn = () => {
+  const themedLineChartOptions = usePasteHighchartsTheme(lineChartOptions);
+
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <HighchartsReact highcharts={Highcharts} options={themedLineChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={lineChartOptions} />
+    </Stack>
+  );
+};
+
+export const LineChartWithAccessibility: StoryFn = () => {
+  applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const themedLineChartOptions = usePasteHighchartsTheme(lineChartOptions);
 
   return (
