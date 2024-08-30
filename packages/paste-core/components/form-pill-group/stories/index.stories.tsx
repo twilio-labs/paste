@@ -1,3 +1,4 @@
+import { StoryFn } from "@storybook/react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
@@ -179,7 +180,7 @@ export const FormPillTreeVariant = (): JSX.Element => {
 
 FormPillTreeVariant.storyName = "FormPillGroup Tree Variant";
 
-export const PillStringOverflowVSComposed: React.FC<
+export const PillStringOverflowVSComposed: StoryFn<
   React.PropsWithChildren<{
     selected?: boolean;
     dismissable?: boolean;
@@ -242,7 +243,7 @@ export const PillStringOverflowVSComposed: React.FC<
 
 PillStringOverflowVSComposed.storyName = "Pill String Overflow vs Composed";
 
-export const PillNarrowContainerDecorationsEnd: React.FC<
+export const PillNarrowContainerDecorationsEnd: StoryFn<
   React.PropsWithChildren<{
     selected?: boolean;
     dismissable?: boolean;
@@ -283,7 +284,7 @@ export const PillNarrowContainerDecorationsEnd: React.FC<
   );
 };
 
-export const PillNarrowContainerFormattedTextContent: React.FC<
+export const PillNarrowContainerFormattedTextContent: StoryFn<
   React.PropsWithChildren<{
     selected?: boolean;
     dismissable?: boolean;
