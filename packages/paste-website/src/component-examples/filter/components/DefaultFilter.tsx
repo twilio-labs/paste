@@ -258,8 +258,16 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
         ) : null}
       </FormPillGroup>
 
-      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
-        <Box display="flex" columnGap="space30">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="space-between"
+        alignItems="center"
+        columnGap="space30"
+        rowGap="space30"
+        marginTop="space50"
+      >
+        <Box display="flex" flexWrap="wrap" columnGap="space30" rowGap="space30">
           <DetailText marginTop="space0">
             <Text as="span" color="colorTextWeak" fontSize="fontSize30">
               {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
