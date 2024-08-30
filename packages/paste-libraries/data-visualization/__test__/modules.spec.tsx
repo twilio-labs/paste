@@ -6,15 +6,15 @@ type MockHighcarts = {
 
 let mockHighcarts: MockHighcarts;
 
-const a11yModule = (highcharts: MockHighcarts) => {
+const a11yModule = (highcharts: MockHighcarts): void => {
   highcharts.modules.add("accessibility");
 };
 
-const exportingModule = (highcharts: MockHighcarts) => {
+const exportingModule = (highcharts: MockHighcarts): void => {
   highcharts.modules.add("exporting");
 };
 
-const sankeyModule = (highcharts: MockHighcarts) => {
+const sankeyModule = (highcharts: MockHighcarts): void => {
   highcharts.modules.add("sankeyModule");
 };
 
@@ -32,6 +32,7 @@ describe("applyPasteHighchartsModules hook", () => {
   });
 
   it("should apply modules", () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     applyPasteHighchartsModules(mockHighcarts, a11yModule, exportingModule, sankeyModule);
     expect(mockHighcarts.modules).toEqual(new Set(["accessibility", "exporting", "sankeyModule"]));
