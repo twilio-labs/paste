@@ -72,6 +72,7 @@ export const RoomSidFilter: React.FC = ({
     <Box>
       <MultiselectCombobox
         state={state}
+        usePortal={false}
         labelText="Add filter"
         selectedItemsLabelText="Selected filters"
         items={filteredItems}

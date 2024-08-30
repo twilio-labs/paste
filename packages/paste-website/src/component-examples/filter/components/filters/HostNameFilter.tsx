@@ -68,6 +68,7 @@ export const HostNameFilter: React.FC<HostNameFilterProps> = ({
     <Box>
       <MultiselectCombobox
         state={state}
+        usePortal={false}
         labelText={label}
         selectedItemsLabelText="Selected Host name filters"
         items={filteredItems}
