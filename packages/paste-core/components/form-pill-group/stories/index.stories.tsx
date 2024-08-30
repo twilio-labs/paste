@@ -285,7 +285,7 @@ export const PillNarrowContainerDecorationsEnd: React.FC<
 
 PillNarrowContainerDecorationsEnd.storyName = "Pill Narrow Container Decorations End";
 
-export const PillNarrowContainerFormattedTextContent: React.FC<
+export const PillNarrowContainerFormattedTextContent: StoryFn<
   React.PropsWithChildren<{
     selected?: boolean;
     dismissable?: boolean;
