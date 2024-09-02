@@ -66,6 +66,24 @@ export const TimelineWithIcon = (): React.ReactNode => {
   );
 };
 
+export const TimelineCollapsible = (): React.ReactNode => {
+  return (
+    <Timeline>
+      <TimelineItem title="Start" timestamp="2018-03-01:10:00" collapsible>
+        Event details
+      </TimelineItem>
+
+      <TimelineItem title="Inprogress" timestamp="2018-03-01:12:00">
+        Event details
+      </TimelineItem>
+
+      <TimelineItem title="Complete" timestamp="2018-03-01:14:00" collapsible>
+        Event details
+      </TimelineItem>
+    </Timeline>
+  );
+};
+
 const allItems = [
   { date: "2018-03-01:10:00", text: "Item 1" },
   { date: "2018-03-01:12:00", text: "Item 2" },

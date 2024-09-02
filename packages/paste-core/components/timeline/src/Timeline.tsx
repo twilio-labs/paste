@@ -3,6 +3,7 @@ import { css, styled } from "@twilio-paste/styling-library";
 import React from "react";
 
 import { TimelineContext } from "./TimelineContext";
+import { TimelineItemCollapsible } from "./TimelineItemCollapsible";
 import { TimelineItemIcon } from "./TimelineItemIcon";
 import type { Orientation, TimelineItemProps, TimelineProps } from "./types";
 
@@ -79,7 +80,7 @@ const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(({ children, or
 });
 
 const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ children, icon, timestamp, title }, ref) => {
+  ({ children, icon, timestamp, title, collapsible }, ref) => {
     const { orientation } = React.useContext(TimelineContext);
 
     if (!orientation) {
@@ -104,7 +105,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           flexDirection={orientation === "horizontal" ? "row" : "column"}
           alignItems="center"
         >
-          <TimelineItemIcon decorative={true} title="Current" icon={icon} />
+          <TimelineItemIcon title="Current" icon={icon} />
         </Box>
 
         <Box
@@ -116,6 +117,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           fontWeight="fontWeightMedium"
           display="flex"
           flexDirection="column"
+          columnGap="space10"
           paddingBottom="space60"
         >
           <Box
@@ -129,16 +131,25 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           >
             {title}
           </Box>
-          <Box
-            as="span"
-            color="colorTextWeak"
-            fontWeight="fontWeightMedium"
-            lineHeight="lineHeight20"
-            fontSize="fontSize20"
-          >
-            {timestamp}
-          </Box>
-          {children}
+          {collapsible ? (
+            <TimelineItemCollapsible timestamp={timestamp}>{children}</TimelineItemCollapsible>
+          ) : (
+            <>
+              {timestamp ? (
+                <Box
+                  as="span"
+                  color="colorTextWeak"
+                  fontWeight="fontWeightMedium"
+                  lineHeight="lineHeight20"
+                  fontSize="fontSize20"
+                >
+                  {timestamp}
+                </Box>
+              ) : null}
+
+              {children}
+            </>
+          )}
         </Box>
       </Box>
     );
