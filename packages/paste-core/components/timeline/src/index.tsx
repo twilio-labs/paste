@@ -1,2 +1,4 @@
-export { Timeline } from "./Timeline";
-export type { TimelineProps } from "./Timeline";
+export { Timeline, TimelineItem } from "./Timeline";
+export { TimelineContext } from "./TimelineContext";
+export { TimelineItemIcon } from "./TimelineItemIcon";
+export type { TimelineProps, TimelineItemProps, TimelineItemIconProps, Orientation } from "./types";
