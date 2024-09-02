@@ -5,6 +5,7 @@ import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { Timeline, TimelineItem } from "../src";
+import { TimelineItemGroup } from "../src/TimelineItemGroup";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -80,6 +81,28 @@ export const TimelineCollapsible = (): React.ReactNode => {
       <TimelineItem title="Complete" timestamp="2018-03-01:14:00" collapsible>
         Event details
       </TimelineItem>
+    </Timeline>
+  );
+};
+
+export const TimelineGrouped = (): React.ReactNode => {
+  return (
+    <Timeline>
+      <TimelineItem title="Start" timestamp="2018-03-01:10:00">
+        Event details
+      </TimelineItem>
+
+      <TimelineItemGroup timestamp="2018-03-01">
+        <TimelineItem title="Inprogress" timestamp="12:00">
+          Event details
+        </TimelineItem>
+
+        <TimelineItem title="Complete" timestamp="14:00">
+          Event details
+        </TimelineItem>
+
+        <TimelineItem title="Item without timestamp">Event details</TimelineItem>
+      </TimelineItemGroup>
     </Timeline>
   );
 };
