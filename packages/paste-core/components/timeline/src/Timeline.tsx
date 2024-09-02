@@ -2,7 +2,7 @@ import { Box, type BoxStyleProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import React from "react";
 
-import { TimelineContext } from "./TimelineContext";
+import { TimelineContext, TimelineGroupContext } from "./TimelineContext";
 import { TimelineItemCollapsible } from "./TimelineItemCollapsible";
 import { TimelineItemIcon } from "./TimelineItemIcon";
 import type { Orientation, TimelineItemProps, TimelineProps } from "./types";
@@ -12,12 +12,10 @@ const VariantStyles: {
 } = {
   vertical: {
     flexDirection: "column",
-    rowGap: "space0",
     alignItems: "flex-start",
   },
   horizontal: {
     alignItems: "center",
-    columnGap: "space0",
     flexWrap: "nowrap",
   },
 };
@@ -26,23 +24,18 @@ const ItemSeparatortyles: {
   [key in Orientation]: Record<string, Record<string, string | BoxStyleProps>>;
 } = {
   vertical: {
-    "li>div": {
-      "&:first-child::after": {
-        content: "''",
-        borderLeftWidth: "borderWidth10",
-        borderLeftStyle: "solid",
-        borderLeftColor: "colorBorderWeaker",
-        minHeight: "32px",
-        flexGrow: 1,
-      },
-    },
-    "li:last-child>div:first-child::after": {
-      content: "none",
+    "li>div:first-child::after": {
+      content: "''",
+      borderLeftWidth: "borderWidth10",
+      borderLeftStyle: "solid",
+      borderLeftColor: "colorBorderWeaker",
+      minHeight: "32px",
+      flexGrow: "1",
     },
   },
   horizontal: {
-    "li>div": {
-      "&:first-child::after, &:first-child::before": {
+    "li>div:first-child": {
+      "&::after, &::before": {
         content: "''",
         borderBottomWidth: "borderWidth10",
         borderBottomStyle: "solid",
@@ -82,15 +75,28 @@ const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(({ children, or
 const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
   ({ children, icon, timestamp, title, collapsible }, ref) => {
     const { orientation } = React.useContext(TimelineContext);
+    const isGrouped = React.useContext(TimelineGroupContext);
 
     if (!orientation) {
       throw new Error("Item must be used within a Timeline component");
     }
 
+    const ContainerStyled = styled.li(
+      css({
+        "&:last-child>div:first-child::after": {
+          content: "none",
+        },
+        "div::after": {
+          display: isGrouped ? "none" : "block",
+        },
+      }),
+    );
+
     return (
       <Box
+        // @ts-expect-error we don't have polymorphic box typings yet
+        as={ContainerStyled}
         ref={ref}
-        as="li"
         position="relative"
         display="flex"
         columnGap="space50"
@@ -99,14 +105,16 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
         flexDirection={orientation === "horizontal" ? "column" : "row"}
         paddingX="space0"
       >
-        <Box
-          display="flex"
-          width={orientation === "horizontal" ? "initial" : "20px"}
-          flexDirection={orientation === "horizontal" ? "row" : "column"}
-          alignItems="center"
-        >
-          <TimelineItemIcon title="Current" icon={icon} />
-        </Box>
+        {!isGrouped ? (
+          <Box
+            display="flex"
+            width={orientation === "horizontal" ? "initial" : "20px"}
+            flexDirection={orientation === "horizontal" ? "row" : "column"}
+            alignItems="center"
+          >
+            <TimelineItemIcon title="Current" icon={icon} />
+          </Box>
+        ) : null}
 
         <Box
           paddingX={orientation === "horizontal" ? "space60" : "space0"}
@@ -131,6 +139,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           >
             {title}
           </Box>
+
           {collapsible ? (
             <TimelineItemCollapsible timestamp={timestamp}>{children}</TimelineItemCollapsible>
           ) : (

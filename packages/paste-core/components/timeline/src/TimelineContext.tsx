@@ -7,3 +7,5 @@ interface TimelineState {
 }
 
 export const TimelineContext = React.createContext<TimelineState>({} as TimelineState);
+
+export const TimelineGroupContext = React.createContext<boolean>(false);
