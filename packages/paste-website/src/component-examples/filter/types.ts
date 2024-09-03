@@ -42,7 +42,7 @@ export interface DateTimePopoverProps {
   errors: DateTimeFormErrors;
 }
 export interface TableDataRow {
-  sid: string;
+  roomSid: string;
   uniqueName: string;
   roomType: RoomTypes;
   participants: number;
@@ -94,7 +94,7 @@ export type FilterListType = Array<
   | "roomType"
   | "participants"
   | "dateCompleted"
-  | "sid"
+  | "roomSid"
   | "uniqueName"
   | "hostName"
   | "status"

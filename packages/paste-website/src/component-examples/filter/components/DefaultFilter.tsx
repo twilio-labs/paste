@@ -105,7 +105,7 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
       label: "Date range",
       component: CustomFilter,
     },
-    sid: {
+    roomSid: {
       label: "Room SID",
       component: RoomSidFilter,
     },
@@ -122,6 +122,19 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
       component: PlatformFilter,
     },
   };
+
+  React.useEffect(() => {
+    const newFilters = { ...selectedFilters };
+    for (const key in selectedFilters) {
+      const typedKey = key as FilterListType[0];
+      if (!addedFilters.includes(typedKey) && addFiltersList?.includes(typedKey)) {
+        delete newFilters[key];
+      }
+    }
+
+    setSelectedFilters(newFilters);
+    handleApplyFilters(newFilters as selectedFilterProps);
+  }, [addedFilters, addFiltersList]);
 
   function removeFilter(filter: string): void {
     const newFilters = { ...selectedFilters };
@@ -220,8 +233,8 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
 
         {addFiltersList && addFiltersList.length > 0 ? (
           <AddFilters
-            onApply={(_: string, value) => {
-              const sluggedList = (value as FilterListType).map((item) => slugify(item));
+            onApply={(_: string, addFilterSelectedList) => {
+              const sluggedList = (addFilterSelectedList as FilterListType).map((item) => slugify(item));
               setAddedFilters(sluggedList as FilterListType);
             }}
             addFiltersList={addFiltersList}
@@ -245,8 +258,16 @@ export const DefaultFilter: React.FC<React.PropsWithChildren<FilterProps>> = ({
         ) : null}
       </FormPillGroup>
 
-      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
-        <Box display="flex" columnGap="space30">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="space-between"
+        alignItems="center"
+        columnGap="space30"
+        rowGap="space30"
+        marginTop="space50"
+      >
+        <Box display="flex" flexWrap="wrap" columnGap="space30" rowGap="space30">
           <DetailText marginTop="space0">
             <Text as="span" color="colorTextWeak" fontSize="fontSize30">
               {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}

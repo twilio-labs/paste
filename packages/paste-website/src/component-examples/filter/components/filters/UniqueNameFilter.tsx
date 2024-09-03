@@ -5,6 +5,7 @@ import type { Item } from "@twilio-paste/combobox/dist/types";
 import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-library";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import { slugify } from "../../helpers";
@@ -40,10 +41,12 @@ export const UniqueNameFilter: React.FC = ({
   onApply,
   value,
   popover,
+  onRemove,
 }: {
   onApply?: (type: string, value: Item[]) => void;
   value?: string[];
   popover?: ReturnType<typeof usePopoverState>;
+  onRemove?: () => void;
 }) => {
   const [inputValue, setInputValue] = React.useState("");
 
@@ -70,6 +73,7 @@ export const UniqueNameFilter: React.FC = ({
     <Box>
       <MultiselectCombobox
         state={state}
+        usePortal={false}
         labelText="Add filter"
         selectedItemsLabelText="Selected filters"
         items={filteredItems}
@@ -87,12 +91,12 @@ export const UniqueNameFilter: React.FC = ({
       />
 
       <Box marginTop="space70">
-        <CheckboxGroup name="recently-used-filters" legend="Recently used">
+        <CheckboxGroup name={`recently-used-unique-filters-${useUID()}`} legend="Recently used">
           {uniqueNameList.slice(0, 3).map((item) => {
             return (
               <Checkbox
                 key={item}
-                id={item}
+                id={item + useUID()}
                 value={item}
                 checked={state.selectedItems.includes(item)}
                 onChange={(e) => {
@@ -128,6 +132,7 @@ export const UniqueNameFilter: React.FC = ({
               }
             : null
         }
+        onRemove={onRemove}
       />
     </Box>
   );
