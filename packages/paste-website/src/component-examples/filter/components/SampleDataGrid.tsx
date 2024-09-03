@@ -33,9 +33,9 @@ export const SampleDataGrid: React.FC<React.PropsWithChildren<SampleDataGridProp
         </DataGridRow>
       </DataGridHead>
       <DataGridBody>
-        {data.map(({ sid, uniqueName, roomType, participants, dateCompleted }) => (
-          <DataGridRow key={sid}>
-            <DataGridCell>{sid}</DataGridCell>
+        {data.map(({ roomSid, uniqueName, roomType, participants, dateCompleted }) => (
+          <DataGridRow key={roomSid}>
+            <DataGridCell>{roomSid}</DataGridCell>
             <DataGridCell>{uniqueName}</DataGridCell>
             <DataGridCell>{roomType}</DataGridCell>
             <DataGridCell>{participants}</DataGridCell>

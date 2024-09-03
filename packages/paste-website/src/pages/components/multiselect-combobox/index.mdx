@@ -22,6 +22,8 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+import {InlineCode} from '@twilio-paste/inline-code'
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import filter from 'lodash/filter';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -38,6 +40,7 @@ import {
   emptyStateExample,
   maxHeightExample,
   stateHookExample,
+  popoverExample
 } from '../../../component-examples/MultiselectComboboxExamples';
 import packageJson from '@twilio-paste/combobox/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -280,6 +283,22 @@ Use an empty state to indicate to a user that their input does not match any val
 ## Composition Notes
 
 A Multiselect Combobox is comprised of a label, an input and a listbox.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Combobox and Popover</CalloutHeading>
+  <CalloutText>
+    The Multiselect Combobox listbox is rendered in a <Anchor href="https://reakit.io/docs/portal/" showExternal>Reakit Portal</Anchor> to control positioning and maintain accessibility. When Multiselect Combobox is placed in a <Anchor href="/components/popover">Popover</Anchor> (which is also a Reakit Portal under the hood), add <InlineCode>usePortal=false</InlineCode> to your Multiselect Combobox to prevent interaction bugs caused by nested portals.
+  </CalloutText>
+</Callout>
+
+<LivePreview
+  scope={{Box, PopoverButton, PopoverContainer, Popover, MultiselectCombobox}}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {popoverExample}
+</LivePreview>
 
 ### Positioning form fields
 

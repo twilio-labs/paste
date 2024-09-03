@@ -67,10 +67,12 @@ export const CustomFilter: React.FC = ({
     }
   }
 
+  const uid = useUID();
+
   return (
     <Box>
       <RadioGroup
-        name="custom"
+        name={`custom-${uid}`}
         legend="Date range"
         onChange={(value) => {
           setSelectedDate(value);
@@ -79,7 +81,7 @@ export const CustomFilter: React.FC = ({
         value={selectedDate}
       >
         {DATE_RANGES.map(({ name, value }) => (
-          <Radio key={value} id={value} value={value} name="custom" checked={selectedDate === value}>
+          <Radio key={value} id={value} value={value} name={`custom-${uid}`} checked={selectedDate === value}>
             {name}
           </Radio>
         ))}

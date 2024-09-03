@@ -43,6 +43,14 @@ export type HighlightedIndexChanges = {
 
 export interface ComboboxProps extends Omit<InputProps, "id" | "type" | "value" | "autoComplete"> {
   /**
+   * Determines whether the Combobox Listbox (options list) is rendered inside a Portal. Defaults to `true`. Use `false` if you are using Combobox inside a Paste Popover to prevent interaction bugs.
+   *
+   * @type {boolean}
+   * @memberof ComboboxProps
+   * @default true
+   */
+  usePortal?: boolean;
+  /**
    * Activates the autocomplete/typeahead feature
    *
    * @type {boolean}

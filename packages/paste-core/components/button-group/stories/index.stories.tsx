@@ -61,6 +61,31 @@ export const ManyButtons: StoryFn = () => (
   </Box>
 );
 
+export const JustifyContent: StoryFn = () => (
+  <Box display="flex" flexDirection="column" borderStyle="solid" width="size30" rowGap="space100">
+    <ButtonGroup aria-label="A decisive group of buttons">
+      <Button variant="secondary">Yes</Button>
+      <Button variant="secondary">No</Button>
+      <Button variant="secondary">Maybe</Button>
+    </ButtonGroup>
+    <ButtonGroup justifyContent="center" aria-label="A decisive group of buttons">
+      <Button variant="secondary">Yes</Button>
+      <Button variant="secondary">No</Button>
+      <Button variant="secondary">Maybe</Button>
+    </ButtonGroup>
+    <ButtonGroup justifyContent="flex-end" aria-label="A decisive group of buttons">
+      <Button variant="secondary">Yes</Button>
+      <Button variant="secondary">No</Button>
+      <Button variant="secondary">Maybe</Button>
+    </ButtonGroup>
+    <ButtonGroup justifyContent="space-between" aria-label="A decisive group of buttons">
+      <Button variant="secondary">Yes</Button>
+      <Button variant="secondary">No</Button>
+      <Button variant="secondary">Maybe</Button>
+    </ButtonGroup>
+  </Box>
+);
+
 export const PopoverButtons: StoryFn = () => {
   const id = useUID();
   return (

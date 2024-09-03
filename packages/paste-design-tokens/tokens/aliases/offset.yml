@@ -1,7 +1,10 @@
 aliases:
   offset-0: "0" # Needs to be quoted or will be interpreted as 'false'
+  offset-05: "1px"
   offset-10: "2px"
+  offset-15: "3px"
   offset-20: "4px"
+  offset-25: "5px"
   offset-30: "6px"
   offset-40: "8px"
   offset-50: "12px"
@@ -9,3 +12,4 @@ aliases:
   offset-70: "20px"
   offset-80: "24px"
   offset-90: "32px"
+  offset-negative-05: -1px

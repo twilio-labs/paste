@@ -7,6 +7,7 @@ import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
 import filter from "lodash/filter";
@@ -676,6 +677,30 @@ MultiselectComboboxInModal.parameters = {
   },
 };
 
+export const MultiselectComboboxInPopover: StoryFn = () => {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Open</PopoverButton>
+      <Popover aria-label="Popover">
+        <Box width="size30">
+          <MultiselectCombobox
+            usePortal={false}
+            selectedItemsLabelText="items:"
+            items={filteredItems}
+            labelText="Select an item"
+            onInputValueChange={({ inputValue: newInputValue = "" }) => {
+              setInputValue(newInputValue);
+            }}
+          />
+        </Box>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
 // eslint-disable-next-line import/no-default-export
 export default {
   title: "Components/Combobox/MultiselectCombobox",
@@ -688,3 +713,27 @@ export default {
     ),
   ],
 } as Meta;
+
+export const MultiselectComboboxInNarrowContainer = (): StoryFn => {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <Box maxWidth="300px">
+      <MultiselectCombobox
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        items={filteredItems}
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={(selectedItems) => {
+          // eslint-disable-next-line no-console
+          console.log(selectedItems);
+        }}
+      />
+    </Box>
+  );
+};
+MultiselectComboboxInNarrowContainer.storyName = "Narrow Container";
