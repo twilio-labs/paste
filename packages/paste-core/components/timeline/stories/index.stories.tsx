@@ -27,6 +27,8 @@ export const DefaultTimeline = (): React.ReactNode => {
       <TimelineItem title="Complete" timestamp="2018-03-01:14:00">
         Event details
       </TimelineItem>
+
+      <TimelineItem title="Item without timestamp">Event details</TimelineItem>
     </Timeline>
   );
 };
@@ -79,6 +81,10 @@ export const TimelineCollapsible = (): React.ReactNode => {
       </TimelineItem>
 
       <TimelineItem title="Complete" timestamp="2018-03-01:14:00" collapsible>
+        Event details
+      </TimelineItem>
+
+      <TimelineItem title="Item without timestamp" collapsible collapsibleHeading="custom heading">
         Event details
       </TimelineItem>
     </Timeline>
