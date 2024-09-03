@@ -6,7 +6,7 @@ import { TimelineContext } from "./TimelineContext";
 import type { TimelineItemIconProps } from "./types";
 
 const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
-  ({ as, display, element = "ICON", color, icon: Icon }, ref) => {
+  ({ icon: Icon, as, display, element = "ICON", color }, ref) => {
     const { orientation } = React.useContext(TimelineContext);
 
     return Icon ? (
