@@ -2,10 +2,8 @@ import { Box, type BoxStyleProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import React from "react";
 
-import { TimelineContext, TimelineGroupContext } from "./TimelineContext";
-import { TimelineItemCollapsible } from "./TimelineItemCollapsible";
-import { TimelineItemIcon } from "./TimelineItemIcon";
-import type { Orientation, TimelineItemProps, TimelineProps } from "./types";
+import { TimelineContext } from "./TimelineContext";
+import type { Orientation, TimelineProps } from "./types";
 
 const VariantStyles: {
   [key in Orientation]: BoxStyleProps;
@@ -50,124 +48,30 @@ const ItemSeparatortyles: {
   },
 };
 
-const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(({ children, orientation = "vertical" }, ref) => {
-  const ContainerStyled = styled.ol(
-    css({
-      listStyleType: "none",
-      margin: "0",
-      padding: "0",
-      display: "flex",
-      ...VariantStyles[orientation],
-      ...ItemSeparatortyles[orientation],
-    }),
-  );
-
-  return (
-    <TimelineContext.Provider value={{ orientation }}>
-      {/* @ts-expect-error we don't have polymorphic box typings yet */}
-      <Box ref={ref} as={ContainerStyled}>
-        {children}
-      </Box>
-    </TimelineContext.Provider>
-  );
-});
-
-const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ children, icon, timestamp, title, collapsible = false, collapsibleHeading }, ref) => {
-    const { orientation } = React.useContext(TimelineContext);
-    const isGrouped = React.useContext(TimelineGroupContext);
-
-    if (!orientation) {
-      throw new Error("Item must be used within a Timeline component");
-    }
-
-    const ContainerStyled = styled.li(
+const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(
+  ({ children, orientation = "vertical", element = "TIMELINE" }, ref) => {
+    const ContainerStyled = styled.ol(
       css({
-        "&:last-child>div:first-child::after": {
-          content: "none",
-        },
-        "div::after": {
-          display: isGrouped ? "none" : "block",
-        },
+        listStyleType: "none",
+        margin: "0",
+        padding: "0",
+        display: "flex",
+        ...VariantStyles[orientation],
+        ...ItemSeparatortyles[orientation],
       }),
     );
 
     return (
-      <Box
-        // @ts-expect-error we don't have polymorphic box typings yet
-        as={ContainerStyled}
-        ref={ref}
-        position="relative"
-        display="flex"
-        columnGap="space50"
-        rowGap="space50"
-        flexShrink={0}
-        flexDirection={orientation === "horizontal" ? "column" : "row"}
-        paddingX="space0"
-      >
-        {!isGrouped ? (
-          <Box
-            display="flex"
-            width={orientation === "horizontal" ? "initial" : "20px"}
-            flexDirection={orientation === "horizontal" ? "row" : "column"}
-            alignItems="center"
-          >
-            <TimelineItemIcon title="Current" icon={icon} />
-          </Box>
-        ) : null}
-
-        <Box
-          paddingX={orientation === "horizontal" ? "space60" : "space0"}
-          textAlign={orientation === "horizontal" ? "center" : "initial"}
-          fontFamily="fontFamilyText"
-          fontSize="fontSize20"
-          lineHeight="lineHeight20"
-          fontWeight="fontWeightMedium"
-          display="flex"
-          flexDirection="column"
-          columnGap="space10"
-          paddingBottom="space60"
-        >
-          <Box
-            as="span"
-            color="colorText"
-            paddingY="space10"
-            fontWeight="fontWeightSemibold"
-            lineHeight="lineHeight20"
-            fontSize="fontSize30"
-            letterSpacing="-0.28px"
-          >
-            {title}
-          </Box>
-
-          {collapsible ? (
-            <TimelineItemCollapsible timestamp={timestamp ? timestamp : collapsibleHeading}>
-              {children}
-            </TimelineItemCollapsible>
-          ) : (
-            <>
-              {timestamp ? (
-                <Box
-                  as="span"
-                  color="colorTextWeak"
-                  fontWeight="fontWeightMedium"
-                  lineHeight="lineHeight20"
-                  fontSize="fontSize20"
-                >
-                  {timestamp}
-                </Box>
-              ) : null}
-
-              {children}
-            </>
-          )}
+      <TimelineContext.Provider value={{ orientation }}>
+        {/* @ts-expect-error we don't have polymorphic box typings yet */}
+        <Box ref={ref} as={ContainerStyled} element={element}>
+          {children}
         </Box>
-      </Box>
+      </TimelineContext.Provider>
     );
   },
 );
 
 Timeline.displayName = "Timeline";
-TimelineItem.displayName = "TimelineItem";
 
-export { Timeline, TimelineItem };
+export { Timeline };
