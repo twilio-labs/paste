@@ -73,7 +73,7 @@ const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(({ children, or
 });
 
 const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ children, icon, timestamp, title, collapsible }, ref) => {
+  ({ children, icon, timestamp, title, collapsible = false, collapsibleHeading }, ref) => {
     const { orientation } = React.useContext(TimelineContext);
     const isGrouped = React.useContext(TimelineGroupContext);
 
@@ -141,7 +141,9 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           </Box>
 
           {collapsible ? (
-            <TimelineItemCollapsible timestamp={timestamp}>{children}</TimelineItemCollapsible>
+            <TimelineItemCollapsible timestamp={timestamp ? timestamp : collapsibleHeading}>
+              {children}
+            </TimelineItemCollapsible>
           ) : (
             <>
               {timestamp ? (
