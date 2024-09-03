@@ -887,6 +887,16 @@ ComboboxInModal.parameters = {
   },
 };
 
+export const ComboboxErrorNarrowContainer: StoryFn = () => {
+  return (
+    <Box maxWidth="150px">
+      <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />
+    </Box>
+  );
+};
+
+ComboboxErrorNarrowContainer.storyName = "Combobox - Error narrow container";
+
 export const ComboboxInPopover: StoryFn = () => {
   return (
     <PopoverContainer baseId="popover-example">

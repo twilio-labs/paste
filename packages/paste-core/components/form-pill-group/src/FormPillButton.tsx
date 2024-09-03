@@ -2,6 +2,7 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
 
 import { hoverPillStyles, pillStyles } from "./FormPill.styles";
@@ -54,6 +55,29 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
     const { size, variant: groupVariant } = React.useContext(FormPillGroupContext);
     const { height, fontSize } = sizeStyles[size];
 
+    const renderChildren = (children: React.ReactNode): React.ReactNode => {
+      if (typeof children === "string") {
+        return <Truncate title={children}>{children}</Truncate>;
+      }
+
+      if (React.isValidElement(children)) {
+        if (children.props.children && typeof children.props.children === "string") {
+          return (
+            <Box minWidth="0" element={`${element}_TEXT_TRUNCATE_WRAPPER`}>
+              <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>
+            </Box>
+          );
+        }
+        return <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>;
+      }
+
+      if (Array.isArray(children)) {
+        return children.map((child) => renderChildren(child));
+      }
+
+      return children;
+    };
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -77,6 +101,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         paddingLeft="space30"
         paddingRight={isDismissable ? (size === "large" ? "space90" : "space80") : "space30"}
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
+        maxWidth="100%"
         {...computedStyles}
       >
         <Box display="flex" height="100%" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
@@ -86,7 +111,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
             </>
           ) : null}
-          {props.children}
+          {renderChildren(props.children)}
         </Box>
       </Box>
     );
