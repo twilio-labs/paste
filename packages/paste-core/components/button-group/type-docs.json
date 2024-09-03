@@ -489,6 +489,13 @@
       "required": false,
       "externalProp": true
     },
+    "justifyContent": {
+      "type": "JustifyOptions",
+      "defaultValue": "flex-start",
+      "required": false,
+      "externalProp": false,
+      "description": "Sets the `justify-content` CSS property. Only used for unattached button groups."
+    },
     "key": {
       "type": "Key",
       "defaultValue": null,

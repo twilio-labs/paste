@@ -36,7 +36,7 @@ export const ExtendedDataGrid: React.FC<React.PropsWithChildren<ExtendedDataGrid
       <DataGridBody>
         {data.map(
           ({
-            sid,
+            roomSid,
             uniqueName,
             roomType,
             participants,
@@ -47,8 +47,8 @@ export const ExtendedDataGrid: React.FC<React.PropsWithChildren<ExtendedDataGrid
             platform,
             tags,
           }) => (
-            <DataGridRow key={sid}>
-              <DataGridCell>{sid}</DataGridCell>
+            <DataGridRow key={roomSid}>
+              <DataGridCell>{roomSid}</DataGridCell>
               <DataGridCell>{uniqueName}</DataGridCell>
               <DataGridCell>{roomType}</DataGridCell>
               <DataGridCell>{participants}</DataGridCell>
