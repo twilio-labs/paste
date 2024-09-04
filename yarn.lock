@@ -12361,6 +12361,7 @@ __metadata:
     "@twilio-paste/textarea": ^10.2.0
     "@twilio-paste/theme": ^11.1.0
     "@twilio-paste/time-picker": ^6.1.1
+    "@twilio-paste/timeline": ^0.0.0
     "@twilio-paste/toast": ^12.2.0
     "@twilio-paste/tooltip": ^11.1.1
     "@twilio-paste/tooltip-primitive": ^2.0.1
@@ -15475,7 +15476,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/timeline@workspace:packages/paste-core/components/timeline":
+"@twilio-paste/timeline@^0.0.0, @twilio-paste/timeline@workspace:packages/paste-core/components/timeline":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/timeline@workspace:packages/paste-core/components/timeline"
   dependencies:
