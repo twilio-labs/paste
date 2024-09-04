@@ -49,20 +49,20 @@ const ItemSeparatortyles: {
 };
 
 const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(
-  ({ children, orientation = "vertical", element = "TIMELINE", ...props }, ref) => {
+  ({ children, element = "TIMELINE", ...props }, ref) => {
     const ContainerStyled = styled.ol(
       css({
         listStyleType: "none",
         margin: "0",
         padding: "0",
         display: "flex",
-        ...VariantStyles[orientation],
-        ...ItemSeparatortyles[orientation],
+        ...VariantStyles.vertical,
+        ...ItemSeparatortyles.vertical,
       }),
     );
 
     return (
-      <TimelineContext.Provider value={{ orientation }}>
+      <TimelineContext.Provider value={{ orientation: "vertical" }}>
         {/* @ts-expect-error we don't have polymorphic box typings yet */}
         <Box ref={ref} as={ContainerStyled} element={element} {...props}>
           {children}
