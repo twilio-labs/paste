@@ -713,3 +713,27 @@ export default {
     ),
   ],
 } as Meta;
+
+export const MultiselectComboboxInNarrowContainer = (): StoryFn => {
+  const [inputValue, setInputValue] = React.useState("");
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <Box maxWidth="300px">
+      <MultiselectCombobox
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        items={filteredItems}
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={(selectedItems) => {
+          // eslint-disable-next-line no-console
+          console.log(selectedItems);
+        }}
+      />
+    </Box>
+  );
+};
+MultiselectComboboxInNarrowContainer.storyName = "Narrow Container";

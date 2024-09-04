@@ -140,6 +140,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         position="relative"
         display="inline-block"
         borderRadius="borderRadiusPill"
+        maxWidth="100%"
         {...computedStyles}
       >
         <CompositeItem

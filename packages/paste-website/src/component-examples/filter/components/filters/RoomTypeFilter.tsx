@@ -1,6 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import type { usePopoverState } from "@twilio-paste/popover";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
 import { FilterAction } from "../FilterAction";
@@ -21,17 +22,25 @@ export const RoomTypeFilter: React.FC = ({
     setSelectedRoomType(value || "");
   }, [value, popover?.visible]);
 
+  const uid = useUID();
+
   return (
     <Box>
       <RadioGroup
-        name="roomType"
+        name={`roomType-${uid}`}
         legend="Room type"
         helpText="Select one option"
         onChange={setSelectedRoomType}
         value={selectedRoomType}
       >
         {roomTypes.map((roomType) => (
-          <Radio key={roomType} id={roomType} value={roomType} name="roomType" checked={selectedRoomType === roomType}>
+          <Radio
+            key={roomType}
+            id={roomType}
+            value={roomType}
+            name={`roomType-${uid}`}
+            checked={selectedRoomType === roomType}
+          >
             {roomType}
           </Radio>
         ))}

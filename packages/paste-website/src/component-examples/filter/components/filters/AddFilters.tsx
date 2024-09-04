@@ -7,9 +7,9 @@ import type { UseMultipleSelectionStateChange } from "@twilio-paste/dropdown-lib
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/popover";
 import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 import React from "react";
 
-import { slugify } from "../../helpers";
 import type { FilterListType, FilterMapType } from "../../types";
 import { FilterAction } from "../FilterAction";
 
@@ -50,34 +50,22 @@ export const AddFilters: React.FC<{
     onSelectedItemsChange,
   });
 
-  /*
-   * this will be used to set the selected items when the popover is triggered,
-   * for it to work, we need to fix popover closing on multiselect click
-   */
-
-  /*
-   * React.useEffect(() => {
-   *   if (popover.visible) {
-   *  state.setSelectedItems(value.map((item) => filterMap[item].label));
-   * }
-   * }, [popover.visible]);
-   */
+  React.useEffect(() => {
+    state.setSelectedItems(value.map((item) => filterMap[item].label));
+  }, [value, popover?.visible]);
 
   return (
     <PopoverContainer state={popover}>
-      <PopoverButton
-        variant="secondary"
-        size="rounded_small"
-        // @ts-expect-error types are wrong
-        borderRadius="borderRadiusPill"
-      >
+      <PopoverButton variant="secondary" size="rounded_small">
         <PlusIcon decorative />
         <span>Add filters</span>
 
         {value.length > 0 ? (
           <Box marginLeft="space20">
             <Badge variant="neutral_counter" as="span" size="small">
-              {value.length}
+              <Box textAlign="center" minWidth="12px">
+                {value.length}
+              </Box>
             </Badge>
           </Box>
         ) : null}
@@ -87,6 +75,7 @@ export const AddFilters: React.FC<{
         <Box>
           <MultiselectCombobox
             state={state}
+            usePortal={false}
             labelText="Search"
             selectedItemsLabelText="Selected filters"
             items={filteredItems.map((item) => filterMap[item].label)}
@@ -97,21 +86,24 @@ export const AddFilters: React.FC<{
             onSelectedItemsChange={(comboboxItems) => {
               const { selectedItems } = comboboxItems;
               if (selectedItems) {
-                const sluggedItems = selectedItems.map((item) => slugify(item as string));
-                state.setSelectedItems(sluggedItems);
+                state.setSelectedItems(selectedItems);
               }
             }}
           />
 
           {recommendedFiltersList ? (
             <Box marginTop="space70">
-              <CheckboxGroup name="rec-filters" legend="Filters" helpText="Info that helps a user with this field.">
+              <CheckboxGroup
+                name={`rec-filters-${useUID()}`}
+                legend="Filters"
+                helpText="Info that helps a user with this field."
+              >
                 {recommendedFiltersList.map((item) => {
                   const labelName = filterMap[item].label;
                   return (
                     <Checkbox
                       key={labelName}
-                      id={labelName}
+                      id={labelName + useUID()}
                       value={labelName}
                       checked={state.selectedItems.includes(labelName)}
                       onChange={(e) => {

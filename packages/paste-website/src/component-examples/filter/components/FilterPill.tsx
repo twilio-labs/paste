@@ -8,7 +8,7 @@ import React from "react";
 
 import type { FilterMapType, ParticipantsType, selectedFilterProps } from "../types";
 
-const multipleSelectFilterList = new Set(["sid", "uniqueName", "hostName", "tags", "department", "platform"]);
+const multipleSelectFilterList = new Set(["roomSid", "uniqueName", "hostName", "tags", "department", "platform"]);
 
 const FilterPillView: React.FC<{
   label: string;

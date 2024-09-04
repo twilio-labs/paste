@@ -60,8 +60,9 @@ _Create this as a placeholder. Add details as they come to light, or close the t
 2. Test Figma implementation: [Testing work](../design/designer-workflow.md#testing-work)
 3. Review with DSYS designers.
 4. Publish the component: [Finalizing work](../design/designer-workflow.md#finalizing-work)
-5. Create a Loom video showing how to use the Figma component. Add it to the component spec.
-6. Update Airtable to reflect the component has design assets.
+5. Update the "Takeaways" section of the spec doc with any decisions made or learnings from the building process.
+6. Optional: create a Loom video showing how to use the Figma component. Add it to the component spec.
+7. Update Airtable to reflect the component has design assets.
 
 ---
 
@@ -83,22 +84,22 @@ _If the full component can’t be completed in one sprint, split this ticket up 
 
 - Follow component spec for component: [LINK]
 - Build the package/component following the design: [LINK TO FIGMA]
+  - Use the `yarn create:package` script
 - Add the ability to customize tagged element nodes inside of a component, by targeting them from the customization provider.
   - Box is used for each node.
   - Allow element prop to be set on the component. Set the default to be the name of the component. e.g. element = 'ALERT'
   - Each customizable element inside a component should use the passed in element name to compose their names e.g `${element}`,`${element}_CHILD`,`${element}_CHILD2`. This allows for Paste-defined element names, and unique custom instances of the component when used by a consumer.
   - See a checklist with more details [here](../engineering/core/adding-customization-to-components.md)
 - Write tests
-  - Write snapshot tests to cover all rendering APIs
   - Write unit tests to cover all functionality
   - Write tests to verify all props are passed
-  - Create tests that ensure each tagged element merges the custom styles.
   - Create tests that ensure the defined custom element API remains. Any changes to those are a breaking change. If you tag an internal node as customizable that has to remain customizable forever.
 - Define stories for Storybook
   - Write Storybook stories for component
   - Create Stories to use in VRT to ensure customizations don't break
   - Include all permutations
-- Create a Loom video showing how to use the coded component. Link to it in the component spec.
+- Update the "Takeaways" section of the spec doc with any decisions made or learnings from the building process.
+- Optional: create a Loom video showing how to use the coded component. Link to it in the component spec.
 
 ### Build component doc page
 

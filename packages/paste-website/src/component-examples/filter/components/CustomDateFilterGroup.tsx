@@ -80,9 +80,9 @@ export const CustomDateFilter: React.FC<React.PropsWithChildren<FilterDateTimePr
     const { search, type, range, customDate } = formData;
     const { startDate, startTime, endDate, endTime } = customDate;
 
-    const filtered = data.filter(({ uniqueName, sid, roomType, dateCompleted }) => {
+    const filtered = data.filter(({ uniqueName, roomSid, roomType, dateCompleted }) => {
       return (
-        filterBySearchString(uniqueName, sid, search) &&
+        filterBySearchString(uniqueName, roomSid, search) &&
         filterByRoomType(roomType, type) &&
         filterByDateTimeRange(dateCompleted, range, startDate, startTime, endDate, endTime)
       );
