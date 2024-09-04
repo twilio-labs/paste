@@ -8,7 +8,10 @@ import { TimelineItemIcon } from "./TimelineItemIcon";
 import type { TimelineItemProps } from "./types";
 
 const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-  ({ children, icon, timestamp, title, collapsible = false, collapsibleHeading, element = "TIMELINE_ITEM" }, ref) => {
+  (
+    { children, icon, timestamp, title, collapsible = false, collapsibleHeading, element = "TIMELINE_ITEM", ...props },
+    ref,
+  ) => {
     const { orientation } = React.useContext(TimelineContext);
     const isGrouped = React.useContext(TimelineGroupContext);
 
@@ -40,19 +43,22 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
         flexShrink={0}
         flexDirection={orientation === "horizontal" ? "column" : "row"}
         paddingX="space0"
+        {...props}
       >
         {!isGrouped ? (
           <Box
+            element={`${element}_SEPARATOR`}
             display="flex"
             width={orientation === "horizontal" ? "initial" : "20px"}
             flexDirection={orientation === "horizontal" ? "row" : "column"}
             alignItems="center"
           >
-            <TimelineItemIcon title="Current" icon={icon} />
+            <TimelineItemIcon icon={icon} />
           </Box>
         ) : null}
 
         <Box
+          element={`${element}_CONTENT_WRAPPER`}
           paddingX={orientation === "horizontal" ? "space60" : "space0"}
           textAlign={orientation === "horizontal" ? "center" : "initial"}
           fontFamily="fontFamilyText"
@@ -65,6 +71,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           paddingBottom="space60"
         >
           <Box
+            element={`${element}_TITLE`}
             as="span"
             color="colorText"
             paddingY="space10"
@@ -77,13 +84,14 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           </Box>
 
           {collapsible ? (
-            <TimelineItemCollapsible timestamp={timestamp ? timestamp : collapsibleHeading}>
+            <TimelineItemCollapsible element={element} timestamp={timestamp ? timestamp : collapsibleHeading}>
               {children}
             </TimelineItemCollapsible>
           ) : (
             <>
               {timestamp ? (
                 <Box
+                  element={`${element}_TIMESTAMP`}
                   as="span"
                   color="colorTextWeak"
                   fontWeight="fontWeightMedium"
@@ -93,8 +101,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
                   {timestamp}
                 </Box>
               ) : null}
-
-              {children}
+              <Box element={`${element}_CONTENT`}>{children}</Box>
             </>
           )}
         </Box>

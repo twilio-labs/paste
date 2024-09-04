@@ -87,4 +87,13 @@ export type TimelineItemIconProps = {
    * @memberof TimelineItemIconProps
    */
   icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
+
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TIMELINE_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof TimelineItemIconProps
+   */
+  element?: BoxProps["element"];
 } & IconWrapperProps;
