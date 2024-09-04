@@ -1,7 +1,10 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { Timeline, TimelineItem } from "../src";
@@ -204,4 +207,72 @@ export const TimelineInfiniteScroll = (): React.ReactNode => {
       ) : null}
     </Box>
   );
+};
+
+export const TimelineCustomization = (): React.ReactNode => {
+  const currentTheme = useTheme();
+
+  return (
+    <Stack orientation="horizontal" spacing="space60">
+      <CustomizationProvider
+        theme={currentTheme}
+        elements={{
+          TIMELINE_ITEM_ICON_DOT: {
+            backgroundColor: "colorBackgroundBrand20",
+            borderRadius: "borderRadius10",
+          },
+          TIMELINE_ITEM_TITLE: {
+            color: "colorTextLink",
+            fontStyle: "italic",
+          },
+          TIMELINE_ITEM_TIMESTAMP: {
+            color: "colorTextWarning",
+          },
+          TIMELINE_ITEM_CONTENT: {
+            borderLeftWidth: "borderWidth20",
+            borderLeftStyle: "solid",
+            borderLeftColor: "colorBorderStrong",
+            paddingLeft: "space60",
+          },
+          TIMELINE_ITEM_ICON: {
+            borderRadius: "borderRadiusCircle",
+            borderWidth: "borderWidth10",
+            borderStyle: "solid",
+            borderColor: "colorBorderStrong",
+            padding: "space20",
+            width: "sizeIcon40",
+            height: "sizeIcon40",
+            color: "colorTextLink",
+          },
+        }}
+      >
+        <Timeline>
+          <TimelineItem title="Start" timestamp="2018-03-01:10:00">
+            Event details
+          </TimelineItem>
+
+          <TimelineItem title="Inprogress" timestamp="2018-03-01:12:00">
+            Event details
+          </TimelineItem>
+
+          <TimelineItem title="Complete" timestamp="2018-03-01:14:00">
+            Event details
+          </TimelineItem>
+
+          <TimelineItem title="Item without timestamp">Event details</TimelineItem>
+
+          <TimelineItem title="Icon Item" timestamp="2018-03-01:12:00" icon={UserIcon}>
+            Event details
+          </TimelineItem>
+        </Timeline>
+      </CustomizationProvider>
+    </Stack>
+  );
+};
+
+TimelineCustomization.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
