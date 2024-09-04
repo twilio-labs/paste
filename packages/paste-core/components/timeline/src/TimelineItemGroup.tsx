@@ -18,7 +18,7 @@ export const TimelineItemGroup = React.forwardRef<
      */
     element?: BoxProps["element"];
   }
->(({ children, timestamp, icon, element = "TIMELINE_ITEM_GROUP" }, ref) => {
+>(({ children, timestamp, icon, element = "TIMELINE_ITEM_GROUP", ...props }, ref) => {
   const { orientation } = React.useContext(TimelineContext);
 
   if (!orientation) {
@@ -37,22 +37,26 @@ export const TimelineItemGroup = React.forwardRef<
       flexShrink={0}
       flexDirection={orientation === "horizontal" ? "column" : "row"}
       paddingX="space0"
+      {...props}
     >
       <Box
+        element={`${element}_SEPARATOR`}
         display="flex"
         width={orientation === "horizontal" ? "initial" : "20px"}
         flexDirection={orientation === "horizontal" ? "row" : "column"}
         alignItems="center"
       >
-        <TimelineItemIcon title="Current" icon={icon} />
+        <TimelineItemIcon icon={icon} />
       </Box>
 
-      <Box>
-        <Box marginTop="space10" marginBottom="space30">
-          <DetailText marginTop="space0">{timestamp}</DetailText>
+      <Box element={`${element}_CONTENT`}>
+        <Box element={`${element}_TIMESTAMP`} marginTop="space10" marginBottom="space30">
+          <DetailText element={`${element}_TIMESTAMP_DETAIL_TEXT`} marginTop="space0">
+            {timestamp}
+          </DetailText>
         </Box>
 
-        <Box as="ol" margin="space0" padding="space0">
+        <Box element={`${element}_CONTENT`} as="ol" margin="space0" padding="space0">
           <TimelineGroupContext.Provider value={true}>{children}</TimelineGroupContext.Provider>
         </Box>
       </Box>

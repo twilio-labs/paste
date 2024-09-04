@@ -11,13 +11,14 @@ import * as React from "react";
 import type { TimelineItemProps } from "./types";
 
 export const TimelineItemCollapsible = React.forwardRef<HTMLDivElement, Omit<TimelineItemProps, "title">>(
-  ({ children, timestamp }, ref) => {
+  ({ children, timestamp, element }, ref) => {
     return (
-      <SummaryDetail ref={ref}>
-        <SummaryDetailHeading>
-          <SummaryDetailToggleButton />
-          <SummaryDetailHeadingContent>
+      <SummaryDetail element={`${element}_SUMMARY_DETAIL`} ref={ref}>
+        <SummaryDetailHeading element={`${element}_SUMMARY_DETAIL_HEADING`}>
+          <SummaryDetailToggleButton element={`${element}_SUMMARY_DETAIL_TOGGLE_BUTTON`} />
+          <SummaryDetailHeadingContent element={`${element}_SUMMARY_DETAIL_HEADING_CONTENT`}>
             <Text
+              element={`${element}_TIMESTAMP`}
               as="span"
               fontSize="fontSize20"
               color="colorTextWeak"
@@ -29,7 +30,7 @@ export const TimelineItemCollapsible = React.forwardRef<HTMLDivElement, Omit<Tim
             </Text>
           </SummaryDetailHeadingContent>
         </SummaryDetailHeading>
-        <SummaryDetailContent>{children}</SummaryDetailContent>
+        <SummaryDetailContent element={`${element}_SUMMARY_DETAIL_CONTENT`}>{children}</SummaryDetailContent>
       </SummaryDetail>
     );
   },
