@@ -217,6 +217,12 @@ export const TimelineCustomization = (): React.ReactNode => {
       <CustomizationProvider
         theme={currentTheme}
         elements={{
+          TIMELINE: {
+            "li>div:first-child::after": {
+              borderLeftWidth: "borderWidth30",
+              borderLeftColor: "colorBorderStrong",
+            },
+          },
           TIMELINE_ITEM_ICON_DOT: {
             backgroundColor: "colorBackgroundBrand20",
             borderRadius: "borderRadius10",
