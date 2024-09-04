@@ -43,7 +43,7 @@ export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<Normali
     githubUrl,
     storybookUrl,
     Feature,
-    shoudShowInPageNav = true,
+    shouldShowInPageNav = true,
   } = merge(normalizedData, props);
 
   const componentPageBasePath = getPackagePath(categoryRoute, Feature);
@@ -64,7 +64,7 @@ export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<Normali
       githubUrl={githubUrl}
       storybookUrl={storybookUrl}
     >
-      {shoudShowInPageNav ? (
+      {shouldShowInPageNav ? (
         <PageHeaderInPageNavigation>
           <InPageNavigation aria-label="Component page navigation">
             <Link href={componentPageNavLinks.GUIDELINES} legacyBehavior passHref>

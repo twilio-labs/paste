@@ -2,6 +2,9 @@
 
 exports[`usePasteHighChartsTheme hook should return a deepmerged options object when options are passed 1`] = `
 Object {
+  "accessibility": Object {
+    "description": "This chart shows the solar employment growth by sector from 2010 to 2016.",
+  },
   "chart": Object {
     "backgroundColor": "rgb(255, 255, 255)",
   },

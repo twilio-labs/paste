@@ -3,6 +3,9 @@
 import type Highcharts from "highcharts";
 
 export const lineChartOptions: Highcharts.Options = {
+  accessibility: {
+    description: "This chart shows the solar employment growth by sector from 2010 to 2016.",
+  },
   title: {
     text: "Solar Employment Growth by Sector, 2010-2016",
   },
