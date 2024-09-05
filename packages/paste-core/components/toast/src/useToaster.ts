@@ -14,13 +14,14 @@ export const useToaster = (): UseToasterReturnedProps => {
       /**
        * Clear all timeouts from the toaster when the component unmounts
        */
+
       toasts.forEach((toast) => {
         if (toast.timeOutId) {
           window.clearTimeout(toast.timeOutId);
         }
       });
     };
-  }, [toasts]);
+  }, []);
 
   const pop = (id: ToasterToast["id"]): void => {
     if (!isMounted.current) {
