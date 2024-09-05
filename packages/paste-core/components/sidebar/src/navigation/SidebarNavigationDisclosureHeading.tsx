@@ -76,18 +76,18 @@ interface UseAdjustIconColorArgs {
  */
 const useAdjustIconColor = ({ icon, selected }: UseAdjustIconColorArgs): Required<React.ReactNode> => {
   return React.useMemo(() => {
-      if (!icon) {
-      return null
+    if (!icon) {
+      return null;
     }
     if (icon && React.isValidElement(icon) && !selected) {
       const iconElement = icon as React.ReactElement;
       return React.cloneElement(iconElement, {
         color: "colorTextIconInverse",
-      })
+      });
     }
-    return icon
+    return icon;
   }, [icon, selected]);
-}
+};
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({ children, element = "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING", selected, icon, ...props }, ref) => {

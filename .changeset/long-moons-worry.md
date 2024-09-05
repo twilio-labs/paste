@@ -1,7 +1,6 @@
 ---
-"@twilio-paste/sidebar": minor
-"@twilio-paste/website": minor
-"@twilio-paste/core": minor
+"@twilio-paste/sidebar": patch
+"@twilio-paste/core": patch
 ---
 
-Updating the unselected Sidebar Disclosure Header and SidebarNavigationItems.
+[Sidebar] Updating the unselected Sidebar Disclosure Header and SidebarNavigationItems.
