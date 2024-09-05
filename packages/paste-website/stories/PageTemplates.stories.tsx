@@ -30,17 +30,19 @@ import {
   FormSectionDescription,
   FormSectionHeading,
 } from "@twilio-paste/form";
+import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { HelpText } from "@twilio-paste/help-text";
 import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
-import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { EditIcon } from "@twilio-paste/icons/esm/EditIcon";
+import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
 import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { LockIcon } from "@twilio-paste/icons/esm/LockIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
@@ -54,9 +56,7 @@ import {
   PageHeaderHeading,
   PageHeaderInPageNavigation,
   PageHeaderKeyword,
-  PageHeaderMeta,
   PageHeaderParagraph,
-  PageHeaderPrefix,
   PageHeaderSetting,
 } from "@twilio-paste/page-header";
 import { Paragraph } from "@twilio-paste/paragraph";
@@ -68,7 +68,6 @@ import {
   ProgressSteps,
 } from "@twilio-paste/progress-steps";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
-import { Select } from "@twilio-paste/select";
 import { Separator } from "@twilio-paste/separator";
 import { Sidebar, SidebarPushContentWrapper } from "@twilio-paste/sidebar";
 import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
@@ -359,9 +358,8 @@ DefaultObjectDetailsExample.parameters = {
 };
 
 export const FullObjectsListExample = (): JSX.Element => {
-  const criteria1 = useUID();
-  const criteria2 = useUID();
-  const criteria3 = useUID();
+  const searchInput = useUID();
+  const pillState = useFormPillState();
   return (
     <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
       <PageHeader size="default">
@@ -387,62 +385,45 @@ export const FullObjectsListExample = (): JSX.Element => {
         </PageHeaderDetails>
       </PageHeader>
       <Box>
-        <Box display="flex" flexDirection="column" rowGap="space50" marginBottom="space90">
-          <Box display="flex" columnGap="space80" alignItems="flex-end">
-            <Box minWidth="size30" maxWidth="size60" width="100%" display="flex" columnGap="space50">
-              <Box width="100%">
-                <Label htmlFor={criteria1}>Label</Label>
-                <Select id={criteria1}>1</Select>
-              </Box>
-              <Box width="100%">
-                <Label htmlFor={criteria2}>Label</Label>
-                <Select id={criteria2}>2</Select>
-              </Box>
-              <Box width="100%">
-                <Label htmlFor={criteria3}>Label</Label>
-                <Select id={criteria3}>3</Select>
-              </Box>
-            </Box>
-
-            <Box
-              height="100%"
-              display="flex"
-              width="size20"
-              justifyContent="flex-start"
-              alignItems="flex-end"
-              whiteSpace="nowrap"
-            >
-              <ButtonGroup>
-                <Button variant="primary">
-                  <FilterIcon decorative />
-                  Apply
-                </Button>
-                <Button variant="secondary">Clear all</Button>
-              </ButtonGroup>
-            </Box>
+        <Box display="flex" flexDirection="column" rowGap="space50">
+          <Box maxWidth="size30">
+            <Label htmlFor={searchInput}>Search</Label>
+            <Input id={searchInput} type="text" insertBefore={<SearchIcon decorative />} />
           </Box>
-          <Separator orientation="horizontal" />
-          <Box display="flex" columnGap="space80" maxWidth="size110">
-            <Box maxWidth="size40">
-              <Input
-                type="text"
-                insertBefore={<SearchIcon decorative color="colorTextPrimary" />}
-                placeholder="Search"
-                aria-label={useUID()}
-              />
-            </Box>
-            <Separator orientation="vertical" />
-            <Box>
-              <ButtonGroup>
-                <Button variant="secondary">
-                  <DownloadIcon decorative />
-                  Export
-                </Button>
-                <Button variant="secondary" size="icon">
-                  <MoreIcon decorative={false} title="menu" />
-                </Button>
-              </ButtonGroup>
-            </Box>
+          <Box>
+            <Heading as="h1" variant="heading50">
+              Filter
+            </Heading>
+            <FormPillGroup {...pillState} aria-label="filters" size="large" variant="tree">
+              <FormPill {...pillState} onSelect={() => {}}>
+                <PlusIcon decorative />
+                Label
+              </FormPill>
+              <FormPill {...pillState} onSelect={() => {}}>
+                <PlusIcon decorative />
+                Label
+              </FormPill>
+              <FormPill {...pillState} onSelect={() => {}}>
+                <PlusIcon decorative />
+                Label
+              </FormPill>
+            </FormPillGroup>
+          </Box>
+          <Box marginBottom="space60" display="flex" justifyContent="space-between" alignItems="center">
+            <DetailText marginTop="space0">
+              <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+                3 results
+              </Text>
+            </DetailText>
+            <ButtonGroup>
+              <Button variant="secondary" size="small">
+                <ExportIcon decorative />
+                Export
+              </Button>
+              <Button variant="secondary" size="icon_small">
+                <MoreIcon decorative={false} title="menu with more options" />
+              </Button>
+            </ButtonGroup>
           </Box>
         </Box>
         <DataGrid aria-label="label1">
@@ -1109,9 +1090,7 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
                 </Box>
                 <Box width="100%">
                   <FormSection>
-                    <FormSectionHeading variant="heading30" marginBottom="space0">
-                      Test connection
-                    </FormSectionHeading>
+                    <FormSectionHeading variant="heading30">Test connection</FormSectionHeading>
                     <Box>
                       <Button variant="primary">Test warehouse connection</Button>
                     </Box>
