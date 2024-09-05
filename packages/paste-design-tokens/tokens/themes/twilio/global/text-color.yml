@@ -39,7 +39,7 @@ props:
     value: "{!palette-green-80}"
     comment: Icon color for indicating success.
   color-text-icon-warning:
-    value: "{!palette-orange-80}"
+    value: "{!palette-orange-70}"
     comment: Icon color for indicating a warning.
   color-text-icon-neutral:
     value: "{!palette-blue-90}"
