@@ -1,5 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { NeutralIcon } from "@twilio-paste/icons/esm/NeutralIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
@@ -43,6 +45,21 @@ export interface CalloutProps extends HTMLPasteProps<"div"> {
    * @memberof CalloutProps
    */
   marginY?: BoxStyleProps["marginY"];
+  /**
+   * Function to run on dismiss of the Callout. Adds a close button.
+   *
+   * @default null
+   * @memberof CalloutProps
+   */
+  onDismiss?: () => void;
+  /**
+   * Title for dismiss label. Only necessary when using onDismiss.
+   *
+   * @default 'Dismiss alert'
+   * @memberof AlertProps
+   * @type {string}
+   */
+  i18nDismissLabel?: string;
 }
 
 const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
@@ -90,7 +107,19 @@ const defaultIconLabels: Record<CalloutVariants, string> = {
 };
 
 export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
-  ({ children, variant, element = "CALLOUT", i18nLabel, marginY, ...props }, ref) => {
+  (
+    {
+      children,
+      variant,
+      element = "CALLOUT",
+      i18nLabel,
+      marginY,
+      onDismiss,
+      i18nDismissLabel = "Dismiss callout",
+      ...props
+    },
+    ref,
+  ) => {
     const IconComponent = variantIcons[variant];
     const iconLabel = i18nLabel ? i18nLabel : defaultIconLabels[variant];
 
@@ -115,6 +144,14 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
           {children}
         </Box>
+        {onDismiss && typeof onDismiss === "function" && (
+          <Box>
+            <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+              <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
+              <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
+            </Button>
+          </Box>
+        )}
       </Box>
     );
   },
