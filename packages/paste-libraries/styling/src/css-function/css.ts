@@ -196,51 +196,53 @@ export const responsive = (styles: { [key: string]: any }) => (theme: JSON) => {
   return next;
 };
 
-export const css = (args: any) => (props = {}): CSSObject => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const theme = { ...defaultTheme, ...(props.theme || props) };
-  let result: { [key: string]: any } = {};
-  const obj = typeof args === "function" ? args(theme) : args;
-  const styles = responsive(obj)(theme);
+export const css =
+  (args: any) =>
+  (props = {}): CSSObject => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const theme = { ...defaultTheme, ...(props.theme || props) };
+    let result: { [key: string]: any } = {};
+    const obj = typeof args === "function" ? args(theme) : args;
+    const styles = responsive(obj)(theme);
 
-  // eslint-disable-next-line guard-for-in,no-restricted-syntax
-  for (const key in styles) {
-    const x = styles[key];
-    const val = typeof x === "function" ? x(theme) : x;
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const key in styles) {
+      const x = styles[key];
+      const val = typeof x === "function" ? x(theme) : x;
 
-    if (key === "variant") {
-      const variant = css(get(theme, val))(theme);
-      result = { ...result, ...variant };
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (val && typeof val === "object") {
-      result[key] = css(val)(theme);
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    const prop = get(aliases, key, key);
-    const scaleName = get(scales, prop);
-    const scale = get(theme, scaleName, get(theme, prop, {}));
-    const transform = get(transforms, prop, get);
-    const value = transform(scale, val, val);
-
-    if (multiples[prop]) {
-      const dirs = multiples[prop];
-
-      for (const dir of dirs) {
-        result[dir] = value;
+      if (key === "variant") {
+        const variant = css(get(theme, val))(theme);
+        result = { ...result, ...variant };
+        // eslint-disable-next-line no-continue
+        continue;
       }
-    } else {
-      result[prop] = value;
-    }
-  }
 
-  return result;
-};
+      if (val && typeof val === "object") {
+        result[key] = css(val)(theme);
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      const prop = get(aliases, key, key);
+      const scaleName = get(scales, prop);
+      const scale = get(theme, scaleName, get(theme, prop, {}));
+      const transform = get(transforms, prop, get);
+      const value = transform(scale, val, val);
+
+      if (multiples[prop]) {
+        const dirs = multiples[prop];
+
+        for (const dir of dirs) {
+          result[dir] = value;
+        }
+      } else {
+        result[prop] = value;
+      }
+    }
+
+    return result;
+  };
 
 // eslint-disable-next-line import/no-default-export
 export default css;

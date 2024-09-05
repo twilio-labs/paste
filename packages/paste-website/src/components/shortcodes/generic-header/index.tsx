@@ -38,7 +38,7 @@ const IconAnchor: React.FC<React.PropsWithChildren<{ href: string; icon: React.R
 
 export interface GenericHeaderProps {
   name: string;
-  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+  categoryRoute: (typeof SidebarCategoryRoutes)[keyof typeof SidebarCategoryRoutes];
   description?: string;
   designCommitteeReview?: string | null;
   engineerCommitteeReview?: string | null;

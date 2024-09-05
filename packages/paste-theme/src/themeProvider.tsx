@@ -1,8 +1,8 @@
 import { Globals as AnimatedGlobals, useReducedMotion } from "@twilio-paste/animation-library";
 import {
   CacheProvider as EmotionCacheProvider,
-  StylingGlobals,
   ThemeProvider as EmotionThemeProvider,
+  StylingGlobals,
   createCache,
   styled,
 } from "@twilio-paste/styling-library";

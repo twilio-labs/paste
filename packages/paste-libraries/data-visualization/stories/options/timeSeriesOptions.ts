@@ -37,12 +37,7 @@ export const timeSeriesOptions: Highcharts.Options = {
         },
         stops: [
           [0, Highcharts.getOptions().colors[0]],
-          [
-            1,
-            Highcharts.color(Highcharts.getOptions().colors[0])
-              .setOpacity(0)
-              .get("rgba"),
-          ],
+          [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get("rgba")],
         ],
       },
       marker: {

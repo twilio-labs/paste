@@ -13,7 +13,7 @@ export type BadgeBaseProps = {
    * @type {BadgeVariants}
    * @memberof BadgeBaseProps
    */
-  variant: typeof BadgeVariants[number];
+  variant: (typeof BadgeVariants)[number];
   /**
    *
    * @default "default"

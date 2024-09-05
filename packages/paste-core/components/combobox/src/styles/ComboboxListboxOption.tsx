@@ -104,9 +104,9 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
           highlighted
             ? "colorTextPrimary"
             : // eslint-disable-next-line unicorn/no-nested-ternary
-            selected
-            ? "colorTextPrimary"
-            : "colorText"
+              selected
+              ? "colorTextPrimary"
+              : "colorText"
         }
         display="flex"
         justifyContent="space-between"

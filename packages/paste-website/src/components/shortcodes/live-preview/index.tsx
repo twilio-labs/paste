@@ -6,7 +6,7 @@ import { Theme, useTheme } from "@twilio-paste/theme";
 import { useUID } from "@twilio-paste/uid-library";
 // https://github.com/FormidableLabs/react-live
 import * as React from "react";
-import { LiveEditor, LiveError, LivePreview as ReactLivePreview, LiveProvider } from "react-live";
+import { LiveEditor, LiveError, LiveProvider, LivePreview as ReactLivePreview } from "react-live";
 import type { LiveProviderProps } from "react-live";
 
 import { usePreviewThemeContext } from "../../../context/PreviewThemeContext";

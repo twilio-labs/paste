@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
-import type { VirtualItem, useVirtual as UseVirtual } from "react-virtual/types";
+import type { useVirtual as UseVirtual, VirtualItem } from "react-virtual/types";
 
 import { Combobox } from "../src";
 
