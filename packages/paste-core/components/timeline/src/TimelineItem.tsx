@@ -49,7 +49,7 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
           <Box
             element={`${element}_SEPARATOR`}
             display="flex"
-            width={orientation === "horizontal" ? "initial" : "20px"}
+            width={orientation === "horizontal" ? "initial" : "sizeBase50"}
             flexDirection={orientation === "horizontal" ? "row" : "column"}
             alignItems="center"
           >

@@ -7,15 +7,6 @@ export type Orientation = "horizontal" | "vertical";
 
 export type TimelineProps = {
   /**
-   * The orientation of the timeline
-   *
-   * @type {"horizontal" | "vertical"}
-   * @default "vertical"
-   * @memberof TimelineProps
-   */
-  // orientation?: "horizontal" | "vertical";
-
-  /**
    * Overrides the default element name to apply unique styles with the Customization Provider.
    *
    * @default "TIMELINE"

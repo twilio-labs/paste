@@ -15,8 +15,7 @@ const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
           <Box marginY="space20">
             {/* @ts-expect-error some error in size*/}
             <IconWrapper as={as} display={display} element={element} color={color} ref={ref} size="sizeSquare50">
-              {/* @ts-expect-error some error*/}
-              <Icon decorative size="sizeSquare50" />
+              <Icon decorative size="sizeIcon10" />
             </IconWrapper>
           </Box>
         ) : (
@@ -24,8 +23,7 @@ const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
             element={`${element}_DOT`}
             backgroundColor="colorBackgroundStronger"
             borderRadius="borderRadiusCircle"
-            width="8px"
-            height="8px"
+            size="sizeBase20"
             zIndex="zIndex20"
             marginY="space30"
             marginX={orientation === "horizontal" ? "space30" : "space0"}
