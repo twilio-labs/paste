@@ -37,17 +37,7 @@ export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressSt
   ({ element = "PROGRESS_STEP_SEPARATOR", ...props }, ref) => {
     const { orientation } = React.useContext(ProgressStepsContext);
 
-    return (
-      <Box
-        {...safelySpreadBoxProps(props)}
-        {...(orientation === "horizontal" ? HorizontalStyles : VerticalStyles)}
-        ref={ref}
-        aria-hidden
-        flexShrink={0}
-        flexGrow={1}
-        element={element}
-      />
-    );
+    return null;
   },
 );
 ProgressStepSeparator.displayName = "ProgressStepSeparator";

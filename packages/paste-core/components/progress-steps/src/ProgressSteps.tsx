@@ -1,5 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
@@ -8,13 +9,12 @@ import type { Orientation } from "./types";
 
 const VerticalStyles: BoxProps = {
   flexDirection: "column",
-  rowGap: "space30",
   alignItems: "flex-start", // to prevent children from stretching full width
 };
 const HorizontalStyles: BoxProps = {
-  alignItems: "center",
-  columnGap: "space30",
+  // alignItems: "center",
   flexWrap: "nowrap",
+  flexGrow: 1,
 };
 
 export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "children"> {
@@ -36,16 +36,65 @@ export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "childre
   orientation?: Orientation;
 }
 
+const ItemSeparatortyles: {
+  [key in Orientation]: Record<string, Record<string, string | BoxStyleProps>>;
+} = {
+  vertical: {
+    "[role='listitem']>div>div:first-child::after": {
+      content: "''",
+      borderLeftWidth: "borderWidth20",
+      borderLeftStyle: "solid",
+      borderLeftColor: "colorBorderWeaker",
+      borderRadius: "borderRadius0",
+      minHeight: "32px",
+      flexGrow: "1",
+      marginY: "space30",
+    },
+
+    "[role='listitem']:last-child>div>div:first-child::after": {
+      content: "none",
+    },
+  },
+  horizontal: {
+    "[role='listitem']": {
+      display: "flex",
+      alignItems: "center",
+      flexGrow: "1",
+      "&::after, &::before": {
+        content: "''",
+        borderBottomWidth: "borderWidth20",
+        borderBottomStyle: "solid",
+        borderBottomColor: "colorBorderWeaker",
+        borderRadius: "borderRadius20",
+        minWidth: "32px",
+        flexGrow: 1,
+      },
+    },
+    "[role='listitem']:first-child::before, [role='listitem']:last-child::after": {
+      content: "none",
+    },
+  },
+};
+
 export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps>(
   ({ element = "PROGRESS_STEPS", orientation = "horizontal", ...props }, ref) => {
+    const ContainerStyled = styled.div(
+      css({
+        ...ItemSeparatortyles[orientation],
+      }),
+    );
+
     return (
       <ProgressStepsContext.Provider value={{ orientation }}>
         <Box
           {...safelySpreadBoxProps(props)}
+          // @ts-expect-error we don't have polymorphic box typings yet
+          as={ContainerStyled}
           ref={ref}
           element={element}
-          display="flex"
           role="list"
+          display="flex"
+          {...ItemSeparatortyles[orientation]}
           {...(orientation === "horizontal" ? HorizontalStyles : VerticalStyles)}
         >
           {props.children}

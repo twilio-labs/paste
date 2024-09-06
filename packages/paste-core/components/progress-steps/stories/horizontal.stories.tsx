@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import {
   ProgressStepComplete,
   ProgressStepCurrent,
@@ -99,6 +101,25 @@ export const Internationalized: React.FC = () => {
       <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="button" disabled onClick={() => {}}>
         Démarrer l&apos;événement
       </ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
+
+export const WithContent = (): React.ReactNode => {
+  return (
+    <ProgressSteps>
+      <ProgressStepComplete as="div">
+        Complete{" "}
+        <Box>
+          <p>Contect your customer data</p>
+          <Button variant="primary" size="small">
+            Connect data
+          </Button>
+        </Box>
+      </ProgressStepComplete>
+      <ProgressStepError as="div">Error</ProgressStepError>
+      <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
+      <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>
     </ProgressSteps>
   );
 };

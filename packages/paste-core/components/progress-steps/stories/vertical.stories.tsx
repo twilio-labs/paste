@@ -1,3 +1,5 @@
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import * as React from "react";
 
 import {
@@ -98,6 +100,49 @@ export const Internationalized: React.FC = () => {
       <ProgressStepSeparator />
       <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="button" disabled onClick={() => {}}>
         Démarrer l&apos;événement
+      </ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
+
+export const WithContent = (): React.ReactNode => {
+  return (
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">
+        Complete
+        <Box>
+          <p>Contect your customer data</p>
+          <Button variant="primary" size="small">
+            Connect data
+          </Button>
+        </Box>
+      </ProgressStepComplete>
+      <ProgressStepError as="div">
+        Error
+        <Box>
+          <p>Contect your customer data</p>
+          <Button variant="primary" size="small">
+            Connect data
+          </Button>
+        </Box>
+      </ProgressStepError>
+      <ProgressStepCurrent as="div">
+        Current
+        <Box>
+          <p>Contect your customer data</p>
+          <Button variant="primary" size="small">
+            Connect data
+          </Button>
+        </Box>
+      </ProgressStepCurrent>
+      <ProgressStepIncomplete as="div">
+        Incomplete
+        <Box>
+          <p>Contect your customer data</p>
+          <Button variant="primary" size="small">
+            Connect data
+          </Button>
+        </Box>
       </ProgressStepIncomplete>
     </ProgressSteps>
   );
