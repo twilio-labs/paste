@@ -55,8 +55,8 @@ export interface CalloutProps extends HTMLPasteProps<"div"> {
   /**
    * Title for dismiss label. Only necessary when using onDismiss.
    *
-   * @default 'Dismiss alert'
-   * @memberof AlertProps
+   * @default 'Dismiss callout'
+   * @memberof CalloutProps
    * @type {string}
    */
   i18nDismissLabel?: string;
