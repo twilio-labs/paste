@@ -36,24 +36,6 @@ export const DefaultTimeline = (): React.ReactNode => {
   );
 };
 
-export const HorizontalTimeline = (): React.ReactNode => {
-  return (
-    <Timeline orientation="horizontal">
-      <TimelineItem title="Start" timestamp="2018-03-01:10:00">
-        Event details
-      </TimelineItem>
-
-      <TimelineItem title="Inprogress" timestamp="2018-03-01:12:00">
-        Event details
-      </TimelineItem>
-
-      <TimelineItem title="Complete" timestamp="2018-03-01:14:00">
-        Event details
-      </TimelineItem>
-    </Timeline>
-  );
-};
-
 export const TimelineWithIcon = (): React.ReactNode => {
   return (
     <Timeline>
@@ -157,7 +139,7 @@ export const TimelineLoadMore = (): React.ReactNode => {
   };
 
   return (
-    <Timeline orientation="vertical">
+    <Timeline>
       {items.map((item) => (
         <TimelineItem key={item.text} timestamp={item.date} title={item.text}>
           {item.text}
@@ -193,7 +175,7 @@ export const TimelineInfiniteScroll = (): React.ReactNode => {
 
   return (
     <Box maxHeight="480px" overflowY="auto" onScroll={handleScroll}>
-      <Timeline orientation="vertical">
+      <Timeline>
         {items.map((item) => (
           <TimelineItem key={item.text} timestamp={item.date} title={item.text}>
             {item.text}
