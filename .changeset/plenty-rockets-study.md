@@ -4,4 +4,4 @@
 "@twilio-paste/core": patch
 ---
 
-[Callout, Alert] updated styling fo all variants
+[Callout, Alert] updated styling
