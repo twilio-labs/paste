@@ -140,7 +140,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         {...variantStyles[variant]}
       >
         <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
-          <Box marginRight="space60" paddingTop="space10" element={`${element}_ICON`}>
+          <Box element={`${element}_ICON`}>
             {IconComponent}
             <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
           </Box>
