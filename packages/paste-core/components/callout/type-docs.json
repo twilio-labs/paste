@@ -433,6 +433,13 @@
       "required": false,
       "externalProp": true
     },
+    "i18nDismissLabel": {
+      "type": "string",
+      "defaultValue": "'Dismiss alert'",
+      "required": false,
+      "externalProp": false,
+      "description": "Title for dismiss label. Only necessary when using onDismiss."
+    },
     "i18nLabel": {
       "type": "string",
       "defaultValue": "'(neutral)' | '(warning)' | '(error)' | '(success)' | '(new)'",
@@ -723,6 +730,13 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "onDismiss": {
+      "type": "() => void",
+      "defaultValue": "null",
+      "required": false,
+      "externalProp": false,
+      "description": "Function to run on dismiss of the Callout. Adds a close button."
     },
     "onDoubleClick": {
       "type": "MouseEventHandler<HTMLDivElement>",
