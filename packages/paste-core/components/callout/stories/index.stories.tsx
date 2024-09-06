@@ -89,11 +89,13 @@ export const CalloutWithMargin: StoryFn = () => (
 export const DismissibleVsNonDismissibleVariantsWithDetailedBody: StoryFn = () => {
   return (
     <Box display="flex" flexDirection="column" rowGap="space60">
+      {/* eslint-disable-next-line no-console */}
       <Callout variant="new" onDismiss={() => console.log("dismissed!")}>
         <CalloutHeading as="h3">New callout</CalloutHeading>
         <CalloutText>Take a look at this list:</CalloutText>
         <ExampleList as="ol" />
       </Callout>
+      {/* eslint-disable-next-line no-console */}
       <Callout variant="neutral" onDismiss={() => console.log("dismissed!")}>
         <CalloutHeading as="h3">Neutral callout</CalloutHeading>
         <CalloutText>

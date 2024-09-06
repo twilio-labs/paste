@@ -27,6 +27,7 @@
   "peerDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/box": "^10.0.0",
+    "@twilio-paste/button": "^14.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.0.0",
     "@twilio-paste/design-tokens": "^10.0.0",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/box": "^10.1.0",
+    "@twilio-paste/button": "^14.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
     "@twilio-paste/design-tokens": "^10.2.0",
