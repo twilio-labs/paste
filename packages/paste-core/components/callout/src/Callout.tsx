@@ -66,27 +66,27 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
     backgroundColor: "colorBackgroundSuccessWeakest",
     color: "colorTextSuccess",
-    borderColor: "colorBorderSuccessWeaker",
+    borderColor: "colorBorderSuccessWeak",
   },
   error: {
     backgroundColor: "colorBackgroundErrorWeakest",
     color: "colorTextError",
-    borderColor: "colorBorderErrorWeaker",
+    borderColor: "colorBorderErrorWeak",
   },
   warning: {
     backgroundColor: "colorBackgroundWarningWeakest",
     color: "colorTextWarningStrong",
-    borderColor: "colorBorderWarningWeaker",
+    borderColor: "colorBorderWarningWeak",
   },
   new: {
     backgroundColor: "colorBackgroundNewWeakest",
     color: "colorTextNew",
-    borderColor: "colorBorderNewWeaker",
+    borderColor: "colorBorderNewWeak",
   },
   neutral: {
     backgroundColor: "colorBackgroundNeutralWeakest",
     color: "colorTextNeutral",
-    borderColor: "colorBorderNeutralWeaker",
+    borderColor: "colorBorderNeutralWeak",
   },
 };
 
@@ -130,10 +130,12 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         element={element}
         display="flex"
         marginY={marginY}
-        padding="space60"
-        borderStyle="solid"
-        borderWidth="borderWidth10"
-        borderRadius="borderRadius30"
+        paddingTop="space70"
+        paddingLeft="space70"
+        paddingRight="space70"
+        paddingBottom="space90"
+        borderLeftStyle="solid"
+        borderLeftWidth="borderWidth20"
         variant={variant}
         {...variantStyles[variant]}
       >
