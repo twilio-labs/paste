@@ -139,12 +139,14 @@ export const TimelineLoadMore = (): React.ReactNode => {
   };
 
   return (
-    <Timeline>
-      {items.map((item) => (
-        <TimelineItem key={item.text} timestamp={item.date} title={item.text}>
-          {item.text}
-        </TimelineItem>
-      ))}
+    <>
+      <Timeline>
+        {items.map((item) => (
+          <TimelineItem key={item.text} timestamp={item.date} title={item.text}>
+            {item.text}
+          </TimelineItem>
+        ))}
+      </Timeline>
       {items.length < allItems.length ? (
         <Box marginTop="space30">
           <Button onClick={loadMore} variant="secondary" size="icon_small">
@@ -152,7 +154,7 @@ export const TimelineLoadMore = (): React.ReactNode => {
           </Button>
         </Box>
       ) : null}
-    </Timeline>
+    </>
   );
 };
 
