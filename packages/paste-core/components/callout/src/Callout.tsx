@@ -64,7 +64,7 @@ export interface CalloutProps extends HTMLPasteProps<"div"> {
 
 const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
-    backgroundColor: "colorBackgroundSuccessWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextSuccess",
     borderColor: "colorBorderSuccessWeak",
   },
@@ -74,17 +74,17 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
     borderColor: "colorBorderErrorWeak",
   },
   warning: {
-    backgroundColor: "colorBackgroundWarningWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextWarningStrong",
     borderColor: "colorBorderWarningWeak",
   },
   new: {
-    backgroundColor: "colorBackgroundNewWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextNew",
     borderColor: "colorBorderNewWeak",
   },
   neutral: {
-    backgroundColor: "colorBackgroundNeutralWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextNeutral",
     borderColor: "colorBorderNeutralWeak",
   },
@@ -139,11 +139,11 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box marginRight="space60" paddingTop="space10" element={`${element}_ICON`}>
-          {IconComponent}
-          <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
-        </Box>
         <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
+          <Box marginRight="space60" paddingTop="space10" element={`${element}_ICON`}>
+            {IconComponent}
+            <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
+          </Box>
           {children}
         </Box>
         {onDismiss && typeof onDismiss === "function" && (
