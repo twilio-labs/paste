@@ -22,12 +22,17 @@ export const AlertVariants = {
   NEUTRAL: "neutral",
   WARNING: "warning",
 } as const;
-export const AlertBackgroundColors = {
+export const AlertBackgroundColors: BoxProps["backgroundColor"] = {
   ERROR: "colorBackgroundErrorWeakest",
   NEUTRAL: "colorBackgroundNeutralWeakest",
   WARNING: "colorBackgroundWarningWeakest",
 } as const;
-export const AlertTextColors = {
+export const AlertBorderColors: BoxProps["borderColor"] = {
+  ERROR: "colorBorderErrorWeaker",
+  NEUTRAL: "colorBorderNeutralWeaker",
+  WARNING: "colorBorderWarningWeaker",
+} as const;
+export const AlertTextColors: BoxProps["color"] = {
   ERROR: "colorTextError",
   NEUTRAL: "colorTextNeutral",
   WARNING: "colorTextWarningStrong",
@@ -169,10 +174,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
-        paddingLeft="space60"
-        paddingRight="space60"
-        paddingTop="space60"
-        paddingBottom="space60"
+        borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
+        borderStyle="solid"
+        borderWidth="borderWidth10"
+        borderRadius="borderRadius30"
+        padding="space50"
         element={element}
         variant={variant}
         ref={ref}
@@ -188,7 +194,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           {onDismiss && typeof onDismiss === "function" && (
             <MediaFigure align="end" spacing="space60">
               <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
-                <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
+                <CloseIcon element={`${element}_DISMISS_ICON`} color="colorTextIcon" decorative size="sizeIcon20" />
                 <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
               </Button>
             </MediaFigure>
