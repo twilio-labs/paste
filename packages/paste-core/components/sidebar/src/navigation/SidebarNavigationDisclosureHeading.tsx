@@ -40,6 +40,55 @@ export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<
   icon?: React.ReactNode;
 }
 
+interface UseComputeDisclosureHeadingStylesArgs {
+  /** Whether the heading is selected */
+  selected?: boolean;
+  /** Whether the heading is nested within another heading */
+  nested: boolean;
+}
+
+/**
+ * Small hook that abstracts the logic of computing styles for the SidebarNavigationDisclosureHeading component.
+ */
+const useComputeDisclosureHeadingStyles = ({ nested, selected }: UseComputeDisclosureHeadingStylesArgs): BoxProps => {
+  let styles: BoxProps = {};
+  if (nested) {
+    styles = sidebarNavigationLabelNestedStyles;
+  } else {
+    styles = sidebarNavigationLabelStyles;
+  }
+  if (selected) {
+    styles = { ...styles, ...sidebarNavigationLabelSelectedStyles };
+  }
+  return styles;
+};
+
+interface UseAdjustIconColorArgs {
+  /** Icon to be displayed within the Heading. */
+  icon: React.ReactNode;
+  /** Whether the heading is selected. */
+  selected?: boolean;
+}
+
+/**
+ * Adjust the color on the icon if it is not selected. It accomplishes this by cloning the icon node and applying the colorTextIconInverse color.
+ * Memoized to reduce the number of times the icon is cloned.
+ */
+const useAdjustIconColor = ({ icon, selected }: UseAdjustIconColorArgs): Required<React.ReactNode> => {
+  return React.useMemo(() => {
+    if (!icon) {
+      return null;
+    }
+    if (icon && React.isValidElement(icon) && !selected) {
+      const iconElement = icon as React.ReactElement;
+      return React.cloneElement(iconElement, {
+        color: "colorTextIconInverse",
+      });
+    }
+    return icon;
+  }, [icon, selected]);
+};
+
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   ({ children, element = "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING", selected, icon, ...props }, ref) => {
     const { collapsed, variant } = React.useContext(SidebarContext);
@@ -63,6 +112,9 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
       }, 120);
     }, [collapsed, isCompact]);
 
+    const disclosureHeadingStyles = useComputeDisclosureHeadingStyles({ nested, selected });
+    const adjustedIcon = useAdjustIconColor({ icon, selected });
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -70,8 +122,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         element={element}
         onMouseEnter={() => setShouldIconMove(true)}
         onMouseLeave={() => setShouldIconMove(false)}
-        {...(nested ? sidebarNavigationLabelNestedStyles : sidebarNavigationLabelStyles)}
-        {...(selected && sidebarNavigationLabelSelectedStyles)}
+        {...disclosureHeadingStyles}
       >
         <Box
           as="span"
@@ -87,7 +138,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         >
           <ChevronDisclosureIcon color="inherit" decorative size="sizeIcon20" />
         </Box>
-        {icon ? icon : null}
+        {adjustedIcon}
         <Box
           as="span"
           display="block"

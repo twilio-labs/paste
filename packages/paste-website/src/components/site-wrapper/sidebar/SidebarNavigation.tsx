@@ -23,14 +23,19 @@ import { SidebarAnchor } from "./SidebarAnchor";
 
 const CY_BASE = "sidebar-disclosure";
 
-const NavigationDisclosure: React.FC<
-  React.PropsWithChildren<{
-    children: SidebarNavigationDisclosureContentProps["children"];
-    categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-    buttonText: string;
-    onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
-  }>
-> = ({ children, categoryRoute, buttonText, onClick }) => {
+interface NavigationDisclosureProps {
+  buttonText: string;
+  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+  children: SidebarNavigationDisclosureContentProps["children"];
+  onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
+}
+
+const NavigationDisclosure: React.FC<React.PropsWithChildren<NavigationDisclosureProps>> = ({
+  children,
+  categoryRoute,
+  buttonText,
+  onClick,
+}) => {
   const pathname = useLocationPathname();
   const disclosure = useSidebarNavigationDisclosureState({
     visible: pathname.startsWith(categoryRoute),
