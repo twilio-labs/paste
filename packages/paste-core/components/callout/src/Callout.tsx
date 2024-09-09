@@ -139,12 +139,14 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
-          <Box element={`${element}_ICON`}>
+        <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
+          <Box element={`${element}_ICON`} marginBottom="space50">
             {IconComponent}
             <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
           </Box>
-          {children}
+          <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
+            {children}
+          </Box>
         </Box>
         {onDismiss && typeof onDismiss === "function" && (
           <Box>
