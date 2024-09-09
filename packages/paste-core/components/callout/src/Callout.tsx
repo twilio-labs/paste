@@ -129,7 +129,9 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         ref={ref}
         element={element}
         display="flex"
+        flexDirection="column"
         marginY={marginY}
+        rowGap="space50"
         paddingTop="space70"
         paddingLeft="space70"
         paddingRight="space70"
@@ -139,23 +141,23 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
+        <Box display="flex" justifyContent="space-between">
           <Box element={`${element}_ICON`}>
             {IconComponent}
             <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
           </Box>
-          <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
-            {children}
-          </Box>
+          {onDismiss && typeof onDismiss === "function" && (
+            <Box>
+              <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+                <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
+                <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
+              </Button>
+            </Box>
+          )}
         </Box>
-        {onDismiss && typeof onDismiss === "function" && (
-          <Box>
-            <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
-              <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
-              <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
-            </Button>
-          </Box>
-        )}
+        <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
+          {children}
+        </Box>
       </Box>
     );
   },
