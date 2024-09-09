@@ -1,0 +1,186 @@
+export const meta = {
+  title: "Paste Design System Newsletter - August 2024 Edition",
+  slug: "/blog/2024-08-23-paste-newsletter/",
+  date: "2024-08-23",
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  excerpt: "What's new in Paste in August 2024? Corner Ornament, updated filters, and more!",
+};
+
+import Image from "next/image";
+import { Box } from "@twilio-paste/box";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import { ResponsiveBorderedImage } from "../../components/ResponsiveBorderedImage";
+import { Blockquote } from "../../components/Blockquote";
+
+import FiltersPattern from "../../assets/images/articles/2024-08-23-paste-newsletter/filters-pattern.gif";
+import CornerOrnament from "../../assets/images/articles/2024-08-23-paste-newsletter/corner-ornament.png";
+import FigmaTypography from "../../assets/images/articles/2024-08-23-paste-newsletter/figma-typography.gif";
+import AndresCortez from "../../assets/images/articles/2024-08-23-paste-newsletter/andres-cortez.png";
+import PasteMateUI from "../../assets/images/articles/2024-08-23-paste-newsletter/paste-mate-2024-08.png";
+
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What was new in Paste?
+
+### Filter pattern
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={FiltersPattern}
+      alt="Gif of Filters Pattern"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+We've updated our [filter pattern](/patterns/filter)! The simplified layout uses Form Pills, Popovers, and Side Panel to reduce visual noise and help customers focus on the data and information that matter most.
+
+### Corner Ornament component
+
+<Box width="100%" maxWidth="400px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={CornerOrnament} alt="Preview of Corner Ornament component" />
+</Box>
+
+The [Corner Ornament](/components/corner-ornament) component lets you quickly relate 2 graphic elements to each other. Use it to show unread notifications, cart counts, relationships in Tables, and more. The component supports a variety of Avatar and Icon sizes with built-in cutouts.
+
+### Paste Figma library featuring typography and effect variables
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={FigmaTypography}
+      alt="Gif of Figma Typography"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+We added typography and effect variables to the [Paste Components & Themes](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/Paste-Components-%26-Themes?type=design&node-id=3015-46646&mode=design&t=LavBWI8WtuCpWbz0-0) Figma library for more accurate swapping between Twilio, Twilio Dark, Evergreen, Default, and Dark themes.
+
+[Learn more about how to swap modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables#h_01H3ADKDF7JBTRV1Z5P1X1DZVE).
+
+### Additional updates
+
+#### New
+
+- Added new [icons](/components/icon) for RCSCapable and SupportRequest
+
+#### Updates
+
+- [Badge](/components/badge#counter) has a new notification_counter variant.
+
+And thank you for all these contributions, Joe Fehrman!:
+
+- [Form Pill Groups](/components/form-pill-group#large) now have a large variant to support the Filter pattern
+- [User Dialog](/components/user-dialog) has a smaller default size based on feedback from our consumers
+
+## ✨ Pastemates™ spotlight
+
+Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system.
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={AndresCortez} alt="image of Andres Cortez standing in front of a mountain wearing a blue tee shirt" />
+</Box>
+
+In this edition of Pastemates, we're spotlighting a mate from the Platform Engineering team, **Andrés Rodríguez Cortés**! Andrés built One Admin pages with minimal guidance outside of the written guidelines on the Paste doc site.
+
+He recently attended Comms Platform UX office hours for a gut check on his implementation. Principal Designer **Andy Doyle** was thoroughly impressed with what he was able to achieve, saying it's an “exceptional standard using latest Paste and all the guidance.”
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={PasteMateUI}
+      alt="Example of Pastemates UI work"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+Here's what Andrés has to say about working with Paste:
+
+“Since I arrived at Twilio 3 years ago, the Paste project got my attention. As a former visual designer turned web developer, I always have had a great interest in design systems and component libraries.
+
+Paste made my development work much more enjoyable as I was feeling that I was building with Lego pieces. I didn't need to care about defining a color palette, border sizes, or managing the internal state of the components. I also took the time to read through the pattern guides and realized they were just goldmines of knowledge about good practices in UI and UX. I still enjoy reading them when I have time.
+
+Most of the rough edges I've found are around integration with the form library we use (react-hook-form). But my experience with the Paste library has been great so far, and I really enjoy building interfaces with it given that the components are ready to use and the end result just looks very polished and professional.”
+
+Bravo to Andrés and his attention to detail!
+
+Sign up for [Comms Platform UX office hours](https://airtable.com/appszlqNhBPkOhjqA/shrRkluqJRg1fade0/tblbiQQjRGR9tXygz) if you're interested in design advice and feedback for your own work, too.
+
+## 👀 What we're working on next
+
+| Feature                        | Description                                                                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Timeline component**         | A Timeline represents events displayed in chronological order.                                                                                       |
+| **Pricing pattern**            | The pricing pattern shows a group of paid features or packaged plans a user is selecting, contributed by **Kara Kenna** with support from **Bhooma Srirangarajan**. |
+| **Callout component, refined** | Improved design and documentation of the Callout component, including stronger differentiation from the Alert component.                                            |
+
+<Box marginBottom="space120" />
+
+As always, we're better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>
