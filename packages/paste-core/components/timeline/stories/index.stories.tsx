@@ -7,8 +7,7 @@ import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { Timeline, TimelineItem } from "../src";
-import { TimelineItemGroup } from "../src/TimelineItemGroup";
+import { Timeline, TimelineItem, TimelineItemGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {

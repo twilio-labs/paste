@@ -312,6 +312,7 @@
   "Timeline": "@twilio-paste/core/timeline",
   "TimelineContext": "@twilio-paste/core/timeline",
   "TimelineItem": "@twilio-paste/core/timeline",
+  "TimelineItemGroup": "@twilio-paste/core/timeline",
   "TimelineItemIcon": "@twilio-paste/core/timeline",
   "Toast": "@twilio-paste/core/toast",
   "ToastContainer": "@twilio-paste/core/toast",
