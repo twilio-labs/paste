@@ -147,12 +147,10 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
             <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
           </Box>
           {onDismiss && typeof onDismiss === "function" && (
-            <Box>
-              <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
-                <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
-                <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
-              </Button>
-            </Box>
+            <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+              <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
+              <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
+            </Button>
           )}
         </Box>
         <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
