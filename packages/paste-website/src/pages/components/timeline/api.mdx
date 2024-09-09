@@ -45,25 +45,23 @@ yarn add @twilio-paste/timeline - or - yarn add @twilio-paste/core
 ## Usage
 
 ```jsx
-import {TimePicker, formatReturnTime} from '@twilio-paste/core/time-picker';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/helptext';
+import {Timeline, TimelineItem} from '@twilio-paste/core/timeline';
 
 const TimePickerExample = () => {
   return (
-    <>
-      <Label htmlFor="foo" required>
-        Start time
-      </Label>
-      <TimePicker
-        aria-describedby="foo_text"
-        id="foo"
-        name="foo"
-        onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
-        required
-      />
-      <HelpText id="foo_text">Select a time.</HelpText>
-    </>
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 24, 2024">
+        Event details
+      </TimelineItem>
+
+      <TimelineItem title="Event title" timestamp="August 29, 2024">
+        Event details
+      </TimelineItem>
+
+      <TimelineItem title="Event title" timestamp="August 30, 2024">
+        Event details
+      </TimelineItem>
+    </Timeline>
   );
 };
 ```
