@@ -60,6 +60,7 @@ import {
   PageHeaderSetting,
 } from "@twilio-paste/page-header";
 import { Paragraph } from "@twilio-paste/paragraph";
+import { Popover, PopoverContainer, PopoverFormPillButton } from "@twilio-paste/popover";
 import {
   ProgressStepComplete,
   ProgressStepCurrent,
@@ -514,6 +515,10 @@ FullObjectsListExample.parameters = {
 export const DefaultObjectsListExample = (): JSX.Element => {
   const input1 = useUID();
   const input2 = useUID();
+  const pillState = useFormPillState();
+  const [selected, setSelected] = React.useState(false);
+  const uniqueBaseID = useUID();
+
   return (
     <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
       <PageHeader size="default">
@@ -536,25 +541,58 @@ export const DefaultObjectsListExample = (): JSX.Element => {
       </PageHeader>
       <Box>
         <Box maxWidth="size70" marginBottom="space90" display="flex" columnGap="space80" alignItems="flex-end">
-          <Box maxWidth="size90" display="flex" columnGap="space50">
-            <Box width="100%">
-              <Label htmlFor={input1}>Phone number</Label>
-              <Input type="text" id={input1} />
-            </Box>
-            <Box width="100%">
-              <Label htmlFor={input2}>Friendly name</Label>
-              <Input type="text" id={input2} />
-            </Box>
-          </Box>
-          <Box display="flex" width="size20" justifyContent="flex-start">
-            <ButtonGroup>
-              <Button variant="secondary">
-                <FilterIcon decorative />
-                Apply
-              </Button>
-              <Button variant="secondary">Clear</Button>
-            </ButtonGroup>
-          </Box>
+          <FormPillGroup {...pillState} aria-label="filters" size="large" variant="tree">
+            <PopoverContainer baseId={uniqueBaseID}>
+              <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+                Phone number
+              </PopoverFormPillButton>
+              <Popover aria-label="phone numer filter">
+                <Box display="flex" flexDirection="column" rowGap="space70" minWidth="size30">
+                  <Box width="100%">
+                    <Label htmlFor={input1}>Phone number</Label>
+                    <Input type="text" id={input1} />
+                  </Box>
+                  <Box display="flex" columnGap="space30">
+                    <Button
+                      variant="primary"
+                      size="small"
+                      onClick={() => {
+                        setSelected(!selected);
+                      }}
+                    >
+                      Apply
+                    </Button>
+                    <Button variant="link">Clear all</Button>
+                  </Box>
+                </Box>
+              </Popover>
+            </PopoverContainer>
+            <PopoverContainer baseId={uniqueBaseID}>
+              <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+                Friendly name
+              </PopoverFormPillButton>
+              <Popover aria-label="friendly name filter">
+                <Box display="flex" flexDirection="column" rowGap="space70" minWidth="size30">
+                  <Box width="100%">
+                    <Label htmlFor={input2}>Friendly name</Label>
+                    <Input type="text" id={input2} />
+                  </Box>
+                  <Box display="flex" columnGap="space30">
+                    <Button
+                      variant="primary"
+                      size="small"
+                      onClick={() => {
+                        setSelected(!selected);
+                      }}
+                    >
+                      Apply
+                    </Button>
+                    <Button variant="link">Clear all</Button>
+                  </Box>
+                </Box>
+              </Popover>
+            </PopoverContainer>
+          </FormPillGroup>
         </Box>
         <DataGrid aria-label={useUID()}>
           <DataGridHead>
