@@ -282,19 +282,62 @@ In use cases where more than one timestamp per Timeline item is required, use se
 
 <DoDont>
   <Do title="Do" body="Always include a timestamp on Timeline events." center>
-    <LivePreview scope={{ Timeline, TimelineItem, StatusBadge, Box, Paragraph }} noInline>
-      {TimelineTimestamp}
-    </LivePreview>
+    <Box paddingTop="space50">
+      <Timeline>
+        <TimelineItem title="Event title" timestamp="August 30, 2024" />
+        <TimelineItem title="Event title" timestamp="August 29, 2024" />
+        <TimelineItem title="Event title" timestamp="August 21, 2024" />
+      </Timeline>
+    </Box>
   </Do>
-  <Dont title="Don't" body="Don’t use Timeline as a way of navigating tasks." center></Dont>
+
+  <Dont title="Don't" body="Don’t use Timeline as a way of navigating tasks." center>
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024">
+        Sign up
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 29, 2024">
+        Sign up
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 21, 2024">
+        Complete profile
+      </TimelineItem>
+    </Timeline>
+  </Dont>
   <Do
     title="Do"
     body="For use cases where displaying status is beneficial to the user, you can incorporate Status Badges or other status components within the Timeline item content."
     center
-  ></Do>
+  >
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024">
+        <Box marginTop="space20">
+          <StatusBadge as="span" variant="ProcessWarning">
+            Warning
+          </StatusBadge>
+        </Box>
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 29, 2024">
+        <Box marginTop="space20">
+          <StatusBadge as="span" variant="ProcessSuccess">
+            Success
+          </StatusBadge>
+        </Box>
+      </TimelineItem>
+    </Timeline>
+  </Do>
   <Dont
     title="Don't"
     body="Don’t use icons as Timeline item markers to represent status like warning, error, or success."
     center
-  ></Dont>
+  >
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024" icon={ProcessInProgressIcon}>
+        Sending
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 29, 2024" icon={WarningIcon}>
+        Undelivered
+      </TimelineItem>
+    </Timeline>
+  </Dont>
 </DoDont>
