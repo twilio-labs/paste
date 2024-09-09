@@ -2,22 +2,17 @@ import { Box } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import React from "react";
 
-import { TimelineContext, TimelineGroupContext } from "./TimelineContext";
+import { TimelineGroupContext } from "./TimelineContext";
 import { TimelineItemCollapsible } from "./TimelineItemCollapsible";
 import { TimelineItemIcon } from "./TimelineItemIcon";
 import type { TimelineItemProps } from "./types";
 
-const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
+const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
   (
     { children, icon, timestamp, title, collapsible = false, collapsibleHeading, element = "TIMELINE_ITEM", ...props },
     ref,
   ) => {
-    const { orientation } = React.useContext(TimelineContext);
     const isGrouped = React.useContext(TimelineGroupContext);
-
-    if (!orientation) {
-      throw new Error("TimelineItem must be used within a Timeline component");
-    }
 
     const ContainerStyled = styled.li(
       css({
@@ -41,26 +36,23 @@ const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
         columnGap="space50"
         rowGap="space50"
         flexShrink={0}
-        flexDirection={orientation === "horizontal" ? "column" : "row"}
-        paddingX="space0"
         {...props}
       >
         {!isGrouped ? (
           <Box
             element={`${element}_SEPARATOR`}
             display="flex"
-            width={orientation === "horizontal" ? "initial" : "sizeBase50"}
-            flexDirection={orientation === "horizontal" ? "row" : "column"}
+            width="sizeBase50"
+            flexDirection="column"
             alignItems="center"
           >
-            <TimelineItemIcon icon={icon} />
+            <TimelineItemIcon icon={icon} element={`${element}_ICON`} />
           </Box>
         ) : null}
 
         <Box
           element={`${element}_CONTENT_WRAPPER`}
-          paddingX={orientation === "horizontal" ? "space60" : "space0"}
-          textAlign={orientation === "horizontal" ? "center" : "initial"}
+          paddingX="space0"
           fontFamily="fontFamilyText"
           fontSize="fontSize20"
           lineHeight="lineHeight20"

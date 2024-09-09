@@ -310,7 +310,7 @@
   "TimePicker": "@twilio-paste/core/time-picker",
   "formatReturnTime": "@twilio-paste/core/time-picker",
   "Timeline": "@twilio-paste/core/timeline",
-  "TimelineContext": "@twilio-paste/core/timeline",
+  "TimelineGroupContext": "@twilio-paste/core/timeline",
   "TimelineItem": "@twilio-paste/core/timeline",
   "TimelineItemIcon": "@twilio-paste/core/timeline",
   "Toast": "@twilio-paste/core/toast",

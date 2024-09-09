@@ -3,8 +3,6 @@ import type { IconWrapperProps } from "@twilio-paste/icons/esm/helpers/IconWrapp
 import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
-export type Orientation = "horizontal" | "vertical";
-
 export type TimelineProps = {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider.
@@ -14,7 +12,7 @@ export type TimelineProps = {
    * @memberof TimelineProps
    */
   element?: BoxProps["element"];
-} & HTMLPasteProps<"div">;
+} & HTMLPasteProps<"ol">;
 
 export type TimelineItemProps = {
   /**
@@ -68,7 +66,7 @@ export type TimelineItemProps = {
    * @memberof TimelineItemProps
    */
   element?: BoxProps["element"];
-} & HTMLPasteProps<"div">;
+} & HTMLPasteProps<"li">;
 
 export type TimelineItemIconProps = {
   /**
@@ -88,3 +86,14 @@ export type TimelineItemIconProps = {
    */
   element?: BoxProps["element"];
 } & IconWrapperProps;
+
+export type TimelineItemGroupProps = {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TIMELINE_ITEM_GROUP"
+   * @type {BoxProps["element"]}
+   * @memberof TimelineItemGroupProps
+   */
+  element?: BoxProps["element"];
+} & Omit<TimelineItemProps, "title" | "element">;

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "layout",
   "status": "production",
-  "description": "A timeline is a visual representation of events displayed in chronological order.",
+  "description": "A Timeline is a visual representation of events displayed in chronological order.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

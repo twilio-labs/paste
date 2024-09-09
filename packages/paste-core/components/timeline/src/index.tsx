@@ -1,5 +1,5 @@
 export { Timeline } from "./Timeline";
 export { TimelineItem } from "./TimelineItem";
-export { TimelineContext } from "./TimelineContext";
+export { TimelineGroupContext } from "./TimelineContext";
 export { TimelineItemIcon } from "./TimelineItemIcon";
-export type { TimelineProps, TimelineItemProps, TimelineItemIconProps } from "./types";
+export type { TimelineProps, TimelineItemProps, TimelineItemIconProps, TimelineItemGroupProps } from "./types";

@@ -2,13 +2,10 @@ import { Box } from "@twilio-paste/box";
 import { IconWrapper } from "@twilio-paste/icons/esm/helpers/IconWrapper";
 import * as React from "react";
 
-import { TimelineContext } from "./TimelineContext";
 import type { TimelineItemIconProps } from "./types";
 
 const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
   ({ icon: Icon, as, display, element = "TIMELINE_ITEM_ICON", color }, ref) => {
-    const { orientation } = React.useContext(TimelineContext);
-
     return (
       <Box element={`${element}_WRAPPER`}>
         {Icon ? (
@@ -26,7 +23,6 @@ const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
             size="sizeBase20"
             zIndex="zIndex20"
             marginY="space30"
-            marginX={orientation === "horizontal" ? "space30" : "space0"}
           />
         )}
       </Box>

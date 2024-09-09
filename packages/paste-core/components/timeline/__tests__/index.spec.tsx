@@ -25,7 +25,13 @@ const ExampleTimeline: React.FC<{
       Event details
     </TimelineItem>
 
-    <TimelineItem title="Icon Item" timestamp="2018-03-01:12:00" icon={UserIcon}>
+    <TimelineItem
+      title="Icon Item"
+      timestamp="2018-03-01:12:00"
+      icon={UserIcon}
+      data-testid="timelineItemIcon"
+      element={`${element}_ITEM`}
+    >
       Event details
     </TimelineItem>
 
@@ -41,7 +47,13 @@ const ExampleTimeline: React.FC<{
       <TimelineItem title="Item without timestamp">Event details</TimelineItem>
     </TimelineItemGroup>
 
-    <TimelineItem title="Start" timestamp="2018-03-01:10:00" collapsible data-testid="timelineItemCollapsible">
+    <TimelineItem
+      title="Start"
+      timestamp="2018-03-01:10:00"
+      collapsible
+      data-testid="timelineItemCollapsible"
+      element={`${element}_ITEM`}
+    >
       Event details
     </TimelineItem>
 
@@ -68,9 +80,8 @@ const ExampleTimeline: React.FC<{
 
 describe("Timeline", () => {
   it("should render", () => {
-    const { getByTestId } = render(<ExampleTimeline />);
-    expect(getByTestId("timeline")).toBeDefined();
-    expect(getByTestId("timelineItem")).toBeDefined();
+    expect(document.querySelector("ol")).toBeDefined();
+    expect(document.querySelector("li")).toBeDefined();
   });
 
   it("should display title and timestamp", () => {
@@ -127,15 +138,40 @@ describe("Timeline", () => {
     it("should set element data attribute", () => {
       const { getByTestId } = render(<ExampleTimeline />);
       expect(getByTestId("timeline").getAttribute("data-paste-element")).toEqual("TIMELINE");
-      expect(getByTestId("timelineItem").getAttribute("data-paste-element")).toEqual("TIMELINE_ITEM");
-      expect(getByTestId("timelineItemGroup").getAttribute("data-paste-element")).toEqual("TIMELINE_ITEM_GROUP");
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_GROUP']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_SEPARATOR']`)).toBeTruthy();
+      expect(
+        getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_CONTENT_WRAPPER']`),
+      ).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_ICON']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_ICON_WRAPPER']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_ICON_DOT']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_TITLE']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_TIMESTAMP']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_CONTENT']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='TIMELINE_ITEM_SUMMARY_DETAIL']`)).toBeTruthy();
     });
 
     it("should set custom element data attribute", () => {
       const { getByTestId } = render(<ExampleTimeline element="CUSTOMIZED" />);
+
       expect(getByTestId("timeline").getAttribute("data-paste-element")).toEqual("CUSTOMIZED");
-      expect(getByTestId("timelineItem").getAttribute("data-paste-element")).toEqual("CUSTOMIZED_ITEM");
-      expect(getByTestId("timelineItemGroup").getAttribute("data-paste-element")).toEqual("CUSTOMIZED_ITEM_GROUP");
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_GROUP']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_SEPARATOR']`)).toBeTruthy();
+      expect(
+        getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_CONTENT_WRAPPER']`),
+      ).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_ICON']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_ICON_WRAPPER']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_ICON_DOT']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_TITLE']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_TIMESTAMP']`)).toBeTruthy();
+      expect(getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_CONTENT']`)).toBeTruthy();
+      expect(
+        getByTestId("timeline").querySelector(`[data-paste-element='CUSTOMIZED_ITEM_SUMMARY_DETAIL']`),
+      ).toBeTruthy();
     });
   });
 });
