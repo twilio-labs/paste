@@ -540,7 +540,10 @@ export const DefaultObjectsListExample = (): JSX.Element => {
         </PageHeaderDetails>
       </PageHeader>
       <Box>
-        <Box maxWidth="size70" marginBottom="space90" display="flex" columnGap="space80" alignItems="flex-end">
+        <Heading as="h1" variant="heading50">
+          Filter
+        </Heading>
+        <Box maxWidth="size70" marginBottom="space50" display="flex" columnGap="space80" alignItems="flex-end">
           <FormPillGroup {...pillState} aria-label="filters" size="large" variant="tree">
             <PopoverContainer baseId={uniqueBaseID}>
               <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
@@ -593,6 +596,13 @@ export const DefaultObjectsListExample = (): JSX.Element => {
               </Popover>
             </PopoverContainer>
           </FormPillGroup>
+        </Box>
+        <Box marginBottom="space60">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              3 results
+            </Text>
+          </DetailText>
         </Box>
         <DataGrid aria-label={useUID()}>
           <DataGridHead>
