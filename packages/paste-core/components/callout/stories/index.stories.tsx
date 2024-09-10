@@ -85,3 +85,46 @@ export const CalloutWithMargin: StoryFn = () => (
     </Callout>
   </>
 );
+
+export const DismissibleVsNonDismissibleVariantsWithDetailedBody: StoryFn = () => {
+  return (
+    <Box display="flex" flexDirection="column" rowGap="space60">
+      {/* eslint-disable-next-line no-console */}
+      <Callout variant="new" onDismiss={() => console.log("dismissed!")}>
+        <CalloutHeading as="h3">New callout</CalloutHeading>
+        <CalloutText>Take a look at this list:</CalloutText>
+        <ExampleList as="ol" />
+      </Callout>
+      {/* eslint-disable-next-line no-console */}
+      <Callout variant="neutral" onDismiss={() => console.log("dismissed!")}>
+        <CalloutHeading as="h3">Neutral callout</CalloutHeading>
+        <CalloutText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum lectus in congue dignissim. Donec
+          id blandit justo. Nam dignissim eros sem, sit amet commodo enim dapibus nec. Pellentesque at euismod mi.
+          Aenean dignissim fringilla ipsum, ac mattis justo vehicula sed. Nulla non vestibulum sapien, ut mollis leo.
+          Aliquam iaculis urna vel efficitur suscipit. Maecenas id mi vel est elementum varius. Maecenas lobortis, nisi
+          ut pulvinar accumsan, ante felis consequat neque, id mollis mi eros non eros. Quisque sagittis euismod enim ut
+          lobortis. Etiam ac diam efficitur, dapibus ligula sit amet, auctor ex. Cras lacinia, lacus id consequat
+          sollicitudin, augue ex laoreet felis, ac blandit tellus erat vel felis.
+        </CalloutText>
+      </Callout>
+      <Callout variant="new">
+        <CalloutHeading as="h3">New callout</CalloutHeading>
+        <CalloutText>Take a look at this list:</CalloutText>
+        <ExampleList as="ol" />
+      </Callout>
+      <Callout variant="neutral">
+        <CalloutHeading as="h3">Neutral callout</CalloutHeading>
+        <CalloutText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum lectus in congue dignissim. Donec
+          id blandit justo. Nam dignissim eros sem, sit amet commodo enim dapibus nec. Pellentesque at euismod mi.
+          Aenean dignissim fringilla ipsum, ac mattis justo vehicula sed. Nulla non vestibulum sapien, ut mollis leo.
+          Aliquam iaculis urna vel efficitur suscipit. Maecenas id mi vel est elementum varius. Maecenas lobortis, nisi
+          ut pulvinar accumsan, ante felis consequat neque, id mollis mi eros non eros. Quisque sagittis euismod enim ut
+          lobortis. Etiam ac diam efficitur, dapibus ligula sit amet, auctor ex. Cras lacinia, lacus id consequat
+          sollicitudin, augue ex laoreet felis, ac blandit tellus erat vel felis.
+        </CalloutText>
+      </Callout>
+    </Box>
+  );
+};

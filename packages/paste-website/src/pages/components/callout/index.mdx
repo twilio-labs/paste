@@ -1,24 +1,24 @@
 export const meta = {
-  title: 'Callout',
-  package: '@twilio-paste/callout',
-  description: 'A Callout is a banner that highlights important information on a page.',
-  slug: '/components/callout/',
+  title: "Callout",
+  package: "@twilio-paste/callout",
+  description: "A Callout is a banner that highlights important information on a page.",
+  slug: "/components/callout/",
 };
 
-import {Anchor} from '@twilio-paste/anchor';
-import {Stack} from '@twilio-paste/stack';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from '@twilio-paste/callout';
-import {SidebarCategoryRoutes} from '../../../constants';
-import packageJson from '@twilio-paste/callout/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+import { Anchor } from "@twilio-paste/anchor";
+import { Stack } from "@twilio-paste/stack";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem } from "@twilio-paste/callout";
+import { SidebarCategoryRoutes } from "../../../constants";
+import packageJson from "@twilio-paste/callout/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Callout');
+  const feature = await getFeature("Callout");
   return {
     props: {
       data: {
@@ -29,14 +29,14 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/',
-        storybookUrl: '/?path=/story/components-callout--variants',
+        githubUrl: "https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/",
+        storybookUrl: "/?path=/story/components-callout--variants",
       },
     },
   };
 };
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`<Callout variant='neutral'>
     <CalloutHeading as="h2">Heads up!</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
@@ -63,7 +63,7 @@ Each variant includes an icon. To internationalize the icon label for a variant,
 
 Use a neutral Callout to communicate relevant information to the page or flow. The information is often static.
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='neutral'>
     <CalloutHeading as="h2">Neutral Callout</CalloutHeading>
@@ -77,7 +77,7 @@ Use a success Callout to communicate that the desired outcome was achieved. A su
 
 When composing a success Callout, avoid using the word "successfully"—it's redundant.
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='success'>
     <CalloutHeading as="h2">Success Callout</CalloutHeading>
@@ -91,7 +91,7 @@ Use a warning Callout to help users avoid an undesirable outcome, or inform user
 
 A warning Callout should should explain the possible issue, what to do, and what happens if they don't.
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='warning'>
     <CalloutHeading as="h2">Warning Callout</CalloutHeading>
@@ -103,7 +103,7 @@ A warning Callout should should explain the possible issue, what to do, and what
 
 Use an error Callout to communicate errors for a particular section of a page, or that applies to the whole page. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='error'>
     <CalloutHeading as="h2">Error Callout</CalloutHeading>
@@ -115,11 +115,21 @@ Use an error Callout to communicate errors for a particular section of a page, o
 
 Use a new Callout to spotlight a recent addition or update.
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='new'>
     <CalloutHeading as="h2">New Callout</CalloutHeading>
     <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>`}
+</LivePreview>
+
+### Dismissible Callout
+
+<LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
+  {`
+  <Callout variant='new' onDismiss={() => alert("dismissed")}>
+    <CalloutHeading as="h2">Dismissible Callout</CalloutHeading>
+    <CalloutText>This callout can be provided an onDismiss prop to allow for dismissible functionality.</CalloutText>
   </Callout>`}
 </LivePreview>
 
@@ -129,7 +139,7 @@ Callouts can have lists of information within them, and are useful for providing
 
 Use the `CalloutList` and `CalloutListItem` components to make sure the text is the appropriate color for the variant.
 
-<LivePreview scope={{Callout, CalloutHeading, CalloutList, CalloutListItem}} language="jsx">
+<LivePreview scope={{ Callout, CalloutHeading, CalloutList, CalloutListItem }} language="jsx">
   {`<Callout variant='warning'>
     <CalloutHeading as="h2">
       Make sure to check for personal data, such as:
@@ -146,7 +156,7 @@ Use the `CalloutList` and `CalloutListItem` components to make sure the text is 
 
 Callouts can be inline with text, so use the `marginY` prop to add a vertical margin. To add a margin only one side, wrap the Callout in a [Box](/primitives/box) to style it further.
 
-<LivePreview scope={{Paragraph, Callout, CalloutHeading, CalloutText}} language="jsx">
+<LivePreview scope={{ Paragraph, Callout, CalloutHeading, CalloutText }} language="jsx">
   {`<>
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -11794,13 +11794,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/callout@workspace:packages/paste-core/components/callout"
   dependencies:
+    "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.1.0
+    "@twilio-paste/button": ^14.1.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^8.1.0
     "@twilio-paste/design-tokens": ^10.2.0
     "@twilio-paste/icons": ^12.2.0
     "@twilio-paste/screen-reader-only": ^13.1.0
+    "@twilio-paste/spinner": ^14.0.0
+    "@twilio-paste/stack": ^8.0.0
     "@twilio-paste/style-props": ^9.1.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/text": ^10.1.0
@@ -11814,13 +11818,17 @@ __metadata:
     tsx: ^4.0.0
     typescript: ^4.9.4
   peerDependencies:
+    "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
+    "@twilio-paste/button": ^14.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^8.0.0
     "@twilio-paste/design-tokens": ^10.0.0
     "@twilio-paste/icons": ^12.0.0
     "@twilio-paste/screen-reader-only": ^13.0.0
+    "@twilio-paste/spinner": ^14.0.0
+    "@twilio-paste/stack": ^8.0.0
     "@twilio-paste/style-props": ^9.0.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/text": ^10.0.0
