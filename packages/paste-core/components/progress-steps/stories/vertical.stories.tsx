@@ -1,9 +1,11 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
 
 import {
   ProgressStepComplete,
+  ProgressStepContent,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
@@ -110,39 +112,55 @@ export const WithContent = (): React.ReactNode => {
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">
         Complete
-        <Box>
-          <p>Contect your customer data</p>
-          <Button variant="primary" size="small">
-            Connect data
-          </Button>
-        </Box>
+        <ProgressStepContent>
+          <Box>
+            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
+            <Box marginTop="space30">
+              <Button variant="primary" size="small">
+                Connect data
+              </Button>
+            </Box>
+          </Box>
+        </ProgressStepContent>
       </ProgressStepComplete>
       <ProgressStepError as="div">
         Error
-        <Box>
-          <p>Contect your customer data</p>
-          <Button variant="primary" size="small">
-            Connect data
-          </Button>
-        </Box>
+        <ProgressStepContent>
+          <Box>
+            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
+            <Box marginTop="space30">
+              <Button variant="primary" size="small">
+                Connect data
+              </Button>
+            </Box>
+          </Box>
+        </ProgressStepContent>
       </ProgressStepError>
       <ProgressStepCurrent as="div">
         Current
-        <Box>
-          <p>Contect your customer data</p>
-          <Button variant="primary" size="small">
-            Connect data
-          </Button>
-        </Box>
+        <ProgressStepContent>
+          <Box>
+            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
+            <Box marginTop="space30">
+              <Button variant="primary" size="small">
+                Connect data
+              </Button>
+            </Box>
+          </Box>
+        </ProgressStepContent>
       </ProgressStepCurrent>
       <ProgressStepIncomplete as="div">
         Incomplete
-        <Box>
-          <p>Contect your customer data</p>
-          <Button variant="primary" size="small">
-            Connect data
-          </Button>
-        </Box>
+        <ProgressStepContent>
+          <Box>
+            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
+            <Box marginTop="space30">
+              <Button variant="primary" size="small">
+                Connect data
+              </Button>
+            </Box>
+          </Box>
+        </ProgressStepContent>
       </ProgressStepIncomplete>
     </ProgressSteps>
   );

@@ -1,25 +1,6 @@
-import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
-
-import { ProgressStepsContext } from "./ProgressStepsContext";
-
-const VerticalStyles: BoxProps = {
-  borderLeftWidth: "borderWidth20",
-  borderLeftStyle: "solid",
-  borderLeftColor: "colorBorderWeaker",
-  borderRadius: "borderRadius0",
-  minHeight: "32px",
-  marginLeft: "space30",
-};
-const HorizontalStyles: BoxProps = {
-  borderBottomWidth: "borderWidth20",
-  borderBottomStyle: "solid",
-  borderBottomColor: "colorBorderWeaker",
-  borderRadius: "borderRadius20",
-  minWidth: "32px",
-};
 
 export interface ProgressStepSeparatorProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
@@ -33,11 +14,8 @@ export interface ProgressStepSeparatorProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
 
-export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressStepSeparatorProps>(
-  ({ element = "PROGRESS_STEP_SEPARATOR", ...props }, ref) => {
-    const { orientation } = React.useContext(ProgressStepsContext);
-
-    return null;
-  },
-);
+export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressStepSeparatorProps>(() => {
+  // returning null since we are relying on the CSS to render the separator
+  return null;
+});
 ProgressStepSeparator.displayName = "ProgressStepSeparator";
