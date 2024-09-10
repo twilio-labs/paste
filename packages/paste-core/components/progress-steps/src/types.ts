@@ -4,14 +4,6 @@ import React from "react";
 
 type BaseStepProps = {
   children: NonNullable<React.ReactNode>;
-
-  /**
-   * Adds extra content to the step. This is useful for adding a description or additional information.
-   *
-   * @type {React.ReactNode}
-   * @memberof BaseStepProps
-   */
-  content?: React.ReactNode;
 };
 
 type StepDivProps = HTMLPasteProps<"div"> & {

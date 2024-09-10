@@ -6,10 +6,7 @@ import { ProgressStepsContext } from "./ProgressStepsContext";
 import type { ProgressStepCompleteProps } from "./types";
 
 export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressStepCompleteProps>(
-  (
-    { element = "PROGRESS_STEP_COMPLETE", as = "div", children, i18nCompleteLabel = "Completed", content, ...props },
-    ref,
-  ) => {
+  ({ element = "PROGRESS_STEP_COMPLETE", as = "div", children, i18nCompleteLabel = "Completed", ...props }, ref) => {
     const { orientation } = React.useContext(ProgressStepsContext);
 
     return (
@@ -41,15 +38,7 @@ export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressSte
           <Box display="flex" flexDirection="column" alignItems="center">
             <ProgressSuccessIcon decorative={false} title={i18nCompleteLabel} />
           </Box>
-          <Box textAlign="left">
-            {children}
-            <Box
-              marginTop={orientation === "vertical" ? "space30" : "space0"}
-              paddingBottom={orientation === "vertical" ? "space70" : "space0"}
-            >
-              {content}
-            </Box>
-          </Box>
+          <Box textAlign="left">{children}</Box>
         </Box>
       </div>
     );

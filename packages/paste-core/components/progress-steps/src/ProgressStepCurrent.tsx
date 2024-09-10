@@ -6,10 +6,7 @@ import { ProgressCurrentIcon } from "./icons/ProgressCurrentIcon";
 import type { ProgressStepCurrentProps } from "./types";
 
 export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStepCurrentProps>(
-  (
-    { element = "PROGRESS_STEP_CURRENT", as = "div", children, i18nCurrentLabel = "Current", content, ...props },
-    ref,
-  ) => {
+  ({ element = "PROGRESS_STEP_CURRENT", as = "div", children, i18nCurrentLabel = "Current", ...props }, ref) => {
     const { orientation } = React.useContext(ProgressStepsContext);
 
     return (
@@ -42,15 +39,7 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           <Box display="flex" flexDirection="column" alignItems="center">
             <ProgressCurrentIcon decorative={false} title={i18nCurrentLabel} />
           </Box>
-          <Box textAlign="left">
-            {children}{" "}
-            <Box
-              marginTop={orientation === "vertical" ? "space30" : "space0"}
-              paddingBottom={orientation === "vertical" ? "space70" : "space0"}
-            >
-              {content}
-            </Box>
-          </Box>
+          <Box textAlign="left">{children}</Box>
         </Box>
       </div>
     );

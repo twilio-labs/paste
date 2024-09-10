@@ -13,7 +13,6 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
       disabled = false,
       children,
       i18nIncompleteLabel = "Incomplete",
-      content,
       ...props
     },
     ref,
@@ -51,15 +50,7 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           <Box display="flex" flexDirection="column" alignItems="center">
             <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
           </Box>
-          <Box textAlign="left">
-            {children}{" "}
-            <Box
-              marginTop={orientation === "vertical" ? "space30" : "space0"}
-              paddingBottom={orientation === "vertical" ? "space70" : "space0"}
-            >
-              {content}
-            </Box>
-          </Box>
+          <Box textAlign="left">{children} </Box>
         </Box>
       </div>
     );

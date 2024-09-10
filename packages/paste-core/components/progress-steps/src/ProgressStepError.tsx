@@ -6,7 +6,7 @@ import { ProgressErrorIcon } from "./icons/ProgressErrorIcon";
 import type { ProgressStepErrorProps } from "./types";
 
 export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepErrorProps>(
-  ({ element = "PROGRESS_STEP_ERROR", as = "div", children, i18nErrorLabel = "Error", content, ...props }, ref) => {
+  ({ element = "PROGRESS_STEP_ERROR", as = "div", children, i18nErrorLabel = "Error", ...props }, ref) => {
     const { orientation } = React.useContext(ProgressStepsContext);
 
     return (
@@ -39,15 +39,7 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
             <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
           </Box>
 
-          <Box textAlign="left">
-            {children}{" "}
-            <Box
-              marginTop={orientation === "vertical" ? "space30" : "space0"}
-              paddingBottom={orientation === "vertical" ? "space70" : "space0"}
-            >
-              {content}
-            </Box>
-          </Box>
+          <Box textAlign="left">{children} </Box>
         </Box>
       </div>
     );
