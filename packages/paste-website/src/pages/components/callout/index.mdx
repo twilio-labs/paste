@@ -47,41 +47,43 @@ export const getStaticProps = async () => {
 
 ### About Callout
 
-Use a Callout to highlight important information on a page or in a page section. Callouts can result from user action, but don’t have to. Do not use a Callouts to tell users about a system-level issue; use an [Alert](/components/alert) instead. Do not use a Callout to convey brief, low-complexity information; use a [Toast](/components/toast) instead. For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
+Use a Callout to highlight important information on a page. Callouts are less restrictive than Alerts or Toasts—they can result from user action, but don’t have to.
+
+Do not use a Callout to tell users about a system-level issue; use an [Alert](/components/alert) instead. For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
 
 ### Accessibility
 
-We recommend Callouts have a CalloutHeading so that the information is easier to navigate to for people who use screen readers. The CalloutHeading's level should be set appropriately with the `as` prop. It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page.
+Callouts should have a `CalloutHeading` so that the information is easier to navigate to for people who use screen readers. The `CalloutHeading`'s level should be set appropriately with the `as` prop. It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page.
 
 ## Examples
 
 There are five variants of Callouts: `neutral`, `success`, `warning`, `error`, and `new`. Each variant includes an icon.
 
-Each variant includes an icon. To internationalize the icon label for a variant, simply pass the `i18nLabel` prop.
+To internationalize the icon label for a variant, pass the `i18nLabel` prop.
 
 ### Neutral Callout
 
-Use a neutral Callout to communicate relevant information to the page or flow. The information is often static.
+Use a neutral Callout to communicate relevant information to the page or flow. This information is often static.
 
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='neutral'>
-    <CalloutHeading as="h2">Neutral Callout</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
+    <CalloutHeading as="h2">Finding your category ID</CalloutHeading>
+    <CalloutText>On your dashboard, look for the relevant "Category ID". It will contain up to five alphanumeric characters.</CalloutText>
   </Callout>`}
 </LivePreview>
 
 ### Success Callout
 
-Use a success Callout to communicate that the desired outcome was achieved. A success Callout can be appropriate when the outcome is relevant to a particular part of the page, or when additional information or context needs to be provided.
+Use a success Callout to communicate that the desired outcome was achieved. A success Callout can be appropriate when the outcome is relevant to a specific part of the page, or when additional information or context needs to be provided.
 
-When composing a success Callout, avoid using the word "successfully"—it's redundant.
+When composing a success Callout, avoid using the word "successfully" since it's redundant.
 
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='success'>
-    <CalloutHeading as="h2">Success Callout</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
+    <CalloutHeading as="h2">Recommended action</CalloutHeading>
+    <CalloutText>Make sure you have permission first. Only send messages to mobile users who have provided consent (opted-in) to receive messages from you.</CalloutText>
   </Callout>`}
 </LivePreview>
 
@@ -94,8 +96,8 @@ A warning Callout should should explain the possible issue, what to do, and what
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='warning'>
-    <CalloutHeading as="h2">Warning Callout</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
+    <CalloutHeading as="h2">Permission settings will change in 30 days.</CalloutHeading>
+    <CalloutText>Update your permission settings now to avoid any delays or issues accessing your accounts.</CalloutText>
   </Callout>`}
 </LivePreview>
 
@@ -106,8 +108,8 @@ Use an error Callout to communicate errors for a particular section of a page, o
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='error'>
-    <CalloutHeading as="h2">Error Callout</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
+    <CalloutHeading as="h2">Missing values</CalloutHeading>
+    <CalloutText>Please fill out the "Street address" field.</CalloutText>
   </Callout>`}
 </LivePreview>
 
@@ -118,18 +120,19 @@ Use a new Callout to spotlight a recent addition or update.
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='new'>
-    <CalloutHeading as="h2">New Callout</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
+    <CalloutHeading as="h2">Early access to AI features</CalloutHeading>
+    <CalloutText>You have early access to deliverability scores, Intelligent Discovery Assistant, and intelligent alerts. Try out these new features, and get personalized alerts and recommendations for your account.</CalloutText>
   </Callout>`}
 </LivePreview>
 
 ### Dismissible Callout
 
+Make a Callout dismissible with the `onDismiss` prop if it doesn't communicate a persistent status of the system or the account, or you provide another way for the user to access the information.
+
 <LivePreview scope={{ Callout, CalloutHeading, CalloutText }} language="jsx">
   {`
   <Callout variant='new' onDismiss={() => alert("dismissed")}>
-    <CalloutHeading as="h2">Dismissible Callout</CalloutHeading>
-    <CalloutText>This callout can be provided an onDismiss prop to allow for dismissible functionality.</CalloutText>
+    <CalloutText>Changes to conference insights settings apply only to conferences created in the past 30 days.</CalloutText>
   </Callout>`}
 </LivePreview>
 
@@ -175,9 +178,9 @@ Callouts can be inline with text, so use the `marginY` prop to add a vertical ma
 
 Compose a Callout with:
 
-- **Title (optional).** The title should be concise and convey the essense of the issue.
-- **Body text.** Use the default text style. Do not repeat information contained in a title. If the user needs to take action on another page, or more information would be helpful, include an [Anchor](/components/anchor).
-- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
+- **Heading (optional).** The heading should be concise and convey the essence of the issue.
+- **Body text.** Use the default text style. Do not repeat information contained in the heading. If the user needs to take action on another page, or more information would be helpful, include an [Anchor](/components/anchor).
+- **Full punctuation.** Use periods after full sentences.
 
 ### Alert vs. Callout vs. Toast vs. Help Text
 
@@ -195,10 +198,10 @@ Callout
 Toast
 
 - Toasts communicate brief, easily comprehended messages.
-- Toasts generally result from a user action.
+- Toasts result from a user action.
 - If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
 - Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
-- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+- Do not use a Toast if there is more than one Anchor or Button. Use a Callout instead.
 
 Help Text
 
