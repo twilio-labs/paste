@@ -45,8 +45,8 @@ import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgress
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 
 import { SidebarCategoryRoutes } from "../../../constants";
-import Changelog from "@twilio-paste/time-picker/CHANGELOG.md";
-import packageJson from "@twilio-paste/time-picker/package.json";
+import Changelog from "@twilio-paste/timeline/CHANGELOG.md";
+import packageJson from "@twilio-paste/timeline/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 import { SupportIcon } from "@twilio-paste/icons/esm/SupportIcon";
@@ -55,7 +55,7 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature("Time Picker");
+  const feature = await getFeature("Timeline");
   return {
     props: {
       data: {
@@ -66,8 +66,8 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker",
-        storybookUrl: "/?path=/story/components-time-picker--default-time-picker",
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/timeline",
+        storybookUrl: "/?path=/story/components-timeline--default-timeline",
       },
     },
   };
@@ -282,11 +282,10 @@ In use cases where more than one timestamp per Timeline item is required, use se
 
 <DoDont>
   <Do title="Do" body="Always include a timestamp on Timeline events." center>
-    <Box paddingTop="space50">
+    <Box>
       <Timeline>
         <TimelineItem title="Event title" timestamp="August 30, 2024" />
         <TimelineItem title="Event title" timestamp="August 29, 2024" />
-        <TimelineItem title="Event title" timestamp="August 21, 2024" />
       </Timeline>
     </Box>
   </Do>
@@ -299,9 +298,6 @@ In use cases where more than one timestamp per Timeline item is required, use se
       <TimelineItem title="Event title" timestamp="August 29, 2024">
         Sign up
       </TimelineItem>
-      <TimelineItem title="Event title" timestamp="August 21, 2024">
-        Complete profile
-      </TimelineItem>
     </Timeline>
   </Dont>
   <Do
@@ -311,18 +307,9 @@ In use cases where more than one timestamp per Timeline item is required, use se
   >
     <Timeline>
       <TimelineItem title="Event title" timestamp="August 30, 2024">
-        <Box marginTop="space20">
           <StatusBadge as="span" variant="ProcessWarning">
             Warning
           </StatusBadge>
-        </Box>
-      </TimelineItem>
-      <TimelineItem title="Event title" timestamp="August 29, 2024">
-        <Box marginTop="space20">
-          <StatusBadge as="span" variant="ProcessSuccess">
-            Success
-          </StatusBadge>
-        </Box>
       </TimelineItem>
     </Timeline>
   </Do>
