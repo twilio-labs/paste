@@ -70,6 +70,11 @@ Each notification or feedback pattern uses one or more of these components.
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/callout">Callout</Anchor>
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="/components/toast">Toast</Anchor>
         </Heading>
       </Card>
@@ -79,7 +84,7 @@ Each notification or feedback pattern uses one or more of these components.
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/components/input/#input-with-inline-error">Inline error on form fields</Anchor>
+          <Anchor href="/components/help-text">Help Text</Anchor>
         </Heading>
       </Card>
       <Card>
@@ -107,15 +112,16 @@ Each notification or feedback pattern uses one or more of these components.
 // import all components for Notification and feedback patterns
 
 import {​ Alert } from "@twilio-paste/core/alert;
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/core/callout';
 import { Toast } from "@twilio-paste/core/toast";
 import { Label } from "@twilio-paste/core/label";
 import { Input } from "@twilio-paste/core/input";
-import { HelpText } from "@twilio-paste/core/help-text;
+import { HelpText } from "@twilio-paste/core/help-text";
 import {​ Button } from "@twilio-paste/core/button";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
 import {​ Card } from "@twilio-paste/core/card";
 import {​ Heading } from "@twilio-paste/core/heading";
-import {​ Paragraph } from "@twilio-paste/core/paragraph;
+import {​ Paragraph } from "@twilio-paste/core/paragraph";
 ```
 
 ## Usage
@@ -124,7 +130,7 @@ import {​ Paragraph } from "@twilio-paste/core/paragraph;
 
 Pairing thoughtful content writing with the appropriate UI elements can help you establish trust with customers by notifying them of relevant information at just the right time. Use these patterns only when the user **needs** to be notified.
 
-In general, notifications should close when a user leaves the page. A notification should follow a user through the product only in the most critical cases, like an alert informing a customer that their paid account won’t renew soon because of expired billing information.
+In general, notifications should close when a user leaves the page. A notification should follow a user through the product only in the most critical cases, like an Alert informing a customer that their paid account won’t renew soon because of expired billing information.
 
 Too many notifications that appear for too long may lead to alert fatigue, causing users to ignore important information.
 
@@ -154,30 +160,21 @@ Notifications and feedback can come in 4 variants:
 
 Give users enough time to read a notification message, make a decision, and act on their decision. Users’ reading speeds, vision levels, literacy levels, dexterity, and familiarity with Twilio products can all affect how much time they’ll need to interact with a notification.
 
-Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element](/components/input), and [Toast](/components/toast) pages for more specific guidelines on how to implement each component accessibly.
+Visit the [Alert](/components/alert), [Modal](/components/modal), [Form](/components/form), and [Toast](/components/toast) pages for more specific guidelines on how to implement each component accessibly.
 
 ## Notification and feedback levels
 
 ### System-initiated notifications
 
-To communicate information from the system that isn't triggered by a user action, use an **[alert](/components/alert)**, especially for high-priority or time-sensitive changes to the system.
+To communicate information from the system that isn't triggered by a user action, use an **[Alert](/components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
 <ResponsiveImage src={NotificationsAlertImage} alt="Screen with alert informing users of a server error" />
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h4" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
-
 ### Feedback indicators
 
-To communicate feedback on a user action, use a **[toast](/components/toast)**, **[modal](/components/modal)**, **inline messaging**, and/or **in-page messaging** (e.g., full-page confirmation).
+To communicate feedback on a user action, use a **[Toast](/components/toast)**, **[Callout](/components/callout)**, **[Modal](/components/modal)**, **[Help Text](/components/help-text)**, and/or **in-page messaging** (e.g., full-page confirmation).
 
-While you’ll only need one type of feedback indicator in most cases, pairing 2 feedback indicators can help give users more clarity in completing a complex flow. For example, when a user submits a long form with errors, you can show an error toast that lets users know they need to fix a form, while also showing inline errors on each incorrect field.
+While you’ll only need one type of feedback indicator in most cases, pairing 2 feedback indicators can help give users more clarity in completing a complex flow. For example, when a user submits a long form with an error, you can show an error Toast that lets users know they need to fix a form, while also showing error Help Text on the incorrect field.
 
 #### Standard feedback indicator (Toast)
 
@@ -185,25 +182,12 @@ Use a Toast when
 
 - You’re communicating a direct response to a user action. Example: "asset.jpg" successfully added.
 - You're providing only one link or button to help a user continue a flow.
-- There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast may not be needed when a modal closes after a user presses “Save” in it. The modal dismissal may sufficiently communicate that the information in the modal was saved, without needing further messaging.
+- There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast isn't needed when a Modal closes after a user presses “Save” in it. The dismissal of the Modal can communicate that the information was saved, without needing further messaging.
 
 <ResponsiveImage
   src={NotificationsToastImage}
-  alt="Screen with toast confirming a password reset email has been sent"
+  alt="Screen with Toast confirming a password reset email has been sent"
 />
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h5">Toasts in Flex and SendGrid?</CalloutHeading>
-  <CalloutText>
-    While the recommendation is to migrate to Paste Toast components to acknowledge user actions, Flex and SendGrid
-    currently use banners for this purpose.
-  </CalloutText>
-  <CalloutText>
-    These banners generally exist at the top of the page, especially for page-level actions, with a limit of 3 per page.
-    The oldest one is removed when a new one displays. In Flex, banners may be placed at the top of a specific section
-    where the action was taken.
-  </CalloutText>
-</Callout>
 
 #### Interruptive feedback indicator (Modal)
 
@@ -215,37 +199,18 @@ Use a Modal when
 
 <ResponsiveImage src={NotificationsModalImage} alt="Modal congratulating a user at the end of a Modal flow" />
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
+#### Contextual feedback indicator (Help Text)
 
-#### Contextual feedback indicator (Inline messaging)
-
-Use contextual, inline messaging (e.g., inline errors on form fields) when
+Use Help Text when
 
 - You’re communicating a direct response to a user action.
 - You’re providing links or buttons that are contextual to a UI element and help a user continue a flow.
-- You’re communicating dynamically changing content, like a progress bar.
 
 <ResponsiveImage src={NotificationsInlineMessagingImage} alt="Screen with inline error with anchor on a form field" />
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
-
 #### High-emotion feedback indicator (In-page messaging)
 
-Use in-page messaging (e.g., full-page confirmation composition) when
+Use in-page messaging (e.g., full-page confirmation) when
 
 - You’re communicating a direct response to a _high-emotion_ user action or flow.
 - You’re providing information that a user might want to copy, screenshot, or save, like a confirmation number or invoice details.
@@ -254,29 +219,6 @@ Use in-page messaging (e.g., full-page confirmation composition) when
   src={NotificationsInpageMessagingImage}
   alt="Full-page congratulations message on setting up a Twilio Messaging Service with SIDs to copy"
 />
-
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
-
-## Starter kits
-
-### CodeSandbox
-
-Coming soon
-
-### Figma
-
-Coming soon
-
-## Related discussions
-
-- [Thoughts on expanded size variants for Toast](https://github.com/twilio-labs/paste/discussions/834)
 
 </content>
 
