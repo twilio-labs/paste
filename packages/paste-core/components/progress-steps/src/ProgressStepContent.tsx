@@ -17,7 +17,7 @@ export interface ProgressStepContentProps extends HTMLPasteProps<"div"> {
 export const ProgressStepContent = React.forwardRef<HTMLDivElement, ProgressStepContentProps>(
   ({ element = "PROGRESS_STEP_CONTENT", ...props }, ref) => {
     return (
-      <Box element={element} color="colorText" ref={ref}>
+      <Box element={element} color="colorText" ref={ref} paddingBottom="space50">
         {props.children}
       </Box>
     );
