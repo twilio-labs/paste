@@ -1,13 +1,13 @@
 - @twilio-labs/design-systems-eng
 
-# Design tokens - ensure someone from design reviews to keep in sync with Figma
+# Design tokens - ensure someone from design reviews to keep in sync with Figma, plus an engineer
 
-/packages/paste-design-tokens/tokens @twilio-labs/design-systems-pd
+/packages/paste-design-tokens/tokens @twilio-labs/design-systems-pd @twilio-labs/design-systems-eng
 
-# Icons - ensure changes to icons are reviewed by a designer
+# Icons - ensure changes to icons are reviewed by a designer, plus an engineer
 
-/packages/paste-icons/svg @twilio-labs/design-systems-pd
+/packages/paste-icons/svg @twilio-labs/design-systems-pd @twilio-labs/design-systems-eng
 
-# Website - ensure changes to website page copy is reviewed by a designer
+# Website - ensure changes to website page copy is reviewed by a designer, plus an engineer
 
-/packages/paste-website/src/pages @twilio-labs/design-systems-pd
+/packages/paste-website/src/pages @twilio-labs/design-systems-pd @twilio-labs/design-systems-eng
