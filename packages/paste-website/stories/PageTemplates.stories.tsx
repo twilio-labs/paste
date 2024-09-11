@@ -546,7 +546,8 @@ export const DefaultObjectsListExample = (): JSX.Element => {
         <Box maxWidth="size70" marginBottom="space50" display="flex" columnGap="space80" alignItems="flex-end">
           <FormPillGroup {...pillState} aria-label="filters" size="large" variant="tree">
             <PopoverContainer baseId={uniqueBaseID}>
-              <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+              <PopoverFormPillButton {...pillState} selected={selected}>
+                <PlusIcon decorative />
                 Phone number
               </PopoverFormPillButton>
               <Popover aria-label="phone numer filter">
@@ -571,7 +572,8 @@ export const DefaultObjectsListExample = (): JSX.Element => {
               </Popover>
             </PopoverContainer>
             <PopoverContainer baseId={uniqueBaseID}>
-              <PopoverFormPillButton {...pillState} selected={selected} onDismiss={() => {}}>
+              <PopoverFormPillButton {...pillState} selected={selected}>
+                <PlusIcon decorative />
                 Friendly name
               </PopoverFormPillButton>
               <Popover aria-label="friendly name filter">
