@@ -17,6 +17,7 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
   const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
+    paddingX: "space10",
     paddingBottom: "4px",
     marginBottom: "4px",
     overflowX: "auto",
@@ -24,7 +25,7 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
     overflowScrolling: "touch",
     /* Firefox scrollbar */
     "@supports (-moz-appearance:none)": {
-      paddingBottom: "10px",
+      paddingBottom: "0px",
       scrollbarColor: `${colorBackgroundStronger} transparent`,
       scrollbarWidth: "thin",
     },
@@ -42,16 +43,6 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
     "::-webkit-scrollbar-thumb:hover": {
       background: colorBackgroundInverseStronger,
     },
-  });
-});
-
-const StyledNav = styled(Box)(({ isFitted }: { isFitted: boolean }) => {
-  return css({
-    columnGap: "space20",
-    overflow: "visible",
-    whiteSpace: "nowrap",
-    display: isFitted ? "flex" : "block",
-    marginBottom: isFitted ? "space0" : "-5px",
   });
 });
 
@@ -99,9 +90,9 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
       >
-        <StyledNav ref={ref} isFitted={isFitted} element={element} as="nav">
+        <Box ref={ref} whiteSpace={"nowrap"} display={isFitted ? "flex" : "block"}>
           {children}
-        </StyledNav>
+        </Box>
       </Box>
     </Box>
   );
