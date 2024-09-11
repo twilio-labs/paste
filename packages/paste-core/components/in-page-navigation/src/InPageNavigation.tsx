@@ -3,6 +3,8 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { css, styled } from "@twilio-paste/styling-library";
+import { ThemeShape } from "@twilio-paste/theme";
 import { InPageNavigationContext } from "./InPageNavigationContext";
 import type { Orientation, Variants } from "./types";
 
@@ -53,6 +55,39 @@ export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "chil
   hideBottomBorder?: boolean;
 }
 
+const StyledScrollTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
+  const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
+
+  return css({
+    paddingX: "space10",
+    paddingBottom: "4px",
+    marginBottom: "4px",
+    overflowX: "auto",
+    overflowY: "hidden",
+    overflowScrolling: "touch",
+    /* Firefox scrollbar */
+    "@supports (-moz-appearance:none)": {
+      paddingBottom: "0px",
+      scrollbarColor: `${colorBackgroundStronger} transparent`,
+      scrollbarWidth: "thin",
+    },
+    /* Chrome + Safari scrollbar */
+    "::-webkit-scrollbar": {
+      height: 4,
+    },
+    "::-webkit-scrollbar-track": {
+      background: "transparent",
+    },
+    "::-webkit-scrollbar-thumb": {
+      background: colorBackgroundStronger,
+      borderRadius: "5px",
+    },
+    "::-webkit-scrollbar-thumb:hover": {
+      background: colorBackgroundInverseStronger,
+    },
+  });
+});
+
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
   (
     {
@@ -95,20 +130,30 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
       <InPageNavigationContext.Provider value={{ variant, orientation }}>
         <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
           <Box
-            as="ul"
-            listStyleType="none"
-            element={`${element}_ITEMS`}
+            as={StyledScrollTabList as any}
             display="flex"
-            justifyContent={isFullWidth ? "space-evenly" : "flex-start"}
-            columnGap={!isFullWidth ? "space50" : "space0"}
-            padding="space0"
-            margin="space0"
+            flexWrap="nowrap"
+            flexShrink={0}
+            element={`${element}_CHILD`}
+            overflowX="auto"
+            overflowY="hidden"
             marginBottom={marginBottom || "space60"}
-            borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
-            borderBottomStyle={hideBottomBorder ? "none" : "solid"}
-            borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
           >
-            {children}
+            <Box
+              as="ul"
+              listStyleType="none"
+              element={`${element}_ITEMS`}
+              display="flex"
+              justifyContent={isFullWidth ? "space-evenly" : "flex-start"}
+              columnGap={!isFullWidth ? "space50" : "space0"}
+              padding="space0"
+              margin="space0"
+              borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
+              borderBottomStyle={hideBottomBorder ? "none" : "solid"}
+              borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
+            >
+              {children}
+            </Box>
           </Box>
         </Box>
       </InPageNavigationContext.Provider>
