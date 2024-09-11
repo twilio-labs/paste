@@ -52,9 +52,9 @@ export type TimelineItemProps = {
   /**
    * In case of collapsible timeline item and no timestamp, this will be used as the heading
    *
-   * @type {boolean}
+   * @type {string}
    * @memberof TimelineItemProps
-   * @default false
+   * @default undefined
    */
   collapsibleHeading?: string;
 
@@ -69,21 +69,9 @@ export type TimelineItemProps = {
 } & HTMLPasteProps<"li">;
 
 export type TimelineItemIconProps = {
-  /**
-   * Pass a Paste Icon to display in place of dot
-   *
-   * @type {React.FC<React.PropsWithChildren<GenericIconProps>>}
-   * @memberof TimelineItemIconProps
-   */
+  // Pass a Paste Icon to display in place of dot
   icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
 
-  /**
-   * Overrides the default element name to apply unique styles with the Customization Provider.
-   *
-   * @default "TIMELINE_ITEM"
-   * @type {BoxProps["element"]}
-   * @memberof TimelineItemIconProps
-   */
   element?: BoxProps["element"];
 } & IconWrapperProps;
 

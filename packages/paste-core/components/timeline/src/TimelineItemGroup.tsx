@@ -6,7 +6,7 @@ import { TimelineGroupContext } from "./TimelineContext";
 import { TimelineItemIcon } from "./TimelineItemIcon";
 import type { TimelineItemGroupProps } from "./types";
 
-export const TimelineItemGroup = React.forwardRef<HTMLDivElement, TimelineItemGroupProps>(
+export const TimelineItemGroup = React.forwardRef<HTMLLIElement, TimelineItemGroupProps>(
   ({ children, timestamp, icon, element = "TIMELINE_ITEM_GROUP", ...props }, ref) => {
     return (
       <Box
