@@ -111,7 +111,7 @@ Use a neutral Alert to notify a user of a change that's relevant for them to ach
 
 In most cases, a neutral Alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`.
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for neutral Alerts.
+You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for neutral Alerts.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="neutral">
@@ -127,7 +127,7 @@ A warning Alert should provide explain the possible issue, what to do, and what 
 
 Be cautious about using a warning Alert because they can be stressful for a user to see. In most cases, a warning Alert should be assigned `role="alert"`.
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning Alerts.
+You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning Alerts.
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
@@ -143,7 +143,7 @@ In most cases, error Alerts should be assigned `role="alert"`.
 
 For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text). For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error Alerts.
+You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error Alerts.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="error">
@@ -155,7 +155,7 @@ You may use [the Text primitive](/primitives/text) as a child of Alert, but if y
 
 Make the Alert dismissible if it doesn't communicate a persistent status of the system or the account. If you make an Alert dismissible, provide another way for the user to retrieve the alert information.
 
-Don't make it dismisslbe if all these conditions are true:
+Don't make it dismissible if all these conditions are true:
 
 - The Alert communicates a persistent status of the system or the account.
 - The information is relevant to the user's goals on the page(s) the Alert is on.
