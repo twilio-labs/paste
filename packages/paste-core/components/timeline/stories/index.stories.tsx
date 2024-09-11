@@ -21,15 +21,15 @@ export default {
 export const DefaultTimeline = (): React.ReactNode => {
   return (
     <Timeline>
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:01:00 pm">
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:01:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 11, 2024 | 12:01:00 pm">
+      <TimelineItem title="Event title" timestamp="August 11, 2024 | 12:01:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 12, 2024 | 12:01:00 pm">
+      <TimelineItem title="Event title" timestamp="August 12, 2024 | 12:01:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
@@ -43,15 +43,15 @@ export const DefaultTimeline = (): React.ReactNode => {
 export const TimelineWithIcon = (): React.ReactNode => {
   return (
     <Timeline>
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:01:00 pm" icon={UserIcon}>
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:01:00 pm" icon={UserIcon}>
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:02:00 pm" icon={UserIcon}>
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:02:00 pm" icon={UserIcon}>
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:03:00 pm">
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:03:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
     </Timeline>
@@ -61,15 +61,15 @@ export const TimelineWithIcon = (): React.ReactNode => {
 export const TimelineCollapsible = (): React.ReactNode => {
   return (
     <Timeline>
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:01:00 pm" collapsible>
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:01:00 pm" collapsible>
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:02:00 pm">
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:02:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:03:00 pm" collapsible>
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:03:00 pm" collapsible>
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
@@ -83,16 +83,16 @@ export const TimelineCollapsible = (): React.ReactNode => {
 export const TimelineGrouped = (): React.ReactNode => {
   return (
     <Timeline>
-      <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:01:00 pm">
+      <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:01:00 pm">
         <Paragraph marginBottom="space0">Event details</Paragraph>
       </TimelineItem>
 
       <TimelineItemGroup timestamp="August 10, 2024">
-        <TimelineItem title="Event Title" timestamp="12:01:00 pm">
+        <TimelineItem title="Event title" timestamp="12:01:00 pm">
           <Paragraph marginBottom="space0">Event details</Paragraph>
         </TimelineItem>
 
-        <TimelineItem title="Event Title" timestamp="12:02:00 pm">
+        <TimelineItem title="Event title" timestamp="12:02:00 pm">
           <Paragraph marginBottom="space0">Event details</Paragraph>
         </TimelineItem>
 
@@ -105,36 +105,36 @@ export const TimelineGrouped = (): React.ReactNode => {
 };
 
 const allItems = [
-  { date: "August 10, 2024", text: "Event Title" },
-  { date: "August 11, 2024", text: "Event Title" },
-  { date: "August 12, 2024", text: "Event Title" },
-  { date: "August 13, 2024", text: "Event Title" },
-  { date: "August 14, 2024", text: "Event Title" },
-  { date: "August 15, 2024", text: "Event Title" },
-  { date: "August 16, 2024", text: "Event Title" },
-  { date: "August 17, 2024", text: "Event Title" },
-  { date: "August 18, 2024", text: "Event Title" },
-  { date: "August 19, 2024", text: "Event Title" },
-  { date: "August 20, 2024", text: "Event Title" },
-  { date: "August 21, 2024", text: "Event Title" },
-  { date: "August 22, 2024", text: "Event Title" },
-  { date: "August 23, 2024", text: "Event Title" },
-  { date: "August 24, 2024", text: "Event Title" },
-  { date: "August 25, 2024", text: "Event Title" },
-  { date: "August 26, 2024", text: "Event Title" },
-  { date: "August 27, 2024", text: "Event Title" },
-  { date: "August 28, 2024", text: "Event Title" },
-  { date: "August 29, 2024", text: "Event Title" },
-  { date: "August 30, 2024", text: "Event Title" },
-  { date: "August 01, 2024", text: "Event Title" },
-  { date: "August 02, 2024", text: "Event Title" },
-  { date: "August 03, 2024", text: "Event Title" },
-  { date: "August 04, 2024", text: "Event Title" },
-  { date: "August 05, 2024", text: "Event Title" },
-  { date: "August 06, 2024", text: "Event Title" },
-  { date: "August 07, 2024", text: "Event Title" },
-  { date: "August 08, 2024", text: "Event Title" },
-  { date: "August 09, 2024", text: "Event Title" },
+  { date: "August 10, 2024", text: "Event title" },
+  { date: "August 11, 2024", text: "Event title" },
+  { date: "August 12, 2024", text: "Event title" },
+  { date: "August 13, 2024", text: "Event title" },
+  { date: "August 14, 2024", text: "Event title" },
+  { date: "August 15, 2024", text: "Event title" },
+  { date: "August 16, 2024", text: "Event title" },
+  { date: "August 17, 2024", text: "Event title" },
+  { date: "August 18, 2024", text: "Event title" },
+  { date: "August 19, 2024", text: "Event title" },
+  { date: "August 20, 2024", text: "Event title" },
+  { date: "August 21, 2024", text: "Event title" },
+  { date: "August 22, 2024", text: "Event title" },
+  { date: "August 23, 2024", text: "Event title" },
+  { date: "August 24, 2024", text: "Event title" },
+  { date: "August 25, 2024", text: "Event title" },
+  { date: "August 26, 2024", text: "Event title" },
+  { date: "August 27, 2024", text: "Event title" },
+  { date: "August 28, 2024", text: "Event title" },
+  { date: "August 29, 2024", text: "Event title" },
+  { date: "August 30, 2024", text: "Event title" },
+  { date: "August 01, 2024", text: "Event title" },
+  { date: "August 02, 2024", text: "Event title" },
+  { date: "August 03, 2024", text: "Event title" },
+  { date: "August 04, 2024", text: "Event title" },
+  { date: "August 05, 2024", text: "Event title" },
+  { date: "August 06, 2024", text: "Event title" },
+  { date: "August 07, 2024", text: "Event title" },
+  { date: "August 08, 2024", text: "Event title" },
+  { date: "August 09, 2024", text: "Event title" },
 ];
 
 export const TimelineLoadMore = (): React.ReactNode => {
@@ -191,12 +191,12 @@ export const TimelineInfiniteScroll = (): React.ReactNode => {
         ))}
       </Timeline>
       {isLoading ? (
-        <Box display="flex" flexDirection="column" rowGap="space30" maxWidth="180px">
-          <SkeletonLoader />
-          <SkeletonLoader />
-          <SkeletonLoader />
-          <SkeletonLoader />
-          <SkeletonLoader />
+        <Box display="flex" flexDirection="column" rowGap="space60">
+          <SkeletonLoader height="44px" width="160px" />
+          <SkeletonLoader height="44px" width="160px" />
+          <SkeletonLoader height="44px" width="160px" />
+          <SkeletonLoader height="44px" width="160px" />
+          <SkeletonLoader height="44px" width="160px" />
         </Box>
       ) : null}
     </Box>
@@ -247,15 +247,15 @@ export const TimelineCustomization = (): React.ReactNode => {
         }}
       >
         <Timeline>
-          <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:38:03 pm">
+          <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:38:03 pm">
             <Paragraph marginBottom="space0">Event details</Paragraph>
           </TimelineItem>
 
-          <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:48:03 pm">
+          <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:48:03 pm">
             <Paragraph marginBottom="space0">Event details</Paragraph>
           </TimelineItem>
 
-          <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:58:03 pm">
+          <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:58:03 pm">
             <Paragraph marginBottom="space0">Event details</Paragraph>
           </TimelineItem>
 
@@ -263,7 +263,7 @@ export const TimelineCustomization = (): React.ReactNode => {
             <Paragraph marginBottom="space0">Event details</Paragraph>
           </TimelineItem>
 
-          <TimelineItem title="Event Title" timestamp="August 10, 2024 | 12:08:03 pm" icon={UserIcon}>
+          <TimelineItem title="Event title" timestamp="August 10, 2024 | 12:08:03 pm" icon={UserIcon}>
             <Paragraph marginBottom="space0">Event details</Paragraph>
           </TimelineItem>
         </Timeline>
