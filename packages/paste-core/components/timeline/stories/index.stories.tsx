@@ -5,7 +5,6 @@ import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { SkeletonLoader } from "@twilio-paste/skeleton-loader";
 import { Stack } from "@twilio-paste/stack";
-import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
@@ -191,12 +190,9 @@ export const TimelineInfiniteScroll = (): React.ReactNode => {
         ))}
       </Timeline>
       {isLoading ? (
-        <Box display="flex" flexDirection="column" rowGap="space60">
-          <SkeletonLoader height="44px" width="160px" />
-          <SkeletonLoader height="44px" width="160px" />
-          <SkeletonLoader height="44px" width="160px" />
-          <SkeletonLoader height="44px" width="160px" />
-          <SkeletonLoader height="44px" width="160px" />
+        <Box display="flex" flexDirection="column" rowGap="space40">
+          <SkeletonLoader width="192px" />
+          <SkeletonLoader width="152px" />
         </Box>
       ) : null}
     </Box>
