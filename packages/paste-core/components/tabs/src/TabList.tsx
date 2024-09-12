@@ -17,7 +17,6 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
   const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
-    paddingX: "space10",
     paddingBottom: "4px",
     marginBottom: "4px",
     overflowX: "auto",
