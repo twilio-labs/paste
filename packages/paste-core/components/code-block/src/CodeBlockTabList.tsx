@@ -6,16 +6,16 @@ import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import { type ThemeShape, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-const ShadowLeft = styled.div(({ bgColor }: { bgColor: string }) => {
+const ShadowLeft = styled.div(({ bgColor, left }: { bgColor: string; left: string }) => {
   return css({
     content: "' '",
     position: "absolute",
-    left: 0,
+    left,
     top: 0,
     bottom: 0,
-    width: "70px",
+    width: "0px",
     pointerEvents: "none",
-    background: `linear-gradient(to right, ${bgColor}, rgba(0, 0, 0, 0))}`,
+    boxShadow: `6px 12px 12px 2px ${bgColor}`,
   });
 });
 
@@ -26,9 +26,8 @@ const ShadowRight = styled.div(({ bgColor }: { bgColor: string }) => {
     right: 0,
     top: 0,
     bottom: 0,
-    width: "70px",
     pointerEvents: "none",
-    background: `linear-gradient(to right, rgba(0, 0, 0, 0), ${bgColor})}`,
+    boxShadow: `-6px 12px 12px 2px ${bgColor}`,
   });
 });
 
@@ -49,11 +48,11 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
     "@supports (-moz-appearance:none)": {
       paddingBottom: "0px",
       scrollbarColor: `${colorBackgroundStronger} transparent`,
-      scrollbarWidth: "thin",
+      scrollbarWidth: "none",
     },
     /* Chrome + Safari scrollbar */
     "::-webkit-scrollbar": {
-      height: 4,
+      height: 0,
     },
     "::-webkit-scrollbar-track": {
       background: "transparent",
@@ -127,7 +126,6 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             display="flex"
             flexWrap="nowrap"
             flexShrink={0}
-            aria-label="label"
             element={`${element}_CHILD`}
             overflowX="auto"
             overflowY="hidden"
@@ -136,10 +134,10 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             {children}
           </Box>
           {scrollShadow === "left" || scrollShadow === "both" ? (
-            <ShadowLeft bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
+            <ShadowLeft left={theme.space.space70} bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
           ) : null}
           {scrollShadow === "right" || scrollShadow === "both" ? (
-            <ShadowRight bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
+            <ShadowRight bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
           ) : null}
         </Box>
       </TabPrimitiveList>
