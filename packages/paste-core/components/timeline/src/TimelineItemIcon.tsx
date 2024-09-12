@@ -10,8 +10,7 @@ const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
       <Box element={`${element}_WRAPPER`}>
         {Icon ? (
           <Box marginY="space20">
-            {/* @ts-expect-error some error in size*/}
-            <IconWrapper as={as} display={display} element={element} color={color} ref={ref} size="sizeSquare50">
+            <IconWrapper as={as} display={display} element={element} color={color} ref={ref} size="sizeIcon10">
               <Icon decorative size="sizeIcon10" />
             </IconWrapper>
           </Box>

@@ -11,9 +11,6 @@ const Timeline = React.forwardRef<HTMLOListElement, TimelineProps>(
         listStyleType: "none",
         margin: "0",
         padding: "0",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
         "li>div:first-child::after": {
           content: "''",
           borderLeftWidth: "borderWidth10",
