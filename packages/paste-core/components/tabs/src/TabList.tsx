@@ -89,7 +89,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
       >
-        <Box ref={ref} whiteSpace={"nowrap"} display={isFitted ? "flex" : "block"}>
+        <Box ref={ref} whiteSpace={"nowrap"} element={element} display={isFitted ? "flex" : "block"}>
           {children}
         </Box>
       </Box>
