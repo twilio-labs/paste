@@ -510,6 +510,10 @@ export const FullObjectsListExample = (): JSX.Element => {
 
 FullObjectsListExample.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check composition of a11y checked components
+    disable: true,
+  },
 };
 
 export const DefaultObjectsListExample = (): JSX.Element => {
@@ -686,6 +690,10 @@ export const DefaultObjectsListExample = (): JSX.Element => {
 
 DefaultObjectsListExample.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check composition of a11y checked components
+    disable: true,
+  },
 };
 
 export const FullSettingsExample = (): JSX.Element => {
