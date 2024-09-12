@@ -1,5 +1,9 @@
+import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Heading } from "@twilio-paste/heading";
+import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
 
@@ -111,52 +115,54 @@ export const WithContent = (): React.ReactNode => {
   return (
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">
-        Complete
+        Data warehouse connected
         <ProgressStepContent>
-          <Box>
-            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
-            <Box marginTop="space30">
-              <Button variant="primary" size="small">
-                Connect data
-              </Button>
+          <Box paddingX="space10" paddingY="space30">
+            <Box display="flex" columnGap="space50" paddingY="space40">
+              <Avatar size="sizeIcon90" name="Twilio Paste" variant="entity" icon={BusinessIcon} />
+              <Box>
+                <Heading variant="heading50">Snowflake</Heading>
+                <Box display="flex" flexDirection="column">
+                  <Paragraph>Account: accountname</Paragraph>
+                  <Paragraph>Database: snowflakedatabasename</Paragraph>
+                  <Paragraph>Warehouse: snowflakewarehousename</Paragraph>
+                  <Paragraph>User: bsmith</Paragraph>
+                  <Paragraph marginBottom="space0">Password: *****</Paragraph>
+                </Box>
+                <Box marginTop="space80">
+                  <ButtonGroup>
+                    <Button variant="secondary">Edit</Button>
+                    <Button variant="destructive_secondary">Remove</Button>
+                  </ButtonGroup>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </ProgressStepContent>
       </ProgressStepComplete>
-      <ProgressStepError as="div">
-        Error
-        <ProgressStepContent>
-          <Box>
-            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
-            <Box marginTop="space30">
-              <Button variant="primary" size="small">
-                Connect data
-              </Button>
-            </Box>
-          </Box>
-        </ProgressStepContent>
-      </ProgressStepError>
       <ProgressStepCurrent as="div">
-        Current
+        Create a model
         <ProgressStepContent>
-          <Box>
-            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
-            <Box marginTop="space30">
-              <Button variant="primary" size="small">
-                Connect data
-              </Button>
+          <Box paddingX="space10" paddingY="space30">
+            <Paragraph marginBottom="space0">
+              Models are SQL queries that define sets of data to sync using Reverse ETL.
+            </Paragraph>
+            <Box marginTop="space50">
+              <Button variant="primary">Define model</Button>
             </Box>
           </Box>
         </ProgressStepContent>
       </ProgressStepCurrent>
       <ProgressStepIncomplete as="div">
-        Incomplete
+        Create mapping
         <ProgressStepContent>
-          <Box>
-            <Paragraph marginBottom="space0">Connect your customer data</Paragraph>
-            <Box marginTop="space30">
-              <Button variant="primary" size="small">
-                Connect data
+          <Box paddingX="space10" paddingY="space30">
+            <Paragraph marginBottom="space0">
+              Mappings determine how data extracted from your warehouse is mapped to fields in Flex
+            </Paragraph>
+            <Box marginTop="space50">
+              <Button variant="primary" disabled>
+                Continue mapping
               </Button>
             </Box>
           </Box>
