@@ -80,30 +80,27 @@ export interface CodeBlockTabListProps extends Omit<TabListProps, "aria-label"> 
 }
 
 export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabListProps>(
-  ({ children, element = "CODE_BLOCK_TAB_LIST", ...props }, fwdRef) => {
+  ({ children, element = "CODE_BLOCK_TAB_LIST", ...props }, ref) => {
     const tab = React.useContext(TabsContext);
     const theme = useTheme();
-    // Create a fallback ref to the scrollable element
+    //  ref to the scrollable element
     const scrollableRef = React.useRef<HTMLDivElement>(null);
-    // Use the provided ref, or if none is provided use the fallback
-    const ref = (fwdRef || scrollableRef) as React.RefObject<HTMLDivElement>;
-    // State to keep track of the scroll overflow shadows to display
     const [scrollShadow, setScrollShadow] = React.useState<"none" | "left" | "right" | "both">("none");
 
     // Function to handle scroll event
     const handleScroll = (): void => {
-      if (ref.current) {
+      if (scrollableRef.current) {
         // No scrollbar, so no shadow
-        if (ref.current.clientWidth === ref.current.scrollWidth) {
+        if (scrollableRef.current.clientWidth === scrollableRef.current.scrollWidth) {
           setScrollShadow("none");
         }
         // We're positioned on the left most side, so only show right shadow
-        else if (ref.current.scrollLeft === 0) {
+        else if (scrollableRef.current.scrollLeft === 0) {
           setScrollShadow("right");
         } else if (
           // We're positioned on the right most side, so only show left shadow
-          ref.current.scrollLeft + ref.current.clientWidth ===
-          ref.current.scrollWidth
+          scrollableRef.current.scrollLeft + scrollableRef.current.clientWidth ===
+          scrollableRef.current.scrollWidth
         ) {
           setScrollShadow("left");
         } else {
@@ -126,7 +123,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           <Box
             {...safelySpreadBoxProps(props)}
             as={StyledTabList as any}
-            ref={ref}
+            ref={scrollableRef}
             display="flex"
             flexWrap="nowrap"
             flexShrink={0}
