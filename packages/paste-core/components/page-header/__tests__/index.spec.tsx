@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies, import/order
 import { render, screen } from "@testing-library/react";
 import { Theme } from "@twilio-paste/theme";
-
 import * as React from "react";
 
 import { Customized, Default } from "../stories/index.stories";
