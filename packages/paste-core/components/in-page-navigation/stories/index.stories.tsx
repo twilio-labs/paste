@@ -84,9 +84,7 @@ export const LinkOverflowExample: StoryFn = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
     <InPageNavigation aria-label={`get started ${useUID()}`}>
-      <InPageNavigationItem href="#" currentPage>
-        Super SIM
-      </InPageNavigationItem>
+      <InPageNavigationItem href="#">Super SIM</InPageNavigationItem>
       <InPageNavigationItem href="#" title="Programmable Wireless">
         Programmable Wireless
       </InPageNavigationItem>
@@ -102,7 +100,7 @@ export const LinkOverflowExample: StoryFn = () => {
       <InPageNavigationItem href="#" title="Programmable Wireless">
         Programmable Wireless
       </InPageNavigationItem>
-      <InPageNavigationItem href="#" title="Super Duper SIM">
+      <InPageNavigationItem currentPage={true} href="#" title="Super Duper SIM">
         Super Duper SIM
       </InPageNavigationItem>
       <InPageNavigationItem href="#" title="Programmable Wirefull">

@@ -103,6 +103,16 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
   ) => {
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
+    const listRef = React.useRef<HTMLOListElement>(null);
+    // Scroll to the selected tab if it exists on mount
+    React.useEffect(() => {
+      if (listRef.current) {
+        setTimeout(
+          () => listRef.current?.querySelector(`[aria-current="page"]`)?.scrollIntoView({ behavior: "smooth" }),
+          1,
+        );
+      }
+    }, [listRef.current]);
 
     if (orientation === "vertical") {
       return (
@@ -141,6 +151,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
           >
             <Box
               as="ul"
+              ref={listRef}
               listStyleType="none"
               element={`${element}_ITEMS`}
               display="flex"
