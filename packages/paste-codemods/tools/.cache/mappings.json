@@ -219,6 +219,7 @@
   "ProgressBar": "@twilio-paste/core/progress-bar",
   "ProgressBarLabel": "@twilio-paste/core/progress-bar",
   "ProgressStepComplete": "@twilio-paste/core/progress-steps",
+  "ProgressStepContent": "@twilio-paste/core/progress-steps",
   "ProgressStepCurrent": "@twilio-paste/core/progress-steps",
   "ProgressStepError": "@twilio-paste/core/progress-steps",
   "ProgressStepIncomplete": "@twilio-paste/core/progress-steps",

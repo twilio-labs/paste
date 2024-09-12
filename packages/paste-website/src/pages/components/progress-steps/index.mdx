@@ -5,27 +5,37 @@ export const meta = {
   slug: '/components/progress-steps/',
 };
 
+import { Avatar } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ButtonGroup } from '@twilio-paste/button-group';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import { Heading } from '@twilio-paste/heading';
+import { BusinessIcon } from '@twilio-paste/icons/esm/BusinessIcon';
+import { Paragraph } from '@twilio-paste/paragraph';
+import {
+  ProgressStepComplete,
+  ProgressStepContent,
+  ProgressStepCurrent,
+  ProgressStepError,
+  ProgressStepIncomplete,
+  ProgressSteps,
+  ProgressStepSeparator,
+} from '@twilio-paste/progress-steps';
 import Changelog from '@twilio-paste/progress-steps/CHANGELOG.md';
 import packageJson from '@twilio-paste/progress-steps/package.json';
 import {
-  ProgressSteps,
-  ProgressStepIncomplete,
-  ProgressStepComplete,
-  ProgressStepCurrent,
-  ProgressStepError,
-  ProgressStepSeparator,
-} from '@twilio-paste/progress-steps';
-import {
-  divExample,
-  buttonExample,
+  additionalContentExample,
   anchorExample,
-  verticalExample,
+  buttonExample,
+  divExample,
   i18nExample,
+  verticalExample
 } from '../../../component-examples/ProgressStepsExamples';
-import {SidebarCategoryRoutes} from '../../../constants';
+import { Do, DoDont, Dont } from '../../../components/DoDont';
+import { SidebarCategoryRoutes } from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
+import { getFeature, getNavigationData } from '../../../utils/api';
 
 export default ComponentPageLayout;
 
@@ -180,6 +190,42 @@ Use vertical Progress Steps when you’re constrained on vertical space in your 
   noInline
 >
   {verticalExample}
+</LivePreview>
+
+#### Additional content
+
+The vertical, non-interactive Progress Steps component has an optional property that allows you to add additional content.
+
+- Use it when all steps can be completed on the same screen, either within the step itself or on another surface (ex: Modal).
+- Use it when the process links to other pages and has a unique URL. but a list of all steps need to be in the same screen.
+- Use it when you need to add additional context to each step.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Steps that are completed in another pages and have unique URLs do not automatically track status.</CalloutHeading>
+  <CalloutText>
+    Implement the logic locally to ensure the step's status is accurately reflected within the Progress Steps component.
+  </CalloutText>
+</Callout>
+
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepContent,
+    Box,
+    Avatar,
+    Paragraph,
+    ButtonGroup,
+    Button,
+    BusinessIcon,
+    Heading
+  }}
+  noInline
+>
+  {additionalContentExample}
 </LivePreview>
 
 ### Internationalization
