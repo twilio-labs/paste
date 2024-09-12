@@ -108,7 +108,12 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     React.useEffect(() => {
       if (listRef.current) {
         setTimeout(
-          () => listRef.current?.querySelector(`[aria-current="page"]`)?.scrollIntoView({ behavior: "smooth" }),
+          () =>
+            listRef.current
+              ?.querySelector(`[aria-current="page"]`)
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - behavior is typed incorrectly in Typescript v4, fixed in v5+
+              ?.scrollIntoView({ behavior: "smooth" }),
           1,
         );
       }
