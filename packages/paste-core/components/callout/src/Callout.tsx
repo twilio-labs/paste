@@ -1,5 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { NeutralIcon } from "@twilio-paste/icons/esm/NeutralIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
@@ -43,33 +45,48 @@ export interface CalloutProps extends HTMLPasteProps<"div"> {
    * @memberof CalloutProps
    */
   marginY?: BoxStyleProps["marginY"];
+  /**
+   * Function to run on dismiss of the Callout. Adds a close button.
+   *
+   * @default null
+   * @memberof CalloutProps
+   */
+  onDismiss?: () => void;
+  /**
+   * Title for dismiss label. Only necessary when using onDismiss.
+   *
+   * @default 'Dismiss callout'
+   * @memberof CalloutProps
+   * @type {string}
+   */
+  i18nDismissLabel?: string;
 }
 
 const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
-    backgroundColor: "colorBackgroundSuccessWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextSuccess",
-    borderColor: "colorBorderSuccessWeaker",
+    borderColor: "colorBorderSuccessWeak",
   },
   error: {
     backgroundColor: "colorBackgroundErrorWeakest",
     color: "colorTextError",
-    borderColor: "colorBorderErrorWeaker",
+    borderColor: "colorBorderErrorWeak",
   },
   warning: {
-    backgroundColor: "colorBackgroundWarningWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextWarningStrong",
-    borderColor: "colorBorderWarningWeaker",
+    borderColor: "colorBorderWarningWeak",
   },
   new: {
-    backgroundColor: "colorBackgroundNewWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextNew",
-    borderColor: "colorBorderNewWeaker",
+    borderColor: "colorBorderNewWeak",
   },
   neutral: {
-    backgroundColor: "colorBackgroundNeutralWeakest",
+    backgroundColor: "colorBackgroundWeak",
     color: "colorTextNeutral",
-    borderColor: "colorBorderNeutralWeaker",
+    borderColor: "colorBorderNeutralWeak",
   },
 };
 
@@ -90,7 +107,19 @@ const defaultIconLabels: Record<CalloutVariants, string> = {
 };
 
 export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
-  ({ children, variant, element = "CALLOUT", i18nLabel, marginY, ...props }, ref) => {
+  (
+    {
+      children,
+      variant,
+      element = "CALLOUT",
+      i18nLabel,
+      marginY,
+      onDismiss,
+      i18nDismissLabel = "Dismiss callout",
+      ...props
+    },
+    ref,
+  ) => {
     const IconComponent = variantIcons[variant];
     const iconLabel = i18nLabel ? i18nLabel : defaultIconLabels[variant];
 
@@ -100,19 +129,31 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         ref={ref}
         element={element}
         display="flex"
+        flexDirection="column"
         marginY={marginY}
-        padding="space60"
-        borderStyle="solid"
-        borderWidth="borderWidth10"
-        borderRadius="borderRadius30"
+        rowGap="space50"
+        paddingTop="space70"
+        paddingLeft="space70"
+        paddingRight="space70"
+        paddingBottom="space90"
+        borderLeftStyle="solid"
+        borderLeftWidth="borderWidth20"
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box marginRight="space60" paddingTop="space10" element={`${element}_ICON`}>
-          {IconComponent}
-          <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
+        <Box display="flex" justifyContent="space-between">
+          <Box element={`${element}_ICON`}>
+            {IconComponent}
+            <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
+          </Box>
+          {onDismiss && typeof onDismiss === "function" && (
+            <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+              <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
+              <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
+            </Button>
+          )}
         </Box>
-        <Box display="flex" flexDirection="column" rowGap="space50" flex="1">
+        <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
           {children}
         </Box>
       </Box>

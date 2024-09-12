@@ -215,6 +215,9 @@ props:
   color-border-error-weakest:
     value: "{!palette-red-10}"
     comment: Weakest error border color
+  color-border-new-weak:
+    value: "{!palette-purple-40}"
+    comment: Weak border color for something designated as new
   color-border-new-weaker:
     value: "{!palette-purple-20}"
     comment: Weaker border color for something designated as new

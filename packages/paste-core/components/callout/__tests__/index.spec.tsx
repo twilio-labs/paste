@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as React from "react";
 
 import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from "../src";
@@ -177,5 +177,49 @@ describe("i18n", () => {
     const callout = screen.getByTestId("callout-i18n");
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
     expect(icon?.textContent).toEqual("(nouveau)");
+  });
+});
+
+describe("Callout dismiss", () => {
+  it("should not render close button if no dismiss funciton passed", () => {
+    render(
+      <Callout variant="neutral" data-testid="callout">
+        <CalloutText>This is some text.</CalloutText>
+      </Callout>,
+    );
+
+    const callout = screen.getByTestId("callout");
+
+    const text = screen.getByText("This is some text.");
+    expect(text).toBeTruthy();
+
+    const dismissButton = callout.querySelector('[data-paste-element="CALLOUT_DISMISS_BUTTON"]');
+    expect(dismissButton).toBeNull();
+  });
+
+  it("should render close button if dismiss function passed", async () => {
+    const closeSpy = jest.fn();
+
+    render(
+      <Callout variant="neutral" data-testid="callout" onDismiss={closeSpy}>
+        <CalloutText>This is some text.</CalloutText>
+      </Callout>,
+    );
+
+    const callout = screen.getByTestId("callout");
+
+    const text = screen.getByText("This is some text.");
+    expect(text).toBeTruthy();
+
+    const dismissButton = callout.querySelector('[data-paste-element="CALLOUT_DISMISS_BUTTON"]');
+    expect(dismissButton).toBeTruthy();
+
+    expect(closeSpy).not.toHaveBeenCalled();
+
+    await waitFor(() => {
+      fireEvent.click(dismissButton as HTMLElement);
+    });
+
+    expect(closeSpy).toHaveBeenCalled();
   });
 });

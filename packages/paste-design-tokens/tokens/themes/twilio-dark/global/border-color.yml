@@ -42,6 +42,9 @@ props:
   color-border-neutral-weaker:
     value: "{!palette-blue-70}"
     comment: Weaker neutral border color
+  color-border-new-weak:
+    value: "{!palette-purple-60}"
+    comment: Weak border color for something designated as new
 
   # destructive borders
   color-border-destructive-weak:
