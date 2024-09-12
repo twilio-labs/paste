@@ -117,11 +117,13 @@ export const WithContent = (): React.ReactNode => {
       <ProgressStepComplete as="div">
         Data warehouse connected
         <ProgressStepContent>
-          <Box paddingX="space10" paddingY="space30">
+          <Box paddingX="space10">
             <Box display="flex" columnGap="space50" paddingY="space40">
               <Avatar size="sizeIcon90" name="Twilio Paste" variant="entity" icon={BusinessIcon} />
               <Box>
-                <Heading variant="heading50">Snowflake</Heading>
+                <Heading as="h2" variant="heading50">
+                  Snowflake
+                </Heading>
                 <Box display="flex" flexDirection="column">
                   <Paragraph>Account: accountname</Paragraph>
                   <Paragraph>Database: snowflakedatabasename</Paragraph>
@@ -143,7 +145,7 @@ export const WithContent = (): React.ReactNode => {
       <ProgressStepCurrent as="div">
         Create a model
         <ProgressStepContent>
-          <Box paddingX="space10" paddingY="space30">
+          <Box paddingX="space10">
             <Paragraph marginBottom="space0">
               Models are SQL queries that define sets of data to sync using Reverse ETL.
             </Paragraph>
@@ -156,7 +158,7 @@ export const WithContent = (): React.ReactNode => {
       <ProgressStepIncomplete as="div">
         Create mapping
         <ProgressStepContent>
-          <Box paddingX="space10" paddingY="space30">
+          <Box paddingX="space10">
             <Paragraph marginBottom="space0">
               Mappings determine how data extracted from your warehouse is mapped to fields in Flex
             </Paragraph>
