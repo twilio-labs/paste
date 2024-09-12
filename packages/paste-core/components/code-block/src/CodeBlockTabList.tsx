@@ -6,28 +6,25 @@ import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import { type ThemeShape, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-const ShadowLeft = styled.div(({ bgColor, left }: { bgColor: string; left: string }) => {
-  return css({
-    content: "' '",
-    position: "absolute",
-    left,
-    top: 0,
-    bottom: 0,
-    width: "0px",
-    pointerEvents: "none",
-    boxShadow: `6px 12px 12px 2px ${bgColor}`,
-  });
-});
+const Shadow = styled.div(({ bgColor, position }: { bgColor: string; position: "left" | "right" }) => {
+  const Styles = {
+    left: {
+      boxShadow: `6px 12px 12px 2px ${bgColor}`,
+      left: 0,
+    },
+    right: {
+      boxShadow: `-6px 12px 12px 2px ${bgColor}`,
+      right: 0,
+    },
+  };
 
-const ShadowRight = styled.div(({ bgColor }: { bgColor: string }) => {
   return css({
     content: "' '",
     position: "absolute",
-    right: 0,
     top: 0,
     bottom: 0,
     pointerEvents: "none",
-    boxShadow: `-6px 12px 12px 2px ${bgColor}`,
+    ...Styles[position],
   });
 });
 
@@ -113,7 +110,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
       <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={element} ref={ref}>
         <Box
           element={`${element}_CHILD_WRAPPER`}
-          paddingLeft="space70"
+          marginLeft="space70"
           position="relative"
           borderBottomStyle="solid"
           borderBottomWidth="borderWidth10"
@@ -134,10 +131,10 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             {children}
           </Box>
           {scrollShadow === "left" || scrollShadow === "both" ? (
-            <ShadowLeft left={theme.space.space70} bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
+            <Shadow position="left" bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
           ) : null}
           {scrollShadow === "right" || scrollShadow === "both" ? (
-            <ShadowRight bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
+            <Shadow position="right" bgColor={theme.backgroundColors.colorBackgroundBodyInverse} />
           ) : null}
         </Box>
       </TabPrimitiveList>
