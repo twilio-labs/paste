@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies, import/order
 import { render, screen } from "@testing-library/react";
+import { Theme } from "@twilio-paste/theme";
 
 import * as React from "react";
 
@@ -7,7 +8,11 @@ import { Customized, Default } from "../stories/index.stories";
 
 describe("PageHeader", () => {
   it("should render", () => {
-    const { getByText } = render(<Default />);
+    const { getByText } = render(
+      <Theme.Provider>
+        <Default />
+      </Theme.Provider>,
+    );
     expect(getByText("Wizard title")).toBeDefined();
     expect(getByText("Page title")).toBeDefined();
     expect(getByText("Badge")).toBeDefined();
@@ -17,7 +22,11 @@ describe("PageHeader", () => {
 
 describe("Customization", () => {
   it("should set defeault data-paste-element attribute on page header", () => {
-    render(<Customized />);
+    render(
+      <Theme.Provider>
+        <Customized />
+      </Theme.Provider>,
+    );
     expect(screen.getByTestId("page_header")).toHaveAttribute("data-paste-element", "PAGE_HEADER");
     expect(screen.getByTestId("page_header_setting")).toHaveAttribute("data-paste-element", "PAGE_HEADER_SETTING");
     expect(screen.getByTestId("page_header_details")).toHaveAttribute("data-paste-element", "PAGE_HEADER_DETAILS");

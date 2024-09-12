@@ -1,10 +1,10 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import { css, styled } from "@twilio-paste/styling-library";
-import { ThemeShape } from "@twilio-paste/theme";
 import { InPageNavigationContext } from "./InPageNavigationContext";
 import type { Orientation, Variants } from "./types";
 
