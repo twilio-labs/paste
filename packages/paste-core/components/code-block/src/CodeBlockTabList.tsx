@@ -132,18 +132,10 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             {children}
           </Box>
           {scrollShadow === "left" || scrollShadow === "both" ? (
-            <Shadow
-              position="left"
-              bgColor={theme.backgroundColors.colorBackgroundBodyInverse}
-              boxShadow={theme.shadows.shadowScrollLeftInverse}
-            />
+            <Shadow position="left" boxShadow={theme.shadows.shadowScrollLeftInverse} />
           ) : null}
           {scrollShadow === "right" || scrollShadow === "both" ? (
-            <Shadow
-              position="right"
-              bgColor={theme.backgroundColors.colorBackgroundBodyInverse}
-              boxShadow={theme.shadows.shadowScrollRightInverse}
-            />
+            <Shadow position="right" boxShadow={theme.shadows.shadowScrollRightInverse} />
           ) : null}
         </Box>
       </TabPrimitiveList>
