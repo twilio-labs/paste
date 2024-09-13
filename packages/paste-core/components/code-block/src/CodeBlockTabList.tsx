@@ -1,34 +1,32 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import { css, paddingTop, styled } from "@twilio-paste/styling-library";
+import { css, styled } from "@twilio-paste/styling-library";
 import { type TabListProps, TabsContext } from "@twilio-paste/tabs";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import { type ThemeShape, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-const Shadow = styled.div(
-  ({ bgColor, position, boxShadow }: { bgColor: string; position: "left" | "right"; boxShadow: string }) => {
-    const Styles = {
-      left: {
-        boxShadow,
-        left: 0,
-      },
-      right: {
-        boxShadow,
-        right: 0,
-      },
-    };
+const Shadow = styled.div(({ position, boxShadow }: { position: "left" | "right"; boxShadow: string }) => {
+  const Styles = {
+    left: {
+      boxShadow,
+      left: 0,
+    },
+    right: {
+      boxShadow,
+      right: 0,
+    },
+  };
 
-    return css({
-      content: "' '",
-      position: "absolute",
-      top: 0,
-      bottom: 0,
-      pointerEvents: "none",
-      ...Styles[position],
-    });
-  },
-);
+  return css({
+    content: "' '",
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    pointerEvents: "none",
+    ...Styles[position],
+  });
+});
 
 /**
  * This wrapper applies styles that customize the scrollbar and its track.
