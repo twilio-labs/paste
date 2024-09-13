@@ -24,7 +24,6 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           background="none"
           padding="space0"
           margin="space0"
-          marginX={orientation === "horizontal" ? "space30" : "space0"}
           fontFamily="fontFamilyText"
           fontSize="fontSize20"
           lineHeight="lineHeight20"

@@ -1,6 +1,5 @@
 import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
-import React from "react";
 
 type BaseStepProps = {
   children: NonNullable<React.ReactNode>;

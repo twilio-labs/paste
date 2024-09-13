@@ -20,7 +20,6 @@ import {
   ProgressStepError,
   ProgressStepIncomplete,
   ProgressSteps,
-  ProgressStepSeparator,
 } from '@twilio-paste/progress-steps';
 import Changelog from '@twilio-paste/progress-steps/CHANGELOG.md';
 import packageJson from '@twilio-paste/progress-steps/package.json';
@@ -66,7 +65,6 @@ export const getStaticProps = async () => {
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -131,7 +129,6 @@ Only button steps may be disabled.
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -149,7 +146,6 @@ Use Progress Steps as anchors when each step links to other pages and has a uniq
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -167,7 +163,6 @@ Use Progress Steps as divs when steps have no need for user interaction.
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -185,7 +180,6 @@ Use vertical Progress Steps when you’re constrained on horizontal space in you
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -194,11 +188,9 @@ Use vertical Progress Steps when you’re constrained on horizontal space in you
 
 #### Additional content
 
-The vertical, non-interactive Progress Steps component has an optional child component that allows you to add additional content.
+Use 'ProgressStepContent' to add additional content to a `orientation="vertical"`, `as="div"` Progress Step.
 
-- Use it when all steps can be completed on the same screen, either within the step itself or on another surface (ex: Modal).
-- Use it when the process links to other pages and has a unique URL. but a list of all steps need to be in the same screen.
-- Use it when you need to add additional context to each step.
+Use additional content when each step requires minimal content or actions—like opening a modal, redirecting, or entering text, and users need to complete steps in a specific sequence, with progress visibly tracked throughout.
 
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Steps that are completed in another pages and have unique URLs do not automatically track status.</CalloutHeading>
@@ -239,7 +231,6 @@ Each step within the Progress Step component has a label which can be set to adj
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -274,9 +265,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
   >
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
     </ProgressSteps>
   </Do>
@@ -287,9 +276,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
   >
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Name</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Email</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Password</ProgressStepIncomplete>
     </ProgressSteps>
   </Dont>
@@ -302,9 +289,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
     body="Make the labels of each step short, descriptive, and consistent. Use fewer than 5 words for each step label.">
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
     </ProgressSteps>
     </Do>
@@ -315,9 +300,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
     body="Don’t use long or inconsistent labels with mismatched parts of speech.">
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Business profile for your primary business account</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">A2P brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Finalize campaign registration</ProgressStepIncomplete>
     </ProgressSteps>
   </Dont>

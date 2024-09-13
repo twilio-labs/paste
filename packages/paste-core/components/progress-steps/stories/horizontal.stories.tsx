@@ -105,18 +105,10 @@ export const Internationalized: React.FC = () => {
   );
 };
 
-export const WithContent = (): React.ReactNode => {
+export const WithoutSeparatorComponent = (): React.ReactNode => {
   return (
     <ProgressSteps>
-      <ProgressStepComplete as="div">
-        Complete{" "}
-        <Box>
-          <p>Contect your customer data</p>
-          <Button variant="primary" size="small">
-            Connect data
-          </Button>
-        </Box>
-      </ProgressStepComplete>
+      <ProgressStepComplete as="div">Complete </ProgressStepComplete>
       <ProgressStepError as="div">Error</ProgressStepError>
       <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
       <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>

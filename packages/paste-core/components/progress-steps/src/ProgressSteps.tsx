@@ -12,7 +12,6 @@ const VerticalStyles: BoxProps = {
   alignItems: "flex-start", // to prevent children from stretching full width
 };
 const HorizontalStyles: BoxProps = {
-  // alignItems: "center",
   flexWrap: "nowrap",
   flexGrow: 1,
 };
@@ -40,18 +39,18 @@ const ItemSeparatortyles: {
   [key in Orientation]: Record<string, Record<string, string | BoxStyleProps>>;
 } = {
   vertical: {
-    "[role='listitem']>div>div:first-child::after": {
+    "[role='listitem']>*>div:first-child::after": {
       content: "''",
       borderLeftWidth: "borderWidth20",
       borderLeftStyle: "solid",
       borderLeftColor: "colorBorderWeaker",
       borderRadius: "borderRadius0",
-      minHeight: "32px",
+      minHeight: "sizeBase80",
       flexGrow: "1",
       marginY: "space30",
     },
 
-    "[role='listitem']:last-child>div>div:first-child::after": {
+    "[role='listitem']:last-child>*>div:first-child::after": {
       content: "none",
     },
   },
@@ -66,12 +65,31 @@ const ItemSeparatortyles: {
         borderBottomStyle: "solid",
         borderBottomColor: "colorBorderWeaker",
         borderRadius: "borderRadius20",
-        minWidth: "32px",
+        minWidth: "sizeBase20",
         flexGrow: 1,
       },
+
+      "&>*:first-child": {
+        marginX: "space30",
+      },
     },
-    "[role='listitem']:first-child::before, [role='listitem']:last-child::after": {
-      content: "none",
+    "[role='listitem']:first-child": {
+      "&::before": {
+        content: "none",
+      },
+
+      "&>*:first-child": {
+        marginLeft: "space0",
+      },
+    },
+    "[role='listitem']:last-child": {
+      "&::after": {
+        content: "none",
+      },
+
+      "&>*:last-child": {
+        marginRight: "space0",
+      },
     },
   },
 };
