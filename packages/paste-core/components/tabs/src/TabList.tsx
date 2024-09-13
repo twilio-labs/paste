@@ -78,7 +78,6 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 }) => {
   const ref = React.useRef<HTMLElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
-  const isFitted = variant === "fitted" || variant === "inverse_fitted";
 
   return (
     <Box as={StyledTabList as any} element={`${element}_SCROLL_WRAPPER`}>
@@ -89,7 +88,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
       >
-        <Box ref={ref} whiteSpace="nowrap" element={element} display={isFitted ? "flex" : "block"}>
+        <Box ref={ref} whiteSpace="nowrap" element={element} display="flex">
           {children}
         </Box>
       </Box>
