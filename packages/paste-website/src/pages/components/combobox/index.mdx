@@ -14,6 +14,7 @@ import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/core/callout';
 import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
 import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
@@ -137,6 +138,11 @@ The autocomplete Combobox allows users to filter the list of options by typing i
 This is useful when a user needs to filter a list of options, or when there are more than 15 options as
 users may find it difficult to navigate with only scrolling. Pass the `autocomplete` prop to enable
 the feature.
+
+<Callout variant='neutral'>
+    <CalloutHeading as="h2">Why doesn't the autocomplete Combobox have a chevron?</CalloutHeading>
+    <CalloutText>The autocomplete Combobox doesn't have a chevron because it's often used as a search input, where showing a chevron could be confusing.</CalloutText>
+</Callout>
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {autoCompleteExample}
