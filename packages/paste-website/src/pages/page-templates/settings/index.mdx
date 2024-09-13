@@ -1,6 +1,6 @@
 export const meta = {
   title: 'Settings',
-  description: 'The Settings page template lets customers edit information and update simple settings.',
+  description: 'The settings page template lets customers edit information and update simple settings.',
   slug: '/page-templates/settings/',
 };
 
@@ -52,7 +52,7 @@ Settings pages let customers edit information and update simple settings.
 
 If a customer is creating an object or the editing process is complex and requires additional guidance or focus, use the [create](/patterns/create) pattern and [wizard](/page-templates/wizard) template instead.
 
-A Settings page can be a standalone page, or you can use a Settings overview page that links to multiple Settings pages.
+A settings page can be a standalone page, or you can use a settings overview page that links to multiple settings pages.
 
 ## Ingredients
 
@@ -62,21 +62,21 @@ A Settings page can be a standalone page, or you can use a Settings overview pag
 
 ### Page header
 
-At the top of the page, add a page heading using the format “[Settings type] settings.” For example, “Workplace settings” or “Source settings.” Optionally, use text under the heading to explain the primary settings on the page.
+At the top of the page, add a page heading using the format “[settings type] settings.” For example, “Workplace settings” or “Source settings.” Optionally, use text under the heading to explain the primary settings on the page.
 
 Heading and Paragraph should have a max width of `$size-70`.
 
 ### Body
 
-Like [Object details](/page-templates/object-details), Settings should also allow a customer to easily scan for the information they’re looking to edit. Group related settings under Headings. Use sentence case for all Headings (“Billing details” not “Billing Details”).
+Like [object details](/page-templates/object-details), settings should also allow a customer to easily scan for the information they’re looking to edit. Group related settings under Headings. Use sentence case for all Headings (“Billing details” not “Billing Details”).
 
 If a group of settings needs additional explanation, use a Paragraph under a single Heading. If a single setting needs additional explanation, use Help Text with its form field.
 
-Use customer research to inform how to order sections on the Settings page.
+Use customer research to inform how to order sections on the settings page.
 
 ### Settings overview page
 
-If there are too many settings to fit on a single page, split related settings into separate pages or Modals, and link to them from a Settings overview page. On a Settings overview page, use [Cards](/components/card) to group sections and surface the most relevant information with [Description Lists](components/description-list).
+If there are too many settings to fit on a single page, split related settings into separate pages or Modals, and link to them from a Settings overview page. On a settings overview page, use [Cards](/components/card) to group sections and surface the most relevant information with [Description Lists](components/description-list).
 
 Position the page content in the center with a max width of `$size-90`.
 
