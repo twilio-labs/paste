@@ -13,7 +13,6 @@ const VerticalStyles: BoxProps = {
 };
 const HorizontalStyles: BoxProps = {
   flexWrap: "nowrap",
-  flexGrow: 1,
 };
 
 export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "children"> {
@@ -65,7 +64,7 @@ const ItemSeparatortyles: {
         borderBottomStyle: "solid",
         borderBottomColor: "colorBorderWeaker",
         borderRadius: "borderRadius20",
-        minWidth: "sizeBase20",
+        minWidth: "sizeBase40",
         flexGrow: 1,
       },
 
