@@ -1,7 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import * as React from "react";
 
-import { ProgressStepsContext } from "./ProgressStepsContext";
 import { ProgressIncompleteIcon } from "./icons/ProgressIncompleteIcon";
 import type { ProgressStepIncompleteProps } from "./types";
 
@@ -17,8 +16,6 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
     },
     ref,
   ) => {
-    const { orientation } = React.useContext(ProgressStepsContext);
-
     return (
       <div role="listitem">
         <Box

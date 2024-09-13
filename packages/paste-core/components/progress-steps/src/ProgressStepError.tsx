@@ -1,14 +1,11 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import * as React from "react";
 
-import { ProgressStepsContext } from "./ProgressStepsContext";
 import { ProgressErrorIcon } from "./icons/ProgressErrorIcon";
 import type { ProgressStepErrorProps } from "./types";
 
 export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepErrorProps>(
   ({ element = "PROGRESS_STEP_ERROR", as = "div", children, i18nErrorLabel = "Error", ...props }, ref) => {
-    const { orientation } = React.useContext(ProgressStepsContext);
-
     return (
       <div role="listitem">
         <Box
