@@ -11,6 +11,7 @@ import {
   ProgressSteps,
 } from "../src";
 import { Anchors, Buttons, Divs } from "../stories/horizontal.stories";
+import { WithContent } from "../stories/vertical.stories";
 
 describe("ProgressSteps", () => {
   it("should render divs correctly", () => {
@@ -55,6 +56,13 @@ describe("ProgressSteps", () => {
     expect(signupLabel?.getAttribute("href")).toEqual("#");
   });
 
+  it("should render with content correctly", () => {
+    const { getByRole } = render(<WithContent />);
+    const signupLabel = getByRole("heading", { name: "Snowflake" });
+
+    expect(signupLabel?.tagName).toEqual("H2");
+  });
+
   describe("element naming", () => {
     it("should set all default element names", async () => {
       const { getByRole } = render(<Buttons />);
@@ -69,6 +77,9 @@ describe("ProgressSteps", () => {
       expect(completeProfile?.dataset.pasteElement).toEqual("PROGRESS_STEP_CURRENT");
       expect(addFriends?.dataset.pasteElement).toEqual("PROGRESS_STEP_INCOMPLETE");
       expect(wrapper?.dataset.pasteElement).toEqual("PROGRESS_STEPS");
+      expect(
+        render(<WithContent />).baseElement.querySelector("[data-paste-element='PROGRESS_STEP_CONTENT']"),
+      ).toBeInTheDocument();
     });
   });
   describe("custom element naming", () => {

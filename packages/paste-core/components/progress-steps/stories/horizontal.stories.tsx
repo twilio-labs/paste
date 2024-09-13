@@ -1,5 +1,3 @@
-import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import * as React from "react";
 
 import {

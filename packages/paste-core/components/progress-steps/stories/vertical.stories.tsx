@@ -111,7 +111,7 @@ export const Internationalized: React.FC = () => {
   );
 };
 
-export const WithContent = (): React.ReactNode => {
+export const WithContent: React.FC = () => {
   return (
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">
