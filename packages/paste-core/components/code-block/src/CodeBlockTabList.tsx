@@ -90,7 +90,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const handleScroll = (): void => {
       if (scrollableRef.current) {
         // No scrollbar, so no shadow
-        if (scrollableRef.current.clientWidth === scrollableRef.current.scrollWidth) {
+        if (scrollableRef.current.getBoundingClientRect().width === scrollableRef.current.scrollWidth) {
           setScrollShadow("none");
         }
         // We're positioned on the left most side, so only show right shadow
@@ -98,7 +98,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           setScrollShadow("right");
         } else if (
           // We're positioned on the right most side, so only show left shadow
-          scrollableRef.current.scrollLeft + scrollableRef.current.clientWidth ===
+          scrollableRef.current.scrollLeft + scrollableRef.current.getBoundingClientRect().width ===
           scrollableRef.current.scrollWidth
         ) {
           setScrollShadow("left");
