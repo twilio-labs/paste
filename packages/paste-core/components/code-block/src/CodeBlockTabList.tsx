@@ -1,6 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import { css, styled } from "@twilio-paste/styling-library";
+import { css, paddingTop, styled } from "@twilio-paste/styling-library";
 import { type TabListProps, TabsContext } from "@twilio-paste/tabs";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import { type ThemeShape, useTheme } from "@twilio-paste/theme";
@@ -36,10 +36,11 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
 
   return css({
     paddingRight: "space70",
+    paddingTop: "1px",
     position: "relative",
     bottom: "-1px",
     overflowX: "auto",
-    overflowY: "hidden",
+    overflowY: "visible",
     overflowScrolling: "touch",
     /* Firefox scrollbar */
     "@supports (-moz-appearance:none)": {
@@ -110,7 +111,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
       <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={element} ref={ref}>
         <Box
           element={`${element}_CHILD_WRAPPER`}
-          marginLeft="space70"
+          marginX="space70"
           position="relative"
           borderBottomStyle="solid"
           borderBottomWidth="borderWidth10"
