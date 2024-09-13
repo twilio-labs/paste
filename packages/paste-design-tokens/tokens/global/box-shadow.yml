@@ -234,7 +234,7 @@ props:
   # Scrollable elements
   shadow-scroll-right-inverse:
     value: "{!offset-negative-30} {!offset-50} {!offset-50} {!offset-10} {!palette-gray-100}"
-    comment: Left shadow for scrollable elements on inverse backgrounds.
+    comment: Right shadow for scrollable elements on inverse backgrounds.
   shadow-scroll-left-inverse:
     value: "{!offset-30} {!offset-50} {!offset-50} {!offset-10} {!palette-gray-100}"
     comment: Left shadow for scrollable elements on inverse backgrounds.
