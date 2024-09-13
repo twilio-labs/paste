@@ -105,8 +105,7 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
       <ProgressStepsContext.Provider value={{ orientation }}>
         <Box
           {...safelySpreadBoxProps(props)}
-          // @ts-expect-error we don't have polymorphic box typings yet
-          as={ContainerStyled}
+          as={ContainerStyled as any}
           ref={ref}
           element={element}
           role="list"
