@@ -3588,7 +3588,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'PROGRESS_STEP_SEPARATOR'",
+      "defaultValue": "'PROGRESS_STEP_CONTENT'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
