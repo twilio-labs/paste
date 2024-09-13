@@ -55,7 +55,7 @@ export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "chil
   hideBottomBorder?: boolean;
 }
 
-const StyledScrollTabUnorderedList = styled.ul(({ theme }: { theme: ThemeShape }) => {
+const StyledScrollWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
   const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
@@ -145,7 +145,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
       <InPageNavigationContext.Provider value={{ variant, orientation }}>
         <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
           <Box
-            as={StyledScrollTabUnorderedList as any}
+            as={StyledScrollWrapper as any}
             display="flex"
             flexWrap="nowrap"
             flexShrink={0}
