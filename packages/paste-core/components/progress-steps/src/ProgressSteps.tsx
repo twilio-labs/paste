@@ -7,14 +7,6 @@ import * as React from "react";
 import { ProgressStepsContext } from "./ProgressStepsContext";
 import type { Orientation } from "./types";
 
-const VerticalStyles: BoxProps = {
-  flexDirection: "column",
-  alignItems: "flex-start", // to prevent children from stretching full width
-};
-const HorizontalStyles: BoxProps = {
-  flexWrap: "nowrap",
-};
-
 export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "children"> {
   children?: React.ReactNode;
   /**
@@ -34,10 +26,12 @@ export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "childre
   orientation?: Orientation;
 }
 
-const ItemSeparatortyles: {
-  [key in Orientation]: Record<string, Record<string, string | BoxStyleProps>>;
+const ItemSeparatorStyles: {
+  [key in Orientation]: Record<string, string | Record<string, string | BoxStyleProps>>;
 } = {
   vertical: {
+    flexDirection: "column",
+    alignItems: "flex-start",
     "[role='listitem']>*>div:first-child::after": {
       content: "''",
       borderLeftWidth: "borderWidth20",
@@ -54,9 +48,10 @@ const ItemSeparatortyles: {
     },
   },
   horizontal: {
+    flexWrap: "nowrap",
     "[role='listitem']": {
       display: "flex",
-      alignItems: "center",
+      alignItems: "flex-start",
       flexGrow: "1",
       "&::after, &::before": {
         content: "''",
@@ -66,6 +61,7 @@ const ItemSeparatortyles: {
         borderRadius: "borderRadius20",
         minWidth: "sizeBase40",
         flexGrow: 1,
+        marginTop: "space30",
       },
 
       "&>*:first-child": {
@@ -97,22 +93,14 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
   ({ element = "PROGRESS_STEPS", orientation = "horizontal", ...props }, ref) => {
     const ContainerStyled = styled.div(
       css({
-        ...ItemSeparatortyles[orientation],
+        display: "flex",
+        ...ItemSeparatorStyles[orientation],
       }),
     );
 
     return (
       <ProgressStepsContext.Provider value={{ orientation }}>
-        <Box
-          {...safelySpreadBoxProps(props)}
-          as={ContainerStyled as any}
-          ref={ref}
-          element={element}
-          role="list"
-          display="flex"
-          {...ItemSeparatortyles[orientation]}
-          {...(orientation === "horizontal" ? HorizontalStyles : VerticalStyles)}
-        >
+        <Box {...safelySpreadBoxProps(props)} as={ContainerStyled as any} ref={ref} element={element} role="list">
           {props.children}
         </Box>
       </ProgressStepsContext.Provider>

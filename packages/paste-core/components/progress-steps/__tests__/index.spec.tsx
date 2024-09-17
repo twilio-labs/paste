@@ -77,6 +77,8 @@ describe("ProgressSteps", () => {
       expect(completeProfile?.dataset.pasteElement).toEqual("PROGRESS_STEP_CURRENT");
       expect(addFriends?.dataset.pasteElement).toEqual("PROGRESS_STEP_INCOMPLETE");
       expect(wrapper?.dataset.pasteElement).toEqual("PROGRESS_STEPS");
+    });
+    it("should set default name on progress steps content", async () => {
       expect(
         render(<WithContent />).baseElement.querySelector("[data-paste-element='PROGRESS_STEP_CONTENT']"),
       ).toBeInTheDocument();

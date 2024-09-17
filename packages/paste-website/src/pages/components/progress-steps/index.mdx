@@ -96,13 +96,13 @@ Each step can communicate one of these statuses:
 ### Ordered Display List vs Progress Steps
 
 **Progress Steps**
-- Progress Steps show users an outline of a complex multi-step task across multiple pages.
+
+- Progress Steps show users an outline of a complex multi-step task across multiple pages or apps.
 - Progress Steps convey progression and have interactive status states.
 
 **Ordered Display List**
 
-- [Ordered Display Lists](/components/list#ordered-display-list) structure tasks but don’t outline or show progression or status through a multi-step task.
-- Ordered Display Lists organize complex tasks within a single screen, especially in flows where users need to complete tasks outside of Twilio.
+[Ordered Display Lists](/components/list#ordered-display-list) structure tasks but don’t show progression or status through a multi-step task.
 
 ### Accessibility
 
@@ -171,7 +171,7 @@ Use Progress Steps as divs when steps have no need for user interaction.
 
 ### Progress Steps represented vertically
 
-Use vertical Progress Steps when you’re constrained on horizontal space in your layout.
+You can use vertical Progress Steps when the content of the task is tall and narrow, or you need to add additional content to each step.
 
 <LivePreview
   scope={{
@@ -188,12 +188,12 @@ Use vertical Progress Steps when you’re constrained on horizontal space in you
 
 #### Additional content
 
-Use 'ProgressStepContent' to add additional content to a `orientation="vertical"`, `as="div"` Progress Step.
+Use `ProgressStepContent` to add additional content to non-interactive vertical Progress Steps.
 
-Use additional content when each step requires minimal content or actions—like opening a modal, redirecting, or entering text, and users need to complete steps in a specific sequence, with progress visibly tracked throughout.
+Use this when each step requires minimal content or actions, like opening a modal, redirecting, or entering text, and users need to complete steps in a specific sequence, with progress tracked throughout the entire task.
 
 <Callout variant="warning" marginY="space70">
-  <CalloutHeading as="h4">Steps that are completed in another pages and have unique URLs do not automatically track status.</CalloutHeading>
+  <CalloutHeading as="h5">Steps that are completed in other pages and have unique URLs do not automatically track status.</CalloutHeading>
   <CalloutText>
     Implement the logic locally to ensure the step's status is accurately reflected within the Progress Steps component.
   </CalloutText>
@@ -222,7 +222,7 @@ Use additional content when each step requires minimal content or actions—like
 
 ### Internationalization
 
-Each step within the Progress Step component has a label which can be set to adjust the icon's title for internationalization.
+Each step within the Progress Steps component has a label which can be set to adjust the icon's title for internationalization.
 
 <LivePreview
   scope={{
