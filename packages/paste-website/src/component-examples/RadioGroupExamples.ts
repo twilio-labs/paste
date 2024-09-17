@@ -148,6 +148,55 @@ render(
 )
 `.trim();
 
+export const suffixExample = `
+const DateRadioGroup = () => {
+  const [value, setValue] = React.useState('lowest');
+  return (
+    <RadioGroup
+      name="date"
+      value={value}
+      legend="Select date"
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+    >
+      <Radio
+        id="today"
+        value="today"
+        name="date"
+      >
+        Today
+      </Radio>
+      <Radio
+        id="last-15-days"
+        value="last-15-days"
+        name="date"
+      >
+        Last 15 days
+      </Radio>
+      <Radio
+        id="last-month"
+        value="last-month"
+        name="date"
+      >
+        Last month
+      </Radio>
+      <Radio
+        id="custom"
+        value="custom"
+        name="date"
+      >
+        <Box display="flex" columnGap="space30">Custom <Badge variant="success" size="small">Upgrade</Badge></Box>
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <DateRadioGroup />
+)
+`.trim();
+
 export const requiredExample = `
 const SslRadioGroup = () => {
   const [value, setValue] = React.useState('on');
