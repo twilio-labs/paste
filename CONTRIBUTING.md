@@ -8,8 +8,6 @@
 
 ## Package Requirements
 
-![Image of good structure](https://cdn.discordapp.com/attachments/293855810063302657/599371250925699072/unknown.png)
-
 - [ ] a `package.json` file with the following sub-requirements:
   - The following scripts: `build, build:dev, clean, type-check, prepublishOnly`.
   - Author must be `Twilio Inc.`
