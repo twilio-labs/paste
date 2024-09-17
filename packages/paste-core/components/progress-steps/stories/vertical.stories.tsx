@@ -128,15 +128,13 @@ export const WithContent: React.FC = () => {
               <DescriptionList>
                 <DescriptionListSet>
                   <DescriptionListTerm>Snowflake</DescriptionListTerm>
-                  <Box display="flex" flexDirection="column" rowGap="space50">
-                    <DescriptionListDetails>Account: accountname</DescriptionListDetails>
-                    <DescriptionListDetails>Database: snowflakedatabasename</DescriptionListDetails>
-                    <DescriptionListDetails>Warehouse: snowflakewarehousename</DescriptionListDetails>
-                  </Box>
+                  <DescriptionListDetails>Account: accountname</DescriptionListDetails>
+                  <DescriptionListDetails>Database: snowflakedatabasename</DescriptionListDetails>
+                  <DescriptionListDetails>Warehouse: snowflakewarehousename</DescriptionListDetails>
                 </DescriptionListSet>
               </DescriptionList>
 
-              <Box marginTop="space80">
+              <Box marginTop="space50">
                 <ButtonGroup>
                   <Button variant="secondary">Edit</Button>
                   <Button variant="destructive_secondary">Remove</Button>

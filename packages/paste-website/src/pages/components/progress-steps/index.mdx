@@ -248,6 +248,12 @@ Each step within the Progress Steps component has a label which can be set to ad
 - If the process does not fit into a mental model of performing tasks, make sure each step is phrased consistently. For example, “Business profile” and “Brand registration.”
 - Keep the placement of Progress Steps consistent between different pages (steps).
 
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    ProgressStepSeparator is no longer required starting v2.2.1. The separator is now automatically added between each step using CSS. It is backwards compatible, so previous versions will still work.
+  </CalloutText>
+</Callout>
+
 ### When to use an error step
 
 Show the error status on a step when it’s not the current step they’re on. When a
