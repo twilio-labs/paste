@@ -8,6 +8,7 @@ export const meta = {
 
 import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
+import {Badge} from '@twilio-paste/badge';
 import {useUID} from '@twilio-paste/uid-library';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {SiteLink} from '../../../components/SiteLink';
@@ -24,6 +25,7 @@ import {
   uncontrolledRadioGroup,
   controlledRadioGroup,
   i18nExample,
+  suffixExample,
 } from '../../../component-examples/RadioGroupExamples';
 import packageJson from '@twilio-paste/radio-group/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -135,6 +137,14 @@ Help text appears after the group label but before the first radio option.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {defaultExample}
+</LivePreview>
+
+### With suffix
+
+You can provide additional information about an individual item by adding a non-string element as a suffix. The suffix can be any non-string element that is not interactive.
+
+<LivePreview scope={{Radio, RadioGroup, Box, Badge}} noInline>
+  {suffixExample}
 </LivePreview>
 
 ### Required usage
