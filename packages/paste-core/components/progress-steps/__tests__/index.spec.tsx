@@ -57,10 +57,10 @@ describe("ProgressSteps", () => {
   });
 
   it("should render with content correctly", () => {
-    const { getByRole } = render(<WithContent />);
-    const signupLabel = getByRole("heading", { name: "Snowflake" });
+    const { getByText } = render(<WithContent />);
+    const signupLabel = getByText("Snowflake");
 
-    expect(signupLabel?.tagName).toEqual("H2");
+    expect(signupLabel?.tagName).toEqual("DT");
   });
 
   describe("element naming", () => {
