@@ -5,52 +5,53 @@ export const meta = {
   slug: "/components/timeline/",
 };
 
-import { HelpText } from "@twilio-paste/help-text";
-import { TimePicker, formatReturnTime } from "@twilio-paste/time-picker";
 import { DatePicker } from "@twilio-paste/date-picker";
+import { HelpText } from "@twilio-paste/help-text";
+import { formatReturnTime, TimePicker } from "@twilio-paste/time-picker";
 
-import { UnorderedList, OrderedList, ListItem } from "@twilio-paste/list";
 import { Anchor } from "@twilio-paste/anchor";
-import { DoDont, Do, Dont } from "../../../components/DoDont";
 import { Callout, CalloutText } from "@twilio-paste/callout";
+import { ListItem, OrderedList, UnorderedList } from "@twilio-paste/list";
+import { Do, DoDont, Dont } from "../../../components/DoDont";
 
-import {
-  TimelineStart,
-  TimelineBasic,
-  TimelineIcon,
-  TimelineCollapsible,
-  TimelineGrouped,
-  TimelineTimestamp,
-  TimelineComposition,
-} from "../../../component-examples/TimelineExamples.ts";
-import { Timeline, TimelineItem, TimelineItemGroup } from "@twilio-paste/timeline";
 import { Box } from "@twilio-paste/box";
-import { StatusBadge } from "@twilio-paste/status";
-import { Paragraph } from "@twilio-paste/paragraph";
-import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
-import { SMSCapableIcon } from "@twilio-paste/icons/esm/SMSCapableIcon";
-import { SentIcon } from "@twilio-paste/icons/esm/SentIcon";
-import { DisableIcon } from "@twilio-paste/icons/esm/DisableIcon";
-import { CallIcon } from "@twilio-paste/icons/esm/CallIcon";
-import { SMSIcon } from "@twilio-paste/icons/esm/SMSIcon";
-import { StarIcon } from "@twilio-paste/icons/esm/StarIcon";
-import { PaymentIcon } from "@twilio-paste/icons/esm/PaymentIcon";
 import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
-import { NotesIcon } from "@twilio-paste/icons/esm/NotesIcon";
-import { SentimentPositiveIcon } from "@twilio-paste/icons/esm/SentimentPositiveIcon";
-import { SupportRequestIcon } from "@twilio-paste/icons/esm/SupportRequestIcon";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { CallIcon } from "@twilio-paste/icons/esm/CallIcon";
+import { DisableIcon } from "@twilio-paste/icons/esm/DisableIcon";
 import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
+import { NotesIcon } from "@twilio-paste/icons/esm/NotesIcon";
+import { PaymentIcon } from "@twilio-paste/icons/esm/PaymentIcon";
 import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { SMSCapableIcon } from "@twilio-paste/icons/esm/SMSCapableIcon";
+import { SMSIcon } from "@twilio-paste/icons/esm/SMSIcon";
+import { SentIcon } from "@twilio-paste/icons/esm/SentIcon";
+import { SentimentPositiveIcon } from "@twilio-paste/icons/esm/SentimentPositiveIcon";
+import { StarIcon } from "@twilio-paste/icons/esm/StarIcon";
+import { SupportRequestIcon } from "@twilio-paste/icons/esm/SupportRequestIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { StatusBadge } from "@twilio-paste/status";
+import { Table, TBody, Td, Th, THead, Tr } from '@twilio-paste/table';
+import { Timeline, TimelineItem, TimelineItemGroup } from "@twilio-paste/timeline";
+import {
+  TimelineBasic,
+  TimelineCollapsible,
+  TimelineComposition,
+  TimelineGrouped,
+  TimelineIcon,
+  TimelineStart,
+  TimelineTimestamp,
+} from "../../../component-examples/TimelineExamples.ts";
+import { ResponsiveImage } from '../../../components/ResponsiveImage';
 
-import { SidebarCategoryRoutes } from "../../../constants";
+import { SupportIcon } from "@twilio-paste/icons/esm/SupportIcon";
 import Changelog from "@twilio-paste/timeline/CHANGELOG.md";
 import packageJson from "@twilio-paste/timeline/package.json";
+import InfiniteTimeline from '../../../assets/images/timeline-infinite.png';
+import { SidebarCategoryRoutes } from "../../../constants";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
-import { SupportIcon } from "@twilio-paste/icons/esm/SupportIcon";
-
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
@@ -228,6 +229,9 @@ Use [Skeleton Loader](/components/skeleton-loader) for results that might take a
   </CalloutText>
 </Callout>
 
+<ResponsiveImage src={InfiniteTimeline} alt="a demo page with filter pattern" />
+
+
 ## Composition notes
 
 A Timeline should be presented in chronological order. The order can either be descending (most recent event at the top the list) or ascending (oldest event at the top of the list)
@@ -236,11 +240,11 @@ A Timeline should be presented in chronological order. The order can either be d
 
 <UnorderedList>
   <ListItem>
-    Time sensitive information, for example an **SMS sending tracker** where the final status (sent or failed) is
+    Time sensitive information, for example an <strong>SMS sending tracker</strong> where the final status (sent or failed) is
     crucial for the user to track in real time.
   </ListItem>
   <ListItem>
-    Long lists of events that are constantly updated, for example in **customer call logs** where the most recent
+    Long lists of events that are constantly updated, for example in <strong>customer call logs</strong> where the most recent
     interaction is displayed first so agents can access the information in a timely manner.
   </ListItem>
 </UnorderedList>
@@ -249,11 +253,11 @@ A Timeline should be presented in chronological order. The order can either be d
 
 <UnorderedList>
   <ListItem>
-    Diagnosing an issue, for example in **platform issue reporting**, where understanding the sequence of reported
+    Diagnosing an issue, for example in <strong>platform issue reporting</strong>, where understanding the sequence of reported
     issues is necessary to understand the problem.
   </ListItem>
   <ListItem>
-    Events that evolve through time, for example in **payment history** where the price has changed over time.
+    Events that evolve through time, for example in <strong>payment history</strong> where the price has changed over time.
   </ListItem>
 </UnorderedList>
 
