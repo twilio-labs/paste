@@ -186,7 +186,7 @@ const DateRadioGroup = () => {
         value="custom"
         name="date"
       >
-        <Box display="flex" columnGap="space30">Custom <Badge variant="success" size="small">Upgrade</Badge></Box>
+        <Box display="flex" columnGap="space30">Custom <Badge variant="success" size="small">Premium</Badge></Box>
       </Radio>
     </RadioGroup>
   );
