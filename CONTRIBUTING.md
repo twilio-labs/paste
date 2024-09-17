@@ -42,4 +42,4 @@
 
 ## Standard Operating Procedures
 
-All contributions must abide by our [Standard Operating Procedures](https://github.com/twilio-labs/paste/blob/main/STANDARD_OPERATING_PROCEDURES.md). This helps us mitigate errors caused by oversight or forgetfulness by leaning on lessons learned through past mistakes.
+All contributions must abide by our [Standard Operating Procedures](https://github.com/twilio-labs/paste/blob/main/internal-docs/engineering/standard-operating-procedures.md). This helps us mitigate errors caused by oversight or forgetfulness by leaning on lessons learned through past mistakes.
