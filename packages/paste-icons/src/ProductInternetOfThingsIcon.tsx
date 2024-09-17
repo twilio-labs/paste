@@ -29,7 +29,7 @@ const ProductInternetOfThingsIcon = React.forwardRef<HTMLElement, ProductInterne
           width="100%"
           height="100%"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path

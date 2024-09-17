@@ -30,7 +30,7 @@ const NotificationOrnamentIcon = React.forwardRef<HTMLElement, NotificationOrnam
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <circle fill="currentColor" cx={10} cy={10} r={6} />

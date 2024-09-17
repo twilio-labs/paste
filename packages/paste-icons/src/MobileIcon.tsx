@@ -30,7 +30,7 @@ const MobileIcon = React.forwardRef<HTMLElement, MobileIconProps>(
           height="100%"
           fill="none"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M9 15.5a1 1 0 102 0 1 1 0 00-2 0z" />

@@ -30,7 +30,7 @@ const SelectedIcon = React.forwardRef<HTMLElement, SelectedIconProps>(
           height="100%"
           fill="none"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path

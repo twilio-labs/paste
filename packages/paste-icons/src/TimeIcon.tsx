@@ -30,7 +30,7 @@ const TimeIcon = React.forwardRef<HTMLElement, TimeIconProps>(
           height="100%"
           fill="none"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M10.5 5.5a.5.5 0 00-1 0v5a.5.5 0 00.5.5h3.5a.5.5 0 000-1h-3V5.5z" />

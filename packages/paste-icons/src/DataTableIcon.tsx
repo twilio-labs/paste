@@ -30,7 +30,7 @@ const DataTableIcon = React.forwardRef<HTMLElement, DataTableIconProps>(
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path

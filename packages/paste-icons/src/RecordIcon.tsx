@@ -30,7 +30,7 @@ const RecordIcon = React.forwardRef<HTMLElement, RecordIconProps>(
           height="100%"
           fill="none"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M3.5 10a6.5 6.5 0 1013 0 6.5 6.5 0 00-13 0z" />

@@ -30,7 +30,7 @@ const FileImageIcon = React.forwardRef<HTMLElement, FileImageIconProps>(
           height="100%"
           fill="none"
           viewBox="0 0 20 20"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M6.062 6.5H6.06a.813.813 0 10.002 0z" />

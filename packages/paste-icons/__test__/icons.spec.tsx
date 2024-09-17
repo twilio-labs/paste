@@ -23,9 +23,14 @@ import {
 
 describe("Icons", () => {
   describe("HTML attributes", () => {
-    it("should have the default element name", () => {
-      const { container } = render(<AgentIcon decorative />);
+    it("should have the default element name and attributes", () => {
+      const { container, getByTitle } = render(<AgentIcon decorative={false} title="Agent Smith" />);
+      expect(getByTitle('Agent Smith')).toBeInTheDocument();
       expect(container.querySelector('[data-paste-element="ICON"]')).toBeInTheDocument();
+    });
+    it("should not have an aria-labelledby attribute if decorative", () => {
+      const { container } = render(<AgentIcon decorative />);
+      expect(container.querySelector('svg')?.attributes).not.toContain("aria-labelledby");
     });
     it("should have a custom element name", () => {
       const { container } = render(<AgentIcon element="CUSTOM_ICON" decorative />);
@@ -34,7 +39,7 @@ describe("Icons", () => {
   });
 
   describe("Customization", () => {
-    it("should apply custom styles to customizaed icons", () => {
+    it("should apply custom styles to customized icons", () => {
       const { container } = render(
         <CustomizationProvider
           baseTheme="default"

@@ -29,7 +29,7 @@ const FlagIcon = React.forwardRef<HTMLElement, FlagIconProps>(
           height="100%"
           viewBox="0 0 20 20"
           fill="none"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path

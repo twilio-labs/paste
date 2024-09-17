@@ -30,7 +30,7 @@ const DataLineChartIcon = React.forwardRef<HTMLElement, DataLineChartIconProps>(
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M4 3.5a.5.5 0 00-1 0v13a.5.5 0 00.5.5h13a.5.5 0 000-1H4V3.5z" />

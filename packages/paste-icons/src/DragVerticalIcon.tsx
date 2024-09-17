@@ -29,7 +29,7 @@ const DragVerticalIcon = React.forwardRef<HTMLElement, DragVerticalIconProps>(
           height="100%"
           viewBox="0 0 20 20"
           fill="none"
-          aria-labelledby={titleId}
+          aria-labelledby={decorative || title == null ? undefined : titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path fill="currentColor" d="M4 7.999a.5.5 0 100 1h12a.5.5 0 000-1H4zm0 3a.5.5 0 100 1h12a.5.5 0 000-1H4z" />
