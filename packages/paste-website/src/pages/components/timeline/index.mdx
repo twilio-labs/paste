@@ -1,0 +1,334 @@
+export const meta = {
+  title: "Timeline - Components",
+  package: "@twilio-paste/timeline",
+  description: "A Timeline is a visual representation of events displayed in chronological order.",
+  slug: "/components/timeline/",
+};
+
+import { DatePicker } from "@twilio-paste/date-picker";
+import { HelpText } from "@twilio-paste/help-text";
+import { formatReturnTime, TimePicker } from "@twilio-paste/time-picker";
+
+import { Anchor } from "@twilio-paste/anchor";
+import { Callout, CalloutText } from "@twilio-paste/callout";
+import { ListItem, OrderedList, UnorderedList } from "@twilio-paste/list";
+import { Do, DoDont, Dont } from "../../../components/DoDont";
+
+import { Box } from "@twilio-paste/box";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { CallIcon } from "@twilio-paste/icons/esm/CallIcon";
+import { DisableIcon } from "@twilio-paste/icons/esm/DisableIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
+import { NotesIcon } from "@twilio-paste/icons/esm/NotesIcon";
+import { PaymentIcon } from "@twilio-paste/icons/esm/PaymentIcon";
+import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { SMSCapableIcon } from "@twilio-paste/icons/esm/SMSCapableIcon";
+import { SMSIcon } from "@twilio-paste/icons/esm/SMSIcon";
+import { SentIcon } from "@twilio-paste/icons/esm/SentIcon";
+import { SentimentPositiveIcon } from "@twilio-paste/icons/esm/SentimentPositiveIcon";
+import { StarIcon } from "@twilio-paste/icons/esm/StarIcon";
+import { SupportRequestIcon } from "@twilio-paste/icons/esm/SupportRequestIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { StatusBadge } from "@twilio-paste/status";
+import { Table, TBody, Td, Th, THead, Tr } from '@twilio-paste/table';
+import { Timeline, TimelineItem, TimelineItemGroup } from "@twilio-paste/timeline";
+import {
+  TimelineBasic,
+  TimelineCollapsible,
+  TimelineComposition,
+  TimelineGrouped,
+  TimelineIcon,
+  TimelineStart,
+  TimelineTimestamp,
+} from "../../../component-examples/TimelineExamples.ts";
+import { ResponsiveImage } from '../../../components/ResponsiveImage';
+
+import { SupportIcon } from "@twilio-paste/icons/esm/SupportIcon";
+import Changelog from "@twilio-paste/timeline/CHANGELOG.md";
+import packageJson from "@twilio-paste/timeline/package.json";
+import InfiniteTimeline from '../../../assets/images/timeline-infinite.png';
+import { SidebarCategoryRoutes } from "../../../constants";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("Timeline");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/timeline",
+        storybookUrl: "/?path=/story/components-timeline--default-timeline",
+      },
+    },
+  };
+};
+
+<LivePreview scope={{ Timeline, TimelineItem }} noInline>
+  {TimelineStart}
+</LivePreview>
+
+## Guidelines
+
+### About Timeline
+
+A Timeline can be used to display historical, current or future events or information in chronological order based on when they happened or are scheduled to happen.
+
+Timelines can be used in different use cases, such as tracking milestones, monitoring system logs, or visualizing user activity.
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>
+    Timeline is an ordered list (&lt;ol&gt;) and TimelineItem is a list item (&lt;li&gt;).
+  </ListItem>
+
+  <ListItem>
+    The only tabbable and interactive part of a Timeline is the toggle button when using the <inlineCode>collapsible</inlineCode> prop
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        <inlineCode>collapsible</inlineCode> TimelineItems use the <Anchor href="/components/summary-detail">Summary Detail</Anchor> component. The toggle button is labeled by the value of the <inlineCode>timestamp</inlineCode> prop.
+        If the value is too verbose for a screen reader or not a clear label for the collapsed content, provide a helpful label for the button using the <inlineCode>collapsibleLabelText</inlineCode> prop on TimelineItem
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Don’t use icons TimelineItem markers to represent status like warning, error, or success. Since the marker is non-interactive, relying on icons for semantic meaning can cause accessibility challenges, particularly for people using screen readers.
+  </ListItem>
+</UnorderedList>
+
+### Timeline vs. Progress Steps
+
+Use Timeline:
+
+<UnorderedList>
+  <ListItem>To display the history or sequence of events, focusing on what has happened over time.</ListItem>
+  <ListItem>
+    When user interaction is secondary, and progress does not depend on user actions, ensuring the process continues
+    even without direct user input.
+  </ListItem>
+</UnorderedList>
+
+Use Progress Steps:
+
+<UnorderedList>
+  <ListItem>To guide users through a sequence of steps necessary to complete a task.</ListItem>
+  <ListItem>
+    When user interaction is required at certain points in a process and actions are necessary to complete a goal.
+  </ListItem>
+</UnorderedList>
+
+## Examples
+
+### Timeline
+
+Use a basic Timeline as the default option to display a series of events that need to be ordered by time.
+
+<LivePreview scope={{ Timeline, TimelineItem, StatusBadge, Box, Paragraph }} noInline>
+  {TimelineBasic}
+</LivePreview>
+
+### Timeline with icons
+
+Use a Timeline with icons to highlight events that would benefit from a visual cue to make the event more noticeable.
+Timeline icons are decorative, so they should not convey any information that is not clear from the text alone.
+Do not use icons to convey status or state.
+
+Provide the TimelineItem with an `icon` prop to display an icon instead of the default dot. You must import the icon before passing it to the icon prop.
+The icon must be a [Paste Icon](/components/icon). Icons passed to TimelineItems within a TimelineItemGroup will be ignored, as only direct children of the Timeline component should have visual markers.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>Tip: Combine icons with dots to visually emphasize specific events within the Timeline.</CalloutText>
+</Callout>
+
+<LivePreview scope={{ Timeline, TimelineItem, SMSCapableIcon, SentIcon, DisableIcon }} noInline>
+  {TimelineIcon}
+</LivePreview>
+
+### Collapsible Timeline content
+
+Use the `collapsible` prop when your Timeline includes additional information that doesn't need to be visible at all times.
+
+<LivePreview
+  scope={{
+    Timeline,
+    TimelineItem,
+    Box,
+    CallIcon,
+    SMSIcon,
+    StarIcon,
+    PaymentIcon,
+    AgentIcon,
+    NotesIcon,
+    SentimentPositiveIcon,
+    SupportIcon,
+    DocumentationIcon,
+  }}
+  noInline
+>
+  {TimelineCollapsible}
+</LivePreview>
+
+### Grouped Timeline
+
+Use when multiple events happen at the same time or can be grouped under a common category to make the Timeline clearer.
+
+In a grouped Timeline, the timestamp is optional for individual Timeline items since they share a common timestamp.
+However, for collapsible Timeline items, if no timestamp is provided, a heading must be included as the collapsible header.
+
+<LivePreview
+  scope={{
+    Timeline,
+    TimelineItem,
+    TimelineItemGroup,
+    StatusBadge,
+    Box,
+    Paragraph,
+    CalendarIcon
+  }}
+  noInline
+>
+  {TimelineGrouped}
+</LivePreview>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    It is not required to group all events that occur with the same timestamp. Grouping should be used when it enhances
+    clarity, particularly when the events are part of the same logical sequence or related set of actions that match the
+    user's mental model.
+  </CalloutText>
+</Callout>
+
+## Timeline event loading
+
+### Load more
+
+Use a “Load more” Button in the Timeline when the screen viewport is limited.
+The events should load in batches of the same number of events that were initially displayed, once all the events have been displayed, remove the “Load more” Button.
+
+### Infinite scroll
+
+Use infinite scroll only when the Timeline is the last item on the page or surface, and there are no footers or other elements below it that the user needs to interact with.
+Use [Skeleton Loader](/components/skeleton-loader) for results that might take a while to load.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Tip: For very long Timelines, where pressing 'Load more' Buttons might become cumbersome, consider using a{" "}
+    <Anchor href="/components/side-modal">Side Modal</Anchor> with infinite scroll to display the complete list of
+    events.
+  </CalloutText>
+</Callout>
+
+<ResponsiveImage src={InfiniteTimeline} alt="a demo page with filter pattern" />
+
+
+## Composition notes
+
+A Timeline should be presented in chronological order. The order can either be descending (most recent event at the top the list) or ascending (oldest event at the top of the list)
+
+**Use descending order on a Timeline when the current event is the most relevant information for the user.**
+
+<UnorderedList>
+  <ListItem>
+    Time sensitive information, for example an <strong>SMS sending tracker</strong> where the final status (sent or failed) is
+    crucial for the user to track in real time.
+  </ListItem>
+  <ListItem>
+    Long lists of events that are constantly updated, for example in <strong>customer call logs</strong> where the most recent
+    interaction is displayed first so agents can access the information in a timely manner.
+  </ListItem>
+</UnorderedList>
+
+**Use ascending order on a Timeline when understanding the progression from the oldest event to the most recent is essential.**
+
+<UnorderedList>
+  <ListItem>
+    Diagnosing an issue, for example in <strong>platform issue reporting</strong>, where understanding the sequence of reported
+    issues is necessary to understand the problem.
+  </ListItem>
+  <ListItem>
+    Events that evolve through time, for example in <strong>payment history</strong> where the price has changed over time.
+  </ListItem>
+</UnorderedList>
+
+Any content and other components can be placed within the Timeline item detail.
+
+<LivePreview scope={{ Timeline, TimelineItem, StatusBadge, Box, Paragraph, Anchor, Table, THead, TBody, Td, Th, Tr }} noInline>
+  {TimelineComposition}
+</LivePreview>
+
+### Timestamp
+
+Follow Paste's [date guidelines](/foundations/content/product-style-guide#dates) and [time guidelines](/foundations/content/product-style-guide#time) to format the timestamp for each Timeline item.
+In use cases where more than one timestamp per Timeline item is required, use separators in between timestamps for clarity. Order multiple timestamps by starting with the largest time unit and ending with the smallest:
+
+<OrderedList>
+  <ListItem>Month and Day, Year (ex: "August 10, 2024")</ListItem>
+  <ListItem>Hour, Minute, Second (ex: "12:38 pm")</ListItem>
+  <ListItem>Additional Details (ex: "0.2 s" for duration)</ListItem>
+</OrderedList>
+
+<LivePreview scope={{ Timeline, TimelineItem, StatusBadge, Box, Paragraph }} noInline>
+  {TimelineTimestamp}
+</LivePreview>
+
+## When to use Timeline
+
+<DoDont>
+  <Do title="Do" body="Always include a timestamp on Timeline events." center>
+    <Box>
+      <Timeline>
+        <TimelineItem title="Event title" timestamp="August 30, 2024" />
+        <TimelineItem title="Event title" timestamp="August 29, 2024" />
+      </Timeline>
+    </Box>
+  </Do>
+
+  <Dont title="Don't" body="Don’t use Timeline as a way of navigating tasks." center>
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024">
+        Sign up
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 29, 2024">
+        Sign up
+      </TimelineItem>
+    </Timeline>
+  </Dont>
+  <Do
+    title="Do"
+    body="For use cases where displaying status is beneficial to the user, you can incorporate Status Badges or other status components within the Timeline item content."
+    center
+  >
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024">
+          <StatusBadge as="span" variant="ProcessWarning">
+            Warning
+          </StatusBadge>
+      </TimelineItem>
+    </Timeline>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use icons as Timeline item markers to represent status like warning, error, or success."
+    center
+  >
+    <Timeline>
+      <TimelineItem title="Event title" timestamp="August 30, 2024" icon={ProcessInProgressIcon}>
+        Sending
+      </TimelineItem>
+      <TimelineItem title="Event title" timestamp="August 29, 2024" icon={WarningIcon}>
+        Undelivered
+      </TimelineItem>
+    </Timeline>
+  </Dont>
+</DoDont>
