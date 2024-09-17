@@ -1,5 +1,5 @@
 import { Box, type BoxProps } from "@twilio-paste/box";
-import type { Space } from "@twilio-paste/style-props";
+import type { Padding } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import React from "react";
 
@@ -14,13 +14,13 @@ export interface ProgressStepContentProps extends HTMLPasteProps<"div"> {
    */
   element?: BoxProps["element"];
   /**
-   * Overrides the default element name to apply unique styles with the Customization Provider
+   * Responsive prop of Space tokens for the CSS `padding-top` and `padding-bottom` properties
    *
-   * @default 'PROGRESS_STEP_CONTENT'
-   * @type {BoxProps['element']}
+   * @default 'space40'
+   * @type {Padding}
    * @memberof ProgressStepContentProps
    */
-  paddingY?: Space;
+  paddingY?: Padding;
 }
 
 export const ProgressStepContent = React.forwardRef<HTMLDivElement, ProgressStepContentProps>(
