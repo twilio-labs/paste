@@ -29,6 +29,8 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
         element={element}
         paddingX={size === "small" ? "space20" : "space30"}
         paddingY={size === "small" ? "space10" : "space20"}
+        minWidth={size === "small" ? "sizeBase50" : "size0"}
+        justifyContent="center"
         variant={variant}
         ref={ref}
         {...badgeStyles}
