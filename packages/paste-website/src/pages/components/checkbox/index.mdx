@@ -8,6 +8,7 @@ export const meta = {
 
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '@twilio-paste/checkbox';
 import {Box} from '@twilio-paste/box';
+import {Badge} from '@twilio-paste/badge';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Anchor} from '@twilio-paste/anchor';
@@ -173,6 +174,31 @@ You can provide additional information about the group with the use of help text
     }
   >
     Outlook
+  </Checkbox>
+</CheckboxGroup>`}
+</LivePreview>
+
+### Checkbox with suffix
+
+You can provide additional information about an individual item by adding a non-string element as a suffix. The suffix can be any non-string element that is not interactive.
+
+<LivePreview scope={{Checkbox, CheckboxGroup, Badge, Box}} language="jsx">
+  {`<CheckboxGroup
+  name="call logs status"
+  legend="Call logs status"
+  helpText="Select at least 1 status to view results"
+>
+  <Checkbox id="busy" value="busy">
+    <Box display="flex" columnGap="space30">Busy <Badge variant="new" size="small">New</Badge></Box>
+  </Checkbox>
+  <Checkbox id="canceled" value="canceled">
+    Canceled
+  </Checkbox>
+  <Checkbox id="completed" value="completed">
+    Completed
+  </Checkbox>
+  <Checkbox id="queued" value="queued">
+    Queued
   </Checkbox>
 </CheckboxGroup>`}
 </LivePreview>
