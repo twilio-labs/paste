@@ -102,3 +102,28 @@ export const Internationalized: React.FC = () => {
     </ProgressSteps>
   );
 };
+
+export const WithoutSeparatorComponent = (): React.ReactNode => {
+  return (
+    <ProgressSteps>
+      <ProgressStepComplete as="div">Complete </ProgressStepComplete>
+      <ProgressStepError as="div">Error</ProgressStepError>
+      <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
+      <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
+
+export const SuperLongText = (): React.ReactNode => {
+  return (
+    <ProgressSteps>
+      <ProgressStepComplete as="div">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nesciunt neque dolor facere! Eius fugiat
+        obcaecati voluptas, inventore quo, hic sapiente voluptatibus ad repellendus, tempore placeat sit qui ea saepe?
+      </ProgressStepComplete>
+      <ProgressStepError as="div">Error</ProgressStepError>
+      <ProgressStepCurrent as="div">Current</ProgressStepCurrent>
+      <ProgressStepIncomplete as="div">Incomplete</ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};

@@ -26,7 +26,6 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           disabled={disabled}
           ref={ref}
           display="flex"
-          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"
@@ -44,10 +43,10 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           _focus={as !== "div" ? { boxShadow: "shadowFocus" } : undefined}
           _disabled={{ textDecoration: "none", color: "colorTextWeaker", cursor: "not-allowed" }}
         >
-          <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
-          <Box as="span" textAlign="left">
-            {children}
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
           </Box>
+          <Box textAlign="left">{children} </Box>
         </Box>
       </div>
     );

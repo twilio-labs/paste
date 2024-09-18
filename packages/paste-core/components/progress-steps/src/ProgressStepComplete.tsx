@@ -15,7 +15,6 @@ export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressSte
           type={as === "button" ? "button" : undefined}
           ref={ref}
           display="flex"
-          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"
@@ -32,10 +31,10 @@ export const ProgressStepComplete = React.forwardRef<HTMLDivElement, ProgressSte
           _hover={as !== "div" ? { textDecoration: "none", color: "colorTextPrimary" } : undefined}
           _focus={as !== "div" ? { boxShadow: "shadowFocus" } : undefined}
         >
-          <ProgressSuccessIcon decorative={false} title={i18nCompleteLabel} />
-          <Box as="span" textAlign="left">
-            {children}
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <ProgressSuccessIcon decorative={false} title={i18nCompleteLabel} />
           </Box>
+          <Box textAlign="left">{children}</Box>
         </Box>
       </div>
     );
