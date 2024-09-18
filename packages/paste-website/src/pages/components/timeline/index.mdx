@@ -103,7 +103,7 @@ Timelines can be used in different use cases, such as tracking milestones, monit
     </UnorderedList>
   </ListItem>
   <ListItem>
-    Don’t use icons TimelineItem markers to represent status like warning, error, or success. Since the marker is non-interactive, relying on icons for semantic meaning can cause accessibility challenges, particularly for people using screen readers.
+    Don’t use icons in TimelineItem markers to represent status like warning, error, or success. Since the marker is non-interactive, relying on icons for semantic meaning can cause accessibility challenges, particularly for people using screen readers.
   </ListItem>
 </UnorderedList>
 
@@ -183,6 +183,14 @@ Use the `collapsible` prop when your Timeline includes additional information th
 
 Use when multiple events happen at the same time or can be grouped under a common category to make the Timeline clearer.
 
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    It is not required to group all events that occur with the same timestamp. Grouping should be used when it enhances
+    clarity, particularly when the events are part of the same logical sequence or related set of actions that match the
+    user's mental model.
+  </CalloutText>
+</Callout>
+
 In a grouped Timeline, the timestamp is optional for individual Timeline items since they share a common timestamp.
 However, for collapsible Timeline items, if no timestamp is provided, a heading must be included as the collapsible header.
 
@@ -201,14 +209,6 @@ However, for collapsible Timeline items, if no timestamp is provided, a heading 
   {TimelineGrouped}
 </LivePreview>
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutText>
-    It is not required to group all events that occur with the same timestamp. Grouping should be used when it enhances
-    clarity, particularly when the events are part of the same logical sequence or related set of actions that match the
-    user's mental model.
-  </CalloutText>
-</Callout>
-
 ## Timeline event loading
 
 ### Load more
@@ -223,7 +223,7 @@ Use [Skeleton Loader](/components/skeleton-loader) for results that might take a
 
 <Callout variant="neutral" marginY="space70">
   <CalloutText>
-    Tip: For very long Timelines, where pressing 'Load more' Buttons might become cumbersome, consider using a{" "}
+    Tip: For very long Timelines, where pressing "Load more" Buttons might become cumbersome, consider using a{" "}
     <Anchor href="/components/side-modal">Side Modal</Anchor> with infinite scroll to display the complete list of
     events.
   </CalloutText>
@@ -282,7 +282,7 @@ In use cases where more than one timestamp per Timeline item is required, use se
   {TimelineTimestamp}
 </LivePreview>
 
-## When to use Timeline
+## Dos and don'ts
 
 <DoDont>
   <Do title="Do" body="Always include a timestamp on Timeline events." center>
@@ -290,18 +290,16 @@ In use cases where more than one timestamp per Timeline item is required, use se
       <Timeline>
         <TimelineItem title="Event title" timestamp="August 30, 2024" />
         <TimelineItem title="Event title" timestamp="August 29, 2024" />
+        <TimelineItem title="Event title" timestamp="August 21, 2024" />
       </Timeline>
     </Box>
   </Do>
 
   <Dont title="Don't" body="Don’t use Timeline as a way of navigating tasks." center>
     <Timeline>
-      <TimelineItem title="Event title" timestamp="August 30, 2024">
-        Sign up
-      </TimelineItem>
-      <TimelineItem title="Event title" timestamp="August 29, 2024">
-        Sign up
-      </TimelineItem>
+      <TimelineItem title="Sign up" timestamp="August 30, 2024" />
+      <TimelineItem title="Validate email" timestamp="August 29, 2024" />
+      <TimelineItem title="Complete profile" timestamp="August 21, 2024" />
     </Timeline>
   </Dont>
   <Do
@@ -310,10 +308,19 @@ In use cases where more than one timestamp per Timeline item is required, use se
     center
   >
     <Timeline>
-      <TimelineItem title="Event title" timestamp="August 30, 2024">
+      <TimelineItem title="Flagged" timestamp="August 30, 2024">
+        <Box marginTop="space10">
           <StatusBadge as="span" variant="ProcessWarning">
             Warning
           </StatusBadge>
+        </Box>
+      </TimelineItem>
+      <TimelineItem title="Sent" timestamp="August 29, 2024">
+        <Box marginTop="space10">
+          <StatusBadge as="span" variant="ProcessSuccess">
+            Success
+          </StatusBadge>
+        </Box>
       </TimelineItem>
     </Timeline>
   </Do>
@@ -323,12 +330,8 @@ In use cases where more than one timestamp per Timeline item is required, use se
     center
   >
     <Timeline>
-      <TimelineItem title="Event title" timestamp="August 30, 2024" icon={ProcessInProgressIcon}>
-        Sending
-      </TimelineItem>
-      <TimelineItem title="Event title" timestamp="August 29, 2024" icon={WarningIcon}>
-        Undelivered
-      </TimelineItem>
+      <TimelineItem title="Sending" timestamp="August 30, 2024" icon={ProcessInProgressIcon} />
+      <TimelineItem title="Undelivered" timestamp="August 29, 2024" icon={WarningIcon} />
     </Timeline>
   </Dont>
 </DoDont>

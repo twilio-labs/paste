@@ -197,6 +197,9 @@ const TimelineGrouped = () => {
           </Box>
         </TimelineItem>
       </TimelineItemGroup>
+      <TimelineItem title="Pricing cards" icon={CalendarIcon} collapsible collapsibleHeading="More details">
+        <Paragraph marginBottom="space0">The delivery timeline for the Pricing Pattern is pending approval from the broader team.</Paragraph>
+      </TimelineItem>
     </Timeline>
   );
 };

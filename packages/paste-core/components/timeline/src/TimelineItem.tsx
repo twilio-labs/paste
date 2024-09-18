@@ -45,6 +45,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
             width="sizeBase50"
             flexDirection="column"
             alignItems="center"
+            flexShrink={0}
           >
             <TimelineItemIcon icon={icon} element={`${element}_ICON`} />
           </Box>
