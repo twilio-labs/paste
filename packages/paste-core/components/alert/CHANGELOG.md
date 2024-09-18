@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.1
+
+### Patch Changes
+
+- [`31defbae0`](https://github.com/twilio-labs/paste/commit/31defbae0835226579b5239fc78851ada6c07c2a) [#4060](https://github.com/twilio-labs/paste/pull/4060) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Callout, Alert] updated styling
+
 ## 14.1.0
 
 ### Minor Changes

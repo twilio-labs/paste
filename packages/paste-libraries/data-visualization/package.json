@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/data-visualization-library",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "category": "library",
   "status": "production",
   "description": "A library that helps theme data visualizations with Paste tokens.",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
-    "@twilio-paste/design-tokens": "^10.0.0",
+    "@twilio-paste/design-tokens": "^10.8.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",
     "@twilio-paste/types": "^6.0.0",

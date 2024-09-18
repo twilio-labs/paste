@@ -1,5 +1,11 @@
 # @twilio-paste/form-pill-group
 
+## 8.1.1
+
+### Patch Changes
+
+- [`f612d1ba6`](https://github.com/twilio-labs/paste/commit/f612d1ba651b6c50cec0d87e4546a1d83ce28d57) [#4047](https://github.com/twilio-labs/paste/pull/4047) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [FormPillGroup] fixed a bug where long text in a form pill would wrap and break styling. Text within FormPill is now truncated so FormPill(s) will not stretch beyond FormPillGroup width.
+
 ## 8.1.0
 
 ### Minor Changes
