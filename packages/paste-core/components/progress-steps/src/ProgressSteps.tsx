@@ -53,7 +53,7 @@ const ItemSeparatorStyles: {
       display: "flex",
       alignItems: "flex-start",
       flexGrow: "1",
-      "&::after, &::before": {
+      "&::after": {
         content: "''",
         borderBottomWidth: "borderWidth20",
         borderBottomStyle: "solid",
@@ -61,7 +61,8 @@ const ItemSeparatorStyles: {
         borderRadius: "borderRadius20",
         minWidth: "sizeBase40",
         flexGrow: 1,
-        marginTop: "space30",
+        // @ts-expect-error do not have tokens for 10px
+        marginTop: "10px",
       },
 
       "&>*:first-child": {
@@ -69,15 +70,12 @@ const ItemSeparatorStyles: {
       },
     },
     "[role='listitem']:first-child": {
-      "&::before": {
-        content: "none",
-      },
-
       "&>*:first-child": {
         marginLeft: "space0",
       },
     },
     "[role='listitem']:last-child": {
+      flexGrow: "0",
       "&::after": {
         content: "none",
       },
