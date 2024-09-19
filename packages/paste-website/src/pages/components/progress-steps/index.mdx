@@ -5,27 +5,36 @@ export const meta = {
   slug: '/components/progress-steps/',
 };
 
+import { Avatar } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ButtonGroup } from '@twilio-paste/button-group';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import { Heading } from '@twilio-paste/heading';
+import { BusinessIcon } from '@twilio-paste/icons/esm/BusinessIcon';
+import { Paragraph } from '@twilio-paste/paragraph';
+import {
+  ProgressStepComplete,
+  ProgressStepContent,
+  ProgressStepCurrent,
+  ProgressStepError,
+  ProgressStepIncomplete,
+  ProgressSteps,
+} from '@twilio-paste/progress-steps';
 import Changelog from '@twilio-paste/progress-steps/CHANGELOG.md';
 import packageJson from '@twilio-paste/progress-steps/package.json';
 import {
-  ProgressSteps,
-  ProgressStepIncomplete,
-  ProgressStepComplete,
-  ProgressStepCurrent,
-  ProgressStepError,
-  ProgressStepSeparator,
-} from '@twilio-paste/progress-steps';
-import {
-  divExample,
-  buttonExample,
+  additionalContentExample,
   anchorExample,
-  verticalExample,
+  buttonExample,
+  divExample,
   i18nExample,
+  verticalExample
 } from '../../../component-examples/ProgressStepsExamples';
-import {SidebarCategoryRoutes} from '../../../constants';
+import { Do, DoDont, Dont } from '../../../components/DoDont';
+import { SidebarCategoryRoutes } from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
+import { getFeature, getNavigationData } from '../../../utils/api';
 
 export default ComponentPageLayout;
 
@@ -56,7 +65,6 @@ export const getStaticProps = async () => {
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -88,13 +96,13 @@ Each step can communicate one of these statuses:
 ### Ordered Display List vs Progress Steps
 
 **Progress Steps**
-- Progress Steps show users an outline of a complex multi-step task across multiple pages.
+
+- Progress Steps show users an outline of a complex multi-step task across multiple pages or apps.
 - Progress Steps convey progression and have interactive status states.
 
 **Ordered Display List**
 
-- [Ordered Display Lists](/components/list#ordered-display-list) structure tasks but don’t outline or show progression or status through a multi-step task.
-- Ordered Display Lists organize complex tasks within a single screen, especially in flows where users need to complete tasks outside of Twilio.
+[Ordered Display Lists](/components/list#ordered-display-list) structure tasks but don’t show progression or status through a multi-step task.
 
 ### Accessibility
 
@@ -121,7 +129,6 @@ Only button steps may be disabled.
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -139,7 +146,6 @@ Use Progress Steps as anchors when each step links to other pages and has a uniq
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -157,7 +163,6 @@ Use Progress Steps as divs when steps have no need for user interaction.
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
@@ -166,7 +171,7 @@ Use Progress Steps as divs when steps have no need for user interaction.
 
 ### Progress Steps represented vertically
 
-Use vertical Progress Steps when you’re constrained on vertical space in your layout.
+You can use vertical Progress Steps when the content of the task is tall and narrow, or you need to add additional content to each step.
 
 <LivePreview
   scope={{
@@ -175,16 +180,49 @@ Use vertical Progress Steps when you’re constrained on vertical space in your 
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
   {verticalExample}
 </LivePreview>
 
+#### Additional content
+
+Use `ProgressStepContent` to add additional content to non-interactive vertical Progress Steps.
+
+Use this when each step requires minimal content or actions, like opening a modal, redirecting, or entering text, and users need to complete steps in a specific sequence, with progress tracked throughout the entire task.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Steps that are completed in other pages and have unique URLs do not automatically track status.</CalloutHeading>
+  <CalloutText>
+    Implement the logic locally to ensure the step's status is accurately reflected within the Progress Steps component.
+  </CalloutText>
+</Callout>
+
+
+<LivePreview
+  scope={{
+    ProgressSteps,
+    ProgressStepIncomplete,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepContent,
+    Box,
+    Avatar,
+    Paragraph,
+    ButtonGroup,
+    Button,
+    BusinessIcon,
+    Heading
+  }}
+  noInline
+>
+  {additionalContentExample}
+</LivePreview>
+
 ### Internationalization
 
-Each step within the Progress Step component has a label which can be set to adjust the icon's title for internationalization.
+Each step within the Progress Steps component has a label which can be set to adjust the icon's title for internationalization.
 
 <LivePreview
   scope={{
@@ -193,14 +231,33 @@ Each step within the Progress Step component has a label which can be set to adj
     ProgressStepComplete,
     ProgressStepCurrent,
     ProgressStepError,
-    ProgressStepSeparator,
   }}
   noInline
 >
   {i18nExample}
 </LivePreview>
 
----
+
+### Timeline vs. Progress Steps
+
+Use Progress Steps:
+
+<UnorderedList>
+  <ListItem>To guide users through a sequence of steps necessary to complete a task.</ListItem>
+  <ListItem>
+    When user interaction is required at certain points in a process and actions are necessary to complete a goal.
+  </ListItem>
+</UnorderedList>
+
+Use Timeline:
+
+<UnorderedList>
+  <ListItem>To display the history or sequence of events, focusing on what has happened over time.</ListItem>
+  <ListItem>
+    When user interaction is secondary, and progress does not depend on user actions, ensuring the process continues
+    even without direct user input.
+  </ListItem>
+</UnorderedList>
 
 ## Composition Notes
 
@@ -210,6 +267,12 @@ Each step within the Progress Step component has a label which can be set to adj
 - If the process has 5 steps and describing each one with a verb + noun is too long, consider shortening the step labels to just a verb, and using the in-page step label to clarify the full scope of the task. For example, use “Add” as a step label, but include “Add entry step” as the page label.
 - If the process does not fit into a mental model of performing tasks, make sure each step is phrased consistently. For example, “Business profile” and “Brand registration.”
 - Keep the placement of Progress Steps consistent between different pages (steps).
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    ProgressStepSeparator is no longer required starting v2.2.1. The separator is now automatically added between each step using CSS. It is backwards compatible, so previous versions will still work.
+  </CalloutText>
+</Callout>
 
 ### When to use an error step
 
@@ -228,9 +291,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
   >
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
     </ProgressSteps>
   </Do>
@@ -241,9 +302,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
   >
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Name</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Email</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Password</ProgressStepIncomplete>
     </ProgressSteps>
   </Dont>
@@ -256,9 +315,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
     body="Make the labels of each step short, descriptive, and consistent. Use fewer than 5 words for each step label.">
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Create profile</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">Register brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Register campaign</ProgressStepIncomplete>
     </ProgressSteps>
     </Do>
@@ -269,9 +326,7 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
     body="Don’t use long or inconsistent labels with mismatched parts of speech.">
     <ProgressSteps orientation="vertical">
       <ProgressStepComplete as="div">Business profile for your primary business account</ProgressStepComplete>
-      <ProgressStepSeparator />
       <ProgressStepCurrent as="div">A2P brand</ProgressStepCurrent>
-      <ProgressStepSeparator />
       <ProgressStepIncomplete as="div">Finalize campaign registration</ProgressStepIncomplete>
     </ProgressSteps>
   </Dont>
