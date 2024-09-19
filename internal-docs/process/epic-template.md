@@ -72,11 +72,18 @@ _Create this as a placeholder. Add details as they come to light, or close the t
 
 _If the component API is somewhat unknown, this ticket can be done before building the component package. If the API is known, this can be closed as “won’t do”._
 
-- Research what other design system libraries are currently doing for their version
-- Build prototypes in CodeSandbox to explore possible API directions
-- Review prototypes with DSYS
+- Research what other design system libraries are currently doing for their version.
+- Build prototypes in CodeSandbox to explore possible API directions.
+- Review prototypes with DSYS.
 - Post the API exploration and spec (coordinate with whoever's writing the spec) on Github as an RFC.
   - Decide what the component API should be. Add a link in the corresponding component package ticket, or create the ticket.
+
+### Create initial pattern layout
+
+_If the design is straightforward and/or has limited interactions, this can be closed as “won’t do”._
+
+- Build prototypes in Storybook to make sure components in the pattern work together so we can check accessibility early. Base these prototypes on the most varied iterations Design currently has (choose < 3) to help check for feasability and uncover any usability issues.
+- Review prototypes with DSYS.
 
 ### Create component package
 
