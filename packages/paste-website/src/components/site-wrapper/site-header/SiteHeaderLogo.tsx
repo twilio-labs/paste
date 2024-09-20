@@ -1,4 +1,5 @@
 import { Box } from "@twilio-paste/box";
+import { LogoPasteIcon } from "@twilio-paste/icons/esm/LogoPasteIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
@@ -7,8 +8,6 @@ import Link from "next/link";
 import * as React from "react";
 
 import { event } from "../../../lib/gtag";
-import { PasteIcon } from "../../icons/PasteIcon";
-import { PasteIconPride } from "../../icons/PasteIconPride";
 
 const LogoLink = styled(Link)`
   position: relative;
@@ -63,17 +62,7 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
       >
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space40">
-            <PasteIconPride display="block" size={42} transition={logoTransition} opacity={logoOpacity} />
-            <PasteIcon
-              color={theme.textColors.colorTextBrandHighlight}
-              opacity={hoverOpacity}
-              transition={logoTransition}
-              display="block"
-              position="absolute"
-              top="0"
-              left="0"
-              size={42}
-            />
+            <LogoPasteIcon decorative={false} size="sizeIcon70" title="Twilio Paste" />
           </MediaFigure>
           <MediaBody>
             <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorText">
