@@ -4,6 +4,7 @@ import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { InlineCode } from "@twilio-paste/inline-code";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Text } from "@twilio-paste/text";
+import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
@@ -11,6 +12,7 @@ import { SiteSearch } from "../../site-search";
 
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { breakpointIndex } = useWindowSize();
 
   const onOpen = (): void => {
     setIsOpen(true);
@@ -35,7 +37,7 @@ const SiteHeaderSearch: React.FC = () => {
         paddingTop="space20"
         borderStyle="solid"
         boxShadow="shadowBorder"
-        minWidth="200px"
+        minWidth={breakpointIndex === 0 ? "150px" : "200px"}
         color="colorTextIcon"
         variant="reset"
         size="reset"
@@ -59,11 +61,15 @@ const SiteHeaderSearch: React.FC = () => {
               Search
             </Text>
           </Box>
-          <Box as="span" aria-hidden="true">
-            <InlineCode>⌘</InlineCode>
-            <InlineCode>K</InlineCode>
-          </Box>
-          <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
+          {breakpointIndex === 0 ? null : (
+            <>
+              <Box as="span" aria-hidden="true">
+                <InlineCode>⌘</InlineCode>
+                <InlineCode>K</InlineCode>
+              </Box>
+              <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
+            </>
+          )}
         </Box>
       </Button>
       <SiteSearch isOpen={isOpen} onDismiss={onClose} />
