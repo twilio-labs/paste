@@ -3,7 +3,6 @@ import { LogoPasteIcon } from "@twilio-paste/icons/esm/LogoPasteIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
-import { useTheme } from "@twilio-paste/theme";
 import Link from "next/link";
 import * as React from "react";
 
@@ -35,11 +34,6 @@ interface SiteHeaderLogoProps {
  * to render different sizes and spacing in mobile
  */
 const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
-  const theme = useTheme();
-  const [logoOpacity, setLogoOpacity] = React.useState(1);
-  const [hoverOpacity, setHoverOpacity] = React.useState(0);
-  const logoTransition = "ease-out 350ms";
-
   return (
     <Box display="flex" alignItems="center" minWidth={subtitle ? "sizeSidebar" : "size0"}>
       <LogoLink
@@ -51,14 +45,6 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
             label: "Paste logo",
           })
         }
-        onMouseEnter={() => {
-          setLogoOpacity(0);
-          setHoverOpacity(1);
-        }}
-        onMouseLeave={() => {
-          setLogoOpacity(1);
-          setHoverOpacity(0);
-        }}
       >
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space40">
