@@ -3,6 +3,7 @@ import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Card } from "@twilio-paste/card";
+import { DetailText } from "@twilio-paste/detail-text";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Heading } from "@twilio-paste/heading";
 import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
@@ -11,6 +12,7 @@ import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
 
@@ -231,5 +233,143 @@ export const VisualPickerExample = (): JSX.Element => {
         isRecommended
       />
     </VisualPickerRadioGroup>
+  );
+};
+
+export const TableExample = (): JSX.Element => {
+  return (
+    <Table>
+      <THead>
+        <Tr>
+          <Td> </Td>
+          <Th>
+            <Box display="flex" flexDirection="column" rowGap="space20">
+              Developer
+              <Badge as="span" variant="neutral">
+                Current plan
+              </Badge>
+            </Box>
+          </Th>
+          <Th>Production</Th>
+          <Th>
+            <Box display="flex" flexDirection="column" rowGap="space20">
+              Business
+              <Badge as="span" variant="success">
+                Recommended
+              </Badge>
+            </Box>
+          </Th>
+          <Th>Personalized</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>Price per month</Td>
+          <Td>Included</Td>
+          <Td>
+            4% of monthly spend <DetailText marginTop="space0">or $250.00 minimum</DetailText>
+          </Td>
+          <Td>
+            6% of monthly spend <DetailText marginTop="space0">or $1500.00 minimum</DetailText>
+          </Td>
+          <Td>
+            8% of monthly spend <DetailText marginTop="space0">or $5000.00 minimum</DetailText>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Web support</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            Guaranteed response times <DetailText marginTop="space0">Business critical</DetailText>
+          </Td>
+          <Td>-</Td>
+          <Td>3 business hours</Td>
+          <Td>1 hour (24x7)</Td>
+          <Td>1 hour (24x7)</Td>
+        </Tr>
+        <Tr>
+          <Td>
+            Guaranteed response times <DetailText marginTop="space0">Degraded service</DetailText>
+          </Td>
+          <Td>-</Td>
+          <Td>6 business hours</Td>
+          <Td>2 business hours</Td>
+          <Td>2 business hours</Td>
+        </Tr>
+        <Tr>
+          <Td>
+            Guaranteed response times <DetailText marginTop="space0">General issues</DetailText>
+          </Td>
+          <Td>-</Td>
+          <Td>9 business hours</Td>
+          <Td>3 business hours</Td>
+          <Td>3 business hours</Td>
+        </Tr>
+        <Tr>
+          <Td>24x7 phone support</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Dedicated support contact</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Duty manager for escalations</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Quarterly review of account</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>-</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Select Plan</Td>
+          <Td> </Td>
+          <Td>
+            <Button variant="secondary">Select</Button>
+          </Td>
+          <Td>
+            <Button variant="primary">Select</Button>
+          </Td>
+          <Td>
+            <Button variant="secondary">Select</Button>
+          </Td>
+        </Tr>
+      </TBody>
+    </Table>
   );
 };
