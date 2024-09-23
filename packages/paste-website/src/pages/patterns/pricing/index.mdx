@@ -93,18 +93,58 @@ Use the card layout to display the user’s options on pages that may redirect t
 The buttons on these cards can redirect to a billing flow. The card also allows for more detail about the plan.
 
 <StoryPreview
-  title="Filter bar example"
-  storyID="website-filterexamples--default-filter-example"
+  title="Card pricing example"
+  storyID="website-pricingexamples--card-pricing-example"
   height="600px"
   code={`
-export const FilterPatternExample = ({data}): React.ReactNode => {
-  const [selectedFilters, setSelectedFilters] = React.useState({});
-  const [filteredTableData, setFilteredTableData] = React.useState(data);
-  const pillState = useFormPillState();
-  const popover = usePopoverState({ baseId: pill });
+export const CardPricingExample = (): React.ReactNode => {
   return (
-    <>
-    </>
+    <Box
+      display="grid"
+      gridTemplateColumns="repeat(auto-fit, minmax(min(260px, 100%), 1fr));"
+      columnGap="space50"
+      rowGap="space50"
+    >
+      <Card>
+        <Box display="flex" flexDirection="column" rowGap="space70">
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            <Box display="flex" justifyContent="space-between">
+              <Avatar name="user" icon={UserIcon} variant="user />
+              <Badge as="span" variant="neutral">
+                Current plan
+              </Badge>
+            </Box>
+            <Heading marginBottom="space0" as="h2" variant="heading30">
+              Team
+            </Heading>
+            <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
+              Starting at $120
+            </DisplayHeading>
+            <Paragraph marginBottom="space0">Per month</Paragraph>
+          </Box>
+          <Button variant="secondary">Try for 14 days</Button>
+          <Box display="flex" flexDirection="column" rowGap="space50">
+            <Heading marginBottom="space0" as="h3" variant="heading50">
+              Package includes:
+            </Heading>
+            {[
+              "10 seats",
+              "2 sources",
+              "Unlimited destinations",
+              "1,000 MTU",
+              "50 Function hours",
+              "500,000 records processed for Reverse ETL",
+            ].map((item: string) => (
+              <Box key={item} display="flex" columnGap="space20" alignItems="center">
+                <SelectedIcon decorative color="colorTextIconSuccess" />
+                <Paragraph marginBottom="space0">{item}</Paragraph>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Card>
+      {...}
+    </Box>
   )
 }`}
 />
@@ -115,18 +155,51 @@ Use a visual picker when the selection is happening in a wizard and the user wil
 The visual picker should be more succinct in the detail it shares.
 
 <StoryPreview
-  title="Filter bar example"
-  storyID="website-filterexamples--default-filter-example"
+  title="Visual picker example"
+  storyID="website-pricingexamples--visual-picker-example"
   height="600px"
   code={`
-export const FilterPatternExample = ({data}): React.ReactNode => {
-  const [selectedFilters, setSelectedFilters] = React.useState({});
-  const [filteredTableData, setFilteredTableData] = React.useState(data);
-  const pillState = useFormPillState();
-  const popover = usePopoverState({ baseId: pill });
+export const VisualPickerExample = (): React.ReactNode => {
+  const [value, setValue] = React.useState('Free trial');
   return (
-    <>
-    </>
+    <VisualPickerRadioGroup
+      orientation="horizontal"
+      legend="Select an option"
+      name="visual-picker"
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <VisualPickerRadio labelText="Free trial value="Free trial>
+        <Box>
+          <Box display="flex" columnGap="space30" justifyContent="space-between">
+            <Heading as="h2" variant="heading40" marginBottom="space0">
+              Free trial
+            </Heading>
+            <Badge as="span" variant="success">
+              Recommended
+            </Badge>
+          </Box>
+          <Box marginTop="space30" display="flex" columnGap="space20" alignItems="flex-end">
+            <Heading as="h3" variant="heading10" marginBottom="space0">
+              $0
+            </Heading>
+            <Paragraph marginBottom="space0">Per month</Paragraph>
+          </Box>
+        </Box>
+        <Box marginY="space50">
+          <Separator orientation="horizontal" />
+        </Box>
+        <Box display="flex" flexDirection="column" rowGap="space50">
+          {["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"].map((item: string) => (
+            <Box key={item} display="flex" columnGap="space20" alignItems="center">
+              <SelectedIcon decorative color="colorTextIconSuccess" />
+              <Paragraph marginBottom="space0">{item}</Paragraph>
+            </Box>
+          ))}
+        </Box>
+      </VisualPickerRadio>
+      {...}
+    </VisualPickerRadioGroup>
   )
 }`}
 />
@@ -136,18 +209,77 @@ export const FilterPatternExample = ({data}): React.ReactNode => {
 Consider using a table when there are 5 or more options for users to choose from, or more comparison is necessary between any number of plans.
 
 <StoryPreview
-  title="Filter bar example"
-  storyID="website-filterexamples--default-filter-example"
+  title="Table example"
+  storyID="website-pricingexamples--table-example"
   height="600px"
   code={`
-export const FilterPatternExample = ({data}): React.ReactNode => {
-  const [selectedFilters, setSelectedFilters] = React.useState({});
-  const [filteredTableData, setFilteredTableData] = React.useState(data);
-  const pillState = useFormPillState();
-  const popover = usePopoverState({ baseId: pill });
+export const TableExample = (): React.ReactNode => {
   return (
-    <>
-    </>
+    <Table>
+      <THead>
+        <Tr>
+          <Td> </Td>
+          <Th>
+            <Box display="flex" flexDirection="column" rowGap="space20">
+              Developer
+              <Badge as="span" variant="neutral">
+                Current plan
+              </Badge>
+            </Box>
+          </Th>
+          <Th>Production</Th>
+          <Th>
+            <Box display="flex" flexDirection="column" rowGap="space20">
+              Business
+              <Badge as="span" variant="success">
+                Recommended
+              </Badge>
+            </Box>
+          </Th>
+          <Th>Personalized</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>Price per month</Td>
+          <Td>Included</Td>
+          <Td>
+            4% of monthly spend <DetailText marginTop="space0">or $250.00 minimum</DetailText>
+          </Td>
+          <Td>
+            6% of monthly spend <DetailText marginTop="space0">or $1500.00 minimum</DetailText>
+          </Td>
+          <Td>
+            8% of monthly spend <DetailText marginTop="space0">or $5000.00 minimum</DetailText>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>Web support</Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+          <Td>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            Guaranteed response times <DetailText marginTop="space0">Business critical</DetailText>
+          </Td>
+          <Td>-</Td>
+          <Td>3 business hours</Td>
+          <Td>1 hour (24x7)</Td>
+          <Td>1 hour (24x7)</Td>
+        </Tr>
+        {...}
+      </TBody>
+    </Table>
   )
 }`}
 />

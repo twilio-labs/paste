@@ -198,7 +198,7 @@ const VisualItem = ({
 };
 
 export const VisualPickerExample = (): JSX.Element => {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState("Free trial");
 
   return (
     <VisualPickerRadioGroup
