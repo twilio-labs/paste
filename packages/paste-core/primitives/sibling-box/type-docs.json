@@ -878,7 +878,7 @@
       "description": "Style prop for the CSS `border-bottom` property"
     },
     "borderBottomColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 46 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -920,7 +920,7 @@
       "description": "Responsive prop for the CSS `border-collapse` property"
     },
     "borderColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 46 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -934,7 +934,7 @@
       "description": "Style prop for the CSS `border-left` property"
     },
     "borderLeftColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 46 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -969,7 +969,7 @@
       "description": "Style prop for the CSS `border-right` property"
     },
     "borderRightColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 46 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -1011,7 +1011,7 @@
       "description": "Style prop for the CSS `border-top` property"
     },
     "borderTopColor": {
-      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 46 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorBorder\" | \"colorBorderDecorative10Weaker\" | \"colorBorderDecorative20Weaker\" | \"colorBorderDecorative30Weaker\" | \"colorBorderDecorative40Weaker\" | ... 45 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
