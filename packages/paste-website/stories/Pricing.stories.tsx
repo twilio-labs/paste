@@ -10,6 +10,8 @@ import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import { Paragraph } from "@twilio-paste/paragraph";
+import { Separator } from "@twilio-paste/separator";
+import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
 
 export default {
@@ -20,6 +22,7 @@ const PricingCard = ({
   icon,
   isEntity,
   isCurrentPlan,
+  isRecommended,
   packageName,
   price,
   subheader,
@@ -29,6 +32,7 @@ const PricingCard = ({
   icon: React.FC<React.PropsWithChildren<GenericIconProps>>;
   isEntity?: boolean;
   isCurrentPlan?: boolean;
+  isRecommended?: boolean;
   packageName: string;
   price: string;
   subheader: string;
@@ -44,6 +48,11 @@ const PricingCard = ({
             {isCurrentPlan ? (
               <Badge as="span" variant="neutral">
                 Current plan
+              </Badge>
+            ) : null}
+            {isRecommended ? (
+              <Badge as="span" variant="success">
+                Recommended
               </Badge>
             ) : null}
           </Box>
@@ -64,7 +73,7 @@ const PricingCard = ({
           </Heading>
           {packageList.map((item: string) => (
             <Box key={item} display="flex" columnGap="space20" alignItems="center">
-              <SelectedIcon decorative />
+              <SelectedIcon decorative color="colorTextIconSuccess" />
               <Paragraph marginBottom="space0">{item}</Paragraph>
             </Box>
           ))}
@@ -129,5 +138,98 @@ export const CardPricingExample = (): JSX.Element => {
         ]}
       />
     </Box>
+  );
+};
+
+const VisualItem = ({
+  isCurrentPlan,
+  isRecommended,
+  packageName,
+  price,
+  packageList,
+}: {
+  isCurrentPlan?: boolean;
+  isRecommended?: boolean;
+  packageName: string;
+  price: string;
+  packageList: string[];
+}): JSX.Element => {
+  return (
+    <VisualPickerRadio labelText={packageName} value={packageName}>
+      <Box>
+        <Box display="flex" columnGap="space30" justifyContent="space-between">
+          <Heading as="h2" variant="heading40" marginBottom="space0">
+            {packageName}
+          </Heading>
+          {isCurrentPlan ? (
+            <Badge as="span" variant="neutral">
+              Current plan
+            </Badge>
+          ) : null}
+          {isRecommended ? (
+            <Badge as="span" variant="success">
+              Recommended
+            </Badge>
+          ) : null}
+        </Box>
+        <Box marginTop="space30" display="flex" columnGap="space20" alignItems="flex-end">
+          <Heading as="h3" variant="heading10" marginBottom="space0">
+            {price}
+          </Heading>
+          <Paragraph marginBottom="space0">Per month</Paragraph>
+        </Box>
+      </Box>
+      <Box marginY="space50">
+        <Separator orientation="horizontal" />
+      </Box>
+
+      <Box display="flex" flexDirection="column" rowGap="space50">
+        {packageList.map((item: string) => (
+          <Box key={item} display="flex" columnGap="space20" alignItems="center">
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <Paragraph marginBottom="space0">{item}</Paragraph>
+          </Box>
+        ))}
+      </Box>
+    </VisualPickerRadio>
+  );
+};
+
+export const VisualPickerExample = (): JSX.Element => {
+  const [value, setValue] = React.useState("1");
+
+  return (
+    <VisualPickerRadioGroup
+      orientation="horizontal"
+      legend="Select an option"
+      name="visual-picker"
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <VisualItem
+        packageName="Free trial"
+        price="$0"
+        packageList={["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"]}
+      />
+      <VisualItem
+        packageName="Pay as you go"
+        price="$0.05"
+        packageList={[
+          "Testing with unlimited configurations",
+          "Full access to configurations",
+          "Flexible usage based pricing",
+        ]}
+      />
+      <VisualItem
+        packageName="Verify Pro"
+        price="$99"
+        packageList={[
+          "Up to 2,100 successful verifications",
+          "4.76% discount compared to pay-as-you-go",
+          "Cancel anytime",
+        ]}
+        isRecommended
+      />
+    </VisualPickerRadioGroup>
   );
 };
