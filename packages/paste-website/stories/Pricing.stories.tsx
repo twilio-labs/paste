@@ -92,6 +92,7 @@ export const CardPricingExample = (): JSX.Element => {
       gridTemplateColumns="repeat(auto-fit, minmax(min(260px, 100%), 1fr));"
       columnGap="space50"
       rowGap="space50"
+      maxWidth="1140px"
     >
       <PricingCard
         icon={UserIcon}
@@ -201,38 +202,40 @@ export const VisualPickerExample = (): JSX.Element => {
   const [value, setValue] = React.useState("Free trial");
 
   return (
-    <VisualPickerRadioGroup
-      orientation="horizontal"
-      legend="Select an option"
-      name="visual-picker"
-      value={value}
-      onChange={(newValue) => setValue(newValue)}
-    >
-      <VisualItem
-        packageName="Free trial"
-        price="$0"
-        packageList={["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"]}
-      />
-      <VisualItem
-        packageName="Pay as you go"
-        price="$0.05"
-        packageList={[
-          "Testing with unlimited configurations",
-          "Full access to configurations",
-          "Flexible usage based pricing",
-        ]}
-      />
-      <VisualItem
-        packageName="Verify Pro"
-        price="$99"
-        packageList={[
-          "Up to 2,100 successful verifications",
-          "4.76% discount compared to pay-as-you-go",
-          "Cancel anytime",
-        ]}
-        isRecommended
-      />
-    </VisualPickerRadioGroup>
+    <Box maxWidth="1140px">
+      <VisualPickerRadioGroup
+        orientation="horizontal"
+        legend="Select an option"
+        name="visual-picker"
+        value={value}
+        onChange={(newValue) => setValue(newValue)}
+      >
+        <VisualItem
+          packageName="Free trial"
+          price="$0"
+          packageList={["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"]}
+        />
+        <VisualItem
+          packageName="Pay as you go"
+          price="$0.05"
+          packageList={[
+            "Testing with unlimited configurations",
+            "Full access to configurations",
+            "Flexible usage based pricing",
+          ]}
+        />
+        <VisualItem
+          packageName="Verify Pro"
+          price="$99"
+          packageList={[
+            "Up to 2,100 successful verifications",
+            "4.76% discount compared to pay-as-you-go",
+            "Cancel anytime",
+          ]}
+          isRecommended
+        />
+      </VisualPickerRadioGroup>
+    </Box>
   );
 };
 
