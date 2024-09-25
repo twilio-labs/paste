@@ -270,20 +270,6 @@ export const SendingMessageError = (): React.ReactNode => {
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
             Message body text
-            <Box marginTop="space50">
-              <SummaryDetail>
-                <SummaryDetailHeading>
-                  <SummaryDetailToggleButton aria-label="BOOP" />
-                  <SummaryDetailHeadingContent>
-                    <Text as="p" fontWeight="fontWeightBold">
-                      View data sources
-                    </Text>
-                  </SummaryDetailHeadingContent>
-                </SummaryDetailHeading>
-                <SummaryDetailContent>Data Content</SummaryDetailContent>
-              </SummaryDetail>
-            </Box>
-
             <AIChatMessageActionGroup>
               <AIChatMessageActionCard aria-label="Feedback form">
                 <HelpText marginTop="space0" variant="error">
