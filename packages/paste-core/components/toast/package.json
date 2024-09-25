@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/toast",
-  "version": "12.2.0",
+  "version": "12.2.1",
   "category": "feedback",
   "status": "production",
   "description": "A Toast is an animated, temporary banner that communicates an immediate and direct response to a user action.",
@@ -55,7 +55,7 @@
     "@twilio-paste/button": "^14.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
+    "@twilio-paste/design-tokens": "^10.8.0",
     "@twilio-paste/icons": "^12.2.0",
     "@twilio-paste/media-object": "^10.1.0",
     "@twilio-paste/reakit-library": "^2.1.0",

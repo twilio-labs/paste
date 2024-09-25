@@ -1,5 +1,11 @@
 # @twilio-paste/button-group
 
+## 4.2.0
+
+### Minor Changes
+
+- [`bc7d13f43`](https://github.com/twilio-labs/paste/commit/bc7d13f43b777af3cd379ddf63bd46825dcdbaf0) [#4051](https://github.com/twilio-labs/paste/pull/4051) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button Group] add justifyContent prop on unattached button groups. Use flex for unattached button groups.
+
 ## 4.1.1
 
 ### Patch Changes

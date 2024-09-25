@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 8.3.1
+
+### Patch Changes
+
+- [`ae522366f`](https://github.com/twilio-labs/paste/commit/ae522366f61aa1c841e3c915468be013355a11ec) [#4072](https://github.com/twilio-labs/paste/pull/4072) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add a min-width of size-base-50 to small badges to ensure badges with only one character (e.g. "1") render as a circle rather than an oval.
+
 ## 8.3.0
 
 ### Minor Changes

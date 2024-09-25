@@ -1,5 +1,11 @@
 # @twilio-paste/sidebar
 
+## 1.1.2
+
+### Patch Changes
+
+- [`7ae14af12`](https://github.com/twilio-labs/paste/commit/7ae14af1293eee0f3af149f6ebc3612fe9b028b7) [#4011](https://github.com/twilio-labs/paste/pull/4011) Thanks [@cogwizzle](https://github.com/cogwizzle)! - [Sidebar] Updating the unselected Sidebar Disclosure Header and SidebarNavigationItems.
+
 ## 1.1.1
 
 ### Patch Changes

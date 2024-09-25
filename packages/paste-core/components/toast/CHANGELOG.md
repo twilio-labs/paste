@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.2.1
+
+### Patch Changes
+
+- [`2951f5c07`](https://github.com/twilio-labs/paste/commit/2951f5c07c4dc537150c83e6985348fc2196f20e) [#4058](https://github.com/twilio-labs/paste/pull/4058) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Toast] resolved issue where multiple toasts were not being dismissed
+
 ## 12.2.0
 
 ### Minor Changes

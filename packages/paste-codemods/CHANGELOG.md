@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.12.0
+
+### Minor Changes
+
+- [`d108aeb7f`](https://github.com/twilio-labs/paste/commit/d108aeb7f9f8e455fb5490ae790e21d32f0a7ec9) [#4065](https://github.com/twilio-labs/paste/pull/4065) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Progress Steps] Add `ProgressStepsContent` component to add additional content during vertical orientation
+
+* [`43bd80a01`](https://github.com/twilio-labs/paste/commit/43bd80a018b2887522af4aa9bea3995ddb023051) [#4054](https://github.com/twilio-labs/paste/pull/4054) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Codemods] new export (timeline)
+
 ## 0.11.0
 
 ### Minor Changes

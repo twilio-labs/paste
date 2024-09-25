@@ -1,5 +1,11 @@
 # @twilio-paste/data-visualization-library
 
+## 5.1.0
+
+### Minor Changes
+
+- [`b20a3a1a8`](https://github.com/twilio-labs/paste/commit/b20a3a1a8764fd57603f2299481456c4c3c3fb46) [#4053](https://github.com/twilio-labs/paste/pull/4053) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization]: added a new helper function, applyPasteHighchartsModules, that applies any number of modules to Highcharts setting accesibility required.
+
 ## 5.0.0
 
 ### Major Changes

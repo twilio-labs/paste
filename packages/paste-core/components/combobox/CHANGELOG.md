@@ -1,5 +1,15 @@
 # Change Log
 
+## 16.3.0
+
+### Minor Changes
+
+- [`37acfcdf6`](https://github.com/twilio-labs/paste/commit/37acfcdf605aeda52ebf1b4b345717a9682f0ed6) [#4049](https://github.com/twilio-labs/paste/pull/4049) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Add new prop `usePortal` which defaults to `true`. The prop was introduced to address a bug when Comboboxes are placed in Popovers. usePortal should be set to false when using a Combobox inside a Popover in order to retain full functionality.
+
+### Patch Changes
+
+- [`f612d1ba6`](https://github.com/twilio-labs/paste/commit/f612d1ba651b6c50cec0d87e4546a1d83ce28d57) [#4047](https://github.com/twilio-labs/paste/pull/4047) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Combobox] added ellipse styling to text that exceeds length of a single select combobox when not active
+
 ## 16.2.1
 
 ### Patch Changes
