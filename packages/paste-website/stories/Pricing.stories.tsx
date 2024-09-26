@@ -243,8 +243,8 @@ export const TableExample = (): JSX.Element => {
   return (
     <Table>
       <THead>
-        <Tr>
-          <Td> </Td>
+        <Tr verticalAlign="top">
+          <Th> </Th>
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer
