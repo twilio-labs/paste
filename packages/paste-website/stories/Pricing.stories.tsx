@@ -48,12 +48,12 @@ const PricingCard = ({
           <Box display="flex" justifyContent="space-between">
             <Avatar name="user" icon={icon} variant={isEntity ? "entity" : "user"} />
             {isCurrentPlan ? (
-              <Badge as="span" variant="neutral">
+              <Badge as="span" variant="neutral" size="small">
                 Current plan
               </Badge>
             ) : null}
             {isRecommended ? (
-              <Badge as="span" variant="success">
+              <Badge as="span" variant="success" size="small">
                 Recommended
               </Badge>
             ) : null}
@@ -165,12 +165,12 @@ const VisualItem = ({
             {packageName}
           </Heading>
           {isCurrentPlan ? (
-            <Badge as="span" variant="neutral">
+            <Badge as="span" variant="neutral" size="small">
               Current plan
             </Badge>
           ) : null}
           {isRecommended ? (
-            <Badge as="span" variant="success">
+            <Badge as="span" variant="success" size="small">
               Recommended
             </Badge>
           ) : null}
