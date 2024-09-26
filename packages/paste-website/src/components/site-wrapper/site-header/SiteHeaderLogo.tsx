@@ -1,12 +1,13 @@
 import { Box } from "@twilio-paste/box";
-import { LogoPasteIcon } from "@twilio-paste/icons/esm/LogoPasteIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
 import Link from "next/link";
 import * as React from "react";
 
 import { event } from "../../../lib/gtag";
+import { PasteIcon } from "../../icons/PasteIcon";
 
 const LogoLink = styled(Link)`
   position: relative;
@@ -34,6 +35,7 @@ interface SiteHeaderLogoProps {
  * to render different sizes and spacing in mobile
  */
 const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
+  const theme = useTheme();
   return (
     <Box display="flex" alignItems="center" minWidth={subtitle ? "sizeSidebar" : "size0"}>
       <LogoLink
@@ -48,7 +50,7 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
       >
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space40">
-            <LogoPasteIcon decorative={false} size="sizeIcon70" title="Twilio Paste" />
+            <PasteIcon color={theme.textColors.colorTextBrandHighlight} display="block" size={38} />
           </MediaFigure>
           <MediaBody>
             <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorText">

@@ -38,6 +38,7 @@ const SiteHeaderSearch: React.FC = () => {
         borderStyle="solid"
         boxShadow="shadowBorder"
         minWidth={breakpointIndex === 0 ? "150px" : "200px"}
+        minHeight="36px"
         color="colorTextIcon"
         variant="reset"
         size="reset"
