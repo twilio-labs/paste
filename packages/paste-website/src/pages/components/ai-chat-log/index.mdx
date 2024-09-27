@@ -390,7 +390,7 @@ Keep any generated responses from the AI contained in the `AIChatMessageBody` co
 **An error generating or regenerating a response**
 
 - Use a Callout to show an inline error.
-- The Callout should replace the body message if no response was generated, or appear between the AI Chat Message Body and the AI Chat Message Action if the response is incomplete.
+- The Callout should replace the body message if no response was generated, or appear between the `AIChatMessageBody` and the `AIChatMessageActionGroup` if the response is incomplete.
 - Include an in-chat action to recover (For example: regenerate or try again)
 - Include a way for users to contact support if the error persists.
 
@@ -541,7 +541,7 @@ Keep any generated responses from the AI contained in the `AIChatMessageBody` co
 
 **Chat History Errors, Timeouts, Network errors...etc.**
 
-- An Alert will be placed above the chat composer
+- An Alert will be placed above the Chat Composer
 - The Alert will be dismissed once the user refreshes the page or when the error is resolved
 
 <LivePreview
