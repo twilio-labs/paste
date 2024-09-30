@@ -248,7 +248,7 @@ export const TableExample = (): JSX.Element => {
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer
-              <Badge as="span" variant="neutral">
+              <Badge as="span" variant="decorative10">
                 Current plan
               </Badge>
             </Box>
@@ -282,16 +282,16 @@ export const TableExample = (): JSX.Element => {
         <Tr>
           <Td>Web support</Td>
           <Td>
-            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <SelectedIcon decorative color="colorTextIconAvailable" />
           </Td>
           <Td>
-            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <SelectedIcon decorative color="colorTextIconAvailable" />
           </Td>
           <Td>
-            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <SelectedIcon decorative color="colorTextIconAvailable" />
           </Td>
           <Td>
-            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <SelectedIcon decorative color="colorTextIconAvailable" />
           </Td>
         </Tr>
         <Tr>
