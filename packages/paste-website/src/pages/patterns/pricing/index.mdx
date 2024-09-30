@@ -108,7 +108,7 @@ export const CardPricingExample = (): React.ReactNode => {
       <Card>
         <Box display="flex" flexDirection="column" rowGap="space70">
           <Box display="flex" flexDirection="column" rowGap="space40">
-            <Box display="flex" justifyContent="space-between">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
               <Avatar name="user" icon={UserIcon} variant="user />
               <Badge as="span" variant="neutral">
                 Current plan
@@ -171,7 +171,7 @@ export const VisualPickerExample = (): React.ReactNode => {
     >
       <VisualPickerRadio labelText="Free trial value="Free trial>
         <Box>
-          <Box display="flex" columnGap="space30" justifyContent="space-between">
+          <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
             <Heading as="h2" variant="heading40" marginBottom="space0">
               Free trial
             </Heading>
@@ -217,8 +217,8 @@ export const TableExample = (): React.ReactNode => {
   return (
     <Table>
       <THead>
-        <Tr>
-          <Td> </Td>
+        <Tr verticalAlign="top">
+          <Th> </Th>
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer

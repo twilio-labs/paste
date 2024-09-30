@@ -45,7 +45,7 @@ const PricingCard = ({
     <Card>
       <Box display="flex" flexDirection="column" rowGap="space70">
         <Box display="flex" flexDirection="column" rowGap="space40">
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" justifyContent="space-between" alignItems="center">
             <Avatar name="user" icon={icon} variant={isEntity ? "entity" : "user"} />
             {isCurrentPlan ? (
               <Badge as="span" variant="neutral">
@@ -160,7 +160,7 @@ const VisualItem = ({
   return (
     <VisualPickerRadio labelText={packageName} value={packageName}>
       <Box>
-        <Box display="flex" columnGap="space30" justifyContent="space-between">
+        <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
           <Heading as="h2" variant="heading40" marginBottom="space0">
             {packageName}
           </Heading>
