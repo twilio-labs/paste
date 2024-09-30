@@ -232,10 +232,8 @@ export const SendingMessageError = (): React.ReactNode => {
   return (
     <>
       <AIChatLog>
-        <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
             Messages from +1 234-292-2349 are failing due to the following top 3 errors which occurred in the past 7
             days:
@@ -266,8 +264,10 @@ export const SendingMessageError = (): React.ReactNode => {
           </AIChatMessageBody>
         </AIChatMessage>
 
-        <AIChatMessage variant="bot">
-          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessage variant="user">
+          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
+            You
+          </AIChatMessageAuthor>
           <AIChatMessageBody>
             Message body text
             <AIChatMessageActionGroup>
