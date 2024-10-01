@@ -6,47 +6,63 @@ export const meta = {
   slug: "/components/ai-chat-log/",
 };
 
-import { uid } from "@twilio-paste/uid-library";
-import { HelpText } from "@twilio-paste/help-text";
-import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
-import { Stack } from "@twilio-paste/stack";
-import { Paragraph } from "@twilio-paste/paragraph";
 import {
   AIChatLog,
+  AIChatLogger,
   AIChatMessage,
+  AIChatMessageActionCard,
+  AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
   AIChatMessageLoading,
-  AIChatLogger,
   useAIChatLogger,
-  AIChatMessageActionCard,
-  AIChatMessageActionGroup,
 } from "@twilio-paste/ai-chat-log";
-import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
-import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
-import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
+import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { HelpText } from "@twilio-paste/help-text";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
-import Changelog from "@twilio-paste/ai-chat-log/CHANGELOG.md";
+import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { uid } from "@twilio-paste/uid-library";
 
-import { SidebarCategoryRoutes } from "../../../constants";
 import Logo from "../../../assets/logo.svg";
+import { SidebarCategoryRoutes } from "../../../constants";
 
+import packageJson from "@twilio-paste/ai-chat-log/package.json";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { RepeatIcon } from "@twilio-paste/icons/esm/RepeatIcon";
+import { ClearEditorPlugin } from "@twilio-paste/lexical-library";
+import { SummaryDetail, SummaryDetailContent, SummaryDetailHeading, SummaryDetailHeadingContent, SummaryDetailToggleButton } from "@twilio-paste/summary-detail";
 import {
+  aIActionClickError,
+  actionGroupError,
+  aiChatLoggerExample,
+  avatarExample,
   basicBotMessage,
   basicHumanMessage,
-  botWithFeedback,
-  botWithLoadingStopButton,
-  botWithLoading,
-  kitchenSink,
-  aiChatLoggerExample,
   botWithBodyActions,
-  avatarExample,
+  botWithFeedback,
+  botWithLoading,
+  botWithLoadingStopButton,
+  kitchenSink,
+  messageGenerationError,
+  sendingMessageError,
+  systemError,
 } from "../../../component-examples/AIChatLogExamples";
-import packageJson from "@twilio-paste/ai-chat-log/package.json";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
+import { Text } from "@twilio-paste/text";
+import { Alert } from "@twilio-paste/alert";
 
 export default ComponentPageLayout;
 
@@ -362,3 +378,203 @@ You can push or pop a chat based on an action or event. In this example it's bas
 ## Composition Notes
 
 Keep any generated responses from the AI contained in the `AIChatMessageBody` component. Each chat message should only have one `AIChatMessageBody` component.
+
+### Error States
+
+- Don’t accumulate error states in one screen, just display one error at a time, starting with the most critical one, until the user recovers.
+- Check content guidelines for [error states](/patterns/error-state#recommended-phrasings-and-templates).
+- Include another way for users to contact support if the error persists.
+
+#### Message content error
+
+**An error generating or regenerating a response**
+
+- Use a Callout to show an inline error.
+- The Callout should replace the body message if no response was generated, or appear between the `AIChatMessageBody` and the `AIChatMessageActionGroup` if the response is incomplete.
+- Include an in-chat action to recover (For example: regenerate or try again)
+- Include a way for users to contact support if the error persists.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Anchor,
+    Box,
+    Button,
+    Callout,
+    CalloutHeading,
+    CalloutText,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    ClearEditorPlugin,
+    RefreshIcon,
+    AttachIcon,
+    SendIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {messageGenerationError}
+</LivePreview>
+
+**An error when clicking on an Action that generates an AI response**
+
+- The Callout is placed under the response and action
+- Include another way for users to contact support if the error persists.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Anchor,
+    Box,
+    Button,
+    ButtonGroup,
+    Callout,
+    CalloutHeading,
+    CalloutText,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    ClearEditorPlugin,
+    AttachIcon,
+    SendIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {aIActionClickError}
+</LivePreview>
+
+#### AI Chat Message Action Group Error
+
+**An error when clicking actions on AI messages (clicking buttons, links)**
+
+- Use Help text error variant  for actions not directly tied to generating a response or continuing the conversation, such as copying text or rating a response.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Box,
+    Button,
+    ThumbsDownIcon,
+    ThumbsUpIcon,
+    RefreshIcon,
+    AttachIcon,
+    SendIcon,
+    CopyIcon,
+    Callout,
+    CalloutHeading,
+    CalloutText,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    ClearEditorPlugin,
+    SummaryDetail,
+    SummaryDetailContent,
+    SummaryDetailHeading,
+    SummaryDetailHeadingContent,
+    SummaryDetailToggleButton,
+    HelpText,
+    Text
+  }}
+  language="jsx"
+  noInline
+>
+  {actionGroupError}
+</LivePreview>
+
+#### Sending errors
+
+**An error sending a message**
+
+- The error is placed in the Message Action Card
+- Include an action to recover
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Box,
+    Button,
+    ButtonGroup,
+    ThumbsDownIcon,
+    ThumbsUpIcon,
+    RepeatIcon,
+    AttachIcon,
+    SendIcon,
+    Callout,
+    CalloutHeading,
+    CalloutText,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    ClearEditorPlugin,
+    HelpText,
+    Text
+  }}
+  language="jsx"
+  noInline
+>
+  {sendingMessageError}
+</LivePreview>
+
+#### System errors
+
+**Chat History Errors, Timeouts, Network errors...etc.**
+
+- An Alert will be placed above the Chat Composer
+- The Alert will be dismissed once the user refreshes the page or when the error is resolved
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Box,
+    Button,
+    ThumbsDownIcon,
+    ThumbsUpIcon,
+    RefreshIcon,
+    AttachIcon,
+    SendIcon,
+    CopyIcon,
+    Alert,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    ClearEditorPlugin,
+    SummaryDetail,
+    SummaryDetailContent,
+    SummaryDetailHeading,
+    SummaryDetailHeadingContent,
+    SummaryDetailToggleButton,
+    HelpText,
+    Text
+  }}
+  language="jsx"
+  noInline
+>
+  {systemError}
+</LivePreview>
