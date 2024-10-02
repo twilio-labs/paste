@@ -5,6 +5,7 @@ import { Button } from "@twilio-paste/button";
 import { Card } from "@twilio-paste/card";
 import { DetailText } from "@twilio-paste/detail-text";
 import { DisplayHeading } from "@twilio-paste/display-heading";
+import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
@@ -53,7 +54,7 @@ const PricingCard = ({
               </Badge>
             ) : null}
             {isRecommended ? (
-              <Badge as="span" variant="success">
+              <Badge as="span" variant="decorative30">
                 Recommended
               </Badge>
             ) : null}
@@ -85,62 +86,62 @@ const PricingCard = ({
   );
 };
 
-export const CardPricingExample = (): JSX.Element => {
+export const CardExample = (): JSX.Element => {
   return (
-    <Box
-      display="grid"
-      gridTemplateColumns="repeat(auto-fit, minmax(min(260px, 100%), 1fr));"
-      columnGap="space50"
-      rowGap="space50"
-      maxWidth="1140px"
-    >
-      <PricingCard
-        icon={UserIcon}
-        isCurrentPlan
-        packageName="Free"
-        price="$0"
-        subheader="Per month"
-        packageList={[
-          "10 seats",
-          "2 sources",
-          "Unlimited destinations",
-          "1,000 MTU",
-          "50 Function hours",
-          "500,000 records processed for Reverse ETL",
-        ]}
-      />
-      <PricingCard
-        icon={UserIcon}
-        packageName="Team"
-        price="Starting at $120"
-        subheader="Per month"
-        cta="Try for 14 days"
-        packageList={[
-          "10 seats",
-          "2 sources",
-          "Unlimited destinations",
-          "1,000 MTU",
-          "50 Function hours",
-          "500,000 records processed for Reverse ETL",
-        ]}
-      />
-      <PricingCard
-        icon={BusinessIcon}
-        isEntity
-        packageName="Business"
-        price="Custom pricing"
-        subheader="contact sales"
-        cta="Contact us to upgrade"
-        packageList={[
-          "10 seats",
-          "unlimitted sources",
-          "Choose from 10,000 / 25,000 / 100,000 MTU",
-          "50 Function hours",
-          "1 million records processed for Reverse ETL",
-          "Monthly and annual plans available",
-        ]}
-      />
-    </Box>
+    <Grid gutter="space40" rowGap="space70" equalColumnHeights>
+      <Column span={[12, 6, 4]}>
+        <PricingCard
+          icon={UserIcon}
+          isCurrentPlan
+          packageName="Free"
+          price="$0"
+          subheader="Per month"
+          packageList={[
+            "10 seats",
+            "2 sources",
+            "Unlimited destinations",
+            "1,000 MTU",
+            "50 Function hours",
+            "500,000 records processed for Reverse ETL",
+          ]}
+        />
+      </Column>
+      <Column span={[12, 6, 4]}>
+        <PricingCard
+          icon={UserIcon}
+          packageName="Team"
+          price="Starting at $120"
+          subheader="Per month"
+          cta="Try for 14 days"
+          packageList={[
+            "10 seats",
+            "2 sources",
+            "Unlimited destinations",
+            "1,000 MTU",
+            "50 Function hours",
+            "500,000 records processed for Reverse ETL",
+          ]}
+        />
+      </Column>
+      <Column span={[12, 6, 4]}>
+        <PricingCard
+          icon={BusinessIcon}
+          isEntity
+          packageName="Business"
+          price="Custom pricing"
+          subheader="contact sales"
+          cta="Contact us to upgrade"
+          packageList={[
+            "10 seats",
+            "unlimitted sources",
+            "Choose from 10,000 / 25,000 / 100,000 MTU",
+            "50 Function hours",
+            "1 million records processed for Reverse ETL",
+            "Monthly and annual plans available",
+          ]}
+        />
+      </Column>
+    </Grid>
   );
 };
 
@@ -170,7 +171,7 @@ const VisualItem = ({
             </Badge>
           ) : null}
           {isRecommended ? (
-            <Badge as="span" variant="success">
+            <Badge as="span" variant="decorative30">
               Recommended
             </Badge>
           ) : null}
@@ -202,53 +203,51 @@ export const VisualPickerExample = (): JSX.Element => {
   const [value, setValue] = React.useState("Free trial");
 
   return (
-    <Box maxWidth="1140px">
-      <VisualPickerRadioGroup
-        orientation="horizontal"
-        legend="Select an option"
-        name="visual-picker"
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-      >
-        <VisualItem
-          packageName="Free trial"
-          price="$0"
-          packageList={["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"]}
-        />
-        <VisualItem
-          packageName="Pay as you go"
-          price="$0.05"
-          packageList={[
-            "Testing with unlimited configurations",
-            "Full access to configurations",
-            "Flexible usage based pricing",
-          ]}
-        />
-        <VisualItem
-          packageName="Verify Pro"
-          price="$99"
-          packageList={[
-            "Up to 2,100 successful verifications",
-            "4.76% discount compared to pay-as-you-go",
-            "Cancel anytime",
-          ]}
-          isRecommended
-        />
-      </VisualPickerRadioGroup>
-    </Box>
+    <VisualPickerRadioGroup
+      orientation="horizontal"
+      legend="Select an option"
+      name="visual-picker"
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <VisualItem
+        packageName="Free trial"
+        price="$0"
+        packageList={["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"]}
+      />
+      <VisualItem
+        packageName="Pay as you go"
+        price="$0.05"
+        packageList={[
+          "Testing with unlimited configurations",
+          "Full access to configurations",
+          "Flexible usage based pricing",
+        ]}
+      />
+      <VisualItem
+        packageName="Verify Pro"
+        price="$99"
+        packageList={[
+          "Up to 2,100 successful verifications",
+          "4.76% discount compared to pay-as-you-go",
+          "Cancel anytime",
+        ]}
+        isRecommended
+      />
+    </VisualPickerRadioGroup>
   );
 };
 
-export const TableExample = (): JSX.Element => {
+export const DataGridExample = (): JSX.Element => {
   return (
     <Table>
       <THead>
-        <Tr verticalAlign="top">
+        <Tr>
           <Th> </Th>
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer
-              <Badge as="span" variant="decorative10">
+              <Badge as="span" variant="neutral">
                 Current plan
               </Badge>
             </Box>
@@ -257,7 +256,7 @@ export const TableExample = (): JSX.Element => {
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Business
-              <Badge as="span" variant="success">
+              <Badge as="span" variant="decorative30">
                 Recommended
               </Badge>
             </Box>

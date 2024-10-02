@@ -94,7 +94,7 @@ The buttons on these cards can redirect to a billing flow. The card also allows 
 
 <StoryPreview
   title="Card pricing example"
-  storyID="website-pricingexamples--card-pricing-example"
+  storyID="website-pricingexamples--card-example"
   height="600px"
   code={`
 export const CardPricingExample = (): React.ReactNode => {
@@ -175,7 +175,7 @@ export const VisualPickerExample = (): React.ReactNode => {
             <Heading as="h2" variant="heading40" marginBottom="space0">
               Free trial
             </Heading>
-            <Badge as="span" variant="success">
+            <Badge as="span" variant="decorative30">
               Recommended
             </Badge>
           </Box>
@@ -204,25 +204,25 @@ export const VisualPickerExample = (): React.ReactNode => {
 }`}
 />
 
-### Table
+### Data Grid
 
 Consider using a table when there are 5 or more options for users to choose from, or more comparison is necessary between any number of plans.
 
 <StoryPreview
-  title="Table example"
-  storyID="website-pricingexamples--table-example"
+  title="Data Grid example"
+  storyID="website-pricingexamples--data-grid-example"
   height="600px"
   code={`
 export const TableExample = (): React.ReactNode => {
   return (
     <Table>
       <THead>
-        <Tr verticalAlign="top">
+        <Tr>
           <Th> </Th>
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer
-              <Badge as="span" variant="decorative10">
+              <Badge as="span" variant="neutral">
                 Current plan
               </Badge>
             </Box>
@@ -231,7 +231,7 @@ export const TableExample = (): React.ReactNode => {
           <Th>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Business
-              <Badge as="span" variant="success">
+              <Badge as="span" variant="decorative30">
                 Recommended
               </Badge>
             </Box>
