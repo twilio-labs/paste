@@ -1542,10 +1542,11 @@
       "externalProp": true
     },
     "size": {
-      "type": "BadgeSizes",
+      "type": "BadgeSizes | \"borderless\"",
       "defaultValue": "default",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the size of the Status Badge"
     },
     "slot": {
       "type": "string",
