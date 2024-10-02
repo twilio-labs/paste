@@ -3,49 +3,21 @@ import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import { type TabListProps, TabsContext } from "@twilio-paste/tabs";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
-import { type ThemeShape, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-const Shadow = styled.div(({ position, boxShadow }: { position: "left" | "right"; boxShadow: string }) => {
-  const Styles = {
-    left: {
-      boxShadow,
-      left: 0,
-    },
-    right: {
-      boxShadow,
-      right: 0,
-    },
-  };
-
-  return css({
-    content: "' '",
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    pointerEvents: "none",
-    ...Styles[position],
-  });
-});
+import { OverflowButton } from "./OverflowButton";
 
 /**
  * This wrapper applies styles that customize the scrollbar and its track.
  */
-const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
-  const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
-
+const StyledTabList = styled.div(() => {
   return css({
-    paddingRight: "space70",
-    paddingTop: "1px",
-    position: "relative",
-    bottom: "-1px",
     overflowX: "auto",
-    overflowY: "visible",
+    overflowY: "hidden",
     overflowScrolling: "touch",
     /* Firefox scrollbar */
     "@supports (-moz-appearance:none)": {
       paddingBottom: "0px",
-      scrollbarColor: `${colorBackgroundStronger} transparent`,
       scrollbarWidth: "none",
     },
     /* Chrome + Safari scrollbar */
@@ -54,13 +26,6 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
     },
     "::-webkit-scrollbar-track": {
       background: "transparent",
-    },
-    "::-webkit-scrollbar-thumb": {
-      background: colorBackgroundStronger,
-      borderRadius: "5px",
-    },
-    "::-webkit-scrollbar-thumb:hover": {
-      background: colorBackgroundInverseStronger,
     },
   });
 });
@@ -78,45 +43,100 @@ export interface CodeBlockTabListProps extends Omit<TabListProps, "aria-label"> 
 
 export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabListProps>(
   ({ children, element = "CODE_BLOCK_TAB_LIST", ...props }, ref) => {
-    const tab = React.useContext(TabsContext);
-    const theme = useTheme();
+    const tabContext = React.useContext(TabsContext);
     //  ref to the scrollable element
     const scrollableRef = React.useRef<HTMLDivElement>(null);
-    const [scrollShadow, setScrollShadow] = React.useState<"none" | "left" | "right" | "both">("none");
 
-    // Function to handle scroll event
-    const handleScroll = (): void => {
+    // Keep track of first elements that are paritally or completely out of view in either direction
+    const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
+    const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
+
+    // Runs on load and on scroll to set the elements that are out of view
+    const setElementsToTrack = React.useCallback(() => {
       if (scrollableRef.current) {
-        // No scrollbar, so no shadow
-        if (scrollableRef.current.getBoundingClientRect().width === scrollableRef.current.scrollWidth) {
-          setScrollShadow("none");
-        }
-        // We're positioned on the left most side, so only show right shadow
-        else if (scrollableRef.current.scrollLeft === 0) {
-          setScrollShadow("right");
-        } else if (
-          // We're positioned on the right most side, so only show left shadow
-          scrollableRef.current.scrollLeft + scrollableRef.current.getBoundingClientRect().width ===
-          scrollableRef.current.scrollWidth
-        ) {
-          setScrollShadow("left");
-        } else {
-          // Show both shadows
-          setScrollShadow("both");
-        }
+        const currentScrollContainerRightPosition = (
+          scrollableRef.current?.parentElement as HTMLDivElement
+        )?.getBoundingClientRect().right;
+
+        let leftOutOfBounds: HTMLDivElement | null = null;
+        let rightOutOfBounds: HTMLDivElement | null = null;
+
+        (scrollableRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
+          const { x, right } = tab.getBoundingClientRect();
+          /**
+           * compare the left side of the tab with the left side of the scrollable container position
+           * as the x value will not be 0 due to being offset in the screen
+           */
+          if (x < (scrollableRef.current?.getBoundingClientRect().x || 0)) {
+            leftOutOfBounds = tab;
+          }
+          /**
+           * compares the right side to the end of container with some buffer. Also ensure there are
+           * no value set as it loops through the array we don't want it to override the first value out of bounds.
+           */
+          if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
+            rightOutOfBounds = tab;
+          }
+        });
+
+        setElementOutOfBoundsLeft(leftOutOfBounds);
+        setElementOutOfBoundsRight(rightOutOfBounds);
       }
-    };
+    }, [scrollableRef.current]);
+
+    React.useEffect(() => {
+      if (scrollableRef.current) {
+        scrollableRef.current.addEventListener("scroll", setElementsToTrack);
+        setElementsToTrack();
+      }
+    }, [scrollableRef.current]);
+
+    const handleScrollDirection = React.useCallback(
+      (direction: "left" | "right") => {
+        if (scrollableRef.current) {
+          const currentParentOffset = scrollableRef.current.getBoundingClientRect().x || 0;
+          const currentParentWidth = scrollableRef.current.getBoundingClientRect().width || 0;
+
+          if (direction === "left" && elementOutOBoundsLeft) {
+            scrollableRef.current.scrollBy({
+              left: elementOutOBoundsLeft.getBoundingClientRect().right - currentParentWidth,
+              behavior: "smooth",
+            });
+            return;
+          }
+          if (direction === "right" && elementOutOBoundsRight) {
+            scrollableRef.current.scrollBy({
+              left: elementOutOBoundsRight.getBoundingClientRect().left - currentParentOffset,
+              behavior: "smooth",
+            });
+            return;
+          }
+        }
+
+        if (scrollableRef.current) {
+          const scrollAmount =
+            direction === "left" ? -scrollableRef.current.offsetWidth : scrollableRef.current.offsetWidth;
+          scrollableRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      },
+      [scrollableRef.current, elementOutOBoundsLeft, elementOutOBoundsRight],
+    );
 
     return (
-      <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={element} ref={ref}>
+      <TabPrimitiveList {...(tabContext as any)} as={Box} {...props} element={element} ref={ref}>
         <Box
           element={`${element}_CHILD_WRAPPER`}
-          marginLeft="space70"
-          position="relative"
           borderBottomStyle="solid"
           borderBottomWidth="borderWidth10"
           borderBottomColor="colorBorderInverseWeaker"
+          display="flex"
+          overflowY="clip"
         >
+          <OverflowButton
+            position="left"
+            onClick={() => handleScrollDirection("left")}
+            visible={Boolean(elementOutOBoundsLeft)}
+          />
           <Box
             {...safelySpreadBoxProps(props)}
             as={StyledTabList as any}
@@ -127,16 +147,16 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             element={`${element}_CHILD`}
             overflowX="auto"
             overflowY="hidden"
-            onScroll={handleScroll}
+            flexGrow={1}
+            width="calc(100% - 60px)"
           >
             {children}
           </Box>
-          {scrollShadow === "left" || scrollShadow === "both" ? (
-            <Shadow position="left" boxShadow={theme.shadows.shadowScrollLeftInverse} />
-          ) : null}
-          {scrollShadow === "right" || scrollShadow === "both" ? (
-            <Shadow position="right" boxShadow={theme.shadows.shadowScrollRightInverse} />
-          ) : null}
+          <OverflowButton
+            position="right"
+            onClick={() => handleScrollDirection("right")}
+            visible={Boolean(elementOutOBoundsRight)}
+          />
         </Box>
       </TabPrimitiveList>
     );

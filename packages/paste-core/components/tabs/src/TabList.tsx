@@ -1,14 +1,11 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import { ChevronLeftIcon } from "@twilio-paste/icons/esm/ChevronLeftIcon";
-import { ChevronRightIcon } from "@twilio-paste/icons/esm/ChevronRightIcon";
 import { css, styled } from "@twilio-paste/styling-library";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
-import type { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import { set } from "lodash";
+import { OverflowButton } from "./OverflowButton";
 import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
 import { getElementName } from "./utils";
@@ -16,19 +13,14 @@ import { getElementName } from "./utils";
 /**
  * This wrapper applies styles that customize the scrollbar and its track.
  */
-const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
-  const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
-
+const StyledTabList = styled.div(() => {
   return css({
-    paddingBottom: "4px",
-    marginBottom: "4px",
     overflowX: "auto",
     overflowY: "hidden",
     overflowScrolling: "touch",
     /* Firefox scrollbar */
     "@supports (-moz-appearance:none)": {
       paddingBottom: "0px",
-      scrollbarColor: `${colorBackgroundStronger} transparent`,
       scrollbarWidth: "none",
     },
     /* Chrome + Safari scrollbar */
@@ -37,13 +29,6 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
     },
     "::-webkit-scrollbar-track": {
       background: "transparent",
-    },
-    "::-webkit-scrollbar-thumb": {
-      background: colorBackgroundStronger,
-      borderRadius: "5px",
-    },
-    "::-webkit-scrollbar-thumb:hover": {
-      background: colorBackgroundInverseStronger,
     },
   });
 });
@@ -80,33 +65,25 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   element,
 }) => {
   const ref = React.useRef<HTMLElement>(null);
+  //  ref to the scrollable element
+  const scrollableRef = React.useRef<HTMLDivElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
 
   const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
   const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
-  const [shouldRenderScrollButtons, setShouldRenderScrollButtons] = React.useState(false);
 
   const setElementsToTrack = React.useCallback(() => {
     if (ref.current) {
-      const scrollWidth = ref.current.getBoundingClientRect().width;
-      const containerWidth = ref.current.parentNode?.parentElement?.getBoundingClientRect().width;
-
-      if (scrollWidth && containerWidth && scrollWidth > containerWidth) {
-        setShouldRenderScrollButtons(true);
-      } else {
-        setShouldRenderScrollButtons(false);
-      }
-
-      const currentScrollContainerRightPosition = (
-        ref.current?.parentNode?.parentElement as HTMLDivElement
-      )?.getBoundingClientRect().right;
+      const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
+        .right;
+      const currentScrollContainerXOffset = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect().x;
 
       let leftOutOfBounds: HTMLDivElement | null = null;
       let rightOutOfBounds: HTMLDivElement | null = null;
 
       (ref.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
         const { x, right } = tab.getBoundingClientRect();
-        if (x < 0) {
+        if (x < currentScrollContainerXOffset) {
           leftOutOfBounds = tab;
         } else if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
           rightOutOfBounds = tab;
@@ -120,7 +97,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
   React.useEffect(() => {
     if (ref.current) {
-      ref.current.parentNode?.parentElement?.addEventListener("scroll", setElementsToTrack);
+      scrollableRef.current?.addEventListener("scroll", setElementsToTrack);
       setElementsToTrack();
     }
   }, [ref.current]);
@@ -128,25 +105,21 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const handleScrollDirection = React.useCallback(
     (direction: "left" | "right") => {
       if (ref.current) {
-        const currentParentOffset = ref.current.parentNode?.parentElement?.getBoundingClientRect().x || 0;
-        const currentParentWidth = ref.current.parentNode?.parentElement?.getBoundingClientRect().width || 0;
+        const ScrollableContainerOffset = scrollableRef.current?.getBoundingClientRect().x || 0;
+        const ScrollableContainerWidth = scrollableRef.current?.getBoundingClientRect().width || 0;
 
-        console.log({
-          elementOutOBoundsLeft,
-          bounds: elementOutOBoundsLeft?.getBoundingClientRect(),
-          elementOutOBoundsRight,
-          boundsRight: elementOutOBoundsRight?.getBoundingClientRect(),
-        });
         if (direction === "left" && elementOutOBoundsLeft) {
-          ref.current.parentNode?.parentElement?.scrollBy({
-            left: elementOutOBoundsLeft.getBoundingClientRect().right - (currentParentWidth + currentParentOffset),
+          scrollableRef.current?.scrollBy({
+            left:
+              elementOutOBoundsLeft.getBoundingClientRect().right -
+              (ScrollableContainerWidth + ScrollableContainerOffset),
             behavior: "smooth",
           });
           return;
         }
         if (direction === "right" && elementOutOBoundsRight) {
-          ref.current.parentNode?.parentElement?.scrollBy({
-            left: elementOutOBoundsRight.getBoundingClientRect().left - (currentParentOffset || 0),
+          scrollableRef.current?.scrollBy({
+            left: elementOutOBoundsRight.getBoundingClientRect().left - (ScrollableContainerOffset || 0),
             behavior: "smooth",
           });
           return;
@@ -162,24 +135,13 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   );
 
   return (
-    <Box display="flex">
-      {shouldRenderScrollButtons && elementOutOBoundsLeft && (
-        <Box
-          onClick={() => {
-            elementOutOBoundsLeft && handleScrollDirection("left");
-          }}
-          aria-hidden={true}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          minWidth="30px"
-        >
-          <Box size="space30">
-            {elementOutOBoundsLeft && <ChevronLeftIcon color="colorTextIcon" decorative={true} />}
-          </Box>
-        </Box>
-      )}
-      <Box as={StyledTabList as any} element={`${element}_SCROLL_WRAPPER`}>
+    <Box display="flex" overflow="clip">
+      <OverflowButton
+        position="left"
+        onClick={() => handleScrollDirection("left")}
+        visible={Boolean(elementOutOBoundsLeft)}
+      />
+      <Box as={StyledTabList as any} ref={scrollableRef} element={`${element}_SCROLL_WRAPPER`}>
         <Box
           element={`${element}_CONTAINER`}
           borderBottomStyle="solid"
@@ -192,22 +154,11 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
           </Box>
         </Box>
       </Box>
-      {shouldRenderScrollButtons && elementOutOBoundsRight && (
-        <Box
-          onClick={() => {
-            elementOutOBoundsRight && handleScrollDirection("right");
-          }}
-          aria-hidden={true}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          minWidth="30px"
-        >
-          <Box size="space30">
-            {elementOutOBoundsRight && <ChevronRightIcon color="colorTextIcon" decorative={true} />}
-          </Box>
-        </Box>
-      )}
+      <OverflowButton
+        position="right"
+        onClick={() => handleScrollDirection("right")}
+        visible={Boolean(elementOutOBoundsRight)}
+      />
     </Box>
   );
 };
