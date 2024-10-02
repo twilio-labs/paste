@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Objects list',
   description:
-    'The Objects list page template shows a list of unique items for when a customer needs to perform an action on the items.',
+    'The objects list page template shows a list of unique items for when a customer needs to perform an action on the items.',
   slug: '/page-templates/objects-list/',
 };
 
@@ -45,18 +45,18 @@ export const getStaticProps = async () => {
   code={FullObjectsListExample}
 />
 
-## About Objects list
+## About objects list
 
-An Objects list shows a list of unique items or records (objects), such as logs or contacts. The page can include [search and filtering](/patterns/filter-group) to help customers find an item they’re looking for, and bulk actions like [export](/patterns/data-export) or [delete](/patterns/delete).
+An objects list shows a list of unique items or records (objects), such as logs or contacts. The page can include [search and filtering](/patterns/filter) to help customers find an item they’re looking for, and bulk actions like [export](/patterns/data-export) or [delete](/patterns/delete).
 
-Use an Objects list when a customer needs to:
+Use an objects list when a customer needs to:
 
 - View objects of a single type
 - Find specific objects quickly so they can view more [object details](/page-templates/object-details), edit, or delete them
 - Create a new object of this type
 - Perform bulk actions on multiple objects
 
-If the customer is primarily editing information, use the [Settings](/page-templates/settings) page instead.
+If the customer is primarily editing information, use the [settings](/page-templates/settings) page instead.
 
 ## Ingredients
 
@@ -78,9 +78,9 @@ The full header should be responsive to the width of the browser window. Heading
 
 ### Body
 
-The rest of the page follows the [Filter Group pattern](/patterns/filter-group) and uses a [Data Grid](/components/data-grid). If there’s already a primary action in the page header, make the filter button a secondary button. If there are no interactive cells, use a Table instead of a Data Grid.
+The rest of the page follows the [filter pattern](/patterns/filter) and uses a [Data Grid](/components/data-grid). If there are no interactive cells, use a Table instead of a Data Grid.
 
-If the customer needs to examine each object in more detail, link each object to its [Object details](/page-templates/object-details) page.
+If the customer needs to examine each object in more detail, link each object to its [object details](/page-templates/object-details) page.
 
 The body should be responsive to the width of the browser window.
 

@@ -1,5 +1,11 @@
 # @twilio-paste/progress-steps
 
+## 2.2.0
+
+### Minor Changes
+
+- [`d108aeb7f`](https://github.com/twilio-labs/paste/commit/d108aeb7f9f8e455fb5490ae790e21d32f0a7ec9) [#4065](https://github.com/twilio-labs/paste/pull/4065) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Progress Steps] Add `ProgressStepsContent` component to add additional content during vertical orientation
+
 ## 2.1.1
 
 ### Patch Changes

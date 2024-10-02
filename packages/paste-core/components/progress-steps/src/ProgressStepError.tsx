@@ -15,7 +15,6 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
           type={as === "button" ? "button" : undefined}
           ref={ref}
           display="flex"
-          alignItems="center"
           columnGap="space30"
           border="none"
           background="none"
@@ -32,10 +31,11 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
           _hover={as !== "div" ? { textDecoration: "none", color: "colorTextErrorStrongest" } : undefined}
           _focus={as !== "div" ? { boxShadow: "shadowFocus" } : undefined}
         >
-          <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
-          <Box as="span" textAlign="left">
-            {children}
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
           </Box>
+
+          <Box textAlign="left">{children} </Box>
         </Box>
       </div>
     );

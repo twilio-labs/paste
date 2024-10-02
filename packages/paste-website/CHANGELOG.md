@@ -1,5 +1,23 @@
 # @twilio-paste/website
 
+## 2.23.48
+
+### Patch Changes
+
+- Updated dependencies [[`2951f5c07`](https://github.com/twilio-labs/paste/commit/2951f5c07c4dc537150c83e6985348fc2196f20e), [`ae522366f`](https://github.com/twilio-labs/paste/commit/ae522366f61aa1c841e3c915468be013355a11ec), [`43bd80a01`](https://github.com/twilio-labs/paste/commit/43bd80a018b2887522af4aa9bea3995ddb023051), [`37acfcdf6`](https://github.com/twilio-labs/paste/commit/37acfcdf605aeda52ebf1b4b345717a9682f0ed6), [`7ae14af12`](https://github.com/twilio-labs/paste/commit/7ae14af1293eee0f3af149f6ebc3612fe9b028b7), [`31defbae0`](https://github.com/twilio-labs/paste/commit/31defbae0835226579b5239fc78851ada6c07c2a), [`31defbae0`](https://github.com/twilio-labs/paste/commit/31defbae0835226579b5239fc78851ada6c07c2a), [`d108aeb7f`](https://github.com/twilio-labs/paste/commit/d108aeb7f9f8e455fb5490ae790e21d32f0a7ec9), [`31defbae0`](https://github.com/twilio-labs/paste/commit/31defbae0835226579b5239fc78851ada6c07c2a), [`a84b45ba8`](https://github.com/twilio-labs/paste/commit/a84b45ba87992407e734acd17eae8d4aa93ec112), [`bc7d13f43`](https://github.com/twilio-labs/paste/commit/bc7d13f43b777af3cd379ddf63bd46825dcdbaf0), [`b20a3a1a8`](https://github.com/twilio-labs/paste/commit/b20a3a1a8764fd57603f2299481456c4c3c3fb46), [`f612d1ba6`](https://github.com/twilio-labs/paste/commit/f612d1ba651b6c50cec0d87e4546a1d83ce28d57), [`f612d1ba6`](https://github.com/twilio-labs/paste/commit/f612d1ba651b6c50cec0d87e4546a1d83ce28d57), [`e95c7121a`](https://github.com/twilio-labs/paste/commit/e95c7121a52d111114fc5acb95f46e939031063e)]:
+  - @twilio-paste/toast@12.2.1
+  - @twilio-paste/badge@8.3.1
+  - @twilio-paste/timeline@1.0.0
+  - @twilio-paste/combobox@16.3.0
+  - @twilio-paste/sidebar@1.1.2
+  - @twilio-paste/design-tokens@10.8.0
+  - @twilio-paste/callout@4.2.0
+  - @twilio-paste/progress-steps@2.2.0
+  - @twilio-paste/alert@14.1.1
+  - @twilio-paste/button-group@4.2.0
+  - @twilio-paste/data-visualization-library@5.1.0
+  - @twilio-paste/form-pill-group@8.1.1
+
 ## 2.23.47
 
 ### Patch Changes

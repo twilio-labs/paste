@@ -104,6 +104,7 @@
     "/packages/paste-core/components/textarea",
     "/packages/paste-theme",
     "/packages/paste-core/components/time-picker",
+    "/packages/paste-core/components/timeline",
     "/packages/paste-core/components/toast",
     "/packages/paste-core/components/tooltip",
     "/packages/paste-core/primitives/tooltip",

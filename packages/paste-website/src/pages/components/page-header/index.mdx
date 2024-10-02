@@ -107,7 +107,7 @@ Here’s what the component layout looks like with all its bits and pieces:
 
 <Callout variant='neutral' marginY="space60">
     <CalloutHeading as="h2">Using Alerts with Page Headers</CalloutHeading>
-    <CalloutText>There are times when you’ll need to display an <Anchor href="/components/alert">Alert</Anchor> at the top of a page to communicate an important message to the user. Alerts should not be children of the Page Header component. If the Alert communicates a platform-level message, place it above the Page Header. If the Alert communicates a page-level message, place it below the Page Header.</CalloutText>
+    <CalloutText>There are times when you’ll need to display an <Anchor href="/components/alert">Alert</Anchor> at the top of a page to communicate an important message to the user. Place Alerts above the Page Header. Alerts should not be children of the Page Header component. </CalloutText>
 </Callout>
 
 Much of the Paste Page Header component was inspired by the wonderful work of Github’s Primer Design system and [their own Page Header](https://primer.style/components/page-header) API and documentation.
@@ -126,7 +126,7 @@ Page Header has no inherent accessibility concerns. However, there will likely b
 
 The Page Header can be composed to fit the needs of your page. Only include necessary components.
 
-Default Page Headers should have `space-130` clearspace above them. Place platform-level Alerts above this clearspace.
+Default Page Headers should have `space-130` clearspace above them. Place Alerts above this clearspace.
 
 <LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
   {defaultPageHeaderExample}

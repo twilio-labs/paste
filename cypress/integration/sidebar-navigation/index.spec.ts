@@ -30,11 +30,13 @@ describe("Sidebar navigation", () => {
     const contentSelector = `${BASE}-content-${disclosureName}`;
 
     it(`should open the the "${disclosureName}" sidebar disclosure`, () => {
-      cy.get(`[data-cy="${buttonSelector}"]`).click().should("have.attr", "aria-expanded", "true");
       // creates an alias for the content
       cy.get(`[data-cy="${contentSelector}"]`).as("currentContent");
+      cy.get("@currentContent").should("have.css", "display", "none");
+      cy.get("@currentContent").should("have.attr", "hidden", "hidden");
 
-      cy.get("@currentContent").scrollIntoView().should("be.visible");
+      cy.get(`[data-cy="${buttonSelector}"]`).click().should("have.attr", "aria-expanded", "true");
+      cy.get("@currentContent").scrollIntoView().should("have.css", "display", "block");
     });
   });
 

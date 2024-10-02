@@ -8,8 +8,6 @@
 
 ## Package Requirements
 
-![Image of good structure](https://cdn.discordapp.com/attachments/293855810063302657/599371250925699072/unknown.png)
-
 - [ ] a `package.json` file with the following sub-requirements:
   - The following scripts: `build, build:dev, clean, type-check, prepublishOnly`.
   - Author must be `Twilio Inc.`
@@ -42,4 +40,4 @@
 
 ## Standard Operating Procedures
 
-All contributions must abide by our [Standard Operating Procedures](https://github.com/twilio-labs/paste/blob/main/STANDARD_OPERATING_PROCEDURES.md). This helps us mitigate errors caused by oversight or forgetfulness by leaning on lessons learned through past mistakes.
+All contributions must abide by our [Standard Operating Procedures](https://github.com/twilio-labs/paste/blob/main/internal-docs/engineering/standard-operating-procedures.md). This helps us mitigate errors caused by oversight or forgetfulness by leaning on lessons learned through past mistakes.

@@ -8,7 +8,6 @@ import * as React from "react";
 
 import { event } from "../../../lib/gtag";
 import { PasteIcon } from "../../icons/PasteIcon";
-import { PasteIconPride } from "../../icons/PasteIconPride";
 
 const LogoLink = styled(Link)`
   position: relative;
@@ -37,10 +36,6 @@ interface SiteHeaderLogoProps {
  */
 const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
   const theme = useTheme();
-  const [logoOpacity, setLogoOpacity] = React.useState(1);
-  const [hoverOpacity, setHoverOpacity] = React.useState(0);
-  const logoTransition = "ease-out 350ms";
-
   return (
     <Box display="flex" alignItems="center" minWidth={subtitle ? "sizeSidebar" : "size0"}>
       <LogoLink
@@ -52,28 +47,10 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
             label: "Paste logo",
           })
         }
-        onMouseEnter={() => {
-          setLogoOpacity(0);
-          setHoverOpacity(1);
-        }}
-        onMouseLeave={() => {
-          setLogoOpacity(1);
-          setHoverOpacity(0);
-        }}
       >
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space40">
-            <PasteIconPride display="block" size={42} transition={logoTransition} opacity={logoOpacity} />
-            <PasteIcon
-              color={theme.textColors.colorTextBrandHighlight}
-              opacity={hoverOpacity}
-              transition={logoTransition}
-              display="block"
-              position="absolute"
-              top="0"
-              left="0"
-              size={42}
-            />
+            <PasteIcon color={theme.textColors.colorTextBrandHighlight} display="block" size={38} />
           </MediaFigure>
           <MediaBody>
             <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorText">

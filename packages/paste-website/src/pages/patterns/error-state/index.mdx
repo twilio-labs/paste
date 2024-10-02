@@ -361,6 +361,26 @@ When possible, use an icon and color to indicate an error. When using only an ic
 </Table>
 <br />
 
+### AI responses errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>An error generating or regenerating a response</Td>
+      <Td>There was an error generating a response. <br />Please try again, if the error persists please contact us.</Td>
+      <Td>If the error is associated to the user’s input having incomplete information use “Please rephrase your message”</Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
 Work with engineers to try to avoid an endless “try again” loop. Explore whether you can offer a series of things to check if the user hits a particular error several times in a row.
 
 ## Variations
@@ -377,7 +397,7 @@ An empty state is also an error state when content fails to load. Error empty st
 
 ### Metrics cards
 
-When cards are used as part of a dashboard to display metrics, error states can occur on individual cards because the data populating a particular card isn’t available. Since these cards are usually small, use error iconography paired with a 3-5 word error message. 
+When cards are used as part of a dashboard to display metrics, error states can occur on individual cards because the data populating a particular card isn’t available. Since these cards are usually small, use error iconography paired with a 3-5 word error message.
 
 ## Specific component guidance
 

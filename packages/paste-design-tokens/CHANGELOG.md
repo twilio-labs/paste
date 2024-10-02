@@ -1,5 +1,15 @@
 # Change Log
 
+## 10.8.0
+
+### Minor Changes
+
+- [`31defbae0`](https://github.com/twilio-labs/paste/commit/31defbae0835226579b5239fc78851ada6c07c2a) [#4060](https://github.com/twilio-labs/paste/pull/4060) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Tokens] added a new design token for color-border-new-weak and made changes to color-text-icon-warning in the Twilio theme to support design updates to Alert and Callout components
+
+### Patch Changes
+
+- [`e95c7121a`](https://github.com/twilio-labs/paste/commit/e95c7121a52d111114fc5acb95f46e939031063e) [#4043](https://github.com/twilio-labs/paste/pull/4043) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Update box shadow tokens. Remove hardcoded values.
+
 ## 10.7.0
 
 ### Minor Changes

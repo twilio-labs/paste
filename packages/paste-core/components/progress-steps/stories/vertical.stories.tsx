@@ -1,7 +1,20 @@
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import {
+  DescriptionList,
+  DescriptionListDetails,
+  DescriptionListSet,
+  DescriptionListTerm,
+} from "@twilio-paste/description-list";
+import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
 
 import {
   ProgressStepComplete,
+  ProgressStepContent,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
@@ -98,6 +111,62 @@ export const Internationalized: React.FC = () => {
       <ProgressStepSeparator />
       <ProgressStepIncomplete i18nIncompleteLabel="Incomplet" as="button" disabled onClick={() => {}}>
         Démarrer l&apos;événement
+      </ProgressStepIncomplete>
+    </ProgressSteps>
+  );
+};
+
+export const WithContent: React.FC = () => {
+  return (
+    <ProgressSteps orientation="vertical">
+      <ProgressStepComplete as="div">
+        Data warehouse connected
+        <ProgressStepContent>
+          <Box display="flex" columnGap="space50" paddingY="space40">
+            <Avatar size="sizeIcon90" name="Twilio Paste" variant="entity" icon={BusinessIcon} />
+            <Box display="flex" flexDirection="column">
+              <DescriptionList>
+                <DescriptionListSet>
+                  <DescriptionListTerm>Snowflake</DescriptionListTerm>
+                  <DescriptionListDetails>Account: accountname</DescriptionListDetails>
+                  <DescriptionListDetails>Database: snowflakedatabasename</DescriptionListDetails>
+                  <DescriptionListDetails>Warehouse: snowflakewarehousename</DescriptionListDetails>
+                </DescriptionListSet>
+              </DescriptionList>
+
+              <Box marginTop="space50">
+                <ButtonGroup>
+                  <Button variant="secondary">Edit</Button>
+                  <Button variant="destructive_secondary">Remove</Button>
+                </ButtonGroup>
+              </Box>
+            </Box>
+          </Box>
+        </ProgressStepContent>
+      </ProgressStepComplete>
+      <ProgressStepCurrent as="div">
+        Create a model
+        <ProgressStepContent>
+          <Paragraph marginBottom="space0">
+            Models are SQL queries that define sets of data to sync using Reverse ETL.
+          </Paragraph>
+          <Box marginTop="space50">
+            <Button variant="primary">Define model</Button>
+          </Box>
+        </ProgressStepContent>
+      </ProgressStepCurrent>
+      <ProgressStepIncomplete as="div">
+        Create mapping
+        <ProgressStepContent>
+          <Paragraph marginBottom="space0">
+            Mappings determine how data extracted from your warehouse is mapped to fields in Flex
+          </Paragraph>
+          <Box marginTop="space50">
+            <Button variant="primary" disabled>
+              Continue mapping
+            </Button>
+          </Box>
+        </ProgressStepContent>
       </ProgressStepIncomplete>
     </ProgressSteps>
   );
