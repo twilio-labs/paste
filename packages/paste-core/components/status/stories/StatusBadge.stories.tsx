@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import * as React from "react";
 
 import { StatusBadge } from "../src";
@@ -18,9 +19,17 @@ export default {
 } as Meta<typeof StatusBadge>;
 
 const Template: StoryFn<typeof StatusBadge> = ({ variant }) => (
-  <StatusBadge as="span" variant={variant}>
-    {variant}
-  </StatusBadge>
+  <Box display="flex" flexDirection="column" rowGap="space60">
+    <StatusBadge as="span" variant={variant} size="default">
+      {variant}
+    </StatusBadge>
+    <StatusBadge as="span" variant={variant} size="small">
+      {variant}
+    </StatusBadge>
+    <StatusBadge as="span" variant={variant} size="borderless">
+      {variant}
+    </StatusBadge>
+  </Box>
 );
 
 export const ProcessSuccessStatusBadge = Template.bind({});
