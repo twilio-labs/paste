@@ -11528,7 +11528,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/badge@^8.1.0, @twilio-paste/badge@^8.3.0, @twilio-paste/badge@^8.3.1, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
+"@twilio-paste/badge@^8.1.0, @twilio-paste/badge@^8.3.0, @twilio-paste/badge@^8.3.1, @twilio-paste/badge@^8.4.0, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/badge@workspace:packages/paste-core/components/badge"
   dependencies:
@@ -12143,7 +12143,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^20.16.0
+    "@twilio-paste/core": ^20.17.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -12264,7 +12264,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.16.0, @twilio-paste/core@^20.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.17.0, @twilio-paste/core@^20.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
@@ -12276,7 +12276,7 @@ __metadata:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/aspect-ratio": ^10.1.0
     "@twilio-paste/avatar": ^9.1.0
-    "@twilio-paste/badge": ^8.3.1
+    "@twilio-paste/badge": ^8.4.0
     "@twilio-paste/base-radio-checkbox": ^13.1.0
     "@twilio-paste/box": ^10.3.0
     "@twilio-paste/breadcrumb": ^11.1.1
@@ -12356,7 +12356,7 @@ __metadata:
     "@twilio-paste/slider": ^3.0.1
     "@twilio-paste/spinner": ^14.1.2
     "@twilio-paste/stack": ^8.1.0
-    "@twilio-paste/status": ^2.1.1
+    "@twilio-paste/status": ^2.2.0
     "@twilio-paste/style-props": ^9.1.1
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/summary-detail": ^1.0.0
@@ -14975,13 +14975,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/status@^2.1.1, @twilio-paste/status@workspace:packages/paste-core/components/status":
+"@twilio-paste/status@^2.1.1, @twilio-paste/status@^2.2.0, @twilio-paste/status@workspace:packages/paste-core/components/status":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/status@workspace:packages/paste-core/components/status"
   dependencies:
     "@twilio-paste/anchor": ^12.1.0
     "@twilio-paste/animation-library": ^2.0.0
-    "@twilio-paste/badge": ^8.1.0
+    "@twilio-paste/badge": ^8.4.0
     "@twilio-paste/box": ^10.2.0
     "@twilio-paste/button": ^14.1.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
