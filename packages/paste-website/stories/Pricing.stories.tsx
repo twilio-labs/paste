@@ -165,7 +165,7 @@ export const CardExample = (): JSX.Element => {
       <PricingCard
         packageName="Business"
         price="Custom pricing"
-        subheader="contact sales"
+        subheader="Contact sales"
         cta="Contact us to upgrade"
         packageList={[
           "10 seats",
@@ -218,7 +218,7 @@ export const CardMobileExample = (): JSX.Element => {
         isMobile
         packageName="Business"
         price="Custom pricing"
-        subheader="contact sales"
+        subheader="Contact sales"
         cta="Contact us to upgrade"
         packageList={[
           "10 seats",
