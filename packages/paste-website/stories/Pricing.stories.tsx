@@ -1,19 +1,22 @@
-import { Avatar } from "@twilio-paste/avatar";
 import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Card } from "@twilio-paste/card";
+import {
+  DataGrid,
+  DataGridBody,
+  DataGridCell,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
+} from "@twilio-paste/data-grid";
 import { DetailText } from "@twilio-paste/detail-text";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
-import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
-import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
-import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
-import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
 
@@ -22,8 +25,6 @@ export default {
 };
 
 const PricingCard = ({
-  icon,
-  isEntity,
   isCurrentPlan,
   isRecommended,
   packageName,
@@ -32,8 +33,6 @@ const PricingCard = ({
   cta,
   packageList,
 }: {
-  icon: React.FC<React.PropsWithChildren<GenericIconProps>>;
-  isEntity?: boolean;
   isCurrentPlan?: boolean;
   isRecommended?: boolean;
   packageName: string;
@@ -45,9 +44,11 @@ const PricingCard = ({
   return (
     <Card>
       <Box display="flex" flexDirection="column" rowGap="space70">
-        <Box display="flex" flexDirection="column" rowGap="space40">
-          <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Avatar name="user" icon={icon} variant={isEntity ? "entity" : "user"} />
+        <Box>
+          <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space10">
+            <Heading marginBottom="space0" as="h2" variant="heading30">
+              {packageName}
+            </Heading>
             {isCurrentPlan ? (
               <Badge as="span" variant="neutral">
                 Current plan
@@ -59,12 +60,11 @@ const PricingCard = ({
               </Badge>
             ) : null}
           </Box>
-          <Heading marginBottom="space0" as="h2" variant="heading30">
-            {packageName}
-          </Heading>
-          <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
-            {price}
-          </DisplayHeading>
+          <Box marginTop="space40" marginBottom="space20">
+            <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
+              {price}
+            </DisplayHeading>
+          </Box>
           <Paragraph marginBottom="space0">{subheader}</Paragraph>
         </Box>
 
@@ -74,12 +74,14 @@ const PricingCard = ({
           <Heading marginBottom="space0" as="h3" variant="heading50">
             Package includes:
           </Heading>
-          {packageList.map((item: string) => (
-            <Box key={item} display="flex" columnGap="space20" alignItems="center">
-              <SelectedIcon decorative color="colorTextIconSuccess" />
-              <Paragraph marginBottom="space0">{item}</Paragraph>
-            </Box>
-          ))}
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            {packageList.map((item: string) => (
+              <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
+                <SelectedIcon decorative color="colorTextIconSuccess" />
+                <Paragraph marginBottom="space0">{item}</Paragraph>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Card>
@@ -91,7 +93,6 @@ export const CardExample = (): JSX.Element => {
     <Grid gutter="space40" rowGap="space70" equalColumnHeights>
       <Column span={[12, 6, 4]}>
         <PricingCard
-          icon={UserIcon}
           isCurrentPlan
           packageName="Free"
           price="$0"
@@ -108,7 +109,6 @@ export const CardExample = (): JSX.Element => {
       </Column>
       <Column span={[12, 6, 4]}>
         <PricingCard
-          icon={UserIcon}
           packageName="Team"
           price="Starting at $120"
           subheader="Per month"
@@ -125,8 +125,6 @@ export const CardExample = (): JSX.Element => {
       </Column>
       <Column span={[12, 6, 4]}>
         <PricingCard
-          icon={BusinessIcon}
-          isEntity
           packageName="Business"
           price="Custom pricing"
           subheader="contact sales"
@@ -189,7 +187,7 @@ const VisualItem = ({
 
       <Box display="flex" flexDirection="column" rowGap="space50">
         {packageList.map((item: string) => (
-          <Box key={item} display="flex" columnGap="space20" alignItems="center">
+          <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
             <SelectedIcon decorative color="colorTextIconSuccess" />
             <Paragraph marginBottom="space0">{item}</Paragraph>
           </Box>
@@ -240,138 +238,142 @@ export const VisualPickerExample = (): JSX.Element => {
 
 export const DataGridExample = (): JSX.Element => {
   return (
-    <Table>
-      <THead>
-        <Tr>
-          <Th> </Th>
-          <Th>
-            <Box display="flex" flexDirection="column" rowGap="space20">
-              Developer
-              <Badge as="span" variant="neutral">
-                Current plan
-              </Badge>
-            </Box>
-          </Th>
-          <Th>Production</Th>
-          <Th>
-            <Box display="flex" flexDirection="column" rowGap="space20">
-              Business
-              <Badge as="span" variant="decorative30">
-                Recommended
-              </Badge>
-            </Box>
-          </Th>
-          <Th>Personalized</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        <Tr>
-          <Td>Price per month</Td>
-          <Td>Included</Td>
-          <Td>
-            4% of monthly spend <DetailText marginTop="space0">or $250.00 minimum</DetailText>
-          </Td>
-          <Td>
-            6% of monthly spend <DetailText marginTop="space0">or $1500.00 minimum</DetailText>
-          </Td>
-          <Td>
-            8% of monthly spend <DetailText marginTop="space0">or $5000.00 minimum</DetailText>
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Web support</Td>
-          <Td>
+    <DataGrid aria-label="Pricing table">
+      <DataGridHead>
+        <DataGridRow>
+          <DataGridHeader whiteSpace="nowrap"> </DataGridHeader>
+          <DataGridHeader>
+            {
+              <Box display="flex" flexDirection="column" rowGap="space20">
+                Developer
+                <Badge as="span" variant="neutral">
+                  Current plan
+                </Badge>
+              </Box>
+            }
+          </DataGridHeader>
+          <DataGridHeader>Production</DataGridHeader>
+          <DataGridHeader>
+            {
+              <Box display="flex" flexDirection="column" rowGap="space20">
+                Business
+                <Badge as="span" variant="decorative30">
+                  Recommended
+                </Badge>
+              </Box>
+            }
+          </DataGridHeader>
+          <DataGridHeader>Personalized</DataGridHeader>
+        </DataGridRow>
+      </DataGridHead>
+      <DataGridBody>
+        <DataGridRow>
+          <DataGridCell whiteSpace="nowrap">Price per month</DataGridCell>
+          <DataGridCell>Included</DataGridCell>
+          <DataGridCell>
+            4% of monthly spend <DetailText marginTop="space0">or $250 minimum</DetailText>
+          </DataGridCell>
+          <DataGridCell>
+            6% of monthly spend <DetailText marginTop="space0">or $1,500 minimum</DetailText>
+          </DataGridCell>
+          <DataGridCell>
+            8% of monthly spend <DetailText marginTop="space0">or $5,000 minimum</DetailText>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Web support</DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>
             Guaranteed response times <DetailText marginTop="space0">Business critical</DetailText>
-          </Td>
-          <Td>-</Td>
-          <Td>3 business hours</Td>
-          <Td>1 hour (24x7)</Td>
-          <Td>1 hour (24x7)</Td>
-        </Tr>
-        <Tr>
-          <Td>
+          </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>3 business hours</DataGridCell>
+          <DataGridCell>1 hour (24x7)</DataGridCell>
+          <DataGridCell>1 hour (24x7)</DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>
             Guaranteed response times <DetailText marginTop="space0">Degraded service</DetailText>
-          </Td>
-          <Td>-</Td>
-          <Td>6 business hours</Td>
-          <Td>2 business hours</Td>
-          <Td>2 business hours</Td>
-        </Tr>
-        <Tr>
-          <Td>
+          </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>6 business hours</DataGridCell>
+          <DataGridCell>2 business hours</DataGridCell>
+          <DataGridCell>2 business hours</DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>
             Guaranteed response times <DetailText marginTop="space0">General issues</DetailText>
-          </Td>
-          <Td>-</Td>
-          <Td>9 business hours</Td>
-          <Td>3 business hours</Td>
-          <Td>3 business hours</Td>
-        </Tr>
-        <Tr>
-          <Td>24x7 phone support</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>9 business hours</DataGridCell>
+          <DataGridCell>3 business hours</DataGridCell>
+          <DataGridCell>3 business hours</DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>24x7 phone support</DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconSuccess" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconSuccess" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Dedicated support contact</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Dedicated support contact</DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconSuccess" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Duty manager for escalations</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Duty manager for escalations</DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconSuccess" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Quarterly review of account</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>-</Td>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Quarterly review of account</DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconSuccess" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Select Plan</Td>
-          <Td> </Td>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Select plan:</DataGridCell>
+          <DataGridCell> </DataGridCell>
+          <DataGridCell>
             <Button variant="secondary">Select</Button>
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <Button variant="primary">Select</Button>
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <Button variant="secondary">Select</Button>
-          </Td>
-        </Tr>
-      </TBody>
-    </Table>
+          </DataGridCell>
+        </DataGridRow>
+      </DataGridBody>
+    </DataGrid>
   );
 };

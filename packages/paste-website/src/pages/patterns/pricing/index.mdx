@@ -1,6 +1,6 @@
 export const meta = {
   title: 'Pricing',
-  description: 'The pricing pattern shows a group of paid features or packaged plans a user is selecting.',
+  description: 'The Pricing pattern shows a group of paid features or packaged plans a user is selecting.',
   slug: '/patterns/pricing/',
 };
 
@@ -8,6 +8,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {UnorderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import { Box } from '@twilio-paste/box';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -45,13 +46,18 @@ import { Heading } from '@twilio-paste/core/heading';
 import { Paragraph } from '@twilio-paste/core/paragraph';
 import { Button } from '@twilio-paste/core/button';
 import { DisplayHeading } from '@twilio-paste/display-heading';
+import { Card } from '@twilio-paste/card';
+import { Box } from '@twilio-paste/box';
+import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
+import { Separator } from "@twilio-paste/separator";
+import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 ```
 
 ## About
 
-The pricing pattern should be used when the user is presented with pricing or packaged options to select from. Use this pattern to clearly show the differences between different plans in order for the user to make an informed decision.
+The Pricing pattern should be used when the user is presented with pricing or packaged options to select from. Use this pattern to clearly show the differences between different plans in order for the user to make an informed decision.
 
-Examples of pricing pattern:
+Examples:
 <UnorderedList>
   <ListItem>Selecting an account plan on upgrade.</ListItem>
   <ListItem>Switching between a free and paid feature.</ListItem>
@@ -66,11 +72,11 @@ Pricing layouts should adhere to the following guidelines:
 <UnorderedList>
   <ListItem>Limit the number of pricing Cards to 4, with a minimum of 2 as to not overwhelm users with options. For a larger quantity of plans, consider reducing the options or using a <Anchor href="/components/table">Table</Anchor>.</ListItem>
   <ListItem>Display the current plan (if any).</ListItem>
-  <ListItem>Use a primary button and badge for the recommended option (if any), all other pricing cards use a secondary button for selection.</ListItem>
+  <ListItem>Use a primary Button and Badge for the recommended option (if any), all other pricing cards use a secondary Button for selection.</ListItem>
   <ListItem>
     Limit the listed features to 8 items, focusing on the differences between each package
     <UnorderedList>
-      <ListItem>If the lower packages are included in the higher end packages, we recommend the first line item of the next package mention the previous plan. Ex. “All features from Basic plan”</ListItem>
+      <ListItem>If the lower packages are included in the higher end packages, we recommend the first line item of the next package mention the previous plan. Example: “All features from Basic plan”.</ListItem>
     </UnorderedList>
   </ListItem>
   <ListItem>Always order the cards left to right from least expensive to most expensive, or least number/value of features to most number/value of features. The current selection remains in this order (it does not move to the beginning of the list).</ListItem>
@@ -89,7 +95,8 @@ Pricing layouts should adhere to the following guidelines:
 
 ### Cards
 
-Use the card layout to display the user’s options on pages that may redirect to a wizard flow or when this selection is the only step (besides a confirmation) the user needs to take to change their plan.
+Use the card layout to display the user’s options on pages that may redirect to a [Wizard flow](/page-templates/wizard) or when this selection is the only step (besides a confirmation) the user needs to take to change their plan.
+
 The buttons on these cards can redirect to a billing flow. The card also allows for more detail about the plan.
 
 <StoryPreview
@@ -151,8 +158,9 @@ export const CardPricingExample = (): React.ReactNode => {
 
 ### Visual picker
 
-Use a visual picker when the selection is happening in a wizard and the user will be continuing on to additional steps besides a simple confirmation (ex. Payment information).
-The visual picker should be more succinct in the detail it shares.
+Use a Visual Picker when the selection is happening in a wizard and the user will be continuing on to additional steps besides a simple confirmation (e.g., payment information).
+
+The Visual Picker should be more succinct in the detail it shares.
 
 <StoryPreview
   title="Visual picker example"
@@ -215,174 +223,175 @@ Consider using a table when there are 5 or more options for users to choose from
   code={`
 export const TableExample = (): React.ReactNode => {
   return (
-    <Table>
-      <THead>
-        <Tr>
-          <Th> </Th>
-          <Th>
+    <DataGrid aria-label="Pricing table">
+      <DataGridHead>
+        <DataGridRow>
+          <DataGridHeader> </DataGridHeader>
+          <DataGridHeader>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Developer
               <Badge as="span" variant="neutral">
                 Current plan
               </Badge>
             </Box>
-          </Th>
-          <Th>Production</Th>
-          <Th>
+          </DataGridHeader>
+          <DataGridHeader>Production</DataGridHeader>
+          <DataGridHeader>
             <Box display="flex" flexDirection="column" rowGap="space20">
               Business
               <Badge as="span" variant="decorative30">
                 Recommended
               </Badge>
             </Box>
-          </Th>
+          </DataGridHeader>
           <Th>Personalized</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        <Tr>
-          <Td>Price per month</Td>
-          <Td>Included</Td>
-          <Td>
-            4% of monthly spend <DetailText marginTop="space0">or $250.00 minimum</DetailText>
-          </Td>
-          <Td>
-            6% of monthly spend <DetailText marginTop="space0">or $1500.00 minimum</DetailText>
-          </Td>
-          <Td>
-            8% of monthly spend <DetailText marginTop="space0">or $5000.00 minimum</DetailText>
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>Web support</Td>
-          <Td>
+        </DataGridRow>
+      </DataGridHead>
+      <DataGridBody>
+        <DataGridRow>
+          <DataGridCell>Price per month</DataGridCell>
+          <DataGridCell>Included</DataGridCell>
+          <DataGridCell>
+            4% of monthly spend <DetailText marginTop="space0">or $250 minimum</DetailText>
+          </DataGridCell>
+          <DataGridCell>
+            6% of monthly spend <DetailText marginTop="space0">or $1,500 minimum</DetailText>
+          </DataGridCell>
+          <DataGridCell>
+            8% of monthly spend <DetailText marginTop="space0">or $5,000 minimum</DetailText>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>Web support</DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-          <Td>
+          </DataGridCell>
+          <DataGridCell>
             <SelectedIcon decorative color="colorTextIconAvailable" />
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>
+          </DataGridCell>
+        </DataGridRow>
+        <DataGridRow>
+          <DataGridCell>
             Guaranteed response times <DetailText marginTop="space0">Business critical</DetailText>
-          </Td>
-          <Td>-</Td>
-          <Td>3 business hours</Td>
-          <Td>1 hour (24x7)</Td>
-          <Td>1 hour (24x7)</Td>
-        </Tr>
+          </DataGridCell>
+          <DataGridCell>-</DataGridCell>
+          <DataGridCell>3 business hours</DataGridCell>
+          <DataGridCell>1 hour (24x7)</DataGridCell>
+          <DataGridCell>1 hour (24x7)</DataGridCell>
+        </DataGridRow>
         {...}
-      </TBody>
-    </Table>
+      </DataGridBody>
+    </DataGrid>
   )
 }`}
 />
 
 ## Ingredients
 
-<Table>
-  <THead>
-    <Tr>
-      <Th>Component</Th>
-      <Th>Guidelines</Th>
-    </Tr>
-  </THead>
-  <TBody>
-    <Tr>
-      <Td>
-        <strong>Badge</strong>
-      </Td>
-      <Td>
-        Use a <Anchor href="/components/badge#decorative">decorative Badge</Anchor> to highlight a “recommended” plan and for a customer’s current plan or the status of that current plan.
-        We recommend a maximum of 2 badges total, to not overwhelm the users. Use the placeholder text to add more detail about the plan.
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong>Heading</strong>
-      </Td>
-      <Td>
-        This is a smaller heading used for displaying the plan name or other details if including the plan name as the display heading.
-        Refer to the <Anchor href="/components/heading#accessibility">heading documentation</Anchor> for accessibility of headers.
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong>Display Heading</strong>
-      </Td>
-      <Td>
-        Use this largest heading for displaying the price of the plan. If the price is not available, it can be used to display the plan name.
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong>Paragraph subheader</strong>
-      </Td>
-      <Td>
-        The subheader can be placed above or below the display heading. Use this to add additional context to the price or plan.
-        For example “Included” or “Plus fees” or “Best for XYZ”
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong><Anchor href="/components/button">Button</Anchor> (card variant)</strong>
-      </Td>
-      <Td>
-        Use a secondary button to select the plan. We suggest using the button text “Select plan”.
-        For the current plan, hide the button or show an CTA. For example, it could navigate to the feature the user has already selected.
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong>Feature list (<Anchor href="/components/icon/usage-guidelines">icon</Anchor> + <Anchor href="/components/paragraph">paragraph</Anchor>)</strong>
-      </Td>
-      <Td>
-        Use this list to outline the differences between each plan. Include 1-8 features, the first feature listed should be anything included in previous features (if any).
-        For example “Packaged plan 1 features”
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>
-        <strong>More info button (card variant)</strong>
-      </Td>
-      <Td>
-        Use an optional link at the bottom of the card to link to additional documentation or details about the plan that can’t fit in the card.
-        This should go to a new page or open a side modal, not expand the card. Follow <Anchor href="/components/button">Paste guidelines</Anchor> for using a button or anchor: Use a link style button when the user is performing an action to open a modal or side modal, and an anchor when it’s navigating to a new page
-      </Td>
-    </Tr>
-  </TBody>
-</Table>
+<Box marginBottom="space70">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Component</Th>
+        <Th>Guidelines</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>
+          <strong>Badge</strong>
+        </Td>
+        <Td>
+          Use a <Anchor href="/components/badge#decorative">decorative Badge</Anchor> to highlight a “recommended” plan and for a customer’s current plan or the status of that current plan.
+          We recommend a maximum of 2 badges total, to not overwhelm the users. Use the placeholder text to add more detail about the plan.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Heading</strong>
+        </Td>
+        <Td>
+          This is a smaller heading used for displaying the plan name or other details if including the plan name as the display heading.
+          Refer to the <Anchor href="/components/heading#accessibility">heading documentation</Anchor> for accessibility of headers.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Display Heading</strong>
+        </Td>
+        <Td>
+          Use this largest heading for displaying the price of the plan. If the price is not available, it can be used to display the plan name.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Paragraph subheader</strong>
+        </Td>
+        <Td>
+          A subheader or details can be placed in a Paragraph above or below the display heading. Use this to add additional context to the price or plan.
+          For example “Included” or “Plus fees” or “Best for XYZ”.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong><Anchor href="/components/button">Button</Anchor> (card variant)</strong>
+        </Td>
+        <Td>
+          Use a secondary button to select the plan using the text “Select plan”.
+          For the current plan, hide the button or show a CTA. For example, it could navigate to the feature the user has already selected.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Feature list (<Anchor href="/components/icon/usage-guidelines">icon</Anchor> + <Anchor href="/components/paragraph">paragraph</Anchor>)</strong>
+        </Td>
+        <Td>
+          Use this list to outline the differences between each plan. Include 1-8 features, the first feature listed should be anything included in previous features (if any).
+          For example “Packaged plan 1 features”
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>More info Anchor or Button (Card variant)</strong>
+        </Td>
+        <Td>
+          Use an optional Anchor or Button at the bottom of the card to link to additional documentation or details about the plan that can’t fit in the card. This should go to a new page or open a Modal, not expand the card. Follow <Anchor href="/patterns/button-vs-anchor">guidelines for using a Button or Anchor</Anchor>: Use a link-style Button when the user is performing an action to open a Modal, and an Anchor when it’s navigating to a new page.
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ## Responsiveness
 
 For larger viewports, cards and pickers should be side-by-side. For smaller viewports, stack the cards or picker vertically.
+
+Alternatively, if the total height of the cards is too long for small viewports, consider using a [Disclosure](/components/disclosure) for the package features. This will help reduce the overall height and provide users with the information only when needed.
 
 ## Figma
 
 The **pricing card group** Figma component has min and max widths already applied.
 
 However the height of the cards should all be equal to each other even if the number of features, badges, or buttons are different.
-You may need to adjust the height of the card to “fill” in Figma. **The “More Info” button should remain at the bottom of the card.**
+You may need to detach the component, set autolayout to "Horizontal layout" (not "Wrap"), and adjust the height of the card to “Fill” in Figma. **The “More info” button should remain at the bottom of the card.**
 
 ## Do’s and Don’ts
-
-A clear filter option will be available when filters are selected. By default, "clear all filters" will remove all filter criteria and display all results. In use cases where there is a selected filter value by default, "clear all filters" will reset the filters to their default state.
 
 <DoDont>
   <Do title="Do" body="Only include the additional features in the list of each plan." />
   <Dont title="Do" body="Don’t show the negative or missing features of each product, or change the icon to an “X”." />
 
-  <Do title="Do" body="Include the “free” or “included” plan even if its default on the account." />
+  <Do title="Do" body="Include the “free” or “included” plan even if it's default on the account." />
   <Dont title="Do" body="Don’t only have 1 pricing Card on a page. Users should see all of their options." />
 
   <Do title="Do" body="Keep the content of the feature list succinct and jargon-free; use the “more info” option for more info." />
-  <Dont title="Do" body="Don’t put more a large amount of content in a feature item, and don’t put more than 8 features" />
+  <Dont title="Do" body="Don’t put a large amount of content in a feature item, and don’t put more than 8 features" />
 </DoDont>
 
 </content>
