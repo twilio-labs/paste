@@ -1,5 +1,19 @@
 # Change Log
 
+## 20.17.0
+
+### Minor Changes
+
+- [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Status Badge] add new `size` value "borderless" which removes padding and border (box shadow) for a less stylized option of Status Badge for use in Tables and other crowded layouts.
+
+* [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] new type export: BadgeSizes for use in status-badge package
+
+### Patch Changes
+
+- Updated dependencies [[`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1), [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1)]:
+  - @twilio-paste/status@2.2.0
+  - @twilio-paste/badge@8.4.0
+
 ## 20.16.0
 
 ### Minor Changes
