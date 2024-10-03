@@ -12,11 +12,17 @@ import {
 } from "@twilio-paste/data-grid";
 import { DetailText } from "@twilio-paste/detail-text";
 import { DisplayHeading } from "@twilio-paste/display-heading";
-import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
+import {
+  SummaryDetail,
+  SummaryDetailContent,
+  SummaryDetailHeading,
+  SummaryDetailHeadingContent,
+  SummaryDetailToggleButton,
+} from "@twilio-paste/summary-detail";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
 
@@ -32,6 +38,7 @@ const PricingCard = ({
   subheader,
   cta,
   packageList,
+  isMobile,
 }: {
   isCurrentPlan?: boolean;
   isRecommended?: boolean;
@@ -40,12 +47,20 @@ const PricingCard = ({
   subheader: string;
   cta?: string;
   packageList: string[];
+  isMobile?: boolean;
 }): JSX.Element => {
   return (
     <Card>
       <Box display="flex" flexDirection="column" rowGap="space70">
         <Box>
-          <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space10">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            columnGap="space20"
+            rowGap="space20"
+            flexWrap="wrap"
+          >
             <Heading marginBottom="space0" as="h2" variant="heading30">
               {packageName}
             </Heading>
@@ -70,19 +85,42 @@ const PricingCard = ({
 
         {cta ? <Button variant="secondary">{cta}</Button> : null}
 
-        <Box display="flex" flexDirection="column" rowGap="space50">
-          <Heading marginBottom="space0" as="h3" variant="heading50">
-            Package includes:
-          </Heading>
-          <Box display="flex" flexDirection="column" rowGap="space40">
-            {packageList.map((item: string) => (
-              <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
-                <SelectedIcon decorative color="colorTextIconSuccess" />
-                <Paragraph marginBottom="space0">{item}</Paragraph>
+        {isMobile ? (
+          <SummaryDetail>
+            <SummaryDetailHeading>
+              <SummaryDetailToggleButton />
+              <SummaryDetailHeadingContent>
+                <Heading variant="heading50" as="h3" marginBottom="space0">
+                  Package includes
+                </Heading>
+              </SummaryDetailHeadingContent>
+            </SummaryDetailHeading>
+            <SummaryDetailContent>
+              <Box display="flex" flexDirection="column" rowGap="space40">
+                {packageList.map((item: string) => (
+                  <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
+                    <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
+                    <Paragraph marginBottom="space0">{item}</Paragraph>
+                  </Box>
+                ))}
               </Box>
-            ))}
+            </SummaryDetailContent>
+          </SummaryDetail>
+        ) : (
+          <Box display="flex" flexDirection="column" rowGap="space50">
+            <Heading marginBottom="space0" as="h3" variant="heading50">
+              Package includes:
+            </Heading>
+            <Box display="flex" flexDirection="column" rowGap="space40">
+              {packageList.map((item: string) => (
+                <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
+                  <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
+                  <Paragraph marginBottom="space0">{item}</Paragraph>
+                </Box>
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
     </Card>
   );
@@ -90,56 +128,108 @@ const PricingCard = ({
 
 export const CardExample = (): JSX.Element => {
   return (
-    <Grid gutter="space40" rowGap="space70" equalColumnHeights>
-      <Column span={[12, 6, 4]}>
-        <PricingCard
-          isCurrentPlan
-          packageName="Free"
-          price="$0"
-          subheader="Per month"
-          packageList={[
-            "10 seats",
-            "2 sources",
-            "Unlimited destinations",
-            "1,000 MTU",
-            "50 Function hours",
-            "500,000 records processed for Reverse ETL",
-          ]}
-        />
-      </Column>
-      <Column span={[12, 6, 4]}>
-        <PricingCard
-          packageName="Team"
-          price="Starting at $120"
-          subheader="Per month"
-          cta="Try for 14 days"
-          packageList={[
-            "10 seats",
-            "2 sources",
-            "Unlimited destinations",
-            "1,000 MTU",
-            "50 Function hours",
-            "500,000 records processed for Reverse ETL",
-          ]}
-        />
-      </Column>
-      <Column span={[12, 6, 4]}>
-        <PricingCard
-          packageName="Business"
-          price="Custom pricing"
-          subheader="contact sales"
-          cta="Contact us to upgrade"
-          packageList={[
-            "10 seats",
-            "unlimitted sources",
-            "Choose from 10,000 / 25,000 / 100,000 MTU",
-            "50 Function hours",
-            "1 million records processed for Reverse ETL",
-            "Monthly and annual plans available",
-          ]}
-        />
-      </Column>
-    </Grid>
+    <Box
+      display="grid"
+      rowGap="space70"
+      columnGap="space70"
+      gridTemplateColumns="repeat(auto-fit, minmax(min(264px, 100%), 1fr))"
+    >
+      <PricingCard
+        isCurrentPlan
+        packageName="Free"
+        price="$0"
+        subheader="Per month"
+        packageList={[
+          "10 seats",
+          "2 sources",
+          "Unlimited destinations",
+          "1,000 MTU",
+          "50 Function hours",
+          "500,000 records processed for Reverse ETL",
+        ]}
+      />
+      <PricingCard
+        packageName="Team"
+        price="Starting at $120"
+        subheader="Per month"
+        cta="Try for 14 days"
+        packageList={[
+          "10 seats",
+          "2 sources",
+          "Unlimited destinations",
+          "1,000 MTU",
+          "50 Function hours",
+          "500,000 records processed for Reverse ETL",
+        ]}
+      />
+      <PricingCard
+        packageName="Business"
+        price="Custom pricing"
+        subheader="contact sales"
+        cta="Contact us to upgrade"
+        packageList={[
+          "10 seats",
+          "unlimitted sources",
+          "Choose from 10,000 / 25,000 / 100,000 MTU",
+          "50 Function hours",
+          "1 million records processed for Reverse ETL",
+          "Monthly and annual plans available",
+        ]}
+      />
+    </Box>
+  );
+};
+
+export const CardMobileExample = (): JSX.Element => {
+  return (
+    <Box maxWidth="400px" display="flex" flexDirection="column" rowGap="space70">
+      <PricingCard
+        isMobile
+        isCurrentPlan
+        packageName="Free"
+        price="$0"
+        subheader="Per month"
+        packageList={[
+          "10 seats",
+          "2 sources",
+          "Unlimited destinations",
+          "1,000 MTU",
+          "50 Function hours",
+          "500,000 records processed for Reverse ETL",
+        ]}
+      />
+
+      <PricingCard
+        isMobile
+        packageName="Team"
+        price="Starting at $120"
+        subheader="Per month"
+        cta="Try for 14 days"
+        packageList={[
+          "10 seats",
+          "2 sources",
+          "Unlimited destinations",
+          "1,000 MTU",
+          "50 Function hours",
+          "500,000 records processed for Reverse ETL",
+        ]}
+      />
+      <PricingCard
+        isMobile
+        packageName="Business"
+        price="Custom pricing"
+        subheader="contact sales"
+        cta="Contact us to upgrade"
+        packageList={[
+          "10 seats",
+          "unlimitted sources",
+          "Choose from 10,000 / 25,000 / 100,000 MTU",
+          "50 Function hours",
+          "1 million records processed for Reverse ETL",
+          "Monthly and annual plans available",
+        ]}
+      />
+    </Box>
   );
 };
 
@@ -188,7 +278,7 @@ const VisualItem = ({
       <Box display="flex" flexDirection="column" rowGap="space50">
         {packageList.map((item: string) => (
           <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
-            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
             <Paragraph marginBottom="space0">{item}</Paragraph>
           </Box>
         ))}

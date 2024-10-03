@@ -8,7 +8,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {UnorderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import { Box } from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -91,6 +91,83 @@ Pricing layouts should adhere to the following guidelines:
   </CalloutText>
 </Callout>
 
+
+## Ingredients
+
+<Box marginBottom="space70">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Component</Th>
+        <Th>Guidelines</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>
+          <strong>Badge</strong>
+        </Td>
+        <Td>
+          Use a <Anchor href="/components/badge#decorative">decorative Badge</Anchor> to highlight a “recommended” plan and for a customer’s current plan or the status of that current plan.
+          We recommend a maximum of 2 badges total, to not overwhelm the users. Use the placeholder text to add more detail about the plan.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Heading</strong>
+        </Td>
+        <Td>
+          This is a smaller heading used for displaying the plan name or other details if including the plan name as the display heading.
+          Refer to the <Anchor href="/components/heading#accessibility">heading documentation</Anchor> for accessibility of headers.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Display Heading</strong>
+        </Td>
+        <Td>
+          Use this largest heading for displaying the price of the plan. If the price is not available, it can be used to display the plan name.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Paragraph subheader</strong>
+        </Td>
+        <Td>
+          A subheader or details can be placed in a Paragraph above or below the display heading. Use this to add additional context to the price or plan.
+          For example “Included” or “Plus fees” or “Best for XYZ”.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong><Anchor href="/components/button">Button</Anchor> (card variant)</strong>
+        </Td>
+        <Td>
+          Use a secondary button to select the plan using the text “Select plan”.
+          For the current plan, hide the button or show a CTA. For example, it could navigate to the feature the user has already selected.
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>Feature list (<Anchor href="/components/icon/usage-guidelines">icon</Anchor> + <Anchor href="/components/paragraph">paragraph</Anchor>)</strong>
+        </Td>
+        <Td>
+          Use this list to outline the differences between each plan. Include 1-8 features, the first feature listed should be anything included in previous features (if any).
+          For example “Packaged plan 1 features”
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>
+          <strong>More info Anchor or Button (Card variant)</strong>
+        </Td>
+        <Td>
+          Use an optional Anchor or Button at the bottom of the card to link to additional documentation or details about the plan that can’t fit in the card. This should go to a new page or open a Modal, not expand the card. Follow <Anchor href="/patterns/button-vs-anchor">guidelines for using a Button or Anchor</Anchor>: Use a link-style Button when the user is performing an action to open a Modal, and an Anchor when it’s navigating to a new page.
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
 ## Variations
 
 ### Cards
@@ -108,25 +185,26 @@ export const CardPricingExample = (): React.ReactNode => {
   return (
     <Box
       display="grid"
-      gridTemplateColumns="repeat(auto-fit, minmax(min(260px, 100%), 1fr));"
-      columnGap="space50"
-      rowGap="space50"
+      gridTemplateColumns="repeat(auto-fit, minmax(min(264px, 100%), 1fr));"
+      columnGap="space70"
+      rowGap="space70"
     >
       <Card>
         <Box display="flex" flexDirection="column" rowGap="space70">
           <Box display="flex" flexDirection="column" rowGap="space40">
             <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Avatar name="user" icon={UserIcon} variant="user />
+              <Heading marginBottom="space0" as="h2" variant="heading30">
+                Team
+              </Heading>
               <Badge as="span" variant="neutral">
                 Current plan
               </Badge>
             </Box>
-            <Heading marginBottom="space0" as="h2" variant="heading30">
-              Team
-            </Heading>
-            <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
-              Starting at $120
-            </DisplayHeading>
+            <Box marginTop="space40" marginBottom="space20">
+              <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
+                Starting at $120
+              </DisplayHeading>
+            </Box>
             <Paragraph marginBottom="space0">Per month</Paragraph>
           </Box>
           <Button variant="secondary">Try for 14 days</Button>
@@ -214,7 +292,7 @@ export const VisualPickerExample = (): React.ReactNode => {
 
 ### Data Grid
 
-Consider using a table when there are 5 or more options for users to choose from, or more comparison is necessary between any number of plans.
+Consider using a table when there are more than 4 options for users to choose from, or more comparison is necessary between any number of plans.
 
 <StoryPreview
   title="Data Grid example"
@@ -292,87 +370,85 @@ export const TableExample = (): React.ReactNode => {
 }`}
 />
 
-## Ingredients
-
-<Box marginBottom="space70">
-  <Table>
-    <THead>
-      <Tr>
-        <Th>Component</Th>
-        <Th>Guidelines</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>
-          <strong>Badge</strong>
-        </Td>
-        <Td>
-          Use a <Anchor href="/components/badge#decorative">decorative Badge</Anchor> to highlight a “recommended” plan and for a customer’s current plan or the status of that current plan.
-          We recommend a maximum of 2 badges total, to not overwhelm the users. Use the placeholder text to add more detail about the plan.
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong>Heading</strong>
-        </Td>
-        <Td>
-          This is a smaller heading used for displaying the plan name or other details if including the plan name as the display heading.
-          Refer to the <Anchor href="/components/heading#accessibility">heading documentation</Anchor> for accessibility of headers.
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong>Display Heading</strong>
-        </Td>
-        <Td>
-          Use this largest heading for displaying the price of the plan. If the price is not available, it can be used to display the plan name.
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong>Paragraph subheader</strong>
-        </Td>
-        <Td>
-          A subheader or details can be placed in a Paragraph above or below the display heading. Use this to add additional context to the price or plan.
-          For example “Included” or “Plus fees” or “Best for XYZ”.
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong><Anchor href="/components/button">Button</Anchor> (card variant)</strong>
-        </Td>
-        <Td>
-          Use a secondary button to select the plan using the text “Select plan”.
-          For the current plan, hide the button or show a CTA. For example, it could navigate to the feature the user has already selected.
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong>Feature list (<Anchor href="/components/icon/usage-guidelines">icon</Anchor> + <Anchor href="/components/paragraph">paragraph</Anchor>)</strong>
-        </Td>
-        <Td>
-          Use this list to outline the differences between each plan. Include 1-8 features, the first feature listed should be anything included in previous features (if any).
-          For example “Packaged plan 1 features”
-        </Td>
-      </Tr>
-      <Tr>
-        <Td>
-          <strong>More info Anchor or Button (Card variant)</strong>
-        </Td>
-        <Td>
-          Use an optional Anchor or Button at the bottom of the card to link to additional documentation or details about the plan that can’t fit in the card. This should go to a new page or open a Modal, not expand the card. Follow <Anchor href="/patterns/button-vs-anchor">guidelines for using a Button or Anchor</Anchor>: Use a link-style Button when the user is performing an action to open a Modal, and an Anchor when it’s navigating to a new page.
-        </Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
 ## Responsiveness
 
 For larger viewports, cards and pickers should be side-by-side. For smaller viewports, stack the cards or picker vertically.
 
-Alternatively, if the total height of the cards is too long for small viewports, consider using a [Disclosure](/components/disclosure) for the package features. This will help reduce the overall height and provide users with the information only when needed.
+For cards, the height of the cards should be equal to each other even if the number of features, badges, or buttons are different. You can use CSS Grid to ensure the cards are the same height.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Tip: If the total height of the cards is too long for small viewports, consider using a <Anchor href="/components/summary-detail">Summary Detail</Anchor> to collapse the package features, displaying them only when the user interacts with it.
+  </CalloutText>
+</Callout>
+
+
+<StoryPreview
+  title="Card pricing example"
+  storyID="website-pricingexamples--card-mobile-example"
+  height="600px"
+  code={`
+export const CardPricingExample = (): React.ReactNode => {
+  return (
+    <Box
+      display="grid"
+      gridTemplateColumns="repeat(auto-fit, minmax(min(260px, 100%), 1fr));"
+      columnGap="space50"
+      rowGap="space50"
+    >
+      <Card>
+        <Box display="flex" flexDirection="column" rowGap="space70">
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Heading marginBottom="space0" as="h2" variant="heading30">
+                Team
+              </Heading>
+              <Badge as="span" variant="neutral">
+                Current plan
+              </Badge>
+            </Box>
+            <Box marginTop="space40" marginBottom="space20">
+              <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
+                Starting at $120
+              </DisplayHeading>
+            </Box>
+            <Paragraph marginBottom="space0">Per month</Paragraph>
+          </Box>
+          <Button variant="secondary">Try for 14 days</Button>
+          <SummaryDetail>
+            <SummaryDetailHeading>
+              <SummaryDetailToggleButton />
+              <SummaryDetailHeadingContent>
+                <Heading variant="heading50" as="h3" marginBottom="space0">
+                  Package includes
+                </Heading>
+              </SummaryDetailHeadingContent>
+            </SummaryDetailHeading>
+            <SummaryDetailContent>
+              <Box display="flex" flexDirection="column" rowGap="space40">
+                {[
+                  "10 seats",
+                  "2 sources",
+                  "Unlimited destinations",
+                  "1,000 MTU",
+                  "50 Function hours",
+                  "500,000 records processed for Reverse ETL",
+                ].map((item: string) => (
+                  <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
+                    <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
+                    <Paragraph marginBottom="space0">{item}</Paragraph>
+                  </Box>
+                ))}
+              </Box>
+            </SummaryDetailContent>
+          </SummaryDetail>
+        </Box>
+      </Card>
+      {...}
+    </Box>
+  )
+}`}
+/>
 
 ## Figma
 
