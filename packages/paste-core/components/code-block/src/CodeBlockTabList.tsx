@@ -94,21 +94,12 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const handleScrollDirection = React.useCallback(
       (direction: "left" | "right") => {
         if (scrollableRef.current) {
-          const currentParentOffset = scrollableRef.current.getBoundingClientRect().x || 0;
-          const currentParentWidth = scrollableRef.current.getBoundingClientRect().width || 0;
-
           if (direction === "left" && elementOutOBoundsLeft) {
-            scrollableRef.current.scrollBy({
-              left: elementOutOBoundsLeft.getBoundingClientRect().right - currentParentWidth,
-              behavior: "smooth",
-            });
+            elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             return;
           }
           if (direction === "right" && elementOutOBoundsRight) {
-            scrollableRef.current.scrollBy({
-              left: elementOutOBoundsRight.getBoundingClientRect().left - currentParentOffset,
-              behavior: "smooth",
-            });
+            elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             return;
           }
         }

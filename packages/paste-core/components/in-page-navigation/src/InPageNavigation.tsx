@@ -6,6 +6,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { InPageNavigationContext } from "./InPageNavigationContext";
+import { OverflowButton } from "./OverflowButton";
 import type { Orientation, Variants } from "./types";
 
 export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "children"> {
@@ -55,35 +56,22 @@ export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "chil
   hideBottomBorder?: boolean;
 }
 
-const StyledScrollWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
-  const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
-
+const StyledScrollWrapper = styled.div(() => {
   return css({
-    paddingX: "space10",
-    paddingBottom: "4px",
-    marginBottom: "4px",
     overflowX: "auto",
     overflowY: "hidden",
     overflowScrolling: "touch",
     /* Firefox scrollbar */
     "@supports (-moz-appearance:none)": {
       paddingBottom: "0px",
-      scrollbarColor: `${colorBackgroundStronger} transparent`,
-      scrollbarWidth: "thin",
+      scrollbarWidth: "none",
     },
     /* Chrome + Safari scrollbar */
     "::-webkit-scrollbar": {
-      height: 4,
+      height: 0,
     },
     "::-webkit-scrollbar-track": {
       background: "transparent",
-    },
-    "::-webkit-scrollbar-thumb": {
-      background: colorBackgroundStronger,
-      borderRadius: "5px",
-    },
-    "::-webkit-scrollbar-thumb:hover": {
-      background: colorBackgroundInverseStronger,
     },
   });
 });
@@ -104,6 +92,37 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
     const listRef = React.useRef<HTMLOListElement>(null);
+    const scrollableRef = React.useRef<HTMLDivElement>(null);
+    const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
+    const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
+
+    const setElementsToTrack = React.useCallback(() => {
+      if (listRef.current) {
+        const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
+          .right;
+        const currentScrollContainerXOffset = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect().x;
+
+        let leftOutOfBounds: HTMLDivElement | null = null;
+        let rightOutOfBounds: HTMLDivElement | null = null;
+
+        (listRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
+          const { x, right } = tab.getBoundingClientRect();
+          if (x < currentScrollContainerXOffset - 10 && tab !== elementOutOBoundsLeft) {
+            leftOutOfBounds = tab;
+          } else if (
+            right > currentScrollContainerRightPosition + 10 &&
+            !rightOutOfBounds &&
+            tab !== elementOutOBoundsRight
+          ) {
+            rightOutOfBounds = tab;
+          }
+        });
+
+        setElementOutOfBoundsLeft(leftOutOfBounds);
+        setElementOutOfBoundsRight(rightOutOfBounds);
+      }
+    }, [listRef.current, elementOutOBoundsLeft, elementOutOBoundsRight]);
+
     // Scroll to the selected tab if it exists on mount
     React.useEffect(() => {
       if (listRef.current) {
@@ -113,11 +132,30 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               ?.querySelector(`[aria-current="page"]`)
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore - behavior is typed incorrectly in Typescript v4, fixed in v5+
-              ?.scrollIntoView({ behavior: "smooth" }),
+              ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
           1,
         );
+        scrollableRef.current?.addEventListener("scroll", setElementsToTrack);
+        window.addEventListener("resize", setElementsToTrack);
+        setElementsToTrack();
       }
     }, [listRef.current]);
+
+    const handleScrollDirection = React.useCallback(
+      (direction: "left" | "right") => {
+        if (listRef.current) {
+          if (direction === "left" && elementOutOBoundsLeft) {
+            elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            return;
+          }
+          if (direction === "right" && elementOutOBoundsRight) {
+            elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            return;
+          }
+        }
+      },
+      [listRef.current, elementOutOBoundsLeft, elementOutOBoundsRight],
+    );
 
     if (orientation === "vertical") {
       return (
@@ -141,19 +179,10 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
       );
     }
 
-    return (
-      <InPageNavigationContext.Provider value={{ variant, orientation }}>
-        <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
-          <Box
-            as={StyledScrollWrapper as any}
-            display="flex"
-            flexWrap="nowrap"
-            flexShrink={0}
-            element={`${element}_SCROLL_WRAPPER`}
-            overflowX="auto"
-            overflowY="hidden"
-            marginBottom={marginBottom || "space60"}
-          >
+    if (isFullWidth) {
+      return (
+        <InPageNavigationContext.Provider value={{ variant, orientation }}>
+          <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
             <Box
               as="ul"
               ref={listRef}
@@ -171,6 +200,57 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               {children}
             </Box>
           </Box>
+        </InPageNavigationContext.Provider>
+      );
+    }
+
+    return (
+      <InPageNavigationContext.Provider value={{ variant, orientation }}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          as="nav"
+          marginBottom={marginBottom || "space60"}
+          display="flex"
+          ref={ref}
+          element={element}
+          overflow="hidden"
+        >
+          <OverflowButton
+            position="left"
+            onClick={() => handleScrollDirection("left")}
+            visible={Boolean(elementOutOBoundsLeft)}
+          />
+          <Box
+            as={StyledScrollWrapper as any}
+            display="flex"
+            flexWrap="nowrap"
+            element={`${element}_SCROLL_WRAPPER`}
+            overflowX="auto"
+            overflowY="hidden"
+            flexGrow={1}
+            ref={scrollableRef}
+          >
+            <Box
+              as="ul"
+              ref={listRef}
+              listStyleType="none"
+              element={`${element}_ITEMS`}
+              display="flex"
+              justifyContent="flex-start"
+              padding="space0"
+              margin="space0"
+              borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
+              borderBottomStyle={hideBottomBorder ? "none" : "solid"}
+              borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
+            >
+              {children}
+            </Box>
+          </Box>
+          <OverflowButton
+            position="right"
+            onClick={() => handleScrollDirection("right")}
+            visible={Boolean(elementOutOBoundsRight)}
+          />
         </Box>
       </InPageNavigationContext.Provider>
     );

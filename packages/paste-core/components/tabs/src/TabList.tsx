@@ -83,9 +83,13 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
       (ref.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
         const { x, right } = tab.getBoundingClientRect();
-        if (x < currentScrollContainerXOffset) {
+        if (x < currentScrollContainerXOffset - 10 && tab !== elementOutOBoundsLeft) {
           leftOutOfBounds = tab;
-        } else if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
+        } else if (
+          right > currentScrollContainerRightPosition + 10 &&
+          !rightOutOfBounds &&
+          tab !== elementOutOBoundsRight
+        ) {
           rightOutOfBounds = tab;
         }
       });
@@ -93,11 +97,12 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       setElementOutOfBoundsLeft(leftOutOfBounds);
       setElementOutOfBoundsRight(rightOutOfBounds);
     }
-  }, [ref.current]);
+  }, [ref.current, elementOutOBoundsLeft, elementOutOBoundsRight]);
 
   React.useEffect(() => {
     if (ref.current) {
       scrollableRef.current?.addEventListener("scroll", setElementsToTrack);
+      window.addEventListener("resize", setElementsToTrack);
       setElementsToTrack();
     }
   }, [ref.current]);
@@ -105,43 +110,27 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const handleScrollDirection = React.useCallback(
     (direction: "left" | "right") => {
       if (ref.current) {
-        const ScrollableContainerOffset = scrollableRef.current?.getBoundingClientRect().x || 0;
-        const ScrollableContainerWidth = scrollableRef.current?.getBoundingClientRect().width || 0;
-
         if (direction === "left" && elementOutOBoundsLeft) {
-          scrollableRef.current?.scrollBy({
-            left:
-              elementOutOBoundsLeft.getBoundingClientRect().right -
-              (ScrollableContainerWidth + ScrollableContainerOffset),
-            behavior: "smooth",
-          });
+          elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
           return;
         }
         if (direction === "right" && elementOutOBoundsRight) {
-          scrollableRef.current?.scrollBy({
-            left: elementOutOBoundsRight.getBoundingClientRect().left - (ScrollableContainerOffset || 0),
-            behavior: "smooth",
-          });
+          elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
           return;
         }
-      }
-
-      if (ref.current) {
-        const scrollAmount = direction === "left" ? -ref.current.offsetWidth : ref.current.offsetWidth;
-        ref.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     },
     [ref.current, elementOutOBoundsLeft, elementOutOBoundsRight],
   );
 
   return (
-    <Box display="flex" overflow="clip">
+    <Box display="flex" overflow="hidden">
       <OverflowButton
         position="left"
         onClick={() => handleScrollDirection("left")}
         visible={Boolean(elementOutOBoundsLeft)}
       />
-      <Box as={StyledTabList as any} ref={scrollableRef} element={`${element}_SCROLL_WRAPPER`}>
+      <Box as={StyledTabList as any} ref={scrollableRef} flexGrow={1} element={`${element}_SCROLL_WRAPPER`}>
         <Box
           element={`${element}_CONTAINER`}
           borderBottomStyle="solid"
