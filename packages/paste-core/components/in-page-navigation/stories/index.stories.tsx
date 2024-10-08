@@ -141,3 +141,42 @@ Customized.parameters = {
     disable: true,
   },
 };
+
+export const CustomizedOverflow: StoryFn = () => {
+  const theme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={theme}
+      elements={{
+        IN_PAGE_NAVIGATION: { backgroundColor: "colorBackgroundDecorative20Weakest" },
+        IN_PAGE_NAVIGATION_ITEMS: { padding: "space40" },
+        IN_PAGE_NAVIGATION_ITEM: { margin: "space40" },
+        IN_PAGE_NAVIGATION_ITEM_ANCHOR: { fontSize: "fontSize40" },
+        IN_PAGE_NAVIGATION_OVERFLOW_BUTTON_LEFT: {
+          backgroundColor: "colorBackgroundRequired",
+        },
+        IN_PAGE_NAVIGATION_OVERFLOW_BUTTON_RIGHT: {
+          backgroundColor: "colorBackgroundAvailable",
+        },
+      }}
+    >
+      <Box maxWidth="200px">
+        {/* using UID here to make unique labels for landmarks in Storybook for axe testing */}
+        <InPageNavigation aria-label={`privacy ${useUID()}`}>
+          <InPageNavigationItem href="#">Home</InPageNavigationItem>
+          <InPageNavigationItem href="#" currentPage>
+            Detection
+          </InPageNavigationItem>
+          <InPageNavigationItem href="#">Settings</InPageNavigationItem>
+          <InPageNavigationItem href="#">Inventory</InPageNavigationItem>
+        </InPageNavigation>
+      </Box>
+    </CustomizationProvider>
+  );
+};
+CustomizedOverflow.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
