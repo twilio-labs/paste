@@ -1,9 +1,9 @@
 import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { Box } from "@twilio-paste/box";
 import {
   CodeBlock,
   CodeBlockHeader,

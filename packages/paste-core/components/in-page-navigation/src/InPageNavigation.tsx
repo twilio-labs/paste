@@ -1,7 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
-import { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
@@ -92,10 +91,13 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
     const listRef = React.useRef<HTMLOListElement>(null);
+    //  ref to the scrollable element
     const scrollableRef = React.useRef<HTMLDivElement>(null);
+    // Keep track of first elements that are paritally or completely out of view in either direction
     const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
     const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
 
+    // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
       if (listRef.current) {
         const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
@@ -107,13 +109,18 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
 
         (listRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
           const { x, right } = tab.getBoundingClientRect();
-          if (x < currentScrollContainerXOffset - 10 && tab !== elementOutOBoundsLeft) {
+          /**
+           * Compares the left side of the tab with the left side of the scrollable container position
+           * as the x value will not be 0 due to being offset in the screen.
+           */
+          if (x < currentScrollContainerXOffset) {
             leftOutOfBounds = tab;
-          } else if (
-            right > currentScrollContainerRightPosition + 10 &&
-            !rightOutOfBounds &&
-            tab !== elementOutOBoundsRight
-          ) {
+          }
+          /**
+           * Compares the right side to the end of container with some buffer. Also ensure there are
+           * no value set as it loops through the array we don't want it to override the first value out of bounds.
+           */
+          if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds && tab !== elementOutOBoundsRight) {
             rightOutOfBounds = tab;
           }
         });
@@ -125,7 +132,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
 
     // Scroll to the selected tab if it exists on mount
     React.useEffect(() => {
-      if (listRef.current) {
+      if (listRef.current && scrollableRef.current) {
         setTimeout(
           () =>
             listRef.current
@@ -139,8 +146,22 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
         window.addEventListener("resize", setElementsToTrack);
         setElementsToTrack();
       }
-    }, [listRef.current]);
+    }, [listRef.current, scrollableRef.current]);
 
+    // Cleanup event listeners on destroy
+    React.useEffect(() => {
+      return () => {
+        if (scrollableRef.current) {
+          scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+          window.removeEventListener("resize", setElementsToTrack);
+        }
+      };
+    }, []);
+
+    /**
+     * Scrolls to the element that is out of bounds (from React State), centering it in the scrollable container
+     * Logic to handle scrolling also replicated in CodeBlock and Tabs. If changing here, consider reviewing those components too.
+     */
     const handleScrollDirection = React.useCallback(
       (direction: "left" | "right") => {
         if (listRef.current) {

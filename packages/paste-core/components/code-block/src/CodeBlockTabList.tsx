@@ -51,7 +51,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
     const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
 
-    // Runs on load and on scroll to set the elements that are out of view
+    // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
       if (scrollableRef.current) {
         const currentScrollContainerRightPosition = (
@@ -64,14 +64,14 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
         (scrollableRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
           const { x, right } = tab.getBoundingClientRect();
           /**
-           * compare the left side of the tab with the left side of the scrollable container position
+           * Compares the left side of the tab with the left side of the scrollable container position
            * as the x value will not be 0 due to being offset in the screen
            */
           if (x < (scrollableRef.current?.getBoundingClientRect().x || 0)) {
             leftOutOfBounds = tab;
           }
           /**
-           * compares the right side to the end of container with some buffer. Also ensure there are
+           * Compares the right side to the end of container with some buffer. Also ensure there are
            * no value set as it loops through the array we don't want it to override the first value out of bounds.
            */
           if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
@@ -87,10 +87,25 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     React.useEffect(() => {
       if (scrollableRef.current) {
         scrollableRef.current.addEventListener("scroll", setElementsToTrack);
+        window.addEventListener("resize", setElementsToTrack);
         setElementsToTrack();
       }
     }, [scrollableRef.current]);
 
+    // Cleanup event listeners on destroy
+    React.useEffect(() => {
+      return () => {
+        if (scrollableRef.current) {
+          scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+          window.removeEventListener("resize", setElementsToTrack);
+        }
+      };
+    }, []);
+
+    /**
+     * Scrolls to the element that is out of bounds (from React State), centering it in the scrollable container
+     * Logic to handle scrolling also replicated in Tabs and InPageNavigation. If changing here, consider reviewing those components too.
+     */
     const handleScrollDirection = React.useCallback(
       (direction: "left" | "right") => {
         if (scrollableRef.current) {
@@ -102,12 +117,6 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             return;
           }
-        }
-
-        if (scrollableRef.current) {
-          const scrollAmount =
-            direction === "left" ? -scrollableRef.current.offsetWidth : scrollableRef.current.offsetWidth;
-          scrollableRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
       },
       [scrollableRef.current, elementOutOBoundsLeft, elementOutOBoundsRight],
@@ -121,6 +130,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           borderBottomWidth="borderWidth10"
           borderBottomColor="colorBorderInverseWeaker"
           display="flex"
+          // Clip to hide box shadow on the tabs overflowing container
           overflowY="clip"
         >
           <OverflowButton

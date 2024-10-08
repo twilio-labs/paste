@@ -15,7 +15,6 @@ const Styles: BoxStyleProps = {
   color: "colorTextIconInverse",
   _hover: {
     color: "colorTextInverseWeak",
-    cursor: "pointer",
   },
 };
 
@@ -40,8 +39,10 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       position="relative"
       boxShadow={visible ? theme.shadows.shadowScrollInverse : undefined}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
+      cursor={visible ? "pointer" : "none"}
       {...Styles}
     >
+      {/* For left button to align with spacing of header we hide icon */}
       {visible && <Chevron decorative={true} />}
     </Box>
   );

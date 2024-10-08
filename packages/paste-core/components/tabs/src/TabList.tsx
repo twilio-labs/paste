@@ -69,9 +69,11 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const scrollableRef = React.useRef<HTMLDivElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
 
+  // Keep track of first elements that are paritally or completely out of view in either direction
   const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
   const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
 
+  // Runs on load and resize and on scroll to set the elements that are out of view
   const setElementsToTrack = React.useCallback(() => {
     if (ref.current) {
       const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
@@ -83,13 +85,18 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
       (ref.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
         const { x, right } = tab.getBoundingClientRect();
-        if (x < currentScrollContainerXOffset - 10 && tab !== elementOutOBoundsLeft) {
+        /**
+         * Compares the left side of the tab with the left side of the scrollable container position
+         * as the x value will not be 0 due to being offset in the screen.
+         */
+        if (x < currentScrollContainerXOffset) {
           leftOutOfBounds = tab;
-        } else if (
-          right > currentScrollContainerRightPosition + 10 &&
-          !rightOutOfBounds &&
-          tab !== elementOutOBoundsRight
-        ) {
+        }
+        /**
+         * Compares the right side to the end of container with some buffer. Also ensure there are
+         * no value set as it loops through the array we don't want it to override the first value out of bounds.
+         */
+        if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds && tab !== elementOutOBoundsRight) {
           rightOutOfBounds = tab;
         }
       });
@@ -107,16 +114,28 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
     }
   }, [ref.current]);
 
+  // Cleanup event listeners on destroy
+  React.useEffect(() => {
+    return () => {
+      if (scrollableRef.current) {
+        scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+        window.removeEventListener("resize", setElementsToTrack);
+      }
+    };
+  }, []);
+
+  /**
+   * Scrolls to the element that is out of bounds (from React State), centering it in the scrollable container
+   * Logic to handle scrolling also replicated in CodeBlock and InPageNavigation. If changing here, consider reviewing those components too.
+   */
   const handleScrollDirection = React.useCallback(
     (direction: "left" | "right") => {
       if (ref.current) {
         if (direction === "left" && elementOutOBoundsLeft) {
           elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-          return;
         }
         if (direction === "right" && elementOutOBoundsRight) {
           elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-          return;
         }
       }
     },
