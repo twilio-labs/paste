@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Theme } from "@twilio-paste/theme";
@@ -149,14 +149,16 @@ describe("Tabs", () => {
 
       expect(outerDiv.getAttribute("data-paste-element")).toEqual("HORIZONTAL_TABS");
       expect(screen.getByTestId("tab-list").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB_LIST");
-      expect((screen.getByTestId("tab-list").firstChild as HTMLElement).getAttribute("data-paste-element")).toEqual(
-        "HORIZONTAL_TAB_LIST_CHILD_SCROLL_WRAPPER",
-      );
       expect(
         (screen.getByTestId("tab-list").firstChild?.firstChild as HTMLElement).getAttribute("data-paste-element"),
-      ).toEqual("HORIZONTAL_TAB_LIST_CHILD_CONTAINER");
+      ).toEqual("HORIZONTAL_TAB_LIST_CHILD_SCROLL_WRAPPER");
       expect(
         (screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild as HTMLElement).getAttribute(
+          "data-paste-element",
+        ),
+      ).toEqual("HORIZONTAL_TAB_LIST_CHILD_CONTAINER");
+      expect(
+        (screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild?.firstChild as HTMLElement).getAttribute(
           "data-paste-element",
         ),
       ).toEqual("HORIZONTAL_TAB_LIST_CHILD");
@@ -237,9 +239,9 @@ describe("Tabs", () => {
 
       expect(outerDiv.getAttribute("data-paste-element")).toEqual("HORSE");
       expect(screen.getByTestId("tab-list").getAttribute("data-paste-element")).toEqual("CAT");
-      expect((screen.getByTestId("tab-list").firstChild as HTMLElement).getAttribute("data-paste-element")).toEqual(
-        "CAT_CHILD_SCROLL_WRAPPER",
-      );
+      expect(
+        (screen.getByTestId("tab-list").firstChild?.firstChild as HTMLElement).getAttribute("data-paste-element"),
+      ).toEqual("CAT_CHILD_SCROLL_WRAPPER");
       expect(screen.getByTestId("tab-1").getAttribute("data-paste-element")).toEqual("TIGER");
       expect(screen.getByTestId("tab-2").getAttribute("data-paste-element")).toEqual("PANTHER");
       expect(screen.getByTestId("tab-3").getAttribute("data-paste-element")).toEqual("SCOTTISH_FOLD");
@@ -350,7 +352,7 @@ describe("Tabs", () => {
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
 
-      expect(screen.getByTestId("tab-list").firstChild?.firstChild).toHaveStyleRule("height", "50px");
+      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild).toHaveStyleRule("height", "50px");
 
       expect(screen.getByTestId("tab-1")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-2")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
@@ -440,7 +442,7 @@ describe("Tabs", () => {
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
 
-      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild).toHaveStyleRule(
+      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild?.firstChild).toHaveStyleRule(
         "border-color",
         "rgb(214, 31, 31)",
       );
