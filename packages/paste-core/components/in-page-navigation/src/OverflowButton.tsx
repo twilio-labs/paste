@@ -4,6 +4,8 @@ import { ChevronRightIcon } from "@twilio-paste/icons/esm/ChevronRightIcon";
 import { useTheme } from "@twilio-paste/theme";
 import React from "react";
 
+import { InPageNavigationContext } from "./InPageNavigationContext";
+
 interface OverflowButtonProps {
   onClick: () => void;
   position: "left" | "right";
@@ -19,13 +21,18 @@ const Styles: BoxStyleProps = {
   },
 };
 
-export const OverflowButton: React.FC<OverflowButtonProps> = ({
-  onClick,
-  position,
-  visible,
-  element = "IN_PAGE_NAVIGATION",
-}) => {
+const InverseStyles: BoxStyleProps = {
+  color: "colorTextIconInverse",
+  _hover: {
+    color: "colorTextInverseWeak",
+    cursor: "pointer",
+  },
+};
+
+export const OverflowButton: React.FC<OverflowButtonProps> = ({ onClick, position, visible, element = "TAB_LIST" }) => {
   const theme = useTheme();
+  const { variant } = React.useContext(InPageNavigationContext);
+  const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
   const Chevron = position === "left" ? ChevronLeftIcon : ChevronRightIcon;
   if (!visible) return null;
 
@@ -37,10 +44,9 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       alignItems="center"
       justifyContent="center"
       width="sizeSquare70"
-      position="relative"
-      boxShadow={theme.shadows.shadowScroll}
+      boxShadow={isInverse ? theme.shadows.shadowScrollInverse : theme.shadows.shadowScroll}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
-      {...Styles}
+      {...(isInverse ? InverseStyles : Styles)}
     >
       <Chevron decorative={true} />
     </Box>

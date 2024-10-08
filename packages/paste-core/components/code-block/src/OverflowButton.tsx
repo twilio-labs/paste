@@ -15,6 +15,7 @@ const Styles: BoxStyleProps = {
   color: "colorTextIconInverse",
   _hover: {
     color: "colorTextInverseWeak",
+    cursor: "pointer",
   },
 };
 

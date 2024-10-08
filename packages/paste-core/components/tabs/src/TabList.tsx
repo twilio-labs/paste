@@ -148,7 +148,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         visible={Boolean(elementOutOBoundsLeft)}
         element={element}
       />
-      <Box as={StyledTabList as any} ref={scrollableRef} flexGrow={1} element={`${element}_SCROLL_WRAPPER`}>
+      <Box as={StyledTabList as any} ref={scrollableRef} element={`${element}_SCROLL_WRAPPER`}>
         <Box
           element={`${element}_CONTAINER`}
           borderBottomStyle="solid"
