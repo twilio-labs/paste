@@ -75,18 +75,6 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const [showShadow, setShowShadow] = React.useState(false);
   let showShadowTimer: number;
 
-  // Show shadow on scroll
-  const handleScrollEvent = () => {
-    if (showShadowTimer) {
-      window.clearTimeout(showShadowTimer);
-    }
-    setShowShadow(true);
-    showShadowTimer = window.setTimeout(() => {
-      setShowShadow(false);
-    }, 500);
-    setElementsToTrack();
-  };
-
   // Runs on load and resize and on scroll to set the elements that are out of view
   const setElementsToTrack = React.useCallback(() => {
     if (ref.current) {
@@ -119,6 +107,18 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       setElementOutOfBoundsRight(rightOutOfBounds);
     }
   }, [ref.current, elementOutOBoundsLeft, elementOutOBoundsRight]);
+
+  // Show shadow on scroll
+  const handleScrollEvent = (): void => {
+    if (showShadowTimer) {
+      window.clearTimeout(showShadowTimer);
+    }
+    setShowShadow(true);
+    showShadowTimer = window.setTimeout(() => {
+      setShowShadow(false);
+    }, 500);
+    setElementsToTrack();
+  };
 
   React.useEffect(() => {
     if (ref.current) {

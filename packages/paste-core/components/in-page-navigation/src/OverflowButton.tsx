@@ -48,6 +48,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
     if (showShadow) {
       return isInverse ? theme.shadows.shadowScrollInverse : theme.shadows.shadowScroll;
     }
+    return undefined;
   };
 
   return (

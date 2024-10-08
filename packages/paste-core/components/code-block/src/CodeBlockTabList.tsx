@@ -53,18 +53,6 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const [showShadow, setShowShadow] = React.useState(false);
     let showShadowTimer: number;
 
-    // Show shadow on scroll
-    const handleScrollEvent = () => {
-      if (showShadowTimer) {
-        window.clearTimeout(showShadowTimer);
-      }
-      setShowShadow(true);
-      showShadowTimer = window.setTimeout(() => {
-        setShowShadow(false);
-      }, 500);
-      setElementsToTrack();
-    };
-
     // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
       if (scrollableRef.current) {
@@ -97,6 +85,18 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
         setElementOutOfBoundsRight(rightOutOfBounds);
       }
     }, [scrollableRef.current]);
+
+    // Show shadow on scroll
+    const handleScrollEvent = (): void => {
+      if (showShadowTimer) {
+        window.clearTimeout(showShadowTimer);
+      }
+      setShowShadow(true);
+      showShadowTimer = window.setTimeout(() => {
+        setShowShadow(false);
+      }, 500);
+      setElementsToTrack();
+    };
 
     React.useEffect(() => {
       if (scrollableRef.current) {

@@ -99,18 +99,6 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     const [showShadow, setShowShadow] = React.useState(false);
     let showShadowTimer: number;
 
-    // Show shadow on scroll
-    const handleScrollEvent = () => {
-      if (showShadowTimer) {
-        window.clearTimeout(showShadowTimer);
-      }
-      setShowShadow(true);
-      showShadowTimer = window.setTimeout(() => {
-        setShowShadow(false);
-      }, 500);
-      setElementsToTrack();
-    };
-
     // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
       if (listRef.current) {
@@ -143,6 +131,18 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
         setElementOutOfBoundsRight(rightOutOfBounds);
       }
     }, [listRef.current, elementOutOBoundsLeft, elementOutOBoundsRight]);
+
+    // Show shadow on scroll
+    const handleScrollEvent = (): void => {
+      if (showShadowTimer) {
+        window.clearTimeout(showShadowTimer);
+      }
+      setShowShadow(true);
+      showShadowTimer = window.setTimeout(() => {
+        setShowShadow(false);
+      }, 500);
+      setElementsToTrack();
+    };
 
     // Scroll to the selected tab if it exists on mount
     React.useEffect(() => {
