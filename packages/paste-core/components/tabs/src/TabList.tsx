@@ -72,6 +72,20 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   // Keep track of first elements that are paritally or completely out of view in either direction
   const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
   const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
+  const [showShadow, setShowShadow] = React.useState(false);
+  let showShadowTimer: number;
+
+  // Show shadow on scroll
+  const handleScrollEvent = () => {
+    if (showShadowTimer) {
+      window.clearTimeout(showShadowTimer);
+    }
+    setShowShadow(true);
+    showShadowTimer = window.setTimeout(() => {
+      setShowShadow(false);
+    }, 500);
+    setElementsToTrack();
+  };
 
   // Runs on load and resize and on scroll to set the elements that are out of view
   const setElementsToTrack = React.useCallback(() => {
@@ -108,7 +122,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
   React.useEffect(() => {
     if (ref.current) {
-      scrollableRef.current?.addEventListener("scroll", setElementsToTrack);
+      scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
       window.addEventListener("resize", setElementsToTrack);
       setElementsToTrack();
     }
@@ -118,7 +132,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   React.useEffect(() => {
     return () => {
       if (scrollableRef.current) {
-        scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+        scrollableRef.current.removeEventListener("scroll", handleScrollEvent);
         window.removeEventListener("resize", setElementsToTrack);
       }
     };
@@ -147,6 +161,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         onClick={() => handleScrollDirection("left")}
         visible={Boolean(elementOutOBoundsLeft)}
         element={element}
+        showShadow={showShadow}
       />
       <Box as={StyledTabList as any} ref={scrollableRef} element={`${element}_SCROLL_WRAPPER`}>
         <Box
@@ -166,6 +181,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         onClick={() => handleScrollDirection("right")}
         visible={Boolean(elementOutOBoundsRight)}
         element={element}
+        showShadow={showShadow}
       />
     </Box>
   );

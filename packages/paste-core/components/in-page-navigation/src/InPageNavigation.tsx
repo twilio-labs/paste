@@ -96,6 +96,20 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     // Keep track of first elements that are paritally or completely out of view in either direction
     const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
     const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
+    const [showShadow, setShowShadow] = React.useState(false);
+    let showShadowTimer: number;
+
+    // Show shadow on scroll
+    const handleScrollEvent = () => {
+      if (showShadowTimer) {
+        window.clearTimeout(showShadowTimer);
+      }
+      setShowShadow(true);
+      showShadowTimer = window.setTimeout(() => {
+        setShowShadow(false);
+      }, 500);
+      setElementsToTrack();
+    };
 
     // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
@@ -142,7 +156,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
           1,
         );
-        scrollableRef.current?.addEventListener("scroll", setElementsToTrack);
+        scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
         window.addEventListener("resize", setElementsToTrack);
         setElementsToTrack();
       }
@@ -152,7 +166,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     React.useEffect(() => {
       return () => {
         if (scrollableRef.current) {
-          scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+          scrollableRef.current.removeEventListener("scroll", handleScrollEvent);
           window.removeEventListener("resize", setElementsToTrack);
         }
       };
@@ -237,6 +251,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             onClick={() => handleScrollDirection("left")}
             visible={Boolean(elementOutOBoundsLeft)}
             element={element}
+            showShadow={showShadow}
           />
           <Box
             as={StyledScrollWrapper as any}
@@ -269,6 +284,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             onClick={() => handleScrollDirection("right")}
             visible={Boolean(elementOutOBoundsRight)}
             element={element}
+            showShadow={showShadow}
           />
         </Box>
       </InPageNavigationContext.Provider>

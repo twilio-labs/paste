@@ -9,6 +9,7 @@ interface OverflowButtonProps {
   position: "left" | "right";
   visible?: boolean;
   element?: BoxProps["element"];
+  showShadow?: boolean;
 }
 
 const Styles: BoxStyleProps = {
@@ -24,6 +25,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
   position,
   visible,
   element = "CODE_BLOCK_TAB_LIST",
+  showShadow,
 }) => {
   const theme = useTheme();
   const Chevron = position === "left" ? ChevronLeftIcon : ChevronRightIcon;
@@ -38,7 +40,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       justifyContent="center"
       width="sizeSquare70"
       position="relative"
-      boxShadow={visible ? theme.shadows.shadowScrollInverse : undefined}
+      boxShadow={visible && showShadow ? theme.shadows.shadowScrollInverse : undefined}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
       cursor={visible ? "pointer" : "none"}
       {...Styles}

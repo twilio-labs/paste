@@ -50,6 +50,20 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     // Keep track of first elements that are paritally or completely out of view in either direction
     const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
     const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>();
+    const [showShadow, setShowShadow] = React.useState(false);
+    let showShadowTimer: number;
+
+    // Show shadow on scroll
+    const handleScrollEvent = () => {
+      if (showShadowTimer) {
+        window.clearTimeout(showShadowTimer);
+      }
+      setShowShadow(true);
+      showShadowTimer = window.setTimeout(() => {
+        setShowShadow(false);
+      }, 500);
+      setElementsToTrack();
+    };
 
     // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
@@ -86,7 +100,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
 
     React.useEffect(() => {
       if (scrollableRef.current) {
-        scrollableRef.current.addEventListener("scroll", setElementsToTrack);
+        scrollableRef.current.addEventListener("scroll", handleScrollEvent);
         window.addEventListener("resize", setElementsToTrack);
         setElementsToTrack();
       }
@@ -96,7 +110,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     React.useEffect(() => {
       return () => {
         if (scrollableRef.current) {
-          scrollableRef.current.removeEventListener("scroll", setElementsToTrack);
+          scrollableRef.current.removeEventListener("scroll", handleScrollEvent);
           window.removeEventListener("resize", setElementsToTrack);
         }
       };
@@ -122,9 +136,6 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
       <TabPrimitiveList {...(tabContext as any)} as={Box} {...props} element={element} ref={ref}>
         <Box
           element={`${element}_CHILD_WRAPPER`}
-          borderBottomStyle="solid"
-          borderBottomWidth="borderWidth10"
-          borderBottomColor="colorBorderInverseWeaker"
           display="flex"
           // Clip to hide box shadow on the tabs overflowing container
           overflowY="clip"
@@ -134,6 +145,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             onClick={() => handleScrollDirection("left")}
             visible={Boolean(elementOutOBoundsLeft)}
             element={element}
+            showShadow={showShadow}
           />
           <Box
             {...safelySpreadBoxProps(props)}
@@ -147,14 +159,20 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             overflowY="hidden"
             flexGrow={1}
             width="calc(100% - 60px)"
+            borderBottomStyle="solid"
+            borderBottomWidth="borderWidth10"
+            borderBottomColor="colorBorderInverseWeaker"
           >
-            {children}
+            <Box whiteSpace="nowrap" element={element} display="flex">
+              {children}
+            </Box>
           </Box>
           <OverflowButton
             position="right"
             onClick={() => handleScrollDirection("right")}
             visible={Boolean(elementOutOBoundsRight)}
             element={element}
+            showShadow={showShadow}
           />
         </Box>
       </TabPrimitiveList>
