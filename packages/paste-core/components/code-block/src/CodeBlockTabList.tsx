@@ -109,13 +109,9 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const handleScrollDirection = React.useCallback(
       (direction: "left" | "right") => {
         if (scrollableRef.current) {
-          if (direction === "left" && elementOutOBoundsLeft) {
-            elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-            return;
-          }
-          if (direction === "right" && elementOutOBoundsRight) {
-            elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-            return;
+          const elementToScrollTo = direction === "left" ? elementOutOBoundsLeft : elementOutOBoundsRight;
+          if (elementToScrollTo) {
+            elementToScrollTo.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
           }
         }
       },

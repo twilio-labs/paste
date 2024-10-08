@@ -131,11 +131,9 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const handleScrollDirection = React.useCallback(
     (direction: "left" | "right") => {
       if (ref.current) {
-        if (direction === "left" && elementOutOBoundsLeft) {
-          elementOutOBoundsLeft.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-        }
-        if (direction === "right" && elementOutOBoundsRight) {
-          elementOutOBoundsRight.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        const elementToScrollTo = direction === "left" ? elementOutOBoundsLeft : elementOutOBoundsRight;
+        if (elementToScrollTo) {
+          elementToScrollTo.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         }
       }
     },
