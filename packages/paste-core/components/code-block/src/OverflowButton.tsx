@@ -1,4 +1,4 @@
-import { Box, BoxStyleProps } from "@twilio-paste/box";
+import { Box, BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { ChevronLeftIcon } from "@twilio-paste/icons/esm/ChevronLeftIcon";
 import { ChevronRightIcon } from "@twilio-paste/icons/esm/ChevronRightIcon";
 import { useTheme } from "@twilio-paste/theme";
@@ -8,6 +8,7 @@ interface OverflowButtonProps {
   onClick: () => void;
   position: "left" | "right";
   visible?: boolean;
+  element?: BoxProps["element"];
 }
 
 const Styles: BoxStyleProps = {
@@ -18,7 +19,12 @@ const Styles: BoxStyleProps = {
   },
 };
 
-export const OverflowButton: React.FC<OverflowButtonProps> = ({ onClick, position, visible }) => {
+export const OverflowButton: React.FC<OverflowButtonProps> = ({
+  onClick,
+  position,
+  visible,
+  element = "CODE_BLOCK_TAB_LIST",
+}) => {
   const theme = useTheme();
   const Chevron = position === "left" ? ChevronLeftIcon : ChevronRightIcon;
   if (!visible && position === "right") return null;
@@ -33,6 +39,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({ onClick, positio
       width="sizeSquare70"
       position="relative"
       boxShadow={visible ? theme.shadows.shadowScrollInverse : undefined}
+      element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
       {...Styles}
     >
       {visible && <Chevron decorative={true} />}

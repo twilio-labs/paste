@@ -219,6 +219,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             position="left"
             onClick={() => handleScrollDirection("left")}
             visible={Boolean(elementOutOBoundsLeft)}
+            element={element}
           />
           <Box
             as={StyledScrollWrapper as any}
@@ -250,6 +251,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             position="right"
             onClick={() => handleScrollDirection("right")}
             visible={Boolean(elementOutOBoundsRight)}
+            element={element}
           />
         </Box>
       </InPageNavigationContext.Provider>

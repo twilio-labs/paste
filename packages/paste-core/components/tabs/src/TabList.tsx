@@ -129,6 +129,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         position="left"
         onClick={() => handleScrollDirection("left")}
         visible={Boolean(elementOutOBoundsLeft)}
+        element={element}
       />
       <Box as={StyledTabList as any} ref={scrollableRef} flexGrow={1} element={`${element}_SCROLL_WRAPPER`}>
         <Box
@@ -147,6 +148,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         position="right"
         onClick={() => handleScrollDirection("right")}
         visible={Boolean(elementOutOBoundsRight)}
+        element={element}
       />
     </Box>
   );

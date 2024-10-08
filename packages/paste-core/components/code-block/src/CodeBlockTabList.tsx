@@ -127,6 +127,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             position="left"
             onClick={() => handleScrollDirection("left")}
             visible={Boolean(elementOutOBoundsLeft)}
+            element={element}
           />
           <Box
             {...safelySpreadBoxProps(props)}
@@ -147,6 +148,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             position="right"
             onClick={() => handleScrollDirection("right")}
             visible={Boolean(elementOutOBoundsRight)}
+            element={element}
           />
         </Box>
       </TabPrimitiveList>
