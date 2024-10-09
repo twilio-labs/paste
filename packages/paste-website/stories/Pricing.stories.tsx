@@ -18,6 +18,7 @@ import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
+import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
 import {
@@ -27,6 +28,7 @@ import {
   SummaryDetailHeadingContent,
   SummaryDetailToggleButton,
 } from "@twilio-paste/summary-detail";
+import { Text } from "@twilio-paste/text";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
 
@@ -132,8 +134,8 @@ const PricingCard = ({
             <Box display="flex" flexDirection="column" rowGap="space40">
               {packageList.map((item: string) => (
                 <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
-                  <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
-                  <Paragraph marginBottom="space0">{item}</Paragraph>
+                  <SelectedIcon decorative color="colorTextIconSuccess" />
+                  <Text as="p">{item}</Text>
                 </Box>
               ))}
             </Box>
@@ -308,8 +310,8 @@ const VisualItem = ({
       <Box display="flex" flexDirection="column" rowGap="space50">
         {packageList.map((item: string) => (
           <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
-            <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
-            <Paragraph marginBottom="space0">{item}</Paragraph>
+            <SelectedIcon decorative color="colorTextIconSuccess" />
+            <Text as="p">{item}</Text>
           </Box>
         ))}
       </Box>

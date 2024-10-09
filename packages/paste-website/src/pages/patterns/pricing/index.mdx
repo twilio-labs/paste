@@ -44,6 +44,7 @@ export const getStaticProps = async () => {
 import { Badge } from "@twilio-paste/core/badge";
 import { Heading } from '@twilio-paste/core/heading';
 import { Paragraph } from '@twilio-paste/core/paragraph';
+import { Text } from '@twilio-paste/core/text';
 import { Button } from '@twilio-paste/core/button';
 import { DisplayHeading } from '@twilio-paste/display-heading';
 import { Card } from '@twilio-paste/card';
@@ -194,13 +195,14 @@ export const CardPricingExample = (): React.ReactNode => {
         <Box display="flex" flexDirection="column" rowGap="space70">
           <Box display="flex" flexDirection="column" rowGap="space40">
             <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Heading marginBottom="space0" as="h2" variant="heading30">
-                Team
-              </Heading>
+              <Avatar name="user" icon={icon} variant={isEntity ? "entity" : "user"} />
               <Badge as="span" variant="neutral">
                 Current plan
               </Badge>
             </Box>
+            <Heading marginBottom="space0" as="h2" variant="heading30">
+              Team
+            </Heading>
             <Box marginTop="space40" marginBottom="space20">
               <DisplayHeading marginBottom="space0" as="h3" variant="displayHeading30">
                 Starting at $120
@@ -223,7 +225,7 @@ export const CardPricingExample = (): React.ReactNode => {
             ].map((item: string) => (
               <Box key={item} display="flex" columnGap="space20" alignItems="center">
                 <SelectedIcon decorative color="colorTextIconSuccess" />
-                <Paragraph marginBottom="space0">{item}</Paragraph>
+                <Text as="p">{item}</Text>
               </Box>
             ))}
           </Box>
@@ -280,7 +282,7 @@ export const VisualPickerExample = (): React.ReactNode => {
           {["$15 credit", "Testing with upto 5 verified recipients", "Limited configurations"].map((item: string) => (
             <Box key={item} display="flex" columnGap="space20" alignItems="center">
               <SelectedIcon decorative color="colorTextIconSuccess" />
-              <Paragraph marginBottom="space0">{item}</Paragraph>
+              <Text as="p">{item}</Text>
             </Box>
           ))}
         </Box>
@@ -359,7 +361,7 @@ export const TableExample = (): React.ReactNode => {
           <DataGridCell>
             Guaranteed response times <DetailText marginTop="space0">Business critical</DetailText>
           </DataGridCell>
-          <DataGridCell>-</DataGridCell>
+          <DataGridCell> </DataGridCell>
           <DataGridCell>3 business hours</DataGridCell>
           <DataGridCell>1 hour (24x7)</DataGridCell>
           <DataGridCell>1 hour (24x7)</DataGridCell>
@@ -437,7 +439,7 @@ export const CardPricingExample = (): React.ReactNode => {
                 ].map((item: string) => (
                   <Box key={item} display="flex" columnGap="space20" alignItems="flex-start">
                     <SelectedIcon decorative color="colorTextIconSuccess" size="sizeIcon40" />
-                    <Paragraph marginBottom="space0">{item}</Paragraph>
+                    <Text as="p">{item}</Text>
                   </Box>
                 ))}
               </Box>
