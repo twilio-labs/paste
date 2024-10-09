@@ -1,3 +1,4 @@
+import { Avatar } from "@twilio-paste/avatar";
 import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
@@ -13,7 +14,10 @@ import {
 import { DetailText } from "@twilio-paste/detail-text";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Heading } from "@twilio-paste/heading";
+import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
 import {
@@ -39,6 +43,8 @@ const PricingCard = ({
   cta,
   packageList,
   isMobile,
+  isEntity,
+  icon,
 }: {
   isCurrentPlan?: boolean;
   isRecommended?: boolean;
@@ -48,31 +54,43 @@ const PricingCard = ({
   cta?: string;
   packageList: string[];
   isMobile?: boolean;
+  isEntity?: boolean;
+  icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
 }): JSX.Element => {
   return (
     <Card>
       <Box display="flex" flexDirection="column" rowGap="space70">
         <Box>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            columnGap="space20"
-            rowGap="space20"
-            flexWrap="wrap"
-          >
-            <Heading marginBottom="space0" as="h2" variant="heading30">
-              {packageName}
-            </Heading>
-            {isCurrentPlan ? (
-              <Badge as="span" variant="neutral">
-                Current plan
-              </Badge>
-            ) : null}
-            {isRecommended ? (
-              <Badge as="span" variant="decorative30">
-                Recommended
-              </Badge>
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              columnGap="space20"
+              rowGap="space20"
+              flexWrap="wrap"
+            >
+              {icon ? <Avatar name="user" icon={icon} variant={isEntity ? "entity" : "user"} /> : null}
+              {isMobile ? (
+                <Heading marginBottom="space0" as="h2" variant="heading30">
+                  {packageName}
+                </Heading>
+              ) : null}
+              {isCurrentPlan ? (
+                <Badge as="span" variant="neutral">
+                  Current plan
+                </Badge>
+              ) : null}
+              {isRecommended ? (
+                <Badge as="span" variant="decorative30">
+                  Recommended
+                </Badge>
+              ) : null}
+            </Box>
+            {!isMobile ? (
+              <Heading marginBottom="space0" as="h2" variant="heading30">
+                {packageName}
+              </Heading>
             ) : null}
           </Box>
           <Box marginTop="space40" marginBottom="space20">
@@ -119,6 +137,12 @@ const PricingCard = ({
                 </Box>
               ))}
             </Box>
+            <Box>
+              <Separator orientation="horizontal" />
+              <Box marginTop="space70" display="flex" justifyContent="center">
+                <Button variant="link">More info</Button>
+              </Box>
+            </Box>
           </Box>
         )}
       </Box>
@@ -133,12 +157,14 @@ export const CardExample = (): JSX.Element => {
       rowGap="space70"
       columnGap="space70"
       gridTemplateColumns="repeat(auto-fit, minmax(min(264px, 100%), 1fr))"
+      maxWidth="1248px"
     >
       <PricingCard
         isCurrentPlan
         packageName="Free"
         price="$0"
         subheader="Per month"
+        icon={UserIcon}
         packageList={[
           "10 seats",
           "2 sources",
@@ -153,6 +179,7 @@ export const CardExample = (): JSX.Element => {
         price="Starting at $120"
         subheader="Per month"
         cta="Try for 14 days"
+        icon={UsersIcon}
         packageList={[
           "10 seats",
           "2 sources",
@@ -163,6 +190,7 @@ export const CardExample = (): JSX.Element => {
         ]}
       />
       <PricingCard
+        isRecommended
         packageName="Business"
         price="Custom pricing"
         subheader="Contact sales"
@@ -175,6 +203,8 @@ export const CardExample = (): JSX.Element => {
           "1 million records processed for Reverse ETL",
           "Monthly and annual plans available",
         ]}
+        icon={BusinessIcon}
+        isEntity
       />
     </Box>
   );

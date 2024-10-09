@@ -188,6 +188,7 @@ export const CardPricingExample = (): React.ReactNode => {
       gridTemplateColumns="repeat(auto-fit, minmax(min(264px, 100%), 1fr));"
       columnGap="space70"
       rowGap="space70"
+      maxWidth="1248px"
     >
       <Card>
         <Box display="flex" flexDirection="column" rowGap="space70">
@@ -452,10 +453,10 @@ export const CardPricingExample = (): React.ReactNode => {
 
 ## Figma
 
-The **pricing card group** Figma component has min and max widths already applied.
+By default, the Figma component is built with predefined minimum and maximum widths.
 
-However the height of the cards should all be equal to each other even if the number of features, badges, or buttons are different.
-You may need to detach the component, set autolayout to "Horizontal layout" (not "Wrap"), and adjust the height of the card to “Fill” in Figma. **The “More info” button should remain at the bottom of the card.**
+The auto layout settings ensure that the number of features, badges, avatars, or buttons don’t affect the card height, and the "More info" button stays anchored at the bottom.
+In order to maintain proper space in between card elements you may need to manually adjust the card group container height.
 
 ## Do’s and Don’ts
 
