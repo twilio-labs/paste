@@ -59,7 +59,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       display="flex"
       alignItems="center"
       justifyContent="center"
-      width="sizeSquare70"
+      width="sizeBase70"
       boxShadow={determineShadow()}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
       {...(isInverse ? InverseStyles : Styles)}
