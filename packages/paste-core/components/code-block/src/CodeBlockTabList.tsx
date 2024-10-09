@@ -46,6 +46,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     const tabContext = React.useContext(TabsContext);
     //  ref to the scrollable element
     const scrollableRef = React.useRef<HTMLDivElement>(null);
+    const listRef = React.useRef<HTMLDivElement>(null);
 
     // Keep track of first elements that are paritally or completely out of view in either direction
     const [elementOutOBoundsLeft, setElementOutOfBoundsLeft] = React.useState<HTMLDivElement | null>();
@@ -55,15 +56,14 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
 
     // Runs on load and resize and on scroll to set the elements that are out of view
     const setElementsToTrack = React.useCallback(() => {
-      if (scrollableRef.current) {
-        const currentScrollContainerRightPosition = (
-          scrollableRef.current?.parentElement as HTMLDivElement
-        )?.getBoundingClientRect().right;
+      if (scrollableRef.current && listRef.current) {
+        const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
+          .right;
 
         let leftOutOfBounds: HTMLDivElement | null = null;
         let rightOutOfBounds: HTMLDivElement | null = null;
 
-        (scrollableRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
+        (listRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
           const { x, right } = tab.getBoundingClientRect();
           /**
            * Compares the left side of the tab with the left side of the scrollable container position
@@ -84,7 +84,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
         setElementOutOfBoundsLeft(leftOutOfBounds);
         setElementOutOfBoundsRight(rightOutOfBounds);
       }
-    }, [scrollableRef.current]);
+    }, [scrollableRef.current, listRef.current]);
 
     // Show shadow on scroll
     const handleScrollEvent = (): void => {
@@ -99,12 +99,12 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     };
 
     React.useEffect(() => {
-      if (scrollableRef.current) {
+      if (scrollableRef.current && listRef.current) {
         scrollableRef.current.addEventListener("scroll", handleScrollEvent);
         window.addEventListener("resize", setElementsToTrack);
         setElementsToTrack();
       }
-    }, [scrollableRef.current]);
+    }, [scrollableRef.current, listRef.current]);
 
     // Cleanup event listeners on destroy
     React.useEffect(() => {
@@ -159,11 +159,16 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             overflowY="hidden"
             flexGrow={1}
             width="calc(100% - 60px)"
-            borderBottomStyle="solid"
-            borderBottomWidth="borderWidth10"
-            borderBottomColor="colorBorderInverseWeaker"
           >
-            <Box whiteSpace="nowrap" element={element} display="flex">
+            <Box
+              whiteSpace="nowrap"
+              element={element}
+              display="flex"
+              borderBottomStyle="solid"
+              borderBottomWidth="borderWidth10"
+              borderBottomColor="colorBorderInverseWeaker"
+              ref={listRef}
+            >
               {children}
             </Box>
           </Box>
