@@ -61,7 +61,7 @@ const PricingCard = ({
 }): JSX.Element => {
   return (
     <Card>
-      <Box display="flex" flexDirection="column" rowGap="space70">
+      <Box display="flex" flexDirection="column" rowGap="space70" justifyContent="space-between" height="100%">
         <Box>
           <Box display="flex" flexDirection="column" rowGap="space40">
             <Box
@@ -139,14 +139,14 @@ const PricingCard = ({
                 </Box>
               ))}
             </Box>
-            <Box>
-              <Separator orientation="horizontal" />
-              <Box marginTop="space70" display="flex" justifyContent="center">
-                <Button variant="link">More info</Button>
-              </Box>
-            </Box>
           </Box>
         )}
+        <Box>
+          <Separator orientation="horizontal" />
+          <Box marginTop="space70" display="flex" justifyContent="center">
+            <Button variant="link">More info</Button>
+          </Box>
+        </Box>
       </Box>
     </Card>
   );
