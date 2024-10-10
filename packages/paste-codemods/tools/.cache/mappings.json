@@ -306,6 +306,7 @@
   "TabPanel": "@twilio-paste/core/tabs",
   "TabPanels": "@twilio-paste/core/tabs",
   "Tabs": "@twilio-paste/core/tabs",
+  "TabsContext": "@twilio-paste/core/tabs",
   "useTabState": "@twilio-paste/core/tabs",
   "TextArea": "@twilio-paste/core/textarea",
   "TimePicker": "@twilio-paste/core/time-picker",

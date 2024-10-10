@@ -120,19 +120,37 @@ export const CodeBlockWithMaxLines: StoryFn = () => (
 );
 
 export const CodeBlockTabs: StoryFn = () => (
-  <CodeBlockWrapper>
-    <CodeBlockHeader>How to set up your API</CodeBlockHeader>
-    <CodeBlockTabList>
-      <CodeBlockTab>Ruby</CodeBlockTab>
-      <CodeBlockTab>PHP</CodeBlockTab>
-    </CodeBlockTabList>
-    <CodeBlockTabPanel>
-      <CodeBlock externalLink="#" code={rubyCode} language="ruby" />
-    </CodeBlockTabPanel>
-    <CodeBlockTabPanel>
-      <CodeBlock code={phpCode} language="php" />
-    </CodeBlockTabPanel>
-  </CodeBlockWrapper>
+  <Box width="size60">
+    <CodeBlockWrapper>
+      <CodeBlockHeader>How to set up your API</CodeBlockHeader>
+      <CodeBlockTabList>
+        <CodeBlockTab>Ruby</CodeBlockTab>
+        <CodeBlockTab>PHP</CodeBlockTab>
+        <CodeBlockTab>Python</CodeBlockTab>
+        <CodeBlockTab>Curl</CodeBlockTab>
+        <CodeBlockTab>JavaScript</CodeBlockTab>
+        <CodeBlockTab>Java</CodeBlockTab>
+        <CodeBlockTab>C++</CodeBlockTab>
+        <CodeBlockTab>C#</CodeBlockTab>
+        <CodeBlockTab>C</CodeBlockTab>
+        <CodeBlockTab>Perl</CodeBlockTab>
+        <CodeBlockTab>Lisp</CodeBlockTab>
+        <CodeBlockTab>Rust</CodeBlockTab>
+        <CodeBlockTab>Cobol</CodeBlockTab>
+        <CodeBlockTab>Shell</CodeBlockTab>
+        <CodeBlockTab>Bash</CodeBlockTab>
+        <CodeBlockTab>Golang</CodeBlockTab>
+        <CodeBlockTab>Erlang</CodeBlockTab>
+        <CodeBlockTab>Haskell</CodeBlockTab>
+      </CodeBlockTabList>
+      <CodeBlockTabPanel>
+        <CodeBlock externalLink="#" code={rubyCode} language="ruby" />
+      </CodeBlockTabPanel>
+      <CodeBlockTabPanel>
+        <CodeBlock code={phpCode} language="php" />
+      </CodeBlockTabPanel>
+    </CodeBlockWrapper>
+  </Box>
 );
 
 export const CodeBlockTabsWithMaxLines: StoryFn = () => (

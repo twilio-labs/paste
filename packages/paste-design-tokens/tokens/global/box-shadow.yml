@@ -230,3 +230,11 @@ props:
   shadow-border-bottom-notification-stronger:
     value: "{!offset-0} {!offset-05} {!offset-0} {!palette-red-90}"
     comment: Stronger bottom shadow border for notification.
+
+  # Scrollable elements
+  shadow-scroll-inverse:
+    value: "{!offset-0} {!offset-50} {!offset-50} {!offset-0} {!palette-gray-100}"
+    comment: Shadow for scrollable elements on inverse elements.
+  shadow-scroll:
+    value: "{!offset-0} {!offset-20} {!offset-20} {!offset-0} {!palette-gray-100-transparent-20}"
+    comment: Shadow for scrollable elements.
