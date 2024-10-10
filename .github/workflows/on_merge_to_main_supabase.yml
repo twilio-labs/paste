@@ -14,6 +14,8 @@ jobs:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_PRODUCTION_DB_PASSWORD }}
       SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PRODUCTION_PROJECT_ID }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_PRODUCTION_URL }}
+      SUPABASE_KEY: ${{ secrets.SUPABASE_PRODUCTION_KEY }}
 
     steps:
       - name: Checkout Repo

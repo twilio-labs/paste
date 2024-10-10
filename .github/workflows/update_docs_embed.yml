@@ -73,10 +73,10 @@ jobs:
       - name: Run migrations
         run: yarn workspace @twilio-paste/backend supabase db push
 
-      - name: Update embeddings
-        if: ${{ !inputs.refresh }}
-        run: yarn generate:embeddings
+      # - name: Update embeddings
+      #   if: ${{ !inputs.refresh }}
+      #   run: yarn generate:embeddings
 
-      - name: Refresh embeddings
-        if: ${{ inputs.refresh }}
-        run: yarn generate:embeddings:refresh
+      # - name: Refresh embeddings
+      #   if: ${{ inputs.refresh }}
+      #   run: yarn generate:embeddings:refresh
