@@ -1,6 +1,6 @@
 export const meta = {
   title: 'Pricing',
-  description: 'The Pricing pattern shows a group of paid features or packaged plans a user is selecting.',
+  description: 'The Pricing pattern shows a group of paid features or plan options for a user to make a selection.',
   slug: '/patterns/pricing/',
 };
 
@@ -50,11 +50,11 @@ import { Heading } from '@twilio-paste/core/heading';
 import { Paragraph } from '@twilio-paste/core/paragraph';
 import { Text } from '@twilio-paste/core/text';
 import { Button } from '@twilio-paste/core/button';
-import { DisplayHeading } from '@twilio-paste/display-heading';
-import { Card } from '@twilio-paste/card';
-import { Box } from '@twilio-paste/box';
-import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
-import { Separator } from "@twilio-paste/separator";
+import { DisplayHeading } from '@twilio-paste/core/display-heading';
+import { Card } from '@twilio-paste/core/card';
+import { Box } from '@twilio-paste/core/box';
+import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/core/visual-picker";
+import { Separator } from "@twilio-paste/core/separator";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 ```
 
@@ -75,7 +75,7 @@ The information presented in the layout will be dependent on the packaged plans 
 
 Pricing layouts should adhere to the following guidelines:
 <UnorderedList>
-  <ListItem>Limit the number of pricing Cards to 4, with a minimum of 2 as to not overwhelm users with options. For a larger quantity of plans, consider reducing the options or using a <Anchor href="/components/table">Table</Anchor>.</ListItem>
+  <ListItem>Limit the number of pricing cards to 4, with a minimum of 2 as to not overwhelm users with options. For a larger quantity of plans, consider reducing the options or using a <Anchor href="/components/table">Table</Anchor>.</ListItem>
   <ListItem>Display the current plan (if any).</ListItem>
   <ListItem>Use a primary Button and Badge for the recommended option (if any), all other pricing cards use a secondary Button for selection.</ListItem>
   <ListItem>
@@ -468,13 +468,13 @@ In order to maintain proper space in between card elements you may need to manua
 
 <DoDont>
   <Do title="Do" body="Only include the additional features in the list of each plan." />
-  <Dont title="Do" body="Don’t show the negative or missing features of each product, or change the icon to an “X”." />
+  <Dont title="Don't" body="Don’t show the negative or missing features of each product, or change the icon to an “X”." />
 
   <Do title="Do" body="Include the “free” or “included” plan even if it's default on the account." />
-  <Dont title="Do" body="Don’t only have 1 pricing Card on a page. Users should see all of their options." />
+  <Dont title="Don't" body="Don’t only have 1 pricing Card on a page. Users should see all of their options." />
 
   <Do title="Do" body="Keep the content of the feature list succinct and jargon-free; use the “more info” option for more info." />
-  <Dont title="Do" body="Don’t put a large amount of content in a feature item, and don’t put more than 8 features" />
+  <Dont title="Don't" body="Don’t put a large amount of content in a feature item, and don’t put more than 8 features" />
 </DoDont>
 
 </content>
