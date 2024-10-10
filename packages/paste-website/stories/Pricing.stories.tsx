@@ -141,12 +141,14 @@ const PricingCard = ({
             </Box>
           </Box>
         )}
-        <Box>
-          <Separator orientation="horizontal" />
-          <Box marginTop="space70" display="flex" justifyContent="center">
-            <Button variant="link">More info</Button>
+        {!isMobile ? (
+          <Box>
+            <Separator orientation="horizontal" />
+            <Box marginTop="space70" display="flex" justifyContent="center">
+              <Button variant="link">More info</Button>
+            </Box>
           </Box>
-        </Box>
+        ) : null}
       </Box>
     </Card>
   );
