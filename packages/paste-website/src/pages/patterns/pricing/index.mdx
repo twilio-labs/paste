@@ -10,6 +10,8 @@ import {UnorderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Box} from '@twilio-paste/box';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import PricingPatternCards from '../../../assets/images/patterns/pricing-pattern.png';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -37,6 +39,8 @@ export const getStaticProps = async () => {
 <PageAside data={mdxHeadings} />
 
 <content>
+
+<ResponsiveImage src={PricingPatternCards} alt="Screenshot of a Pricing pattern cards example" />
 
 ```jsx
 // import the components for pricing patterns as required
