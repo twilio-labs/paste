@@ -59,25 +59,30 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
       if (scrollableRef.current && listRef.current) {
         const currentScrollContainerRightPosition = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect()
           .right;
+        const currentScrollContainerXOffset = (scrollableRef.current as HTMLDivElement)?.getBoundingClientRect().x;
 
         let leftOutOfBounds: HTMLDivElement | null = null;
         let rightOutOfBounds: HTMLDivElement | null = null;
 
         (listRef.current.childNodes as NodeListOf<HTMLDivElement>).forEach((tab) => {
           const { x, right } = tab.getBoundingClientRect();
-          /**
-           * Compares the left side of the tab with the left side of the scrollable container position
-           * as the x value will not be 0 due to being offset in the screen
-           */
-          if (x < (scrollableRef.current?.getBoundingClientRect().x || 0)) {
-            leftOutOfBounds = tab;
-          }
-          /**
-           * Compares the right side to the end of container with some buffer. Also ensure there are
-           * no value set as it loops through the array we don't want it to override the first value out of bounds.
-           */
-          if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
-            rightOutOfBounds = tab;
+          // Check if the tab is spanning the view if text is really long on smaller devices, wont skip to next element
+          const isSpanningView = x < currentScrollContainerXOffset && right > currentScrollContainerRightPosition;
+          if (!isSpanningView) {
+            /**
+             * Compares the left side of the tab with the left side of the scrollable container position
+             * as the x value will not be 0 due to being offset in the screen
+             */
+            if (x < currentScrollContainerXOffset) {
+              leftOutOfBounds = tab;
+            }
+            /**
+             * Compares the right side to the end of container with some buffer. Also ensure there are
+             * no value set as it loops through the array we don't want it to override the first value out of bounds.
+             */
+            if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
+              rightOutOfBounds = tab;
+            }
           }
         });
 
