@@ -93,7 +93,7 @@ Each step can communicate one of these statuses:
 - **Error**: The user has interacted with this step but more action is required that will prevent completing the full task.
 - **Incomplete + Disabled**: This step is not yet reached by a user.
 
-### Ordered Display List vs Progress Steps
+### Ordered Display List vs Progress Steps vs Timeline
 
 **Progress Steps**
 
@@ -103,6 +103,11 @@ Each step can communicate one of these statuses:
 **Ordered Display List**
 
 [Ordered Display Lists](/components/list#ordered-display-list) structure tasks but don’t show progression or status through a multi-step task.
+
+**Timeline**
+
+- Timeline displays the history or sequence of events, focusing on what has happened over time.
+- Use Timeline when user interaction is secondary, and progress does not depend on user actions since the process continues even without direct user input.
 
 ### Accessibility
 
@@ -236,19 +241,6 @@ Each step within the Progress Steps component has a label which can be set to ad
 >
   {i18nExample}
 </LivePreview>
-
-
-### Timeline vs. Progress Steps
-
-Use Progress Steps:
-
-- To guide users through a sequence of steps necessary to complete a task.
-- When user interaction is required at certain points in a process and actions are necessary to complete a goal.
-
-Use Timeline:
-
-- To display the history or sequence of events, focusing on what has happened over time.
-- When user interaction is secondary, and progress does not depend on user actions, ensuring the process continues even without direct user input.
 
 ## Composition Notes
 
