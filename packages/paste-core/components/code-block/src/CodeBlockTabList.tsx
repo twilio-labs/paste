@@ -134,12 +134,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
 
     return (
       <TabPrimitiveList {...(tabContext as any)} as={Box} {...props} element={element} ref={ref}>
-        <Box
-          element={`${element}_CHILD_WRAPPER`}
-          display="flex"
-          // Clip to hide box shadow on the tabs overflowing container
-          overflowY="clip"
-        >
+        <Box element={`${element}_CHILD_WRAPPER`} display="flex">
           <OverflowButton
             position="left"
             onClick={() => handleScrollDirection("left")}
@@ -154,7 +149,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             display="flex"
             flexWrap="nowrap"
             flexShrink={0}
-            element={`${element}_CHILD`}
+            element={`${element}_CHILD_SCROLL_WRAPPER`}
             overflowX="auto"
             overflowY="hidden"
             flexGrow={1}
@@ -162,7 +157,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           >
             <Box
               whiteSpace="nowrap"
-              element={element}
+              element={`${element}_CHILD`}
               display="flex"
               borderBottomStyle="solid"
               borderBottomWidth="borderWidth10"

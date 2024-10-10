@@ -164,14 +164,16 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         showShadow={showShadow}
       />
       <Box as={StyledTabList as any} ref={scrollableRef} element={`${element}_SCROLL_WRAPPER`}>
-        <Box
-          element={`${element}_CONTAINER`}
-          borderBottomStyle="solid"
-          borderBottomWidth="borderWidth10"
-          borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
-          width={ref?.current?.scrollWidth}
-        >
-          <Box ref={ref} whiteSpace="nowrap" element={element} display="flex">
+        <Box element={`${element}_CONTAINER`} width={ref?.current?.scrollWidth}>
+          <Box
+            ref={ref}
+            whiteSpace="nowrap"
+            element={element}
+            display="flex"
+            borderBottomStyle="solid"
+            borderBottomWidth="borderWidth10"
+            borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
+          >
             {children}
           </Box>
         </Box>

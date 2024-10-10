@@ -28,6 +28,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) =
       CODE_BLOCK_WRAPPER: { width: "size50" },
       CODE_BLOCK: { width: "size50" },
       CODE_BLOCK_TAB_LIST_CHILD: { backgroundColor: "colorBackgroundError" },
+      CODE_BLOCK_TAB_LIST_CHILD_SCROLL_WRAPPER: { backgroundColor: "colorBackgroundAvailable" },
     }}
   >
     {children}
@@ -49,6 +50,7 @@ const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({ children })
       MY_CODE_BLOCK_WRAPPER: { width: "size50" },
       MY_CODE_BLOCK: { width: "size50" },
       MY_CODE_BLOCK_TAB_LIST_CHILD: { backgroundColor: "colorBackgroundError" },
+      MY_CODE_BLOCK_TAB_LIST_CHILD_SCROLL_WRAPPER: { backgroundColor: "colorBackgroundAvailable" },
     }}
   >
     {children}
@@ -88,6 +90,9 @@ describe("Customization", () => {
       expect(tabList.getAttribute("data-paste-element")).toBe("CODE_BLOCK_TAB_LIST");
       expect(tab.getAttribute("data-paste-element")).toBe("CODE_BLOCK_TAB");
       expect(tab.parentElement?.getAttribute("data-paste-element")).toBe("CODE_BLOCK_TAB_LIST_CHILD");
+      expect(tab.parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
+        "CODE_BLOCK_TAB_LIST_CHILD_SCROLL_WRAPPER",
+      );
       expect(tabPanel?.getAttribute("data-paste-element")).toBe("CODE_BLOCK_TAB_PANEL");
       expect(codeBlock.getAttribute("data-paste-element")).toBe("CODE_BLOCK");
       expect(heading.getAttribute("data-paste-element")).toBe("CODE_BLOCK_HEADER");
@@ -132,6 +137,9 @@ describe("Customization", () => {
       expect(tabList.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK_TAB_LIST");
       expect(tab.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK_TAB");
       expect(tab.parentElement?.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK_TAB_LIST_CHILD");
+      expect(tab.parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
+        "MY_CODE_BLOCK_TAB_LIST_CHILD_SCROLL_WRAPPER",
+      );
       expect(tabPanel?.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK_TAB_PANEL");
       expect(codeBlock.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK");
       expect(heading.getAttribute("data-paste-element")).toBe("MY_CODE_BLOCK_HEADER");
@@ -172,6 +180,7 @@ describe("Customization", () => {
       expect(tabList).toHaveStyleRule("column-gap", "0");
       expect(tab).toHaveStyleRule("border-radius", "0");
       expect(tab.parentElement).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+      expect(tab.parentElement?.parentElement).toHaveStyleRule("background-color", "rgb(20, 176, 83)");
       expect(tabPanel).toHaveStyleRule("border-bottom-right-radius", "8px");
       expect(copyButton).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
       expect(externalLink).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
@@ -216,6 +225,7 @@ describe("Customization", () => {
       expect(tabList).toHaveStyleRule("column-gap", "0");
       expect(tab).toHaveStyleRule("border-radius", "0");
       expect(tab.parentElement).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+      expect(tab.parentElement?.parentElement).toHaveStyleRule("background-color", "rgb(20, 176, 83)");
       expect(tabPanel).toHaveStyleRule("border-bottom-right-radius", "8px");
       expect(copyButton).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
       expect(externalLink).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
