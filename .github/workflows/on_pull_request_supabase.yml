@@ -61,7 +61,7 @@ jobs:
       - name: Run migrations on staging
         run: yarn workspace @twilio-paste/backend supabase db push
 
-      - name: Start Supabase local development setup
+      - name: Start Supabase local development setup breaking step
         run: yarn start:backend:dev
 
       - name: Verify generated types are checked in
