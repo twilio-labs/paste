@@ -168,6 +168,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
               borderBottomWidth="borderWidth10"
               borderBottomColor="colorBorderInverseWeaker"
               ref={listRef}
+              columnGap="space20"
             >
               {children}
             </Box>
