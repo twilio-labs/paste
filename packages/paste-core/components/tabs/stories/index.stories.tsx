@@ -626,7 +626,12 @@ export const CustomHorizontalOverflowTabs: StoryFn = (_args, { parameters: { isT
           marginY: "space100",
         },
         HORIZONTAL_TAB_LIST_CHILD: {
+          borderColor: "colorBorderDecorative10Weaker",
+          borderStyle: "dotted",
+        },
+        HORIZONTAL_TAB_LIST_CHILD_SCROLL_WRAPPER: {
           borderColor: "colorBorderDestructive",
+          borderStyle: "solid",
         },
         HORIZONTAL_TAB_PANELS: {
           marginX: "space100",
@@ -863,9 +868,6 @@ export const CustomFittedTabs: StoryFn = (_args, { parameters: { isTestEnvironme
         HORIZONTAL_TAB_LIST: {
           borderColor: "colorBorderDestructive",
           marginY: "space100",
-        },
-        HORIZONTAL_TAB_LIST_CHILD: {
-          borderColor: "colorBorderDestructive",
         },
         HORIZONTAL_DIFFERENT_PANEL: {
           fontWeight: "fontWeightBold",

@@ -156,11 +156,6 @@ describe("Tabs", () => {
         (screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild as HTMLElement).getAttribute(
           "data-paste-element",
         ),
-      ).toEqual("HORIZONTAL_TAB_LIST_CHILD_CONTAINER");
-      expect(
-        (screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild?.firstChild as HTMLElement).getAttribute(
-          "data-paste-element",
-        ),
       ).toEqual("HORIZONTAL_TAB_LIST_CHILD");
       expect(screen.getByTestId("tab-1").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB");
       expect(screen.getByTestId("tab-2").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB");
@@ -316,7 +311,6 @@ describe("Tabs", () => {
               borderColor: "colorBorderDestructive",
               marginY: "space100",
             },
-            HORIZONTAL_TAB_LIST_CHILD_CONTAINER: { height: "50px" },
             HORIZONTAL_TAB: {
               fontFamily: "fontFamilyCode",
             },
@@ -352,8 +346,6 @@ describe("Tabs", () => {
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
 
-      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild).toHaveStyleRule("height", "50px");
-
       expect(screen.getByTestId("tab-1")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-2")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-3")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
@@ -382,7 +374,6 @@ describe("Tabs", () => {
               borderColor: "colorBorderDestructive",
               marginY: "space100",
             },
-            CATS_CHILD: { borderColor: "colorBorderDestructive" },
             RAGDOLL: {
               fontFamily: "fontFamilyCode",
             },
@@ -441,11 +432,6 @@ describe("Tabs", () => {
 
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
-
-      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild?.firstChild).toHaveStyleRule(
-        "border-color",
-        "rgb(214, 31, 31)",
-      );
 
       expect(screen.getByTestId("tab-1")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-2")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");

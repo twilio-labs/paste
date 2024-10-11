@@ -220,7 +220,6 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
           <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
             <Box
               as="ul"
-              ref={listRef}
               listStyleType="none"
               element={`${element}_ITEMS`}
               display="flex"
@@ -228,6 +227,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               columnGap="space50"
               padding="space0"
               margin="space0"
+              marginBottom={marginBottom || "space60"}
               borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
               borderBottomStyle={hideBottomBorder ? "none" : "solid"}
               borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
@@ -273,6 +273,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               listStyleType="none"
               element={`${element}_ITEMS`}
               display="flex"
+              flexGrow={1}
               justifyContent="flex-start"
               padding="space0"
               margin="space0"
