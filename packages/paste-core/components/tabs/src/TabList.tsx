@@ -175,6 +175,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
           display="flex"
           borderBottomStyle="solid"
           borderBottomWidth="borderWidth10"
+          columnGap="space20"
           borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
           // Scrollable element needs borderto stretch to full contianer width. Non scrollable needs to stretch border to parent width.
           width={elementOutOBoundsRight || elementOutOBoundsLeft ? "max-content" : "auto"}
