@@ -3,4 +3,4 @@
 "@twilio-paste/core": patch
 ---
 
-[Visual Picker]: Visual Picker Checkbox doesn't work in Firefox when checkbox is clicked on directly
+[Visual Picker]: Fix Visual Picker checkbox doesn't work in firefox when checkbox is clicked on directly
