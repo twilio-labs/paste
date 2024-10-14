@@ -15,7 +15,7 @@ jobs:
         uses: tspascoal/get-user-teams-membership@v2
         id: teamAffiliation
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GH_READ_ORG }}
           username: ${{ github.actor }}
           team: "twilio-labs/design-systems-eng,twilio-labs/design-systems-pd"
 
