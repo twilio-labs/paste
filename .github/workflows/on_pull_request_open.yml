@@ -16,7 +16,7 @@ jobs:
         id: teamAffiliation
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          username: ${{ inputs.USER_NAME }}
+          username: ${{ github.actor }}
           team: "twilio-labs/design-systems-eng,twilio-labs/design-systems-pd"
 
       - name: Auto contribution labeller
