@@ -3,7 +3,7 @@
 # Add 'repo' label to any root file changes
 "Area: Repo":
   - changed-files:
-      - any-glob-to-any-file: "*"
+      - any-glob-to-any-file: "*/**"
 
 "Area: Primitives":
   - changed-files:
