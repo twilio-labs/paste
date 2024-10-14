@@ -26,7 +26,7 @@ jobs:
         run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
 
       - name: Auto contribution labeller
-        # if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
+        if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
         uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
