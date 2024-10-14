@@ -1,10 +1,3 @@
-export const meta = {
-  title: 'Account Switcher - Components',
-  package: '@twilio-paste/account-switcher',
-  description: "An Account Switcher is a stylized Menu Badge with a list of actions related to a user's accounts.",
-  slug: '/components/account-switcher/',
-};
-
 import {
   AccountSwitcher,
   AccountSwitcherBadge,
@@ -14,14 +7,20 @@ import {
   AccountSwitcherSeparator,
   useAccountSwitcherState,
 } from '@twilio-paste/account-switcher';
-
+import packageJson from '@twilio-paste/account-switcher/package.json';
 import {Box} from '@twilio-paste/box';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import packageJson from '@twilio-paste/account-switcher/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {accountSwitcherExample} from '../../../component-examples/AccountSwitcherExamples';
+
+export const meta = {
+  title: 'Account Switcher - Components',
+  package: '@twilio-paste/account-switcher',
+  description: packageJson.description,
+  slug: '/components/account-switcher/',
+};
 
 export default ComponentPageLayout;
 
