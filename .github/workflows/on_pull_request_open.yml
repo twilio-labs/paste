@@ -2,7 +2,7 @@ name: Opened Pull Request Labeler
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, synchronize]
 
 jobs:
   pr-triage:
@@ -17,7 +17,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.PAT_GH_READ_ORG }}
           username: ${{ github.actor }}
-          team: "twilio-labs/design-systems-eng,twilio-labs/design-systems-pd"
+          team: "design-systems-eng,design-systems-pd"
 
       - name: Debug in group
         run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
