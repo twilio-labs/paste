@@ -2,7 +2,7 @@ name: Opened Pull Request Labeler
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   pr-triage:
