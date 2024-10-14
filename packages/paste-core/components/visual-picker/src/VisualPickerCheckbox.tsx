@@ -115,7 +115,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         <BaseRadioCheckboxLabel disabled={disabled} htmlFor={checkboxId} id={labelId}>
           <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
           <BaseRadioCheckboxControl
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.preventDefault()}
             borderRadius="borderRadius20"
             element={`${element}_CONTROL`}
             disabled={disabled}
