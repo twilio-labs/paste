@@ -121,7 +121,7 @@
     "@percy/cypress": "^3.1.2",
     "@storybook/addon-a11y": "7.6.4",
     "@storybook/addon-actions": "7.6.4",
-    "@storybook/addon-essentials": "7.6.4",
+    "@storybook/addon-essentials": "8.2.0",
     "@storybook/addon-interactions": "7.6.4",
     "@storybook/addon-links": "7.6.4",
     "@storybook/addons": "7.6.4",
