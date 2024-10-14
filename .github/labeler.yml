@@ -2,42 +2,49 @@
 
 # Add 'repo' label to any root file changes
 "Area: Repo":
-  - "*"
+  - changed-files:
+      - any-glob-to-any-file: "*"
 
 "Area: Primitives":
-  - packages/paste-core/primitives/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-core/primitives/**/*
 
 "Area: Layout":
-  - packages/paste-core/layout/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-core/layout/**/*
 
 "Area: Components":
-  - packages/paste-core/components/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-core/components/**/*
 
 "Area: Core bundle":
-  - packages/paste-core/core-bundle/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-core/core-bundle/**/*
 
 "Area: Doc Site":
-  - packages/paste-website/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-website/**/*
 
 "Area: Theme":
-  - packages/paste-theme/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-theme/**/*
 
 "Area: Tokens":
-  - packages/paste-design-tokens/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-design-tokens/**/*
 
 "Area: Storybook":
-  - .storybook/**/*
+  - changed-files:
+      - any-glob-to-any-file: .storybook/**/*
 
 "Area: Infrastructure":
-  - .eslint/**/*
-  - .github/**/*
-  - .jest/**/*
-  - .vscode/**/*
-  - tools/**/*
+  - changed-files:
+      - any-glob-to-any-file: [".github/**/*", ".jest/**/*", ".storybook/**/*", ".vscode/**/*", "tools/**/*"]
 
 "Type: Documentation":
-  - packages/paste-website/src/pages/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/paste-website/src/pages/**/*
 
 "Type: Tests":
-  - "**/__tests__/**/*"
-  - cypress/**/*
+  - changed-files:
+      - any-glob-to-any-file: ["**/__tests__/**/*", "cypress/**/*"]
