@@ -8,10 +8,20 @@ jobs:
   pr-triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Auto labeller
+      - name: Assign Author
+        uses: technote-space/assign-author@v1
+
+      - name: Check user for team affiliation
+        uses: tspascoal/get-user-teams-membership@v2
+        id: teamAffiliation
+        with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          username: ${{ inputs.USER_NAME }}
+          team: "twilio-labs/design-systems-eng,twilio-labs/design-systems-pd"
+
+      - name: Auto contribution labeller
+        if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
         uses: actions/labeler@v4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          configuration-path: .github/opened-pr-labeler.yml
-      - name: Assign Author
-        uses: technote-space/assign-author@v1
+          configuration-path: .github/opened-pr-contribution-labeler.yml
