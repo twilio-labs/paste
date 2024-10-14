@@ -10,13 +10,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js 20.5
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.5.x
 
       - name: Assign Author
         uses: technote-space/assign-author@v1
@@ -40,4 +33,5 @@ jobs:
         uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: true
           configuration-path: .github/opened-pr-contribution-labeler.yml
