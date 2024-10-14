@@ -18,9 +18,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.PAT_GH_READ_ORG }}"
           username: "${{ github.actor }}"
           # List of all teams for dsys
-          team: "Design Systems PD"
-
-          # ,design-systems,Design Systems Eng,Design Systems Eng Leads
+          team: "[Design Systems PD,design-systems,Design Systems Eng,Design Systems Eng Leads]"
 
       - name: Debug in group
         run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
