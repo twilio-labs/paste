@@ -13,6 +13,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.5.x
+
       - name: Assign Author
         uses: technote-space/assign-author@v1
 
@@ -22,22 +27,13 @@ jobs:
         with:
           GITHUB_TOKEN: "${{ secrets.PAT_GH_READ_ORG }}"
           username: "${{ github.actor }}"
+          # List of all teams for dsys
           team: "Design Systems PD"
 
           # ,design-systems,Design Systems Eng,Design Systems Eng Leads
 
       - name: Debug in group
         run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
-
-      - name: Check user for team affiliation
-        uses: tspascoal/get-user-teams-membership@v2
-        id: teamAffiliationList
-        with:
-          GITHUB_TOKEN: "${{ secrets.PAT_GH_READ_ORG }}"
-          username: "${{ github.actor }}"
-
-      - name: Debug groups
-        run: echo "${{ steps.teamAffiliationList.outputs.teams }}"
 
       - name: Auto contribution labeller
         if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
