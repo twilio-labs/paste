@@ -11,9 +11,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Assign Author
-        uses: technote-space/assign-author@v1
-
       - name: Check user for team affiliation
         uses: tspascoal/get-user-teams-membership@v2
         id: teamAffiliation
@@ -35,3 +32,6 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: false
           configuration-path: .github/opened-pr-contribution-labeler.yml
+
+      - name: Assign Author
+        uses: technote-space/assign-author@v1

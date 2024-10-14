@@ -4,3 +4,7 @@
 "Contribution":
   - changed-files:
       - any-glob-to-any-file: "*"
+
+"Status: Do Not Merge":
+  - changed-files:
+      - any-glob-to-any-file: "*"
