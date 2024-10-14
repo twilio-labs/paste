@@ -153,7 +153,6 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
             ref={scrollableRef}
             display="flex"
             flexWrap="nowrap"
-            flexShrink={0}
             element={`${element}_CHILD_SCROLL_WRAPPER`}
             overflowX="auto"
             overflowY="hidden"
@@ -168,6 +167,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
               borderBottomWidth="borderWidth10"
               borderBottomColor="colorBorderInverseWeaker"
               ref={listRef}
+              flexGrow={1}
               columnGap="space20"
             >
               {children}
