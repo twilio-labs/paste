@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-  pr-context-labeller:
+  pr-context-labeler:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -23,7 +23,7 @@ jobs:
       - name: Debug in group
         run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
 
-      - name: Auto contribution labeller
+      - name: Auto contribution labeler
         if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
         uses: actions/labeler@v5
         with:
