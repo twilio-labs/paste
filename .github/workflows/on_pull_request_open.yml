@@ -2,7 +2,7 @@ name: Opened Pull Request Labeler
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened]
 
 jobs:
   pr-context-labeller:
