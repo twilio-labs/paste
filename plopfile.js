@@ -88,7 +88,7 @@ module.exports = function (plop) {
       },
     ],
   });
-  plop.setGenerator("create-docs", {
+  plop.setGenerator("create-component-docs", {
     description: "Creates a new directory for documentation of a component package on the website",
     prompts: [
       {

@@ -89,7 +89,7 @@
     "packages:fix": "manypkg fix && monopeers fix",
     "changeset": "changeset",
     "create:package": "plop create-package",
-    "create:docs": "plop create-docs",
+    "create:docs": "plop create-component-docs",
     "token-usage": "tsx tools/build/token-usage-detector.ts",
     "nx": "nx",
     "ci:autorespond": "tsx ./tools/github/autoresponder.ts"
