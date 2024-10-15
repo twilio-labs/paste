@@ -10,7 +10,10 @@ export const useElementsOutOfBounds = (): {
   const [elementOutOBoundsRight, setElementOutOfBoundsRight] = React.useState<HTMLDivElement | null>(null);
 
   // called on load and resize and on scroll to set the elements that are out of view
-  const determineElementsOutOfBounds = (scrollContainer: HTMLDivElement | null, listContainer: HTMLElement | null) => {
+  const determineElementsOutOfBounds = (
+    scrollContainer: HTMLDivElement | null,
+    listContainer: HTMLElement | null,
+  ): void => {
     if (scrollContainer && listContainer) {
       const currentScrollContainerRightPosition = (scrollContainer as HTMLDivElement)?.getBoundingClientRect().right;
       const currentScrollContainerXOffset = (scrollContainer as HTMLDivElement)?.getBoundingClientRect().x;
@@ -52,7 +55,7 @@ export const useShowShadow = (): { showShadow: boolean; handleShadow: () => void
   const [showShadow, setShowShadow] = React.useState(false);
   let showShadowTimer: number;
 
-  const handleShadow = () => {
+  const handleShadow = (): void => {
     if (showShadowTimer) {
       window.clearTimeout(showShadowTimer);
     }
@@ -74,7 +77,7 @@ export const handleScrollDirection = (
   elementOutOBoundsLeft: HTMLDivElement | null,
   elementOutOBoundsRight: HTMLDivElement | null,
   listContainer: HTMLElement | null,
-) => {
+): void => {
   if (listContainer) {
     const elementToScrollTo = direction === "left" ? elementOutOBoundsLeft : elementOutOBoundsRight;
     if (elementToScrollTo) {
