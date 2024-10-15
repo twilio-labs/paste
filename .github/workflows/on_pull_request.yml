@@ -382,7 +382,8 @@ jobs:
 
   storybook_tests:
     name: Storybook test runner
-    runs-on: ubuntu-latest
+    # Causes playwrite issues in latest versions. Upgrading deps causes violations in the storybook tests.
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     needs: chromatic
     strategy:
