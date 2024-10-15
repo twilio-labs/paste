@@ -15,7 +15,7 @@ interface OverflowButtonProps {
 const Styles: BoxStyleProps = {
   color: "colorTextIconInverse",
   _hover: {
-    color: "colorTextInverseWeak",
+    color: "colorTextInverse",
     cursor: "pointer",
   },
 };
