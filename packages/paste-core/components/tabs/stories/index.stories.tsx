@@ -74,14 +74,14 @@ export const HorizontalTabsOverflow = (): JSX.Element => {
     <Box maxWidth="size80">
       <Tabs selectedId={selectedId} baseId={`${uniqueBaseID}-horizontal-tabs-example`}>
         <TabList aria-label="LGBTQ+ Projects">
-          <Tab>Inside Out</Tab>
+          <Tab id={selectedId}>Inside Out</Tab>
           <Tab>Transgender District</Tab>
           <Tab>Transgender District</Tab>
           <Tab>Transgender District</Tab>
           <Tab>Transgender District</Tab>
           <Tab>Transgender District</Tab>
           <Tab>Transgender District</Tab>
-          <Tab id={selectedId}>Audre Lorde Project</Tab>
+          <Tab>Audre Lorde Project</Tab>
           <Tab disabled>Coming soon...</Tab>
         </TabList>
         <TabPanels>
