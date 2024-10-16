@@ -10,7 +10,7 @@ import * as React from "react";
 type InlineCodeVariants = "default" | "minimal";
 
 export interface InlineCodeProps extends Partial<Omit<HTMLPasteProps<"div">, "children">> {
-  children: string;
+  children: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider.
    *
