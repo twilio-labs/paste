@@ -1,0 +1,60 @@
+import { {{pascalCase component-name}} } from '@twilio-paste/{{kebabCase component-name}}';
+import packageJson from '@twilio-paste/{{kebabCase component-name}}/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export const meta = {
+  title: '{{titleCase component-name}} - Components', //TODO: change to titleCase ("Component Name") 
+  package: '@twilio-paste/{{kebabCase component-name}}',
+  description: packageJson.description,
+  slug: '/components/{{kebabCase component-name}}/',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('{{titleCase component-name}}'); //TODO: change to titleCase ("Component Name") 
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/{{kebabCase component-name}}',
+        storybookUrl: '/?path=/story/components-{{kebabCase component-name}}', //TODO: Update this to the correct storybook URL
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{ pascalCase component-name }} // TODO: add double curly brackets to scope value (`scope=\{{ ... }}`)
+  language="jsx"
+>
+  {`<{{pascalCase component-name}}/>`}
+</LivePreview>
+
+## Guidelines
+
+## About {{titleCase component-name}} //TODO: change to titleCase ("Component Name") 
+
+### Accessibility
+
+## Examples
+
+<LivePreview
+  scope={{ pascalCase component-name }} // TODO: add double curly brackets to scope value (`scope=\{{ ... }}`)
+  language="jsx"
+>
+  {`<{{pascalCase component-name}}/>`}
+</LivePreview>
+
+## Composition Notes
+

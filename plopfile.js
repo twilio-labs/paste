@@ -88,4 +88,31 @@ module.exports = function (plop) {
       },
     ],
   });
+  plop.setGenerator("create-component-docs", {
+    description: "Creates a new directory for documentation of a component package on the website",
+    prompts: [
+      {
+        type: "input",
+        name: "component-name",
+        message: "What is the component package name?",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "packages/paste-website/src/pages/components/{{kebabCase component-name}}/index.mdx",
+        templateFile: "tools/plop-templates/docs-index.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/paste-website/src/pages/components/{{kebabCase component-name}}/api.mdx",
+        templateFile: "tools/plop-templates/docs-api.hbs",
+      },
+      {
+        type: "add",
+        path: "packages/paste-website/src/pages/components/{{kebabCase component-name}}/changelog.mdx",
+        templateFile: "tools/plop-templates/docs-changelog.hbs",
+      },
+    ],
+  });
 };
