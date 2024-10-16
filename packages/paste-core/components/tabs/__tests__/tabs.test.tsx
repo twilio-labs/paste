@@ -1,13 +1,45 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../src";
 import { getElementName } from "../src/utils";
-import { HorizontalTabs, StateHookTabs } from "../stories/index.stories";
+import { StateHookTabs } from "../stories/index.stories";
 
 describe("Tabs", () => {
+  window.HTMLElement.prototype.scrollIntoView = function () {};
+
+  const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
+    (_, i) => `${i}`,
+  );
+
+  const ManualIdExample = (): JSX.Element => {
+    return (
+      <Theme.Provider theme="default">
+        <Tabs orientation="horizontal" selectedId={tabOneId} baseId="">
+          <TabList aria-label="My tabs">
+            <Tab id={tabOneId}>Tab 1 is a long tab name because the server sent a long tab name</Tab>
+            <Tab id={tabTwoId}>Tab 2</Tab>
+            <Tab id={tabThreeId}>Tab 3</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel tabId={tabOneId} id={panelOneId}>
+              Tab 1
+            </TabPanel>
+            <TabPanel tabId={tabTwoId} id={panelTwoId}>
+              Tab 1
+            </TabPanel>
+            <TabPanel tabId={tabThreeId} id={panelThreeId}>
+              Tab 1
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Theme.Provider>
+    );
+  };
+
   describe("Utils", () => {
     describe("getElementName", () => {
       const mockFallbackName = "TEST_ELEMENT_FALLBACK";
@@ -31,33 +63,6 @@ describe("Tabs", () => {
   describe("Render", () => {
     // eslint-disable-next-line consistent-return
     it("relevant html and aria attributes", async () => {
-      const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
-        (_, i) => `${i}`,
-      );
-
-      const ManualIdExample = (): JSX.Element => {
-        return (
-          <Tabs orientation="horizontal" selectedId={tabOneId} baseId="">
-            <TabList aria-label="My tabs">
-              <Tab id={tabOneId}>Tab 1 is a long tab name because the server sent a long tab name</Tab>
-              <Tab id={tabTwoId}>Tab 2</Tab>
-              <Tab id={tabThreeId}>Tab 3</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel tabId={tabOneId} id={panelOneId}>
-                Tab 1
-              </TabPanel>
-              <TabPanel tabId={tabTwoId} id={panelTwoId}>
-                Tab 1
-              </TabPanel>
-              <TabPanel tabId={tabThreeId} id={panelThreeId}>
-                Tab 1
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        );
-      };
-
       render(<ManualIdExample />);
 
       const renderedTabList = screen.getByRole("tablist");
@@ -98,7 +103,11 @@ describe("Tabs", () => {
 
     // eslint-disable-next-line consistent-return
     it("should render tabs using the state prop and go to the next tab on button click", async () => {
-      render(<StateHookTabs />);
+      render(
+        <Theme.Provider theme="default">
+          <StateHookTabs />
+        </Theme.Provider>,
+      );
 
       const [ButtonOne] = screen.queryAllByRole("button");
 
@@ -120,18 +129,20 @@ describe("Tabs", () => {
   describe("HTML Attribute", () => {
     it("should set an element data attribute for Horizontal Tabs (default)", () => {
       render(
-        <Tabs orientation="horizontal" baseId="">
-          <TabList data-testid="tab-list" aria-label="My tabs">
-            <Tab data-testid="tab-1">Tab 1 is a long tab name because the server sent a long tab name</Tab>
-            <Tab data-testid="tab-2">Tab 2</Tab>
-            <Tab data-testid="tab-3">Tab 3</Tab>
-          </TabList>
-          <TabPanels data-testid="tab-panels">
-            <TabPanel data-testid="tab-panel-1">Tab 1</TabPanel>
-            <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
-            <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
-          </TabPanels>
-        </Tabs>,
+        <Theme.Provider theme="default">
+          <Tabs orientation="horizontal" baseId="">
+            <TabList data-testid="tab-list" aria-label="My tabs">
+              <Tab data-testid="tab-1">Tab 1 is a long tab name because the server sent a long tab name</Tab>
+              <Tab data-testid="tab-2">Tab 2</Tab>
+              <Tab data-testid="tab-3">Tab 3</Tab>
+            </TabList>
+            <TabPanels data-testid="tab-panels">
+              <TabPanel data-testid="tab-panel-1">Tab 1</TabPanel>
+              <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
+              <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Theme.Provider>,
       );
 
       const outerDiv = screen.getByTestId("tab-list").parentElement as HTMLElement;
@@ -139,8 +150,16 @@ describe("Tabs", () => {
       expect(outerDiv.getAttribute("data-paste-element")).toEqual("HORIZONTAL_TABS");
       expect(screen.getByTestId("tab-list").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB_LIST");
       expect((screen.getByTestId("tab-list").firstChild as HTMLElement).getAttribute("data-paste-element")).toEqual(
-        "HORIZONTAL_TAB_LIST_CHILD",
+        "HORIZONTAL_TAB_LIST_CHILD_SCROLL_WRAPPER",
       );
+      expect(
+        (screen.getByTestId("tab-list").firstChild?.firstChild as HTMLElement).getAttribute("data-paste-element"),
+      ).toEqual("HORIZONTAL_TAB_LIST_CHILD_CONTAINER");
+      expect(
+        (screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild as HTMLElement).getAttribute(
+          "data-paste-element",
+        ),
+      ).toEqual("HORIZONTAL_TAB_LIST_CHILD");
       expect(screen.getByTestId("tab-1").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB");
       expect(screen.getByTestId("tab-2").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB");
       expect(screen.getByTestId("tab-3").getAttribute("data-paste-element")).toEqual("HORIZONTAL_TAB");
@@ -152,18 +171,20 @@ describe("Tabs", () => {
 
     it("should set an element data attribute for Vertical Tabs (default)", () => {
       render(
-        <Tabs orientation="vertical" baseId="">
-          <TabList data-testid="tab-list" aria-label="My tabs">
-            <Tab data-testid="tab-1">Tab 1 is a long tab name because the server sent a long tab name</Tab>
-            <Tab data-testid="tab-2">Tab 2</Tab>
-            <Tab data-testid="tab-3">Tab 3</Tab>
-          </TabList>
-          <TabPanels data-testid="tab-panels">
-            <TabPanel data-testid="tab-panel-1">Tab 1</TabPanel>
-            <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
-            <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
-          </TabPanels>
-        </Tabs>,
+        <Theme.Provider theme="default">
+          <Tabs orientation="vertical" baseId="">
+            <TabList data-testid="tab-list" aria-label="My tabs">
+              <Tab data-testid="tab-1">Tab 1 is a long tab name because the server sent a long tab name</Tab>
+              <Tab data-testid="tab-2">Tab 2</Tab>
+              <Tab data-testid="tab-3">Tab 3</Tab>
+            </TabList>
+            <TabPanels data-testid="tab-panels">
+              <TabPanel data-testid="tab-panel-1">Tab 1</TabPanel>
+              <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
+              <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Theme.Provider>,
       );
 
       const outerDiv = screen.getByTestId("tab-list").parentElement as HTMLElement;
@@ -184,30 +205,32 @@ describe("Tabs", () => {
 
     it("should set an element data attribute Horizontal Tabs", () => {
       render(
-        <Tabs element="HORSE" orientation="horizontal" baseId="">
-          <TabList element="CAT" data-testid="tab-list" aria-label="My tabs">
-            <Tab element="TIGER" data-testid="tab-1">
-              Tab 1 is a long tab name because the server sent a long tab name
-            </Tab>
-            <Tab element="PANTHER" data-testid="tab-2">
-              Tab 2
-            </Tab>
-            <Tab element="SCOTTISH_FOLD" data-testid="tab-3">
-              Tab 3
-            </Tab>
-          </TabList>
-          <TabPanels element="DOG" data-testid="tab-panels">
-            <TabPanel element="CORGI" data-testid="tab-panel-1">
-              Tab 1
-            </TabPanel>
-            <TabPanel element="GOLDEN_DOODLE" data-testid="tab-panel-2">
-              Tab 2
-            </TabPanel>
-            <TabPanel element="PUG" data-testid="tab-panel-3">
-              Tab 3
-            </TabPanel>
-          </TabPanels>
-        </Tabs>,
+        <Theme.Provider theme="default">
+          <Tabs element="HORSE" orientation="horizontal" baseId="">
+            <TabList element="CAT" data-testid="tab-list" aria-label="My tabs">
+              <Tab element="TIGER" data-testid="tab-1">
+                Tab 1 is a long tab name because the server sent a long tab name
+              </Tab>
+              <Tab element="PANTHER" data-testid="tab-2">
+                Tab 2
+              </Tab>
+              <Tab element="SCOTTISH_FOLD" data-testid="tab-3">
+                Tab 3
+              </Tab>
+            </TabList>
+            <TabPanels element="DOG" data-testid="tab-panels">
+              <TabPanel element="CORGI" data-testid="tab-panel-1">
+                Tab 1
+              </TabPanel>
+              <TabPanel element="GOLDEN_DOODLE" data-testid="tab-panel-2">
+                Tab 2
+              </TabPanel>
+              <TabPanel element="PUG" data-testid="tab-panel-3">
+                Tab 3
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Theme.Provider>,
       );
 
       const outerDiv = screen.getByTestId("tab-list").parentElement as HTMLElement;
@@ -215,7 +238,7 @@ describe("Tabs", () => {
       expect(outerDiv.getAttribute("data-paste-element")).toEqual("HORSE");
       expect(screen.getByTestId("tab-list").getAttribute("data-paste-element")).toEqual("CAT");
       expect((screen.getByTestId("tab-list").firstChild as HTMLElement).getAttribute("data-paste-element")).toEqual(
-        "CAT_CHILD",
+        "CAT_CHILD_SCROLL_WRAPPER",
       );
       expect(screen.getByTestId("tab-1").getAttribute("data-paste-element")).toEqual("TIGER");
       expect(screen.getByTestId("tab-2").getAttribute("data-paste-element")).toEqual("PANTHER");
@@ -228,30 +251,32 @@ describe("Tabs", () => {
 
     it("should set an element data attribute for Vertical Tabs", () => {
       render(
-        <Tabs element="HORSE" orientation="vertical" baseId="">
-          <TabList element="CAT" data-testid="tab-list" aria-label="My tabs">
-            <Tab element="TIGER" data-testid="tab-1">
-              Tab 1 is a long tab name because the server sent a long tab name
-            </Tab>
-            <Tab element="PANTHER" data-testid="tab-2">
-              Tab 2
-            </Tab>
-            <Tab element="SCOTTISH_FOLD" data-testid="tab-3">
-              Tab 3
-            </Tab>
-          </TabList>
-          <TabPanels element="DOG" data-testid="tab-panels">
-            <TabPanel element="CORGI" data-testid="tab-panel-1">
-              Tab 1
-            </TabPanel>
-            <TabPanel element="GOLDEN_DOODLE" data-testid="tab-panel-2">
-              Tab 2
-            </TabPanel>
-            <TabPanel element="PUG" data-testid="tab-panel-3">
-              Tab 3
-            </TabPanel>
-          </TabPanels>
-        </Tabs>,
+        <Theme.Provider theme="default">
+          <Tabs element="HORSE" orientation="vertical" baseId="">
+            <TabList element="CAT" data-testid="tab-list" aria-label="My tabs">
+              <Tab element="TIGER" data-testid="tab-1">
+                Tab 1 is a long tab name because the server sent a long tab name
+              </Tab>
+              <Tab element="PANTHER" data-testid="tab-2">
+                Tab 2
+              </Tab>
+              <Tab element="SCOTTISH_FOLD" data-testid="tab-3">
+                Tab 3
+              </Tab>
+            </TabList>
+            <TabPanels element="DOG" data-testid="tab-panels">
+              <TabPanel element="CORGI" data-testid="tab-panel-1">
+                Tab 1
+              </TabPanel>
+              <TabPanel element="GOLDEN_DOODLE" data-testid="tab-panel-2">
+                Tab 2
+              </TabPanel>
+              <TabPanel element="PUG" data-testid="tab-panel-3">
+                Tab 3
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Theme.Provider>,
       );
 
       const outerDiv = screen.getByTestId("tab-list").parentElement as HTMLElement;
@@ -289,7 +314,7 @@ describe("Tabs", () => {
               borderColor: "colorBorderDestructive",
               marginY: "space100",
             },
-            HORIZONTAL_TAB_LIST_CHILD: { borderColor: "colorBorderDestructive" },
+            HORIZONTAL_TAB_LIST_CHILD_CONTAINER: { height: "50px" },
             HORIZONTAL_TAB: {
               fontFamily: "fontFamilyCode",
             },
@@ -325,7 +350,7 @@ describe("Tabs", () => {
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
 
-      expect(screen.getByTestId("tab-list").firstChild).toHaveStyleRule("border-color", "rgb(214, 31, 31)");
+      expect(screen.getByTestId("tab-list").firstChild?.firstChild).toHaveStyleRule("height", "50px");
 
       expect(screen.getByTestId("tab-1")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-2")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
@@ -415,7 +440,10 @@ describe("Tabs", () => {
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-top", "2.25rem");
       expect(screen.getByTestId("tab-list")).toHaveStyleRule("margin-bottom", "2.25rem");
 
-      expect(screen.getByTestId("tab-list").firstChild).toHaveStyleRule("border-color", "rgb(214, 31, 31)");
+      expect(screen.getByTestId("tab-list").firstChild?.firstChild?.firstChild).toHaveStyleRule(
+        "border-color",
+        "rgb(214, 31, 31)",
+      );
 
       expect(screen.getByTestId("tab-1")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
       expect(screen.getByTestId("tab-2")).toHaveStyleRule("font-family", "'TwilioSansMono',Courier,monospace");
