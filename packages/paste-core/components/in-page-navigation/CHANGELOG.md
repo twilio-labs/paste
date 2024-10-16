@@ -1,5 +1,11 @@
 # @twilio-paste/in-page-navigation
 
+## 4.3.2
+
+### Patch Changes
+
+- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [In Page Navigation] make items scrollable
+
 ## 4.3.1
 
 ### Patch Changes
