@@ -1,12 +1,37 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { OverflowButton } from "./OverflowButton";
 import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
-import { getElementName } from "./utils";
+import { getElementName, handleScrollDirection, useElementsOutOfBounds, useShowShadow } from "./utils";
+
+/**
+ * This wrapper applies styles that customize the scrollbar and its track.
+ */
+const StyledTabList = styled.div(() => {
+  return css({
+    overflowX: "auto",
+    overflowY: "hidden",
+    overflowScrolling: "touch",
+    /* Firefox scrollbar */
+    "@supports (-moz-appearance:none)": {
+      paddingBottom: "0px",
+      scrollbarWidth: "none",
+    },
+    /* Chrome + Safari scrollbar */
+    "::-webkit-scrollbar": {
+      height: 0,
+    },
+    "::-webkit-scrollbar-track": {
+      background: "transparent",
+    },
+  });
+});
 
 export interface TabListProps extends HTMLPasteProps<"div"> {
   /**
@@ -39,18 +64,69 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   variant,
   element,
 }) => {
+  const ref = React.useRef<HTMLElement>(null);
+  //  ref to the scrollable element
+  const scrollableRef = React.useRef<HTMLDivElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
 
+  const { determineElementsOutOfBounds, elementOutOBoundsLeft, elementOutOBoundsRight } = useElementsOutOfBounds();
+  const { handleShadow, showShadow } = useShowShadow();
+
+  const handleScrollEvent = (): void => {
+    handleShadow();
+    determineElementsOutOfBounds(scrollableRef.current, ref.current);
+  };
+
+  React.useEffect(() => {
+    if (ref.current) {
+      scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
+      window.addEventListener("resize", handleScrollEvent);
+      determineElementsOutOfBounds(scrollableRef.current, ref.current);
+    }
+  }, [ref.current, scrollableRef.current]);
+
+  // Cleanup event listeners on destroy
+  React.useEffect(() => {
+    return () => {
+      if (scrollableRef.current) {
+        scrollableRef.current.removeEventListener("scroll", handleScrollEvent);
+        window.removeEventListener("resize", handleScrollEvent);
+      }
+    };
+  }, []);
+
   return (
-    <Box
-      display="flex"
-      borderBottomStyle="solid"
-      borderBottomWidth="borderWidth10"
-      borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
-      columnGap="space20"
-      element={element}
-    >
-      {children}
+    <Box display="flex" overflow="hidden">
+      <OverflowButton
+        position="left"
+        onClick={() => handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, ref.current)}
+        visible={Boolean(elementOutOBoundsLeft)}
+        element={element}
+        showShadow={showShadow}
+      />
+      <Box as={StyledTabList as any} ref={scrollableRef} flexGrow={1} element={`${element}_SCROLL_WRAPPER`}>
+        <Box
+          ref={ref}
+          whiteSpace="nowrap"
+          element={element}
+          display="flex"
+          borderBottomStyle="solid"
+          borderBottomWidth="borderWidth10"
+          columnGap="space20"
+          borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
+          // Scrollable element needs borderto stretch to full contianer width. Non scrollable needs to stretch border to parent width.
+          width={elementOutOBoundsRight || elementOutOBoundsLeft ? "max-content" : "auto"}
+        >
+          {children}
+        </Box>
+      </Box>
+      <OverflowButton
+        position="right"
+        onClick={() => handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, ref.current)}
+        visible={Boolean(elementOutOBoundsRight)}
+        element={element}
+        showShadow={showShadow}
+      />
     </Box>
   );
 };
