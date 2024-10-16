@@ -5,6 +5,7 @@ import { Heading } from "@twilio-paste/heading";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
 
 import { InlineCode } from "../src";
@@ -91,6 +92,16 @@ export const DisplayingAPIKey: StoryFn = () => {
       </Text>
       <InlineCode>WQC0000001111111122234444444</InlineCode>
     </Stack>
+  );
+};
+
+export const WithTruncate: StoryFn = () => {
+  return (
+    <Box maxWidth="size20">
+      <InlineCode>
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+      </InlineCode>
+    </Box>
   );
 };
 
