@@ -382,7 +382,8 @@ jobs:
 
   storybook_tests:
     name: Storybook test runner
-    runs-on: ubuntu-latest
+    # Causes playwrite issues in latest versions. Upgrading deps causes violations in the storybook tests.
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     needs: chromatic
     strategy:
@@ -450,7 +451,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - uses: actions/labeler@v4
+      - uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
