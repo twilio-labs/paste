@@ -1,10 +1,13 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { InPageNavigationContext } from "./InPageNavigationContext";
+import { OverflowButton } from "./OverflowButton";
 import type { Orientation, Variants } from "./types";
+import { handleScrollDirection, useElementsOutOfBounds, useShowShadow } from "./utils";
 
 export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "children"> {
   children?: React.ReactNode;
@@ -53,6 +56,26 @@ export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "chil
   hideBottomBorder?: boolean;
 }
 
+const StyledScrollWrapper = styled.div(() => {
+  return css({
+    overflowX: "auto",
+    overflowY: "hidden",
+    overflowScrolling: "touch",
+    /* Firefox scrollbar */
+    "@supports (-moz-appearance:none)": {
+      paddingBottom: "0px",
+      scrollbarWidth: "none",
+    },
+    /* Chrome + Safari scrollbar */
+    "::-webkit-scrollbar": {
+      height: 0,
+    },
+    "::-webkit-scrollbar-track": {
+      background: "transparent",
+    },
+  });
+});
+
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
   (
     {
@@ -68,6 +91,45 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
   ) => {
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
+    const listRef = React.useRef<HTMLOListElement>(null);
+    //  ref to the scrollable element
+    const scrollableRef = React.useRef<HTMLDivElement>(null);
+
+    const { determineElementsOutOfBounds, elementOutOBoundsLeft, elementOutOBoundsRight } = useElementsOutOfBounds();
+    const { handleShadow, showShadow } = useShowShadow();
+
+    const handleScrollEvent = (): void => {
+      handleShadow();
+      determineElementsOutOfBounds(scrollableRef.current, listRef.current);
+    };
+
+    // Scroll to the selected tab if it exists on mount
+    React.useEffect(() => {
+      if (listRef.current && scrollableRef.current) {
+        setTimeout(
+          () =>
+            listRef.current
+              ?.querySelector(`[aria-current="page"]`)
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - behavior is typed incorrectly in Typescript v4, fixed in v5+
+              ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
+          1,
+        );
+        scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
+        window.addEventListener("resize", handleScrollEvent);
+        determineElementsOutOfBounds(scrollableRef.current, listRef.current);
+      }
+    }, [listRef.current, scrollableRef.current]);
+
+    // Cleanup event listeners on destroy
+    React.useEffect(() => {
+      return () => {
+        if (scrollableRef.current) {
+          scrollableRef.current.removeEventListener("scroll", handleScrollEvent);
+          window.removeEventListener("resize", handleScrollEvent);
+        }
+      };
+    }, []);
 
     if (orientation === "vertical") {
       return (
@@ -91,25 +153,88 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
       );
     }
 
+    if (isFullWidth) {
+      return (
+        <InPageNavigationContext.Provider value={{ variant, orientation }}>
+          <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
+            <Box
+              as="ul"
+              listStyleType="none"
+              element={`${element}_ITEMS`}
+              display="flex"
+              justifyContent="space-evenly"
+              columnGap="space0"
+              padding="space0"
+              margin="space0"
+              marginBottom={marginBottom || "space60"}
+              borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
+              borderBottomStyle={hideBottomBorder ? "none" : "solid"}
+              borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
+            >
+              {children}
+            </Box>
+          </Box>
+        </InPageNavigationContext.Provider>
+      );
+    }
+
     return (
       <InPageNavigationContext.Provider value={{ variant, orientation }}>
-        <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          as="nav"
+          marginBottom={marginBottom || "space60"}
+          display="flex"
+          ref={ref}
+          element={element}
+          overflow="hidden"
+        >
+          <OverflowButton
+            position="left"
+            onClick={() =>
+              handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, listRef.current)
+            }
+            visible={Boolean(elementOutOBoundsLeft)}
+            element={element}
+            showShadow={showShadow}
+          />
           <Box
-            as="ul"
-            listStyleType="none"
-            element={`${element}_ITEMS`}
+            as={StyledScrollWrapper as any}
             display="flex"
-            justifyContent={isFullWidth ? "space-evenly" : "flex-start"}
-            columnGap={!isFullWidth ? "space50" : "space0"}
-            padding="space0"
-            margin="space0"
-            marginBottom={marginBottom || "space60"}
-            borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
-            borderBottomStyle={hideBottomBorder ? "none" : "solid"}
-            borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
+            flexWrap="nowrap"
+            element={`${element}_SCROLL_WRAPPER`}
+            overflowX="auto"
+            overflowY="hidden"
+            flexGrow={1}
+            ref={scrollableRef}
           >
-            {children}
+            <Box
+              as="ul"
+              ref={listRef}
+              listStyleType="none"
+              element={`${element}_ITEMS`}
+              display="flex"
+              flexGrow={1}
+              justifyContent="flex-start"
+              padding="space0"
+              margin="space0"
+              columnGap="space50"
+              borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
+              borderBottomStyle={hideBottomBorder ? "none" : "solid"}
+              borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
+            >
+              {children}
+            </Box>
           </Box>
+          <OverflowButton
+            position="right"
+            onClick={() =>
+              handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, listRef.current)
+            }
+            visible={Boolean(elementOutOBoundsRight)}
+            element={element}
+            showShadow={showShadow}
+          />
         </Box>
       </InPageNavigationContext.Provider>
     );

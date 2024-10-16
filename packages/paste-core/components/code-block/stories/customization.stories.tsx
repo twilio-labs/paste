@@ -1,4 +1,5 @@
 import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
@@ -158,6 +159,92 @@ export const CustomizedCodeBlockGroup: StoryFn = (_args, { parameters: { isTestE
           <CodeBlock code={phpCode} language="php" maxLines={3} />
         </CodeBlockTabPanel>
       </CodeBlockWrapper>
+    </CustomizationProvider>
+  );
+};
+
+export const CustomizedCodeBlockGroupOverflow: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
+
+  return (
+    <CustomizationProvider
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
+      elements={{
+        CODE_BLOCK_WRAPPER: {
+          width: "size50",
+        },
+        CODE_BLOCK_HEADER: {
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
+          borderTopLeftRadius: "borderRadius30",
+          borderTopRightRadius: "borderRadius30",
+          fontSize: "fontSize20",
+        },
+        CODE_BLOCK_TAB_LIST: {
+          backgroundColor: "colorBackgroundErrorWeakest",
+          columnGap: "space0",
+        },
+        CODE_BLOCK_TAB: {
+          borderRadius: "borderRadius0",
+        },
+        CODE_BLOCK_TAB_PANEL: {
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructiveWeak",
+          borderBottomLeftRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          overflow: "hidden",
+        },
+        CODE_BLOCK_COPY_BUTTON: {
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
+        },
+        CODE_BLOCK_EXTERNAL_LINK: {
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
+        },
+        CODE_BLOCK_TAB_LIST_OVERFLOW_BUTTON_LEFT: {
+          backgroundColor: "colorBackgroundBusy",
+          color: "colorTextIconAvailable",
+        },
+        CODE_BLOCK_TAB_LIST_OVERFLOW_BUTTON_RIGHT: {
+          backgroundColor: "colorBackgroundAvailable",
+          color: "colorTextSuccess",
+        },
+      }}
+    >
+      <Box width="600px">
+        <CodeBlockWrapper>
+          <CodeBlockHeader>How to set up your API</CodeBlockHeader>
+          <CodeBlockTabList>
+            <CodeBlockTab>Ruby</CodeBlockTab>
+            <CodeBlockTab>PHP</CodeBlockTab>
+            <CodeBlockTab>Python</CodeBlockTab>
+            <CodeBlockTab>Curl</CodeBlockTab>
+            <CodeBlockTab>JavaScript</CodeBlockTab>
+            <CodeBlockTab>Java</CodeBlockTab>
+            <CodeBlockTab>C++</CodeBlockTab>
+            <CodeBlockTab>C#</CodeBlockTab>
+            <CodeBlockTab>C</CodeBlockTab>
+            <CodeBlockTab>Perl</CodeBlockTab>
+            <CodeBlockTab>Lisp</CodeBlockTab>
+            <CodeBlockTab>Rust</CodeBlockTab>
+            <CodeBlockTab>Cobol</CodeBlockTab>
+            <CodeBlockTab>Shell</CodeBlockTab>
+            <CodeBlockTab>Bash</CodeBlockTab>
+            <CodeBlockTab>Golang</CodeBlockTab>
+            <CodeBlockTab>Erlang</CodeBlockTab>
+            <CodeBlockTab>Haskell</CodeBlockTab>
+          </CodeBlockTabList>
+          <CodeBlockTabPanel>
+            <CodeBlock externalLink="#" code={rubyCode} language="ruby" maxLines={3} />
+          </CodeBlockTabPanel>
+          <CodeBlockTabPanel>
+            <CodeBlock code={phpCode} language="php" maxLines={3} />
+          </CodeBlockTabPanel>
+        </CodeBlockWrapper>
+      </Box>
     </CustomizationProvider>
   );
 };
