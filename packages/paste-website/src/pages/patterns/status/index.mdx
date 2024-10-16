@@ -1,31 +1,47 @@
 export const meta = {
   title: 'Status',
-  description: 'The status pattern informs the user of the dynamic state or condition of an object.',
+  description: 'The Object status pattern informs the user of the dynamic state or condition of an object.',
   slug: '/patterns/status/',
 };
 
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
+import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
 import {StatusBadge} from '@twilio-paste/status';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
+import {DetailText} from '@twilio-paste/detail-text';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
 import {Input} from '@twilio-paste/input';
+import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {PageHeader, PageHeaderPrefix, PageHeaderMeta, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, PageHeaderInPageNavigation} from '@twilio-paste/page-header';
 import {Stack} from '@twilio-paste/stack';
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItem,
+  StatusMenuItemChild,
+  useStatusMenuState,
+  StatusMenuItemRadio,
+  StatusMenuItemCheckbox,
+} from '@twilio-paste/status';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {Tooltip} from '@twilio-paste/tooltip';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
@@ -59,7 +75,15 @@ import {
   otherCommonPlacements,
   BannerExample,
   connectivityStatusExamples,
+  connectivityStatusTableExample,
+  compactPageHeaderExample
 } from '../../../component-examples/StatusPatternExamples.tsx';
+import {
+  processStatusMenuExample,
+  availabilityStatusMenuExample,
+  ConnectivityObject,
+  ProcessObject,
+} from '../../../component-examples/StatusMenuExamples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
@@ -81,7 +105,6 @@ export const getStaticProps = async () => {
 
 <NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
-
 <contentwrapper>
 
 <PageAside data={mdxHeadings} />
@@ -96,30 +119,35 @@ export const getStaticProps = async () => {
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/components/icon">Icon</Anchor>
+        <Anchor href="/components/status-badge">Status Badge</Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/primitives/text">Text</Anchor>
+        <Anchor href="/components/status-menu">Status Menu</Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/primitives/box">Box</Anchor>
-      </Heading>
+      <Heading as="h3" variant="heading40">
+          Component composition
+        </Heading>
+        <Paragraph marginBottom="space0">
+          Create a composition with <Anchor href="/primitives/box">Box</Anchor>,{' '}
+          <Anchor href="/components/icon">Icon</Anchor>, and <Anchor href="/components/text">Text</Anchor>.
+        </Paragraph>
     </Card>
   </Column>
 </Grid>
 
 ```jsx
-// import all components for Status patterns
+// import all components for Object status patterns
 
-import {​ Text } from "@twilio-paste/core/text";
+import {​ StatusBadge } from "@twilio-paste/core/status-badge";
+import {​ StatusMenu } from "@twilio-paste/core/status-menu";
 import { Box } from "@twilio-paste/core/box";
 import { ProcessDisabledIcon } from "@twilio-paste/icons/esm/ProcessDisabledIcon";
 import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
@@ -135,14 +163,13 @@ import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
 
 ### General usage
 
-A Status is used to communicate the dynamic state of an object to a user.
-Use them to help the user identify something that requires their attention and often, their action.
-When a status is used to indicate to the user that they need to take action, be sure to provide
-clear controls to take that action (e.g. a “Try again” button).
+An Object status is used to communicate the dynamic state of an object. Use it to help a user identify something that requires their attention and often, their action. When a status is used to indicate to the user that they need to take action, be sure to provide clear controls to take that action (check out the example in [Process status](#process-status)).
 
-Statuses are:
 
-- Always related to an object. For example, a SIM can have a status, but a step in a wizard flow cannot.
+
+Object statuses are:
+
+- Always related to an object. For example, this pattern applies to SIMs and regulatory bundles, but not to a step in a wizard flow. Instead, use the [Error state pattern](https://paste.twilio.design/patterns/error-state) or [Progress Steps component](https://paste.twilio.design/components/progress-steps).
 - Not used for static attributes. For example, “SMS-capable” is not a status on a phone number.
 - Different from [notification and feedback messaging](/patterns/notifications-and-feedback), which is in direct response to a user action.
 - Different from [alert messaging](/components/alert), which is from the system.
@@ -154,7 +181,7 @@ Non-text status indicators (such as icons or status dots) should be paired with 
 possible and should always be given a `title` to give context and meaning to the icon or shape.
 Check out the [icon usage guidelines](/components/icon/usage-guidelines) for more detailed accessibility information.
 
-## Variations
+## Status types
 
 ### Process status
 
@@ -191,6 +218,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       <Th>Icon</Th>
       <Th>Icon name</Th>
       <Th width="200px">Token</Th>
+      <Th>Status Badge variant</Th>
       <Th>Usage</Th>
     </Tr>
   </THead>
@@ -201,6 +229,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessErrorIcon</Td>
       <Td>$color-text-icon-error</Td>
+      <Td>ProcessError</Td>
       <Td>Indicates an error or that something went wrong.</Td>
     </Tr>
     <Tr>
@@ -209,6 +238,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessWarningIcon</Td>
       <Td>$color-text-icon-warning</Td>
+      <Td>ProcessWarning</Td>
       <Td>Indicates a condition requiring corrective action.</Td>
     </Tr>
     <Tr>
@@ -217,6 +247,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessSuccessIcon</Td>
       <Td>$color-text-icon-success</Td>
+      <Td>ProcessSuccess</Td>
       <Td>Indicates that something is stable, active, or successfully completed.</Td>
     </Tr>
     <Tr>
@@ -225,6 +256,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessNeutralIcon</Td>
       <Td>$color-text-icon-neutral</Td>
+      <Td>ProcessNeutral</Td>
       <Td>
         Indicates a neutral / informative state. Can be used to fill any gaps that the more specific statuses don’t
         cover.
@@ -236,6 +268,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessInProgressIcon</Td>
       <Td>$color-text-icon-neutral</Td>
+      <Td>ProcessInProgress</Td>
       <Td>Indicates that something is in progress, in review, or scheduled.</Td>
     </Tr>
     <Tr>
@@ -244,6 +277,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessDisabledIcon</Td>
       <Td>$color-text-icon</Td>
+      <Td>ProcessInDisabled</Td>
       <Td>Indicates that something is inactive, disabled, or paused.</Td>
     </Tr>
     <Tr>
@@ -252,22 +286,48 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessDraftIcon</Td>
       <Td>$color-text-icon</Td>
+      <Td>ProcessInDisabled</Td>
       <Td>Indicates that something is a draft, unused, or not started.</Td>
     </Tr>
   </TBody>
 </Table>
+<br/>
+
+### Plain text status
+
+Not all object statuses need icons or shapes. In fact, giving every status an icon or a shape can make it difficult for a user to find and focus on the most critical information
+
+If some statuses—such as successes or failures—are critical, use plain text for the other statuses that a user doesn’t need to identify as quickly.
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Heading,
+    Text,
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Td,
+    Th,
+    StatusBadge,
+  }}
+  language="jsx"
+>
+  {tableWithPlainTextExample}
+</LivePreview>
 
 ### Connectivity status
 
-Connectivity statuses are used to show if a user, object, or system is online or offline. Connectivity statuses are composed using a connectivity Icon and Text.
-
-**Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
+Connectivity statuses are used to show if a user, object, or system is online or offline. **Connectivity statuses should always be paired with text.**
 
 <LivePreview
   scope={{
     Box,
     Text,
     Card,
+    StatusBadge,
     ConnectivityAvailableIcon,
     ConnectivityBusyIcon,
     ConnectivityUnavailableIcon,
@@ -277,6 +337,42 @@ Connectivity statuses are used to show if a user, object, or system is online or
   language="jsx"
 >
   {connectivityStatusExamples}
+</LivePreview>
+
+To determine how to show a connectivity status:
+- If additional information is needed to explain the status, use Icon, Text, and [Anchor](/components/anchor)
+- If it’s in a Table and no additional information is needed, use a [borderless Status Badge](/components/status-badge#borderless-badges).
+- Otherwise, use the default Status Badge.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Card,
+    StatusBadge,
+    Badge,
+    Heading,
+    Table,
+    THead,
+    Tr,
+    Th,
+    Td,
+    TBody,
+    Avatar,
+    DetailText,
+    ConnectivityAvailableIcon,
+    ConnectivityBusyIcon,
+    ConnectivityUnavailableIcon,
+    ConnectivityOfflineIcon,
+    ConnectivityNeutralIcon,
+  }}
+  language="jsx"
+>
+  {connectivityStatusTableExample}
+</LivePreview>
+
+<LivePreview scope={{PageHeader, UserIcon, Anchor, Badge, PageHeaderPrefix, MoreIcon, StatusBadge, PageHeaderMeta, Avatar, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, Box, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {compactPageHeaderExample}
 </LivePreview>
 
 #### Connectivity icon and token pairings
@@ -350,187 +446,38 @@ Connectivity statuses are used to show if a user, object, or system is online or
   </CalloutText>
 </Callout>
 
-### Plain text status
+#### Swapping statuses with Status Menu
 
-Not all statuses need icons or shapes. In fact, giving every status an icon or a shape can make it difficult for a user to find and focus on the most critical information.
-If some statuses—such as successes or failures—are highly critical, consider using plain text for the other statuses that a user may not need to identify as quickly.
-
-## Composition
-
-### Icon and text placement
-
-The status icon or dot should most often be placed as a prefix, before the status text, though some page layouts may benefit from placing the icon as a suffix.
-A suffix icon is often beneficial when a status is right-aligned within a Card or List.
-
-For process statuses, the icon should generally be the same size as the line-height of the status text (e.g. use `$size-icon-20` for a status icon paired with text at `$line-height-20`)
-to ensure that the icon and the text are vertically aligned.
+Use a [Status Menu](/components/status-menu) to let users swap between statuses.
 
 <LivePreview
   scope={{
-    Box,
-    Button,
-    Text,
-    Stack,
-    ProcessErrorIcon,
+    useStatusMenuState,
+    StatusMenu,
+    StatusMenuItemRadio,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    ProcessObject,
   }}
-  language="jsx"
+  noInline
+  showOverflow
 >
-  {prefixSuffixTooltipExamples}
+  {processStatusMenuExample}
 </LivePreview>
-
-**It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
-
-### Status badges
-
-Use the [`StatusBadge`](/components/status-badge) component to compose a status icon with a text label, usually when a status is shown outside of a Table. Common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
-
-<LivePreview scope={{Box, StatusBadge}} language="jsx">
-  {`<Box display="flex" flexDirection="column" rowGap="space40">
-  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
-    <StatusBadge as="span" variant="ProcessSuccess">
-      Success
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessError">
-      Error
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessWarning">
-      Warning
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessNeutral">
-      Neutral
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessInProgress">
-      In-progress
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessDisabled">
-      Disabled
-    </StatusBadge>
-    <StatusBadge as="span" variant="ProcessDraft">
-      Draft
-    </StatusBadge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <StatusBadge as="span" variant="ConnectivityAvailable">
-      Available
-    </StatusBadge>
-    <StatusBadge as="span" variant="ConnectivityUnavailable">
-      Unavailable
-    </StatusBadge>
-    <StatusBadge as="span" variant="ConnectivityBusy">
-      Busy
-    </StatusBadge>
-    <StatusBadge as="span" variant="ConnectivityNeutral">
-      Neutral
-    </StatusBadge>
-    <StatusBadge as="span" variant="ConnectivityOffline">
-      Offline
-    </StatusBadge>
-  </Box>
-</Box>
-`.trim()}
-</LivePreview>
-
-### Positioning in a table
-
-Statuses are most often used in tables across our products.
-Placement of the status in the table should depend on the importance of the status to the given user flow and should be tested with users.
 
 <LivePreview
   scope={{
-    Box,
-    Button,
-    Heading,
-    Text,
-    Table,
-    THead,
-    TBody,
-    Tr,
-    Td,
-    Th,
-    ProcessSuccessIcon,
-    StatusBadge,
+    useStatusMenuState,
+    StatusMenu,
+    StatusMenuItemRadio,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    ConnectivityObject,
   }}
-  language="jsx"
+  noInline
+  showOverflow
 >
-  {tableExample}
-</LivePreview>
-
-### Pairing process statuses with plain text statuses
-
-Using plain text statuses for non-critical information and process statuses for critical information
-is a great way to highlight information that is most important for a user to know.
-
-<LivePreview
-  scope={{
-    Box,
-    Button,
-    Heading,
-    Text,
-    Table,
-    THead,
-    TBody,
-    Tr,
-    Td,
-    Th,
-    StatusBadge,
-  }}
-  language="jsx"
->
-  {tableWithPlainTextExample}
-</LivePreview>
-
-### Providing additional information on a status
-
-It can often be beneficial to provide additional information on a status. The best way to do this is to provide description text directly below the status.
-This makes the information easily discoverable and is the simplest way for screen reader users to access it.
-
-### Adding a link to a status
-
-Linking out to additional information is a great way to add more context to a status and guide the user towards their next steps.
-
-[Anchors](/components/anchor) can be placed directly on status text or within help text below the status.
-[Link-style buttons](/components/button/#link-style-button) can be used when clicking the text performs an in-page action, such as opening a modal.
-
-<LivePreview
-  scope={{
-    Box,
-    Button,
-    Heading,
-    Text,
-    Anchor,
-    ProcessErrorIcon,
-  }}
-  language="jsx"
->
-  {linkInStatusExamples}
-</LivePreview>
-
-<br />
-<br />
-
-### Other common placements
-
-Statuses are not always placed in tables. Other common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
-
-<LivePreview
-  scope={{
-    Box,
-    Button,
-    Card,
-    Heading,
-    Text,
-    Avatar,
-    Anchor,
-    MediaObject,
-    MediaFigure,
-    MediaBody,
-    Paragraph,
-    Stack,
-    StatusBadge,
-  }}
-  language="jsx"
->
-  {otherCommonPlacements}
+  {availabilityStatusMenuExample}
 </LivePreview>
 
 ## Dos and Don'ts
@@ -642,10 +589,6 @@ Statuses are not always placed in tables. Other common placements are near avata
     </Table>
   </Dont>
 </DoDont>
-
-## Starter kits
-
-- [Figma](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns?node-id=531%3A8)
 
 ## Related Discussions
 

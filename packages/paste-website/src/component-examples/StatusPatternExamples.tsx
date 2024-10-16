@@ -259,7 +259,7 @@ export const tableWithPlainTextExample = `
         <Td>Bewitched</Td>	
         <Td>Series</Td>	
         <Td>	
-          <StatusBadge variant="ProcessWarning">Progress halted</StatusBadge>	
+          <StatusBadge variant="ProcessWarning" size="borderless">Progress halted</StatusBadge>	
         </Td>	
       </Tr>	
       <Tr>	
@@ -271,6 +271,81 @@ export const tableWithPlainTextExample = `
         <Td>Little Women</Td>	
         <Td>Feature</Td>	
         <Td>Released</Td>	
+      </Tr>	
+    </TBody>	
+  </Table>	
+</>	
+`.trim();
+
+export const connectivityStatusTableExample = `	
+<>	
+  <Heading as="h2" variant="heading20">	
+    Reboots	
+  </Heading>	
+  <Table>	
+    <THead>	
+      <Tr>	
+        <Th>Agents</Th>	
+        <Th>Queues</Th>	
+      </Tr>	
+    </THead>	
+    <TBody>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Adaline Baxter" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Adaline Baxter</Text>
+              <Box display="flex">
+                <ConnectivityAvailableIcon	
+                  color="colorTextIconSuccess"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">Available | 12:43</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
+      </Tr>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Jane Cooper" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Jane Cooper</Text>
+              <Box display="flex">
+                <ConnectivityBusyIcon	
+                  color="colorTextIconBusy"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">On break | 02:23</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
+      </Tr>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Dan Reynolds" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Dan Reynolds</Text>
+              <Box display="flex">
+                <ConnectivityAvailableIcon	
+                  color="colorTextIconSuccess"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">Available | 10:21</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
       </Tr>	
     </TBody>	
   </Table>	
@@ -399,7 +474,7 @@ export const otherCommonPlacements = `
 `.trim();
 
 export const connectivityStatusExamples = `	
-<Box display="flex" columnGap="space90" flexWrap="wrap">	
+<Box display="flex" columnGap="space90" flexWrap="wrap" rowGap="space90">	
   <Box display="inherit">	
     <ConnectivityAvailableIcon	
       color="colorTextIconAvailable"	
@@ -439,6 +514,58 @@ export const connectivityStatusExamples = `
       title="offline"	
     />	
     Offline	
-  </Box>	
+  </Box>
+  <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessError" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessWarning" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessNeutral" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessInProgress" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDisabled" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDraft" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessSuccess">Success</StatusBadge>	
+  <StatusBadge variant="ProcessError">Success</StatusBadge>	
+  <StatusBadge variant="ProcessWarning">Success</StatusBadge>	
+  <StatusBadge variant="ProcessNeutral">Success</StatusBadge>	
+  <StatusBadge variant="ProcessInProgress">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDisabled">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDraft">Success</StatusBadge>	
 </Box>	
+`.trim();
+
+export const compactPageHeaderExample = `
+const PageHeaderExample = () => {
+  return (
+    <Box maxWidth="size50" borderStyle="solid" padding="space50" borderWidth="borderWidth10" borderColor="colorBorderDecorative10Weaker" borderRadius="borderRadius20">
+      <PageHeader size="compact">
+        <PageHeaderDetails>
+          <PageHeaderPrefix><Avatar name="parker smith" size="sizeIcon100" icon={UserIcon} /></PageHeaderPrefix>
+          <PageHeaderHeading>Parker Smith</PageHeaderHeading>
+          <PageHeaderActions>
+            <ButtonGroup>
+              <Button variant="secondary" size="small">Edit</Button>
+              <Button variant="secondary" size="small"><MoreIcon decorative={false} title="more menu" /></Button>
+            </ButtonGroup>
+          </PageHeaderActions>
+          <PageHeaderMeta>
+            Customer since June 11, 2009
+            <StatusBadge variant="ConnectivityAvailable">
+              Online
+            </StatusBadge>
+          </PageHeaderMeta>
+        </PageHeaderDetails>
+        <PageHeaderInPageNavigation>
+          <InPageNavigation aria-label="get started">
+            <InPageNavigationItem href="#" currentPage>
+              Customer details
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Customer history</InPageNavigationItem>
+          </InPageNavigation>
+        </PageHeaderInPageNavigation>
+      </PageHeader>
+    </Box>
+  );
+};
+render(
+  <PageHeaderExample />
+)
 `.trim();
