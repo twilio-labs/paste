@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const result = await client.chat.postMessage({
       channel: channelID,
       text: message,
-      username: "Paste Bot",
+      username: "Simon Bot",
       // eslint-disable-next-line camelcase
       thread_ts: threadID,
       mrkdwn: true,
