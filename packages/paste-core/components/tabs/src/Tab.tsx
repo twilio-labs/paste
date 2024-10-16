@@ -108,6 +108,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         borderColor: "transparent",
         borderStyle: "solid",
         borderWidth: "borderWidth10",
+        borderBottomWidth: "borderWidth20",
         borderTopLeftRadius: "borderRadius30",
         borderTopRightRadius: "borderRadius30",
         display: "inline-block",
@@ -150,7 +151,6 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         _selected_focus: {
           borderStyle: "solid",
-          borderWidth: "borderWidth10",
           boxShadow: "shadowFocusInset",
           color: isInverse ? "colorTextInverse" : "colorTextPrimary",
           borderColor: "colorBorderPrimary",
@@ -202,7 +202,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({ children, element, ...
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
 
-  const { orientation } = tab;
+  const { orientation, variant } = tab;
   const elementName = getElementName(orientation, "TAB", element);
 
   return (
@@ -229,6 +229,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({ children, element, ...
             textOverflow={orientation !== "vertical" ? "ellipsis" : undefined}
             transition="border-color 100ms ease, color 100ms ease"
             whiteSpace={orientation !== "vertical" ? "nowrap" : undefined}
+            minWidth={variant === "fitted" || variant === "inverse_fitted" ? "auto" : "fit-content"}
           >
             {children}
           </Box>
