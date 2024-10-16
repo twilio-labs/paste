@@ -74,6 +74,8 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         marginTop={marginTop}
         marginBottom={marginBottom}
         minWidth="size0"
+        rowGap={props.rowGap}
+        columnGap={props.columnGap}
       >
         {GridColumns}
       </Box>

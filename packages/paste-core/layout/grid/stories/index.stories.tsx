@@ -732,7 +732,7 @@ Grid2ColumnContentWithCard.storyName = "Grid - 2 Column Content with Card";
 export const GridEqualHeightColumns = (): React.ReactNode => {
   return (
     <>
-      <Grid gutter="space30" vertical={[true, true, false]} equalColumnHeights>
+      <Grid gutter="space30" rowGap="space30" vertical={[true, true, false]} equalColumnHeights>
         <Column span={4}>
           <Card padding="space70">
             <Heading as="h2" variant="heading20">

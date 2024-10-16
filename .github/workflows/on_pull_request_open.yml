@@ -5,13 +5,30 @@ on:
     types: [opened]
 
 jobs:
-  pr-triage:
+  pr-context-labeler:
     runs-on: ubuntu-latest
     steps:
-      - name: Auto labeller
-        uses: actions/labeler@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Check user for team affiliation
+        uses: tspascoal/get-user-teams-membership@v2
+        id: teamAffiliation
+        with:
+          GITHUB_TOKEN: "${{ secrets.PAT_GH_READ_ORG }}"
+          username: "${{ github.actor }}"
+          # List of all teams for dsys
+          team: "[Design Systems PD,design-systems,Design Systems Eng,Design Systems Eng Leads]"
+
+      - name: Debug in group
+        run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
+
+      - name: Auto contribution labeler
+        if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
+        uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          configuration-path: .github/opened-pr-labeler.yml
+          configuration-path: .github/opened-pr-contribution-labeler.yml
+
       - name: Assign Author
         uses: technote-space/assign-author@v1

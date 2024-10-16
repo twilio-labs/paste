@@ -1,0 +1,6 @@
+# https://github.com/actions/labeler
+
+# Add 'Contribution' label to any opened PR when author external to team
+"Contribution":
+  - changed-files:
+      - any-glob-to-any-file: "*/**"

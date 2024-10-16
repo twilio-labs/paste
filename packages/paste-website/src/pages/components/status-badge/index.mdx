@@ -260,6 +260,58 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
 `.trim()}
 </LivePreview>
 
+### Borderless Badges
+
+A borderless Status Badge has no border, padding, or background color.
+
+Use a borderless Status Badge inside of a Table to indicate the current state or condition of items of the Table. Placement of the status in the Table should depend on the importance of the status to the given user flow and should be tested with users.
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge size="borderless" variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessInProgress">
+      In-progress
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge size="borderless" variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
 ---
 
 ## Composition Notes

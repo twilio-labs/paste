@@ -303,6 +303,7 @@ export const SITEMAP = [
   "/patterns/empty-state/",
   "/patterns/error-state/",
   "/patterns/notifications-and-feedback/",
+  "/patterns/pricing/",
   "/patterns/privacy/",
   "/patterns/status/",
   "/primitives/combobox-primitive/",
