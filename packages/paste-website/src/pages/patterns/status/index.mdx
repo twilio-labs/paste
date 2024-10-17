@@ -111,7 +111,9 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{Box, Text, ProcessSuccessIcon}}>{BannerExample}</LivePreview>
+<LivePreview scope={{Box, Text, Badge, StatusBadge, ProcessSuccessIcon, useStatusMenuState, StatusMenu, StatusMenuItemRadio, StatusMenuBadge, StatusMenuItemChild, ProcessObject}} noInline showOverflow>
+  {BannerExample}
+</LivePreview>
 
 ## Ingredients
 
@@ -146,9 +148,10 @@ export const getStaticProps = async () => {
 ```jsx
 // import all components for Object status patterns
 
+import { Box } from "@twilio-paste/core/box";
+import {​ Text } from "@twilio-paste/core/text";
 import {​ StatusBadge } from "@twilio-paste/core/status-badge";
 import {​ StatusMenu } from "@twilio-paste/core/status-menu";
-import { Box } from "@twilio-paste/core/box";
 import { ProcessDisabledIcon } from "@twilio-paste/icons/esm/ProcessDisabledIcon";
 import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
 import { ProcessErrorIcon } from "@twilio-paste/icons/esm/ProcessErrorIcon";
@@ -165,11 +168,9 @@ import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
 
 An Object status is used to communicate the dynamic state of an object. Use it to help a user identify something that requires their attention and often, their action. When a status is used to indicate to the user that they need to take action, be sure to provide clear controls to take that action (check out the example in [Process status](#process-status)).
 
-
-
 Object statuses are:
 
-- Always related to an object. For example, this pattern applies to SIMs and regulatory bundles, but not to a step in a wizard flow. Instead, use the [Error state pattern](https://paste.twilio.design/patterns/error-state) or [Progress Steps component](https://paste.twilio.design/components/progress-steps).
+- Always related to an object. For example, this pattern applies to SIMs and regulatory bundles, but not to a step in a wizard flow. Instead, use the [Error state pattern](/patterns/error-state) or [Progress Steps component](/components/progress-steps).
 - Not used for static attributes. For example, “SMS-capable” is not a status on a phone number.
 - Different from [notification and feedback messaging](/patterns/notifications-and-feedback), which is in direct response to a user action.
 - Different from [alert messaging](/components/alert), which is from the system.
@@ -197,6 +198,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
     Box,
     Text,
     Stack,
+    StatusBadge,
     ProcessDisabledIcon,
     ProcessDraftIcon,
     ProcessErrorIcon,
@@ -208,6 +210,52 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
   language="jsx"
 >
   {processStatusExamples}
+</LivePreview>
+
+To determine how to show a process status:
+- If additional information is needed about the status, use Icon, Text, and [Anchor](/components/anchor) (optional).
+- If it’s in a Table and no additional information is needed, use a [borderless Status Badge](/components/status-badge#borderless-badges).
+- Otherwise, use the default [Status Badge](/components/status-badge).
+Placement of the status in a Table should depend on the importance of the status to the given user flow and should be tested with users.
+For statuses that are not as critical to a user’s workflow, use [plain text statuses](#plain-text-status).
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Card,
+    StatusBadge,
+    Badge,
+    Heading,
+    Table,
+    THead,
+    Tr,
+    Th,
+    Td,
+    TBody,
+    Avatar,
+    DetailText,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
+    Anchor,
+  }}
+  language="jsx"
+>
+  {tableExample}
+</LivePreview>
+
+<LivePreview
+  scope={{
+    Box,
+    Paragraph,
+    Card,
+    Stack,
+    StatusBadge,
+    Heading,
+  }}
+  language="jsx"
+>
+  {otherCommonPlacements}
 </LivePreview>
 
 #### Icon and token pairings
@@ -277,7 +325,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessDisabledIcon</Td>
       <Td>$color-text-icon</Td>
-      <Td>ProcessInDisabled</Td>
+      <Td>ProcessDisabled</Td>
       <Td>Indicates that something is inactive, disabled, or paused.</Td>
     </Tr>
     <Tr>
@@ -286,7 +334,7 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       </Td>
       <Td>ProcessDraftIcon</Td>
       <Td>$color-text-icon</Td>
-      <Td>ProcessInDisabled</Td>
+      <Td>ProcessDraft</Td>
       <Td>Indicates that something is a draft, unused, or not started.</Td>
     </Tr>
   </TBody>
@@ -340,7 +388,7 @@ Connectivity statuses are used to show if a user, object, or system is online or
 </LivePreview>
 
 To determine how to show a connectivity status:
-- If additional information is needed to explain the status, use Icon, Text, and [Anchor](/components/anchor)
+- If additional information is needed to explain the status, use Icon, Text, and [Anchor](/components/anchor).
 - If it’s in a Table and no additional information is needed, use a [borderless Status Badge](/components/status-badge#borderless-badges).
 - Otherwise, use the default Status Badge.
 
@@ -383,6 +431,7 @@ To determine how to show a connectivity status:
       <Th>Icon</Th>
       <Th>Icon name</Th>
       <Th width="250px">Token</Th>
+      <Th>Status Badge variant</Th>
       <Th>Usage</Th>
     </Tr>
   </THead>
@@ -393,6 +442,7 @@ To determine how to show a connectivity status:
       </Td>
       <Td>ConnectivityAvailableIcon</Td>
       <Td>$color-text-icon-available</Td>
+      <Td>ConnectivityAvailable</Td>
       <Td>Indicates that a person or entity is available or online.</Td>
     </Tr>
     <Tr>
@@ -401,6 +451,7 @@ To determine how to show a connectivity status:
       </Td>
       <Td>ConnectivityBusyIcon</Td>
       <Td>$color-text-icon-busy</Td>
+      <Td>ConnectivityBusy</Td>
       <Td>Indicates that a person or entity is busy or away.</Td>
     </Tr>
     <Tr>
@@ -409,6 +460,7 @@ To determine how to show a connectivity status:
       </Td>
       <Td>ConnectivityUnavailableIcon</Td>
       <Td>$color-text-icon-unavailable</Td>
+      <Td>ConnectivityUnavailable</Td>
       <Td>Indicates that a person or entity is unavailable or at capacity.</Td>
     </Tr>
     <Tr>
@@ -417,6 +469,7 @@ To determine how to show a connectivity status:
       </Td>
       <Td>ConnectivityNeutralIcon</Td>
       <Td>$color-text-icon-neutral</Td>
+      <Td>ConnectivityNeutral</Td>
       <Td>Indicates that a person or entity is neutral.</Td>
     </Tr>
     <Tr>
@@ -425,28 +478,15 @@ To determine how to show a connectivity status:
       </Td>
       <Td>ConnectivityOfflineIcon</Td>
       <Td>$color-text-icon-offline</Td>
+      <Td>ConnectivityOffline</Td>
       <Td>Indicates that a person or entity is offline.</Td>
     </Tr>
   </TBody>
 </Table>
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Connectivity statuses in Flex</CalloutHeading>
-  <CalloutText>
-    Connectivity statuses are used heavily throughout Flex, where the circle indicators should retain the same color
-    across the product on any background color (including the dark topmast).
-  </CalloutText>
-  <CalloutText>
-    Since icons must have high enough contrast with their background, Flex uses Box with a background color here instead
-    of using an icon. This gives more flexibility to the number of backgrounds a connectivity status can be placed on.
-  </CalloutText>
-  <CalloutText>
-    In general, Connectivity statuses should use the icons and tokens documented in this pattern, but if you have a use
-    case similar to Flex, you can follow their approach.
-  </CalloutText>
-</Callout>
+<br/>
 
-#### Swapping statuses with Status Menu
+### Swapping statuses with Status Menu
 
 Use a [Status Menu](/components/status-menu) to let users swap between statuses.
 
