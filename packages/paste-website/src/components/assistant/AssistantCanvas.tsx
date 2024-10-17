@@ -1,6 +1,7 @@
 import { useIsMutating, useQuery } from "@tanstack/react-query";
+import { AIChatLog } from "@twilio-paste/ai-chat-log";
 import { Box } from "@twilio-paste/box";
-import { ChatBookend, ChatBookendItem, ChatLog } from "@twilio-paste/chat-log";
+import { Text } from "@twilio-paste/text";
 import * as React from "react";
 import { useShallow } from "zustand/react/shallow";
 
@@ -62,21 +63,41 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
     <Box ref={scrollerRef} tabIndex={0} overflowY="auto">
       <Box maxWidth="1000px" marginX="auto">
         {activeRun != null && <AssistantMessagePoller />}
-        <ChatLog ref={loggerRef}>
-          <ChatBookend>
-            <ChatBookendItem>
-              Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
-            </ChatBookendItem>
-          </ChatBookend>
-          <ChatBookend>
-            <ChatBookendItem>
-              Keep in mind that this is an experimental tool and so the information provided{" "}
-              <strong>may not be entirely accurate</strong>.
-            </ChatBookendItem>
-            <ChatBookendItem>
-              Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
-            </ChatBookendItem>
-          </ChatBookend>
+        <AIChatLog ref={loggerRef}>
+          <Text
+            as="div"
+            color="colorTextWeak"
+            fontSize="fontSize20"
+            lineHeight="lineHeight20"
+            fontWeight="fontWeightMedium"
+            textAlign="center"
+          >
+            Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
+          </Text>
+          <Text
+            as="div"
+            color="colorTextWeak"
+            fontSize="fontSize20"
+            lineHeight="lineHeight20"
+            fontWeight="fontWeightMedium"
+            textAlign="center"
+          >
+            Keep in mind that this is an experimental tool and so the information provided{" "}
+            <Text as="div" fontWeight="fontWeightBold">
+              may not be entirely accurate
+            </Text>
+            .
+          </Text>
+          <Text
+            as="div"
+            color="colorTextWeak"
+            fontSize="fontSize20"
+            lineHeight="lineHeight20"
+            fontWeight="fontWeightMedium"
+            textAlign="center"
+          >
+            Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
+          </Text>
           {messages?.map((threadMessage): React.ReactNode => {
             if (threadMessage.role === "assistant") {
               return <AssistantMessage key={threadMessage.id} threadMessage={threadMessage} />;
@@ -84,7 +105,7 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
             return <UserMessage key={threadMessage.id} threadMessage={threadMessage} />;
           })}
           {(isCreatingAResponse || activeRun != null) && <LoadingMessage maxWidth={logWidth} />}
-        </ChatLog>
+        </AIChatLog>
       </Box>
     </Box>
   );
