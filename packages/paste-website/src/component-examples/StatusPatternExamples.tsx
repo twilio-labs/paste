@@ -7,14 +7,109 @@ import { ProcessNeutralIcon } from "@twilio-paste/icons/esm/ProcessNeutralIcon";
 import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
 import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
 
-export const BannerExample = `	
-<Box display="flex">	
-  <ProcessSuccessIcon	
-    color="colorTextIconSuccess"	
-    decorative={false}	
-    title="success" />	
-  <Text marginLeft="space20">Success</Text>	
-</Box>	
+export const BannerExample = `
+const ObjectStatusPatternComponents = () => {
+  const [process, setProcess] = React.useState(ProcessObject.Success);
+  const menu = useStatusMenuState();
+  const onClick = (status) => {
+    setProcess(ProcessObject[status]);
+    menu.hide();
+  };
+  return (
+    <Box display="flex" flexDirection="column" rowGap="space60">
+      <Box display="flex">
+        <ProcessSuccessIcon	
+          color="colorTextIconSuccess"	
+          decorative={false}	
+          title="success" />	
+        <Text marginLeft="space20">Success</Text>	
+      </Box>
+      <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>
+      <StatusBadge variant="ConnectivityAvailable">Available</StatusBadge>
+      <Box>
+        <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={process.variant}>
+          {process.children}
+        </StatusMenuBadge>
+        <StatusMenu {...menu} aria-label="Preferences">
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="success"
+            checked={process.children === ProcessObject.Success.children}
+            onClick={() => onClick('Success')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessSuccess">{ProcessObject.Success.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="neutral"
+            checked={process.children === ProcessObject.Neutral.children}
+            onClick={() => onClick('Neutral')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessNeutral">{ProcessObject.Neutral.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="warning"
+            checked={process.children === ProcessObject.Warning.children}
+            onClick={() => onClick('Warning')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessWarning">{ProcessObject.Warning.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="error"
+            checked={process.children === ProcessObject.Error.children}
+            onClick={() => onClick('Error')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessError">{ProcessObject.Error.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="InProgress"
+            checked={process.children === ProcessObject.InProgress.children}
+            onClick={() => onClick('InProgress')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessInProgress">{ProcessObject.InProgress.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="disabled"
+            checked={process.children === ProcessObject.Disabled.children}
+            onClick={() => onClick('Disabled')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessDisabled">{ProcessObject.Disabled.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+          <StatusMenuItemRadio
+            {...menu}
+            name="process"
+            value="draft"
+            checked={process.children === ProcessObject.Draft.children}
+            onClick={() => onClick('Draft')}
+            variant="default"
+          >
+            <StatusMenuItemChild variant="ProcessDraft">{ProcessObject.Draft.children}</StatusMenuItemChild>
+          </StatusMenuItemRadio>
+        </StatusMenu>
+      </Box>
+    </Box>
+  );
+};
+
+render(
+  <ObjectStatusPatternComponents />
+)
 `.trim();
 
 export const ProcessError = (): JSX.Element => {
@@ -70,56 +165,76 @@ export const ConnectivityOffline = (): JSX.Element => {
 };
 
 export const processStatusExamples = `	
-<Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">	
-  <Box display="flex">	
-    <ProcessErrorIcon	
-      color="colorTextIconError"	
-      decorative={false}	
-      title="error" />	
-    <Text marginLeft="space20">Error</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessWarningIcon	
-      color="colorTextIconWarning"	
-      decorative={false}	
-      title="warning" />	
-    <Text marginLeft="space20">Warning</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessSuccessIcon	
-      color="colorTextIconSuccess"	
-      decorative={false}	
-      title="success" />	
-    <Text marginLeft="space20">Success</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessNeutralIcon	
-      color="colorTextIconNeutral"	
-      decorative={false}	
-      title="neutral" />	
-    <Text marginLeft="space20">Neutral</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessInProgressIcon	
-      color="colorTextIconNeutral"	
-      decorative={false}	
-      title="In-progress" />	
-    <Text marginLeft="space20">In-progress</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessDisabledIcon	
-      color="colorTextIcon"	
-      decorative={false}	
-      title="disabled" />	
-    <Text marginLeft="space20">Disabled</Text>	
-  </Box>	
-  <Box display="flex">	
-    <ProcessDraftIcon	
-      color="colorTextIcon"	
-      decorative={false}	
-      title="draft" />	
-    <Text marginLeft="space20">Draft</Text>	
-  </Box>	
+<Box display="flex" rowGap="space100" flexWrap="wrap">	
+  <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <Box display="flex">	
+      <ProcessErrorIcon	
+        color="colorTextIconError"	
+        decorative={false}	
+        title="error" />	
+      <Text marginLeft="space20">Error</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessWarningIcon	
+        color="colorTextIconWarning"	
+        decorative={false}	
+        title="warning" />	
+      <Text marginLeft="space20">Warning</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessSuccessIcon	
+        color="colorTextIconSuccess"	
+        decorative={false}	
+        title="success" />	
+      <Text marginLeft="space20">Success</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessNeutralIcon	
+        color="colorTextIconNeutral"	
+        decorative={false}	
+        title="neutral" />	
+      <Text marginLeft="space20">Neutral</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessInProgressIcon	
+        color="colorTextIconNeutral"	
+        decorative={false}	
+        title="In-progress" />	
+      <Text marginLeft="space20">In-progress</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessDisabledIcon	
+        color="colorTextIcon"	
+        decorative={false}	
+        title="disabled" />	
+      <Text marginLeft="space20">Disabled</Text>	
+    </Box>	
+    <Box display="flex">	
+      <ProcessDraftIcon	
+        color="colorTextIcon"	
+        decorative={false}	
+        title="draft" />	
+      <Text marginLeft="space20">Draft</Text>	
+    </Box>	
+  </Box>
+  <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessError" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessWarning" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessNeutral" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessInProgress" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessDisabled" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessDraft" size="borderless">Success</StatusBadge>	
+  </Box>
+  <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <StatusBadge variant="ProcessSuccess">Success</StatusBadge>	
+    <StatusBadge variant="ProcessError">Success</StatusBadge>	
+    <StatusBadge variant="ProcessWarning">Success</StatusBadge>	
+    <StatusBadge variant="ProcessNeutral">Success</StatusBadge>	
+    <StatusBadge variant="ProcessInProgress">Success</StatusBadge>	
+    <StatusBadge variant="ProcessDisabled">Success</StatusBadge>	
+    <StatusBadge variant="ProcessDraft">Success</StatusBadge>	
+  </Box>
 </Box>	
 `.trim();
 
@@ -166,17 +281,18 @@ export const tableExample = `
     <TBody>	
       <Tr>	
         <Td>	
-          <Box display="inline-flex" columnGap="space20">	
-            <ProcessSuccessIcon	
-              color="colorTextIconSuccess"	
-              decorative={false}	
-              title="success"	
-            />	
-            <Box>	
-              <Text as="div">Successfully exported</Text>	
-              <Text as="div" color="colorTextWeak">Tuesday, January 2, 2021</Text>	
-            </Box>	
-          </Box>	
+          <Box display="flex" flexDirection="column">	
+            <Box display="flex">
+              <ProcessWarningIcon	
+                color="colorTextIconWarning"	
+                decorative={false}	
+                title="warning" />	
+              <Text marginLeft="space20">Pre-registration needed</Text>	
+            </Box>
+            <Box marginLeft="space60">
+              <Anchor showExternal href="#" marginLeft="space20">Fill out the registration form here</Anchor>
+            </Box>
+          </Box>		
         </Td>	
         <Td>	
           <strong>Contacts who did not click</strong>	
@@ -223,7 +339,7 @@ export const tableExample = `
         <Td>WE902990c21gjioGasd</Td>	
         <Td>North America</Td>	
         <Td>	
-          <StatusBadge variant="ProcessSuccess">Active</StatusBadge>	
+          <StatusBadge variant="ProcessSuccess" size="borderless">Active</StatusBadge>	
         </Td>	
         <Td>2020-10-15</Td>	
       </Tr>	
@@ -232,7 +348,7 @@ export const tableExample = `
         <Td>WE928471c21gjioGasd</Td>	
         <Td>North America</Td>	
         <Td>	
-          <StatusBadge variant="ProcessNeutral">Ready</StatusBadge>	
+          <StatusBadge variant="ProcessNeutral" size="borderless">Ready</StatusBadge>	
         </Td>	
         <Td>2020-10-15</Td>	
       </Tr>	
@@ -259,7 +375,7 @@ export const tableWithPlainTextExample = `
         <Td>Bewitched</Td>	
         <Td>Series</Td>	
         <Td>	
-          <StatusBadge variant="ProcessWarning">Progress halted</StatusBadge>	
+          <StatusBadge variant="ProcessWarning" size="borderless">Progress halted</StatusBadge>	
         </Td>	
       </Tr>	
       <Tr>	
@@ -271,6 +387,81 @@ export const tableWithPlainTextExample = `
         <Td>Little Women</Td>	
         <Td>Feature</Td>	
         <Td>Released</Td>	
+      </Tr>	
+    </TBody>	
+  </Table>	
+</>	
+`.trim();
+
+export const connectivityStatusTableExample = `	
+<>	
+  <Heading as="h2" variant="heading20">	
+    Reboots	
+  </Heading>	
+  <Table>	
+    <THead>	
+      <Tr>	
+        <Th>Agents</Th>	
+        <Th>Queues</Th>	
+      </Tr>	
+    </THead>	
+    <TBody>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Adaline Baxter" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Adaline Baxter</Text>
+              <Box display="flex">
+                <ConnectivityAvailableIcon	
+                  color="colorTextIconSuccess"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">Available | 12:43</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
+      </Tr>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Jane Cooper" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Jane Cooper</Text>
+              <Box display="flex">
+                <ConnectivityBusyIcon	
+                  color="colorTextIconBusy"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">On break | 02:23</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
+      </Tr>	
+      <Tr>	
+        <Td>
+          <Box display="flex" columnGap="space20" alignItems="center">
+            <Avatar name="Dan Reynolds" size="sizeIcon70" />
+            <Box display="flex" flexDirection="column">
+              <Text fontWeight="fontWeightMedium" marginLeft="space20">Dan Reynolds</Text>
+              <Box display="flex">
+                <ConnectivityAvailableIcon	
+                  color="colorTextIconSuccess"	
+                  decorative={false}	
+                  title="success"	
+                />	
+                <DetailText marginTop="space0">Available | 10:21</DetailText>	
+              </Box>
+            </Box>
+          </Box>
+        </Td>	
+        <Td><Badge variant="decorative10">Queue name</Badge></Td>	
       </Tr>	
     </TBody>	
   </Table>	
@@ -355,51 +546,11 @@ export const otherCommonPlacements = `
       <Paragraph marginBottom="space0">Information about your business</Paragraph>	
     </Card>	
   </Box>	
-  <Box width="275px">	
-    <Box	
-      as="span"	
-      display="flex"	
-      width="100%"	
-      alignItems="center"	
-      justifyContent="space-between"	
-      marginBottom="space30"	
-    >	
-      <Text fontWeight="fontWeightSemibold">Account Security</Text>	
-      <StatusBadge variant="ProcessSuccess">	
-        Connected	
-      </StatusBadge>	
-    </Box>	
-    <Box	
-      as="span"	
-      display="flex"	
-      width="100%"	
-      alignItems="center"	
-      justifyContent="space-between"	
-      marginBottom="space30"	
-    >	
-      <Text fontWeight="fontWeightSemibold">Autopilot</Text>	
-      <StatusBadge variant="ProcessSuccess">	
-        Connected	
-      </StatusBadge>	
-    </Box>	
-    <Box	
-      as="span"	
-      display="flex"	
-      width="100%"	
-      alignItems="center"	
-      justifyContent="space-between"	
-    >	
-      <Text fontWeight="fontWeightSemibold">Carrier Network</Text>	
-      <StatusBadge variant="ProcessWarning">	
-        Intermittent	
-      </StatusBadge>	
-    </Box>	
-  </Box>	
 </Stack>	
 `.trim();
 
 export const connectivityStatusExamples = `	
-<Box display="flex" columnGap="space90" flexWrap="wrap">	
+<Box display="flex" columnGap="space90" flexWrap="wrap" rowGap="space90">	
   <Box display="inherit">	
     <ConnectivityAvailableIcon	
       color="colorTextIconAvailable"	
@@ -439,6 +590,58 @@ export const connectivityStatusExamples = `
       title="offline"	
     />	
     Offline	
-  </Box>	
+  </Box>
+  <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessError" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessWarning" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessNeutral" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessInProgress" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDisabled" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDraft" size="borderless">Success</StatusBadge>	
+  <StatusBadge variant="ProcessSuccess">Success</StatusBadge>	
+  <StatusBadge variant="ProcessError">Success</StatusBadge>	
+  <StatusBadge variant="ProcessWarning">Success</StatusBadge>	
+  <StatusBadge variant="ProcessNeutral">Success</StatusBadge>	
+  <StatusBadge variant="ProcessInProgress">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDisabled">Success</StatusBadge>	
+  <StatusBadge variant="ProcessDraft">Success</StatusBadge>	
 </Box>	
+`.trim();
+
+export const compactPageHeaderExample = `
+const PageHeaderExample = () => {
+  return (
+    <Box maxWidth="size50" borderStyle="solid" padding="space50" borderWidth="borderWidth10" borderColor="colorBorderDecorative10Weaker" borderRadius="borderRadius20">
+      <PageHeader size="compact">
+        <PageHeaderDetails>
+          <PageHeaderPrefix><Avatar name="parker smith" size="sizeIcon100" icon={UserIcon} /></PageHeaderPrefix>
+          <PageHeaderHeading>Parker Smith</PageHeaderHeading>
+          <PageHeaderActions>
+            <ButtonGroup>
+              <Button variant="secondary" size="small">Edit</Button>
+              <Button variant="secondary" size="small"><MoreIcon decorative={false} title="more menu" /></Button>
+            </ButtonGroup>
+          </PageHeaderActions>
+          <PageHeaderMeta>
+            Customer since June 11, 2009
+            <StatusBadge variant="ConnectivityAvailable">
+              Online
+            </StatusBadge>
+          </PageHeaderMeta>
+        </PageHeaderDetails>
+        <PageHeaderInPageNavigation>
+          <InPageNavigation aria-label="get started">
+            <InPageNavigationItem href="#" currentPage>
+              Customer details
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Customer history</InPageNavigationItem>
+          </InPageNavigation>
+        </PageHeaderInPageNavigation>
+      </PageHeader>
+    </Box>
+  );
+};
+render(
+  <PageHeaderExample />
+)
 `.trim();
