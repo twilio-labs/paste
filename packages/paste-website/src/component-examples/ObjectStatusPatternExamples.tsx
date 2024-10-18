@@ -200,7 +200,7 @@ export const processStatusExamples = `
         color="colorTextIconNeutral"	
         decorative={false}	
         title="In-progress" />	
-      <Text marginLeft="space20">In-progress</Text>	
+      <Text marginLeft="space20">In progress</Text>	
     </Box>	
     <Box display="flex">	
       <ProcessDisabledIcon	
@@ -219,21 +219,21 @@ export const processStatusExamples = `
   </Box>
   <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
     <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessError" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessWarning" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessNeutral" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessInProgress" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessDisabled" size="borderless">Success</StatusBadge>	
-    <StatusBadge variant="ProcessDraft" size="borderless">Success</StatusBadge>	
+    <StatusBadge variant="ProcessError" size="borderless">Error</StatusBadge>	
+    <StatusBadge variant="ProcessWarning" size="borderless">Warning</StatusBadge>	
+    <StatusBadge variant="ProcessNeutral" size="borderless">Neutral</StatusBadge>	
+    <StatusBadge variant="ProcessInProgress" size="borderless">In progress</StatusBadge>	
+    <StatusBadge variant="ProcessDisabled" size="borderless">Disabled</StatusBadge>	
+    <StatusBadge variant="ProcessDraft" size="borderless">Draft</StatusBadge>	
   </Box>
   <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
     <StatusBadge variant="ProcessSuccess">Success</StatusBadge>	
-    <StatusBadge variant="ProcessError">Success</StatusBadge>	
-    <StatusBadge variant="ProcessWarning">Success</StatusBadge>	
-    <StatusBadge variant="ProcessNeutral">Success</StatusBadge>	
-    <StatusBadge variant="ProcessInProgress">Success</StatusBadge>	
-    <StatusBadge variant="ProcessDisabled">Success</StatusBadge>	
-    <StatusBadge variant="ProcessDraft">Success</StatusBadge>	
+    <StatusBadge variant="ProcessError">Error</StatusBadge>	
+    <StatusBadge variant="ProcessWarning">Warning</StatusBadge>	
+    <StatusBadge variant="ProcessNeutral">Neutral</StatusBadge>	
+    <StatusBadge variant="ProcessInProgress">In progress</StatusBadge>	
+    <StatusBadge variant="ProcessDisabled">Disabled</StatusBadge>	
+    <StatusBadge variant="ProcessDraft">Draft</StatusBadge>	
   </Box>
 </Box>	
 `.trim();
@@ -550,61 +550,83 @@ export const otherCommonPlacements = `
 `.trim();
 
 export const connectivityStatusExamples = `	
-<Box display="flex" columnGap="space90" flexWrap="wrap" rowGap="space90">	
-  <Box display="inherit">	
-    <ConnectivityAvailableIcon	
-      color="colorTextIconAvailable"	
+<Box display="flex" rowGap="space100" flexWrap="wrap">	
+  <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <Box display="inherit">	
+      <ConnectivityAvailableIcon	
+        color="colorTextIconAvailable"	
+        decorative={false}	
+        title="available"	
+      />	
+      Available	
+    </Box>	
+    <Box display="inherit">	
+      <ConnectivityBusyIcon	
+        color="colorTextIconBusy"	
+        decorative={false}	
+        title="busy"	
+      />	
+      Busy	
+    </Box>	
+    <Box display="inherit">	
+      <ConnectivityUnavailableIcon	
+        color="colorTextIconUnavailable"	
+        decorative={false}	
+        title="unavailable"	
+      />	
+      Unavailable	
+    </Box>	
+    <Box display="inherit">	
+    <ConnectivityNeutralIcon	
+      color="colorTextIconNeutral"	
       decorative={false}	
-      title="available"	
+      title="neutral"	
     />	
-    Available	
+    Neutral	
   </Box>	
-  <Box display="inherit">	
-    <ConnectivityBusyIcon	
-      color="colorTextIconBusy"	
-      decorative={false}	
-      title="busy"	
-    />	
-    Busy	
-  </Box>	
-  <Box display="inherit">	
-    <ConnectivityUnavailableIcon	
-      color="colorTextIconUnavailable"	
-      decorative={false}	
-      title="unavailable"	
-    />	
-    Unavailable	
-  </Box>	
-  <Box display="inherit">	
-  <ConnectivityNeutralIcon	
-    color="colorTextIconNeutral"	
-    decorative={false}	
-    title="neutral"	
-  />	
-  Neutral	
-</Box>	
-  <Box display="inherit">	
-    <ConnectivityOfflineIcon	
-      color="colorTextIconOffline"	
-      decorative={false}	
-      title="offline"	
-    />	
-    Offline	
+    <Box display="inherit">	
+      <ConnectivityOfflineIcon	
+        color="colorTextIconOffline"	
+        decorative={false}	
+        title="offline"	
+      />	
+      Offline	
+    </Box>
   </Box>
-  <StatusBadge variant="ProcessSuccess" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessError" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessWarning" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessNeutral" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessInProgress" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessDisabled" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessDraft" size="borderless">Success</StatusBadge>	
-  <StatusBadge variant="ProcessSuccess">Success</StatusBadge>	
-  <StatusBadge variant="ProcessError">Success</StatusBadge>	
-  <StatusBadge variant="ProcessWarning">Success</StatusBadge>	
-  <StatusBadge variant="ProcessNeutral">Success</StatusBadge>	
-  <StatusBadge variant="ProcessInProgress">Success</StatusBadge>	
-  <StatusBadge variant="ProcessDisabled">Success</StatusBadge>	
-  <StatusBadge variant="ProcessDraft">Success</StatusBadge>	
+  <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <StatusBadge variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+    <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
+    <StatusBadge size="borderless" variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge size="borderless" variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
 </Box>	
 `.trim();
 
