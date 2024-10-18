@@ -1,16 +1,35 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck copied from official highcharts docs
 import type Highcharts from "highcharts";
+import React from "react";
 
 export const lineChartOptions: Highcharts.Options = {
   accessibility: {
     description: "This chart shows the solar employment growth by sector from 2010 to 2016.",
+    point: {
+      descriptionFormatter: function (point) {
+        return `${point.index + 1}. ${point.x}, ${point.y} ${point.series.name}. ${JSON.stringify(
+          point.series.markerAttribs(point),
+        )}`;
+      },
+      
+    },
   },
+
   title: {
     text: "Solar Employment Growth by Sector, 2010-2016",
+    style: {
+      display: "none",
+    },
   },
   subtitle: {
     text: "Source: thesolarfoundation.com",
+    style: {
+      display: "none",
+    },
+  },
+  tooltip: {
+    shared: true,
   },
   series: [
     {

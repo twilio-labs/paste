@@ -42,6 +42,9 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
     colors,
     chart: {
       backgroundColor: context.backgroundColors.colorBackgroundBody,
+      style: {
+        fontFamily: context.fonts.fontFamilyText,
+      },
     },
     title: {
       style: {
@@ -105,7 +108,12 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
       },
     },
     tooltip: {
-      backgroundColor: context.backgroundColors.colorBackground,
+      
+      backgroundColor: context.backgroundColors.colorBackgroundBody,
+      borderColor: context.borderColors.colorBorderWeaker,
+      borderWidth: context.borderWidths.borderWidth10,
+      borderRadius: context.radii.borderRadius30.replace("px", ""),
+      padding: 12,
       style: {
         color: context.textColors.colorText,
       },
