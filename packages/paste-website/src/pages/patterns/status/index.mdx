@@ -186,12 +186,7 @@ Check out the [icon usage guidelines](/components/icon/usage-guidelines) for mor
 
 ### Process status
 
-Process statuses indicate an object’s progress through a certain set of stages. There are generally 3 or more stages in a given process,
-which may be considered “good”, “bad”, or “neutral”. Process statuses are composed of a status Icon and Text.
-
-**Process icons should be paired with text whenever possible.** When using process icons, try to limit the number of icons
-used to 3 or 4 of the most important statuses. For statuses that are not as critical to a user’s workflow, consider
-[plain text statuses](#plain-text-status).
+Process statuses indicate an object’s progress through a set of stages. **Process statuses should always be paired with text.**
 
 <LivePreview
   scope={{
@@ -216,7 +211,9 @@ To determine how to show a process status:
 - If additional information is needed about the status, use Icon, Text, and [Anchor](/components/anchor) (optional).
 - If it’s in a Table and no additional information is needed, use a [borderless Status Badge](/components/status-badge#borderless-badges).
 - Otherwise, use the default [Status Badge](/components/status-badge).
+
 Placement of the status in a Table should depend on the importance of the status to the given user flow and should be tested with users.
+	
 For statuses that are not as critical to a user’s workflow, use [plain text statuses](#plain-text-status).
 
 <LivePreview
