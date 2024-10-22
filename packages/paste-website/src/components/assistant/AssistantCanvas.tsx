@@ -64,40 +64,42 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
       <Box maxWidth="1000px" marginX="auto">
         {activeRun != null && <AssistantMessagePoller />}
         <AIChatLog ref={loggerRef}>
-          <Text
-            as="div"
-            color="colorTextWeak"
-            fontSize="fontSize20"
-            lineHeight="lineHeight20"
-            fontWeight="fontWeightMedium"
-            textAlign="center"
-          >
-            Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
-          </Text>
-          <Text
-            as="div"
-            color="colorTextWeak"
-            fontSize="fontSize20"
-            lineHeight="lineHeight20"
-            fontWeight="fontWeightMedium"
-            textAlign="center"
-          >
-            Keep in mind that this is an experimental tool and so the information provided{" "}
-            <Text as="div" fontWeight="fontWeightBold">
-              may not be entirely accurate
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
+              Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
             </Text>
-            .
-          </Text>
-          <Text
-            as="div"
-            color="colorTextWeak"
-            fontSize="fontSize20"
-            lineHeight="lineHeight20"
-            fontWeight="fontWeightMedium"
-            textAlign="center"
-          >
-            Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
-          </Text>
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
+              Keep in mind that this is an experimental tool and so the information provided{" "}
+              <Text as="span" fontWeight="fontWeightBold">
+                may not be entirely accurate
+              </Text>
+              .
+            </Text>
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
+              Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
+            </Text>
+          </Box>
           {messages?.map((threadMessage): React.ReactNode => {
             if (threadMessage.role === "assistant") {
               return <AssistantMessage key={threadMessage.id} threadMessage={threadMessage} />;
