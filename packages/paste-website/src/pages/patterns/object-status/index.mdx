@@ -1,7 +1,7 @@
 export const meta = {
-  title: 'Status',
+  title: 'Object status',
   description: 'The Object status pattern informs the user of the dynamic state or condition of an object.',
-  slug: '/patterns/status/',
+  slug: '/patterns/object-status/',
 };
 
 import {Alert} from '@twilio-paste/alert';
@@ -91,7 +91,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Status');
+  const feature = await getFeature('Object status');
   return {
     props: {
       data: {

@@ -168,6 +168,13 @@ export const processStatusExamples = `
 <Box display="flex" rowGap="space100" flexWrap="wrap">	
   <Box display="flex" columnGap="space50" rowGap="space60" flexWrap="wrap">
     <Box display="flex">	
+      <ProcessSuccessIcon	
+        color="colorTextIconSuccess"	
+        decorative={false}	
+        title="success" />	
+      <Text marginLeft="space20">Success</Text>	
+    </Box>	
+    <Box display="flex">	
       <ProcessErrorIcon	
         color="colorTextIconError"	
         decorative={false}	
@@ -180,13 +187,6 @@ export const processStatusExamples = `
         decorative={false}	
         title="warning" />	
       <Text marginLeft="space20">Warning</Text>	
-    </Box>	
-    <Box display="flex">	
-      <ProcessSuccessIcon	
-        color="colorTextIconSuccess"	
-        decorative={false}	
-        title="success" />	
-      <Text marginLeft="space20">Success</Text>	
     </Box>	
     <Box display="flex">	
       <ProcessNeutralIcon	
@@ -360,7 +360,7 @@ export const tableExample = `
 export const tableWithPlainTextExample = `	
 <>	
   <Heading as="h2" variant="heading20">	
-    Reboots	
+    Agent queues	
   </Heading>	
   <Table>	
     <THead>	
