@@ -18,7 +18,6 @@ type AssistantCanvasProps = {
 
 export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThreadID }) => {
   const [mounted, setMounted] = React.useState(false);
-  const [logWidth, setLogWidth] = React.useState(0);
   const messages = useAssistantMessagesStore(useShallow((state) => state.messages));
   const setMessages = useAssistantMessagesStore(useShallow((state) => state.setMessages));
   const activeRun = useAssistantRunStore(useShallow((state) => state.activeRun));
@@ -49,8 +48,6 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
 
   React.useEffect(() => {
     setMounted(true);
-    // whats the width of the log? You'll need it to render the skeleton loader
-    setLogWidth(loggerRef.current?.offsetWidth ?? 0);
   }, []);
 
   // scroll to bottom of chat log when new messages are added
@@ -106,7 +103,7 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
             }
             return <UserMessage key={threadMessage.id} threadMessage={threadMessage} />;
           })}
-          {(isCreatingAResponse || activeRun != null) && <LoadingMessage maxWidth={logWidth} />}
+          {(isCreatingAResponse || activeRun != null) && <LoadingMessage />}
         </AIChatLog>
       </Box>
     </Box>
