@@ -8,10 +8,7 @@ import { AssistantMarkdown } from "./AssistantMarkdown";
 export const AssistantMessage: React.FC<{ threadMessage: ThreadMessage }> = ({ threadMessage }) => {
   return (
     <AIChatMessage variant="bot">
-      <AIChatMessageAuthor
-        aria-label={`said by paste assistant at ${formatTimestamp(threadMessage.created_at)}`}
-        avatarSrc="../../assets/Logo"
-      >
+      <AIChatMessageAuthor aria-label={`said by paste assistant at ${formatTimestamp(threadMessage.created_at)}`}>
         PasteBot
       </AIChatMessageAuthor>
       <AIChatMessageBody>
