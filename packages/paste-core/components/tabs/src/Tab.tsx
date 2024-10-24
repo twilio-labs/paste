@@ -126,7 +126,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderBottomColor: isInverse ? "colorBorderInverseWeakest" : "colorBorderWeakest",
           color: isInverse ? "colorTextInverse" : "colorTextPrimary",
           boxShadow: isInverse ? "shadowBorderTopInverseStrongest" : "shadowBorderTopPrimary",
-          backgroundColor: isInverse ? "colorBackgroundInverseStrongest" : "colorBackgroundBody",
+          backgroundColor: isInverse ? "colorBackgroundInverse" : "colorBackgroundBody",
         },
         /* Disabled state */
         _disabled: {
