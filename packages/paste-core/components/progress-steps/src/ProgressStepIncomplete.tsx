@@ -46,7 +46,7 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           <Box display="flex" flexDirection="column" alignItems="center">
             <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
           </Box>
-          <Box textAlign="left">{children} </Box>
+          <Box textAlign="left">{children}</Box>
         </Box>
       </div>
     );
