@@ -3,4 +3,4 @@
 "@twilio-paste/core": patch
 ---
 
-[Progress Steps]: remove unneccesary space
+[Progress Steps]: remove unnecessary space
