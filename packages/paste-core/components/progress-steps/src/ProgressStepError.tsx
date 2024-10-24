@@ -35,7 +35,7 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
             <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
           </Box>
 
-          <Box textAlign="left">{children} </Box>
+          <Box textAlign="left">{children}</Box>
         </Box>
       </div>
     );
