@@ -141,10 +141,13 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         variant={variant}
         {...variantStyles[variant]}
       >
-        <Box display="flex" justifyContent="space-between">
+        <Box display="flex" columnGap="space60" alignItems="start">
           <Box element={`${element}_ICON`}>
             {IconComponent}
             <ScreenReaderOnly>{iconLabel}</ScreenReaderOnly>
+          </Box>
+          <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
+            {children}
           </Box>
           {onDismiss && typeof onDismiss === "function" && (
             <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
@@ -152,9 +155,6 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
               <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
             </Button>
           )}
-        </Box>
-        <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
-          {children}
         </Box>
       </Box>
     );
