@@ -17,14 +17,7 @@ export interface CalloutTextProps extends HTMLPasteProps<"p"> {
 
 export const CalloutText = React.forwardRef<HTMLParagraphElement, CalloutTextProps>(
   ({ element = "CALLOUT_TEXT", children, ...props }, ref) => (
-    <Text
-      {...safelySpreadTextProps(props)}
-      as="p"
-      ref={ref}
-      element={element}
-      color="currentColor"
-      lineHeight="lineHeight40"
-    >
+    <Text {...safelySpreadTextProps(props)} as="p" ref={ref} element={element} color="currentColor">
       {children}
     </Text>
   ),
