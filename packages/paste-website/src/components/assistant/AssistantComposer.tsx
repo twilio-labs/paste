@@ -1,4 +1,4 @@
-import { ChatComposer } from "@twilio-paste/chat-composer";
+import { ChatComposer, ChatComposerContainer } from "@twilio-paste/chat-composer";
 import { $getRoot, ClearEditorPlugin, type EditorState } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
@@ -30,23 +30,25 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   };
 
   return (
-    <ChatComposer
-      maxHeight="size10"
-      config={{
-        namespace: "foo",
-        onError: (error: Error) => {
-          throw error;
-        },
-      }}
-      ariaLabel="Message"
-      placeholder="Type here..."
-      onChange={handleComposerChange}
-      ref={editorRef}
-    >
-      <ClearEditorPlugin />
-      <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
-      <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-      <FocusComposerPlugin selectedThread={selectedThread} />
-    </ChatComposer>
+    <ChatComposerContainer variant="contained">
+      <ChatComposer
+        maxHeight="size10"
+        config={{
+          namespace: "foo",
+          onError: (error: Error) => {
+            throw error;
+          },
+        }}
+        ariaLabel="Message"
+        placeholder="Type here..."
+        onChange={handleComposerChange}
+        ref={editorRef}
+      >
+        <ClearEditorPlugin />
+        <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
+        <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+        <FocusComposerPlugin selectedThread={selectedThread} />
+      </ChatComposer>
+    </ChatComposerContainer>
   );
 };
