@@ -160,6 +160,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderColor: isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak",
           boxShadow: "none",
           borderBottom: "none",
+          overflow: "clip",
         },
       };
   }

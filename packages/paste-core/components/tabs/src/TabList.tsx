@@ -107,18 +107,20 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       <Box as={StyledTabList as any} ref={scrollableRef} flexGrow={1} element={`${element}_SCROLL_WRAPPER`}>
         <Box
           ref={ref}
+          position="relative"
           whiteSpace="nowrap"
           element={element}
           display="flex"
-          borderBottomStyle="solid"
-          borderBottomWidth="borderWidth10"
           columnGap="space20"
-          borderBottomColor="transparent"
+          // @ts-expect-error 1px is not available in tokens
+          paddingTop="1px"
+          // marginBottom="1px"
           boxShadow={isInverse ? "shadowBorderBottomInverseWeaker" : "shadowBorderBottomWeak"}
           // Scrollable element needs borderto stretch to full contianer width. Non scrollable needs to stretch border to parent width.
           width={elementOutOBoundsRight || elementOutOBoundsLeft ? "max-content" : "auto"}
         >
           {children}
+          <Box position="absolute" width="100%" height="1px" backgroundColor="colorBackgroundBody" bottom="-1px" />
         </Box>
       </Box>
       <OverflowButton
