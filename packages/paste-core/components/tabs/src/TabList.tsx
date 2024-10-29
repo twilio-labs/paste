@@ -120,7 +120,13 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
           width={elementOutOBoundsRight || elementOutOBoundsLeft ? "max-content" : "auto"}
         >
           {children}
-          <Box position="absolute" width="100%" height="1px" backgroundColor="colorBackgroundBody" bottom="-1px" />
+          <Box
+            position="absolute"
+            width="100%"
+            height="1px"
+            backgroundColor={isInverse ? "colorBackgroundInverse" : "colorBackgroundBody"}
+            bottom="-1px"
+          />
         </Box>
       </Box>
       <OverflowButton
