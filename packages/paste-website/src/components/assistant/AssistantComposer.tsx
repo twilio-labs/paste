@@ -43,14 +43,13 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
         placeholder="Type here..."
         onChange={handleComposerChange}
         ref={editorRef}
-      >
-        <ChatComposerActionGroup>
-          <ClearEditorPlugin />
-          <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
-          <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-          <FocusComposerPlugin selectedThread={selectedThread} />
-        </ChatComposerActionGroup>
-      </ChatComposer>
+      />
+      <ChatComposerActionGroup>
+        <ClearEditorPlugin />
+        <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
+        <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+        <FocusComposerPlugin selectedThread={selectedThread} />
+      </ChatComposerActionGroup>
     </ChatComposerContainer>
   );
 };
