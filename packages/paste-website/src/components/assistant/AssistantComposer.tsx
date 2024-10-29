@@ -1,4 +1,4 @@
-import { ChatComposer, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
 import { $getRoot, ClearEditorPlugin, type EditorState } from "@twilio-paste/lexical-library";
 import * as React from "react";
 
@@ -44,10 +44,12 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
         onChange={handleComposerChange}
         ref={editorRef}
       >
-        <ClearEditorPlugin />
-        <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
-        <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-        <FocusComposerPlugin selectedThread={selectedThread} />
+        <ChatComposerActionGroup>
+          <ClearEditorPlugin />
+          <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
+          <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+          <FocusComposerPlugin selectedThread={selectedThread} />
+        </ChatComposerActionGroup>
       </ChatComposer>
     </ChatComposerContainer>
   );
