@@ -34,8 +34,8 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
 
   const determineShadow = (): BoxShadow | undefined => {
     if (visible && showShadow) {
-      if (position === "left") return theme.shadows.shadowBorderLeftInverse;
-      return theme.shadows.shadowBorderRightInverse;
+      if (position === "left") return theme.shadows.shadowLeftInverse;
+      return theme.shadows.shadowRightInverse;
     }
     return undefined;
   };
@@ -53,6 +53,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       boxShadow={determineShadow()}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
       cursor={visible ? "pointer" : "none"}
+      zIndex="zIndex10"
       {...Styles}
     >
       {/* For left button to align with spacing of header we hide icon */}

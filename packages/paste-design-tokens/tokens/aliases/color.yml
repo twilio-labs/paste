@@ -11,3 +11,4 @@ aliases:
   sun: "#FF7A00"
   white: "#FFFFFF"
   white-accent: "#F6FBFE"
+  black-transparent-40: "rgba(0, 0, 0, 0.4)"

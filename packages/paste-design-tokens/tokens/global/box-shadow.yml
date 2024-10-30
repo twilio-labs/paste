@@ -4,6 +4,7 @@ global:
 imports:
   - ../aliases/box-shadow.yml
   - ../aliases/offset.yml
+  - ../aliases/color.yml
 props:
   shadow-high:
     value: "{!shadow-elevation-30}"
@@ -219,10 +220,10 @@ props:
     value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Bottom shadow border for the sidebar beta badge
   shadow-border-bottom-weak:
-    value: "inset {!offset-0} -{!offset-10} {!offset-0} {!offset-negative-05} {!palette-gray-30}"
+    value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-30}"
     comment: Weak bottom shadow border for tab container
   shadow-border-bottom-inverse-weaker:
-    value: "inset {!offset-0} -{!offset-10} {!offset-0} {!offset-negative-05} {!palette-gray-80}"
+    value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-80}"
     comment: Weaker bottom shadow border for tab container on inverse backgrounds
 
   # User
@@ -239,15 +240,15 @@ props:
     comment: Stronger bottom shadow border for notification.
 
   # Left / Right
-  shadow-border-left:
-    value: "{!offset-20} {!offset-0} {!offset-20} -{!offset-20} {!palette-gray-100-transparent-20}"
+  shadow-left:
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
     comment: Left shadow border for elements.
-  shadow-border-left-inverse:
-    value: "{!offset-20} {!offset-0} {!offset-20} -{!offset-20} {!palette-gray-100}"
+  shadow-left-inverse:
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
     comment: Left shadow border for inverse elements.
-  shadow-border-right:
-    value: "-{!offset-20} {!offset-0} {!offset-20} -{!offset-20} {!palette-gray-100-transparent-20}"
+  shadow-right:
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
     comment: Right shadow border for elements.
-  shadow-border-right-inverse:
-    value: "-{!offset-20} {!offset-0} {!offset-20} -{!offset-20} {!palette-gray-100}"
+  shadow-right-inverse:
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
     comment: Right shadow border for inverse elements.

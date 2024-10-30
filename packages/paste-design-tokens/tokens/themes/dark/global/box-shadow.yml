@@ -176,3 +176,11 @@ props:
   shadow-border-bottom-weak:
     value: "inset {!offset-0} -{!offset-10} {!offset-0} {!offset-negative-05} {!palette-gray-80}"
     comment: Weak bottom shadow border for tab container
+
+  # Left / Right
+  shadow-left:
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    comment: Left shadow border for elements.
+  shadow-right:
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    comment: Right shadow border for elements.

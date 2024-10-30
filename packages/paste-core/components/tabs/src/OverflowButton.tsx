@@ -47,9 +47,8 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
 
   const determineShadow = (): BoxShadow | undefined => {
     if (showShadow) {
-      if (position === "left")
-        return isInverse ? theme.shadows.shadowBorderLeftInverse : theme.shadows.shadowBorderLeft;
-      return isInverse ? theme.shadows.shadowBorderRightInverse : theme.shadows.shadowBorderRight;
+      if (position === "left") return isInverse ? theme.shadows.shadowLeftInverse : theme.shadows.shadowLeft;
+      return isInverse ? theme.shadows.shadowRightInverse : theme.shadows.shadowRight;
     }
     return undefined;
   };
@@ -65,6 +64,7 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       padding="space20"
       boxShadow={determineShadow()}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
+      zIndex="zIndex10"
       {...(isInverse ? InverseStyles : Styles)}
     >
       <Chevron decorative={true} />
