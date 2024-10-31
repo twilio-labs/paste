@@ -173,8 +173,8 @@ props:
     comment: Shadow border for user.
 
   # Bottom borders
-  shadow-border-bottom-weak:
-    value: "inset {!offset-0} -{!offset-10} {!offset-0} {!offset-negative-05} {!palette-gray-80}"
+  shadow-border-bottom-weak-inset:
+    value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-80}"
     comment: Weak bottom shadow border for tab container
 
   # Left / Right
