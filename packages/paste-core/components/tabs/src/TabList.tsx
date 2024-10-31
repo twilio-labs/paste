@@ -114,8 +114,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
           columnGap="space20"
           // @ts-expect-error 1px is not available in tokens
           paddingTop="1px"
-          // marginBottom="1px"
-          boxShadow={isInverse ? "shadowBorderBottomInverseWeaker" : "shadowBorderBottomWeak"}
+          boxShadow={isInverse ? "shadowBorderBottomInverseWeakerInset" : "shadowBorderBottomWeakInset"}
           // Scrollable element needs borderto stretch to full contianer width. Non scrollable needs to stretch border to parent width.
           width={elementOutOBoundsRight || elementOutOBoundsLeft ? "max-content" : "auto"}
         >
