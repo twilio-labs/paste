@@ -32,12 +32,12 @@ const useKeyEvents = (): { activeKeys: string[] } => {
   };
 
   React.useEffect(() => {
-    document.addEventListener("keydown", (e) => handleKeyDown(e));
-    document.addEventListener("keyup", (e) => handleKeyUp(e));
+    window.addEventListener("keydown", (e) => handleKeyDown(e));
+    window.addEventListener("keyup", (e) => handleKeyUp(e));
 
     return () => {
-      document.removeEventListener("keydown", (e) => handleKeyDown(e));
-      document.removeEventListener("keyup", (e) => handleKeyUp(e));
+      window.removeEventListener("keydown", (e) => handleKeyDown(e));
+      window.removeEventListener("keyup", (e) => handleKeyUp(e));
     };
   }, []);
 

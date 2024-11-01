@@ -21,7 +21,7 @@ const KeyboardKeyGroup = React.forwardRef<HTMLDivElement, KeyboardKeyGroupProps>
   ({ element = "KEYBOARD_KEY_GROUP", activeKeys, disabled, enablePressStyles, variant = "default", ...props }, ref) => {
     return (
       <KeyboardKeyCombinationContext.Provider value={{ activeKeys, disabled, enablePressStyles, variant }}>
-        <Box element={element} ref={ref} display="flex" columnGap="space20">
+        <Box element={element} ref={ref} display="inline-flex" columnGap="space20">
           {props.children}
         </Box>
       </KeyboardKeyCombinationContext.Provider>
