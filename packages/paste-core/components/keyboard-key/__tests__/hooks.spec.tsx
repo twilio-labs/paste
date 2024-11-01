@@ -5,7 +5,7 @@ import { useKeyCombination, useKeyCombinations } from "../src";
 import { Default } from "../stories/index.stories";
 
 describe("Hooks", () => {
-  const wrapper = ({ children }) => <div data-testid="event-trigger">{children}</div>;
+  const wrapper = ({ children }): React.ReactElement => <div data-testid="event-trigger">{children}</div>;
 
   it("should handle pressed styling", async () => {
     const { getByText } = render(<Default />);

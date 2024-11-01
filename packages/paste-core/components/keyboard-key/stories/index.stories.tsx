@@ -1,14 +1,11 @@
-import * as React from "react";
-
-import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { ModalFilledIcon } from "evergreen-ui";
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "../src";
 
 // eslint-disable-next-line import/no-default-export
@@ -17,10 +14,11 @@ export default {
   component: KeyboardKey,
 };
 
-export const Default = () => {
+export const Default = (): React.ReactElement => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
-    onCombinationPress: () => {
+    onCombinationPress: (): void => {
+      // eslint-disable-next-line no-console
       console.log("Control + B pressed");
     },
     enablePressStyles: true,
@@ -42,10 +40,11 @@ export const Default = () => {
   );
 };
 
-export const Inverse = () => {
+export const Inverse = (): React.ReactElement => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
-    onCombinationPress: () => {
+    onCombinationPress: (): void => {
+      // eslint-disable-next-line no-console
       console.log("Control + B pressed");
     },
     enablePressStyles: true,
@@ -67,11 +66,11 @@ export const Inverse = () => {
   );
 };
 
-export const TriggerModal = () => {
+export const TriggerModal = (): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState(false);
   const state = useKeyCombination({
     keys: ["Control", "k"],
-    onCombinationPress: () => {
+    onCombinationPress: (): void => {
       setIsOpen(true);
     },
     enablePressStyles: true,
@@ -112,10 +111,11 @@ export const TriggerModal = () => {
   );
 };
 
-export const Customization = () => {
+export const Customization = (): React.ReactElement => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
-    onCombinationPress: () => {
+    onCombinationPress: (): void => {
+      // eslint-disable-next-line no-console
       console.log("Control + B pressed");
     },
     enablePressStyles: true,

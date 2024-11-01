@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { KeyboardCombinationState } from "./KeyboardKeyContext";
 
 export interface useKeyCombinationProps {
@@ -19,7 +20,7 @@ export interface useKeyCombinationsProps {
 const useKeyEvents = (): { activeKeys: string[] } => {
   const [activeKeys, setActiveKeys] = React.useState<string[]>([]);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
         return Array.from(new Set([...prev, e.key]));
@@ -27,22 +28,26 @@ const useKeyEvents = (): { activeKeys: string[] } => {
     }
   };
 
-  const handleKeyUp = (e: KeyboardEvent) => {
+  const handleKeyUp = (e: KeyboardEvent): void => {
     setActiveKeys((prev) => [...prev].filter((k) => k !== e.key));
   };
 
   React.useEffect(() => {
-    window.addEventListener("keydown", (e) => handleKeyDown(e));
-    window.addEventListener("keyup", (e) => handleKeyUp(e));
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener("keydown", (e) => handleKeyDown(e));
-      window.removeEventListener("keyup", (e) => handleKeyUp(e));
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
   return { activeKeys };
 };
+
+const stringArrayMatches = (arr1: string[], arr2: string[]): boolean =>
+  JSON.stringify(arr1.sort((a, b) => a.localeCompare(b))) === JSON.stringify(arr2.sort((a, b) => a.localeCompare(b)));
+
 export const useKeyCombination = ({
   keys,
   onCombinationPress,
@@ -52,9 +57,7 @@ export const useKeyCombination = ({
   const { activeKeys } = useKeyEvents();
 
   React.useEffect(() => {
-    const combinationMatch =
-      JSON.stringify(keys.map((k) => k.toLowerCase()).sort()) ===
-      JSON.stringify(activeKeys.map((k) => k.toLowerCase()).sort());
+    const combinationMatch = stringArrayMatches(keys, activeKeys);
 
     if (combinationMatch && !disabled) {
       onCombinationPress();
@@ -69,11 +72,7 @@ export const useKeyCombinations = ({
 }: useKeyCombinationsProps): Omit<useKeyCombinationReturn, "enablePressStyles"> => {
   const { activeKeys } = useKeyEvents();
   React.useEffect(() => {
-    const combinationMatch = combinations.find(
-      (combos) =>
-        JSON.stringify(combos.keys.map((k) => k.toLowerCase()).sort()) ===
-        JSON.stringify(activeKeys.map((k) => k.toLowerCase()).sort()),
-    );
+    const combinationMatch = combinations.find((combos) => stringArrayMatches(combos.keys, activeKeys));
 
     if (combinationMatch && !combinationMatch.disabled) {
       combinationMatch.onCombinationPress();

@@ -1,8 +1,8 @@
-import { act, fireEvent, render } from "@testing-library/react";
-import * as React from "react";
-
+import { render } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
+
 import { KeyboardKey, KeyboardKeyGroup } from "../src";
 import { Default } from "../stories/index.stories";
 

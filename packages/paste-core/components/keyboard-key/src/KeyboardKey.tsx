@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+
 import { KeyboardKeyCombinationContext } from "./KeyboardKeyContext";
 import { KeyboardKeyVariants } from "./KeyboardKeyGroup";
 
@@ -66,7 +67,7 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
     } = React.useContext(KeyboardKeyCombinationContext);
 
     const isKeyActive =
-      !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).indexOf(keyText.toLowerCase()) >= 0;
+      !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).includes(keyText.toLowerCase());
 
     return (
       <Box
