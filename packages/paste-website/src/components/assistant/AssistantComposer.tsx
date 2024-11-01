@@ -29,6 +29,8 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
     onMessageCreation(message, selectedThread);
   };
 
+  if (selectedThread == null) return null;
+
   return (
     <ChatComposer
       maxHeight="size10"
@@ -44,7 +46,7 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
       ref={editorRef}
     >
       <ClearEditorPlugin />
-      <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
+      <SendButtonPlugin onClick={submitMessage} />
       <EnterKeySubmitPlugin onKeyDown={submitMessage} />
       <FocusComposerPlugin selectedThread={selectedThread} />
     </ChatComposer>
