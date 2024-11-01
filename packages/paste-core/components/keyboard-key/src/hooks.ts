@@ -8,13 +8,12 @@ export interface useKeyCombinationProps {
   enablePressStyles?: boolean;
 }
 
-export interface useKeyCombinationsProps {
-  combinations: Omit<useKeyCombinationProps, "enablePressStyles">[];
-  enablePressStyles?: boolean;
-}
-
 interface useKeyCombinationReturn extends Omit<KeyboardCombinationState, "activeKeys"> {
   activeKeys: string[];
+}
+
+export interface useKeyCombinationsProps {
+  combinations: Omit<useKeyCombinationProps, "enablePressStyles">[];
 }
 
 const useKeyEvents = (): { activeKeys: string[] } => {
@@ -67,10 +66,8 @@ export const useKeyCombination = ({
 
 export const useKeyCombinations = ({
   combinations,
-  enablePressStyles,
-}: useKeyCombinationsProps): useKeyCombinationReturn => {
+}: useKeyCombinationsProps): Omit<useKeyCombinationReturn, "enablePressStyles"> => {
   const { activeKeys } = useKeyEvents();
-
   React.useEffect(() => {
     const combinationMatch = combinations.find(
       (combos) =>
@@ -83,5 +80,5 @@ export const useKeyCombinations = ({
     }
   }, [activeKeys, combinations]);
 
-  return { activeKeys, enablePressStyles };
+  return { activeKeys };
 };
