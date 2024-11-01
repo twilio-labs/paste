@@ -1,6 +1,8 @@
 import * as React from "react";
 
+import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { Stack } from "@twilio-paste/stack";
 import { Theme } from "@twilio-paste/theme";
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "../src";
 
@@ -20,11 +22,42 @@ export const Default = () => {
   });
 
   return (
-    <Theme.Provider theme="default">
-      <KeyboardKeyGroup {...state}>
-        <KeyboardKey keyText="Control">Control</KeyboardKey>
-        <KeyboardKey keyText="b">B</KeyboardKey>
-      </KeyboardKeyGroup>
+    <Theme.Provider theme="twilio">
+      <Stack orientation="horizontal" spacing="space40">
+        <KeyboardKeyGroup {...state}>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...state} disabled>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+      </Stack>
+    </Theme.Provider>
+  );
+};
+
+export const Inverse = () => {
+  const state = useKeyCombination({
+    keys: ["Control", "b"],
+    onCombinationPress: () => {
+      console.log("Control + B pressed");
+    },
+    enablePressStyles: true,
+  });
+
+  return (
+    <Theme.Provider theme="twilio">
+      <Stack orientation="horizontal" spacing="space40">
+        <KeyboardKeyGroup {...state} variant="inverse">
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...state} variant="inverse" disabled>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+      </Stack>
     </Theme.Provider>
   );
 };
@@ -39,7 +72,7 @@ export const Customization = () => {
   });
 
   return (
-    <Theme.Provider theme="default">
+    <Theme.Provider theme="twilio">
       <CustomizationProvider
         elements={{
           KEYBOARD_KEY_GROUP: {

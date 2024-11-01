@@ -1,5 +1,5 @@
 export { KeyboardKey } from "./KeyboardKey";
-export type { KeyboardKeyProps } from "./KeyboardKey";
+export type { KeyboardKeyProps, KeyboardKeyVariants } from "./KeyboardKey";
 export { KeyboardKeyGroup } from "./KeyboardKeyGroup";
 export type { KeyboardKeyGroupProps } from "./KeyboardKeyGroup";
 export { useKeyCombination, useKeyCombinations } from "./hooks";

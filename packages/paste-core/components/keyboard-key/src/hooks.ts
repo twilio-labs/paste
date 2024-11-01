@@ -58,7 +58,6 @@ export const useKeyCombination = ({
       JSON.stringify(activeKeys.map((k) => k.toLowerCase()).sort());
 
     if (combinationMatch && !disabled) {
-      //   setActiveKeys([]);
       onCombinationPress();
     }
   }, [activeKeys]);
@@ -80,7 +79,6 @@ export const useKeyCombinations = ({
     );
 
     if (combinationMatch && !combinationMatch.disabled) {
-      //   setActiveKeys([]);
       combinationMatch.onCombinationPress();
     }
   }, [activeKeys, combinations]);

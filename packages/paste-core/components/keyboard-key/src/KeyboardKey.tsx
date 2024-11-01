@@ -3,16 +3,39 @@ import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 import { KeyboardKeyCombinationContext } from "./KeyboardKeyContext";
+import { KeyboardKeyVariants } from "./KeyboardKeyGroup";
 
-const DisabledStyles: BoxStyleProps = {
-  color: "colorTextWeak",
-  borderBottomWidth: "borderWidth10",
-  borderColor: "colorBorderWeakest",
+const BaseStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
+  default: { borderColor: "colorBorderWeak", backgroundColor: "colorBackgroundWeak" },
+  inverse: {
+    borderColor: "colorBorderInverseWeaker",
+    backgroundColor: "colorBackgroundInverse",
+    color: "colorTextInverse",
+  },
 };
 
-const PressedStyles: BoxStyleProps = {
-  borderBottomWidth: "borderWidth10",
-  backgroundColor: "colorBackgroundStrong",
+const DisabledStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
+  default: {
+    color: "colorTextWeak",
+    borderBottomWidth: "borderWidth10",
+    borderColor: "colorBorderWeakest",
+  },
+  inverse: {
+    color: "colorTextInverseWeaker",
+    borderBottomWidth: "borderWidth10",
+    borderColor: "colorBorderInverseWeakest",
+  },
+};
+
+const PressedStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
+  default: {
+    borderBottomWidth: "borderWidth10",
+    backgroundColor: "colorBackgroundStrong",
+  },
+  inverse: {
+    borderBottomWidth: "borderWidth10",
+    backgroundColor: "colorBackgroundInverseStronger",
+  },
 };
 
 export interface KeyboardKeyProps extends HTMLPasteProps<"div"> {
@@ -35,7 +58,12 @@ export interface KeyboardKeyProps extends HTMLPasteProps<"div"> {
 
 const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
   ({ element = "KEYBOARD_KEY", keyText, ...props }, ref) => {
-    const { disabled, activeKeys, enablePressStyles } = React.useContext(KeyboardKeyCombinationContext);
+    const {
+      disabled,
+      activeKeys,
+      enablePressStyles,
+      variant = "default",
+    } = React.useContext(KeyboardKeyCombinationContext);
 
     const isKeyActive = !disabled && activeKeys && keyText && activeKeys.indexOf(keyText) >= 0;
 
@@ -43,18 +71,20 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
       <Box
         element={element}
         ref={ref}
-        backgroundColor="colorBackgroundWeak"
-        borderRadius="borderRadius20"
         borderWidth="borderWidth10"
-        borderStyle="solid"
-        borderColor="colorBorderWeak"
         borderBottomWidth="borderWidth20"
+        borderRadius="borderRadius20"
+        borderStyle="solid"
         width="fit-content"
+        minWidth="sizeBase60"
+        display="flex"
+        justifyContent="center"
         paddingX="space20"
         as="kbd"
         fontFamily="fontFamilyText"
-        {...(disabled ? DisabledStyles : {})}
-        {...(isKeyActive && enablePressStyles ? PressedStyles : {})}
+        {...BaseStyles[variant]}
+        {...(disabled ? DisabledStyles[variant] : {})}
+        {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
       >
         {props.children}
       </Box>
