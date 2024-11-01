@@ -80,11 +80,8 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
               fontWeight="fontWeightMedium"
               textAlign="center"
             >
-              Keep in mind that this is an experimental tool and so the information provided{" "}
-              <Text as="span" fontWeight="fontWeightBold">
-                may not be entirely accurate
-              </Text>
-              .
+              Keep in mind that this is an experimental tool and so the information provided may not be entirely
+              accurate.
             </Text>
             <Text
               as="span"
