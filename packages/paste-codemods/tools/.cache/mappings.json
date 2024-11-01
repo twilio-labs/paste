@@ -147,6 +147,8 @@
   "Prefix": "@twilio-paste/core/input-box",
   "Suffix": "@twilio-paste/core/input-box",
   "getInputChevronIconColor": "@twilio-paste/core/input-box",
+  "KeyboardKey": "@twilio/core/keyboard-key",
+  "KeyboardKeyGroup": "@twilio/core/keyboard-key",
   "Label": "@twilio-paste/core/label",
   "RequiredDot": "@twilio-paste/core/label",
   "List": "@twilio-paste/core/list",

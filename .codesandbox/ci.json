@@ -56,6 +56,7 @@
     "/packages/paste-core/components/inline-control-group",
     "/packages/paste-core/components/input",
     "/packages/paste-core/components/input-box",
+    "/packages/paste-core/components/keyboard-key",
     "/packages/paste-core/components/label",
     "/packages/paste-libraries/lexical",
     "/packages/paste-core/components/list",
