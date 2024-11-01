@@ -65,7 +65,8 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
       variant = "default",
     } = React.useContext(KeyboardKeyCombinationContext);
 
-    const isKeyActive = !disabled && activeKeys && keyText && activeKeys.indexOf(keyText) >= 0;
+    const isKeyActive =
+      !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).indexOf(keyText.toLowerCase()) >= 0;
 
     return (
       <Box

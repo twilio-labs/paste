@@ -1,9 +1,14 @@
 import * as React from "react";
 
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { Theme } from "@twilio-paste/theme";
+
+import { ModalFilledIcon } from "evergreen-ui";
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "../src";
 
 // eslint-disable-next-line import/no-default-export
@@ -58,6 +63,51 @@ export const Inverse = () => {
           <KeyboardKey keyText="b">B</KeyboardKey>
         </KeyboardKeyGroup>
       </Stack>
+    </Theme.Provider>
+  );
+};
+
+export const TriggerModal = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const state = useKeyCombination({
+    keys: ["Control", "k"],
+    onCombinationPress: () => {
+      setIsOpen(true);
+    },
+    enablePressStyles: true,
+  });
+
+  return (
+    <Theme.Provider theme="twilio">
+      <Paragraph>Use the following shortcut to open a modal:</Paragraph>
+      <KeyboardKeyGroup {...state}>
+        <KeyboardKey keyText="Control">Control</KeyboardKey>
+        <KeyboardKey keyText="k">K</KeyboardKey>
+      </KeyboardKeyGroup>
+
+      <Modal ariaLabelledby="Close demo modal" isOpen={isOpen} onDismiss={() => setIsOpen(false)} size="default">
+        <ModalHeader>
+          <ModalHeading as="h3">Choose an author</ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+          <Paragraph>
+            “If there’s a book that you want to read, but it hasn’t been written yet, then you must write it.” — Toni
+            Morrison
+          </Paragraph>
+        </ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              Cancel
+            </Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
     </Theme.Provider>
   );
 };
