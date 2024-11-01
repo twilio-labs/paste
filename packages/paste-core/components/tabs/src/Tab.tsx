@@ -126,6 +126,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderBottomColor: isInverse ? "colorBorderInverseWeakest" : "colorBorderWeakest",
           color: isInverse ? "colorTextInverse" : "colorTextPrimary",
           boxShadow: isInverse ? "shadowBorderTopInverseStrongest" : "shadowBorderTopPrimary",
+          backgroundColor: isInverse ? "colorBackgroundInverse" : "colorBackgroundBody",
         },
         /* Disabled state */
         _disabled: {
@@ -139,7 +140,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         _selected_hover: {
           color: isInverse ? "colorTextInverse" : "colorTextPrimaryStronger",
-          borderBottomColor: isInverse ? "colorBorderInverseWeakest" : "colorBorderWeakest",
+          borderBottomColor: "transparent",
           boxShadow: isInverse ? "shadowBorderTopPrimary" : "shadowBorderTopPrimaryStrongest",
         },
         /* Focus states */
@@ -159,6 +160,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderColor: isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak",
           boxShadow: "none",
           borderBottom: "none",
+          overflow: "clip",
         },
       };
   }

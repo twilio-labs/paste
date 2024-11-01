@@ -4,6 +4,7 @@ global:
 imports:
   - ../aliases/box-shadow.yml
   - ../aliases/offset.yml
+  - ../aliases/color.yml
 props:
   shadow-high:
     value: "{!shadow-elevation-30}"
@@ -218,6 +219,13 @@ props:
   shadow-border-bottom-inverse-new-weaker:
     value: "{!offset-0} {!offset-05} {!offset-0} {!palette-purple-70}"
     comment: Bottom shadow border for the sidebar beta badge
+  shadow-border-bottom-weak-inset:
+    value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-30}"
+    comment: Weak bottom shadow border for tab container
+  shadow-border-bottom-inverse-weaker-inset:
+    value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-80}"
+    comment: Weaker bottom shadow border for tab container on inverse backgrounds
+
   # User
   shadow-border-user:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-purple-50}"
@@ -231,10 +239,16 @@ props:
     value: "{!offset-0} {!offset-05} {!offset-0} {!palette-red-90}"
     comment: Stronger bottom shadow border for notification.
 
-  # Scrollable elements
-  shadow-scroll-inverse:
-    value: "{!offset-0} {!offset-50} {!offset-50} {!offset-0} {!palette-gray-100}"
-    comment: Shadow for scrollable elements on inverse elements.
-  shadow-scroll:
-    value: "{!offset-0} {!offset-20} {!offset-20} {!offset-0} {!palette-gray-100-transparent-20}"
-    comment: Shadow for scrollable elements.
+  # Left / Right
+  shadow-left:
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
+    comment: Left shadow border for elements.
+  shadow-left-inverse:
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    comment: Left shadow border for inverse elements.
+  shadow-right:
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
+    comment: Right shadow border for elements.
+  shadow-right-inverse:
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    comment: Right shadow border for inverse elements.

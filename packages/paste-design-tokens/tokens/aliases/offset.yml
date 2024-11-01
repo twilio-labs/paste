@@ -13,3 +13,4 @@ aliases:
   offset-80: "24px"
   offset-90: "32px"
   offset-negative-05: -1px
+  offset-negative-20: -4px
