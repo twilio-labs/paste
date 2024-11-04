@@ -3,4 +3,4 @@
 "@twilio-paste/design-tokens": patch
 ---
 
-[Design Tokens] added new designs tokens shadowBorderBottomWeak and shadowBorderBottomInverseWeaker to support new feature KeybaordKey
+[Design Tokens] added new design tokens shadowBorderBottomWeak and shadowBorderBottomInverseWeaker to support new feature, KeybaordKey.
