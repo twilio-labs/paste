@@ -75,27 +75,25 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
       !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).includes(keyText.toLowerCase());
 
     return (
-      <Box element={`${element}_WRAPPER`} borderRadius="borderRadius20">
-        <Box
-          element={element}
-          ref={ref}
-          borderWidth="borderWidth10"
-          borderRadius="borderRadius20"
-          borderStyle="solid"
-          width="fit-content"
-          minWidth="sizeBase60"
-          display="inline-flex"
-          justifyContent="center"
-          paddingX="space20"
-          as="kbd"
-          fontFamily="fontFamilyText"
-          boxShadow={isKeyActive || disabled ? undefined : BoxShadows[variant]}
-          {...BaseStyles[variant]}
-          {...(disabled ? DisabledStyles[variant] : {})}
-          {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
-        >
-          {props.children}
-        </Box>
+      <Box
+        element={element}
+        ref={ref}
+        borderWidth="borderWidth10"
+        borderRadius="borderRadius20"
+        borderStyle="solid"
+        width="fit-content"
+        minWidth="sizeBase60"
+        display="inline-flex"
+        justifyContent="center"
+        paddingX="space20"
+        as="kbd"
+        fontFamily="fontFamilyText"
+        boxShadow={isKeyActive || disabled ? undefined : BoxShadows[variant]}
+        {...BaseStyles[variant]}
+        {...(disabled ? DisabledStyles[variant] : {})}
+        {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
+      >
+        {props.children}
       </Box>
     );
   },
