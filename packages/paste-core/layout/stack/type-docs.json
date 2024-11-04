@@ -1,7 +1,7 @@
 {
   "Stack": {
     "spacing": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 25 more ... | \"spaceNegative200\"",
+      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 36 more ... | \"spaceNegative200\"",
       "defaultValue": null,
       "required": true,
       "externalProp": false
