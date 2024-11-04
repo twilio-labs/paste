@@ -20,8 +20,8 @@ export const AssistantEmptyState: React.FC<{ onCannedThreadCreation: (message: s
 }) => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-      <Box maxWidth="900px" display="flex" flexDirection="column" rowGap="space190" paddingX="space120">
-        <Box display="flex" columnGap="space190" alignItems="center">
+      <Box maxWidth="900px" display="flex" flexDirection="column" rowGap="space150" paddingX="space120">
+        <Box display="flex" columnGap="space150" alignItems="center">
           <Box>
             <Heading as="h1" variant="heading20">
               Welcome to the Paste Design System Assistant
@@ -39,7 +39,7 @@ export const AssistantEmptyState: React.FC<{ onCannedThreadCreation: (message: s
               <Link href="https://github.com/twilio-labs/paste/discussions/new/choose">Github Discussions</Link>.
             </Paragraph>
           </Box>
-          <Image src={EmptyDoSomething} width={400} aria-hidden="true" alt="" priority />
+          <Image src={EmptyDoSomething} width={300} aria-hidden="true" alt="" priority />
         </Box>
         <Box>
           <Heading as="h2" variant="heading30">

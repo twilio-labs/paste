@@ -57,14 +57,7 @@ const ThreadsHeader: React.FC<React.PropsWithChildren> = ({ children }) => {
 export const Composer: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box
-      borderStyle="solid"
-      borderWidth="borderWidth0"
-      borderTopWidth="borderWidth10"
-      borderColor="colorBorderWeak"
       backgroundColor="colorBackgroundBody"
-      display="flex"
-      flexDirection="row"
-      columnGap="space30"
       paddingX="space70"
       paddingY="space50"
       position="sticky"

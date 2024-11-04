@@ -1,6 +1,7 @@
 import { Box, BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { ChevronLeftIcon } from "@twilio-paste/icons/esm/ChevronLeftIcon";
 import { ChevronRightIcon } from "@twilio-paste/icons/esm/ChevronRightIcon";
+import { BoxShadow } from "@twilio-paste/style-props";
 import { useTheme } from "@twilio-paste/theme";
 import React from "react";
 
@@ -31,6 +32,14 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
   const Chevron = position === "left" ? ChevronLeftIcon : ChevronRightIcon;
   if (!visible && position === "right") return null;
 
+  const determineShadow = (): BoxShadow | undefined => {
+    if (visible && showShadow) {
+      if (position === "left") return theme.shadows.shadowLeftInverse;
+      return theme.shadows.shadowRightInverse;
+    }
+    return undefined;
+  };
+
   return (
     <Box
       onClick={onClick}
@@ -41,9 +50,10 @@ export const OverflowButton: React.FC<OverflowButtonProps> = ({
       width="sizeIcon40"
       padding="space20"
       position="relative"
-      boxShadow={visible && showShadow ? theme.shadows.shadowScrollInverse : undefined}
+      boxShadow={determineShadow()}
       element={`${element}_OVERFLOW_BUTTON_${position.toUpperCase()}`}
       cursor={visible ? "pointer" : "none"}
+      zIndex="zIndex10"
       {...Styles}
     >
       {/* For left button to align with spacing of header we hide icon */}
