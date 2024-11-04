@@ -1604,9 +1604,10 @@
     },
     "activeKeys": {
       "type": "string[]",
-      "defaultValue": null,
+      "defaultValue": "[]",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The aray of currently active keys"
     },
     "aria-activedescendant": {
       "type": "string",
@@ -2006,9 +2007,10 @@
     },
     "disabled": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "null",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Whether the keys should show the disbled state"
     },
     "draggable": {
       "type": "Booleanish",
@@ -2025,9 +2027,10 @@
     },
     "enablePressStyles": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "null",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Whether the keys should show pressed state when active keys contains the keyText mapped to KeyboardKey"
     },
     "hidden": {
       "type": "boolean",
@@ -3185,9 +3188,10 @@
     },
     "variant": {
       "type": "KeyboardKeyVariants",
-      "defaultValue": null,
+      "defaultValue": "'default'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The variant of the keys to display"
     },
     "vocab": {
       "type": "string",
