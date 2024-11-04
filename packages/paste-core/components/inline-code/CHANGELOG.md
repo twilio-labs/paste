@@ -1,5 +1,11 @@
 # @twilio-paste/inline-code
 
+## 4.1.2
+
+### Patch Changes
+
+- [`7425eceb8`](https://github.com/twilio-labs/paste/commit/7425eceb892b15becce4ed5da13e79045c3cfb63) [#4109](https://github.com/twilio-labs/paste/pull/4109) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Inline Code]: Update children prop to accept `React.ReactNode` instead of `string`
+
 ## 4.1.1
 
 ### Patch Changes

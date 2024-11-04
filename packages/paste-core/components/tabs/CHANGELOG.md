@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.3.0
+
+### Minor Changes
+
+- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] make the non-fitted variant Tabs responsive. Export the context provider `TabsContext`.
+
+### Patch Changes
+
+- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Tabs]: Fix underline bug caused due to pixel rounding
+
 ## 8.2.1
 
 ### Patch Changes
