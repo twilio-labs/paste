@@ -18,24 +18,29 @@ const BaseStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
 const DisabledStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   default: {
     color: "colorTextWeak",
-    borderBottomWidth: "borderWidth10",
     borderColor: "colorBorderWeakest",
   },
   inverse: {
     color: "colorTextInverseWeaker",
-    borderBottomWidth: "borderWidth10",
     borderColor: "colorBorderInverseWeakest",
   },
 };
 
 const PressedStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   default: {
-    borderBottomWidth: "borderWidth10",
     backgroundColor: "colorBackgroundStrong",
   },
   inverse: {
-    borderBottomWidth: "borderWidth10",
     backgroundColor: "colorBackgroundInverseStronger",
+  },
+};
+
+const BoxShadows: Record<KeyboardKeyVariants, BoxStyleProps["boxShadow"]> = {
+  default: {
+    boxShadow: "shadowBorderBottomWeak",
+  },
+  inverse: {
+    boxShadow: "shadowBorderBottomInverseWeaker",
   },
 };
 
@@ -70,25 +75,27 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
       !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).includes(keyText.toLowerCase());
 
     return (
-      <Box
-        element={element}
-        ref={ref}
-        borderWidth="borderWidth10"
-        borderBottomWidth="borderWidth20"
-        borderRadius="borderRadius20"
-        borderStyle="solid"
-        width="fit-content"
-        minWidth="sizeBase60"
-        display="inline-flex"
-        justifyContent="center"
-        paddingX="space20"
-        as="kbd"
-        fontFamily="fontFamilyText"
-        {...BaseStyles[variant]}
-        {...(disabled ? DisabledStyles[variant] : {})}
-        {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
-      >
-        {props.children}
+      <Box element={`${element}_WRAPPER`} borderRadius="borderRadius20">
+        <Box
+          element={element}
+          ref={ref}
+          borderWidth="borderWidth10"
+          borderRadius="borderRadius20"
+          borderStyle="solid"
+          width="fit-content"
+          minWidth="sizeBase60"
+          display="inline-flex"
+          justifyContent="center"
+          paddingX="space20"
+          as="kbd"
+          fontFamily="fontFamilyText"
+          boxShadow={isKeyActive || disabled ? undefined : BoxShadows[variant]}
+          {...BaseStyles[variant]}
+          {...(disabled ? DisabledStyles[variant] : {})}
+          {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
+        >
+          {props.children}
+        </Box>
       </Box>
     );
   },

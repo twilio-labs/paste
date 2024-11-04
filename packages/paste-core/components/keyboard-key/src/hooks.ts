@@ -23,7 +23,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
   const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
-        // ignore any system conbimation triggers
+        // ignore any system combination triggers
         if (prev.includes("Meta") || e.key === "Meta") {
           e.preventDefault();
           e.stopPropagation();
@@ -35,9 +35,10 @@ const useKeyEvents = (): { activeKeys: string[] } => {
 
   const handleKeyUp = (e: KeyboardEvent): void => {
     /**
-     * Meta (Command) key press on Mac OS modifies following keys and no longer provides the
+     * Meta (Command) key press on Mac OS modifies following keys and no longer triggers the
      * onKeyup event so need to remove all as we can no longer tell when a user releases the other
      * keys. Without clearing whole thing it may cause shortcuts triggering when they shouldn't
+     * and press stlying still being applied.
      */
     if (e.key === "Meta") {
       setActiveKeys([]);
