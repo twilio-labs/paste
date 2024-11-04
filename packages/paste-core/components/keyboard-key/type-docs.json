@@ -3184,7 +3184,7 @@
       "externalProp": true
     },
     "variant": {
-      "type": "\"default\" | \"inverse\"",
+      "type": "KeyboardKeyVariants",
       "defaultValue": null,
       "required": false,
       "externalProp": false

@@ -66,6 +66,32 @@ export const Inverse = (): React.ReactElement => {
   );
 };
 
+export const ForcePressed = (): React.ReactElement => {
+  const state = useKeyCombination({
+    keys: ["Control", "b"],
+    onCombinationPress: (): void => {
+      // eslint-disable-next-line no-console
+      console.log("Control + B pressed");
+    },
+    enablePressStyles: true,
+  });
+
+  return (
+    <Theme.Provider theme="twilio">
+      <Stack orientation="horizontal" spacing="space40">
+        <KeyboardKeyGroup {...state} activeKeys={["Control", "b"]}>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...state} activeKeys={["Control", "b"]} variant="inverse">
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+      </Stack>
+    </Theme.Provider>
+  );
+};
+
 export const TriggerModal = (): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState(false);
   const state = useKeyCombination({
