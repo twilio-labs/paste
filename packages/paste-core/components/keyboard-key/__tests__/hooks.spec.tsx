@@ -5,8 +5,6 @@ import { useKeyCombination, useKeyCombinations } from "../src";
 import { Default } from "../stories/index.stories";
 
 describe("Hooks", () => {
-  const wrapper = ({ children }): React.ReactElement => <div data-testid="event-trigger">{children}</div>;
-
   it("should handle pressed styling", async () => {
     const { getAllByText } = render(<Default />);
 
@@ -34,17 +32,12 @@ describe("Hooks", () => {
 
   describe("useKeyCombination", () => {
     it("should update activeKeys on keydown and keyup", async () => {
-      const { result } = renderHook(
-        () => useKeyCombination({ keys: ["Control", "b"], onCombinationPress: jest.fn() }),
-        { wrapper },
-      );
+      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress: jest.fn() }));
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -52,8 +45,8 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "d" });
-        fireEvent.keyDown(eventTrigger, { key: "v" });
+        fireEvent.keyDown(window, { key: "d" });
+        fireEvent.keyDown(window, { key: "v" });
       });
 
       await waitFor(() => {
@@ -61,8 +54,8 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyUp(eventTrigger, { key: "Control" });
-        fireEvent.keyUp(eventTrigger, { key: "d" });
+        fireEvent.keyUp(window, { key: "Control" });
+        fireEvent.keyUp(window, { key: "d" });
       });
 
       await waitFor(() => {
@@ -72,16 +65,12 @@ describe("Hooks", () => {
 
     it("should call onCombinationPress when keys match", async () => {
       const onCombinationPress = jest.fn();
-      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {
-        wrapper,
-      });
+      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {});
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -89,7 +78,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "b" });
+        fireEvent.keyDown(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -100,16 +89,12 @@ describe("Hooks", () => {
 
     it("should not call onCombinationPress when keys do not match", async () => {
       const onCombinationPress = jest.fn();
-      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {
-        wrapper,
-      });
+      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {});
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -117,7 +102,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "d" });
+        fireEvent.keyDown(window, { key: "d" });
       });
 
       await waitFor(() => {
@@ -128,16 +113,12 @@ describe("Hooks", () => {
 
     it("should not call onCombinationPress when keys are present but more are pressed", async () => {
       const onCombinationPress = jest.fn();
-      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {
-        wrapper,
-      });
+      const { result } = renderHook(() => useKeyCombination({ keys: ["Control", "b"], onCombinationPress }), {});
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -145,8 +126,8 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "v" });
-        fireEvent.keyDown(eventTrigger, { key: "b" });
+        fireEvent.keyDown(window, { key: "v" });
+        fireEvent.keyDown(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -157,17 +138,14 @@ describe("Hooks", () => {
 
     it("should not call onCombinationPress when disabled", async () => {
       const onCombinationPress = jest.fn();
-      const { result } = renderHook(
-        () => useKeyCombination({ keys: ["Control", "b"], onCombinationPress, disabled: true }),
-        { wrapper },
+      const { result } = renderHook(() =>
+        useKeyCombination({ keys: ["Control", "b"], onCombinationPress, disabled: true }),
       );
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -175,7 +153,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "b" });
+        fireEvent.keyDown(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -187,23 +165,19 @@ describe("Hooks", () => {
 
   describe("useKeyCombinations", () => {
     it("should update activeKeys on keydown and keyup", async () => {
-      const { result } = renderHook(
-        () =>
-          useKeyCombinations({
-            combinations: [
-              { keys: ["Control", "b"], onCombinationPress: jest.fn() },
-              { keys: ["Control", "c"], onCombinationPress: jest.fn() },
-            ],
-          }),
-        { wrapper },
+      const { result } = renderHook(() =>
+        useKeyCombinations({
+          combinations: [
+            { keys: ["Control", "b"], onCombinationPress: jest.fn() },
+            { keys: ["Control", "c"], onCombinationPress: jest.fn() },
+          ],
+        }),
       );
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -211,8 +185,8 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "d" });
-        fireEvent.keyDown(eventTrigger, { key: "v" });
+        fireEvent.keyDown(window, { key: "d" });
+        fireEvent.keyDown(window, { key: "v" });
       });
 
       await waitFor(() => {
@@ -220,8 +194,8 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyUp(eventTrigger, { key: "Control" });
-        fireEvent.keyUp(eventTrigger, { key: "d" });
+        fireEvent.keyUp(window, { key: "Control" });
+        fireEvent.keyUp(window, { key: "d" });
       });
 
       await waitFor(() => {
@@ -233,23 +207,19 @@ describe("Hooks", () => {
       const onCombinationPress1 = jest.fn();
       const onCombinationPress2 = jest.fn();
 
-      const { result } = renderHook(
-        () =>
-          useKeyCombinations({
-            combinations: [
-              { keys: ["Control", "b"], onCombinationPress: onCombinationPress1 },
-              { keys: ["Control", "c"], onCombinationPress: onCombinationPress2 },
-            ],
-          }),
-        { wrapper },
+      const { result } = renderHook(() =>
+        useKeyCombinations({
+          combinations: [
+            { keys: ["Control", "b"], onCombinationPress: onCombinationPress1 },
+            { keys: ["Control", "c"], onCombinationPress: onCombinationPress2 },
+          ],
+        }),
       );
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -257,7 +227,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "b" });
+        fireEvent.keyDown(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -268,7 +238,7 @@ describe("Hooks", () => {
 
       await act(async () => {
         onCombinationPress1.mockClear();
-        fireEvent.keyDown(eventTrigger, { key: "c" });
+        fireEvent.keyDown(window, { key: "c" });
       });
 
       await waitFor(() => {
@@ -278,7 +248,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyUp(eventTrigger, { key: "b" });
+        fireEvent.keyUp(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -292,23 +262,19 @@ describe("Hooks", () => {
       const onCombinationPress1 = jest.fn();
       const onCombinationPress2 = jest.fn();
 
-      const { result } = renderHook(
-        () =>
-          useKeyCombinations({
-            combinations: [
-              { keys: ["Control", "b"], onCombinationPress: onCombinationPress1 },
-              { keys: ["Control", "c"], onCombinationPress: onCombinationPress2, disabled: true },
-            ],
-          }),
-        { wrapper },
+      const { result } = renderHook(() =>
+        useKeyCombinations({
+          combinations: [
+            { keys: ["Control", "b"], onCombinationPress: onCombinationPress1 },
+            { keys: ["Control", "c"], onCombinationPress: onCombinationPress2, disabled: true },
+          ],
+        }),
       );
 
-      const eventTrigger = screen.getByTestId("event-trigger");
-      expect(eventTrigger).toBeDefined();
       expect(result.current?.activeKeys).toEqual([]);
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "Control" });
+        fireEvent.keyDown(window, { key: "Control" });
       });
 
       await waitFor(() => {
@@ -316,7 +282,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyDown(eventTrigger, { key: "b" });
+        fireEvent.keyDown(window, { key: "b" });
       });
 
       await waitFor(() => {
@@ -327,7 +293,7 @@ describe("Hooks", () => {
 
       await act(async () => {
         onCombinationPress1.mockClear();
-        fireEvent.keyDown(eventTrigger, { key: "c" });
+        fireEvent.keyDown(window, { key: "c" });
       });
 
       await waitFor(() => {
@@ -337,7 +303,7 @@ describe("Hooks", () => {
       });
 
       await act(async () => {
-        fireEvent.keyUp(eventTrigger, { key: "b" });
+        fireEvent.keyUp(window, { key: "b" });
       });
 
       await waitFor(() => {
