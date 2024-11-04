@@ -23,13 +23,27 @@ const useKeyEvents = (): { activeKeys: string[] } => {
   const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
+        // ignore any system conbimation triggers
+        if (prev.includes("Meta") || e.key === "Meta") {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         return Array.from(new Set([...prev, e.key]));
       });
     }
   };
 
   const handleKeyUp = (e: KeyboardEvent): void => {
-    setActiveKeys((prev) => [...prev].filter((k) => k !== e.key));
+    /**
+     * Meta (Command) key press on Mac OS modifies following keys and no longer provides the
+     * onKeyup event so need to remove all as we can no longer tell when a user releases the other
+     * keys. Without clearing whole thing it may cause shortcuts triggering when they shouldn't
+     */
+    if (e.key === "Meta") {
+      setActiveKeys([]);
+    } else {
+      setActiveKeys((prev) => [...prev].filter((k) => k !== e.key));
+    }
   };
 
   React.useEffect(() => {
