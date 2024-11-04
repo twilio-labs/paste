@@ -1,6 +1,7 @@
 import { useIsMutating, useQuery } from "@tanstack/react-query";
+import { AIChatLog } from "@twilio-paste/ai-chat-log";
 import { Box } from "@twilio-paste/box";
-import { ChatBookend, ChatBookendItem, ChatLog } from "@twilio-paste/chat-log";
+import { Text } from "@twilio-paste/text";
 import * as React from "react";
 import { useShallow } from "zustand/react/shallow";
 
@@ -17,7 +18,6 @@ type AssistantCanvasProps = {
 
 export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThreadID }) => {
   const [mounted, setMounted] = React.useState(false);
-  const [logWidth, setLogWidth] = React.useState(0);
   const messages = useAssistantMessagesStore(useShallow((state) => state.messages));
   const setMessages = useAssistantMessagesStore(useShallow((state) => state.setMessages));
   const activeRun = useAssistantRunStore(useShallow((state) => state.activeRun));
@@ -48,8 +48,6 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
 
   React.useEffect(() => {
     setMounted(true);
-    // whats the width of the log? You'll need it to render the skeleton loader
-    setLogWidth(loggerRef.current?.offsetWidth ?? 0);
   }, []);
 
   // scroll to bottom of chat log when new messages are added
@@ -62,29 +60,48 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
     <Box ref={scrollerRef} tabIndex={0} overflowY="auto">
       <Box maxWidth="1000px" marginX="auto">
         {activeRun != null && <AssistantMessagePoller />}
-        <ChatLog ref={loggerRef}>
-          <ChatBookend>
-            <ChatBookendItem>
+        <AIChatLog ref={loggerRef}>
+          <Box display="flex" flexDirection="column" rowGap="space40">
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
               Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
-            </ChatBookendItem>
-          </ChatBookend>
-          <ChatBookend>
-            <ChatBookendItem>
-              Keep in mind that this is an experimental tool and so the information provided{" "}
-              <strong>may not be entirely accurate</strong>.
-            </ChatBookendItem>
-            <ChatBookendItem>
+            </Text>
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
+              Keep in mind that this is an experimental tool and so the information provided may not be entirely
+              accurate.
+            </Text>
+            <Text
+              as="span"
+              color="colorTextWeak"
+              fontSize="fontSize20"
+              lineHeight="lineHeight20"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+            >
               Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
-            </ChatBookendItem>
-          </ChatBookend>
+            </Text>
+          </Box>
           {messages?.map((threadMessage): React.ReactNode => {
             if (threadMessage.role === "assistant") {
               return <AssistantMessage key={threadMessage.id} threadMessage={threadMessage} />;
             }
             return <UserMessage key={threadMessage.id} threadMessage={threadMessage} />;
           })}
-          {(isCreatingAResponse || activeRun != null) && <LoadingMessage maxWidth={logWidth} />}
-        </ChatLog>
+          {(isCreatingAResponse || activeRun != null) && <LoadingMessage />}
+        </AIChatLog>
       </Box>
     </Box>
   );
