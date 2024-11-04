@@ -7,11 +7,16 @@ import { KeyboardKeyCombinationContext } from "./KeyboardKeyContext";
 import { KeyboardKeyVariants } from "./KeyboardKeyGroup";
 
 const BaseStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
-  default: { borderColor: "colorBorderWeak", backgroundColor: "colorBackgroundWeak" },
+  default: {
+    borderColor: "colorBorderWeak",
+    backgroundColor: "colorBackgroundWeak",
+    boxShadow: "shadowBorderBottomWeak",
+  },
   inverse: {
     borderColor: "colorBorderInverseWeaker",
     backgroundColor: "colorBackgroundInverse",
     color: "colorTextInverse",
+    boxShadow: "shadowBorderBottomInverseWeaker",
   },
 };
 
@@ -19,28 +24,23 @@ const DisabledStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   default: {
     color: "colorTextWeak",
     borderColor: "colorBorderWeakest",
+    boxShadow: undefined,
   },
   inverse: {
     color: "colorTextInverseWeaker",
     borderColor: "colorBorderInverseWeakest",
+    boxShadow: undefined,
   },
 };
 
 const PressedStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   default: {
     backgroundColor: "colorBackgroundStrong",
+    boxShadow: undefined,
   },
   inverse: {
     backgroundColor: "colorBackgroundInverseStronger",
-  },
-};
-
-const BoxShadows: Record<KeyboardKeyVariants, BoxStyleProps["boxShadow"]> = {
-  default: {
-    boxShadow: "shadowBorderBottomWeak",
-  },
-  inverse: {
-    boxShadow: "shadowBorderBottomInverseWeaker",
+    boxShadow: undefined,
   },
 };
 
@@ -90,7 +90,6 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
         paddingX="space20"
         as="kbd"
         fontFamily="fontFamilyText"
-        boxShadow={isKeyActive || disabled ? undefined : BoxShadows[variant]}
         {...BaseStyles[variant]}
         {...(disabled ? DisabledStyles[variant] : {})}
         {...(isKeyActive && enablePressStyles ? PressedStyles[variant] : {})}
