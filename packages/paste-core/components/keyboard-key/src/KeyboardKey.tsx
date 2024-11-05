@@ -76,8 +76,6 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
 
     return (
       <Box
-        // aria-keyshortcuts should be defined on the elemnts triggered by combination. It is unnecessary to have it visible to screen readers again.
-        aria-hidden="true"
         element={element}
         ref={ref}
         borderWidth="borderWidth10"
