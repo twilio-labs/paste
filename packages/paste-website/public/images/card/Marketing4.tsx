@@ -2,7 +2,7 @@ export const Marketing4 = (): JSX.Element => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="544" height="370" fill="none" viewBox="0 0 544 370">
       <g filter="url(#a)">
-        <g clip-path="url(#b)">
+        <g clipPath="url(#b)">
           <rect width="362.601" height="256.283" x="98.931" y="47.866" fill="#fff" rx="4.889" />
           <path fill="#121C2D" d="M98.931 47.866h73.563v271.708h-71.727a1.836 1.836 0 0 1-1.836-1.836V47.866Z" />
           <circle cx="110.987" cy="58.825" r="3.056" fill="#F22F46" />
@@ -12,17 +12,17 @@ export const Marketing4 = (): JSX.Element => {
           <path fill="#99CDFF" d="M244.151 235.9a3.29 3.29 0 0 0-6.58 0v19.552a3.29 3.29 0 0 0 6.58 0V235.9Z" />
           <path
             fill="#99CDFF"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M398.096 232.634a3.29 3.29 0 0 0-6.58 0v22.818a3.29 3.29 0 0 0 6.58 0v-22.818Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
           <path fill="#51A9E3" d="M372.432 223.487a3.29 3.29 0 0 0-6.58 0v31.965a3.29 3.29 0 0 0 6.58 0v-31.965Z" />
           <path fill="#EB5656" d="M346.792 245.046a3.29 3.29 0 0 0-6.58 0v10.406a3.29 3.29 0 0 0 6.58 0v-10.406Z" />
           <path
             fill="#EB5656"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M321.145 236.879a3.29 3.29 0 0 0-6.58 0v18.572a3.29 3.29 0 0 0 6.58 0v-18.572Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
           <path
             fill="#51A9E3"
@@ -39,19 +39,19 @@ export const Marketing4 = (): JSX.Element => {
           >
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M208.089 78.715h219.019v50.935H208.089V78.715Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </mask>
           <g mask="url(#c)">
             <path
               fill="url(#d)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="#51A9E3"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               d="M156.469 111.441c12.441-5.688 18.524-12.269 27.243-9.375 8.719 2.894 21.409 13.081 34.053 10.278 12.644-2.804 30-12.006 45.972-9.772 15.973 2.235 20.652 8.476 32.351 6.163 11.699-2.314 18.969-20.468 36.607-16.797 17.639 3.67 25.134 12.698 38.31 12.737 13.176.038 8.081 9.456 21.284 6.506 13.202-2.95 26.871-6.433 39.437.26 12.565 6.694.174 35.188-6.235 35.188l-326.912-4.06 5.959-32.029s39.491 6.59 51.931.901Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </g>
           <rect
@@ -61,7 +61,7 @@ export const Marketing4 = (): JSX.Element => {
             y="86.455"
             fill="#fff"
             stroke="#51A9E3"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             rx="4.825"
           />
           <mask
@@ -75,19 +75,19 @@ export const Marketing4 = (): JSX.Element => {
           >
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M208.089 139.836h219.019v50.935H208.089v-50.935Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </mask>
           <g mask="url(#e)">
             <path
               fill="url(#f)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="#F22F46"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               d="M173.189 173.21c12.441-5.721 18.523-12.339 27.243-9.429 8.719 2.91 21.409 13.156 34.053 10.336 12.644-2.819 29.237-22.769 45.21-20.522 15.973 2.248 21.414 19.22 33.113 16.893 11.699-2.327 23.62-.063 41.258 3.629 17.639 3.692 20.483-7.752 33.659-7.712 13.176.038 8.081 9.51 21.283 6.543 13.203-2.967 26.872-6.47 39.437.262 12.566 6.731.175 35.388-6.235 35.388l-326.911-4.083 5.959-32.212s39.491 6.628 51.931.907Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </g>
           <rect
@@ -97,7 +97,7 @@ export const Marketing4 = (): JSX.Element => {
             y="148.425"
             fill="#fff"
             stroke="#F22F46"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             rx="4.825"
           />
         </g>
@@ -180,10 +180,10 @@ export const Marketing4 = (): JSX.Element => {
           height="296.283"
           x="82.931"
           y="31.866"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
           <feOffset dx="4" dy="4" />
           <feGaussianBlur stdDeviation="10" />
@@ -197,10 +197,10 @@ export const Marketing4 = (): JSX.Element => {
           height="153.002"
           x="30.725"
           y="205.095"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
           <feOffset dx="4" dy="4" />
           <feGaussianBlur stdDeviation="10" />
@@ -214,10 +214,10 @@ export const Marketing4 = (): JSX.Element => {
           height="100.206"
           x="109.34"
           y="183.738"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
           <feOffset dy="8" />
           <feGaussianBlur stdDeviation="12" />
@@ -226,12 +226,12 @@ export const Marketing4 = (): JSX.Element => {
           <feBlend in="SourceGraphic" in2="effect1_dropShadow_2425_30617" result="shape" />
         </filter>
         <linearGradient id="d" x1="-279.539" x2="-279.539" y1="-55.522" y2="122.91" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#008CFF" />
-          <stop offset="1" stop-color="#008CFF" stop-opacity=".01" />
+          <stop stopColor="#008CFF" />
+          <stop offset="1" stopColor="#008CFF" stopOpacity=".01" />
         </linearGradient>
         <linearGradient id="f" x1="-262.82" x2="-262.82" y1="6.447" y2="184.879" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F22F45" />
-          <stop offset="1" stop-color="#F22F46" stop-opacity=".01" />
+          <stop stopColor="#F22F45" />
+          <stop offset="1" stopColor="#F22F46" stopOpacity=".01" />
         </linearGradient>
         <clipPath id="b">
           <rect width="362.601" height="256.283" x="98.931" y="47.866" fill="#fff" rx="4.889" />
