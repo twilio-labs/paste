@@ -303,7 +303,7 @@ export const VerticalTabsScrollCheck = (): JSX.Element => {
   const uniqueBaseID = useUID();
   return (
     <Box>
-      <Box height={"1800px"} />
+      <Box height="1800px" />
       <Tabs orientation="vertical" selectedId={selectedId} baseId={`${uniqueBaseID}-vertical-tabs-example`}>
         <TabList aria-label="LGBTQ+ Projects">
           <Tab id={selectedId}>Inside Out</Tab>
