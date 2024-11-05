@@ -28,7 +28,15 @@ export const Marketing4 = (): JSX.Element => {
             fill="#51A9E3"
             d="M295.471 223.487a3.29 3.29 0 0 0-6.58 0v31.965a3.29 3.29 0 0 0 6.58 0v-31.965Zm-25.664 9.147a3.29 3.29 0 0 0-6.58 0v22.818a3.29 3.29 0 0 0 6.58 0v-22.818Z"
           />
-          <mask id="c" width="220" height="52" x="208" y="78" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+          <mask
+            id="c"
+            width="220"
+            height="52"
+            x="208"
+            y="78"
+            maskUnits="userSpaceOnUse"
+            // style="mask-type:luminance"
+          >
             <path
               fill="#fff"
               fill-rule="evenodd"
@@ -56,7 +64,15 @@ export const Marketing4 = (): JSX.Element => {
             stroke-width="1.5"
             rx="4.825"
           />
-          <mask id="e" width="220" height="52" x="208" y="139" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+          <mask
+            id="e"
+            width="220"
+            height="52"
+            x="208"
+            y="139"
+            maskUnits="userSpaceOnUse"
+            // style="mask-type:luminance"
+          >
             <path
               fill="#fff"
               fill-rule="evenodd"
