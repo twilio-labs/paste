@@ -1,10 +1,10 @@
-import { Button } from "@twilio-paste/button";
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
-import { Text } from "@twilio-paste/text";
-import { Stack } from "@twilio-paste/stack";
 import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
