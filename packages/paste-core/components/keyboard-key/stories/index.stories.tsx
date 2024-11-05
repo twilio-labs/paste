@@ -31,7 +31,7 @@ export const Default = (): React.ReactElement => {
       <Stack orientation="horizontal" spacing="space40">
         <Box>
           <Text as="p" marginBottom="space30">
-            Deafult/pressed
+            Default/pressed
           </Text>
           <KeyboardKeyGroup {...state}>
             <KeyboardKey keyText="Control">Control</KeyboardKey>
@@ -67,7 +67,7 @@ export const Inverse = (): React.ReactElement => {
       <Stack orientation="horizontal" spacing="space40">
         <Box>
           <Text as="p" marginBottom="space30">
-            Deafult/pressed
+            Default/pressed
           </Text>
           <KeyboardKeyGroup {...state} variant="inverse">
             <KeyboardKey keyText="Control">Control</KeyboardKey>
