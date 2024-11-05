@@ -156,7 +156,7 @@ export const MultipleCombinations = (): React.ReactElement => {
           <KeyboardKey keyText="p">P</KeyboardKey>
         </KeyboardKeyGroup>
       </Stack>
-      <br/>
+      <br />
       <Paragraph>Combination pressed: {textToDisplay}</Paragraph>
     </Theme.Provider>
   );
