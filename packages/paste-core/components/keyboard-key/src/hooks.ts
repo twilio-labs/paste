@@ -7,37 +7,26 @@ export interface useKeyCombinationProps {
   onCombinationPress: () => void;
   disabled?: boolean;
   enablePressStyles?: boolean;
-  disableBrowserShortcuts?: boolean;
 }
 
 interface useKeyCombinationReturn extends Omit<KeyboardCombinationState, "activeKeys"> {
   activeKeys: string[];
 }
 
-interface useKeyCombinationsReturn{
+interface useKeyCombinationsReturn {
   activeKeys: string[];
 }
 
 export interface useKeyCombinationsProps {
-  combinations: Omit<useKeyCombinationProps, "enablePressStyles" & "disableBrowserShortcuts">[];
-  disableBrowserShortcuts?: boolean;
+  combinations: Omit<useKeyCombinationProps, "enablePressStyles">[];
 }
 
-const useKeyEvents = (disableBrowserShortcuts: boolean): { activeKeys: string[] } => {
+const useKeyEvents = (): { activeKeys: string[] } => {
   const [activeKeys, setActiveKeys] = React.useState<string[]>([]);
 
   const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
-        // ignore any system combination triggers
-        if (
-          disableBrowserShortcuts &&
-          prev.find((k) => k === "Meta" || k === "Control") &&
-          /^(?:(?!\b(Meta|Control)\b).)*$/i.test(e.key)
-        ) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
         return Array.from(new Set([...prev, e.key]));
       });
     }
@@ -45,7 +34,7 @@ const useKeyEvents = (disableBrowserShortcuts: boolean): { activeKeys: string[] 
 
   const handleKeyUp = (e: KeyboardEvent): void => {
     /**
-     * Due to a weird behavior on macOS we need to clear the set if the user pressed down the meta key and presses another key. 
+     * Due to a weird behavior on macOS we need to clear the set if the user pressed down the meta key and presses another key.
      * https://stackoverflow.com/questions/11818637/why-does-javascript-drop-keyup-events-when-the-metakey-is-pressed-on-mac-browser
      * Otherwise the set will hold all ever pressed keys while the meta key is down which leads to wrong results.
      */
@@ -77,9 +66,8 @@ export const useKeyCombination = ({
   onCombinationPress,
   disabled,
   enablePressStyles,
-  disableBrowserShortcuts = false,
 }: useKeyCombinationProps): useKeyCombinationReturn => {
-  const { activeKeys } = useKeyEvents(disableBrowserShortcuts);
+  const { activeKeys } = useKeyEvents();
 
   React.useEffect(() => {
     const combinationMatch = stringArrayMatches(keys, activeKeys);
@@ -92,11 +80,8 @@ export const useKeyCombination = ({
   return { activeKeys, disabled, enablePressStyles };
 };
 
-export const useKeyCombinations = ({
-  combinations,
-  disableBrowserShortcuts = false,
-}: useKeyCombinationsProps): useKeyCombinationsReturn => {
-  const { activeKeys } = useKeyEvents(disableBrowserShortcuts);
+export const useKeyCombinations = ({ combinations }: useKeyCombinationsProps): useKeyCombinationsReturn => {
+  const { activeKeys } = useKeyEvents();
   React.useEffect(() => {
     const combinationMatch = combinations.find((combos) => stringArrayMatches(combos.keys, activeKeys));
 

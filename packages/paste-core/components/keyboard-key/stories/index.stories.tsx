@@ -92,6 +92,76 @@ export const ForcePressed = (): React.ReactElement => {
   );
 };
 
+export const MultipleCombinations = (): React.ReactElement => {
+  const [textToDisplay, setTextToDisplay] = React.useState<string>("");
+
+  const stateCtrB = useKeyCombination({
+    keys: ["Control", "b"],
+    onCombinationPress: (): void => {
+      setTextToDisplay("Control + B pressed");
+    },
+    enablePressStyles: true,
+  });
+  const stateCtrK = useKeyCombination({
+    keys: ["Control", "k"],
+    onCombinationPress: (): void => {
+      setTextToDisplay("Control + K pressed");
+    },
+    enablePressStyles: true,
+  });
+  const stateCmdB = useKeyCombination({
+    keys: ["Meta", "b"],
+    onCombinationPress: (): void => {
+      setTextToDisplay("Cmd + B pressed");
+    },
+    enablePressStyles: true,
+  });
+  const stateCmdK = useKeyCombination({
+    keys: ["Meta", "k"],
+    onCombinationPress: (): void => {
+      setTextToDisplay("Cmd + K pressed");
+    },
+    enablePressStyles: true,
+  });
+  const stateCmdShiftB = useKeyCombination({
+    keys: ["Meta", "Shift", "p"],
+    onCombinationPress: (): void => {
+      setTextToDisplay("Cmd + Shift + P pressed");
+    },
+    enablePressStyles: true,
+  });
+
+  return (
+    <Theme.Provider theme="twilio">
+      <Stack orientation="vertical" spacing="space40">
+        <KeyboardKeyGroup {...stateCtrB}>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...stateCtrK}>
+          <KeyboardKey keyText="Control">Control</KeyboardKey>
+          <KeyboardKey keyText="k">K</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...stateCmdB}>
+          <KeyboardKey keyText="Meta">Cmd</KeyboardKey>
+          <KeyboardKey keyText="b">B</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...stateCmdK}>
+          <KeyboardKey keyText="meta">Cmd</KeyboardKey>
+          <KeyboardKey keyText="k">K</KeyboardKey>
+        </KeyboardKeyGroup>
+        <KeyboardKeyGroup {...stateCmdShiftB}>
+          <KeyboardKey keyText="meta">Cmd</KeyboardKey>
+          <KeyboardKey keyText="Shift">Shift</KeyboardKey>
+          <KeyboardKey keyText="p">P</KeyboardKey>
+        </KeyboardKeyGroup>
+      </Stack>
+      <br/>
+      <Paragraph>Combination pressed: {textToDisplay}</Paragraph>
+    </Theme.Provider>
+  );
+};
+
 export const TriggerModal = (): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState(false);
   const state = useKeyCombination({
