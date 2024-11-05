@@ -14,8 +14,13 @@ interface useKeyCombinationReturn extends Omit<KeyboardCombinationState, "active
   activeKeys: string[];
 }
 
+interface useKeyCombinationsReturn{
+  activeKeys: string[];
+}
+
 export interface useKeyCombinationsProps {
-  combinations: Omit<useKeyCombinationProps, "enablePressStyles">[];
+  combinations: Omit<useKeyCombinationProps, "enablePressStyles" & "disableBrowserShortcuts">[];
+  disableBrowserShortcuts?: boolean;
 }
 
 const useKeyEvents = (disableBrowserShortcuts: boolean): { activeKeys: string[] } => {
@@ -40,10 +45,9 @@ const useKeyEvents = (disableBrowserShortcuts: boolean): { activeKeys: string[] 
 
   const handleKeyUp = (e: KeyboardEvent): void => {
     /**
-     * Meta (Command) key press on Mac OS modifies following keys and no longer triggers the
-     * onKeyup event so need to remove all as we can no longer tell when a user releases the other
-     * keys. Without clearing whole thing it may cause shortcuts triggering when they shouldn't
-     * and press stlying still being applied.
+     * Due to a weird behavior on macOS we need to clear the set if the user pressed down the meta key and presses another key. 
+     * https://stackoverflow.com/questions/11818637/why-does-javascript-drop-keyup-events-when-the-metakey-is-pressed-on-mac-browser
+     * Otherwise the set will hold all ever pressed keys while the meta key is down which leads to wrong results.
      */
     if (e.key === "Meta") {
       setActiveKeys([]);
@@ -91,7 +95,7 @@ export const useKeyCombination = ({
 export const useKeyCombinations = ({
   combinations,
   disableBrowserShortcuts = false,
-}: useKeyCombinationsProps): Omit<useKeyCombinationReturn, "enablePressStyles"> => {
+}: useKeyCombinationsProps): useKeyCombinationsReturn => {
   const { activeKeys } = useKeyEvents(disableBrowserShortcuts);
   React.useEffect(() => {
     const combinationMatch = combinations.find((combos) => stringArrayMatches(combos.keys, activeKeys));
