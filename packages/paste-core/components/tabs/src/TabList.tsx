@@ -88,6 +88,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
   React.useEffect(() => {
     if (scrollableRef.current && selectedId) {
+      // eslint-disable-next-line unicorn/prefer-query-selector
       const selectedTabEl = document.getElementById(selectedId);
       const scrollableWidth = scrollableRef.current.getBoundingClientRect().width;
 
