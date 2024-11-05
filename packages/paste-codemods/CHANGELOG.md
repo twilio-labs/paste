@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] new export from badge package (type)
+
+* [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] make the non-fitted variant Tabs responsive. Export the context provider `TabsContext`.
+
 ## 0.12.0
 
 ### Minor Changes

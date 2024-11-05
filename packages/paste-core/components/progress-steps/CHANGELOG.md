@@ -1,5 +1,11 @@
 # @twilio-paste/progress-steps
 
+## 2.2.1
+
+### Patch Changes
+
+- [`69d8d7c72`](https://github.com/twilio-labs/paste/commit/69d8d7c7204d672b742ce5c7eb02bf0d3b36b0a9) [#4126](https://github.com/twilio-labs/paste/pull/4126) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Progress Steps]: remove unnecessary space
+
 ## 2.2.0
 
 ### Minor Changes

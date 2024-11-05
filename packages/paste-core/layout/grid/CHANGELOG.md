@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.1.2
+
+### Patch Changes
+
+- [`fb3dc4835`](https://github.com/twilio-labs/paste/commit/fb3dc4835c6b2d8d0fd3390ac3f0fdefc9efaddd) [#4084](https://github.com/twilio-labs/paste/pull/4084) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Grid]: Fix rowGap and columnGap prop not applying
+
 ## 8.1.1
 
 ### Patch Changes

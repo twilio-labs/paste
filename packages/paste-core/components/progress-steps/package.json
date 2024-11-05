@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/progress-steps",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "category": "data display",
   "status": "production",
   "description": "Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task.",
@@ -46,7 +46,7 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.8.0",
+    "@twilio-paste/design-tokens": "^10.9.0",
     "@twilio-paste/icons": "^12.2.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
