@@ -1,8 +1,10 @@
 import { Button } from "@twilio-paste/button";
+import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
-import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
 import { Stack } from "@twilio-paste/stack";
+import { Paragraph } from "@twilio-paste/paragraph";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
@@ -27,14 +29,24 @@ export const Default = (): React.ReactElement => {
   return (
     <Theme.Provider theme="twilio">
       <Stack orientation="horizontal" spacing="space40">
-        <KeyboardKeyGroup {...state}>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
-        </KeyboardKeyGroup>
-        <KeyboardKeyGroup {...state} disabled>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
-        </KeyboardKeyGroup>
+        <Box>
+          <Text as="p" marginBottom="space30">
+            Deafult/pressed
+          </Text>
+          <KeyboardKeyGroup {...state}>
+            <KeyboardKey keyText="Control">Control</KeyboardKey>
+            <KeyboardKey keyText="b">B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Box>
+        <Box>
+          <Text as="p" marginBottom="space30">
+            Disabled
+          </Text>
+          <KeyboardKeyGroup {...state} disabled>
+            <KeyboardKey keyText="Control">Control</KeyboardKey>
+            <KeyboardKey keyText="b">B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Box>
       </Stack>
     </Theme.Provider>
   );
@@ -53,14 +65,24 @@ export const Inverse = (): React.ReactElement => {
   return (
     <Theme.Provider theme="twilio">
       <Stack orientation="horizontal" spacing="space40">
-        <KeyboardKeyGroup {...state} variant="inverse">
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
-        </KeyboardKeyGroup>
-        <KeyboardKeyGroup {...state} variant="inverse" disabled>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
-        </KeyboardKeyGroup>
+        <Box>
+          <Text as="p" marginBottom="space30">
+            Deafult/pressed
+          </Text>
+          <KeyboardKeyGroup {...state} variant="inverse">
+            <KeyboardKey keyText="Control">Control</KeyboardKey>
+            <KeyboardKey keyText="b">B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Box>
+        <Box>
+          <Text as="p" marginBottom="space30">
+            Disabled
+          </Text>
+          <KeyboardKeyGroup {...state} disabled variant="inverse">
+            <KeyboardKey keyText="Control">Control</KeyboardKey>
+            <KeyboardKey keyText="b">B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Box>
       </Stack>
     </Theme.Provider>
   );
