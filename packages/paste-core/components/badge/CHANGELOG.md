@@ -1,11 +1,5 @@
 # @twilio-paste/badge
 
-## 8.4.0
-
-### Minor Changes
-
-- [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] new type export: BadgeSizes for use in status-badge package
-
 ## 8.3.1
 
 ### Patch Changes

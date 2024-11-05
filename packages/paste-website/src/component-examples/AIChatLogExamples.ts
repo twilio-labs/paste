@@ -101,7 +101,7 @@ const MessageWithLoadingAndStop = () => {
   return (
     <AIChatLog>
         <AIChatMessage variant="bot">
-          <AIChatMessageAuthor aria-label="AI said">
+          <AIChatMessageAuthor aria-label="AI said" bot>
             Good Bot
           </AIChatMessageAuthor>
           <AIChatMessageBody>
@@ -120,7 +120,7 @@ const MessageWithLoading = () => {
   return (
     <AIChatLog>
         <AIChatMessage variant="bot">
-          <AIChatMessageAuthor aria-label="AI said">
+          <AIChatMessageAuthor aria-label="AI said" bot>
             Good Bot
           </AIChatMessageAuthor>
           <AIChatMessageBody>

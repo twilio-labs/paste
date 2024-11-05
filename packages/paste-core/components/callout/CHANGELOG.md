@@ -1,11 +1,5 @@
 # Change Log
 
-## 4.2.1
-
-### Patch Changes
-
-- [`a150cf7a8`](https://github.com/twilio-labs/paste/commit/a150cf7a8cabd6a109d7130a5ddf2e3bd4532880) [#4127](https://github.com/twilio-labs/paste/pull/4127) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Callout] changed layout so elements align horizontally reducing vertical space used
-
 ## 4.2.0
 
 ### Minor Changes

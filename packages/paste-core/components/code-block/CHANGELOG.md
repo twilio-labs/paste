@@ -1,13 +1,5 @@
 # @twilio-paste/code-block
 
-## 4.1.2
-
-### Patch Changes
-
-- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [CodeBlock] make tabs responsive
-
-* [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Code Block]: Fix underline bug caused due to pixel rounding
-
 ## 4.1.1
 
 ### Patch Changes

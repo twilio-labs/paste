@@ -1,54 +1,5 @@
 # Change Log
 
-## 20.17.0
-
-### Minor Changes
-
-- [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Status Badge] add new `size` value "borderless" which removes padding and border (box shadow) for a less stylized option of Status Badge for use in Tables and other crowded layouts.
-
-* [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Token] added new box shadows to support scrollable styling on inverse colored components
-
-- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Tokens]: Add new tokens related to box shadow of Tabs component
-
-* [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1) [#4094](https://github.com/twilio-labs/paste/pull/4094) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] new type export: BadgeSizes for use in status-badge package
-
-- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] make the non-fitted variant Tabs responsive. Export the context provider `TabsContext`.
-
-### Patch Changes
-
-- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [In Page Navigation]: Fix underline bug caused due to pixel rounding
-
-* [`fb3dc4835`](https://github.com/twilio-labs/paste/commit/fb3dc4835c6b2d8d0fd3390ac3f0fdefc9efaddd) [#4084](https://github.com/twilio-labs/paste/pull/4084) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Grid]: Fix rowGap and columnGap prop not applying
-
-- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [CodeBlock] make tabs responsive
-
-* [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [In Page Navigation] make items scrollable
-
-- [`afba2aeba`](https://github.com/twilio-labs/paste/commit/afba2aeba8ca7bbdca4d0baebc4975b96c862a48) [#4102](https://github.com/twilio-labs/paste/pull/4102) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Visual Picker]: Fix Visual Picker checkbox doesn't work in firefox when checkbox is clicked on directly
-
-* [`7425eceb8`](https://github.com/twilio-labs/paste/commit/7425eceb892b15becce4ed5da13e79045c3cfb63) [#4109](https://github.com/twilio-labs/paste/pull/4109) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Inline Code]: Update children prop to accept `React.ReactNode` instead of `string`
-
-- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Code Block]: Fix underline bug caused due to pixel rounding
-
-* [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Tabs]: Fix underline bug caused due to pixel rounding
-
-- [`a150cf7a8`](https://github.com/twilio-labs/paste/commit/a150cf7a8cabd6a109d7130a5ddf2e3bd4532880) [#4127](https://github.com/twilio-labs/paste/pull/4127) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Callout] changed layout so elements align horizontally reducing vertical space used
-
-* [`69d8d7c72`](https://github.com/twilio-labs/paste/commit/69d8d7c7204d672b742ce5c7eb02bf0d3b36b0a9) [#4126](https://github.com/twilio-labs/paste/pull/4126) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Progress Steps]: remove unnecessary space
-
-* Updated dependencies [[`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1), [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c), [`fb3dc4835`](https://github.com/twilio-labs/paste/commit/fb3dc4835c6b2d8d0fd3390ac3f0fdefc9efaddd), [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f), [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f), [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f), [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c), [`afba2aeba`](https://github.com/twilio-labs/paste/commit/afba2aeba8ca7bbdca4d0baebc4975b96c862a48), [`52ea25758`](https://github.com/twilio-labs/paste/commit/52ea25758a46f4da27950b4809d473fbfe9b74a1), [`7425eceb8`](https://github.com/twilio-labs/paste/commit/7425eceb892b15becce4ed5da13e79045c3cfb63), [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f), [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c), [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c), [`a150cf7a8`](https://github.com/twilio-labs/paste/commit/a150cf7a8cabd6a109d7130a5ddf2e3bd4532880), [`69d8d7c72`](https://github.com/twilio-labs/paste/commit/69d8d7c7204d672b742ce5c7eb02bf0d3b36b0a9)]:
-  - @twilio-paste/status@2.2.0
-  - @twilio-paste/in-page-navigation@4.3.2
-  - @twilio-paste/grid@8.1.2
-  - @twilio-paste/design-tokens@10.9.0
-  - @twilio-paste/code-block@4.1.2
-  - @twilio-paste/visual-picker@2.0.4
-  - @twilio-paste/badge@8.4.0
-  - @twilio-paste/inline-code@4.1.2
-  - @twilio-paste/tabs@8.3.0
-  - @twilio-paste/callout@4.2.1
-  - @twilio-paste/progress-steps@2.2.1
-
 ## 20.16.0
 
 ### Minor Changes

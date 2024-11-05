@@ -1,13 +1,5 @@
 # @twilio-paste/in-page-navigation
 
-## 4.3.2
-
-### Patch Changes
-
-- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [In Page Navigation]: Fix underline bug caused due to pixel rounding
-
-* [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [In Page Navigation] make items scrollable
-
 ## 4.3.1
 
 ### Patch Changes

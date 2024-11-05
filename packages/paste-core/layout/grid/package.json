@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/grid",
-  "version": "8.1.2",
+  "version": "8.1.1",
   "category": "layout",
   "status": "production",
   "description": "A flex-based horizontal grid system used to build layouts.",
@@ -44,7 +44,7 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.9.0",
+    "@twilio-paste/design-tokens": "^10.2.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",

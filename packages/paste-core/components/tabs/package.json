@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs",
-  "version": "8.3.0",
+  "version": "8.2.1",
   "category": "interaction",
   "status": "production",
   "description": "Tabs are labeled controls that allow users to switch between multiple views within a page.",
@@ -49,7 +49,7 @@
     "@twilio-paste/box": "^10.3.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
-    "@twilio-paste/design-tokens": "^10.9.0",
+    "@twilio-paste/design-tokens": "^10.4.0",
     "@twilio-paste/flex": "^8.1.0",
     "@twilio-paste/icons": "^12.2.0",
     "@twilio-paste/reakit-library": "^2.1.0",
