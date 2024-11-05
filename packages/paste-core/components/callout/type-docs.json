@@ -516,7 +516,7 @@
       "externalProp": true
     },
     "marginY": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 28 more ... | \"auto\"",
+      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 39 more ... | \"auto\"",
       "defaultValue": "null",
       "required": false,
       "externalProp": false
