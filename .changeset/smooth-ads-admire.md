@@ -1,6 +1,6 @@
 ---
-"@twilio-paste/side-modal": major
-"@twilio-paste/core": major
+"@twilio-paste/side-modal": minor
+"@twilio-paste/core": minor
 ---
 
-[Side Modal]: Align Side Modal footer actions to left
+[Side Modal]: Align `SideModalFooterActions` to left. This change is to make `Side Modal` more aligned with `Side Panel` component.
