@@ -1,5 +1,11 @@
 # @twilio-paste/side-modal
 
+## 4.2.0
+
+### Minor Changes
+
+- [`7c93dafd5`](https://github.com/twilio-labs/paste/commit/7c93dafd52ac78b1325b1c76f3ed0476bc98170e) [#4140](https://github.com/twilio-labs/paste/pull/4140) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Side Modal]: Align `SideModalFooterActions` to left. This change is to make `Side Modal` more aligned with `Side Panel` component. If you want to keep the actions on the right, you can use the `justifyContent` prop to align them to the right. If you are keeping them on the left, it's recommended to move the primary action to the left and the secondary action to the right.
+
 ## 4.1.3
 
 ### Patch Changes

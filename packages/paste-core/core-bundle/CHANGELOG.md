@@ -1,5 +1,25 @@
 # Change Log
 
+## 20.18.0
+
+### Minor Changes
+
+- [`aa192283b`](https://github.com/twilio-labs/paste/commit/aa192283b3bbee127d7a31e43d1f64f3c2a58f96) [#4139](https://github.com/twilio-labs/paste/pull/4139) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] add new spacing tokens up to space-310
+
+* [`7c93dafd5`](https://github.com/twilio-labs/paste/commit/7c93dafd52ac78b1325b1c76f3ed0476bc98170e) [#4140](https://github.com/twilio-labs/paste/pull/4140) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Side Modal]: Align `SideModalFooterActions` to left. This change is to make `Side Modal` more aligned with `Side Panel` component. If you want to keep the actions on the right, you can use the `justifyContent` prop to align them to the right. If you are keeping them on the left, it's recommended to move the primary action to the left and the secondary action to the right.
+
+### Patch Changes
+
+- [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f) [#4143](https://github.com/twilio-labs/paste/pull/4143) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] fix issue with currently selected item causing vertical scroll
+
+* [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f) [#4143](https://github.com/twilio-labs/paste/pull/4143) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [InPageNavigation] fix issue with currently selected item causing vertical scroll
+
+* Updated dependencies [[`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f), [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f), [`aa192283b`](https://github.com/twilio-labs/paste/commit/aa192283b3bbee127d7a31e43d1f64f3c2a58f96), [`7c93dafd5`](https://github.com/twilio-labs/paste/commit/7c93dafd52ac78b1325b1c76f3ed0476bc98170e)]:
+  - @twilio-paste/tabs@8.3.1
+  - @twilio-paste/in-page-navigation@4.3.3
+  - @twilio-paste/design-tokens@10.10.0
+  - @twilio-paste/side-modal@4.2.0
+
 ## 20.17.0
 
 ### Minor Changes
