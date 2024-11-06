@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { KeyboardKeyVariants } from "./KeyboardKeyGroup";
+export type KeyboardKeyVariants = "default" | "inverse";
 
 export interface KeyboardCombinationState {
   /**
@@ -12,14 +12,14 @@ export interface KeyboardCombinationState {
   activeKeys?: string[];
   /**
    * Whether the keys should show the disbled state
-   * @default null
+   * @default false
    * @type { boolean }
    * @memberof KeyboardCombinationState
    */
   disabled?: boolean;
   /**
    * Whether the keys should show pressed state when active keys contains the keyText mapped to KeyboardKey
-   * @default null
+   * @default false
    * @type { boolean }
    * @memberof KeyboardCombinationState
    */

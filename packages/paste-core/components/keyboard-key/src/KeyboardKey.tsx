@@ -1,10 +1,9 @@
-import { Box } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import { KeyboardKeyCombinationContext } from "./KeyboardKeyContext";
-import { KeyboardKeyVariants } from "./KeyboardKeyGroup";
+import { KeyboardKeyCombinationContext, KeyboardKeyVariants } from "./KeyboardKeyContext";
 
 const BaseStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   default: {
@@ -44,7 +43,7 @@ const PressedStyles: Record<KeyboardKeyVariants, BoxStyleProps> = {
   },
 };
 
-export interface KeyboardKeyProps extends HTMLPasteProps<"div"> {
+export interface KeyboardKeyProps extends HTMLPasteProps<"kbd"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -76,6 +75,7 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
 
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         element={element}
         ref={ref}
         borderWidth="borderWidth10"

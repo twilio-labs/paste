@@ -11,7 +11,6 @@ describe("Hooks", () => {
     const controlKey = getAllByText("Control")[0];
     const bKey = getAllByText("B")[0];
     expect(controlKey).toBeDefined();
-    expect(controlKey).toBeDefined();
     expect(controlKey).toHaveStyleRule("background-color", "rgb(249, 249, 250)");
     expect(bKey).toHaveStyleRule("background-color", "rgb(249, 249, 250)");
 
