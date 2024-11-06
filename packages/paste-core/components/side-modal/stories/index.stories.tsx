@@ -64,8 +64,8 @@ export const Default: StoryFn = () => {
         </SideModalBody>
         <SideModalFooter>
           <SideModalFooterActions>
-            <Button variant="secondary">Cancel</Button>
             <Button variant="primary">Start chat</Button>
+            <Button variant="secondary">Cancel</Button>
           </SideModalFooterActions>
         </SideModalFooter>
       </SideModal>
