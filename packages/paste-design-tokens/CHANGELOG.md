@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.10.0
+
+### Minor Changes
+
+- [`aa192283b`](https://github.com/twilio-labs/paste/commit/aa192283b3bbee127d7a31e43d1f64f3c2a58f96) [#4139](https://github.com/twilio-labs/paste/pull/4139) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] add new spacing tokens up to space-310
+
 ## 10.9.0
 
 ### Minor Changes
