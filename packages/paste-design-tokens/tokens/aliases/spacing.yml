@@ -20,3 +20,14 @@ aliases:
   space-180: "4.25rem" #68px
   space-190: "4.5rem" #72px
   space-200: "4.75rem" #76px
+  space-210: "5rem" #80px
+  space-220: "5.25rem" #84px
+  space-230: "5.5rem" #88px
+  space-240: "5.75rem" #92px
+  space-250: "6rem" #96px
+  space-260: "6.25rem" #100px
+  space-270: "6.5rem" #104px
+  space-280: "6.75rem" #108px
+  space-290: "7rem" #112px
+  space-300: "7.25rem" #116px
+  space-310: "7.5rem" #120px
