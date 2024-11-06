@@ -112,6 +112,39 @@ export const LinkOverflowExample: StoryFn = () => {
   );
 };
 
+export const LinkOverflowExampleScrollTest: StoryFn = () => {
+  /* using UID here to make unique labels for landmarks in Storybook for axe testing */
+  return (
+    <Box width="size60">
+      <Box height="1800px" />
+      <InPageNavigation aria-label={`get started ${useUID()}`}>
+        <InPageNavigationItem href="#">Super SIM</InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Programmable Wireless">
+          Programmable Wireless
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Super Duper SIM">
+          Super Duper SIM
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Programmable Wirefull">
+          Programmable Wirefull
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Super SIM">
+          Super SIM
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Programmable Wireless">
+          Programmable Wireless
+        </InPageNavigationItem>
+        <InPageNavigationItem currentPage={true} href="#" title="Super Duper SIM">
+          Super Duper SIM
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#" title="Programmable Wirefull">
+          Programmable Wirefull
+        </InPageNavigationItem>
+      </InPageNavigation>
+    </Box>
+  );
+};
+
 export const Customized: StoryFn = () => {
   const theme = useTheme();
   return (
