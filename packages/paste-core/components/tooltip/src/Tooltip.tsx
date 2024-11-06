@@ -1,5 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { KeyboardKey, KeyboardKeyGroup } from "@twilio-paste/keyboard-key";
+import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { StyledBase } from "@twilio-paste/theme";
 import { TooltipPrimitive, TooltipPrimitiveReference, useTooltipPrimitiveState } from "@twilio-paste/tooltip-primitive";
@@ -60,7 +62,37 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
    * @memberof TooltipProps
    */
   text: string;
+  actionHeader?: never;
+  keyCombinationsActions?: never;
 }
+
+interface KeyboardActions {
+  name: string;
+  keyCombination: string[];
+  disabled?: boolean;
+}
+
+export interface KeyboardKeyTooltipProps
+  extends Omit<TooltipProps, "text" | "keyCombinationsActions" | "actionHeader"> {
+  text?: never;
+  /**
+   * The mapping of action names to their respective key combinations.
+   *
+   * @type {KeyboardActions}
+   * @memberof KeyboardKeyTooltipProps
+   */
+  keyCombinationsActions: KeyboardActions;
+  /**
+   * The header content of the Tooltip.
+   *
+   * @type {string}
+   * @memberof KeyboardKeyTooltipProps
+   */
+  actionHeader?: string;
+}
+
+// Union will stop users from adding types from both TooltipProps and KeyboardKeyTooltipProps at the same time.
+export type TooltipTypes = TooltipProps | KeyboardKeyTooltipProps;
 
 /*
  *Tooltip's current structure does not allow for customization of its arrow.
@@ -68,9 +100,10 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
  *using Customization Provider.
  */
 
-const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
-  ({ baseId, children, element = "TOOLTIP", state, text, ...props }, ref) => {
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
+  ({ baseId, children, element = "TOOLTIP", state, text, actionHeader, keyCombinationsActions, ...props }, ref) => {
     const tooltip = state || useTooltipPrimitiveState({ baseId: `paste-tooltip-${useUID()}`, ...props });
+
     return (
       <>
         {React.Children.only(
@@ -82,15 +115,49 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
           {/* import Paste Theme Based Styles due to portal positioning. */}
           <StyledBase>
             <TooltipArrow {...tooltip} />
-            <Text
-              element={`${element}_TEXT`}
-              as="span"
-              color="colorTextInverse"
-              fontSize="fontSize20"
-              lineHeight="lineHeight10"
-            >
-              {text}
-            </Text>
+            {text && (
+              <Text
+                element={`${element}_TEXT`}
+                as="span"
+                color="colorTextInverse"
+                fontSize="fontSize20"
+                lineHeight="lineHeight10"
+              >
+                {text}
+              </Text>
+            )}
+            {keyCombinationsActions && (
+              <Stack orientation="vertical" spacing="space30">
+                {actionHeader && (
+                  <Text element={`${element}_HEADER`} fontWeight="fontWeightSemibold" as="p" color="colorTextInverse">
+                    {actionHeader}
+                  </Text>
+                )}
+                {keyCombinationsActions.map((action) => (
+                  <Box display="flex" justifyContent="space-between">
+                    <Text
+                      element={`${element}_ACTION_TEXT`}
+                      as="span"
+                      color="colorTextInverse"
+                      fontSize="fontSize20"
+                      lineHeight="lineHeight10"
+                      marginRight="space70"
+                    >
+                      {action.name}
+                    </Text>
+                    <KeyboardKeyGroup
+                      variant="inverse"
+                      element={`${element}_ACTION_KEY_GROUP`}
+                      disabled={action.disabled}
+                    >
+                      {action.keyCombination.map((key) => (
+                        <KeyboardKey element={`${element}_ACTION_KEY`}>{key}</KeyboardKey>
+                      ))}
+                    </KeyboardKeyGroup>
+                  </Box>
+                ))}
+              </Stack>
+            )}
           </StyledBase>
         </TooltipPrimitive>
       </>

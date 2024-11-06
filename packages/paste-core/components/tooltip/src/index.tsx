@@ -3,6 +3,8 @@ import type { TooltipStateReturn } from "./Tooltip";
 export { Tooltip, useTooltipState } from "./Tooltip";
 export type {
   TooltipProps,
+  TooltipTypes,
+  KeyboardKeyTooltipProps,
   TooltipStateReturn,
   UseTooltipInitialStateProps,
 } from "./Tooltip";
