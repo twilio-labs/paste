@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.3.1
+
+### Patch Changes
+
+- [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f) [#4143](https://github.com/twilio-labs/paste/pull/4143) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] fix issue with currently selected item causing vertical scroll
+
 ## 8.3.0
 
 ### Minor Changes

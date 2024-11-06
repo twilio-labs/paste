@@ -106,15 +106,19 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     // Scroll to the selected tab if it exists on mount
     React.useEffect(() => {
       if (listRef.current && scrollableRef.current) {
-        setTimeout(
-          () =>
-            listRef.current
-              ?.querySelector(`[aria-current="page"]`)
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore - behavior is typed incorrectly in Typescript v4, fixed in v5+
-              ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
-          1,
-        );
+        const currentSelectedTab = listRef.current.querySelector(`[aria-current="page"]`);
+        const scrollableWidth = scrollableRef.current.getBoundingClientRect().width;
+
+        if (
+          currentSelectedTab &&
+          (currentSelectedTab?.getBoundingClientRect().x < 0 ||
+            currentSelectedTab?.getBoundingClientRect().right > scrollableWidth)
+        ) {
+          const scrollLeft =
+            currentSelectedTab.getBoundingClientRect().x - scrollableRef.current.getBoundingClientRect().x;
+          scrollableRef.current.scrollLeft += scrollLeft;
+        }
+
         scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
         window.addEventListener("resize", handleScrollEvent);
         determineElementsOutOfBounds(scrollableRef.current, listRef.current);

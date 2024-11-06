@@ -65,6 +65,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   element,
 }) => {
   const ref = React.useRef<HTMLElement>(null);
+  const { selectedId } = React.useContext(TabsContext);
   //  ref to the scrollable element
   const scrollableRef = React.useRef<HTMLDivElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
@@ -84,6 +85,22 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       determineElementsOutOfBounds(scrollableRef.current, ref.current);
     }
   }, [ref.current, scrollableRef.current]);
+
+  React.useEffect(() => {
+    if (scrollableRef.current && selectedId) {
+      // eslint-disable-next-line unicorn/prefer-query-selector
+      const selectedTabEl = document.getElementById(selectedId);
+      const scrollableWidth = scrollableRef.current.getBoundingClientRect().width;
+
+      if (
+        selectedTabEl &&
+        (selectedTabEl?.getBoundingClientRect().x < 0 || selectedTabEl?.getBoundingClientRect().right > scrollableWidth)
+      ) {
+        const scrollLeft = selectedTabEl.getBoundingClientRect().x - scrollableRef.current.getBoundingClientRect().x;
+        scrollableRef.current.scrollLeft += scrollLeft;
+      }
+    }
+  }, [scrollableRef.current, selectedId]);
 
   // Cleanup event listeners on destroy
   React.useEffect(() => {
