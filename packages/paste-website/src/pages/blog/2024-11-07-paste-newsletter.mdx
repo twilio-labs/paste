@@ -1,0 +1,210 @@
+export const meta = {
+  title: "Paste Design System Newsletter - November 2024 Edition",
+  slug: "/blog/2024-11-07-paste-newsletter/",
+  date: "2024-11-07",
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  excerpt: "What's new in Paste in November 2024? Pricing pattern, Timeline component, and more!",
+};
+
+import Image from "next/image";
+import { Box } from "@twilio-paste/box";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import { ResponsiveBorderedImage } from "../../components/ResponsiveBorderedImage";
+import { Blockquote } from "../../components/Blockquote";
+
+import PricingPattern from "../../assets/images/articles/2024-11-07-paste-newsletter/pricing-pattern.png";
+import Timeline from "../../assets/images/articles/2024-11-07-paste-newsletter/timeline.png";
+import ProgressSteps from "../../assets/images/articles/2024-11-07-paste-newsletter/progress-steps.png";
+import Tabs from "../../assets/images/articles/2024-11-07-paste-newsletter/tabs.gif";
+import AIErrorState from "../../assets/images/articles/2024-11-07-paste-newsletter/ai-error-state.png";
+import Callout from "../../assets/images/articles/2024-11-07-paste-newsletter/callout.png";
+import Pastemate from "../../assets/images/articles/2024-11-07-paste-newsletter/paste-mate-2024-11.png";
+
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What was new in Paste?
+
+### Pricing pattern
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={PricingPattern}
+      alt="Preview of Pricing pattern"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+If you’re shipping updated billing flows, you’ll want to check out the
+new [Pricing pattern](/patterns/pricing)!
+This pattern shows a group of paid features or plan options for a user
+to make a selection. Use it to show the differences between plans in
+order for customers to make informed purchasing decisions.
+
+This pattern was a major contribution from **Kara Kenna**,
+with support from **Bhooma Srirangarajan**. Thanks for your
+detailed work and feedback-gathering on this pattern!
+
+
+### Timeline component
+
+<Box width="100%" maxWidth="400px" display="block">
+  <ResponsiveBorderedImage src={Timeline} alt="Preview of Timeline component" />
+</Box>
+
+The [Timeline](/components/timeline) component displays events in chronological order and can be used for tracking milestones, monitoring system logs, or visualizing user activity that can be associated with a timestamp.
+
+We’ve also updated [Progress Steps so you can add additional content to individual steps](/components/progress-steps#additional-content). With this update, Progress Steps can continue to be used to outline progress multi-step task across multiple pages or apps:
+
+<Box width="100%" maxWidth="400px" display="block">
+  <ResponsiveBorderedImage src={ProgressSteps} alt="Preview of Progress Steps component" />
+</Box>
+
+[Learn more about when to use Timeline vs. Progress Steps here.](/components/timeline#progress-steps-vs-ordered-display-list-vs-timeline)
+
+### Improved responsive behavior in Tabs
+
+<Box marginBottom="space60">
+  <Box
+    borderColor="colorBorderWeaker"
+    borderStyle="solid"
+    borderWidth="borderWidth10"
+    borderRadius="borderRadius20"
+    overflow="hidden"
+  >
+    <Box
+      as={Image}
+      maxWidth="100%"
+      height="100%"
+      src={Tabs}
+      alt="Gif of Tabs"
+      style={{ objectFit: "contain" }}
+    />
+  </Box>
+</Box>
+
+[Tabs](/components/tabs) now have better responsive behavior by default,
+allowing users to scroll additional tabs, rather than its previous behavior that truncated tab labels.
+
+
+### Error states for AI Chat Log
+
+<Box width="100%" maxWidth="400px" display="block">
+  <ResponsiveBorderedImage src={AIErrorState} alt="Preview of AI UI Kit Error state" />
+</Box>
+
+When designing for AI, you’ll always want to [assume errors will happen and plan for them](/experiences/artificial-intelligence#designing-ai-features) when they inevitably happen. In that vein, check out our new guidelines for [error states in AI Chat Log](/components/ai-chat-log#error-states).
+
+These guidelines cover errors when:
+
+- Generating a response.
+- A user takes an action that’s part of message content.
+- A user takes an action that affects a message, like giving feedback on a response.
+- A user’s message fails to be sent.
+- There’s a system failure.
+
+### Callout update
+
+<Box width="100%" maxWidth="400px" display="block">
+  <ResponsiveBorderedImage src={Callout} alt="Preview of Callout component" />
+</Box>
+
+The design and functionality of [Callout](/components/callout) has been updated with a
+dismissible variant and greater visual contrast from the [Alert](/components/alert) component to
+better communicate differences in urgency.
+
+### Additional updates
+
+#### New
+
+- Added [borderless Status Badges](/components/status-badge#borderless-badges) for easier display of statuses within Tables and Data Grids, and updated the [Object status](/patterns/object-status) pattern (formerly known as Status pattern)
+- Added instructions on how to [add the HighCharts accessibility module](/foundations/data-visualization#adding-highcharts-accessibility-module) to your charts for enhanced keyboard navigation and screen reader functionality.
+
+#### Updates
+
+- [Truncate](/components/truncate) and [Inline Code](/components/inline-code) are now composable.
+
+## ✨ Pastemates™ spotlight
+
+Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system.
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={Pastemate} alt="image of Kara Kenna" />
+</Box>
+
+In this edition of Pastemates, we’re spotlighting a mate from the Voice team, **Kara Kenna**! Kara contributed the design and guidelines for our new [Pricing pattern](/patterns/pricing), and frequently provides valuable product and customer insight on Paste components and features.
+
+She set an outstanding example for Paste contributions, keeping the Paste team updated through regular check-ins and keeping other designers aligned during design critiques. Despite varying feedback, she was able to keep the pattern tightly scoped and showed sensible, incremental progress at every step. This is truly the best way to move broad-reaching systems work forward, and Kara lived the Twilio values of being an Owner by ruthlessly prioritizing and being Curious by seeking progress, over perfection.
+
+Here’s Kara’s own experience with contributing the Pricing pattern:
+
+Working on a product upgrade feature for Voice, I realized the
+opportunity to contribute additional guidance on pricing cards in
+Paste. I worked across product teams, including Onboarding, Commerce,
+Messaging, Support, and Segment to identify use cases and align on a
+consistent pattern. The established Paste components and guidelines
+helped us move efficiently with layouts, and the Design System team
+provided support along the way to ensure we followed best practices.
+Contributing may seem daunting at first, but the team makes it
+painless and you have a chance to make an impact across products!
+
+Thank you so much, Kara! We can’t wait to see what you build (and contribute) next.
+
+## 👀 What we're working on next
+
+| Feature                        | Description                                                                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Keyboard Key component**     | A Keyboard Key distinguishes a keyboard command or shortcut from other text.                                                                                       |
+| **Sample Text component**      | Sample Text distinguishes examples from body text and clarifies what kind of input is expected into the system. |
+| **Blockquote component**       | A Blockquote highlights a quotation. |
+
+<Box marginBottom="space120" />
+
+As always, we're better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>
