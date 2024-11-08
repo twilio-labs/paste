@@ -58,11 +58,11 @@ export interface KeyboardKeyProps extends HTMLPasteProps<"kbd"> {
    * @type string
    * @memberof KeyboardKeyProps
    */
-  keyText?: string;
+  keyEvent?: string;
 }
 
 const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
-  ({ element = "KEYBOARD_KEY", keyText, ...props }, ref) => {
+  ({ element = "KEYBOARD_KEY", keyEvent, ...props }, ref) => {
     const {
       disabled,
       activeKeys,
@@ -71,7 +71,7 @@ const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(
     } = React.useContext(KeyboardKeyCombinationContext);
 
     const isKeyActive =
-      !disabled && activeKeys && keyText && activeKeys.map((k) => k.toLowerCase()).includes(keyText.toLowerCase());
+      !disabled && activeKeys && keyEvent && activeKeys.map((k) => k.toLowerCase()).includes(keyEvent.toLowerCase());
 
     return (
       <Box

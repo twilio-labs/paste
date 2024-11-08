@@ -34,8 +34,8 @@ export const Default = (): React.ReactElement => {
             Default/pressed
           </Text>
           <KeyboardKeyGroup {...state}>
-            <KeyboardKey keyText="Control">Control</KeyboardKey>
-            <KeyboardKey keyText="b">B</KeyboardKey>
+            <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+            <KeyboardKey keyEvent="b">B</KeyboardKey>
           </KeyboardKeyGroup>
         </Box>
         <Box>
@@ -43,8 +43,8 @@ export const Default = (): React.ReactElement => {
             Disabled
           </Text>
           <KeyboardKeyGroup {...state} disabled>
-            <KeyboardKey keyText="Control">Control</KeyboardKey>
-            <KeyboardKey keyText="b">B</KeyboardKey>
+            <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+            <KeyboardKey keyEvent="b">B</KeyboardKey>
           </KeyboardKeyGroup>
         </Box>
       </Stack>
@@ -70,8 +70,8 @@ export const Inverse = (): React.ReactElement => {
             Default/pressed
           </Text>
           <KeyboardKeyGroup {...state} variant="inverse">
-            <KeyboardKey keyText="Control">Control</KeyboardKey>
-            <KeyboardKey keyText="b">B</KeyboardKey>
+            <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+            <KeyboardKey keyEvent="b">B</KeyboardKey>
           </KeyboardKeyGroup>
         </Box>
         <Box>
@@ -79,8 +79,8 @@ export const Inverse = (): React.ReactElement => {
             Disabled
           </Text>
           <KeyboardKeyGroup {...state} disabled variant="inverse">
-            <KeyboardKey keyText="Control">Control</KeyboardKey>
-            <KeyboardKey keyText="b">B</KeyboardKey>
+            <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+            <KeyboardKey keyEvent="b">B</KeyboardKey>
           </KeyboardKeyGroup>
         </Box>
       </Stack>
@@ -102,12 +102,12 @@ export const ForcePressed = (): React.ReactElement => {
     <Theme.Provider theme="twilio">
       <Stack orientation="horizontal" spacing="space40">
         <KeyboardKeyGroup {...state} activeKeys={["Control", "b"]}>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
+          <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+          <KeyboardKey keyEvent="b">B</KeyboardKey>
         </KeyboardKeyGroup>
         <KeyboardKeyGroup {...state} activeKeys={["Control", "b"]} variant="inverse">
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
+          <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+          <KeyboardKey keyEvent="b">B</KeyboardKey>
         </KeyboardKeyGroup>
       </Stack>
     </Theme.Provider>
@@ -157,25 +157,25 @@ export const MultipleCombinations = (): React.ReactElement => {
     <Theme.Provider theme="twilio">
       <Stack orientation="vertical" spacing="space40">
         <KeyboardKeyGroup {...stateCtrB}>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
+          <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+          <KeyboardKey keyEvent="b">B</KeyboardKey>
         </KeyboardKeyGroup>
         <KeyboardKeyGroup {...stateCtrK}>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="k">K</KeyboardKey>
+          <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+          <KeyboardKey keyEvent="k">K</KeyboardKey>
         </KeyboardKeyGroup>
         <KeyboardKeyGroup {...stateCmdB}>
-          <KeyboardKey keyText="Meta">Cmd</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
+          <KeyboardKey keyEvent="Meta">Cmd</KeyboardKey>
+          <KeyboardKey keyEvent="b">B</KeyboardKey>
         </KeyboardKeyGroup>
         <KeyboardKeyGroup {...stateCmdK}>
-          <KeyboardKey keyText="meta">Cmd</KeyboardKey>
-          <KeyboardKey keyText="k">K</KeyboardKey>
+          <KeyboardKey keyEvent="meta">Cmd</KeyboardKey>
+          <KeyboardKey keyEvent="k">K</KeyboardKey>
         </KeyboardKeyGroup>
         <KeyboardKeyGroup {...stateCmdShiftB}>
-          <KeyboardKey keyText="meta">Cmd</KeyboardKey>
-          <KeyboardKey keyText="Shift">Shift</KeyboardKey>
-          <KeyboardKey keyText="p">P</KeyboardKey>
+          <KeyboardKey keyEvent="meta">Cmd</KeyboardKey>
+          <KeyboardKey keyEvent="Shift">Shift</KeyboardKey>
+          <KeyboardKey keyEvent="p">P</KeyboardKey>
         </KeyboardKeyGroup>
       </Stack>
       <br />
@@ -198,8 +198,8 @@ export const TriggerModal = (): React.ReactElement => {
     <Theme.Provider theme="twilio">
       <Paragraph>Use the following shortcut to open a modal:</Paragraph>
       <KeyboardKeyGroup {...state}>
-        <KeyboardKey keyText="Control">Control</KeyboardKey>
-        <KeyboardKey keyText="k">K</KeyboardKey>
+        <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+        <KeyboardKey keyEvent="k">K</KeyboardKey>
       </KeyboardKeyGroup>
 
       <Modal ariaLabelledby="Close demo modal" isOpen={isOpen} onDismiss={() => setIsOpen(false)} size="default">
@@ -254,8 +254,8 @@ export const Customization = (): React.ReactElement => {
         }}
       >
         <KeyboardKeyGroup {...state}>
-          <KeyboardKey keyText="Control">Control</KeyboardKey>
-          <KeyboardKey keyText="b">B</KeyboardKey>
+          <KeyboardKey keyEvent="Control">Control</KeyboardKey>
+          <KeyboardKey keyEvent="b">B</KeyboardKey>
         </KeyboardKeyGroup>
       </CustomizationProvider>
     </Theme.Provider>

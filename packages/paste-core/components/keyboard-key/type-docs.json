@@ -489,7 +489,7 @@
       "required": false,
       "externalProp": true
     },
-    "keyText": {
+    "keyEvent": {
       "type": "string",
       "defaultValue": "'KEYBOARD_KEY'",
       "required": false,
@@ -2030,7 +2030,7 @@
       "defaultValue": false,
       "required": false,
       "externalProp": false,
-      "description": "Whether the keys should show pressed state when active keys contains the keyText mapped to KeyboardKey"
+      "description": "Whether the keys should show pressed state when active keys contains the keyEvent mapped to KeyboardKey"
     },
     "hidden": {
       "type": "boolean",

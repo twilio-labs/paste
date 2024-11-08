@@ -18,7 +18,7 @@ export interface KeyboardCombinationState {
    */
   disabled?: boolean;
   /**
-   * Whether the keys should show pressed state when active keys contains the keyText mapped to KeyboardKey
+   * Whether the keys should show pressed state when active keys contains the keyEvent mapped to KeyboardKey
    * @default false
    * @type { boolean }
    * @memberof KeyboardCombinationState
