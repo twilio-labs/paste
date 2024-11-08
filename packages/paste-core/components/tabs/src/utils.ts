@@ -35,14 +35,14 @@ export const useElementsOutOfBounds = (): {
            * Compares the left side of the tab with the left side of the scrollable container position
            * as the x value will not be 0 due to being offset in the screen.
            */
-          if (x < currentScrollContainerXOffset) {
+          if (Math.round(x) < Math.round(currentScrollContainerXOffset - 28)) {
             leftOutOfBounds = tab;
           }
           /**
-           * Compares the right side to the end of container. Also ensure there are
+           * Compares the right side to the end of container and button width. Also ensure there are
            * no value set as it loops through the array we don't want it to override the first value out of bounds.
            */
-          if (Math.round(right) > Math.round(currentScrollContainerRightPosition + 1) && !rightOutOfBounds) {
+          if (Math.round(right) > Math.round(currentScrollContainerRightPosition + 28) && !rightOutOfBounds) {
             rightOutOfBounds = tab;
           }
         }
