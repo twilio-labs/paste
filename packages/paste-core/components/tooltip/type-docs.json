@@ -7,6 +7,117 @@
       "externalProp": false,
       "description": "The text content of the Tooltip."
     },
+    "actionHeader": {
+      "type": "never",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "element": {
+      "type": "string",
+      "defaultValue": "TOOLTIP",
+      "required": false,
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
+    },
+    "keyCombinationsActions": {
+      "type": "never",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "state": {
+      "type": "TooltipStateReturn",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The returned state from the `useTooltipState` hook."
+    },
+    "unstable_fixed": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether or not the popover should have `position` set to `fixed`."
+    },
+    "unstable_flip": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Flip the popover's placement when it starts to overlap its reference\nelement."
+    },
+    "unstable_offset": {
+      "type": "[string | number, string | number]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover: [main axis, alt axis]. Should not be combined with `gutter`."
+    },
+    "unstable_preventOverflow": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Prevents popover from being positioned outside the boundary."
+    },
+    "unstable_timeout": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "KeyboardKeyTooltip": {
+    "keyCombinationsActions": {
+      "type": "KeyboardActions[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The mapping of action names to their respective key combinations."
+    },
+    "actionHeader": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The header content of the Tooltip."
+    },
     "animated": {
       "type": "number | boolean",
       "defaultValue": null,
@@ -48,6 +159,12 @@
       "required": false,
       "externalProp": false,
       "description": "The returned state from the `useTooltipState` hook."
+    },
+    "text": {
+      "type": "never",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
     },
     "unstable_fixed": {
       "type": "boolean",
