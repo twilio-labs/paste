@@ -78,10 +78,10 @@ export interface KeyboardKeyTooltipProps
   /**
    * The mapping of action names to their respective key combinations.
    *
-   * @type {KeyboardActions}
+   * @type {Array<KeyboardActions>}
    * @memberof KeyboardKeyTooltipProps
    */
-  keyCombinationsActions: KeyboardActions;
+  keyCombinationsActions: Array<KeyboardActions>;
   /**
    * The header content of the Tooltip.
    *
