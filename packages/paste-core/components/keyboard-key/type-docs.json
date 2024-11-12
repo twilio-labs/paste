@@ -494,7 +494,7 @@
       "defaultValue": "'KEYBOARD_KEY'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the key text that will be used to determine if the key has press stylings"
+      "description": "Sets the key text that will be used to determine if the key has press stylings.\nA list of keyEvent mapping can be found at: https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/"
     },
     "lang": {
       "type": "string",

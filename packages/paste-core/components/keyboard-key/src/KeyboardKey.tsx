@@ -53,7 +53,8 @@ export interface KeyboardKeyProps extends HTMLPasteProps<"kbd"> {
    */
   element?: BoxProps["element"];
   /**
-   * Sets the key text that will be used to determine if the key has press stylings
+   * Sets the key text that will be used to determine if the key has press stylings.
+   * A list of keyEvent mapping can be found at: https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
    * @default 'KEYBOARD_KEY'
    * @type string
    * @memberof KeyboardKeyProps
