@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 4.1.3
+
+### Patch Changes
+
+- [`0f7cb22a0`](https://github.com/twilio-labs/paste/commit/0f7cb22a05d803b2a2c32d62bdf892c48f218775) [#4148](https://github.com/twilio-labs/paste/pull/4148) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs, CodeBlock, InPageNavigation] fixed a bug where items in the tabs list may not complete the scroll, still showing the overflow right button.
+
 ## 4.1.2
 
 ### Patch Changes
