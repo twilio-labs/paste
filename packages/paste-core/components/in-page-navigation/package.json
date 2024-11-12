@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/in-page-navigation",
-  "version": "4.3.3",
+  "version": "4.3.4",
   "category": "navigation",
   "status": "production",
   "description": "In Page Navigation is a set of links that lets users navigate between related pages.",
