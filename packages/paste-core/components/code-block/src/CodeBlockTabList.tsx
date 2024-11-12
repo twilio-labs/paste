@@ -81,7 +81,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           <OverflowButton
             position="left"
             onClick={() =>
-              handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, listRef.current)
+              handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, scrollableRef.current)
             }
             visible={Boolean(elementOutOBoundsLeft)}
             element={element}
@@ -116,7 +116,7 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
           <OverflowButton
             position="right"
             onClick={() =>
-              handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, listRef.current)
+              handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, scrollableRef.current)
             }
             visible={Boolean(elementOutOBoundsRight)}
             element={element}
