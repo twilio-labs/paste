@@ -42,6 +42,7 @@ export * from "@twilio-paste/inline-code";
 export * from "@twilio-paste/inline-control-group";
 export * from "@twilio-paste/input";
 export * from "@twilio-paste/input-box";
+export * from "@twilio-paste/keyboard-key";
 export * from "@twilio-paste/label";
 export * from "@twilio-paste/list";
 export * from "@twilio-paste/listbox-primitive";

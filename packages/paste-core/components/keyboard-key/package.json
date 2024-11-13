@@ -1,9 +1,9 @@
 {
-  "name": "@twilio-paste/{{kebabCase component-name}}",
+  "name": "@twilio-paste/keyboard-key",
   "version": "0.0.0",
-  "category": "{{component-category}}",
-  "status": "{{component-status}}",
-  "description": "{{sentenceCase component-description}}.",
+  "category": "typography",
+  "status": "production",
+  "description": "A keyboard key distinguishes a keyboard command or shortcut from other text.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
