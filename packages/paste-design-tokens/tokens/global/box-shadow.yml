@@ -225,6 +225,12 @@ props:
   shadow-border-bottom-inverse-weaker-inset:
     value: "inset {!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-80}"
     comment: Weaker bottom shadow border for tab container on inverse backgrounds
+  shadow-border-bottom-weak:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-gray-30}"
+    comment: Bottom shadow border for border weak color
+  shadow-border-bottom-inverse-weaker:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!palette-gray-80}"
+    comment: Bottom shadow border for inverse border weaker color
 
   # User
   shadow-border-user:
