@@ -1,0 +1,8 @@
+{
+  "name": "@twilio-paste-core/sample-text",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/sample-text.js",
+  "types": "../dist/sample-text.d.ts"
+}
