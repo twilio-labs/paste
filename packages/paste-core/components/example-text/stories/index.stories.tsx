@@ -1,7 +1,5 @@
 import { Box } from "@twilio-paste/box";
-import { ListItem, UnorderedList } from "@twilio-paste/list";
 import { Paragraph } from "@twilio-paste/paragraph";
-import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { ExampleText } from "../src";
@@ -26,35 +24,5 @@ export const Inline = (): React.ReactNode => {
         your email address by clicking a link sent to your inbox.
       </Paragraph>
     </Box>
-  );
-};
-
-// TODO: Choose one of the following implementations to suggest, remove the other
-
-export const List = (): React.ReactNode => {
-  return (
-    <ExampleText>
-      <UnorderedList marginBottom="space0">
-        <ListItem>I am Jenn, the virtual assistant</ListItem>
-        <ListItem>Hi are you available?</ListItem>
-        <ListItem>Do not worry I will not share the answers with anyone.</ListItem>
-      </UnorderedList>
-    </ExampleText>
-  );
-};
-
-export const TextAsList = (): React.ReactNode => {
-  return (
-    <ExampleText>
-      <Text paddingY="space30" marginLeft="space70" display="list-item" as="span">
-        I am Jenn, the virtual assistant
-      </Text>
-      <Text paddingY="space30" marginLeft="space70" display="list-item" as="span">
-        Hi are you available?
-      </Text>
-      <Text paddingY="space30" marginLeft="space70" display="list-item" as="span">
-        Do not worry I will not share the answers with anyone.
-      </Text>
-    </ExampleText>
   );
 };
