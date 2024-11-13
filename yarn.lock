@@ -12052,7 +12052,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/code-block@^4.1.0, @twilio-paste/code-block@^4.1.2, @twilio-paste/code-block@workspace:packages/paste-core/components/code-block":
+"@twilio-paste/code-block@^4.1.0, @twilio-paste/code-block@^4.1.3, @twilio-paste/code-block@workspace:packages/paste-core/components/code-block":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/code-block@workspace:packages/paste-core/components/code-block"
   dependencies:
@@ -12074,7 +12074,7 @@ __metadata:
     "@twilio-paste/style-props": ^9.1.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/syntax-highlighter-library": ^3.0.0
-    "@twilio-paste/tabs": ^8.3.0
+    "@twilio-paste/tabs": ^8.3.2
     "@twilio-paste/tabs-primitive": ^2.0.0
     "@twilio-paste/text": ^10.1.0
     "@twilio-paste/theme": ^11.0.0
@@ -12288,7 +12288,7 @@ __metadata:
     "@twilio-paste/chat-log": ^5.2.1
     "@twilio-paste/checkbox": ^13.1.2
     "@twilio-paste/clipboard-copy-library": ^3.0.0
-    "@twilio-paste/code-block": ^4.1.2
+    "@twilio-paste/code-block": ^4.1.3
     "@twilio-paste/code-editor-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/combobox": ^16.3.0
@@ -12316,7 +12316,7 @@ __metadata:
     "@twilio-paste/heading": ^11.1.2
     "@twilio-paste/help-text": ^13.1.0
     "@twilio-paste/icons": ^12.7.0
-    "@twilio-paste/in-page-navigation": ^4.3.3
+    "@twilio-paste/in-page-navigation": ^4.3.4
     "@twilio-paste/inline-code": ^4.1.2
     "@twilio-paste/inline-control-group": ^13.0.2
     "@twilio-paste/input": ^9.1.3
@@ -12364,7 +12364,7 @@ __metadata:
     "@twilio-paste/switch": ^5.1.1
     "@twilio-paste/syntax-highlighter-library": ^3.0.0
     "@twilio-paste/table": ^8.2.1
-    "@twilio-paste/tabs": ^8.3.1
+    "@twilio-paste/tabs": ^8.3.2
     "@twilio-paste/tabs-primitive": ^2.0.1
     "@twilio-paste/text": ^10.1.1
     "@twilio-paste/textarea": ^10.2.0
@@ -13309,7 +13309,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/in-page-navigation@^4.3.1, @twilio-paste/in-page-navigation@^4.3.3, @twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation":
+"@twilio-paste/in-page-navigation@^4.3.1, @twilio-paste/in-page-navigation@^4.3.4, @twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/in-page-navigation@workspace:packages/paste-core/components/in-page-navigation"
   dependencies:
@@ -15305,7 +15305,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/tabs@^8.2.1, @twilio-paste/tabs@^8.3.0, @twilio-paste/tabs@^8.3.1, @twilio-paste/tabs@workspace:packages/paste-core/components/tabs":
+"@twilio-paste/tabs@^8.2.1, @twilio-paste/tabs@^8.3.2, @twilio-paste/tabs@workspace:packages/paste-core/components/tabs":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/tabs@workspace:packages/paste-core/components/tabs"
   dependencies:

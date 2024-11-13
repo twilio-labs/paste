@@ -23,7 +23,6 @@ export const useElementsOutOfBounds = (): {
     if (scrollContainer && listContainer) {
       const currentScrollContainerRightPosition = (scrollContainer as HTMLDivElement)?.getBoundingClientRect().right;
       const currentScrollContainerXOffset = (scrollContainer as HTMLDivElement)?.getBoundingClientRect().x;
-
       let leftOutOfBounds: HTMLDivElement | null = null;
       let rightOutOfBounds: HTMLDivElement | null = null;
 
@@ -36,14 +35,14 @@ export const useElementsOutOfBounds = (): {
            * Compares the left side of the tab with the left side of the scrollable container position
            * as the x value will not be 0 due to being offset in the screen.
            */
-          if (x < currentScrollContainerXOffset) {
+          if (Math.round(x) < Math.round(currentScrollContainerXOffset - 28)) {
             leftOutOfBounds = tab;
           }
           /**
-           * Compares the right side to the end of container with some buffer. Also ensure there are
+           * Compares the right side to the end of container and button width. Also ensure there are
            * no value set as it loops through the array we don't want it to override the first value out of bounds.
            */
-          if (right > currentScrollContainerRightPosition + 10 && !rightOutOfBounds) {
+          if (Math.round(right) > Math.round(currentScrollContainerRightPosition + 28) && !rightOutOfBounds) {
             rightOutOfBounds = tab;
           }
         }
@@ -82,12 +81,20 @@ export const handleScrollDirection = (
   direction: "left" | "right",
   elementOutOBoundsLeft: HTMLDivElement | null,
   elementOutOBoundsRight: HTMLDivElement | null,
-  listContainer: HTMLElement | null,
+  scrollContainer: HTMLElement | null,
 ): void => {
-  if (listContainer) {
-    const elementToScrollTo = direction === "left" ? elementOutOBoundsLeft : elementOutOBoundsRight;
-    if (elementToScrollTo) {
-      elementToScrollTo.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
+  const elementToScrollTo = direction === "left" ? elementOutOBoundsLeft : elementOutOBoundsRight;
+
+  if (scrollContainer && elementToScrollTo) {
+    const elementRect = elementToScrollTo.getBoundingClientRect();
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const containerScrollLeft = scrollContainer.scrollLeft;
+
+    // Calculate the new scroll position
+    const newScrollLeft =
+      containerScrollLeft + (elementRect.left - containerRect.left) - containerRect.width / 2 + elementRect.width / 2;
+
+    // Set the new scroll position
+    scrollContainer.scrollTo({ left: newScrollLeft, behavior: "smooth" });
   }
 };
