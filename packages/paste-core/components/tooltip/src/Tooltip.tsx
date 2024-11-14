@@ -115,7 +115,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
           {/* import Paste Theme Based Styles due to portal positioning. */}
           <StyledBase>
             <TooltipArrow {...tooltip} />
-            {text && (
+            {text && !keyCombinationsActions && (
               <Text
                 element={`${element}_TEXT`}
                 as="span"
