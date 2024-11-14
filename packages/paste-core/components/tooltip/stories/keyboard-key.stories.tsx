@@ -28,8 +28,8 @@ export const Default = (): React.ReactNode => {
         visible
         actionHeader="Search shortcuts"
         keyCombinationsActions={[
-          { name: "Mac", keyCombination: ["Command", "K"] },
-          { name: "Windows", keyCombination: ["Control", "K"] },
+          { name: "Mac", eventKeyCombination: ["Command", "K"] },
+          { name: "Windows", eventKeyCombination: ["Control", "K"] },
         ]}
       >
         <Button aria-keyshortcuts="command+k" variant="primary">
@@ -96,8 +96,8 @@ export const CustomizedTooltip: StoryFn = (_args, { parameters: { isTestEnvironm
             visible
             actionHeader="Search shortcuts"
             keyCombinationsActions={[
-              { name: "Mac", keyCombination: ["Command", "K"] },
-              { name: "Windows", keyCombination: ["Control", "K"] },
+              { name: "Mac", eventKeyCombination: ["Command", "K"] },
+              { name: "Windows", eventKeyCombination: ["Control", "K"] },
             ]}
           >
             <Button aria-keyshortcuts="command+k" variant="primary">
@@ -111,8 +111,8 @@ export const CustomizedTooltip: StoryFn = (_args, { parameters: { isTestEnvironm
             visible
             actionHeader="Search shortcuts"
             keyCombinationsActions={[
-              { name: "Mac", keyCombination: ["Command", "K"] },
-              { name: "Windows", keyCombination: ["Control", "K"] },
+              { name: "Mac", eventKeyCombination: ["Command", "K"] },
+              { name: "Windows", eventKeyCombination: ["Control", "K"] },
             ]}
           >
             <Button aria-keyshortcuts="command+k" variant="primary">

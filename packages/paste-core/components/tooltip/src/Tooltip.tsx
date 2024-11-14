@@ -68,7 +68,7 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
 
 interface KeyboardActions {
   name: string;
-  keyCombination: string[];
+  eventKeyCombination: string[];
   disabled?: boolean;
 }
 
@@ -150,7 +150,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
                       element={`${element}_ACTION_KEY_GROUP`}
                       disabled={action.disabled}
                     >
-                      {action.keyCombination.map((key) => (
+                      {action.eventKeyCombination.map((key) => (
                         <KeyboardKey element={`${element}_ACTION_KEY`}>{key}</KeyboardKey>
                       ))}
                     </KeyboardKeyGroup>
