@@ -133,8 +133,8 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
                     {actionHeader}
                   </Text>
                 )}
-                {keyCombinationsActions.map((action) => (
-                  <Box display="flex" justifyContent="space-between">
+                {keyCombinationsActions.map((action, idx) => (
+                  <Box display="flex" key={`action-${idx}`} justifyContent="space-between">
                     <Text
                       element={`${element}_ACTION_TEXT`}
                       as="span"
@@ -150,8 +150,10 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
                       element={`${element}_ACTION_KEY_GROUP`}
                       disabled={action.disabled}
                     >
-                      {action.eventKeyCombination.map((key) => (
-                        <KeyboardKey element={`${element}_ACTION_KEY`}>{key}</KeyboardKey>
+                      {action.eventKeyCombination.map((key, i) => (
+                        <KeyboardKey key={`key-${idx}-${i}`} element={`${element}_ACTION_KEY`}>
+                          {key}
+                        </KeyboardKey>
                       ))}
                     </KeyboardKeyGroup>
                   </Box>
