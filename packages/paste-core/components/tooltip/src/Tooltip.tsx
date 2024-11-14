@@ -92,7 +92,7 @@ export interface KeyboardKeyTooltipProps
 }
 
 // Union will stop users from adding types from both TooltipProps and KeyboardKeyTooltipProps at the same time.
-export type TooltipTypes = TooltipProps | KeyboardKeyTooltipProps;
+export type TooltipVariantProps = TooltipProps | KeyboardKeyTooltipProps;
 
 /*
  *Tooltip's current structure does not allow for customization of its arrow.
@@ -100,7 +100,7 @@ export type TooltipTypes = TooltipProps | KeyboardKeyTooltipProps;
  *using Customization Provider.
  */
 
-const Tooltip = React.forwardRef<HTMLDivElement, TooltipTypes>(
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
   ({ baseId, children, element = "TOOLTIP", state, text, actionHeader, keyCombinationsActions, ...props }, ref) => {
     const tooltip = state || useTooltipPrimitiveState({ baseId: `paste-tooltip-${useUID()}`, ...props });
 
