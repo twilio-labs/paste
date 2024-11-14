@@ -46,6 +46,28 @@ props:
     value: "{!space-190}"
   space-200:
     value: "{!space-200}"
+  space-210:
+    value: "{!space-210}"
+  space-220:
+    value: "{!space-220}"
+  space-230:
+    value: "{!space-230}"
+  space-240:
+    value: "{!space-240}"
+  space-250:
+    value: "{!space-250}"
+  space-260:
+    value: "{!space-260}"
+  space-270:
+    value: "{!space-270}"
+  space-280:
+    value: "{!space-280}"
+  space-290:
+    value: "{!space-290}"
+  space-300:
+    value: "{!space-300}"
+  space-310:
+    value: "{!space-310}"
   space-negative-10:
     value: "-{!space-10}"
   space-negative-20:

@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.3.2
+
+### Patch Changes
+
+- [`0f7cb22a0`](https://github.com/twilio-labs/paste/commit/0f7cb22a05d803b2a2c32d62bdf892c48f218775) [#4148](https://github.com/twilio-labs/paste/pull/4148) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs, CodeBlock, InPageNavigation] fixed a bug where items in the tabs list may not complete the scroll, still showing the overflow right button.
+
+## 8.3.1
+
+### Patch Changes
+
+- [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f) [#4143](https://github.com/twilio-labs/paste/pull/4143) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] fix issue with currently selected item causing vertical scroll
+
 ## 8.3.0
 
 ### Minor Changes

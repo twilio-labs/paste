@@ -65,6 +65,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   element,
 }) => {
   const ref = React.useRef<HTMLElement>(null);
+  const { selectedId } = React.useContext(TabsContext);
   //  ref to the scrollable element
   const scrollableRef = React.useRef<HTMLDivElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
@@ -78,12 +79,28 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   };
 
   React.useEffect(() => {
-    if (ref.current) {
+    if (ref.current && scrollableRef.current) {
       scrollableRef.current?.addEventListener("scroll", handleScrollEvent);
       window.addEventListener("resize", handleScrollEvent);
       determineElementsOutOfBounds(scrollableRef.current, ref.current);
     }
   }, [ref.current, scrollableRef.current]);
+
+  React.useEffect(() => {
+    if (scrollableRef.current && selectedId) {
+      // eslint-disable-next-line unicorn/prefer-query-selector
+      const selectedTabEl = document.getElementById(selectedId);
+      const scrollableWidth = scrollableRef.current.getBoundingClientRect().width;
+
+      if (
+        selectedTabEl &&
+        (selectedTabEl?.getBoundingClientRect().x < 0 || selectedTabEl?.getBoundingClientRect().right > scrollableWidth)
+      ) {
+        const scrollLeft = selectedTabEl.getBoundingClientRect().x - scrollableRef.current.getBoundingClientRect().x;
+        scrollableRef.current.scrollLeft += scrollLeft;
+      }
+    }
+  }, [scrollableRef.current, selectedId]);
 
   // Cleanup event listeners on destroy
   React.useEffect(() => {
@@ -99,7 +116,9 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
     <Box display="flex" overflow="hidden">
       <OverflowButton
         position="left"
-        onClick={() => handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, ref.current)}
+        onClick={() =>
+          handleScrollDirection("left", elementOutOBoundsLeft, elementOutOBoundsRight, scrollableRef.current)
+        }
         visible={Boolean(elementOutOBoundsLeft)}
         element={element}
         showShadow={showShadow}
@@ -130,7 +149,9 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       </Box>
       <OverflowButton
         position="right"
-        onClick={() => handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, ref.current)}
+        onClick={() =>
+          handleScrollDirection("right", elementOutOBoundsLeft, elementOutOBoundsRight, scrollableRef.current)
+        }
         visible={Boolean(elementOutOBoundsRight)}
         element={element}
         showShadow={showShadow}

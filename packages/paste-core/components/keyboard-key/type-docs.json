@@ -489,12 +489,12 @@
       "required": false,
       "externalProp": true
     },
-    "keyText": {
+    "keyEvent": {
       "type": "string",
       "defaultValue": "'KEYBOARD_KEY'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the key text that will be used to determine if the key has press stylings"
+      "description": "Sets the key text that will be used to determine if the key has press stylings.\nA list of keyEvent mapping can be found at: https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/"
     },
     "lang": {
       "type": "string",
@@ -2030,7 +2030,7 @@
       "defaultValue": false,
       "required": false,
       "externalProp": false,
-      "description": "Whether the keys should show pressed state when active keys contains the keyText mapped to KeyboardKey"
+      "description": "Whether the keys should show pressed state when active keys contains the keyEvent mapped to KeyboardKey"
     },
     "hidden": {
       "type": "boolean",
