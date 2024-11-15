@@ -27,7 +27,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
   const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
-        return Array.from(new Set([...prev, e.key]));
+        return Array.from(new Set([...prev, e.key.toLowerCase()]));
       });
     }
   };
@@ -41,7 +41,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
     if (e.key === "Meta") {
       setActiveKeys([]);
     } else {
-      setActiveKeys((prev) => [...prev].filter((k) => k !== e.key));
+      setActiveKeys((prev) => [...prev].filter((k) => k.toLowerCase() !== e.key.toLowerCase()));
     }
   };
 
