@@ -3,7 +3,14 @@ import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { Anchor } from "@twilio-paste/anchor";
 import { List, ListItem } from "@twilio-paste/list";
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
+import { Paragraph } from "@twilio-paste/paragraph";
 import { Table, THead, Tr, Th, TBody, Td } from "@twilio-paste/core/table";
+import { Stack } from "@twilio-paste/stack";
+import { Tooltip } from "@twilio-paste/tooltip";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import packageJson from "@twilio-paste/keyboard-key/package.json";
 
 import { SidebarCategoryRoutes } from "../../../constants";
@@ -11,7 +18,13 @@ import { Blockquote } from "../../../components/Blockquote";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 import { Do, DoDont, Dont } from "../../../components/DoDont";
-import { basicExample, disabledExample, pressedExample } from "../../../component-examples/KeyboardKeyExamples";
+import {
+  basicExample,
+  disabledExample,
+  pressedExample,
+  defaultExample,
+  tooltipExample,
+} from "../../../component-examples/KeyboardKeyExamples";
 
 export const meta = {
   title: "Keyboard Key - Components",
@@ -95,30 +108,44 @@ To expose the presence of shortcuts to assistive technologies, use the [`aria-ke
 
 ### Default Keyboard Key
 
-Use Keyboard Keys for keyboard commands or shortcuts. When showing a key combination, do not put a “+” between Keyboard Keys.
+Use Keyboard Key for a single key command. Use Keyboard Key Group for key combination commands or shortcuts. When showing a key combination, do not put a “+” between Keyboard Keys or in Keyboard Key Group.
 
-<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey }} language="jsx">
-  {basicExample}
+<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey, Paragraph }} language="jsx">
+  {defaultExample}
 </LivePreview>
 
 ### Disabled Keyboard Key
 
 Disabled Keyboard Keys should be used when the element a shortcut activates is disabled, like a disabled Menu item or Button
 
-<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey }} language="jsx">
+<LivePreview
+  scope={{ KeyboardKeyGroup, KeyboardKey, Paragraph, useMenuState, Menu, MenuButton, MenuItem, ChevronDownIcon, Box }}
+  language="jsx"
+  noInline
+>
   {disabledExample}
 </LivePreview>
 
 ### Pressed Keyboard Key
 
-Pressed Keyboard Keys can be used to give visual feedback when a key is pressed.
+Use pressed Keyboard Keys to give visual feedback when a key is pressed.
 
 This is especially helpful when onboarding users to keyboard shortcuts. However, use the pressed state thoughtfully, only when it enhances the user experience. It can be distracting in cases where a user is using the keyboard for other interactions, like on a page with form fields.
 
-The `KeyboardKeyGroup` accepts state returned from the [`useKeyCombination`](#useKeyCombination) hook that allows pressedStyling to be enabled. You must also specify `keyText` on the component to detect the correct key pressed.
+The `KeyboardKeyGroup` accepts state returned from the [`useKeyCombination`](#useKeyCombination) hook that allows pressedStyling to be enabled. You must also specify `keyEvent` on the component to detect the correct key pressed.
 
-<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey, useKeyCombination }} noInline language="jsx">
+A mapping of key events can be found [here](https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/)
+
+<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey, useKeyCombination, Paragraph }} noInline language="jsx">
   {pressedExample}
+</LivePreview>
+
+### Keyboard Key Tooltip
+
+The Keyboard Key Tooltip provides a way to show the keyboard shortcut associated with an element when the element is focused via the keyboard or on mouse hover.
+
+<LivePreview scope={{ Button, Tooltip, Box, SearchIcon, Stack }} language="jsx">
+  {tooltipExample}
 </LivePreview>
 
 ### useKeyCombination

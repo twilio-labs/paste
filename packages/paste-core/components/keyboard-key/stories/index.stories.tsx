@@ -6,6 +6,8 @@ import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { Theme } from "@twilio-paste/theme";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
 import * as React from "react";
 
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "../src";
@@ -267,4 +269,44 @@ Customization.paramters = {
     // no need to a11y check customization
     disabled: true,
   },
+};
+
+export const MenuExample = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="secondary">
+        Edit <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Actions">
+        <MenuItem {...menu}>
+          <Box display="flex" justifyContent="space-between">
+            Cut
+            <KeyboardKeyGroup>
+              <KeyboardKey>Cmd</KeyboardKey>
+              <KeyboardKey>X</KeyboardKey>
+            </KeyboardKeyGroup>
+          </Box>
+        </MenuItem>
+        <MenuItem {...menu}>
+          <Box display="flex" justifyContent="space-between">
+            Paste
+            <KeyboardKeyGroup>
+              <KeyboardKey>Cmd</KeyboardKey>
+              <KeyboardKey>V</KeyboardKey>
+            </KeyboardKeyGroup>
+          </Box>
+        </MenuItem>
+        <MenuItem disabled aria-disabled {...menu}>
+          <Box display="flex" justifyContent="space-between">
+            Save
+            <KeyboardKeyGroup disabled>
+              <KeyboardKey>Cmd</KeyboardKey>
+              <KeyboardKey>S</KeyboardKey>
+            </KeyboardKeyGroup>
+          </Box>
+        </MenuItem>{" "}
+      </Menu>
+    </>
+  );
 };
