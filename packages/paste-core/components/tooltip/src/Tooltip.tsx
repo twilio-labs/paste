@@ -109,7 +109,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
         {React.Children.only(
           <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
             {(referenceProps) => React.cloneElement(children, referenceProps)}
-          </TooltipPrimitiveReference>,
+          </TooltipPrimitiveReference>
         )}
         <TooltipPrimitive element={element} {...tooltip} {...props} as={StyledTooltip}>
           {/* import Paste Theme Based Styles due to portal positioning. */}
@@ -135,16 +135,18 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
                 )}
                 {keyCombinationsActions.map((action, idx) => (
                   <Box display="flex" key={`action-${idx}`} justifyContent="space-between">
-                    <Text
-                      element={`${element}_ACTION_TEXT`}
-                      as="span"
-                      color="colorTextInverse"
-                      fontSize="fontSize20"
-                      lineHeight="lineHeight10"
-                      marginRight="space70"
-                    >
-                      {action.name}
-                    </Text>
+                    {action.name && (
+                      <Text
+                        element={`${element}_ACTION_TEXT`}
+                        as="span"
+                        color="colorTextInverse"
+                        fontSize="fontSize20"
+                        lineHeight="lineHeight10"
+                        marginRight="space70"
+                      >
+                        {action.name}
+                      </Text>
+                    )}
                     <KeyboardKeyGroup
                       variant="inverse"
                       element={`${element}_ACTION_KEY_GROUP`}
@@ -164,7 +166,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
         </TooltipPrimitive>
       </>
     );
-  },
+  }
 );
 
 Tooltip.displayName = "Tooltip";
