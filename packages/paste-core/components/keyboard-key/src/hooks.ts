@@ -59,7 +59,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
 };
 
 const stringArrayMatches = (arr1: string[], arr2: string[]): boolean =>
-  JSON.stringify(arr1.sort((a, b) => a.localeCompare(b))) === JSON.stringify(arr2.sort((a, b) => a.localeCompare(b)));
+  JSON.stringify(arr1.sort((a, b) => a.localeCompare(b)).map(s => s.toLowerCase())) === JSON.stringify(arr2.sort((a, b) => a.localeCompare(b)));
 
 export const useKeyCombination = ({
   keys,

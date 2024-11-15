@@ -88,7 +88,7 @@ render(
     <PressedExample />
 )`.trim();
 
-export const tooltipExample = `<Stack orientation="horizontal" space="space60">
+export const tooltipExample = `<Stack orientation="horizontal" spacing="space60">
     <Tooltip
         actionHeader="Search shortcuts"
         keyCombinationsActions={[
