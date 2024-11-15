@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/inline-code",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "category": "typography",
   "status": "production",
   "description": "An inline code component visually distinguishes pieces of texts as fragments of code.",
@@ -44,7 +44,7 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
+    "@twilio-paste/design-tokens": "^10.9.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",

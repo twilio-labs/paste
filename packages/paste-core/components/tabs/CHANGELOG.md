@@ -1,5 +1,27 @@
 # Change Log
 
+## 8.3.2
+
+### Patch Changes
+
+- [`0f7cb22a0`](https://github.com/twilio-labs/paste/commit/0f7cb22a05d803b2a2c32d62bdf892c48f218775) [#4148](https://github.com/twilio-labs/paste/pull/4148) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs, CodeBlock, InPageNavigation] fixed a bug where items in the tabs list may not complete the scroll, still showing the overflow right button.
+
+## 8.3.1
+
+### Patch Changes
+
+- [`e9586bdf8`](https://github.com/twilio-labs/paste/commit/e9586bdf82321ec1815a6df3752f50a20677fe4f) [#4143](https://github.com/twilio-labs/paste/pull/4143) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] fix issue with currently selected item causing vertical scroll
+
+## 8.3.0
+
+### Minor Changes
+
+- [`0d10a085b`](https://github.com/twilio-labs/paste/commit/0d10a085be3940fcf59288edc69a6992a090e97f) [#4067](https://github.com/twilio-labs/paste/pull/4067) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tabs] make the non-fitted variant Tabs responsive. Export the context provider `TabsContext`.
+
+### Patch Changes
+
+- [`c23bb4c2a`](https://github.com/twilio-labs/paste/commit/c23bb4c2a809c8664898e84378b43eb26c263f4c) [#4122](https://github.com/twilio-labs/paste/pull/4122) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Tabs]: Fix underline bug caused due to pixel rounding
+
 ## 8.2.1
 
 ### Patch Changes

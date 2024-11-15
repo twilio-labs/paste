@@ -1,5 +1,11 @@
 # @twilio-paste/visual-picker
 
+## 2.0.4
+
+### Patch Changes
+
+- [`afba2aeba`](https://github.com/twilio-labs/paste/commit/afba2aeba8ca7bbdca4d0baebc4975b96c862a48) [#4102](https://github.com/twilio-labs/paste/pull/4102) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Visual Picker]: Fix Visual Picker checkbox doesn't work in firefox when checkbox is clicked on directly
+
 ## 2.0.3
 
 ### Patch Changes

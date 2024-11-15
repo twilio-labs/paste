@@ -20,7 +20,6 @@ const TimelineItemIcon = React.forwardRef<HTMLElement, TimelineItemIconProps>(
             backgroundColor="colorBackgroundStronger"
             borderRadius="borderRadiusCircle"
             size="sizeBase20"
-            zIndex="zIndex20"
             marginY="space30"
           />
         )}

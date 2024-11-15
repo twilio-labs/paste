@@ -1,12 +1,18 @@
-import { ChatComposer } from "@twilio-paste/chat-composer";
-import { $getRoot, ClearEditorPlugin, type EditorState } from "@twilio-paste/lexical-library";
+import { Button } from "@twilio-paste/button";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import {
+  $getRoot,
+  CLEAR_EDITOR_COMMAND,
+  ClearEditorPlugin,
+  type EditorState,
+  type LexicalEditor,
+} from "@twilio-paste/lexical-library";
 import * as React from "react";
 
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { EnterKeySubmitPlugin } from "./EnterKeySubmitPlugin";
-import { FocusComposerPlugin } from "./FocusComposerPlugin";
-import { SendButtonPlugin } from "./SendButtonPlugin";
 
 export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread: string) => void }> = ({
   onMessageCreation,
@@ -15,7 +21,7 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   const threadsStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const selectedThread = threadsStore?.selectedThreadID;
 
-  const editorRef = React.useRef(null);
+  const editorInstanceRef = React.useRef<LexicalEditor>(null);
 
   const handleComposerChange = (editorState: EditorState): void => {
     editorState.read(() => {
@@ -29,24 +35,40 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
     onMessageCreation(message, selectedThread);
   };
 
+  React.useEffect(() => {
+    editorInstanceRef.current?.focus();
+  }, [editorInstanceRef, selectedThread]);
+
   return (
-    <ChatComposer
-      maxHeight="size10"
-      config={{
-        namespace: "foo",
-        onError: (error: Error) => {
-          throw error;
-        },
-      }}
-      ariaLabel="Message"
-      placeholder="Type here..."
-      onChange={handleComposerChange}
-      ref={editorRef}
-    >
-      <ClearEditorPlugin />
-      <SendButtonPlugin onClick={submitMessage} disabled={selectedThread == null} />
-      <EnterKeySubmitPlugin onKeyDown={submitMessage} />
-      <FocusComposerPlugin selectedThread={selectedThread} />
-    </ChatComposer>
+    <ChatComposerContainer variant="contained">
+      <ChatComposer
+        maxHeight="size10"
+        config={{
+          namespace: "foo",
+          onError: (error: Error) => {
+            throw error;
+          },
+        }}
+        ariaLabel="Message"
+        placeholder="Type here..."
+        onChange={handleComposerChange}
+        editorInstanceRef={editorInstanceRef}
+      >
+        <ClearEditorPlugin />
+        <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+      </ChatComposer>
+      <ChatComposerActionGroup>
+        <Button
+          variant="primary_icon"
+          size="reset"
+          onClick={() => {
+            submitMessage();
+            editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+          }}
+        >
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+    </ChatComposerContainer>
   );
 };
