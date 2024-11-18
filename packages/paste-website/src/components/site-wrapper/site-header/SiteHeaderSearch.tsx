@@ -71,8 +71,8 @@ const SiteHeaderSearch: React.FC = () => {
             <>
               <Box as="span" color="colorText" aria-hidden="true" marginLeft="space30" lineHeight="lineHeight20">
                 <KeyboardKeyGroup {...keyCombinationState}>
-                  <KeyboardKey keyText={platformTriggerKey}>{isMacOS ? "Cmd" : "Ctrl"}</KeyboardKey>
-                  <KeyboardKey keyText="k">K</KeyboardKey>
+                  <KeyboardKey keyEvent={platformTriggerKey}>{isMacOS ? "Cmd" : "Ctrl"}</KeyboardKey>
+                  <KeyboardKey keyEvent="k">K</KeyboardKey>
                 </KeyboardKeyGroup>
               </Box>
               <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
