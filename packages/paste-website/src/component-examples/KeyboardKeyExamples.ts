@@ -110,7 +110,7 @@ export const tooltipExample = `<Stack orientation="horizontal" spacing="space60"
             <SearchIcon title="search" />
         </Button>
     </Tooltip>
-</Stack>`.trim()
+</Stack>`.trim();
 
 export const useKeyCombinationExample = `const HookExample = () => {
     const [combinationTriggeredText, setCombinationTriggeredText] = React.useState("");
