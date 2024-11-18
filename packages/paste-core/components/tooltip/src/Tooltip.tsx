@@ -127,7 +127,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
               </Text>
             )}
             {keyCombinationsActions && (
-              <Stack orientation="vertical" spacing="space30">
+              <Stack orientation="vertical" spacing="space40">
                 {actionHeader && (
                   <Text element={`${element}_HEADER`} fontWeight="fontWeightSemibold" as="p" color="colorTextInverse">
                     {actionHeader}
