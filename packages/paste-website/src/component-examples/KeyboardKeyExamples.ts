@@ -115,15 +115,15 @@ export const tooltipExample = `<Stack orientation="horizontal" spacing="space60"
 export const useKeyCombinationExample = `const HookExample = () => {
     const [combinationTriggeredText, setCombinationTriggeredText] = React.useState("");
     useKeyCombination({
-        keys: ["Shift", "s"],
+        keys: ["Shift", "q"],
         onCombinationPress: () => {
-            setCombinationTriggeredText("Shift + S pressed");
+            setCombinationTriggeredText("Shift + Q pressed");
         },
     });
 
     return (
         <>
-            <Paragraph>Press the <KeyboardKeyGroup><KeyboardKey>Shift</KeyboardKey><KeyboardKey>S</KeyboardKey></KeyboardKeyGroup> key to reveal the pressed states below:</Paragraph>
+            <Paragraph>Press the <KeyboardKeyGroup><KeyboardKey>Shift</KeyboardKey><KeyboardKey>Q</KeyboardKey></KeyboardKeyGroup> key to reveal the pressed states below:</Paragraph>
             <Paragraph>Combination triggered: {combinationTriggeredText}</aragraph>
         </>
     )
