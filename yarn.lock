@@ -16079,6 +16079,7 @@ __metadata:
     "@twilio-paste/inline-control-group": ^13.0.2
     "@twilio-paste/input": ^9.1.3
     "@twilio-paste/input-box": ^10.1.1
+    "@twilio-paste/keyboard-key": ^0.0.0
     "@twilio-paste/label": ^13.1.1
     "@twilio-paste/lexical-library": ^4.2.0
     "@twilio-paste/list": ^8.2.1
