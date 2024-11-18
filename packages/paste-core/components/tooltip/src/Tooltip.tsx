@@ -109,7 +109,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
         {React.Children.only(
           <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
             {(referenceProps) => React.cloneElement(children, referenceProps)}
-          </TooltipPrimitiveReference>
+          </TooltipPrimitiveReference>,
         )}
         <TooltipPrimitive element={element} {...tooltip} {...props} as={StyledTooltip}>
           {/* import Paste Theme Based Styles due to portal positioning. */}
@@ -175,7 +175,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
         </TooltipPrimitive>
       </>
     );
-  }
+  },
 );
 
 Tooltip.displayName = "Tooltip";
