@@ -165,7 +165,11 @@ The `useKeyCombination` hook provides a way to configure the combination keys, c
 
 The `useKeyCombinations` is similar to [`useKeyCombination`](#useKeyCombination) but allows you to configure multiple combinations and callback mappings. Use this hook when you have many combinations on the same page. This will not include the ability to configure pressed styling and is designed to provide functionality when in Menu items or Tooltips.
 
-<LivePreview scope={{ useKeyCombinations, Paragraph, KeyboardKeyGroup, KeyboardKey, Stack, Box }} noInline language="jsx">
+<LivePreview
+  scope={{ useKeyCombinations, Paragraph, KeyboardKeyGroup, KeyboardKey, Stack, Box }}
+  noInline
+  language="jsx"
+>
   {useKeyCombinationsExample}
 </LivePreview>
 
@@ -360,9 +364,12 @@ The following keyboard commands should be used in any context where the actions 
 ### Keyboard commands to avoid
 
 These keyboard commands should be avoided since they're used by operating systems or assistive technologies:
-Any modifier keys + any of <KeyboardKey>Tab</KeyboardKey>, <KeyboardKey>Enter</KeyboardKey>, <KeyboardKey>Space</KeyboardKey>, or <KeyboardKey>Escape</KeyboardKey>.
 
-<List marginBottom="space30">
+<List marginBottom="space60">
+  <ListItem>
+    Any modifier keys + any of <KeyboardKey>Tab</KeyboardKey>, <KeyboardKey>Enter</KeyboardKey>,{" "}
+    <KeyboardKey>Space</KeyboardKey>, or <KeyboardKey>Escape</KeyboardKey>.
+  </ListItem>
   <ListItem>
     <KeyboardKey>Alt</KeyboardKey> + a function key.
   </ListItem>
