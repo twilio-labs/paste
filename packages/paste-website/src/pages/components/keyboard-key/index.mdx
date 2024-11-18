@@ -1,4 +1,4 @@
-import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "@twilio-paste/keyboard-key";
+import { KeyboardKey, KeyboardKeyGroup, useKeyCombination, useKeyCombinations } from "@twilio-paste/keyboard-key";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { Anchor } from "@twilio-paste/anchor";
 import { List, ListItem } from "@twilio-paste/list";
@@ -24,7 +24,10 @@ import {
   pressedExample,
   defaultExample,
   tooltipExample,
+  useKeyCombinationsExample,
+  useKeyCombinationExample,
 } from "../../../component-examples/KeyboardKeyExamples";
+import { Text } from "@twilio-paste/text";
 
 export const meta = {
   title: "Keyboard Key - Components",
@@ -148,7 +151,23 @@ The Keyboard Key Tooltip provides a way to show the keyboard shortcut associated
   {tooltipExample}
 </LivePreview>
 
-### useKeyCombination
+### Keyboard combination hooks
+
+#### useKeyCombination
+
+The `useKeyCombination` hook provides a way to configure the combination keys, callback, and additional state that can be used in `KeyboardKeyGroup` to enable pressed styling.
+
+<LivePreview scope={{ useKeyCombination, Paragraph, KeyboardKeyGroup, KeyboardKey }} noInline language="jsx">
+  {useKeyCombinationExample}
+</LivePreview>
+
+#### useKeyCombinations
+
+The `useKeyCombinations` is similar to [`useKeyCombination`](#useKeyCombination) but allows you to configure multiple combinations and callback mappings. Use this hook when you have many combinations on the same page. This will not include the ability to configure pressed styling and is designed to provide functionality when in Menu items or Tooltips.
+
+<LivePreview scope={{ useKeyCombinations, Paragraph, KeyboardKeyGroup, KeyboardKey, Stack, Box }} noInline language="jsx">
+  {useKeyCombinationsExample}
+</LivePreview>
 
 ## Composition Notes
 

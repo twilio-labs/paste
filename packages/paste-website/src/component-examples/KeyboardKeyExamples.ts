@@ -111,3 +111,81 @@ export const tooltipExample = `<Stack orientation="horizontal" spacing="space60"
         </Button>
     </Tooltip>
 </Stack>`.trim()
+
+export const useKeyCombinationExample = `const HookExample = () => {
+    const [combinationTriggeredText, setCombinationTriggeredText] = React.useState("");
+    useKeyCombination({
+        keys: ["Shift", "s"],
+        onCombinationPress: () => {
+            setCombinationTriggeredText("Shift + S pressed");
+        },
+    });
+
+    return (
+        <>
+            <Paragraph>Press the <KeyboardKeyGroup><KeyboardKey>Shift</KeyboardKey><KeyboardKey>S</KeyboardKey></KeyboardKeyGroup> key to reveal the pressed states below:</Paragraph>
+            <Paragraph>Combination triggered: {combinationTriggeredText}</aragraph>
+        </>
+    )
+}
+
+render(
+    <HookExample />
+)`.trim();
+
+export const useKeyCombinationsExample = `const HookExample = () => {
+  const [combinationTriggeredText, setCombinationTriggeredText] = React.useState("");
+
+  useKeyCombinations({
+    combinations: [
+      {
+        keys: ["Control", "b"],
+        onCombinationPress: () => {
+          setCombinationTriggeredText("Control + B pressed");
+        },
+        disabled: false,
+      },
+      {
+        keys: ["Control", "k"],
+        onCombinationPress: () => {
+          setCombinationTriggeredText("Control + K pressed");
+        },
+        disabled: false,
+      },
+      {
+        keys: ["Control", "y"],
+        onCombinationPress: () => {
+          setCombinationTriggeredText("Control + Y pressed");
+        },
+        disabled: false,
+      },
+    ],
+  });
+
+  return (
+    <>
+        <Paragraph marginBottom="space0">Use the following combinations to test. You can also set the disabled state in the code block below.</Paragraph>
+        <Box marginY="space30">
+            <Stack orientation="vertical" spacing="space20">
+                <KeyboardKeyGroup>
+                    <KeyboardKey>Control</KeyboardKey>
+                    <KeyboardKey>B</KeyboardKey>
+                </KeyboardKeyGroup>
+                <KeyboardKeyGroup>
+                    <KeyboardKey>Control</KeyboardKey>
+                    <KeyboardKey>K</KeyboardKey>
+                </KeyboardKeyGroup>
+                <KeyboardKeyGroup>
+                    <KeyboardKey>Control</KeyboardKey>
+                    <KeyboardKey>Y</KeyboardKey>
+                </KeyboardKeyGroup>
+            </Stack>
+        </Box>
+        <Paragraph>Combination triggered: {combinationTriggeredText}</Paragraph>
+    </>
+  );
+};
+
+render(
+    <HookExample />
+)`.trim();
