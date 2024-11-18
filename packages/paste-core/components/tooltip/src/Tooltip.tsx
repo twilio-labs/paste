@@ -127,40 +127,49 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
               </Text>
             )}
             {keyCombinationsActions && (
-              <Stack orientation="vertical" spacing="space40">
-                {actionHeader && (
-                  <Text element={`${element}_HEADER`} fontWeight="fontWeightSemibold" as="p" color="colorTextInverse">
-                    {actionHeader}
-                  </Text>
-                )}
-                {keyCombinationsActions.map((action, idx) => (
-                  <Box display="flex" key={`action-${idx}`} justifyContent="space-between">
-                    {action.name && (
-                      <Text
-                        element={`${element}_ACTION_TEXT`}
-                        as="span"
-                        color="colorTextInverse"
-                        fontSize="fontSize20"
-                        lineHeight="lineHeight10"
-                        marginRight="space70"
-                      >
-                        {action.name}
-                      </Text>
-                    )}
-                    <KeyboardKeyGroup
-                      variant="inverse"
-                      element={`${element}_ACTION_KEY_GROUP`}
-                      disabled={action.disabled}
+              <Box color="colorTextInverse" fontSize="fontSize20" lineHeight="lineHeight10">
+                <Stack orientation="vertical" spacing="space40">
+                  {actionHeader && (
+                    <Text
+                      element={`${element}_HEADER`}
+                      fontWeight="fontWeightSemibold"
+                      as="p"
+                      color="inherit"
+                      fontSize="inherit"
+                      lineHeight="inherit"
                     >
-                      {action.eventKeyCombination.map((key, i) => (
-                        <KeyboardKey key={`key-${idx}-${i}`} element={`${element}_ACTION_KEY`}>
-                          {key}
-                        </KeyboardKey>
-                      ))}
-                    </KeyboardKeyGroup>
-                  </Box>
-                ))}
-              </Stack>
+                      {actionHeader}
+                    </Text>
+                  )}
+                  {keyCombinationsActions.map((action, idx) => (
+                    <Box display="flex" key={`action-${idx}`} justifyContent="space-between">
+                      {action.name && (
+                        <Text
+                          element={`${element}_ACTION_TEXT`}
+                          as="span"
+                          color="inherit"
+                          fontSize="inherit"
+                          lineHeight="inherit"
+                          marginRight="space70"
+                        >
+                          {action.name}
+                        </Text>
+                      )}
+                      <KeyboardKeyGroup
+                        variant="inverse"
+                        element={`${element}_ACTION_KEY_GROUP`}
+                        disabled={action.disabled}
+                      >
+                        {action.eventKeyCombination.map((key, i) => (
+                          <KeyboardKey key={`key-${idx}-${i}`} element={`${element}_ACTION_KEY`}>
+                            {key}
+                          </KeyboardKey>
+                        ))}
+                      </KeyboardKeyGroup>
+                    </Box>
+                  ))}
+                </Stack>
+              </Box>
             )}
           </StyledBase>
         </TooltipPrimitive>
