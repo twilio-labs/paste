@@ -12,7 +12,7 @@ import { SiteSearch } from "../../site-search";
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { breakpointIndex } = useWindowSize();
-  const isMacOS = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  const isMacOS = navigator.platform.toUpperCase().includes("MAC");
   const platformTriggerKey = isMacOS ? "Meta" : "Control";
 
   const onOpen = (): void => {
