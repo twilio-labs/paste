@@ -18,7 +18,7 @@
     "globby": "npm:globby@10.0.1",
     "inquirer": "7.0.0",
     "is-git-clean": "1.1.0",
-    "jscodeshift": "0.11.0",
+    "jscodeshift": "0.14.0",
     "meow": "8.0.0"
   },
   "devDependencies": {
