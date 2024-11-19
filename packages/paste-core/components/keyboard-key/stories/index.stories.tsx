@@ -6,8 +6,6 @@ import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { Theme } from "@twilio-paste/theme";
-import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
-import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
 import * as React from "react";
 
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "../src";
