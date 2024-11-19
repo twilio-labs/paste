@@ -126,7 +126,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
                 {text}
               </Text>
             )}
-            {keyCombinationsActions && (
+            {keyCombinationsActions && !text && (
               <Box color="colorTextInverse" fontSize="fontSize20" lineHeight="lineHeight10">
                 <Stack orientation="vertical" spacing="space40">
                   {actionHeader && (
