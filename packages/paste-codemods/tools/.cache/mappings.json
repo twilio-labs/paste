@@ -112,6 +112,7 @@
   "EditableCodeBlock": "@twilio-paste/core/editable-code-block",
   "EditableCodeBlockHeader": "@twilio-paste/core/editable-code-block",
   "EditableCodeBlockWrapper": "@twilio-paste/core/editable-code-block",
+  "ExampleText": "@twilio-paste/core/example-text",
   "FilePicker": "@twilio-paste/core/file-picker",
   "FilePickerButton": "@twilio-paste/core/file-picker",
   "FileUploader": "@twilio-paste/core/file-uploader",
