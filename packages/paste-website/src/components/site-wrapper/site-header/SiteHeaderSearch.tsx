@@ -59,6 +59,7 @@ const SiteHeaderSearch: React.FC = () => {
         _active={{
           boxShadow: "shadowBorderPrimaryStronger",
         }}
+        aria-keyshortcuts={`${isMacOS ? "Command" : "Control"} + K`}
       >
         <Box as="span" display="flex" justifyContent="space-between" width="100%" alignItems="center">
           <Box as="span" display="flex" columnGap="space20" alignItems="center">
@@ -75,7 +76,6 @@ const SiteHeaderSearch: React.FC = () => {
                   <KeyboardKey keyEvent="k">K</KeyboardKey>
                 </KeyboardKeyGroup>
               </Box>
-              <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
             </>
           )}
         </Box>

@@ -27,30 +27,30 @@ export const disabledExample = `const DisabledExample = () => {
             Edit <ChevronDownIcon decorative />
         </MenuButton>
         <Menu {...menu} aria-label="Actions">
-            <MenuItem {...menu}>
+            <MenuItem {...menu} aria-keyshortcuts="command+x">
                 <Box display="flex" justifyContent="space-between">
                     Cut
                     <KeyboardKeyGroup>
-                    <KeyboardKey>Cmd</KeyboardKey>
-                    <KeyboardKey>X</KeyboardKey>
+                        <KeyboardKey>Cmd</KeyboardKey>
+                        <KeyboardKey>X</KeyboardKey>
                     </KeyboardKeyGroup>
                 </Box>
             </MenuItem>
-            <MenuItem {...menu}>
+            <MenuItem {...menu} aria-keyshortcuts="command+v">
                 <Box display="flex" justifyContent="space-between">
                     Paste
                     <KeyboardKeyGroup>
-                    <KeyboardKey>Cmd</KeyboardKey>
-                    <KeyboardKey>V</KeyboardKey>
+                        <KeyboardKey>Cmd</KeyboardKey>
+                        <KeyboardKey>V</KeyboardKey>
                     </KeyboardKeyGroup>
                 </Box>
             </MenuItem>
-            <MenuItem disabled aria-disabled {...menu}>
+            <MenuItem disabled aria-disabled {...menu}  aria-keyshortcuts="command+s">
                 <Box display="flex" justifyContent="space-between">
                     Save
                     <KeyboardKeyGroup disabled>
-                    <KeyboardKey>Cmd</KeyboardKey>
-                    <KeyboardKey>S</KeyboardKey>
+                        <KeyboardKey>Cmd</KeyboardKey>
+                        <KeyboardKey>S</KeyboardKey>
                     </KeyboardKeyGroup>
                 </Box>
             </MenuItem>
