@@ -2,7 +2,6 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "@twilio-paste/keyboard-key";
-import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Text } from "@twilio-paste/text";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
