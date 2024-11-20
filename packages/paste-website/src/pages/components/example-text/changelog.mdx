@@ -1,0 +1,36 @@
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/example-text/CHANGELOG.md';
+import packageJson from '@twilio-paste/example-text/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export const meta = {
+  title: 'Example Text - Components',
+  package: '@twilio-paste/example-text',
+  description: packageJson.description,
+  slug: '/components/example-text/changelog',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sample Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/example-text',
+        storybookUrl: '/?path=/story/components-example-text--default',
+      },
+    },
+  };
+};
+
+<Changelog />

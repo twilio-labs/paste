@@ -1,0 +1,112 @@
+import { ExampleText } from '@twilio-paste/example-text';
+import packageJson from '@twilio-paste/example-text/package.json';
+import {CodeBlock} from '@twilio-paste/code-block'
+import {InlineCode} from '@twilio-paste/inline-code'
+import {Label} from '@twilio-paste/label'
+import {Input} from '@twilio-paste/input'
+import {HelpText} from '@twilio-paste/help-text'
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout'
+import {Paragraph} from '@twilio-paste/paragraph'
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+export const meta = {
+  title: 'Example Text - Components',
+  package: '@twilio-paste/example-text',
+  description: packageJson.description,
+  slug: '/components/example-text/',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sample Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/example-text',
+        storybookUrl: '/?path=/story/components-example-text--default',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{ExampleText, Paragraph}}
+  language="jsx"
+>
+  {`<>
+    <Paragraph>When submitting feedback about your experience, provide specific details to help us understand your needs and improve our offerings. For example:</Paragraph>
+    <ExampleText>The service was quick and efficient, but I would like more options in the menu.</ExampleText>
+</>`}
+</LivePreview>
+
+## Guidelines
+
+### About Example Text
+
+Example Text represents contextual examples that guide users on what type of information to enter or how to respond within a system. 
+
+Use Example Text so users can easily differentiate between examples and regular text or code blocks. It also reduces the chances of users overlooking important examples.
+
+### How to decide which components to use to make your text stand out
+
+Component       | Usage | Example
+----------------|-------|-----
+Example Text | Use when you want to provide contextual examples of user input. | <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
+[Blockquote](/components/blockquote) | Use to highlight quotations from an external source or customer feedback. | TODO: add example
+[Code Block](/components/code-block) | Use when you need to display blocks of code and when the user needs to copy a command to put it into a CLI. | <CodeBlock variant="single-line" code={`const accountSID = process.env.TWILIO_ACCOUNT_SID`}/>
+[Inline Code](/components/inline-code) | Use to emphasize short, inline pieces of computer code such as variable names and function calls. | <InlineCode>console.log(mySustainabilityGoals)</InlineCode>
+[Help Text](/components/help-text) | Use below a form field to help users prevent an error and describe what makes the form field successful. | <><Label htmlFor="email_address" required>Email address</Label><Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/><HelpText id="email_help_text">Use your work email address.</HelpText></>
+[Callout](/components/callout) | Use a Callout to highlight any other important information. | <Callout variant='neutral'><CalloutHeading as="h2">Heads up!</CalloutHeading><CalloutText>This is some information you need to know.</CalloutText></Callout>
+
+## Examples
+
+### Example Text
+
+Use Example Text to show examples of user input, especially in instructions, or to help users fill out forms.
+
+<LivePreview
+  scope={{ExampleText, Paragraph}}
+  language="jsx"
+>
+  {`<>
+    <Paragraph>When submitting feedback about your experience, provide specific details to help us understand your needs and improve our offerings. For example:</Paragraph>
+    <ExampleText>The service was quick and efficient, but I would like more options in the menu.</ExampleText>
+</>`}
+</LivePreview>
+
+### Inline Example Text
+
+Example Text can also be used inline in a [Paragraph](/components/paragraph) in cases where the example supports the sentence but isn’t the primary focus, maintaining the conversational tone.
+
+<LivePreview
+  scope={{ExampleText, Paragraph}}
+  language="jsx"
+>
+  {`<Paragraph>To create your account, provide your full name, a valid email address, and a secure password. Your password must contain at least eight characters, including uppercase letters, lowercase letters, numbers, and a special character. For example, <ExampleText>!Password@123</ExampleText>. You may be asked to verify your email address by clicking a link sent to your inbox.</Paragraph>`}
+</LivePreview>
+
+## Dos and Don'ts
+
+<DoDont>
+  <Do title="Do" body="Use a prefix like “For example:” followed by Example Text to give users better context that the content is an example." />
+  <Dont title="Don't" body="Don't use Example Text to highlight important information, use Callout or bold text instead."/>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="TODO: add do" />
+  <Dont title="Don't" body="Do not use Example Text when you want the user to copy a command to put it into CLI, use Code Block instead."/>
+</DoDont>
+
+
