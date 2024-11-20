@@ -26,6 +26,7 @@ const SiteHeaderSearch: React.FC = () => {
     keys: [platformTriggerKey, "k"],
     onCombinationPress: onOpen,
     enablePressStyles: true,
+    disabled: isOpen,
   });
 
   return (

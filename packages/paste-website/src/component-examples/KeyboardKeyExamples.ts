@@ -5,23 +5,16 @@ export const basicExample = `<KeyboardKeyGroup>
 `.trim();
 
 export const defaultExample = `<>
-    <KeyboardKey>S</KeyboardKey>
-    <Paragraph>Press{" "}
-        <KeyboardKeyGroup>
-            <KeyboardKey>Control</KeyboardKey>
-            <KeyboardKey>B</KeyboardKey>
-        </KeyboardKeyGroup>{" "}to save.
-    </Paragraph>
-</>
-`.trim();
+    Press{" "}<KeyboardKeyGroup>
+        <KeyboardKey>Control</KeyboardKey>
+        <KeyboardKey>S</KeyboardKey>
+    </KeyboardKeyGroup>{" "}to save.
+</>`.trim();
 
 export const disabledExample = `const DisabledExample = () => {
   const menu = useMenuState();
   return (
     <Box minHeight="230px">
-        <KeyboardKeyGroup disabled>
-            <KeyboardKey>S</KeyboardKey>
-        </KeyboardKeyGroup>
         <Paragraph>Open the Menu for the disabled Keyboard Key in context:</Paragraph>
         <MenuButton {...menu} variant="secondary">
             Edit <ChevronDownIcon decorative />
@@ -72,9 +65,6 @@ export const pressedExample = `const PressedExample = () => {
 
     return (
         <>
-            <KeyboardKeyGroup enablePressStyles activeKeys={["s"]}>
-                <KeyboardKey keyEvent="s">S</KeyboardKey>
-            </KeyboardKeyGroup>
             <Paragraph>Press the “Shift” or “S” key to reveal the pressed states below:</Paragraph>
             <KeyboardKeyGroup {...keyCombinationState}>
                 <KeyboardKey keyEvent="Shift">Shift</KeyboardKey>
