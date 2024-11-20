@@ -90,7 +90,7 @@ render(
 
 export const tooltipExample = `<Stack orientation="horizontal" spacing="space60">
     <Tooltip
-        actionHeader="Search shortcuts"
+        actionHeader="Search shortcut"
         keyCombinationsActions={[
             { name: "Mac", eventKeyCombination: ["Command", "K"] },
             { name: "Windows", eventKeyCombination: ["Control", "K"] },
@@ -101,7 +101,7 @@ export const tooltipExample = `<Stack orientation="horizontal" spacing="space60"
         </Button>
     </Tooltip>
     <Tooltip
-        actionHeader="Search shortcuts"
+        actionHeader="Search shortcut"
         keyCombinationsActions={[
             { eventKeyCombination: ["Command", "K"] },
         ]}
@@ -124,7 +124,7 @@ export const useKeyCombinationExample = `const HookExample = () => {
     return (
         <>
             <Paragraph>Press the <KeyboardKeyGroup><KeyboardKey>Shift</KeyboardKey><KeyboardKey>Q</KeyboardKey></KeyboardKeyGroup> key to reveal the pressed states below:</Paragraph>
-            <Paragraph>Combination triggered: {combinationTriggeredText}</aragraph>
+            <Paragraph>Combination triggered: {combinationTriggeredText}</Paragraph>
         </>
     )
 }
