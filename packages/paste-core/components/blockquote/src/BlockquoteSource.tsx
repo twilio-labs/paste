@@ -37,19 +37,21 @@ export const BlockquoteSource = React.forwardRef<HTMLDivElement, BlockquoteSourc
     return (
       <Box marginTop="space30" as="p" element={element} {...props} ref={ref}>
         —{" "}
-        <Text as="span" fontWeight="fontWeightSemibold">
+        <Text as="span" fontWeight="fontWeightSemibold" element={`${element}_AUTHOR`}>
           {author}
         </Text>
         {source ? (
           <>
             ,{" "}
-            <Box as="cite" fontStyle="normal">
+            <Box as="cite" fontStyle="normal" element={`${element}_CITE`}>
               {url ? (
-                <Anchor href={url} showExternal>
+                <Anchor href={url} showExternal element={`${element}_ANCHOR`}>
                   {source}
                 </Anchor>
               ) : (
-                <Text as="span">{source}</Text>
+                <Text as="span" element={`${element}_TEXT`}>
+                  {source}
+                </Text>
               )}
             </Box>
           </>

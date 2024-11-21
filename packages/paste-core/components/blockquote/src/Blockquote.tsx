@@ -35,7 +35,7 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
         fontSize="fontSize30"
         element={element}
       >
-        <BlockquoteIcon decorative={true} color="colorTextIcon" />
+        <BlockquoteIcon element={`${element}_ICON`} decorative={true} color="colorTextIcon" />
         <BlockquoteContext.Provider value={{ url }}>
           <Box>{children}</Box>
         </BlockquoteContext.Provider>
