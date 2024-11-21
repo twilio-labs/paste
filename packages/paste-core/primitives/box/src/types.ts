@@ -131,7 +131,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
    */
   disabled?: boolean;
   /**
-   * Same as HTML
+   * Only used for the Blockquote component.
    *
    * @type {string}
    * @memberof BoxElementProps
