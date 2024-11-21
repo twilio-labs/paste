@@ -91,7 +91,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   /**
    * Same as HTML
    *
-   * @type {string}
+   * @type {boolean}
    * @memberof BoxElementProps
    */
   multiple?: boolean;
@@ -126,10 +126,17 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   /**
    * Same as HTML
    *
-   * @type {string}
+   * @type {boolean}
    * @memberof BoxElementProps
    */
   disabled?: boolean;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
+  cite?: string;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}

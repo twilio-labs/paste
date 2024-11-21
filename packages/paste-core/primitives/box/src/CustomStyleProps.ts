@@ -73,4 +73,5 @@ export const customStyleProps = {
     scale: "space",
   },
   "-moz-appearance": true,
+  cite: true,
 };
