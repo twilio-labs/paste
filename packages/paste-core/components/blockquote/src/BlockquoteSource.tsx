@@ -49,9 +49,7 @@ export const BlockquoteSource = React.forwardRef<HTMLDivElement, BlockquoteSourc
                   {source}
                 </Anchor>
               ) : (
-                <Text as="span" fontStyle="italic">
-                  {source}
-                </Text>
+                <Text as="span">{source}</Text>
               )}
             </Box>
           </>
