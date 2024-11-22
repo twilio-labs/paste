@@ -1,225 +1,102 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import * as React from "react";
 
-import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from "../src";
+import { Blockquote, BlockquoteContent, BlockquoteSource } from "../src";
 
-describe("Callout", () => {
+describe("Blockquote", () => {
   it("should render", () => {
     render(
-      <Callout variant="neutral" data-testid="callout">
-        <CalloutText>This is some text.</CalloutText>
-      </Callout>,
+      <Blockquote url="#" data-testid="blockquote">
+        <BlockquoteContent>This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      </Blockquote>,
     );
 
-    const callout = screen.getByTestId("callout");
-    expect(callout).not.toHaveStyleRule("margin-top");
-
-    const iconHiddenText = screen.getByText("(information)");
-    expect(iconHiddenText).toBeDefined();
+    const blockquote = screen.getByTestId("blockquote");
+    expect(blockquote).toBeDefined();
 
     const text = screen.getByText("This is some text.");
-    expect(text.nodeName).toBe("P");
+    expect(text.nodeName).toBe("BLOCKQUOTE");
+    expect(blockquote.querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_ANCHOR']`)).toBeTruthy();
+  });
+
+  it("should render without a url", () => {
+    render(
+      <Blockquote data-testid="blockquote">
+        <BlockquoteContent>This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      </Blockquote>,
+    );
+
+    const blockquote = screen.getByTestId("blockquote");
+    expect(blockquote).toBeDefined();
+    expect(blockquote.querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_TEXT']`)).toBeTruthy();
+  });
+
+  it("should render without a source", () => {
+    render(
+      <Blockquote url="#" data-testid="blockquote">
+        <BlockquoteContent>This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" />
+      </Blockquote>,
+    );
+
+    const blockquote = screen.getByTestId("blockquote");
+    expect(blockquote).toBeDefined();
+    expect(blockquote.querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_CITE']`)).toBeFalsy();
   });
 });
 
-describe("CalloutHeading", () => {
-  it("should render an h2", () => {
-    render(<CalloutHeading as="h2">Heads up!</CalloutHeading>);
-
-    const heading = screen.getByRole("heading");
-    expect(heading.nodeName).toBe("H2");
-  });
-
-  it("should render an h3", () => {
-    render(<CalloutHeading as="h3">Heads up!</CalloutHeading>);
-
-    const heading = screen.getByRole("heading");
-    expect(heading.nodeName).toBe("H3");
-  });
-});
-
-describe("CalloutList", () => {
-  it("should render an unordered list", () => {
-    render(
-      <CalloutList as="ul">
-        <CalloutListItem>Item one</CalloutListItem>
-      </CalloutList>,
+describe("Customization", () => {
+  it("should set element data attribute", () => {
+    const { getByTestId } = render(
+      <Blockquote url="#" data-testid="blockquote">
+        <BlockquoteContent>This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      </Blockquote>,
+    );
+    const { getByTestId: idWithoutURL } = render(
+      <Blockquote data-testid="blockquoteWithoutURL">
+        <BlockquoteContent>This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      </Blockquote>,
     );
 
-    const list = screen.getByRole("list");
-    expect(list.nodeName).toBe("UL");
-
-    const listItem = screen.getByRole("listitem");
-    expect(listItem).toBeDefined();
+    expect(getByTestId("blockquote").getAttribute("data-paste-element")).toEqual("BLOCKQUOTE");
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_ICON']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_CONTENT']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_AUTHOR']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_CITE']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_ANCHOR']`)).toBeTruthy();
+    expect(
+      idWithoutURL("blockquoteWithoutURL").querySelector(`[data-paste-element='BLOCKQUOTE_SOURCE_TEXT']`),
+    ).toBeTruthy();
   });
 
-  it("should render an ordered list", () => {
-    render(
-      <CalloutList as="ol">
-        <CalloutListItem>Item one</CalloutListItem>
-      </CalloutList>,
+  it("should set custom element data attribute", () => {
+    const { getByTestId } = render(
+      <Blockquote url="#" data-testid="blockquote" element="CUSTOMIZED">
+        <BlockquoteContent element="CUSTOMIZED_CONTENT">This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" element="CUSTOMIZED_SOURCE" />
+      </Blockquote>,
+    );
+    const { getByTestId: idWithoutURL } = render(
+      <Blockquote data-testid="blockquoteWithoutURL" element="CUSTOMIZED">
+        <BlockquoteContent element="CUSTOMIZED_CONTENT">This is some text.</BlockquoteContent>
+        <BlockquoteSource author="Google" source="People + AI Guidebook" element="CUSTOMIZED_SOURCE" />
+      </Blockquote>,
     );
 
-    const list = screen.getByRole("list");
-    expect(list.nodeName).toBe("OL");
-
-    const listItem = screen.getByRole("listitem");
-    expect(listItem).toBeDefined();
-  });
-});
-
-describe("i18n", () => {
-  it("should have default error variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="error">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(error)");
-  });
-
-  it("should have default neutral variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="neutral">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(information)");
-  });
-
-  it("should have default warning variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="warning">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(warning)");
-  });
-
-  it("should have default success variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="success">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(success)");
-  });
-
-  it("should have default new variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="new">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(new)");
-  });
-
-  it("should use the i18nLabel for error variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="error" i18nLabel="(erreur)">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(erreur)");
-  });
-
-  it("should use the i18nLabel for neutral variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="neutral" i18nLabel="(information)">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(information)");
-  });
-
-  it("should use the i18nLabel for warning variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="warning" i18nLabel="(avertissement)">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(avertissement)");
-  });
-
-  it("should use the i18nLabel for success variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="success" i18nLabel="(succès)">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(succès)");
-  });
-
-  it("should use the i18nLabel for new variant icon text", () => {
-    render(
-      <Callout data-testid="callout-i18n" variant="new" i18nLabel="(nouveau)">
-        This is a callout
-      </Callout>,
-    );
-    const callout = screen.getByTestId("callout-i18n");
-    const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
-    expect(icon?.textContent).toEqual("(nouveau)");
-  });
-});
-
-describe("Callout dismiss", () => {
-  it("should not render close button if no dismiss funciton passed", () => {
-    render(
-      <Callout variant="neutral" data-testid="callout">
-        <CalloutText>This is some text.</CalloutText>
-      </Callout>,
-    );
-
-    const callout = screen.getByTestId("callout");
-
-    const text = screen.getByText("This is some text.");
-    expect(text).toBeTruthy();
-
-    const dismissButton = callout.querySelector('[data-paste-element="CALLOUT_DISMISS_BUTTON"]');
-    expect(dismissButton).toBeNull();
-  });
-
-  it("should render close button if dismiss function passed", async () => {
-    const closeSpy = jest.fn();
-
-    render(
-      <Callout variant="neutral" data-testid="callout" onDismiss={closeSpy}>
-        <CalloutText>This is some text.</CalloutText>
-      </Callout>,
-    );
-
-    const callout = screen.getByTestId("callout");
-
-    const text = screen.getByText("This is some text.");
-    expect(text).toBeTruthy();
-
-    const dismissButton = callout.querySelector('[data-paste-element="CALLOUT_DISMISS_BUTTON"]');
-    expect(dismissButton).toBeTruthy();
-
-    expect(closeSpy).not.toHaveBeenCalled();
-
-    await waitFor(() => {
-      fireEvent.click(dismissButton as HTMLElement);
-    });
-
-    expect(closeSpy).toHaveBeenCalled();
+    expect(getByTestId("blockquote").getAttribute("data-paste-element")).toEqual("CUSTOMIZED");
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_ICON']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_CONTENT']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_SOURCE']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_SOURCE_AUTHOR']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_SOURCE_CITE']`)).toBeTruthy();
+    expect(getByTestId("blockquote").querySelector(`[data-paste-element='CUSTOMIZED_SOURCE_ANCHOR']`)).toBeTruthy();
+    expect(
+      idWithoutURL("blockquoteWithoutURL").querySelector(`[data-paste-element='CUSTOMIZED_SOURCE_TEXT']`),
+    ).toBeTruthy();
   });
 });
