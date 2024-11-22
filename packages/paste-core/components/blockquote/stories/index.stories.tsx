@@ -1,9 +1,9 @@
 import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
-import * as React from "react";
-
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
 import { Blockquote, BlockquoteContent, BlockquoteSource } from "../src";
 
 // eslint-disable-next-line import/no-default-export
