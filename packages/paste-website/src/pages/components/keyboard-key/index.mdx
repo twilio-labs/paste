@@ -64,7 +64,7 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
-## About Keyboard Key
+### About Keyboard Key and Keyboard Key Group
 
 A Keyboard Key distinguishes a keyboard command or shortcut from other text.
 
@@ -143,7 +143,7 @@ A mapping of key events can be found [here](https://www.freecodecamp.org/news/ja
   {pressedExample}
 </LivePreview>
 
-### Keyboard Key within Tooltip
+## Keyboard Key within Tooltip
 
 Add Keyboard Key(s) to a [Tooltip](/components/tooltip) to show a shortcut associated with an interactive component. Use the `actionHeader` and `keyCombinationsActions` to display a heading and the associated keyboard shortcut (or shortcuts, if displaying for multiple operating systems/keyboards).
 
@@ -151,9 +151,9 @@ Add Keyboard Key(s) to a [Tooltip](/components/tooltip) to show a shortcut assoc
   {tooltipExample}
 </LivePreview>
 
-### Keyboard combination hooks
+## Keyboard combination hooks
 
-#### useKeyCombination
+### useKeyCombination
 
 The `useKeyCombination` hook provides a way to configure the combination keys, callback, and additional state that can be used in `KeyboardKeyGroup` to enable pressed styling.
 
@@ -161,7 +161,7 @@ The `useKeyCombination` hook provides a way to configure the combination keys, c
   {useKeyCombinationExample}
 </LivePreview>
 
-#### useKeyCombinations
+### useKeyCombinations
 
 The `useKeyCombinations` is similar to [`useKeyCombination`](#useKeyCombination) but allows you to configure multiple combinations and callback mappings. Use this hook when you have many combinations on the same page. This will not include the ability to configure pressed styling and is designed to provide functionality when in Menu items or Tooltips.
 
@@ -188,7 +188,7 @@ When writing out keys:
   <ListItem>Use “Enter” instead of “Return”.</ListItem>
 </List>
 
-### Common keyboard shortcuts
+## Common keyboard shortcuts
 
 Common platform-level shortcuts that are used across Twilio include:
 
@@ -393,7 +393,7 @@ These keyboard commands should be avoided since they're used by operating system
 
 Read more about other conflicts with browsers and international keyboards in [W3C's guide](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#keyboardshortcuts).
 
-### When to use Keyboard Key
+## When to use Keyboard Key
 
 <DoDont>
   <Do title="Do" body="Implement keyboard shortcuts for extremely frequent platform-level actions." center />
