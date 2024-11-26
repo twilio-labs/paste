@@ -109,6 +109,7 @@ export const useKeyCombinationExample = `const HookExample = () => {
         onCombinationPress: () => {
             setCombinationTriggeredText("Shift + Q pressed");
         },
+        enablePressStyles: true,
     });
 
     return (
