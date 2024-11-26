@@ -1,7 +1,6 @@
 import { KeyboardKey, KeyboardKeyGroup, useKeyCombination, useKeyCombinations } from "@twilio-paste/keyboard-key";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { Anchor } from "@twilio-paste/anchor";
-import { List, ListItem } from "@twilio-paste/list";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
@@ -179,14 +178,9 @@ Keyboard Key is mainly a presentational component, and can't detect operating sy
 
 When writing out keys:
 
-<List marginBottom="space60">
-  <ListItem>Use title case. Example: “Caps Lock”, not “Caps lock”.</ListItem>
-  <ListItem>
-    For modifier keys like Control, Command, and Option, spell out the key instead of using abbreviations or symbols.
-    Example: “Control”, not “Ctrl” or “^”. Use the abbreviation only when space is limited.
-  </ListItem>
-  <ListItem>Use “Enter” instead of “Return”.</ListItem>
-</List>
+- Use title case. Example: “Caps Lock”, not “Caps lock”.
+- For modifier keys like Control, Command, and Option, spell out the key instead of using abbreviations or symbols. Example: “Control”, not “Ctrl” or “^”. Use the abbreviation only when space is limited.
+- Use “Enter” instead of “Return”.
 
 ## Common keyboard shortcuts
 
@@ -365,31 +359,15 @@ The following keyboard commands should be used in any context where the actions 
 
 These keyboard commands should be avoided since they're used by operating systems or assistive technologies:
 
-<List marginBottom="space60">
-  <ListItem>
-    Any modifier keys (a keyboard key that changes the function of other keys when pressed together) + any of <KeyboardKey>Tab</KeyboardKey>, <KeyboardKey>Enter</KeyboardKey>,{" "}
-    <KeyboardKey>Space</KeyboardKey>, or <KeyboardKey>Escape</KeyboardKey>.
-  </ListItem>
-  <ListItem>
-    <KeyboardKey>Alt</KeyboardKey> + a function key.
-  </ListItem>
-  <ListItem>
-    <KeyboardKey>Caps Lock</KeyboardKey> + any other combination of keys.
-  </ListItem>
-  <ListItem>
-    <KeyboardKey>Insert</KeyboardKey> + any combination of other keys.
-  </ListItem>
-  <ListItem>
-    <KeyboardKey>Scroll Lock</KeyboardKey> + any combination of other keys.
-  </ListItem>
-  <ListItem>
-    <KeyboardKeyGroup>
-      <KeyboardKey>Control</KeyboardKey>
-      <KeyboardKey>Option</KeyboardKey>
-    </KeyboardKeyGroup>{" "}
-    + any combination of other keys.
-  </ListItem>
-</List>
+- Any modifier keys (a keyboard key that changes the function of other keys when pressed together) + any of <KeyboardKey>Tab</KeyboardKey>, <KeyboardKey>Enter</KeyboardKey>, <KeyboardKey>Space</KeyboardKey>, or <KeyboardKey>Escape</KeyboardKey>.
+- <KeyboardKey>Alt</KeyboardKey> + a function key.
+- <KeyboardKey>Caps Lock</KeyboardKey> + any other combination of keys.
+- <KeyboardKey>Insert</KeyboardKey> + any combination of other keys.
+- <KeyboardKey>Scroll Lock</KeyboardKey> + any combination of other keys.
+- <KeyboardKeyGroup>
+    <KeyboardKey>Control</KeyboardKey>
+    <KeyboardKey>Option</KeyboardKey>
+  </KeyboardKeyGroup> + any combination of other keys.
 
 Read more about other conflicts with browsers and international keyboards in [W3C's guide](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#keyboardshortcuts).
 
@@ -410,5 +388,9 @@ Read more about other conflicts with browsers and international keyboards in [W3
   />
   <Do title="Do" body="For key combinations, place Keyboard Keys next to each other separated by a space." center />
   <Dont title="Don't" body="Don't use a “+” between key combinations." center />
-    <Do title="Do" body="Use the aria-keyshortcuts on the focusable element to announce to users with screen readers" center />
+  <Do
+    title="Do"
+    body="Use the aria-keyshortcuts on the focusable element to announce to users with screen readers"
+    center
+  />
 </DoDont>
