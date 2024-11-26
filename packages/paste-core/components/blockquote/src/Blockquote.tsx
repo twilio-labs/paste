@@ -1,4 +1,5 @@
-import { Box, type BoxProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { BlockquoteIcon } from "@twilio-paste/icons/esm/BlockquoteIcon";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import React from "react";
@@ -26,7 +27,7 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
   ({ children, element = "BLOCKQUOTE", url, ...props }, ref) => {
     return (
       <Box
-        {...props}
+        {...safelySpreadBoxProps(props)}
         ref={ref}
         display="flex"
         columnGap="space50"
@@ -37,7 +38,7 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
       >
         <BlockquoteIcon element={`${element}_ICON`} decorative={true} color="colorTextIcon" />
         <BlockquoteContext.Provider value={{ url }}>
-          <Box>{children}</Box>
+          <Box element={`INNER_${element}`}>{children}</Box>
         </BlockquoteContext.Provider>
       </Box>
     );

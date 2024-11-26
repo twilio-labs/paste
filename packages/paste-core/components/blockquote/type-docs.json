@@ -3178,7 +3178,7 @@
       "externalProp": true
     }
   },
-  "BlockquoteSource": {
+  "BlockquoteCitation": {
     "author": {
       "type": "string",
       "defaultValue": null,
@@ -3602,7 +3602,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'BLOCKQUOTE_SOURCE'",
+      "defaultValue": "'BLOCKQUOTE_CITATION'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"

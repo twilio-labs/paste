@@ -4,7 +4,7 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { Blockquote, BlockquoteContent, BlockquoteSource } from "../src";
+import { Blockquote, BlockquoteCitation, BlockquoteContent } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -19,7 +19,7 @@ export const Default: StoryFn = () => (
         With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
         human experience as a whole.
       </BlockquoteContent>
-      <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
     </Blockquote>
   </Box>
 );
@@ -31,7 +31,7 @@ export const WithoutUrl: StoryFn = () => (
         With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
         human experience as a whole.
       </BlockquoteContent>
-      <BlockquoteSource author="Google" source="People + AI Guidebook" />
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
     </Blockquote>
   </Box>
 );
@@ -43,7 +43,7 @@ export const WithoutSource: StoryFn = () => (
         With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
         human experience as a whole.
       </BlockquoteContent>
-      <BlockquoteSource author="Google" />
+      <BlockquoteCitation author="Google" />
     </Blockquote>
   </Box>
 );
@@ -64,6 +64,10 @@ export const CustomizationBlockquote: StoryFn = (_args, { parameters: { isTestEn
           color: "colorTextSuccess",
           padding: "space60",
         },
+        BLOCKQUOTE_ICON: {
+          color: "colorTextWarning",
+        },
+        INNER_BLOCKQUOTE: { margin: "space40" },
         BLOCKQUOTE_CONTENT: {
           color: "colorTextWarning",
           fontFamily: "fontFamilyText",
@@ -71,19 +75,18 @@ export const CustomizationBlockquote: StoryFn = (_args, { parameters: { isTestEn
           fontWeight: "fontWeightSemibold",
           lineHeight: "lineHeight40",
         },
-        BLOCKQUOTE_SOURCE: {
+        BLOCKQUOTE_CITATION: {
           color: "colorTextError",
           fontFamily: "fontFamilyText",
           fontSize: "fontSize20",
           fontWeight: "fontWeightSemibold",
           lineHeight: "lineHeight20",
         },
-        BLOCKQUOTE_ICON: {
+        BLOCKQUOTE_CITATION_AUTHOR: {
           color: "colorTextWarning",
         },
-        BLOCKQUOTE_SOURCE_AUTHOR: {
-          color: "colorTextWarning",
-        },
+        BLOCKQUOTE_CITATION_CITE: { fontFamily: "fontFamilyCode" },
+        BLOCKQUOTE_CITATION_ANCHOR: { color: "colorTextLinkStronger" },
       }}
     >
       <Box maxWidth="600px">
@@ -92,7 +95,7 @@ export const CustomizationBlockquote: StoryFn = (_args, { parameters: { isTestEn
             With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
             human experience as a whole.
           </BlockquoteContent>
-          <BlockquoteSource author="Google" source="People + AI Guidebook" />
+          <BlockquoteCitation author="Google" source="People + AI Guidebook" />
         </Blockquote>
       </Box>
     </CustomizationProvider>
