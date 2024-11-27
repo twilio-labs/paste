@@ -27,7 +27,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
   const handleKeyDown = (e: KeyboardEvent): void => {
     if (!e.repeat) {
       setActiveKeys((prev) => {
-        return Array.from(new Set([...prev, e.key]));
+        return Array.from(new Set([...prev, e.key.toLowerCase()]));
       });
     }
   };
@@ -41,7 +41,7 @@ const useKeyEvents = (): { activeKeys: string[] } => {
     if (e.key === "Meta") {
       setActiveKeys([]);
     } else {
-      setActiveKeys((prev) => [...prev].filter((k) => k !== e.key));
+      setActiveKeys((prev) => [...prev].filter((k) => k.toLowerCase() !== e.key.toLowerCase()));
     }
   };
 
@@ -59,7 +59,8 @@ const useKeyEvents = (): { activeKeys: string[] } => {
 };
 
 const stringArrayMatches = (arr1: string[], arr2: string[]): boolean =>
-  JSON.stringify(arr1.sort((a, b) => a.localeCompare(b))) === JSON.stringify(arr2.sort((a, b) => a.localeCompare(b)));
+  JSON.stringify(arr1.sort((a, b) => a.localeCompare(b)).map((s) => s.toLowerCase())) ===
+  JSON.stringify(arr2.sort((a, b) => a.localeCompare(b)));
 
 export const useKeyCombination = ({
   keys,

@@ -1,0 +1,396 @@
+import { KeyboardKey, KeyboardKeyGroup, useKeyCombination, useKeyCombinations } from "@twilio-paste/keyboard-key";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Table, THead, Tr, Th, TBody, Td } from "@twilio-paste/table";
+import { Stack } from "@twilio-paste/stack";
+import { Tooltip } from "@twilio-paste/tooltip";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import packageJson from "@twilio-paste/keyboard-key/package.json";
+
+import { SidebarCategoryRoutes } from "../../../constants";
+import { Blockquote } from "../../../components/Blockquote";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+import { Do, DoDont, Dont } from "../../../components/DoDont";
+import {
+  basicExample,
+  disabledExample,
+  pressedExample,
+  defaultExample,
+  tooltipExample,
+  useKeyCombinationsExample,
+  useKeyCombinationExample,
+} from "../../../component-examples/KeyboardKeyExamples";
+import { Text } from "@twilio-paste/text";
+
+export const meta = {
+  title: "Keyboard Key - Components",
+  package: "@twilio-paste/keyboard-key",
+  description: packageJson.description,
+  slug: "/components/keyboard-key/",
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("Keyboard Key");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/keyboard-key",
+        storybookUrl: "/?path=/story/components-keyboardkey",
+      },
+    },
+  };
+};
+
+<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey }} language="jsx">
+  {basicExample}
+</LivePreview>
+
+## Guidelines
+
+### About Keyboard Key and Keyboard Key Group
+
+A Keyboard Key distinguishes a keyboard command or shortcut from other text.
+
+Keyboard shortcuts are used for extremely frequent platform-level actions (like activating search), or in canvas or productivity tools like Studio or Flex. In general, **avoid implementing keyboard shortcuts**, especially with single keys, because they can override shortcuts that are already set by operating systems, browsers, assistive technologies, or user preferences.
+
+<Blockquote
+  name="UI Copy: UX Guidelines for Command Names and Keyboard Shortcuts"
+  source="Nielsen Norman Group"
+  sourceUrl="https://www.nngroup.com/articles/ui-copy/#guidelines-for-command-shortcuts"
+>
+  Not every task on your application needs a shortcut, so observe your users interacting with your application to
+  determine the most common tasks and prioritize keyboard shortcuts for these.
+</Blockquote>
+
+Keyboards can also vary across operating systems and global regions, so make sure your key commands work for all users.
+
+Reference [this list of existing common keyboard shortcuts](#common-keyboard-shortcuts) before creating a new one.
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>Are you considering implementing a new keyboard shortcut?</CalloutHeading>
+    <CalloutText>
+      Reach out to us in a{" "}
+      <Anchor
+        href="https://github.com/twilio-labs/paste/discussions"
+        showExternal={true}
+        i18nExternalLinkLabel="Navigates to Paste Github Discussions"
+      >
+        Github Discussion
+      </Anchor>{" "}
+      so we can keep keyboard shortcuts standardized across our platforms by connecting you with other teams, like Flex
+      and Studio, who have already built them into features.
+    </CalloutText>
+  </Callout>
+</Box>
+
+### Accessibility
+
+To make sure users easily understand keyboard commands, use text instead of symbols to write out modifier keys like Command, Control, and Option. Example: Use “Command” instead of “⌘”. Use the abbreviation, e.g., “Cmd”, only when space is limited.
+
+To expose the presence of shortcuts to assistive technologies, use the [`aria-keyshortcuts`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts) attribute on the element that gets activated by the shortcut.
+
+## Examples
+
+### Default Keyboard Key
+
+Use Keyboard Key for a single key command. Use Keyboard Key Group for key combination commands or shortcuts. When showing a key combination, do not put a “+” between Keyboard Keys or in Keyboard Key Group.
+
+<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey, Paragraph }} language="jsx">
+  {defaultExample}
+</LivePreview>
+
+### Disabled Keyboard Key
+
+Disabled Keyboard Keys should be used when the element a shortcut activates is disabled, like a disabled Menu item or Button.
+
+<LivePreview
+  scope={{ KeyboardKeyGroup, KeyboardKey, Paragraph, useMenuState, Menu, MenuButton, MenuItem, ChevronDownIcon, Box }}
+  language="jsx"
+  noInline
+>
+  {disabledExample}
+</LivePreview>
+
+### Pressed Keyboard Key
+
+Use pressed Keyboard Keys to give visual feedback when a key is pressed.
+
+This is especially helpful when onboarding users to keyboard shortcuts. However, use the pressed state thoughtfully, only when it enhances the user experience. It can be distracting in cases where a user is using the keyboard for other interactions, like on a page with form fields.
+
+The `KeyboardKeyGroup` accepts state returned from the [`useKeyCombination`](#usekeycombination) hook that allows pressed styling to be enabled. You must also specify `keyEvent` on the component to detect the correct key pressed.
+
+A mapping of key events can be found [here](https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/).
+
+<LivePreview scope={{ KeyboardKeyGroup, KeyboardKey, useKeyCombination, Paragraph }} noInline language="jsx">
+  {pressedExample}
+</LivePreview>
+
+## Keyboard Key within Tooltip
+
+Add Keyboard Key(s) to a [Tooltip](/components/tooltip) to show a shortcut associated with an interactive component. Use the `actionHeader` and `keyCombinationsActions` to display a heading and the associated keyboard shortcut (or shortcuts, if displaying for multiple operating systems/keyboards).
+
+<LivePreview scope={{ Button, Tooltip, Box, SearchIcon, Stack }} language="jsx">
+  {tooltipExample}
+</LivePreview>
+
+## Keyboard combination hooks
+
+### useKeyCombination
+
+The `useKeyCombination` hook provides a way to configure the combination keys, callback, and additional state that can be used in `KeyboardKeyGroup` to enable pressed styling.
+
+<LivePreview scope={{ useKeyCombination, Paragraph, KeyboardKeyGroup, KeyboardKey }} noInline language="jsx">
+  {useKeyCombinationExample}
+</LivePreview>
+
+### useKeyCombinations
+
+The `useKeyCombinations` is similar to [`useKeyCombination`](#useKeyCombination) but allows you to configure multiple combinations and callback mappings. Use this hook when you have many combinations on the same page. This will not include the ability to configure pressed styling and is designed to provide functionality when in Menu items or Tooltips.
+
+<LivePreview
+  scope={{ useKeyCombinations, Paragraph, KeyboardKeyGroup, KeyboardKey, Stack, Box }}
+  noInline
+  language="jsx"
+>
+  {useKeyCombinationsExample}
+</LivePreview>
+
+## Composition Notes
+
+Keyboard Key is mainly a presentational component, and can't detect operating systems. When a user needs to press different keys on different operating systems (e.g., “Command” on Mac and “Control” on Windows), make sure to either list both shortcuts or programmatically swap the shortcut displayed based on the operating system.
+
+When writing out keys:
+
+- Use title case. Example: “Caps Lock”, not “Caps lock”.
+- For modifier keys like Control, Command, and Option, spell out the key instead of using abbreviations or symbols. Example: “Control”, not “Ctrl” or “^”. Use the abbreviation only when space is limited.
+- Use “Enter” instead of “Return”.
+
+## Common keyboard shortcuts
+
+Common platform-level shortcuts that are used across Twilio include:
+
+<Box marginBottom="space60">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Action</Th>
+        <Th>Windows/Linux</Th>
+        <Th>Mac</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Open search</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>K</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>K</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Bold text</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>B</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Italicize text</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>I</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>I</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Underline text</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>U</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>U</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+From [W3C's guide to developing a keyboard interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#keyassignmentconventionsforcommonfunctions):
+The following keyboard commands should be used in any context where the actions are appropriate.
+
+**Use these commands only for the actions specified.** Do not use them for any other command:
+
+<Box marginBottom="space60">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Action</Th>
+        <Th>Windows/Linux</Th>
+        <Th>Mac</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Copy to clipboard</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>C</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>C</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Paste from clipboard</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>V</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>V</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Cut to clipboard</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>X</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>X</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Undo last action</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>Z</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>Z</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td>Redo action</Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Control</KeyboardKey>
+            <KeyboardKey>Y</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+        <Td>
+          <KeyboardKeyGroup>
+            <KeyboardKey>Command</KeyboardKey>
+            <KeyboardKey>Shift</KeyboardKey>
+            <KeyboardKey>Y</KeyboardKey>
+          </KeyboardKeyGroup>
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+### Keyboard commands to avoid
+
+These keyboard commands should be avoided since they're used by operating systems or assistive technologies:
+
+- Any modifier keys (a keyboard key that changes the function of other keys when pressed together) + any of <KeyboardKey>Tab</KeyboardKey>, <KeyboardKey>Enter</KeyboardKey>, <KeyboardKey>Space</KeyboardKey>, or <KeyboardKey>Escape</KeyboardKey>.
+- <KeyboardKey>Alt</KeyboardKey> + a function key.
+- <KeyboardKey>Caps Lock</KeyboardKey> + any other combination of keys.
+- <KeyboardKey>Insert</KeyboardKey> + any combination of other keys.
+- <KeyboardKey>Scroll Lock</KeyboardKey> + any combination of other keys.
+- <KeyboardKeyGroup>
+    <KeyboardKey>Control</KeyboardKey>
+    <KeyboardKey>Option</KeyboardKey>
+  </KeyboardKeyGroup> + any combination of other keys.
+
+Read more about other conflicts with browsers and international keyboards in [W3C's guide](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#keyboardshortcuts).
+
+## When to use Keyboard Key
+
+<DoDont>
+  <Do title="Do" body="Implement keyboard shortcuts for extremely frequent platform-level actions." center />
+  <Dont
+    title="Don't"
+    body="Don't implement keyboard shortcuts, especially single keys, for actions that aren't platform-level or for a canvas productivity tool. They should be used when there's already a high level of engagement and interaction on an action, and not as a way to increase engagement."
+    center
+  />
+  <Do title="Do" body="Use full words for modifier keys, such as “Command” and “Control”." center />
+  <Dont
+    title="Don't"
+    body="Don't use symbols like “⌘”. Only use abbreviations like “Cmd” when space is limited."
+    center
+  />
+  <Do title="Do" body="For key combinations, place Keyboard Keys next to each other separated by a space." center />
+  <Dont title="Don't" body="Don't use a “+” between key combinations." center />
+  <Do
+    title="Do"
+    body="Use the aria-keyshortcuts on the focusable element to announce to users with screen readers"
+    center
+  />
+</DoDont>

@@ -1,18 +1,18 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
-import { InlineCode } from "@twilio-paste/inline-code";
-import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { KeyboardKey, KeyboardKeyGroup, useKeyCombination } from "@twilio-paste/keyboard-key";
 import { Text } from "@twilio-paste/text";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
-import { useHotkeys } from "react-hotkeys-hook";
 
 import { SiteSearch } from "../../site-search";
 
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { breakpointIndex } = useWindowSize();
+  const isMacOS = navigator.platform.toUpperCase().includes("MAC");
+  const platformTriggerKey = isMacOS ? "Meta" : "Control";
 
   const onOpen = (): void => {
     setIsOpen(true);
@@ -22,7 +22,12 @@ const SiteHeaderSearch: React.FC = () => {
     setIsOpen(false);
   };
 
-  useHotkeys("mod+k", onOpen);
+  const keyCombinationState = useKeyCombination({
+    keys: [platformTriggerKey, "k"],
+    onCombinationPress: onOpen,
+    enablePressStyles: true,
+    disabled: isOpen,
+  });
 
   return (
     <>
@@ -54,6 +59,7 @@ const SiteHeaderSearch: React.FC = () => {
         _active={{
           boxShadow: "shadowBorderPrimaryStronger",
         }}
+        aria-keyshortcuts={`${isMacOS ? "Command" : "Control"} + K`}
       >
         <Box as="span" display="flex" justifyContent="space-between" width="100%" alignItems="center">
           <Box as="span" display="flex" columnGap="space20" alignItems="center">
@@ -64,11 +70,12 @@ const SiteHeaderSearch: React.FC = () => {
           </Box>
           {breakpointIndex === 0 ? null : (
             <>
-              <Box as="span" aria-hidden="true">
-                <InlineCode>⌘</InlineCode>
-                <InlineCode>K</InlineCode>
+              <Box as="span" color="colorText" aria-hidden="true" marginLeft="space30" lineHeight="lineHeight20">
+                <KeyboardKeyGroup {...keyCombinationState}>
+                  <KeyboardKey keyEvent={platformTriggerKey}>{isMacOS ? "Cmd" : "Ctrl"}</KeyboardKey>
+                  <KeyboardKey keyEvent="k">K</KeyboardKey>
+                </KeyboardKeyGroup>
               </Box>
-              <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
             </>
           )}
         </Box>

@@ -40,7 +40,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -49,11 +49,11 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control", "d", "v"]);
+        expect(result.current?.activeKeys).toEqual(["control", "d", "v"]);
       });
 
       await act(async () => {
-        fireEvent.keyUp(window, { key: "Control" });
+        fireEvent.keyUp(window, { key: "control" });
         fireEvent.keyUp(window, { key: "d" });
       });
 
@@ -73,7 +73,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -81,7 +81,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b"]));
         expect(onCombinationPress).toHaveBeenCalled();
       });
     });
@@ -97,7 +97,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -105,7 +105,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control", "d"]);
+        expect(result.current?.activeKeys).toEqual(["control", "d"]);
         expect(onCombinationPress).not.toHaveBeenCalled();
       });
     });
@@ -121,7 +121,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -130,7 +130,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "v", "b"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "v", "b"]));
         expect(onCombinationPress).not.toHaveBeenCalled();
       });
     });
@@ -148,7 +148,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -156,7 +156,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b"]));
         expect(onCombinationPress).not.toHaveBeenCalled();
       });
     });
@@ -180,7 +180,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -189,7 +189,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control", "d", "v"]);
+        expect(result.current?.activeKeys).toEqual(["control", "d", "v"]);
       });
 
       await act(async () => {
@@ -222,7 +222,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -230,7 +230,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b"]));
         expect(onCombinationPress1).toHaveBeenCalled();
         expect(onCombinationPress2).not.toHaveBeenCalled();
       });
@@ -241,7 +241,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b", "c"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b", "c"]));
         expect(onCombinationPress1).not.toHaveBeenCalled();
         expect(onCombinationPress2).not.toHaveBeenCalled();
       });
@@ -251,7 +251,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "c"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "c"]));
         expect(onCombinationPress1).not.toHaveBeenCalled();
         expect(onCombinationPress2).toHaveBeenCalled();
       });
@@ -277,7 +277,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(["Control"]);
+        expect(result.current?.activeKeys).toEqual(["control"]);
       });
 
       await act(async () => {
@@ -285,7 +285,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b"]));
         expect(onCombinationPress1).toHaveBeenCalled();
         expect(onCombinationPress2).not.toHaveBeenCalled();
       });
@@ -296,7 +296,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "b", "c"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "b", "c"]));
         expect(onCombinationPress1).not.toHaveBeenCalled();
         expect(onCombinationPress2).not.toHaveBeenCalled();
       });
@@ -306,7 +306,7 @@ describe("Hooks", () => {
       });
 
       await waitFor(() => {
-        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["Control", "c"]));
+        expect(result.current?.activeKeys).toEqual(expect.arrayContaining(["control", "c"]));
         expect(onCombinationPress1).not.toHaveBeenCalled();
         expect(onCombinationPress2).not.toHaveBeenCalled();
       });

@@ -1,0 +1,62 @@
+import Changelog from '@twilio-paste/keyboard-key/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/keyboard-key/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export const meta = {
+  title: 'Keyboard Key - Components',
+  package: '@twilio-paste/keyboard-key',
+  description: packageJson.description,
+  slug: '/components/keyboard-key/api',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Keyboard Key');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/keyboard-key');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/keyboard-key',
+        storybookUrl: '/?path=/story/components-keyboardkey'
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/keyboard-key - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import { KeyboardKeyGroup, KeyboardKey } from '@twilio-paste/core/keyboard-key';
+
+const KeyboardKeyExample = () => {
+  return (
+    <KeyboardKeyGroup>
+      <KeyboardKey>Control</KeyboardKey>
+      <KeyboardKey>B</KeyboardKey>
+    </KeyboardKeyGroup>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

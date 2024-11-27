@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "typography",
   "status": "production",
-  "description": "A keyboard key distinguishes a keyboard command or shortcut from other text.",
+  "description": "A Keyboard Key distinguishes a keyboard command or shortcut from other text.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
