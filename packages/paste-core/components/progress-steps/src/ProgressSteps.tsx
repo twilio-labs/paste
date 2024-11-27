@@ -89,11 +89,15 @@ const ItemSeparatorStyles: {
 
 export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps>(
   ({ element = "PROGRESS_STEPS", orientation = "horizontal", ...props }, ref) => {
-    const ContainerStyled = styled.div(
-      css({
-        display: "flex",
-        ...ItemSeparatorStyles[orientation],
-      }),
+    const ContainerStyled = React.useMemo(
+      () =>
+        styled.div(
+          css({
+            display: "flex",
+            ...ItemSeparatorStyles[orientation],
+          }),
+        ),
+      [orientation],
     );
 
     return (
