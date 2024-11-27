@@ -1,5 +1,17 @@
 # @twilio-paste/website
 
+## 2.23.49
+
+### Patch Changes
+
+- Updated dependencies [[`a720e5e0c`](https://github.com/twilio-labs/paste/commit/a720e5e0c33350f92618eab3ac84a3aa998a2001), [`7f39856ee`](https://github.com/twilio-labs/paste/commit/7f39856ee3697235b535ea02eaef2cb105cd4d86), [`ac3a553d0`](https://github.com/twilio-labs/paste/commit/ac3a553d039371ca5c8d63e7093954656af33430), [`a4404eab3`](https://github.com/twilio-labs/paste/commit/a4404eab37a8ce17e9505607857c6c5251337980), [`42a4dcbf4`](https://github.com/twilio-labs/paste/commit/42a4dcbf4f5f217fb77d06d0aa7f02e07717cf6a), [`a4404eab3`](https://github.com/twilio-labs/paste/commit/a4404eab37a8ce17e9505607857c6c5251337980)]:
+  - @twilio-paste/tooltip@12.0.0
+  - @twilio-paste/progress-steps@2.2.2
+  - @twilio-paste/timeline@1.0.1
+  - @twilio-paste/design-tokens@10.11.0
+  - @twilio-paste/keyboard-key@1.0.0
+  - @twilio-paste/code-block@5.0.0
+
 ## 2.23.48
 
 ### Patch Changes

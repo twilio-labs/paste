@@ -1,5 +1,16 @@
 # Change Log
 
+## 12.0.0
+
+### Minor Changes
+
+- [`a720e5e0c`](https://github.com/twilio-labs/paste/commit/a720e5e0c33350f92618eab3ac84a3aa998a2001) [#4161](https://github.com/twilio-labs/paste/pull/4161) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tooltip] added the ability to put keyboard combinations using the KeyboardKey in the tooltip
+
+### Patch Changes
+
+- Updated dependencies [[`42a4dcbf4`](https://github.com/twilio-labs/paste/commit/42a4dcbf4f5f217fb77d06d0aa7f02e07717cf6a), [`a4404eab3`](https://github.com/twilio-labs/paste/commit/a4404eab37a8ce17e9505607857c6c5251337980)]:
+  - @twilio-paste/keyboard-key@1.0.0
+
 ## 11.1.1
 
 ### Patch Changes
