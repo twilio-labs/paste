@@ -1,0 +1,36 @@
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/keyboard-key/CHANGELOG.md';
+import packageJson from '@twilio-paste/keyboard-key/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export const meta = {
+  title: 'Keyboard Key - Components',
+  package: '@twilio-paste/keyboard-key',
+  description: packageJson.description,
+  slug: '/components/keyboard-key/changelog',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Keyboard Key');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/keyboard-key',
+        storybookUrl: '/?path=/story/components-keyboardkey'
+      },
+    },
+  };
+};
+
+<Changelog />
