@@ -36,7 +36,14 @@ export const BlockquoteCitation = React.forwardRef<HTMLDivElement, BlockquoteCit
     const { url } = React.useContext(BlockquoteContext);
 
     return (
-      <Box {...safelySpreadBoxProps(props)} marginTop="space30" as="p" element={element} ref={ref}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        marginTop="space30"
+        marginBottom="space0"
+        as="p"
+        element={element}
+        ref={ref}
+      >
         —{" "}
         <Text as="span" fontWeight="fontWeightSemibold" element={`${element}_AUTHOR`}>
           {author}
