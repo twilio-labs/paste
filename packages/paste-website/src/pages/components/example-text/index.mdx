@@ -24,7 +24,7 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Sample Text');
+  const feature = await getFeature('Example Text');
   return {
     props: {
       data: {
@@ -65,7 +65,7 @@ Use Example Text so users can easily differentiate between examples and regular 
 Component       | Usage | Example
 ----------------|-------|-----
 Example Text | Use when you want to provide contextual examples of user input. | <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
-[Blockquote](/components/blockquote) | Use to highlight quotations from an external source or customer feedback. | TODO: add example
+[Blockquote](/components/blockquote) | Use to highlight quotations from an external source or customer feedback. | <Blockquote><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
 [Code Block](/components/code-block) | Use when you need to display blocks of code and when the user needs to copy a command to put it into a CLI. | <CodeBlock variant="single-line" code={`const accountSID = process.env.TWILIO_ACCOUNT_SID`}/>
 [Inline Code](/components/inline-code) | Use to emphasize short, inline pieces of computer code such as variable names and function calls. | <InlineCode>console.log(mySustainabilityGoals)</InlineCode>
 [Help Text](/components/help-text) | Use below a form field to help users prevent an error and describe what makes the form field successful. | <><Label htmlFor="email_address" required>Email address</Label><Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/><HelpText id="email_help_text">Use your work email address.</HelpText></>
@@ -105,7 +105,7 @@ Example Text can also be used inline in a [Paragraph](/components/paragraph) in 
   <Dont title="Don't" body="Don't use Example Text to highlight important information, use Callout or bold text instead."/>
 </DoDont>
 <DoDont>
-  <Do title="Do" body="TODO: add do" />
+  <Do title="Do" body="Use common editorial styles when example text doesn’t require special emphasis." />
   <Dont title="Don't" body="Do not use Example Text when you want the user to copy a command to put it into CLI, use Code Block instead."/>
 </DoDont>
 

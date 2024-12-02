@@ -16128,6 +16128,7 @@ __metadata:
     "@twilio-paste/avatar": ^9.1.0
     "@twilio-paste/badge": ^8.3.1
     "@twilio-paste/base-radio-checkbox": ^13.1.0
+    "@twilio-paste/blockquote": ^0.0.0
     "@twilio-paste/box": ^10.3.0
     "@twilio-paste/breadcrumb": ^11.1.1
     "@twilio-paste/button": ^14.1.2
@@ -16155,6 +16156,7 @@ __metadata:
     "@twilio-paste/display-heading": ^4.1.0
     "@twilio-paste/display-pill-group": ^8.0.1
     "@twilio-paste/dropdown-library": ^3.0.0
+    "@twilio-paste/example-text": ^0.0.0
     "@twilio-paste/file-picker": ^4.1.0
     "@twilio-paste/file-uploader": ^4.1.0
     "@twilio-paste/flex": ^8.1.0

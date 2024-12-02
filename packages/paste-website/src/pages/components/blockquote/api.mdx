@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
         githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/blockquote',
-        storybookUrl: '/?path=/story/components-blockquote', //TODO: update this to the correct storybook URL
+        storybookUrl: '/?path=/story/components-blockquote--default',
       },
     },
   };
@@ -45,11 +45,17 @@ yarn add @twilio-paste/blockquote - or - yarn add @twilio-paste/core
 ## Usage
 
 ```jsx
-import { Blockquote } from '@twilio-paste/core/blockquote';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from '@twilio-paste/core/blockquote';
 
 const BlockquoteExample = () => {
   return (
-    <Blockquote />
+    <Blockquote url="#">
+      <BlockquoteContent>
+        With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
+        human experience as a whole.
+      </BlockquoteContent>
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+    </Blockquote>
   );
 };
 ```
