@@ -5,6 +5,7 @@ describe("remToPx", () => {
     expect(remToPx("1.5rem")).toBe(24);
     expect(remToPx("1.5rem", "number")).toBe(24);
     expect(remToPx("1.5rem", "string")).toBe("24px");
+    expect(remToPx("100%")).toBe(16);
   });
 
   it("handles input numbers", (): void => {
