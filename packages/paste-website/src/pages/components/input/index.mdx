@@ -1,35 +1,36 @@
 export const meta = {
-  title: 'Input - Components',
-  package: '@twilio-paste/input',
-  description: 'An input allows users to enter text on a single line.',
-  slug: '/components/input/',
+  title: "Input - Components",
+  package: "@twilio-paste/input",
+  description: "An input allows users to enter text on a single line.",
+  slug: "/components/input/",
 };
 
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
-import {HelpText} from '@twilio-paste/help-text';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
-import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Codeblock} from '../../../components/codeblock';
-import {Blockquote} from '../../../components/Blockquote';
-import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/input/CHANGELOG.md';
-import packageJson from '@twilio-paste/input/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+import { Label } from "@twilio-paste/label";
+import { Input } from "@twilio-paste/input";
+import { HelpText } from "@twilio-paste/help-text";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import { Button } from "@twilio-paste/button";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+import { Table, THead, TBody, Td, Th, Tr } from "@twilio-paste/table";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { UnorderedList, ListItem } from "@twilio-paste/list";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { Codeblock } from "../../../components/codeblock";
+import { SidebarCategoryRoutes } from "../../../constants";
+import Changelog from "@twilio-paste/input/CHANGELOG.md";
+import packageJson from "@twilio-paste/input/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Input');
+  const feature = await getFeature("Input");
   return {
     props: {
       data: {
@@ -40,14 +41,14 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input',
-        storybookUrl: '/?path=/story/components-input--default-input',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input",
+        storybookUrl: "/?path=/story/components-input--default-input",
       },
     },
   };
 };
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
@@ -89,7 +90,7 @@ The Input component should include the base input, along with supporting element
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
-    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{" "}
     <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input. Those two
     need to match.
   </CalloutText>
@@ -100,7 +101,7 @@ The Input component should include the base input, along with supporting element
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
@@ -113,7 +114,7 @@ The Input component should include the base input, along with supporting element
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (like clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (like a search icon).
 
-<LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText, Text }} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment amount</Label>
   <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange={()=>{}} required />
@@ -121,7 +122,7 @@ The Input component should include the base input, along with supporting element
 </>`}
 </LivePreview>
 
-<LivePreview scope={{Input, Label, HelpText, InformationIcon, Button}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText, InformationIcon, Button }} language="jsx">
   {`<>
   <Label htmlFor="message_title" required>Message title</Label>
   <Input
@@ -184,21 +185,22 @@ using keyboard arrow keys and increment buttons.
 
 It displays a numeric keypad in some devices with dynamic keypads.
 
-<Blockquote
-  name="Mozilla"
-  source="MDN web docs"
-  sourceUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs"
->
-  The number input type should only be used for incremental numbers...The number input type is not appropriate for
-  values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
-  countries or credit card numbers.
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote url="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs">
+    <BlockquoteContent>
+      The number input type should only be used for incremental numbers...The number input type is not appropriate for
+      values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
+      countries or credit card numbers.{" "}
+    </BlockquoteContent>
+    <BlockquoteCitation author="Mozilla" source="MDN web doc" />
+  </Blockquote>
+</Box>
 
 In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use [Help
 Text](/components/help-text) to explain what inputs are accepted, like minimum or maximum values or step intervals, especially if there's no default value.
 Help Text should also include any important contextual information about what the number input represents.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="reload_amount">Reload amount</Label>
   <Input aria-describedby="reload_amount_help" id="reload_amount" name="reload_amount" defaultValue="0" type="number" min="0" max="1000" />
@@ -210,7 +212,7 @@ Help Text should also include any important contextual information about what th
 
 Provide translated strings for the 'increment' and 'decrement' button labels to make NumberInput localized. The `i18nStepUpLabel` and `i18nStepDownLabel` props should be used for this purpose.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="cantidad_de_recarga">Cantidad de recarga</Label>
   <Input aria-describedby="cantidad_de_recarga_help" id="cantidad_de_recarga" name="cantidad_de_recarga" defaultValue="0" type="number" min="0" max="1000" i18nStepUpLabel="incrementar" i18nStepDownLabel="decrementar" />
@@ -226,7 +228,7 @@ Change a form field to its error state and use [Help Text](/components/help-text
 
 An error Help Text is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_error">Email address</Label>
   <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange={()=>{}} hasError />
@@ -240,7 +242,7 @@ Use a disabled form field to show users that they can't interact with the field.
 
 If you want to show information that can't be edited, use a [read-only](#read-only-input) form field or consider another way of showing static information.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
   <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange={()=>{}} disabled />
@@ -252,7 +254,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 
 Use a read-only form field when a field's value can't be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_readonly">Email address</Label>
   <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange={()=>{}} readOnly />
@@ -277,7 +279,7 @@ Give users enough information in help text to prevent input and formatting error
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{Input, Label, HelpText, Box}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText, Box }} language="jsx">
   {`<>
   <Box marginBottom="space80">
     <Label htmlFor="first_name">First name</Label>
@@ -296,7 +298,7 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 Use text or required indicators to show users which fields they must fill out.
 
-<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+<LivePreview scope={{ Input, Label, HelpText }} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>

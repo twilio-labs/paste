@@ -1,35 +1,36 @@
 export const meta = {
-  title: 'Paste Design System Newsletter - September 2022 Edition',
-  slug: '/blog/2022-09-23-paste-newsletter/',
-  date: '2022-09-23',
-  author: 'Paste',
-  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  title: "Paste Design System Newsletter - September 2022 Edition",
+  slug: "/blog/2022-09-23-paste-newsletter/",
+  date: "2022-09-23",
+  author: "Paste",
+  avatar: "https://avatars.githubusercontent.com/t/3335688?s=280&v=4",
   author_link: null,
-  status: 'published',
+  status: "published",
   external_link: null,
   excerpt:
     "What's new in Paste in September 2022? NEW components, NEW icons, insights into our customer experience, and more!",
 };
 
-import Image from 'next/image';
-import {Anchor} from '@twilio-paste/anchor';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
-import SwitchExample from '../../assets/images/articles/2022-09-23-paste-newsletter/switch-example.gif';
-import InlineCodeExample from '../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png';
-import CodeBlockExample from '../../assets/images/articles/2022-09-23-paste-newsletter/code-block-example.gif';
-import CalloutExample from '../../assets/images/articles/2022-09-23-paste-newsletter/callout-example.png';
-import MinimizableDialog from '../../assets/images/articles/2022-09-23-paste-newsletter/minimizable-dialog-example.gif';
-import NewIcons from '../../assets/images/articles/2022-09-23-paste-newsletter/new-icons-example.png';
-import UiKit from '../../assets/images/articles/2022-09-23-paste-newsletter/ui-kit-example.png';
-import ToggleButton from '../../assets/images/articles/2022-09-23-paste-newsletter/toggle-button-example.gif';
-import StickyHeaders from '../../assets/images/articles/2022-09-23-paste-newsletter/sticky-headers-example.gif';
-import Ramona from '../../assets/images/articles/2022-09-23-paste-newsletter/ramona-pastemate.png';
-import DefaultLayout from '../../layouts/DefaultLayout';
-import {getNavigationData} from '../../utils/api';
+import Image from "next/image";
+import { Anchor } from "@twilio-paste/anchor";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import { Table, THead, TBody, Tr, Td, Th } from "@twilio-paste/table";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import SwitchExample from "../../assets/images/articles/2022-09-23-paste-newsletter/switch-example.gif";
+import InlineCodeExample from "../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png";
+import CodeBlockExample from "../../assets/images/articles/2022-09-23-paste-newsletter/code-block-example.gif";
+import CalloutExample from "../../assets/images/articles/2022-09-23-paste-newsletter/callout-example.png";
+import MinimizableDialog from "../../assets/images/articles/2022-09-23-paste-newsletter/minimizable-dialog-example.gif";
+import NewIcons from "../../assets/images/articles/2022-09-23-paste-newsletter/new-icons-example.png";
+import UiKit from "../../assets/images/articles/2022-09-23-paste-newsletter/ui-kit-example.png";
+import ToggleButton from "../../assets/images/articles/2022-09-23-paste-newsletter/toggle-button-example.gif";
+import StickyHeaders from "../../assets/images/articles/2022-09-23-paste-newsletter/sticky-headers-example.gif";
+import Ramona from "../../assets/images/articles/2022-09-23-paste-newsletter/ramona-pastemate.png";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
 
 export default DefaultLayout;
 
@@ -227,8 +228,8 @@ Our survey used a scale of 1-5 (1 being strongly disagree, 5 being strongly agre
 We are excited to the share the following insights:
 
 <Paragraph>
-  When asked how strongly they agreed to{' '}
-  <strong>Paste being easy to use to design and build customer interfaces</strong>, our participants averaged{' '}
+  When asked how strongly they agreed to{" "}
+  <strong>Paste being easy to use to design and build customer interfaces</strong>, our participants averaged{" "}
   <strong>4.00/5</strong>.
 </Paragraph>
 <Paragraph>
@@ -238,12 +239,22 @@ We are excited to the share the following insights:
 
 In addition, some participants specified:
 
-<Blockquote>
-  It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to focus on
-  my business logic.
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote>
+    <BlockquoteContent>
+      It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to
+      focus on my business logic.
+    </BlockquoteContent>
+  </Blockquote>
+</Box>
 
-<Blockquote>I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote>
+    <BlockquoteContent>
+      I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.
+    </BlockquoteContent>
+  </Blockquote>
+</Box>
 
 These results are music to our ears 🎶
 

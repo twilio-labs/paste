@@ -1,28 +1,29 @@
 export const meta = {
-  title: 'Paste Design System Newsletter - December 2022 Edition',
-  slug: '/blog/2022-12-09-paste-newsletter/',
-  date: '2022-12-09',
-  author: 'Paste',
-  status: 'published',
-  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  title: "Paste Design System Newsletter - December 2022 Edition",
+  slug: "/blog/2022-12-09-paste-newsletter/",
+  date: "2022-12-09",
+  author: "Paste",
+  status: "published",
+  avatar: "https://avatars.githubusercontent.com/t/3335688?s=280&v=4",
   excerpt: "What's new in Paste in December 2022? New components, new variants, and more!",
 };
 
-import Image from 'next/image';
-import {Anchor} from '@twilio-paste/anchor';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
-import ChatLog from '../../assets/images/articles/2022-12-09-paste-newsletter/animated-chat-log.gif';
-import PageNav from '../../assets/images/articles/2022-12-09-paste-newsletter/in-page-nav.gif';
-import ChatComposer from '../../assets/images/articles/2022-12-09-paste-newsletter/chat-composer.gif';
-import DisplayHeading from '../../assets/images/articles/2022-12-09-paste-newsletter/display-heading.png';
-import Robb from '../../assets/images/articles/2022-12-09-paste-newsletter/robb-niznik.jpeg';
-import Justin from '../../assets/images/articles/2022-12-09-paste-newsletter/justin-young.png';
-import DefaultLayout from '../../layouts/DefaultLayout';
-import {getNavigationData} from '../../utils/api';
+import Image from "next/image";
+import { Anchor } from "@twilio-paste/anchor";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import { Table, THead, TBody, Tr, Td, Th } from "@twilio-paste/table";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import ChatLog from "../../assets/images/articles/2022-12-09-paste-newsletter/animated-chat-log.gif";
+import PageNav from "../../assets/images/articles/2022-12-09-paste-newsletter/in-page-nav.gif";
+import ChatComposer from "../../assets/images/articles/2022-12-09-paste-newsletter/chat-composer.gif";
+import DisplayHeading from "../../assets/images/articles/2022-12-09-paste-newsletter/display-heading.png";
+import Robb from "../../assets/images/articles/2022-12-09-paste-newsletter/robb-niznik.jpeg";
+import Justin from "../../assets/images/articles/2022-12-09-paste-newsletter/justin-young.png";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
 
 export default DefaultLayout;
 
@@ -56,7 +57,7 @@ export const getStaticProps = async () => {
 
 ### Chat Log animations
 
-<Box as={Image} maxWidth="size60" src={ChatLog} alt="" style={{objectFit: 'contain'}} />
+<Box as={Image} maxWidth="size60" src={ChatLog} alt="" style={{ objectFit: "contain" }} />
 
 The final piece of [the Chat Log package](/components/chat-log) is complete— animation! There is a new useChatLogger hook that manages a list of messages, bookends, and events and a new ChatLogger component that animates the list into a Chat Log.
 
@@ -66,7 +67,7 @@ The final piece of [the Chat Log package](/components/chat-log) is complete— a
 
 ### In Page Navigation
 
-<Box as={Image} maxWidth="size60" src={PageNav} alt="" style={{objectFit: 'contain'}} />
+<Box as={Image} maxWidth="size60" src={PageNav} alt="" style={{ objectFit: "contain" }} />
 
 The In Page Navigation component is a collection of links that navigate users to related pages. Although stylistically similar to Tabs, this component’s structure allows for straightforward integration with routers like React Router.
 
@@ -76,7 +77,7 @@ The In Page Navigation component is a collection of links that navigate users to
 
 ### Chat Composer
 
-<Box as={Image} maxWidth="size60" src={ChatComposer} alt="" style={{objectFit: 'contain'}} />
+<Box as={Image} maxWidth="size60" src={ChatComposer} alt="" style={{ objectFit: "contain" }} />
 
 A highly anticipated component, the Chat Composer is a rich text input that users can type chat messages into. It is built with [the Lexical text editor](https://lexical.dev/) and can be extended to include the features you need through Lexical’s plugins.
 
@@ -135,14 +136,14 @@ Robb enjoys going on hikes, listening to his records, and volunteering at Therap
 
 In this edition of Pastemates, we're spotlighting a mate from Twilio Contact Center Sales, Justin Young! Justin has been busy emboldening the Twilio Builder Spirit, stitching together the new Flex UI and its inbuilt support of Paste, with builder.io, to create a drag and drop Flex UI builder!
 
-<div style={{position: 'relative', paddingBottom: '55.26590198123045%', height: 0}}>
+<div style={{ position: "relative", paddingBottom: "55.26590198123045%", height: 0 }}>
   <iframe
     src="https://www.loom.com/embed/8162c351e3524b818b29697a5736ca54"
     frameborder="0"
     webkitallowfullscreen
     mozallowfullscreen
     allowfullscreen
-    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
   ></iframe>
 </div>
 
@@ -150,14 +151,14 @@ In this edition of Pastemates, we're spotlighting a mate from Twilio Contact Cen
 
 Justin registered Paste React components to Builder.io which allows Justin and his team to rapidly create rich Paste-based experiences in the Flex UI using a drag and drop editor. By exposing paste component properties like variants in the Builder.io editor, Justin can choose between different styles of buttons, alerts and any other Paste component that they have wired up. As you can see by the video demo's the authoring is easy and intuitive and the customer experiences and functionality it creates are excellent and fully functional. Another benefit to his team is that they can begin to build complex components using many different Paste components, and save them as templates for easy re-use in customer demos.
 
-<div style={{position: 'relative', paddingBottom: '55.26590198123045%', height: 0}}>
+<div style={{ position: "relative", paddingBottom: "55.26590198123045%", height: 0 }}>
   <iframe
     src="https://www.loom.com/embed/2c3b6d26919749738aa47ff11d48fcd4"
     frameborder="0"
     webkitallowfullscreen
     mozallowfullscreen
     allowfullscreen
-    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
   ></iframe>
 </div>
 
@@ -165,10 +166,15 @@ Justin registered Paste React components to Builder.io which allows Justin and h
 
 In Justin’s own words:
 
-<Blockquote>
-  I am no designer, but this is already better than every flex demo we’ve ever built from a UX perspective because of
-  access to paste
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote>
+    <BlockquoteContent>
+      I am no designer, but this is already better than every flex demo we’ve ever built from a UX perspective because
+      of access to paste
+    </BlockquoteContent>
+    <BlockquoteCitation author="Justin Young" />
+  </Blockquote>
+</Box>
 
 We're stoked that Justin and team were able to create this builder experience all on their own, just by the Flex and Paste teams collaborating together! We can't wait to see what other people build next, with Paste on top of Flex.
 

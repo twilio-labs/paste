@@ -1,16 +1,17 @@
 export const meta = {
-  title: 'Pagination',
-  package: '@twilio-paste/pagination',
-  description: 'Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.',
-  slug: '/components/pagination/',
+  title: "Pagination",
+  package: "@twilio-paste/pagination",
+  description: "Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.",
+  slug: "/components/pagination/",
 };
 
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
+import { useUID } from "@twilio-paste/uid-library";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+import { Text } from "@twilio-paste/text";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
 import {
   Pagination,
   PaginationItems,
@@ -19,28 +20,28 @@ import {
   PaginationNumbers,
   PaginationNumber,
   PaginationEllipsis,
-} from '@twilio-paste/pagination';
-import {Button} from '@twilio-paste/button';
-import {Table, THead, TBody, Th, Td, Tr} from '@twilio-paste/table';
-import {Grid, Column} from '@twilio-paste/grid';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Stack} from '@twilio-paste/stack';
-import Changelog from '@twilio-paste/pagination/CHANGELOG.md';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Codeblock} from '../../../components/codeblock';
-import {SidebarCategoryRoutes} from '../../../constants';
-import {Blockquote} from '../../../components/Blockquote';
-import {defaultExample, numberExample, positioningExample} from '../../../component-examples/PaginationExamples';
-import packageJson from '@twilio-paste/pagination/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+} from "@twilio-paste/pagination";
+import { Button } from "@twilio-paste/button";
+import { Table, THead, TBody, Th, Td, Tr } from "@twilio-paste/table";
+import { Grid, Column } from "@twilio-paste/grid";
+import { UnorderedList, ListItem } from "@twilio-paste/list";
+import { Stack } from "@twilio-paste/stack";
+import Changelog from "@twilio-paste/pagination/CHANGELOG.md";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { Codeblock } from "../../../components/codeblock";
+import { SidebarCategoryRoutes } from "../../../constants";
+import { defaultExample, numberExample, positioningExample } from "../../../component-examples/PaginationExamples";
+import packageJson from "@twilio-paste/pagination/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Pagination');
+  const feature = await getFeature("Pagination");
   return {
     props: {
       data: {
@@ -51,15 +52,15 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination',
-        storybookUrl: '/?path=/story/components-pagination--arrows',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination",
+        storybookUrl: "/?path=/story/components-pagination--arrows",
       },
     },
   };
 };
 
 <LivePreview
-  scope={{Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis}}
+  scope={{ Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis }}
   language="jsx"
 >
   {`<Pagination label="truncated pagination navigation">
@@ -109,7 +110,7 @@ Use the default Pagination component for paged datasets like event logs, where t
 
 At minimum, the default Pagination component shows the Pagination arrows. However whenever possible, show the **current** page number too, so that users know where they are in a dataset and get confirmation that they’ve moved to a new page.
 
-<LivePreview scope={{Pagination, PaginationItems, PaginationArrow, PaginationLabel}} noInline>
+<LivePreview scope={{ Pagination, PaginationItems, PaginationArrow, PaginationLabel }} noInline>
   {defaultExample}
 </LivePreview>
 
@@ -117,7 +118,7 @@ At minimum, the default Pagination component shows the Pagination arrows. Howeve
 
 Use Pagination as an anchor if the URL changes for each page. Both the `PaginationArrow` and `PaginationNumber` components can be set as anchors using the `as="a"` prop and including an `href` prop.
 
-<LivePreview scope={{Pagination, PaginationItems, PaginationArrow, PaginationLabel, Stack}} language="jsx">
+<LivePreview scope={{ Pagination, PaginationItems, PaginationArrow, PaginationLabel, Stack }} language="jsx">
   {`<Stack orientation="vertical" spacing="space50">
   <Pagination label="labelled anchor pagination navigation">
     <PaginationItems>
@@ -139,7 +140,7 @@ Use Pagination as an anchor if the URL changes for each page. Both the `Paginati
 
 Use Pagination as a button if the URL doesn’t change for each page. Both the `PaginationArrow` and `PaginationNumber` components are buttons by default.
 
-<LivePreview scope={{Pagination, PaginationItems, PaginationArrow, PaginationLabel, Stack}} language="jsx">
+<LivePreview scope={{ Pagination, PaginationItems, PaginationArrow, PaginationLabel, Stack }} language="jsx">
   {`<Stack orientation="vertical" spacing="space50">
   <Pagination label="labelled button pagination navigation">
     <PaginationItems>
@@ -161,7 +162,7 @@ Use Pagination as a button if the URL doesn’t change for each page. Both the `
 
 Adding labels to Pagination can help give customers more information about what kind of data is in view and in what direction the pages are moving. For example, when a dataset is sorted chronologically, it might not be immediately clear whether the "Next" button takes you forward or backward in time.
 
-<LivePreview scope={{Pagination, PaginationItems, PaginationArrow, PaginationLabel, Text}} language="jsx">
+<LivePreview scope={{ Pagination, PaginationItems, PaginationArrow, PaginationLabel, Text }} language="jsx">
   {`<>
   <Pagination label="custom label pagination navigation">
     <PaginationItems>
@@ -179,7 +180,7 @@ To give customers further clarity on where they are in a data set, you can add c
 - The current page label
 - The left and right arrow controls
 
-<LivePreview scope={{Pagination, PaginationItems, PaginationArrow, PaginationLabel}} language="jsx">
+<LivePreview scope={{ Pagination, PaginationItems, PaginationArrow, PaginationLabel }} language="jsx">
   {`<Pagination label="current page label pagination navigation">
   <PaginationItems>
     <PaginationArrow label="Go to newer templates" variant="back" visibleLabel="Newer templates" />
@@ -198,7 +199,7 @@ This variant also allows customers to skip ahead pages in a dataset, though this
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Considering the tradeoffs for showing the total count of a dataset</CalloutHeading>
   <CalloutText>
-    By default,{' '}
+    By default,{" "}
     <Anchor href="https://www.twilio.com/blog/replacing-absolute-paging-and-related-properties" showExternal>
       Twilio APIs might not support showing current page number or the total count of a dataset
     </Anchor>
@@ -269,7 +270,15 @@ The Pagination component should be centered underneath the content it controls s
 When the number of pages exceeds 7, `PaginationEllipsis` can be used to indicate there are remaining pages.
 
 <LivePreview
-  scope={{Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis, Stack}}
+  scope={{
+    Pagination,
+    PaginationItems,
+    PaginationArrow,
+    PaginationNumbers,
+    PaginationNumber,
+    PaginationEllipsis,
+    Stack,
+  }}
   language="jsx"
 >
   {`<Stack orientation="vertical" spacing="space50">
@@ -309,7 +318,7 @@ When the number of pages exceeds 7, `PaginationEllipsis` can be used to indicate
 Double `PaginationEllipsis` is used when the current page is more than 3 pages from the first or last page.
 
 <LivePreview
-  scope={{Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis}}
+  scope={{ Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis }}
   language="jsx"
 >
   {`<Pagination label="truncated pagination navigation">
@@ -343,17 +352,18 @@ Most Twilio datasets show 10 or 50 rows per page by default. However, a generic 
 
 If a single default can’t satisfy customers’ needs, you can give customers a way to change the number of items in view. Try to keep these options limited to reduce cognitive overhead, especially if the choice isn’t critical to the customer’s main goal.
 
-<Blockquote
-  name="Jakob Nielsen"
-  source="Nielsen Norman Group"
-  sourceUrl="https://www.nngroup.com/articles/item-list-view-all/"
->
-  Many sites let users choose how many items they’ll see on each page. This is often overkill...It’s usually better to
-  offer a single default number — such as 10 or 20 — [or] give users the choice between two numbers, say 10 and 50,
-  where the second number is substantially bigger than the default. If the choice is between two relatively similar
-  numbers (such as 10 and 20), users might as well click the Next Page button rather than suffer the cognitive overhead
-  of trying to decide their display preference.
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote url="https://www.nngroup.com/articles/item-list-view-all/">
+    <BlockquoteContent>
+      Many sites let users choose how many items they’ll see on each page. This is often overkill...It’s usually better
+      to offer a single default number — such as 10 or 20 — [or] give users the choice between two numbers, say 10 and
+      50, where the second number is substantially bigger than the default. If the choice is between two relatively
+      similar numbers (such as 10 and 20), users might as well click the Next Page button rather than suffer the
+      cognitive overhead of trying to decide their display preference.
+    </BlockquoteContent>
+    <BlockquoteCitation author="Nielsen Norman Group" source="Users' Pagination Preferences and View All" />
+  </Blockquote>
+</Box>
 
 Consider [contributing a Table Actions pattern](/introduction/contributing/patterns) to help standardize this across Twilio!
 

@@ -1,35 +1,34 @@
 export const meta = {
-  title: 'Paste Design System Newsletter - November 2023 Edition',
-  slug: '/blog/2023-11-08-paste-newsletter/',
-  date: '2023-11-08',
-  author: 'Paste',
-  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
-  status: 'published',
+  title: "Paste Design System Newsletter - November 2023 Edition",
+  slug: "/blog/2023-11-08-paste-newsletter/",
+  date: "2023-11-08",
+  author: "Paste",
+  avatar: "https://avatars.githubusercontent.com/t/3335688?s=280&v=4",
+  status: "published",
   excerpt: "What's new in Paste in November 2023? AI is here!",
 };
 
-import Image from 'next/image';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
+import Image from "next/image";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 
-import Pastebot from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastebot.png';
-import DocsSearch from '../../assets/images/articles/2023-11-08-paste-newsletter/DocsSearch.png';
-import Figma1 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma1.gif';
-import Figma2 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma2.png';
-import Figma3 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma3.png';
-import DocsImprovements from '../../assets/images/articles/2023-11-08-paste-newsletter/DocsImprovements.png';
-import PageTemplates from '../../assets/images/articles/2023-11-08-paste-newsletter/PageTemplates.png';
-import NumberComponents from '../../assets/images/articles/2023-11-08-paste-newsletter/NumberComponents.png';
-import EditableCodeBlock from '../../assets/images/articles/2023-11-08-paste-newsletter/EditableCodeBlock.png';
-import ErrorPattern from '../../assets/images/articles/2023-11-08-paste-newsletter/ErrorPattern.png';
-import Pastemate1 from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate1.png';
-import Pastemate2 from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate2.png';
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import Pastebot from "../../assets/images/articles/2023-11-08-paste-newsletter/Pastebot.png";
+import DocsSearch from "../../assets/images/articles/2023-11-08-paste-newsletter/DocsSearch.png";
+import Figma1 from "../../assets/images/articles/2023-11-08-paste-newsletter/Figma1.gif";
+import Figma2 from "../../assets/images/articles/2023-11-08-paste-newsletter/Figma2.png";
+import Figma3 from "../../assets/images/articles/2023-11-08-paste-newsletter/Figma3.png";
+import DocsImprovements from "../../assets/images/articles/2023-11-08-paste-newsletter/DocsImprovements.png";
+import PageTemplates from "../../assets/images/articles/2023-11-08-paste-newsletter/PageTemplates.png";
+import NumberComponents from "../../assets/images/articles/2023-11-08-paste-newsletter/NumberComponents.png";
+import EditableCodeBlock from "../../assets/images/articles/2023-11-08-paste-newsletter/EditableCodeBlock.png";
+import ErrorPattern from "../../assets/images/articles/2023-11-08-paste-newsletter/ErrorPattern.png";
+import Pastemate1 from "../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate1.png";
+import Pastemate2 from "../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate2.png";
 
-
-import DefaultLayout from '../../layouts/DefaultLayout';
-import {getNavigationData} from '../../utils/api';
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
 
 export default DefaultLayout;
 
@@ -79,7 +78,6 @@ We’ve updated the [Paste docs site](https://paste.twilio.design/) search featu
 
 ### New Figma features for better design and engineering collaboration
 
-
 <Box
   borderColor="colorBorderWeaker"
   borderStyle="solid"
@@ -87,7 +85,7 @@ We’ve updated the [Paste docs site](https://paste.twilio.design/) search featu
   borderRadius="borderRadius20"
   marginBottom="space60"
 >
-  <Box as={Image} maxWidth="100%" src={Figma1} alt="Gif of Figma variables feature" style={{objectFit: 'contain'}} />
+  <Box as={Image} maxWidth="100%" src={Figma1} alt="Gif of Figma variables feature" style={{ objectFit: "contain" }} />
 </Box>
 
 We added variables and modes to the [Paste Components & Themes](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/Paste-Components-%26-Themes?type=design&node-id=3015-46646&mode=design&t=LavBWI8WtuCpWbz0-0) (newly renamed — thanks, **Chof**!) Figma library to allow easier swapping between Twilio, Twilio Dark, Evergreen, and Default themes. This update combines styles from 4 of our theme libraries and our component library into one single easy-to-import file.
@@ -135,7 +133,10 @@ Introducing [page templates](/page-templates)! Brand new to Paste, page template
 
 <Box width="100%" display="flex" justifyContent="center">
   <Box maxWidth="500px">
-    <ResponsiveImage src={NumberComponents} alt="Preview of the Slider, Number Input, Progress Bar, and Meter components in Figma" />
+    <ResponsiveImage
+      src={NumberComponents}
+      alt="Preview of the Slider, Number Input, Progress Bar, and Meter components in Figma"
+    />
   </Box>
 </Box>
 
@@ -171,7 +172,8 @@ We’ve just completed our annual round of roadmap reviews with product teams to
 - Improved the [In Page Navigation](/components/in-page-navigation) component with design updates and additional documentation.
 
 ## ✨ Pastemates™ spotlight
-*Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system.*
+
+_Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system._
 
 <Box width="100%" display="flex" justifyContent="center">
   <Box maxWidth="600px">
@@ -181,7 +183,16 @@ We’ve just completed our annual round of roadmap reviews with product teams to
 
 In this edition of Pastemates, we're spotlighting a mate from the Web Platform team, Pablo Deeleman! Pablo lives the Twilio Builder spirit, building complex prototypes with just out-of-the-box Paste components. During his time on the Event Streams team, he pushed the boundaries of what could be built with Paste "as is":
 
-<Blockquote>The whole node connectors UI, including the animations, is done with plain vanilla Paste components and primitives with no further tampering. No custom React/UI…was necessary to deliver this experience, and although it might seem quite a complex development, the whole UI was built in a couple of hours.</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote>
+    <BlockquoteContent>
+      The whole node connectors UI, including the animations, is done with plain vanilla Paste components and primitives
+      with no further tampering. No custom React/UI…was necessary to deliver this experience, and although it might seem
+      quite a complex development, the whole UI was built in a couple of hours.
+    </BlockquoteContent>
+    <BlockquoteCitation author="Pablo Deeleman" />
+  </Blockquote>
+</Box>
 
 <Box width="100%" display="flex" justifyContent="center">
   <Box maxWidth="600px">
@@ -195,11 +206,11 @@ We love Pablo’s demonstration of what can be achieved with Just Plain Paste™
 
 ## 👀 What we're working on next
 
-| Feature                                 | Description                                                                                                                                                                                    |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Page Header component**               | A standardized but flexible compositional component used at the top of a variety of pages.                                                                                                     |
-| **Design components for AI UI kit**     | Design for components that enable new AI experiences at Twilio, mainly focused around generative AI and chat.                                                                                  |
-| **Paste Copilot**                       | A Chat GPT powered support chat experience to help answer your Paste building and designing questions.                                                                                         |
+| Feature                             | Description                                                                                                   |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Page Header component**           | A standardized but flexible compositional component used at the top of a variety of pages.                    |
+| **Design components for AI UI kit** | Design for components that enable new AI experiences at Twilio, mainly focused around generative AI and chat. |
+| **Paste Copilot**                   | A Chat GPT powered support chat experience to help answer your Paste building and designing questions.        |
 
 <Box marginBottom="space120" />
 

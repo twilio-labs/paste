@@ -1,32 +1,33 @@
 export const meta = {
-  title: 'Alert',
-  package: '@twilio-paste/alert',
-  description: 'An alert notifies a user to high-priority or time-sensitive information.',
-  slug: '/components/alert/',
+  title: "Alert",
+  package: "@twilio-paste/alert",
+  description: "An alert notifies a user to high-priority or time-sensitive information.",
+  slug: "/components/alert/",
 };
 
-import {Alert} from '@twilio-paste/alert';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Anchor} from '@twilio-paste/anchor';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Blockquote} from '../../../components/Blockquote';
-import {Codeblock} from '../../../components/codeblock';
-import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/alert/CHANGELOG.md';
-import packageJson from '@twilio-paste/alert/package.json';
-import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+import { Alert } from "@twilio-paste/alert";
+import { Text } from "@twilio-paste/text";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Anchor } from "@twilio-paste/anchor";
+import { Card } from "@twilio-paste/card";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { Codeblock } from "../../../components/codeblock";
+import { SidebarCategoryRoutes } from "../../../constants";
+import Changelog from "@twilio-paste/alert/CHANGELOG.md";
+import packageJson from "@twilio-paste/alert/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Alert');
+  const feature = await getFeature("Alert");
   return {
     props: {
       data: {
@@ -37,14 +38,14 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert',
-        storybookUrl: '/?path=/story/components-alert--neutral',
+        githubUrl: "https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert",
+        storybookUrl: "/?path=/story/components-alert--neutral",
       },
     },
   };
 };
 
-<LivePreview scope={{Alert, Text}} language="jsx">
+<LivePreview scope={{ Alert, Text }} language="jsx">
   {`<Alert variant="warning">
     <strong>Some information on this page may be out-of-date.</strong> This page was last updated at 9:00 a.m. PST. We're currently looking into this issue.
 </Alert>`}
@@ -62,14 +63,15 @@ Use an Alert for one of these types of information:
 - **Warning.** Critical information that will help a user avoid an issue.
 - **Error.** Critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
 
-<Blockquote
-  name="Nielsen Norman Group"
-  source="Indicators, Validations, and Notifications"
-  sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/"
->
-  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it
-  will disrupt their current task and be irrelevant to their current needs.
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote url="https://www.nngroup.com/articles/indicators-validations-notifications/">
+    <BlockquoteContent>
+      A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users
+      because it will disrupt their current task and be irrelevant to their current needs.
+    </BlockquoteContent>
+    <BlockquoteCitation author="Nielsen Norman Group" source="Indicators, Validations, and Notifications" />
+  </Blockquote>
+</Box>
 
 ### Accessibility
 
@@ -86,22 +88,26 @@ Alert uses multiple methods to indicate type.
 
 <Box marginBottom="space30">
   <Alert variant="neutral">
-    <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard. <Anchor href="#">Go to contact preferences</Anchor>
+    <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard.{" "}
+    <Anchor href="#">Go to contact preferences</Anchor>
   </Alert>
 </Box>
 <Box marginBottom="space30">
   <Alert variant="warning">
-    <strong>Some information on this page may be out-of-date.</strong> This page was last updated at 9:00 a.m. PST. We're currently looking into this issue.
+    <strong>Some information on this page may be out-of-date.</strong> This page was last updated at 9:00 a.m. PST.
+    We're currently looking into this issue.
   </Alert>
 </Box>
 <Box marginBottom="space30">
   <Alert variant="error">
-    <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
+    <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew
+    your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
   </Alert>
 </Box>
 <Box marginBottom="space70">
-  <Alert onDismiss={() => alert('dismissed')} variant="neutral">
-    <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard. <Anchor href="#">Go to contact preferences</Anchor>
+  <Alert onDismiss={() => alert("dismissed")} variant="neutral">
+    <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard.{" "}
+    <Anchor href="#">Go to contact preferences</Anchor>
   </Alert>
 </Box>
 
@@ -113,7 +119,7 @@ In most cases, a neutral Alert should be dismissible (_i.e._, have a close butto
 
 You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for neutral Alerts.
 
-<LivePreview scope={{Alert, Text, Anchor}} language="jsx">
+<LivePreview scope={{ Alert, Text, Anchor }} language="jsx">
   {`<Alert variant="neutral">
     <strong>Set up your contact preferences.</strong> You can now set up your contact preferences on your dashboard. <Anchor href="#">Go to contact preferences</Anchor>
 </Alert>`}
@@ -129,7 +135,7 @@ Be cautious about using a warning Alert because they can be stressful for a user
 
 You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning Alerts.
 
-<LivePreview scope={{Alert, Text}} language="jsx">
+<LivePreview scope={{ Alert, Text }} language="jsx">
   {`<Alert variant="warning">
     <strong>Some information on this page may be out-of-date.</strong> This page was last updated at 9:00 a.m. PST. We're currently looking into this issue.
 </Alert>`}
@@ -145,7 +151,7 @@ For additional guidance on what kind of component to use, use the [Alert vs. Cal
 
 You may use the [Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for error Alerts.
 
-<LivePreview scope={{Alert, Text, Anchor}} language="jsx">
+<LivePreview scope={{ Alert, Text, Anchor }} language="jsx">
   {`<Alert variant="error">
     <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
 </Alert>`}
@@ -163,7 +169,7 @@ Don't make it dismissible if all these conditions are true:
 
 Keep in mind that the longer an Alert is present, the more it starts looking like part of the page and loses its interruptive intent. This might make users start to ignore important Alert information.
 
-<LivePreview scope={{Alert, Text, Anchor}} language="jsx">
+<LivePreview scope={{ Alert, Text, Anchor }} language="jsx">
   {`<Alert onDismiss={() => alert('dismissed')} variant="neutral">
     We've enabled new security options for your account. <Anchor href="#">Learn more</Anchor>
 </Alert>`}
@@ -177,7 +183,7 @@ To change the dismiss button&apos;s label text, use the `i18nDismissLabel` prop.
 To change the label of a variant's icon, use the matching i18n prop for the variant.
 For an `error` variant, for example, set the `i18nErrorLabel` prop.
 
-<LivePreview scope={{Alert, Text}} language="jsx">
+<LivePreview scope={{ Alert, Text }} language="jsx">
   {`<Alert onDismiss={() => alert('fermée')} variant="warning" i18nWarningLabel="(avertissement)">
   C&apos;est une alerte d&apos;avertissement.
 </Alert>`}
@@ -285,7 +291,7 @@ In general, the persistence and behavior on scroll of an Alert should match the 
   </Do>
   <Dont title="Don't" body="Avoid using Buttons in Alerts unless it triggers an action.">
     <Alert variant="neutral">
-      A call to action{' '}
+      A call to action{" "}
       <Button size="small" variant="primary">
         Learn more
       </Button>

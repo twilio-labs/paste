@@ -1,40 +1,41 @@
 export const meta = {
-  title: 'Artificial Intelligence',
+  title: "Artificial Intelligence",
   description:
-    'AI experiences help our customers meet their goals better and faster through predictions, recommendations, and insights.',
-  slug: '/experiences/artificial-intelligence/',
+    "AI experiences help our customers meet their goals better and faster through predictions, recommendations, and insights.",
+  slug: "/experiences/artificial-intelligence/",
 };
 
-import { SidebarCategoryRoutes } from "../../../constants";
-import {ResponsiveImage} from '../../../components/ResponsiveImage';
-import {Blockquote} from '../../../components/Blockquote';
-import {Anchor} from '@twilio-paste/anchor';
-import {ArtificialIntelligenceIcon} from '@twilio-paste/icons/esm/ArtificialIntelligenceIcon';
-import {Button} from '@twilio-paste/button';
-import {ButtonGroup} from '@twilio-paste/button-group';
-import {Badge} from '@twilio-paste/badge';
-import {Box} from '@twilio-paste/box';
-import {ChatComposerContainer, ChatComposer, ChatComposerActionGroup} from '@twilio-paste/chat-composer';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
-import {Label} from '@twilio-paste/label';
-import {TextArea} from '@twilio-paste/textarea';
-import {HelpText} from '@twilio-paste/help-text';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {Heading} from '@twilio-paste/heading';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import { Anchor } from "@twilio-paste/anchor";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Badge } from "@twilio-paste/badge";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+import { Box } from "@twilio-paste/box";
+import { ChatComposerContainer, ChatComposer, ChatComposerActionGroup } from "@twilio-paste/chat-composer";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { Label } from "@twilio-paste/label";
+import { TextArea } from "@twilio-paste/textarea";
+import { HelpText } from "@twilio-paste/help-text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { Heading } from "@twilio-paste/heading";
+import { Popover, PopoverContainer, PopoverButton } from "@twilio-paste/popover";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { ProductMessagingIcon } from "@twilio-paste/icons/esm/ProductMessagingIcon";
 import { ProductSendGridIcon } from "@twilio-paste/icons/esm/ProductSendGridIcon";
 import { ProductCLIIcon } from "@twilio-paste/icons/esm/ProductCLIIcon";
-import {Paragraph} from '@twilio-paste/paragraph';
-import DefaultLayout from '../../../layouts/DefaultLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+import { Paragraph } from "@twilio-paste/paragraph";
+
+import DefaultLayout from "../../../layouts/DefaultLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
+import { SidebarCategoryRoutes } from "../../../constants";
+import { ResponsiveImage } from "../../../components/ResponsiveImage";
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Artificial Intelligence');
+  const feature = await getFeature("Artificial Intelligence");
   return {
     props: {
       data: {
@@ -45,9 +46,12 @@ export const getStaticProps = async () => {
   };
 };
 
-
-<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} categoryRoute={SidebarCategoryRoutes.EXPERIENCES} />
-
+<NormalizedPatternHeader
+  description={meta.description}
+  name={meta.title}
+  data={props.data}
+  categoryRoute={SidebarCategoryRoutes.EXPERIENCES}
+/>
 
 <contentwrapper>
 
@@ -55,7 +59,22 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{ButtonGroup, Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
+<LivePreview
+  scope={{
+    ButtonGroup,
+    Box,
+    Heading,
+    ArtificialIntelligenceIcon,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    Button,
+    SendIcon,
+    ProductCLIIcon,
+    ProductMessagingIcon,
+    ProductSendGridIcon,
+  }}
+>
   {`<Box width="100%" display="flex" justifyContent="center" flexDirection="column">
   <Box display="flex" flexDirection="column" alignItems="center" rowGap="space40" width="100%" padding="space130">
   <ArtificialIntelligenceIcon decorative size="sizeIcon100"/>
@@ -98,30 +117,38 @@ These AI experience guidelines are a starting point for designing AI-powered exp
 These guidelines reference “Twilio Segment’s AI Handbook for Product Development”. The full handbook includes information that can’t be publicly shared yet, including:
 
 - Which user problems AI solutions are and aren’t good for.
-- A breakdown of customer types, user journeys, and AI feature types. 
+- A breakdown of customer types, user journeys, and AI feature types.
 - Research insights on what customers consider high-risk vs. low-risk features.
 - A list of biases to prevent against.
-- Methods of conducting research at different design phases, especially when the AI model isn’t developed enough for customer testing. 
+- Methods of conducting research at different design phases, especially when the AI model isn’t developed enough for customer testing.
 
 You can find a link in #seg-ai-handbook-feedback on Slack, or reach out to your design partner.
 
 ## Twilio policies
 
 When developing AI features, ensure you:
+
 - **(Mandatory)** Partner with the Legal and Privacy teams to communicate Twilio’s terms and conditions, and include any opt-in requirements. Start by submitting a Privacy Impact Assessment (more details in Switchboard).
 - Follow Twilio’s AI approach, including the trust principles: **Transparent, Responsible, Accountable**. Refer to the AI Handbook for practical guidelines on how to achieve these principles.
 - Review these policies: “Generative AI policy”, “AI responsible use policy”, and “Global procurement policy.” Links to each are in the AI handbook.
 
 <Box marginBottom="space70">
-  <Callout variant='neutral'>
-      <CalloutHeading as="h5">Standardized legal language and opt-in guidance for AI features is in development</CalloutHeading>
-      <CalloutText>If you’re working on a new feature and need legal text, reach out in #help-design-system to get connected with teams who are working to standardize our legal language for AI. While this is happening, continue partnering with Privacy and Legal for your feature.</CalloutText>
+  <Callout variant="neutral">
+    <CalloutHeading as="h5">
+      Standardized legal language and opt-in guidance for AI features is in development
+    </CalloutHeading>
+    <CalloutText>
+      If you’re working on a new feature and need legal text, reach out in #help-design-system to get connected with
+      teams who are working to standardize our legal language for AI. While this is happening, continue partnering with
+      Privacy and Legal for your feature.
+    </CalloutText>
   </Callout>
 </Box>
 
 ## Designing AI features
 
 Start with these base design principles:
+
 1. Follow Twilio AI policies.
 2. Inform users about data privacy.
 3. Ensure customers can evaluate AI outcomes, fast, by allowing them to compare those outcomes to their current experience.
@@ -131,6 +158,7 @@ Start with these base design principles:
 7. Build customers’ confidence in the output.
 
 Helpful resources on how to design human-centered AI experiences:
+
 - [Twilio’s generative AI design framework cards](https://www.figma.com/community/file/1392507403743352508/generative-ai-design-framework)
 - [Shape of AI](https://www.shapeof.ai/)
 - [Google’s people + AI guidebook](https://pair.withgoogle.com/guidebook)
@@ -147,6 +175,7 @@ When using Twilio AI features, customers care most about **data privacy** and th
 Based on your use case, you might also include information about how the AI model works and when customers’ data quality can improve AI feature performance.
 
 Since AI can power a wide range of features, customers can be unsure where to start. Use [Twilio’s generative AI design framework cards](https://www.figma.com/community/file/1392507403743352508/generative-ai-design-framework) and the [Shape of AI wayfinders](https://www.shapeof.ai/pattern-types/wayfinders) to prompt customers to the feature and describe it in a simple way, so that they can evaluate AI outcomes faster. When introducing the feature, let customers know:
+
 - How they can give feedback
 - How they can ask questions
 - What they should consider as they use the feature so they can ask the _right questions_, especially about their data and generated outcomes.
@@ -159,16 +188,20 @@ While AI features are still in rapid development, work with your Product Marketi
 
 Just because AI features are new, doesn’t mean we need to invent entirely new visual and interaction patterns for them. Start by asking yourself first: **“How would I design this feature if it did the same thing but didn’t use AI?”** Remember that customers have specific goals and tasks to achieve, and the task is rarely just “To use AI”. Avoid being too heavy-handed with communicating how a feature has been built or changed with AI since introducing new interaction patterns and unnecessary messaging can distract from the customer’s goals.
 
-<Blockquote
-  name="Google"
-  source="People + AI Guidebook"
-  sourceUrl="https://pair.withgoogle.com/guidebook/patterns#anchor-on-familiarity"
->
-With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors.
-However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
-</Blockquote>
+<Box marginBottom="space60">
+  <Blockquote url="https://pair.withgoogle.com/guidebook/patterns#anchor-on-familiarity">
+    <BlockquoteContent>
+      With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s
+      predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to
+      use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new
+      users with familiar UI patterns and features.
+    </BlockquoteContent>
+    <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+  </Blockquote>
+</Box>
 
 With AI features, there’s also a higher chance for things to go wrong. Be proactive about risks, error handling, and confidence:
+
 - Give customers the ability to review, edit, undo, and give feedback on output.
 - Design for poor data, common errors, biases, and customers being overly dependent on AI suggestions. Use the [error state pattern](/patterns/error-state) for ways to message errors.
 - Show clear information that AI-generated output can be wrong or irrelevant.
@@ -184,6 +217,7 @@ During your pilot or beta, collect customer feedback at least twice. Compared to
 ### Content produced by AI
 
 In addition to AI features, content you produce with the help of AI should adhere to these basic guidelines:
+
 - If a substantial amount of your work relied on AI, clearly state that. If possible, link to the model you used.
 - Fact check the AI-produced content. LLMs produce hallucinations, resulting in content that is inconsistent with real-work facts or user inputs.
 - Make sure the AI-produced content doesn’t violate Twilio policies, especially copyright and intellectual property.
@@ -196,6 +230,7 @@ Learn more on the [Twilio Style Guide](https://library.twilio.com/guidelines/gui
 ## Ingredients
 
 The AI UI Kit includes these components:
+
 - [ArtificialIntelligenceIcon](/components/icon)
 - [Badge](/components/badge)
 - [Button](/components/button)
@@ -203,26 +238,36 @@ The AI UI Kit includes these components:
 - [Skeleton Loader](/components/skeleton-loader)
 
 Components also used for AI chat experiences:
+
 - [AI Chat Log](/components/ai-chat-log)
 - [Avatar](/components/avatar)
 - [Chat Composer](/components/chat-composer)
 - [Side Panel](/components/side-panel)
 
 Related patterns:
+
 - [Error state](/patterns/error-state)
 
 <Box marginBottom="space70">
-  <Callout variant='neutral'>
-      <CalloutHeading as="h5">Need more AI components?</CalloutHeading>
-      <CalloutText>Our AI Kit was first designed primarily with chat and basic predictive and generative experiences in mind. If these components and patterns don’t meet your needs, please let us know in a <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>Github Discussion</Anchor>.</CalloutText>
+  <Callout variant="neutral">
+    <CalloutHeading as="h5">Need more AI components?</CalloutHeading>
+    <CalloutText>
+      Our AI Kit was first designed primarily with chat and basic predictive and generative experiences in mind. If
+      these components and patterns don’t meet your needs, please let us know in a{" "}
+      <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+        Github Discussion
+      </Anchor>
+      .
+    </CalloutText>
   </Callout>
 </Box>
 
 ## Examples
 
-### Signposting 
+### Signposting
 
 When you need to indicate that a feature is using AI for transparency and/or marketing, use a `decorative20` Badge and the ArtificialIntelligenceIcon to help customers quickly identify these features, especially for:
+
 - Recommendations
 - Predictions and insights
 - Automated tasks
@@ -231,7 +276,7 @@ If you need to highlight the feature even more, use the marketing [Card](/compon
 
 Keep in mind that over time, more and more of our features will use AI. Evaluate an experience holistically, and use AI badges and marketing when they matter most. Don’t blanket an experience in AI marketing at the expense of other business goals.
 
-<LivePreview scope={{Badge, ArtificialIntelligenceIcon}}>
+<LivePreview scope={{ Badge, ArtificialIntelligenceIcon }}>
   {`<Badge as="span" variant="neutral">
     <ArtificialIntelligenceIcon decorative/> Twilio AI
 </Badge>`}
@@ -239,9 +284,26 @@ Keep in mind that over time, more and more of our features will use AI. Evaluate
 
 ### Generative feature
 
-Use [Twilio’s generative AI design framework cards](https://www.figma.com/community/file/1392507403743352508/generative-ai-design-framework) and the [Shape of AI wayfinders](https://www.shapeof.ai/pattern-types/wayfinders) to prompt customers to a generative AI feature. 
+Use [Twilio’s generative AI design framework cards](https://www.figma.com/community/file/1392507403743352508/generative-ai-design-framework) and the [Shape of AI wayfinders](https://www.shapeof.ai/pattern-types/wayfinders) to prompt customers to a generative AI feature.
 
-<LivePreview scope={{PopoverContainer, PopoverButton, Popover, ArtificialIntelligenceIcon, Heading, Badge, NewIcon, Paragraph, Anchor, Button, Box, Label, TextArea, HelpText}}>
+<LivePreview
+  scope={{
+    PopoverContainer,
+    PopoverButton,
+    Popover,
+    ArtificialIntelligenceIcon,
+    Heading,
+    Badge,
+    NewIcon,
+    Paragraph,
+    Anchor,
+    Button,
+    Box,
+    Label,
+    TextArea,
+    HelpText,
+  }}
+>
   {`<PopoverContainer baseId="ai-help-popover">
   <PopoverButton variant="secondary"><ArtificialIntelligenceIcon decorative/> Help me build</PopoverButton>
   <Popover aria-label="customer ai audience building helper">
@@ -264,9 +326,12 @@ For a chat-based AI experience, handle most errors, flows, and interactions thro
 To develop a prompt and personality for the chat assistant, use [Twilio’s Voice and Tone guidelines](/foundations/content/voice-and-tone), especially emphasizing the “Conversational” principle of our guidelines.
 
 <Box marginBottom="space70">
-  <Callout variant='neutral'>
-      <CalloutHeading as="h5">Want support with prompt engineering?</CalloutHeading>
-      <CalloutText>Reach out in a Github Discussion for prompt engineering support from a Content Designer to develop your chat assistant with Twilio Voice and Tone principles.</CalloutText>
+  <Callout variant="neutral">
+    <CalloutHeading as="h5">Want support with prompt engineering?</CalloutHeading>
+    <CalloutText>
+      Reach out in a Github Discussion for prompt engineering support from a Content Designer to develop your chat
+      assistant with Twilio Voice and Tone principles.
+    </CalloutText>
   </Callout>
 </Box>
 
@@ -294,7 +359,22 @@ export const SidePanelExample = (): React.ReactNode => {
 
 #### Chat empty state
 
-<LivePreview scope={{ButtonGroup, Box, Heading, ArtificialIntelligenceIcon, ChatComposerContainer, ChatComposer, ChatComposerActionGroup, Button, SendIcon, ProductCLIIcon, ProductMessagingIcon, ProductSendGridIcon}}>
+<LivePreview
+  scope={{
+    ButtonGroup,
+    Box,
+    Heading,
+    ArtificialIntelligenceIcon,
+    ChatComposerContainer,
+    ChatComposer,
+    ChatComposerActionGroup,
+    Button,
+    SendIcon,
+    ProductCLIIcon,
+    ProductMessagingIcon,
+    ProductSendGridIcon,
+  }}
+>
   {`<Box width="100%" display="flex" justifyContent="center" flexDirection="column">
   <Box display="flex" flexDirection="column" alignItems="center" rowGap="space40" width="100%" padding="space130">
   <ArtificialIntelligenceIcon decorative size="sizeIcon100"/>
@@ -330,12 +410,16 @@ export const SidePanelExample = (): React.ReactNode => {
 `}
 </LivePreview>
 
-### Loading 
+### Loading
 
 <Box marginBottom="space70">
-  <Callout variant='neutral'>
-      <CalloutHeading as="h5">More details about this pattern are coming soon!</CalloutHeading>
-      <CalloutText>We haven’t yet patternized a general Loading pattern. If you need more details and standard examples for your feature, please consider partnering with us to <Anchor href="https://paste.twilio.design/introduction/contributing/patterns">contribute it</Anchor>.</CalloutText>
+  <Callout variant="neutral">
+    <CalloutHeading as="h5">More details about this pattern are coming soon!</CalloutHeading>
+    <CalloutText>
+      We haven’t yet patternized a general Loading pattern. If you need more details and standard examples for your
+      feature, please consider partnering with us to{" "}
+      <Anchor href="https://paste.twilio.design/introduction/contributing/patterns">contribute it</Anchor>.
+    </CalloutText>
   </Callout>
 </Box>
 
