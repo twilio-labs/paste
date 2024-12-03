@@ -7,13 +7,13 @@ export const meta = {
 
 import { SidebarCategoryRoutes } from "../../../constants";
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
-import {Blockquote} from '../../../components/Blockquote';
 import {Anchor} from '@twilio-paste/anchor';
 import {ArtificialIntelligenceIcon} from '@twilio-paste/icons/esm/ArtificialIntelligenceIcon';
 import {Button} from '@twilio-paste/button';
 import {ButtonGroup} from '@twilio-paste/button-group';
 import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {ChatComposerContainer, ChatComposer, ChatComposerActionGroup} from '@twilio-paste/chat-composer';
 import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
 import {Label} from '@twilio-paste/label';
@@ -159,13 +159,14 @@ While AI features are still in rapid development, work with your Product Marketi
 
 Just because AI features are new, doesn’t mean we need to invent entirely new visual and interaction patterns for them. Start by asking yourself first: **“How would I design this feature if it did the same thing but didn’t use AI?”** Remember that customers have specific goals and tasks to achieve, and the task is rarely just “To use AI”. Avoid being too heavy-handed with communicating how a feature has been built or changed with AI since introducing new interaction patterns and unnecessary messaging can distract from the customer’s goals.
 
-<Blockquote
-  name="Google"
-  source="People + AI Guidebook"
-  sourceUrl="https://pair.withgoogle.com/guidebook/patterns#anchor-on-familiarity"
->
-With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors.
-However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
+<Blockquote url="https://pair.withgoogle.com/guidebook/patterns#anchor-on-familiarity">
+  <BlockquoteContent>
+    With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s
+    predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to
+    use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new
+    users with familiar UI patterns and features.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Google" source="People + AI Guidebook" />
 </Blockquote>
 
 With AI features, there’s also a higher chance for things to go wrong. Be proactive about risks, error handling, and confidence:

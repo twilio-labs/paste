@@ -11,8 +11,8 @@ export const meta = {
 import Image from 'next/image';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
 
 import Pastebot from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastebot.png';
 import DocsSearch from '../../assets/images/articles/2023-11-08-paste-newsletter/DocsSearch.png';
@@ -181,7 +181,14 @@ We’ve just completed our annual round of roadmap reviews with product teams to
 
 In this edition of Pastemates, we're spotlighting a mate from the Web Platform team, Pablo Deeleman! Pablo lives the Twilio Builder spirit, building complex prototypes with just out-of-the-box Paste components. During his time on the Event Streams team, he pushed the boundaries of what could be built with Paste "as is":
 
-<Blockquote>The whole node connectors UI, including the animations, is done with plain vanilla Paste components and primitives with no further tampering. No custom React/UI…was necessary to deliver this experience, and although it might seem quite a complex development, the whole UI was built in a couple of hours.</Blockquote>
+<Blockquote>
+  <BlockquoteContent>
+    The whole node connectors UI, including the animations, is done with plain vanilla Paste components and primitives
+    with no further tampering. No custom React/UI…was necessary to deliver this experience, and although it might seem
+    quite a complex development, the whole UI was built in a couple of hours.{" "}
+  </BlockquoteContent>
+  <BlockquoteCitation author="Pablo Deeleman" />
+</Blockquote>
 
 <Box width="100%" display="flex" justifyContent="center">
   <Box maxWidth="600px">

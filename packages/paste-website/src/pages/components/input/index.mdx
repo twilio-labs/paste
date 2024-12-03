@@ -10,6 +10,7 @@ import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
@@ -18,7 +19,6 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
-import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
 import packageJson from '@twilio-paste/input/package.json';
@@ -184,14 +184,13 @@ using keyboard arrow keys and increment buttons.
 
 It displays a numeric keypad in some devices with dynamic keypads.
 
-<Blockquote
-  name="Mozilla"
-  source="MDN web docs"
-  sourceUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs"
->
-  The number input type should only be used for incremental numbers...The number input type is not appropriate for
-  values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
-  countries or credit card numbers.
+<Blockquote url="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs">
+  <BlockquoteContent>
+    The number input type should only be used for incremental numbers...The number input type is not appropriate for
+    values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
+    countries or credit card numbers.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Mozilla" source="MDN web docs" />
 </Blockquote>
 
 In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use [Help

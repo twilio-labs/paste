@@ -6,6 +6,7 @@ export const meta = {
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Card} from '@twilio-paste/card';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
@@ -15,7 +16,6 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {Blockquote} from '../../../components/Blockquote';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import MainImage from '../../../assets/images/patterns/filter-main.png';
 import UsageImage from '../../../assets/images/patterns/filter-usage.png';
@@ -81,12 +81,11 @@ This pattern provides recommendations for selection methods, layout, and behavio
     <UnorderedList>
       <ListItem>List all filtering criteria available.</ListItem>
       <ListItem>Map out the relationships between different filters and choose the ones that will be part of your feature. Remember filters should give users a sense of control and not overwhelm them.</ListItem>
-      <Blockquote
-        name="Defining Helpful Filter Categories and Values for Better UX"
-        source="Nielsen Norman Group"
-        sourceUrl="https://www.nngroup.com/articles/filter-categories-values/"
-      >
-        A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized
+      <Blockquote url="https://www.nngroup.com/articles/filter-categories-values/">
+        <BlockquoteContent>
+              A truly usable faceted search provides filter categories and filter values that are appropriate, predictable, free of jargon, and prioritized
+        </BlockquoteContent>
+        <BlockquoteCitation author="Nielsen Norman Group" source="Defining Helpful Filter Categories and Values for Better UX" />
       </Blockquote>
       <ResponsiveImage src={UsageImage} alt="The filter category label should be the same as the form field label" />
       <ListItem>Check our <Anchor href="/components/form#selection-methods">Form documentation</Anchor> to choose the best selection method for your filter use case.</ListItem>
