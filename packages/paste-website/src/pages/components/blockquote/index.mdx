@@ -49,12 +49,11 @@ export const getStaticProps = async () => {
   language="jsx"
 >
   {`<Blockquote url="#">
-      <BlockquoteContent>
-        With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
-        human experience as a whole.
-      </BlockquoteContent>
-      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
-    </Blockquote>`}
+    <BlockquoteContent>
+      With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the human experience as a whole.
+    </BlockquoteContent>
+  <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+</Blockquote>`}
 </LivePreview>
 
 ## Guidelines
@@ -72,8 +71,8 @@ A Blockquote is a stylized text format used to highlight a text excerpt or quote
 
 Component       | Usage | Example
 ----------------|-------|-----
-Example Text | Use when you want to provide contextual examples of user input. | <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
-[Blockquote](/components/blockquote) | Use to highlight quotations from an external source or customer feedback. | <Blockquote><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
+[Example Text](/components/example-text) | Use when you want to provide contextual examples of user input. | <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
+Blockquote | Use to highlight quotations from an external source or customer feedback. | <Blockquote><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
 [Code Block](/components/code-block) | Use when you need to display blocks of code and when the user needs to copy a command to put it into a CLI. | <CodeBlock variant="single-line" code={`const accountSID = process.env.TWILIO_ACCOUNT_SID`}/>
 [Inline Code](/components/inline-code) | Use to emphasize short, inline pieces of computer code such as variable names and function calls. | <InlineCode>console.log(mySustainabilityGoals)</InlineCode>
 [Help Text](/components/help-text) | Use below a form field to help users prevent an error and describe what makes the form field successful. | <><Label htmlFor="email_address" required>Email address</Label><Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/><HelpText id="email_help_text">Use your work email address.</HelpText></>
@@ -90,12 +89,11 @@ Use a default Blockquote when you want to highlight a quote from an external sou
   language="jsx"
 >
   {`<Blockquote url="#">
-      <BlockquoteContent>
-        With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
-        human experience as a whole.
-      </BlockquoteContent>
-      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
-    </Blockquote>`}
+    <BlockquoteContent>
+      With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the human experience as a whole.
+    </BlockquoteContent>
+  <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+</Blockquote>`}
 </LivePreview>
 
 ### Blockquote without URL
@@ -107,13 +105,13 @@ Use Blockquote without URL when you have the actual source of the quote but are 
   language="jsx"
 >
   {`<Blockquote>
-      <BlockquoteContent>
-        If I must die <br/>
-        let it bring hope <br/>
-        let it be a tale
-      </BlockquoteContent>
-      <BlockquoteCitation author="Rafaat Alareer" source="If I Must Die" />
-    </Blockquote>`}
+  <BlockquoteContent>
+    If I must die <br/>
+    let it bring hope <br/>
+    let it be a tale
+  </BlockquoteContent>
+  <BlockquoteCitation author="Rafaat Alareer" source="If I Must Die" />
+</Blockquote>`}
 </LivePreview>
 
 ### Blockquote with author only
@@ -129,11 +127,11 @@ Example use cases:
   language="jsx"
 >
   {`<Blockquote>
-      <BlockquoteContent>
-        When you light a candle, you also cast a shadow.
-      </BlockquoteContent>
-      <BlockquoteCitation author="Ursula K. Le Guin" />
-    </Blockquote>`}
+  <BlockquoteContent>
+    When you light a candle, you also cast a shadow.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Ursula K. Le Guin" />
+</Blockquote>`}
 </LivePreview>
 
 ## Composition notes
@@ -150,14 +148,14 @@ Example use cases:
 >
   {`<>
     <Paragraph>Avoid being too heavy-handed with communicating how a feature has been built or changed with AI since introducing new interaction patterns and unnecessary messaging can distract from the customer’s goals.</Paragraph>
-      <Blockquote url="#">
-        <BlockquoteContent>
-          With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
-        </BlockquoteContent>
-        <BlockquoteCitation author="Google" source="People + AI Guidebook" />
-      </Blockquote>
-      <Paragraph marginBottom="space0">With AI features, there’s also a higher chance for things to go wrong.</Paragraph>
-    </>`}
+    <Blockquote url="#">
+      <BlockquoteContent>
+        With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
+      </BlockquoteContent>
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+    </Blockquote>
+    <Paragraph marginBottom="space0">With AI features, there’s also a higher chance for things to go wrong.</Paragraph>
+  </>`}
 </LivePreview>
 
 
