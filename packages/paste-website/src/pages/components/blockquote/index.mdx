@@ -9,6 +9,8 @@ import {HelpText} from '@twilio-paste/help-text'
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout'
 import {Box} from "@twilio-paste/box"
 import {Paragraph} from "@twilio-paste/paragraph"
+import {Table, THead, Tr, Th, TBody, Td} from '@twilio-paste/table';
+import {Anchor} from '@twilio-paste/anchor'
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -69,14 +71,40 @@ A Blockquote is a stylized text format used to highlight a text excerpt or quote
 
 ### How to decide which components to use to make your text stand out
 
-Component       | Usage | Example
-----------------|-------|-----
-[Example Text](/components/example-text) | Use when you want to provide contextual examples of user input. | <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
-Blockquote | Use to highlight quotations from an external source or customer feedback. | <Blockquote><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
-[Code Block](/components/code-block) | Use when you need to display blocks of code and when the user needs to copy a command to put it into a CLI. | <CodeBlock variant="single-line" code={`const accountSID = process.env.TWILIO_ACCOUNT_SID`}/>
-[Inline Code](/components/inline-code) | Use to emphasize short, inline pieces of computer code such as variable names and function calls. | <InlineCode>console.log(mySustainabilityGoals)</InlineCode>
-[Help Text](/components/help-text) | Use below a form field to help users prevent an error and describe what makes the form field successful. | <><Label htmlFor="email_address" required>Email address</Label><Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/><HelpText id="email_help_text">Use your work email address.</HelpText></>
-[Callout](/components/callout) | Use a Callout to highlight any other important information. | <Callout variant='neutral'><CalloutHeading as="h2">Heads up!</CalloutHeading><CalloutText>This is some information you need to know.</CalloutText></Callout>
+<Box marginBottom="space70">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Component</Th>
+        <Th>Usage</Th>
+        <Th width="size40">Example</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Blockquote</Td>
+        <Td>Use to highlight quotations from an external source or customer feedback.</Td>
+        <Td>
+          <Blockquote marginBottom="space0"><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td><Anchor href="/components/example-text">Example Text</Anchor></Td>
+        <Td>Use when you want to provide contextual examples of user input.</Td>
+        <Td>
+          <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td><Anchor href="/components/callout">Callout</Anchor></Td>
+        <Td>Use a Callout to highlight any other important information.</Td>
+        <Td>
+          <Callout variant='neutral'><CalloutHeading as="h2">Heads up!</CalloutHeading><CalloutText>This is some information you need to know.</CalloutText></Callout>
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ## Examples
 
