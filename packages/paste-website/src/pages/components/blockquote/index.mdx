@@ -1,0 +1,217 @@
+import {Blockquote, BlockquoteContent, BlockquoteCitation} from '@twilio-paste/blockquote';
+import packageJson from '@twilio-paste/blockquote/package.json';
+import { ExampleText } from '@twilio-paste/example-text';
+import {CodeBlock} from '@twilio-paste/code-block'
+import {InlineCode} from '@twilio-paste/inline-code'
+import {Label} from '@twilio-paste/label'
+import {Input} from '@twilio-paste/input'
+import {HelpText} from '@twilio-paste/help-text'
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout'
+import {Box} from "@twilio-paste/box"
+import {Paragraph} from "@twilio-paste/paragraph"
+import {Table, THead, Tr, Th, TBody, Td} from '@twilio-paste/table';
+import {Anchor} from '@twilio-paste/anchor'
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+export const meta = {
+  title: 'Blockquote - Components',
+  package: '@twilio-paste/blockquote',
+  description: packageJson.description,
+  slug: '/components/blockquote/',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Blockquote');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/blockquote',
+        storybookUrl: '/?path=/story/components-blockquote--default',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{Blockquote, BlockquoteContent, BlockquoteCitation}}
+  language="jsx"
+>
+  {`<Blockquote url="#">
+    <BlockquoteContent>
+      With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the human experience as a whole.
+    </BlockquoteContent>
+  <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+</Blockquote>`}
+</LivePreview>
+
+## Guidelines
+
+### About Blockquote
+
+A Blockquote is a stylized text format used to highlight a text excerpt or quote, usually sourced from articles, blog posts or customer feedback. It makes it easier for users to recognize a quote or reference.
+
+### Accessibility
+
+- When using the Blockquote component, ensure that the cite  attribute provides a valid URL or reference to the source of the quoted content. This attribute allows assistive technologies, such as screen readers, to convey the source of the quote to users.
+- Avoid using Blockquote purely for visual formatting, such as creating indents or styling text. This markup carries semantic meaning, indicating that the text is a quotation. Using it for styling purposes can confuse screen readers, misrepresenting the content's structure and meaning.
+
+### How to decide which components to use to make your text stand out
+
+<Box marginBottom="space70">
+  <Table>
+    <THead>
+      <Tr>
+        <Th>Component</Th>
+        <Th>Usage</Th>
+        <Th width="size40">Example</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Blockquote</Td>
+        <Td>Use to highlight quotations from an external source or customer feedback.</Td>
+        <Td>
+          <Blockquote marginBottom="space0"><BlockquoteContent>This is a Blockquote pulled from an outside source.</BlockquoteContent><BlockquoteCitation author="Google" /></Blockquote>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td><Anchor href="/components/example-text">Example Text</Anchor></Td>
+        <Td>Use when you want to provide contextual examples of user input.</Td>
+        <Td>
+          <ExampleText>This is an Example Text that guides users on how to respond to a system</ExampleText>
+        </Td>
+      </Tr>
+      <Tr>
+        <Td><Anchor href="/components/callout">Callout</Anchor></Td>
+        <Td>Use a Callout to highlight any other important information.</Td>
+        <Td>
+          <Callout variant='neutral'><CalloutHeading as="h2">Heads up!</CalloutHeading><CalloutText>This is some information you need to know.</CalloutText></Callout>
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+## Examples
+
+### Blockquote
+
+Use a default Blockquote when you want to highlight a quote from an external source, but there is no specific need for URL and the context is clear.
+
+<LivePreview
+  scope={{Blockquote, BlockquoteContent, BlockquoteCitation}}
+  language="jsx"
+>
+  {`<Blockquote url="#">
+    <BlockquoteContent>
+      With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the human experience as a whole.
+    </BlockquoteContent>
+  <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+</Blockquote>`}
+</LivePreview>
+
+### Blockquote without URL
+
+Use Blockquote without URL when you have the actual source of the quote but are unable to provide a URL to redirect the user. 
+
+<LivePreview
+  scope={{Blockquote, BlockquoteContent, BlockquoteCitation}}
+  language="jsx"
+>
+  {`<Blockquote>
+  <BlockquoteContent>
+    If I must die <br/>
+    let it bring hope <br/>
+    let it be a tale
+  </BlockquoteContent>
+  <BlockquoteCitation author="Rafaat Alareer" source="If I Must Die" />
+</Blockquote>`}
+</LivePreview>
+
+### Blockquote with author only
+
+Use a Blockquote with only author attribution when you want to highlight a quote from an external source, but there is no specific need for source or the source is unavailable.
+
+Example use cases:
+- When quoting a well-known individual, where the author’s name provides enough context for the audience.
+- When quoting from a source that is hard to trace or not directly accessible (e.g., a verbal interview or a widely repeated saying without a specific source)
+
+<LivePreview
+  scope={{Blockquote, BlockquoteContent, BlockquoteCitation}}
+  language="jsx"
+>
+  {`<Blockquote>
+  <BlockquoteContent>
+    When you light a candle, you also cast a shadow.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Ursula K. Le Guin" />
+</Blockquote>`}
+</LivePreview>
+
+## Composition notes
+
+- Whenever possible, include a URL to the original source to allow users to access additional context or details
+- Always provide context before and after the Blockquote to connect the information to the surrounding content
+- Use **capital case** for author’s name. For example: Jane Doe
+- Use **sentence case**, with only the first word and proper nouns capitalized for the source and its URL
+
+<LivePreview
+  scope={{Blockquote, BlockquoteContent, BlockquoteCitation, Paragraph}}
+  language="jsx"
+>
+  {`<>
+    <Paragraph>Avoid being too heavy-handed with communicating how a feature has been built or changed with AI since introducing new interaction patterns and unnecessary messaging can distract from the customer’s goals.</Paragraph>
+    <Blockquote url="#">
+      <BlockquoteContent>
+        With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
+      </BlockquoteContent>
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+    </Blockquote>
+    <Paragraph marginBottom="space0">With AI features, there’s also a higher chance for things to go wrong.</Paragraph>
+  </>`}
+</LivePreview>
+
+
+## Dos and Don'ts
+
+<DoDont>
+  <Do title="Do" body="Maintain the integrity of the external reference and refrain from altering its meaning." />
+  <Dont title="Don't" body="Avoid stacking Blockquotes." />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use ellipses (…) for omitted text when Blockquotes are longer if you need to make it concise.">
+    <Box margin="space60">
+      <Blockquote url="#">
+        <BlockquoteContent>
+          With AI-driven products, there can be a temptation to communicate the “newness” or “magic” of the system’s predictions through its UI metaphors. However, unfamiliar UI touchpoints can make it harder for users to learn to use your system, potentially leading to degraded understanding of, or trust in, your product…Instead, anchor new users with familiar UI patterns and features.
+        </BlockquoteContent>
+        <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+      </Blockquote>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don't use Blockquote for indenting non-quote text content.">
+    <Box margin="space60">
+      <Blockquote>
+        <BlockquoteContent>
+          To create your account, provide your full name, a valid email address, and a secure password. Your password must contain at least eight characters, including uppercase letters, lowercase letters, numbers, and a special character.
+        </BlockquoteContent>
+      </Blockquote>
+    </Box>
+  </Dont>
+</DoDont>
+
+

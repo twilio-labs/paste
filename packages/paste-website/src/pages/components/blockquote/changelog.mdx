@@ -1,0 +1,36 @@
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/blockquote/CHANGELOG.md';
+import packageJson from '@twilio-paste/blockquote/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export const meta = {
+  title: 'Blockquote - Components',
+  package: '@twilio-paste/blockquote',
+  description: packageJson.description,
+  slug: '/components/blockquote/changelog',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Blockquote');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/blockquote',
+        storybookUrl: '/?path=/story/components-blockquote--default',
+      },
+    },
+  };
+};
+
+<Changelog />

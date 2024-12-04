@@ -21,10 +21,16 @@ export interface BlockquoteProps extends HTMLPasteProps<"div"> {
    * @memberof BlockquoteProps
    */
   url?: string;
+  /**
+   * Remove the bottom margin
+   * @type {"space0" | "space70"}
+   * @memberof BlockquoteProps
+   */
+  marginBottom?: "space0" | "space70";
 }
 
 export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
-  ({ children, element = "BLOCKQUOTE", url, ...props }, ref) => {
+  ({ children, element = "BLOCKQUOTE", url, marginBottom = "space70", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -34,6 +40,7 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
         alignItems="flex-start"
         lineHeight="lineHeight30"
         fontSize="fontSize30"
+        marginBottom={marginBottom}
         element={element}
       >
         <BlockquoteIcon element={`${element}_ICON`} decorative={true} color="colorTextIcon" />
