@@ -19,6 +19,14 @@ suite("remToPx", () => {
     assert.strictEqual(result, "0.5rem (8px)");
   });
 
+  test("converts 100% to 16px", () => {
+    const value = "100%";
+
+    const result = remToPx(value);
+
+    assert.strictEqual(result, "100% (16px)");
+  });
+
   test("converts 1rem to 16px", () => {
     const value = "1rem";
 
