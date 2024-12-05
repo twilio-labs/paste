@@ -48,6 +48,29 @@ export const WithoutSource: StoryFn = () => (
   </Box>
 );
 
+export const BottomMargin: StoryFn = () => (
+  <Box display="flex" flexDirection="column" rowGap="space60">
+    <Box maxWidth="600px" borderStyle="solid">
+      <Blockquote url="#">
+        <BlockquoteContent>
+          With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
+          human experience as a whole.
+        </BlockquoteContent>
+        <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+      </Blockquote>
+    </Box>
+    <Box maxWidth="600px" borderStyle="solid">
+      <Blockquote url="#" marginBottom="space0">
+        <BlockquoteContent>
+          With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
+          human experience as a whole.
+        </BlockquoteContent>
+        <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+      </Blockquote>
+    </Box>
+  </Box>
+);
+
 export const CustomizationBlockquote: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (

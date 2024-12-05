@@ -1,0 +1,65 @@
+import Changelog from '@twilio-paste/blockquote/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/blockquote/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export const meta = {
+  title: 'Blockquote - Components',
+  package: '@twilio-paste/blockquote',
+  description: packageJson.description,
+  slug: '/components/blockquote/api',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Blockquote');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/blockquote');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/blockquote',
+        storybookUrl: '/?path=/story/components-blockquote--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/blockquote - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from '@twilio-paste/core/blockquote';
+
+const BlockquoteExample = () => {
+  return (
+    <Blockquote url="#">
+      <BlockquoteContent>
+        With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for the
+        human experience as a whole.
+      </BlockquoteContent>
+      <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+    </Blockquote>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
