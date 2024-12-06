@@ -3,16 +3,25 @@
  * If the value is not a rem unit, it returns the original value.
  */
 export const remToPx = (value: string): string => {
-  if (!value.includes("rem")) {
+  if (!value.includes("rem") && !value.includes("%")) {
     return value;
   }
 
-  const remValue = Number(value.replace("rem", "").trim());
+  let remValue;
+
+  if (value.includes("%")) {
+    const percentage = Number.parseFloat(value.replace("%", ""));
+    // get decimal value which fixes multiplication issue.
+    remValue = percentage / 100;
+  } else {
+    remValue = Number(value.replace("rem", "").trim());
+  }
+
   if (isNaN(remValue)) {
     return value;
   }
 
   const pxValue = remValue * 16;
 
-  return `${remValue}rem (${pxValue}px)`;
+  return value.includes("%") ? `${value} (${pxValue}px)` : `${remValue}rem (${pxValue}px)`;
 };

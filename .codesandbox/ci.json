@@ -14,6 +14,7 @@
     "/packages/paste-core/components/avatar",
     "/packages/paste-core/components/badge",
     "/packages/paste-core/components/base-radio-checkbox",
+    "/packages/paste-core/components/blockquote",
     "/packages/paste-core/primitives/box",
     "/packages/paste-core/components/breadcrumb",
     "/packages/paste-core/components/button",
