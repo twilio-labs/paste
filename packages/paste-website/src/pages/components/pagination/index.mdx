@@ -8,6 +8,7 @@ export const meta = {
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -30,7 +31,6 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Blockquote} from '../../../components/Blockquote';
 import {defaultExample, numberExample, positioningExample} from '../../../component-examples/PaginationExamples';
 import packageJson from '@twilio-paste/pagination/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -343,16 +343,15 @@ Most Twilio datasets show 10 or 50 rows per page by default. However, a generic 
 
 If a single default can’t satisfy customers’ needs, you can give customers a way to change the number of items in view. Try to keep these options limited to reduce cognitive overhead, especially if the choice isn’t critical to the customer’s main goal.
 
-<Blockquote
-  name="Jakob Nielsen"
-  source="Nielsen Norman Group"
-  sourceUrl="https://www.nngroup.com/articles/item-list-view-all/"
->
-  Many sites let users choose how many items they’ll see on each page. This is often overkill...It’s usually better to
-  offer a single default number — such as 10 or 20 — [or] give users the choice between two numbers, say 10 and 50,
-  where the second number is substantially bigger than the default. If the choice is between two relatively similar
-  numbers (such as 10 and 20), users might as well click the Next Page button rather than suffer the cognitive overhead
-  of trying to decide their display preference.
+<Blockquote url="https://www.nngroup.com/articles/item-list-view-all/">
+  <BlockquoteContent>
+    Many sites let users choose how many items they’ll see on each page. This is often overkill...It’s usually better to
+    offer a single default number — such as 10 or 20 — [or] give users the choice between two numbers, say 10 and 50,
+    where the second number is substantially bigger than the default. If the choice is between two relatively similar
+    numbers (such as 10 and 20), users might as well click the Next Page button rather than suffer the cognitive
+    overhead of trying to decide their display preference.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Nielsen Norman Group" source={`Users' Pagination Preferences and "View All"`} />
 </Blockquote>
 
 Consider [contributing a Table Actions pattern](/introduction/contributing/patterns) to help standardize this across Twilio!

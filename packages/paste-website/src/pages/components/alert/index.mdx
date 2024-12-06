@@ -8,13 +8,13 @@ export const meta = {
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Blockquote} from '../../../components/Blockquote';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/alert/CHANGELOG.md';
@@ -62,13 +62,12 @@ Use an Alert for one of these types of information:
 - **Warning.** Critical information that will help a user avoid an issue.
 - **Error.** Critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
 
-<Blockquote
-  name="Nielsen Norman Group"
-  source="Indicators, Validations, and Notifications"
-  sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/"
->
-  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it
-  will disrupt their current task and be irrelevant to their current needs.
+<Blockquote url="https://www.nngroup.com/articles/indicators-validations-notifications/">
+  <BlockquoteContent>
+    A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because
+    it will disrupt their current task and be irrelevant to their current needs.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Nielsen Norman Group" source="Indicators, Validations, and Notifications" />
 </Blockquote>
 
 ### Accessibility

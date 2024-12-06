@@ -7,6 +7,7 @@ export const meta = {
 };
 
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Text} from '@twilio-paste/text';
 import {Avatar} from '@twilio-paste/avatar';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -15,7 +16,6 @@ import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, use
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {subMenuExample} from '../../../component-examples/MenuExamples.ts';
-import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes, TWILIO_RED} from '../../../constants';
 import {PasteIcon} from '../../../components/icons/PasteIcon';
 import packageJson from '@twilio-paste/media-object/package.json';
@@ -66,12 +66,11 @@ export const getStaticProps = async () => {
 
 First created by [Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) back in 2010, the Media Object in Paste aims to serve many of the same purposes as the original concept. It's a layout pattern that you will see all across the web, on almost all the websites you will come across. We're pretty sure you'll **never unsee this going forward**.
 
-<Blockquote
-  name="Nicole Sullivan"
-  source="Stubbornella"
-  sourceUrl="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/"
->
-  What is the internet made of? At least the UI layer is mainly composed of media blocks.
+<Blockquote url="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">
+  <BlockquoteContent>
+    What is the internet made of? At least the UI layer is mainly composed of media blocks.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Nicole Sullivan" source="Stubbornella" />
 </Blockquote>
 
 **So what's a media object?** An image or figure positioned horizontally next to some form of content. The figure can sit on either or both sides of the content. That's it. It sounds really simple, but it's literally everywhere on the Internet. For example, the top left of this website uses a Media Object.

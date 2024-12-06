@@ -12,9 +12,9 @@ import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
 import ChatLog from '../../assets/images/articles/2022-12-09-paste-newsletter/animated-chat-log.gif';
 import PageNav from '../../assets/images/articles/2022-12-09-paste-newsletter/in-page-nav.gif';
 import ChatComposer from '../../assets/images/articles/2022-12-09-paste-newsletter/chat-composer.gif';
@@ -163,11 +163,12 @@ Justin registered Paste React components to Builder.io which allows Justin and h
 
 <Box marginBottom="space70" />
 
-In Justin’s own words:
-
 <Blockquote>
-  I am no designer, but this is already better than every flex demo we’ve ever built from a UX perspective because of
-  access to paste
+  <BlockquoteContent>
+    I am no designer, but this is already better than every flex demo we’ve ever built from a UX perspective because of
+    access to paste
+  </BlockquoteContent>
+  <BlockquoteCitation author="Justin Young" />
 </Blockquote>
 
 We're stoked that Justin and team were able to create this builder experience all on their own, just by the Flex and Paste teams collaborating together! We can't wait to see what other people build next, with Paste on top of Flex.

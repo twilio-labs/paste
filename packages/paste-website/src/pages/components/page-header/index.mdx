@@ -19,7 +19,7 @@ import { StatusBadge } from "@twilio-paste/status";
 import { Badge } from "@twilio-paste/badge";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import {
-  PageHeader, 
+  PageHeader,
   PageHeaderActions,
   PageHeaderDetails,
   PageHeaderHeading,
@@ -46,7 +46,6 @@ import Changelog from '@twilio-paste/page-header/CHANGELOG.md';
 import {Codeblock} from '../../../components/codeblock';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Blockquote} from '../../../components/Blockquote';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import PageHeaderPNG from '../../../assets/images/PageHeaderPNG.png';
 import packageJson from '@twilio-paste/page-header/package.json';
@@ -84,7 +83,7 @@ export const getStaticProps = async () => {
 
 Page Header controls the spacing and layout for any potential components used above the main content of the page. Components that may be a part of the Page Header include [Breadcrumb](/components/breadcrumb), [Progress Steps](/components/progress-steps), [Heading](/components/heading), and [Button Group](/components/button-group), among others.
 
-There are 3 sections that make up the Page Header component, though you won’t always use all 3 at the same time. 
+There are 3 sections that make up the Page Header component, though you won’t always use all 3 at the same time.
 
 1. **PageHeaderSetting** contains any components that relate to the positioning of the current page in relation to parent or sibling pages, including navigating between those pages. Context components may include:
     - [Breadcrumb](/components/breadcrumb)
@@ -112,11 +111,11 @@ Here’s what the component layout looks like with all its bits and pieces:
 
 Much of the Paste Page Header component was inspired by the wonderful work of Github’s Primer Design system and [their own Page Header](https://primer.style/components/page-header) API and documentation.
 
-### Accessibility 
+### Accessibility
 
 Page Header has no inherent accessibility concerns. However, there will likely be accessibility concerns related to the components used within Page Header. Recommended considerations include:
 - The accessibility considerations of the components used. Refer to each component’s documentation.
-- The order and visual or content hierarchy of the children passed to Page Header, and how they affect readability. 
+- The order and visual or content hierarchy of the children passed to Page Header, and how they affect readability.
 - What you pass to the `as` property when using [Headings](/components/heading).  Headings that live at the top of the page and are the title of the page (most Page Headers fall under this category) should be `h1`s. Only use a heading level lower than `h1` if the Page Header exists within a page that already has an `h1` title (very few Page Headers fall under this category).
 
 
@@ -201,7 +200,7 @@ When using PageHeaderKeyword above the Heading:
 - Badges should only be used to describe the release stage of the feature on the page, like “Beta” or “Experimental”. [Status Badges](/components/status-badge) or other badges that have dynamic content should be placed in the PageHeaderMeta.
 
 When using PageHeaderPrefix (visual that appears before the Heading):
-- If you’re using the default size of Page Header, set the height of the Prefix element to `size-icon-90` or `size-square-110` to match the line height of the Heading. 
+- If you’re using the default size of Page Header, set the height of the Prefix element to `size-icon-90` or `size-square-110` to match the line height of the Heading.
 - If you’re using the compact size, set the height of the Prefix element to `size-icon-100` or `size-square-140` as the closest match to the line heights of the Heading and Meta combined. If you have no Meta content, use `size-icon-60` or `size-square-80`.
 
 #### The heading
