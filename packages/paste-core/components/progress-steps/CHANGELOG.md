@@ -1,5 +1,11 @@
 # @twilio-paste/progress-steps
 
+## 2.2.2
+
+### Patch Changes
+
+- [`7f39856ee`](https://github.com/twilio-labs/paste/commit/7f39856ee3697235b535ea02eaef2cb105cd4d86) [#4170](https://github.com/twilio-labs/paste/pull/4170) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ProgressSteps] fixed an issue where progress steps was rerendering unnecessarily
+
 ## 2.2.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/keyboard-key",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "typography",
   "status": "production",
   "description": "A Keyboard Key distinguishes a keyboard command or shortcut from other text.",
@@ -44,7 +44,7 @@
     "@twilio-paste/box": "^10.2.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
-    "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/design-tokens": "^10.11.0",
     "@twilio-paste/style-props": "^9.1.1",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.1",
