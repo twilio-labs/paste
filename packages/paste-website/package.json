@@ -150,7 +150,7 @@
     "@types/lodash": "^4.14.182",
     "@types/mdx-js__react": "^1.5.5",
     "@vercel/og": "^0.5.20",
-    "ai": "^2.2.27",
+    "ai": "^3.4.20",
     "airtable": "^0.11.6",
     "color": "^3.1.2",
     "common-tags": "^1.8.2",
