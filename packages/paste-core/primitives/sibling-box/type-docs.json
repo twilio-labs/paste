@@ -1073,6 +1073,13 @@
       "externalProp": false,
       "description": "Responsive style prop for the CSS `box-sizing` property"
     },
+    "cite": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Only used for the Blockquote component."
+    },
     "className": {
       "type": "string",
       "defaultValue": null,

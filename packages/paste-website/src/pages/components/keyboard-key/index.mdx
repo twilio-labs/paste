@@ -2,6 +2,7 @@ import { KeyboardKey, KeyboardKeyGroup, useKeyCombination, useKeyCombinations } 
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import { Button } from "@twilio-paste/button";
 import { useMenuState, Menu, MenuButton, MenuItem } from "@twilio-paste/menu";
 import { Paragraph } from "@twilio-paste/paragraph";
@@ -13,7 +14,6 @@ import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import packageJson from "@twilio-paste/keyboard-key/package.json";
 
 import { SidebarCategoryRoutes } from "../../../constants";
-import { Blockquote } from "../../../components/Blockquote";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 import { Do, DoDont, Dont } from "../../../components/DoDont";
@@ -69,13 +69,15 @@ A Keyboard Key distinguishes a keyboard command or shortcut from other text.
 
 Keyboard shortcuts are used for extremely frequent platform-level actions (like activating search), or in canvas or productivity tools like Studio or Flex. In general, **avoid implementing keyboard shortcuts**, especially with single keys, because they can override shortcuts that are already set by operating systems, browsers, assistive technologies, or user preferences.
 
-<Blockquote
-  name="UI Copy: UX Guidelines for Command Names and Keyboard Shortcuts"
-  source="Nielsen Norman Group"
-  sourceUrl="https://www.nngroup.com/articles/ui-copy/#guidelines-for-command-shortcuts"
->
-  Not every task on your application needs a shortcut, so observe your users interacting with your application to
-  determine the most common tasks and prioritize keyboard shortcuts for these.
+<Blockquote url="https://www.nngroup.com/articles/ui-copy/#guidelines-for-command-shortcuts">
+  <BlockquoteContent>
+    Not every task on your application needs a shortcut, so observe your users interacting with your application to
+    determine the most common tasks and prioritize keyboard shortcuts for these.
+  </BlockquoteContent>
+  <BlockquoteCitation
+    author="Nielsen Norman Group"
+    source="UI Copy: UX Guidelines for Command Names and Keyboard Shortcuts"
+  />
 </Blockquote>
 
 Keyboards can also vary across operating systems and global regions, so make sure your key commands work for all users.

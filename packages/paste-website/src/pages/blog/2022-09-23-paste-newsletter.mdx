@@ -15,9 +15,9 @@ import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {ResponsiveImage} from '../../components/ResponsiveImage';
-import {Blockquote} from '../../components/Blockquote';
 import SwitchExample from '../../assets/images/articles/2022-09-23-paste-newsletter/switch-example.gif';
 import InlineCodeExample from '../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png';
 import CodeBlockExample from '../../assets/images/articles/2022-09-23-paste-newsletter/code-block-example.gif';
@@ -239,11 +239,17 @@ We are excited to the share the following insights:
 In addition, some participants specified:
 
 <Blockquote>
-  It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to focus on
-  my business logic.
+  <BlockquoteContent>
+    It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to focus
+    on my business logic.
+  </BlockquoteContent>
 </Blockquote>
 
-<Blockquote>I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.</Blockquote>
+<Blockquote>
+  <BlockquoteContent>
+    I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.
+  </BlockquoteContent>
+</Blockquote>
 
 These results are music to our ears 🎶
 

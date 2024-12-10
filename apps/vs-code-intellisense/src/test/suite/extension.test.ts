@@ -90,7 +90,7 @@ suite("Extension Test Suite", () => {
     test("paste token items by attribute name", () => {
       const borderRadiusToken = myExtension.getAttributeTokens("borderRadius");
 
-      assert.strictEqual(borderRadiusToken.length, 6);
+      assert.strictEqual(borderRadiusToken.length, 12);
 
       const zIndexToken = myExtension.getAttributeTokens("zIndex");
 

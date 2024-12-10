@@ -9,11 +9,11 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 import {Switch, SwitchGroup} from '@twilio-paste/switch';
 import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Blockquote} from '../../../components/Blockquote';
 import {
   basicSwitch,
   helpTextSwitch,
@@ -66,14 +66,13 @@ Use Switch when the interaction result is **immediate**. Users shouldn't need to
 
 Use a [Checkbox](/components/checkbox) to present a user with a single binary choice that is part of a form or otherwise requires a user to take an additional action to confirm input.
 
-<Blockquote
-  name="Nielsen Norman Group"
-  source="Toggle-Switch Guidelines"
-  sourceUrl="https://www.nngroup.com/articles/toggle-switch-guidelines/"
->
-  Users expect the same immediate results from a digital toggle as they do from their real-world counterparts (e.g.,
-  light switches). Immediate results are a facet of toggle switches that grants users the freedom and control to update
-  their preferences as needed.
+<Blockquote url="https://www.nngroup.com/articles/toggle-switch-guidelines/">
+  <BlockquoteContent>
+    Users expect the same immediate results from a digital toggle as they do from their real-world counterparts (e.g.,
+    light switches). Immediate results are a facet of toggle switches that grants users the freedom and control to
+    update their preferences as needed.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Nielsen Norman Group" source="Toggle-Switch Guidelines" />
 </Blockquote>
 
 ### Accessibility
