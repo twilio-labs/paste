@@ -16156,7 +16156,7 @@ __metadata:
     "@twilio-paste/display-heading": ^4.1.0
     "@twilio-paste/display-pill-group": ^8.0.1
     "@twilio-paste/dropdown-library": ^3.0.0
-    "@twilio-paste/example-text": ^0.0.0
+    "@twilio-paste/example-text": ^1.0.0
     "@twilio-paste/file-picker": ^4.1.0
     "@twilio-paste/file-uploader": ^4.1.0
     "@twilio-paste/flex": ^8.1.0
