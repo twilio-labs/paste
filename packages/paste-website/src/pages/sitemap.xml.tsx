@@ -1,16 +1,19 @@
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
+import { unstable_noStore as noStore } from "next/cache";
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  noStore();
   const BASE_URL = "https://paste.twilio.design";
 
   const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
     cwd: __dirname,
   });
+
   const staticPaths = paths.map((staticPagePath) => {
     const path = staticPagePath.replace(".js", "");
     const route = path === "index" ? "" : `${path}/`;
