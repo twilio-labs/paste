@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.0
+
+### Minor Changes
+
+- [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3) [#4168](https://github.com/twilio-labs/paste/pull/4168) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Box]: Add cite prop for use with Blockquote
+
 ## 10.3.0
 
 ### Minor Changes

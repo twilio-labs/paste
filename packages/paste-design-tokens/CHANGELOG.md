@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.11.1
+
+### Patch Changes
+
+- [`5df8f1a13`](https://github.com/twilio-labs/paste/commit/5df8f1a132884efa2169614a10e8244866f39772) [#4175](https://github.com/twilio-labs/paste/pull/4175) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tokens,Theme] fixed an issue when converting percentages to pixel values as alternatives text descriptions
+
 ## 10.11.0
 
 ### Minor Changes
