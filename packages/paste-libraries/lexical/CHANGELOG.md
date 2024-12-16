@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+- [`932a03f23`](https://github.com/twilio-labs/paste/commit/932a03f2313f6a743729bd19e8222eeb704f7721) [#4173](https://github.com/twilio-labs/paste/pull/4173) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Lexical Library] exported additional helper functions and commands to allow advanced editor node manipulation programatically
+
 ## 4.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.8.0
+
+### Minor Changes
+
+- [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3) [#4168](https://github.com/twilio-labs/paste/pull/4168) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icon]: Add Blockquote icon.
+
 ## 12.7.0
 
 ### Minor Changes

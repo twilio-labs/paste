@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 5.0.1
+
+### Patch Changes
+
+- [`168a8dfdf`](https://github.com/twilio-labs/paste/commit/168a8dfdf8bda1d5e7f9c66d2d50c3e649095024) [#4184](https://github.com/twilio-labs/paste/pull/4184) Thanks [@serifluous](https://github.com/serifluous)! - Updated spacing and sizing tokens for overflow button. No visible changes.
+
 ## 5.0.0
 
 ### Patch Changes

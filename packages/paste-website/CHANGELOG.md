@@ -1,5 +1,18 @@
 # @twilio-paste/website
 
+## 2.23.50
+
+### Patch Changes
+
+- Updated dependencies [[`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3), [`168a8dfdf`](https://github.com/twilio-labs/paste/commit/168a8dfdf8bda1d5e7f9c66d2d50c3e649095024), [`5df8f1a13`](https://github.com/twilio-labs/paste/commit/5df8f1a132884efa2169614a10e8244866f39772), [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3), [`077d397e4`](https://github.com/twilio-labs/paste/commit/077d397e4c9e2991466b78ee7ed0270a331c18e7), [`932a03f23`](https://github.com/twilio-labs/paste/commit/932a03f2313f6a743729bd19e8222eeb704f7721), [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3)]:
+  - @twilio-paste/icons@12.8.0
+  - @twilio-paste/code-block@5.0.1
+  - @twilio-paste/design-tokens@10.11.1
+  - @twilio-paste/theme@11.1.1
+  - @twilio-paste/box@10.4.0
+  - @twilio-paste/blockquote@1.0.0
+  - @twilio-paste/lexical-library@4.3.0
+
 ## 2.23.49
 
 ### Patch Changes
