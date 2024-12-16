@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.14.0
+
+### Minor Changes
+
+- [`a4404eab3`](https://github.com/twilio-labs/paste/commit/a4404eab37a8ce17e9505607857c6c5251337980) [#4136](https://github.com/twilio-labs/paste/pull/4136) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [KeyboardKey] added a new component to display visual indicators for keyboard shortcuts available to users
+
+* [`dbd982f8d`](https://github.com/twilio-labs/paste/commit/dbd982f8df4160a85a2d51a8709ea84d0fcff428) [#4157](https://github.com/twilio-labs/paste/pull/4157) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] add new export ExampleText
+
 ## 0.13.0
 
 ### Minor Changes

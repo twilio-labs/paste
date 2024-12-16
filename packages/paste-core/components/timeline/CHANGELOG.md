@@ -1,5 +1,11 @@
 # @twilio-paste/timeline
 
+## 1.0.1
+
+### Patch Changes
+
+- [`ac3a553d0`](https://github.com/twilio-labs/paste/commit/ac3a553d039371ca5c8d63e7093954656af33430) [#4146](https://github.com/twilio-labs/paste/pull/4146) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Timeline]: Remove unnecessary `z-index` from `TimelineItemIcon`
+
 ## 1.0.0
 
 ### Major Changes
