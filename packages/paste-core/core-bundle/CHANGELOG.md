@@ -1,5 +1,33 @@
 # Change Log
 
+## 20.20.0
+
+### Minor Changes
+
+- [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3) [#4168](https://github.com/twilio-labs/paste/pull/4168) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icon]: Add Blockquote icon.
+
+* [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3) [#4168](https://github.com/twilio-labs/paste/pull/4168) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Box]: Add cite prop for use with Blockquote
+
+- [`077d397e4`](https://github.com/twilio-labs/paste/commit/077d397e4c9e2991466b78ee7ed0270a331c18e7) [#4167](https://github.com/twilio-labs/paste/pull/4167) Thanks [@nkrantz](https://github.com/nkrantz)! - [Blockquote] add default bottom margin of space-70 to Blockquote, add marginBottom prop for the option to remove bottom margin when necessary.
+
+* [`932a03f23`](https://github.com/twilio-labs/paste/commit/932a03f2313f6a743729bd19e8222eeb704f7721) [#4173](https://github.com/twilio-labs/paste/pull/4173) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Lexical Library] exported additional helper functions and commands to allow advanced editor node manipulation programatically
+
+- [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3) [#4168](https://github.com/twilio-labs/paste/pull/4168) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Blockquote]: Added a new Blockquote component to library to act as a stylized text wrapper for a quotation and source.
+
+### Patch Changes
+
+- [`168a8dfdf`](https://github.com/twilio-labs/paste/commit/168a8dfdf8bda1d5e7f9c66d2d50c3e649095024) [#4184](https://github.com/twilio-labs/paste/pull/4184) Thanks [@serifluous](https://github.com/serifluous)! - Updated spacing and sizing tokens for overflow button. No visible changes.
+
+* [`5df8f1a13`](https://github.com/twilio-labs/paste/commit/5df8f1a132884efa2169614a10e8244866f39772) [#4175](https://github.com/twilio-labs/paste/pull/4175) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Tokens,Theme] fixed an issue when converting percentages to pixel values as alternatives text descriptions
+
+* Updated dependencies [[`168a8dfdf`](https://github.com/twilio-labs/paste/commit/168a8dfdf8bda1d5e7f9c66d2d50c3e649095024), [`5df8f1a13`](https://github.com/twilio-labs/paste/commit/5df8f1a132884efa2169614a10e8244866f39772), [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3), [`077d397e4`](https://github.com/twilio-labs/paste/commit/077d397e4c9e2991466b78ee7ed0270a331c18e7), [`932a03f23`](https://github.com/twilio-labs/paste/commit/932a03f2313f6a743729bd19e8222eeb704f7721), [`36bd1e305`](https://github.com/twilio-labs/paste/commit/36bd1e3058d06af6470f8f64c12b1fcdbc9f84a3)]:
+  - @twilio-paste/code-block@5.0.1
+  - @twilio-paste/design-tokens@10.11.1
+  - @twilio-paste/theme@11.1.1
+  - @twilio-paste/box@10.4.0
+  - @twilio-paste/blockquote@1.0.0
+  - @twilio-paste/lexical-library@4.3.0
+
 ## 20.19.0
 
 ### Minor Changes
