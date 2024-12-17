@@ -10,6 +10,9 @@ export { AIChatMessageActionCard } from "./AIChatMessageActionCard";
 export type { AIChatMessageActionCardProps } from "./AIChatMessageActionCard";
 export { AIChatMessageLoading } from "./AIChatMessageLoading";
 export type { AIChatMessageLoadingProps } from "./AIChatMessageLoading";
+export { AIChatMessageBodyTypeWriter } from "./AIChatMessageBodyTypeWriter";
+export type { AIChatMessageBodyTypeWriterProps } from "./AIChatMessageBodyTypeWriter";
+export { AIChatLogContext } from "./AIChatLogContext";
 
 export { AIChatLog } from "./AIChatLog";
 export type { AIChatLogProps } from "./AIChatLog";

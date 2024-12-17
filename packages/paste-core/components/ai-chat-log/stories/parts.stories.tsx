@@ -1,14 +1,19 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
+import { Heading } from "@twilio-paste/heading";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { InlineCode } from "@twilio-paste/inline-code";
+import { ListItem, UnorderedList } from "@twilio-paste/list";
+import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
 
 import {
@@ -18,6 +23,7 @@ import {
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
+  AIChatMessageBodyTypeWriter,
   AIChatMessageLoading,
 } from "../src";
 
@@ -202,5 +208,65 @@ export const FullAIMessage = (): React.ReactNode => {
         </AIChatMessageActionGroup>
       </AIChatMessage>
     </AIChatLog>
+  );
+};
+
+export const MessageBodyTypeWriter = (): React.ReactNode => {
+  return (
+    <Box>
+      <Heading as="h2" variant="heading20">
+        With enriched text
+      </Heading>
+      <Box marginBottom="space60">
+        <AIChatMessageBodyTypeWriter>
+          <Paragraph>
+            <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
+            delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex
+            fugiat quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new
+            text,{" "}
+            <Anchor showExternal href="https://google.com">
+              434324
+            </Anchor>
+          </Paragraph>
+          <UnorderedList>
+            <ListItem>Item 1</ListItem>
+            <ListItem>Item 2</ListItem>
+            <ListItem>Item 3</ListItem>
+          </UnorderedList>
+          <Disclosure visible>
+            <DisclosureHeading as="h4" variant="heading40">
+              Between the World and Me by Ta-Nehisi Coates
+            </DisclosureHeading>
+            <DisclosureContent>
+              But race is the child of racism, not the father. And the process of naming “the people” has never been a
+              matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But
+              the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a
+              society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of
+              these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are
+              white.
+            </DisclosureContent>
+          </Disclosure>
+        </AIChatMessageBodyTypeWriter>
+        <br />
+        <AIChatMessageBody>
+          
+        </AIChatMessageBody>
+      </Box>
+      {/* <Heading as="h2" variant="heading20">
+        Without enriched text [fullscreen variant]:
+      </Heading>
+
+      <Box>
+        <AIChatMessageBodyTypeWriter variant="fullScreen">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
+          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
+        </AIChatMessageBodyTypeWriter>
+        <UnorderedList>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+          <ListItem>Item 3</ListItem>
+        </UnorderedList>
+      </Box> */}
+    </Box>
   );
 };
