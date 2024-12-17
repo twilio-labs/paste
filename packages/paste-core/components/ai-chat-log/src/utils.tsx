@@ -38,7 +38,7 @@ export const useAnimatedText = (children: React.ReactNode, speed: number = 10): 
         if (currentTextIndex > 0) {
           const visibleText = child.slice(0, currentTextIndex);
           currentTextIndex -= child.length;
-          return <span>{visibleText}</span>;
+          return visibleText;
         }
         return null;
       }
