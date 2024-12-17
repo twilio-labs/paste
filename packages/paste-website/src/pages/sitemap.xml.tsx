@@ -10,20 +10,22 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   noStore();
   const BASE_URL = "https://paste.twilio.design";
 
-  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
-    cwd: __dirname,
-  });
+  // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
+  const uncompiledPaths = await globby(["**/pages/**/*.mdx", "!**/api/**", "!**/pages/404/**"]);
 
-  const staticPaths = paths.map((staticPagePath) => {
-    const path = staticPagePath.replace(".js", "");
-    const route = path === "index" ? "" : `${path}/`;
-
-    return `${BASE_URL}/${route}`;
+  const urlPaths = uncompiledPaths.map((path) => {
+    // Remove `src/pages/`
+    let modifiedPath = path.replace(/^src\/pages\//, "");
+    // Remove `.mdx`
+    modifiedPath = modifiedPath.replace(/\.mdx$/, "");
+    // Remove `/index` if it's at the end of the path
+    modifiedPath = modifiedPath.replace(/\/index$/, "");
+    return `${BASE_URL}/${modifiedPath}`;
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${staticPaths
+      ${urlPaths
         .map((url) => {
           return `
             <url>
