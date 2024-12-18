@@ -11,9 +11,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
 
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
-  const uncompiledPaths = await globby(["**/pages/**/*"], {
-    cwd: process.cwd(),
-  });
+  const uncompiledPaths = await globby(["**/pages/**/*"]);
+
+  console.log(uncompiledPaths);
 
   const urlPaths = uncompiledPaths.map((path) => {
     // Remove `src/pages/`
