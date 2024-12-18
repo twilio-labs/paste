@@ -7,14 +7,15 @@ const Sitemap = (): React.ReactElement | null => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  noStore();
   const BASE_URL = "https://paste.twilio.design";
 
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
   const uncompiledPaths = await globby(["**/*.mdx"]);
 
+  const cachedpaths = await globby(["**/*"], { cwd: __dirname });
+
   // eslint-disable-next-line no-console
-  console.log(uncompiledPaths);
+  console.log(cachedpaths);
   // eslint-disable-next-line no-console
   console.log(process.cwd(), __dirname);
 
