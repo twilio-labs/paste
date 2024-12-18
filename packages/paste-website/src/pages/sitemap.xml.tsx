@@ -13,7 +13,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
   const uncompiledPaths = await globby(["**/pages/**/*"]);
 
+  // eslint-disable-next-line no-console
   console.log(uncompiledPaths);
+  // eslint-disable-next-line no-console
+  console.log(process.cwd(), __dirname);
 
   const urlPaths = uncompiledPaths.map((path) => {
     // Remove `src/pages/`
