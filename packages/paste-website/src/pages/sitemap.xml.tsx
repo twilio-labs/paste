@@ -1,26 +1,36 @@
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
+import { unstable_noStore as noStore } from "next/cache";
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  noStore();
   const BASE_URL = "https://paste.twilio.design";
 
-  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
-    cwd: __dirname,
-  });
-  const staticPaths = paths.map((staticPagePath) => {
-    const path = staticPagePath.replace(".js", "");
-    const route = path === "index" ? "" : `${path}/`;
+  // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
+  const uncompiledPaths = await globby(["**/pages/**/*.mdx", "!**/api/**", "!**/pages/404/**"]);
 
-    return `${BASE_URL}/${route}`;
+  const urlPaths = uncompiledPaths.map((path) => {
+    // Remove `src/pages/`
+    let modifiedPath = path.replace(/^src\/pages\//, "");
+    // Remove `.mdx`
+    modifiedPath = modifiedPath.replace(/\.mdx$/, "");
+    // Remove `/index` if it's at the end of the path
+    modifiedPath = modifiedPath.replace(/\/index$/, "");
+    return `${BASE_URL}/${modifiedPath}`;
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${staticPaths
+      <url>
+        <loc>${BASE_URL}</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+      </url>
+      ${urlPaths
         .map((url) => {
           return `
             <url>
