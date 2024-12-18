@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
 
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
-  const uncompiledPaths = await globby(["**/pages/**/*.mdx", "!**/api/**", "!**/404/**", "!**/blog/001-template*"], {
+  const uncompiledPaths = await globby(["**/pages/**/*"], {
     cwd: process.cwd(),
   });
 
@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     modifiedPath = modifiedPath.replace(/\.mdx$/, "");
     // Remove `/index` if it's at the end of the path
     modifiedPath = modifiedPath.replace(/\/index$/, "");
-    return `${BASE_URL}/${modifiedPath}`;
+    return `${BASE_URL}/${path}`;
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
