@@ -8,34 +8,19 @@ const Sitemap = (): React.ReactElement | null => {
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
 
-  // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
-  const uncompiledPaths = await globby(["**/*.mdx"]);
+  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
+    cwd: __dirname,
+  });
+  const staticPaths = paths.map((staticPagePath) => {
+    const path = staticPagePath.replace(".js", "");
+    const route = path === "index" ? "" : `${path}/`;
 
-  const cachedpaths = await globby(["**/*"], { cwd: __dirname });
-
-  // eslint-disable-next-line no-console
-  console.log(cachedpaths);
-  // eslint-disable-next-line no-console
-  console.log(process.cwd(), __dirname);
-
-  const urlPaths = uncompiledPaths.map((path) => {
-    // Remove `src/pages/`
-    let modifiedPath = path.replace(/^src\/pages\//, "");
-    // Remove `.mdx`
-    modifiedPath = modifiedPath.replace(/\.mdx$/, "");
-    // Remove `/index` if it's at the end of the path
-    modifiedPath = modifiedPath.replace(/\/index$/, "");
-    return `${BASE_URL}/${path}`;
+    return `${BASE_URL}/${route}`;
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-        <loc>${BASE_URL}</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-      </url>
-      ${urlPaths
+      ${staticPaths
         .map((url) => {
           return `
             <url>
