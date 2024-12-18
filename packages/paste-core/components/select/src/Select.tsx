@@ -110,6 +110,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         width="100%"
         _disabled={{
           color: variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+          backgroundColor: "transparent",
           cursor: "not-allowed",
           opacity: 1,
         }}
