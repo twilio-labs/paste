@@ -1,6 +1,5 @@
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
-import { unstable_noStore as noStore } from "next/cache";
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
