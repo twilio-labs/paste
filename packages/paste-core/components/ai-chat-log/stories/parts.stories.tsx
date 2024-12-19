@@ -1,9 +1,12 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
 import { Anchor } from "@twilio-paste/anchor";
+import { Blockquote, BlockquoteCitation, BlockquoteContent } from "@twilio-paste/blockquote/";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { CodeBlock, CodeBlockHeader, CodeBlockWrapper } from "@twilio-paste/code-block";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
@@ -23,7 +26,6 @@ import {
   AIChatMessageActionGroup,
   AIChatMessageAuthor,
   AIChatMessageBody,
-  AIChatMessageBodyTypeWriter,
   AIChatMessageLoading,
 } from "../src";
 
@@ -78,7 +80,7 @@ export const AIMessageLoading = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageBody>
+        <AIChatMessageBody animated>
           <p>Pssst! The three rows have dynamic widths. Refresh to see it in action!</p>
           <AIChatMessageLoading />
         </AIChatMessageBody>
@@ -159,7 +161,7 @@ export const FullAIMessage = (): React.ReactNode => {
     <AIChatLog>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-        <AIChatMessageBody>
+        <AIChatMessageBody animated>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
           impedit repellat assumenda.
@@ -211,62 +213,102 @@ export const FullAIMessage = (): React.ReactNode => {
   );
 };
 
-export const MessageBodyTypeWriter = (): React.ReactNode => {
+const rubyCode = `#!/usr/bin/ruby
+
+# Import the library. This is a really really long line that should be wrapped.
+require 'tk'
+
+# Root window.
+root = TkRoot.new  {
+  title 'Push Me'
+  background '#111188'
+}
+
+# Add a label to the root window.
+lab = TkLabel.new(root) {
+  text "Hey there,\nPush a button!"
+  background '#3333AA'
+  foreground '#CCCCFF'
+}
+`;
+
+export const MessageBodyTypeWriterEnrichedText = (): React.ReactNode => {
   return (
     <Box>
       <Heading as="h2" variant="heading20">
         With enriched text
       </Heading>
       <Box marginBottom="space60">
-        <AIChatMessageBodyTypeWriter>
-          <Paragraph>
-            <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
-            delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex
-            fugiat quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new
-            text,{" "}
-            <Anchor showExternal href="https://google.com">
-              434324
-            </Anchor>
-          </Paragraph>
+        <AIChatMessageBody animated size="fullScreen">
+          <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
+          delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat
+          quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
+          <Anchor showExternal href="https://google.com">
+            434324
+          </Anchor>
           <UnorderedList>
             <ListItem>Item 1</ListItem>
             <ListItem>Item 2</ListItem>
             <ListItem>Item 3</ListItem>
           </UnorderedList>
-          <Disclosure visible>
-            <DisclosureHeading as="h4" variant="heading40">
-              Between the World and Me by Ta-Nehisi Coates
-            </DisclosureHeading>
-            <DisclosureContent>
-              But race is the child of racism, not the father. And the process of naming “the people” has never been a
-              matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But
-              the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a
-              society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of
-              these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are
-              white.
-            </DisclosureContent>
-          </Disclosure>
-        </AIChatMessageBodyTypeWriter>
-        <br />
-        <AIChatMessageBody>
-          
         </AIChatMessageBody>
       </Box>
-      {/* <Heading as="h2" variant="heading20">
-        Without enriched text [fullscreen variant]:
-      </Heading>
+    </Box>
+  );
+};
 
-      <Box>
-        <AIChatMessageBodyTypeWriter variant="fullScreen">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
-          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
-        </AIChatMessageBodyTypeWriter>
-        <UnorderedList>
-          <ListItem>Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
-          <ListItem>Item 3</ListItem>
-        </UnorderedList>
-      </Box> */}
+export const MessageBodyTypeWriterComplexComponents = (): React.ReactNode => {
+  return (
+    <Box>
+      <Heading as="h2" variant="heading20">
+        With complex components
+      </Heading>
+      <Box marginBottom="space60">
+        <AIChatMessageBody animated>
+          <Paragraph>
+            <Box display="flex">
+              This <ThumbsUpIcon decorative />
+              is text that contains <ThumbsDownIcon decorative /> icons between elements
+            </Box>
+          </Paragraph>
+          <Paragraph>
+            <Blockquote url="#">
+              <BlockquoteContent>
+                With AI-driven products, the design process is no longer just about aesthetics. It’s about designing for
+                the human experience as a whole.
+              </BlockquoteContent>
+              <BlockquoteCitation author="Google" source="People + AI Guidebook" />
+            </Blockquote>
+          </Paragraph>
+          <Paragraph>
+            <Callout variant="neutral">
+              <CalloutHeading as="h2">Heads up!</CalloutHeading>
+              <CalloutText>This is some information you need to know.</CalloutText>
+            </Callout>
+          </Paragraph>
+          <Paragraph>
+            <CodeBlockWrapper>
+              <CodeBlockHeader>Build a button</CodeBlockHeader>
+              <CodeBlock code={rubyCode} language="ruby" />
+            </CodeBlockWrapper>
+          </Paragraph>
+          <Paragraph>
+            <Disclosure visible>
+              <DisclosureHeading as="h4" variant="heading40">
+                Between the World and Me by Ta-Nehisi Coates
+              </DisclosureHeading>
+              <DisclosureContent>
+                But race is the child of racism, not the father. And the process of naming “the people” has never been a
+                matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But
+                the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a
+                society and that they signify deeper attributes, which are indelible—this is the new idea at the heart
+                of these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they
+                are white.
+              </DisclosureContent>
+            </Disclosure>
+          </Paragraph>
+        </AIChatMessageBody>
+      </Box>
     </Box>
   );
 };

@@ -4,6 +4,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { AIMessageContext } from "./AIMessageContext";
+import useAnimatedText from "./utils";
 
 const Sizes: Record<string, BoxStyleProps> = {
   default: {
@@ -35,11 +36,20 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageBodyProps
    */
   size?: "default" | "fullScreen";
+  /**
+   * Whether the text should be animated with type writer effect
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof AIChatMessageBodyProps
+   */
+  animated?: boolean;
 }
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
-  ({ children, size = "default", element = "AI_CHAT_MESSAGE_BODY", ...props }, ref) => {
+  ({ children, size = "default", element = "AI_CHAT_MESSAGE_BODY", animated = false, ...props }, ref) => {
     const { id } = React.useContext(AIMessageContext);
+    const childrenToRender = animated ? useAnimatedText(children) : children;
 
     return (
       <Box
@@ -55,7 +65,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         whiteSpace="pre-wrap"
         id={id}
       >
-        {children}
+        {childrenToRender}
       </Box>
     );
   },

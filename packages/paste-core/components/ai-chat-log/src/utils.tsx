@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { AIChatLogContext } from "./AIChatLogContext";
+import React, { useEffect, useState } from "react";
 
 // Hook to animate text content of React elements
-export const useAnimatedText = (children: React.ReactNode, speed: number = 10): React.ReactNode => {
-  const {setIsAnimating, isAnimating} = React.useContext(AIChatLogContext);
+export const useAnimatedText = (children: React.ReactNode, speed = 10): React.ReactNode => {
   const [animatedChildren, setAnimatedChildren] = useState<React.ReactNode>();
   const [textIndex, setTextIndex] = useState(0);
 
@@ -41,15 +39,15 @@ export const useAnimatedText = (children: React.ReactNode, speed: number = 10): 
           return visibleText;
         }
         return null;
-      }
-
-      if (React.isValidElement(child)) {
+      } else if (React.isValidElement(child)) {
         const totalChildTextLength = calculateTotalTextLength(child.props.children);
         // Only include elements if their text animation has started
         if (currentTextIndex > 0) {
           const clonedChild = React.cloneElement(child, {}, cloneChildren(child.props.children, currentTextIndex));
           currentTextIndex -= totalChildTextLength;
           return clonedChild;
+        } else if (currentTextIndex === 0 && totalChildTextLength === 0) {
+          return child;
         }
         return null;
       }
@@ -63,15 +61,10 @@ export const useAnimatedText = (children: React.ReactNode, speed: number = 10): 
     const totaLength = calculateTotalTextLength(children);
     if (textIndex <= totaLength) {
       setAnimatedChildren(cloneChildren(children, textIndex));
-      if(!isAnimating){
-        setIsAnimating && setIsAnimating(true);
-      }
-    } else if(isAnimating){
-      setIsAnimating && setIsAnimating(false);
     }
   }, [children, textIndex]);
 
-  return animatedChildren
+  return animatedChildren;
 };
 
 export default useAnimatedText;
