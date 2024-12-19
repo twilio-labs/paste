@@ -4,7 +4,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { AIMessageContext } from "./AIMessageContext";
-import useAnimatedText from "./utils";
+import { useAnimatedText } from "./utils";
 
 const Sizes: Record<string, BoxStyleProps> = {
   default: {

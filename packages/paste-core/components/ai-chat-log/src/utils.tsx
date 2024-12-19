@@ -15,9 +15,9 @@ export const useAnimatedText = (children: React.ReactNode, speed = 10): React.Re
   }, [speed]);
 
   // Function to calculate the total length of text within nested elements
-  const calculateTotalTextLength = (children: React.ReactNode): number => {
+  const calculateTotalTextLength = (nodes: React.ReactNode): number => {
     let length = 0;
-    React.Children.forEach(children, (child) => {
+    React.Children.forEach(nodes, (child) => {
       if (typeof child === "string") {
         length += child.length;
       } else if (React.isValidElement(child)) {
@@ -28,9 +28,9 @@ export const useAnimatedText = (children: React.ReactNode, speed = 10): React.Re
   };
 
   // Function to recursively clone children and apply text animation
-  const cloneChildren = (children: React.ReactNode, currentIndex: number): React.ReactNode => {
+  const cloneChildren = (nodes: React.ReactNode, currentIndex: number): React.ReactNode => {
     let currentTextIndex = currentIndex;
-    return React.Children.map(children, (child) => {
+    return React.Children.map(nodes, (child) => {
       if (typeof child === "string") {
         // Only include text nodes if their animation has started
         if (currentTextIndex > 0) {
