@@ -21,7 +21,7 @@ function getRoutes() {
     });
 
   // eslint-disable-next-line no-console
-  console.log("ai generated", files);
+  console.log("ai generated", fileNames, files);
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
