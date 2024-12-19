@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     return `${BASE_URL}/${path}`;
   });
 
-  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
+  const paths = await globby(["**/*.mdx", "!sitemap.xml.js", "!404.js", "!_*.js"], {
     cwd: process.cwd(),
   });
 
