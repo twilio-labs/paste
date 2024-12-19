@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
 
@@ -9,20 +10,19 @@ const Sitemap = (): React.ReactElement | null => {
 
 export const revalidate = "force-cache";
 
-function getRoutes() {
+const getRoutes = (): void => {
   const pagesDirectory = path.join(process.cwd(), "pages");
   const fileNames = fs.readdirSync(pagesDirectory);
 
   const files = fileNames
     .filter((fileName) => fileName.endsWith(".js") || fileName.endsWith(".jsx"))
     .map((fileName) => {
-      const route = fileName === "index.js" ? "/" : `/${fileName.replace(/\.js(x)?$/, "")}`;
-      return route;
+      return fileName === "index.js" ? "/" : `/${fileName.replace(/\.js(x)?$/, "")}`;
     });
 
   // eslint-disable-next-line no-console
   console.log("ai generated", fileNames, files);
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
@@ -33,14 +33,14 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // eslint-disable-next-line no-console
   console.log(process.cwd(), __dirname);
 
-  const urlPaths = uncompiledPaths.map((path) => {
+  const urlPaths = uncompiledPaths.map((individualPath) => {
     // Remove `src/pages/`
-    let modifiedPath = path.replace(/^src\/pages\//, "");
+    let modifiedPath = individualPath.replace(/^src\/pages\//, "");
     // Remove `.mdx`
     modifiedPath = modifiedPath.replace(/\.mdx$/, "");
     // Remove `/index` if it's at the end of the path
     modifiedPath = modifiedPath.replace(/\/index$/, "");
-    return `${BASE_URL}/${path}`;
+    return `${BASE_URL}/${individualPath}`;
   });
 
   const paths = await globby(["**/*.mdx", "!sitemap.xml.js", "!404.js", "!_*.js"], {
@@ -51,8 +51,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   console.log("cached pages:", paths);
 
   const staticPaths = paths.map((staticPagePath) => {
-    const path = staticPagePath.replace(".js", "");
-    const route = path === "index" ? "" : `${path}/`;
+    const otherPath = staticPagePath.replace(".js", "");
+    const route = otherPath === "index" ? "" : `${otherPath}/`;
 
     return `${BASE_URL}/${route}`;
   });
