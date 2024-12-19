@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
 
@@ -7,9 +9,24 @@ const Sitemap = (): React.ReactElement | null => {
 
 export const revalidate = "force-cache";
 
+function getRoutes() {
+  const pagesDirectory = path.join(process.cwd(), "pages");
+  const fileNames = fs.readdirSync(pagesDirectory);
+
+  const files = fileNames
+    .filter((fileName) => fileName.endsWith(".js") || fileName.endsWith(".jsx"))
+    .map((fileName) => {
+      const route = fileName === "index.js" ? "/" : `/${fileName.replace(/\.js(x)?$/, "")}`;
+      return route;
+    });
+
+  // eslint-disable-next-line no-console
+  console.log("ai generated", files);
+}
+
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
-
+  getRoutes();
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
   const uncompiledPaths = await globby(["**/*.mdx"], { cwd: process.cwd() });
 
