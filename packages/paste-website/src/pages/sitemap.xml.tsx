@@ -11,12 +11,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
 
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
-  const uncompiledPaths = await globby(["**/*.mdx"]);
+  const uncompiledPaths = await globby(["**/*.mdx"], { cwd: process.cwd() });
 
-  const cachedpaths = await globby(["**/*"], { cwd: __dirname });
-
-  // eslint-disable-next-line no-console
-  console.log(cachedpaths);
   // eslint-disable-next-line no-console
   console.log(process.cwd(), __dirname);
 
@@ -31,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   });
 
   const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
-    cwd: __dirname,
+    cwd: process.cwd(),
   });
 
   // eslint-disable-next-line no-console
