@@ -11,7 +11,7 @@ const Sitemap = (): React.ReactElement | null => {
 export const revalidate = "force-cache";
 
 const getRoutes = (): void => {
-  const pagesDirectory = path.join(process.cwd(), "pages");
+  const pagesDirectory = path.join(process.cwd(), "src/pages");
   const fileNames = fs.readdirSync(pagesDirectory);
 
   const files = fileNames
