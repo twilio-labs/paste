@@ -1,5 +1,18 @@
 # Change Log
 
+## 20.21.0
+
+### Minor Changes
+
+- [`c128d63c7`](https://github.com/twilio-labs/paste/commit/c128d63c7f72bf35599bb22ba2943a11cc942783) [#4197](https://github.com/twilio-labs/paste/pull/4197) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] added 4 new icons FeedbackIcon, TextIcon, CarouselIcon and CardIcon
+
+### Patch Changes
+
+- [`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4) [#4191](https://github.com/twilio-labs/paste/pull/4191) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Select]: Fix wrong background color during disabled state
+
+- Updated dependencies [[`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4)]:
+  - @twilio-paste/select@12.1.3
+
 ## 20.20.0
 
 ### Minor Changes

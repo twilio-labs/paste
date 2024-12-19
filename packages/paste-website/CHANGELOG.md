@@ -1,5 +1,13 @@
 # @twilio-paste/website
 
+## 2.23.51
+
+### Patch Changes
+
+- Updated dependencies [[`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4), [`c128d63c7`](https://github.com/twilio-labs/paste/commit/c128d63c7f72bf35599bb22ba2943a11cc942783)]:
+  - @twilio-paste/select@12.1.3
+  - @twilio-paste/icons@12.9.0
+
 ## 2.23.50
 
 ### Patch Changes
