@@ -712,3 +712,54 @@ const SystemError = () => {
 render(
   <SystemError />
 )`.trim();
+
+export const animatedBotWithFeedback = `
+const AnimatedMessageWithFeedback = () => {
+  const [animated, setAnimated] = React.useState(true)
+
+  const restart = () => {
+    setAnimated(false)
+    setTimeout(() => {
+      setAnimated(true)
+    }, 100)
+  }
+
+  return (
+    <>
+      <Button variant="secondary" onClick={restart}>
+        <ResetIcon decorative={false} size="sizeIcon10" title="reset" />{" "}Restart
+      </Button>
+      <AIChatLog>
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+          <AIChatMessageBody animated={animated}>
+            I found multiple solutions for the issue with your environment variable, <InlineCode>TWILIO_AUTH_TOKEN</InlineCode>. Other helpful resources can be found at <Anchor href="#" showExternal>Twilio API Docs</Anchor>.
+          </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="reset" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="reset" size="reset">
+                <ThumbsDownIcon decorative={false} title="dislike result" aria-label="this is not a helpful response" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
+              <Button variant="reset" size="reset">
+                <RefreshIcon decorative={true}/> Rewrite
+              </Button>
+              <Button variant="reset" size="reset">
+                <CopyIcon decorative={true}/> Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
+        </AIChatMessage>
+      </AIChatLog>
+    </>
+  );
+};
+
+render(
+  <AnimatedMessageWithFeedback />
+)`.trim();

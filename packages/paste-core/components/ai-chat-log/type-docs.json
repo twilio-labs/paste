@@ -3186,6 +3186,13 @@
       "required": false,
       "externalProp": true
     },
+    "animated": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether the text should be animated with type writer effect"
+    },
     "aria-activedescendant": {
       "type": "string",
       "defaultValue": null,

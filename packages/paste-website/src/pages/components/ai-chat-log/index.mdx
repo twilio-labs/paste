@@ -22,6 +22,7 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { HelpText } from "@twilio-paste/help-text";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { ResetIcon } from "@twilio-paste/icons/esm/ResetIcon";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
@@ -29,6 +30,7 @@ import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { uid } from "@twilio-paste/uid-library";
+
 
 import Logo from "../../../assets/logo.svg";
 import { SidebarCategoryRoutes } from "../../../constants";
@@ -58,11 +60,14 @@ import {
   messageGenerationError,
   sendingMessageError,
   systemError,
+  animatedBotWithFeedback
 } from "../../../component-examples/AIChatLogExamples";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 import { Text } from "@twilio-paste/text";
 import { Alert } from "@twilio-paste/alert";
+import { Switch } from "@twilio-paste/switch";
+import { InlineCode } from "@twilio-paste/inline-code";
 
 export default ComponentPageLayout;
 
@@ -199,6 +204,33 @@ The `AIChatMessageBody` component has two sizes, `size="default"` and `size="ful
     </AIChatMessageBody>
   </AIChatMessage>
 </AIChatLog>`}
+</LivePreview>
+
+### Messages with animation
+The `AIChatMessageBody` component has an optional `animate` prop that can be used to apply a typewriter animation to the text. .
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Button,
+    ThumbsUpIcon,
+    ThumbsDownIcon,
+    CopyIcon,
+    RefreshIcon,
+    Button,
+    ResetIcon,    
+    Anchor,
+    InlineCode
+  }}
+  language="jsx"
+  noInline
+>
+  {animatedBotWithFeedback}
 </LivePreview>
 
 ### Message with Actions
