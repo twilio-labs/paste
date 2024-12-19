@@ -34,6 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     cwd: __dirname,
   });
 
+  // eslint-disable-next-line no-console
   console.log("cached pages:", paths);
 
   const staticPaths = paths.map((staticPagePath) => {
@@ -42,6 +43,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
     return `${BASE_URL}/${route}`;
   });
+
+  // eslint-disable-next-line no-console
+  console.log("staticPaths pages:", staticPaths);
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
