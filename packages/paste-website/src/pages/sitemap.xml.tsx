@@ -1,5 +1,6 @@
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
+
 import { SITEMAP } from "../../../../cypress/integration/sitemap-vrt/constants"; // Import the SITEMAP used for cypress
 
 const Sitemap = (): React.ReactElement | null => {
