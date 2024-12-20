@@ -1,8 +1,6 @@
-import fs from "fs";
-import path from "path";
-
 import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
+import { SITEMAP } from "../../../../cypress/integration/sitemap-vrt/constants"; // Import the SITEMAP
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
@@ -10,23 +8,9 @@ const Sitemap = (): React.ReactElement | null => {
 
 export const revalidate = "force-cache";
 
-const getRoutes = (): void => {
-  const pagesDirectory = path.join(process.cwd(), "src/pages");
-  const fileNames = fs.readdirSync(pagesDirectory);
-
-  const files = fileNames
-    .filter((fileName) => fileName.endsWith(".js") || fileName.endsWith(".jsx"))
-    .map((fileName) => {
-      return fileName === "index.js" ? "/" : `/${fileName.replace(/\.js(x)?$/, "")}`;
-    });
-
-  // eslint-disable-next-line no-console
-  console.log("ai generated", fileNames, files);
-};
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
-  getRoutes();
   // Get a list of all pages currently in the site, must be mdx and not tsx which they all currently are
   const uncompiledPaths = await globby(["**/*.mdx"], { cwd: process.cwd() });
 
@@ -50,40 +34,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // eslint-disable-next-line no-console
   console.log("cached pages:", paths);
 
-  const staticPaths = paths.map((staticPagePath) => {
-    const otherPath = staticPagePath.replace(".js", "");
-    const route = otherPath === "index" ? "" : `${otherPath}/`;
-
-    return `${BASE_URL}/${route}`;
-  });
-
+  // Log the SITEMAP
   // eslint-disable-next-line no-console
-  console.log("staticPaths pages:", staticPaths);
-
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-        <loc>${BASE_URL}</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-      </url>
-      ${urlPaths
-        .map((url) => {
-          return `
-            <url>
-              <loc>${url}</loc>
-              <changefreq>daily</changefreq>
-              <priority>0.7</priority>
-            </url>
-          `;
-        })
-        .join("")}
-    </urlset>
-  `;
-
-  res.setHeader("Content-Type", "text/xml");
-  res.write(sitemap);
-  res.end();
+  console.log("SITEMAP_LOCAL:", SITEMAP);
 
   return {
     props: {},
