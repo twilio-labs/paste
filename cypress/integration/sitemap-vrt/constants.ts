@@ -340,7 +340,7 @@ export const SITEMAP = [
   "/tokens/",
 ];
 
-const SITEMAP_CHUNKS: string[][] = [];
+const SITEMAP_CHUNKS = [];
 const CHUNK_SIZE = 25;
 
 for (let i = 0, len = SITEMAP.length; i < len; i += CHUNK_SIZE) {
