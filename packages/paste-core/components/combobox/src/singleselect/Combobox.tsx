@@ -7,6 +7,7 @@ import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "@twilio
 import { Label } from "@twilio-paste/label";
 import { useUID } from "@twilio-paste/uid-library";
 import { useWindowSize } from "@twilio-paste/utils";
+import { useCombobox } from "downshift";
 import * as React from "react";
 import { useVirtual } from "react-virtual";
 
@@ -77,30 +78,20 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const inputBoxRef = React.useRef<HTMLDivElement>(null);
 
     const {
-      getComboboxProps,
-      getInputProps,
-      getItemProps,
-      getLabelProps,
+      isOpen,
       getMenuProps,
+      getInputProps,
+      getLabelProps,
+      getComboboxProps,
       getToggleButtonProps,
+      getItemProps,
+      openMenu,
+      closeMenu,
       highlightedIndex,
       selectedItem: internalSelectedItem,
-      isOpen,
-    } = extractPropsFromState({
-      onInputValueChange,
-      onIsOpenChange,
-      onSelectedItemChange,
-      onHighlightedIndexChange,
-      itemToString,
-      initialIsOpen,
-      inputValue,
-      selectedItem,
-      initialSelectedItem,
+    } = useCombobox({
       items,
-      state,
-      getA11yStatusMessage,
-      getA11ySelectionMessage,
-      disabledItems,
+      // other Downshift props
     });
 
     if (
@@ -163,7 +154,26 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             <ComboboxInputSelect
               {...getToggleButtonProps({ tabIndex: 0 })}
               // we spread props into `getInputProps` so that Downshift handles events correctly
-              {...getInputProps({ disabled, required, ref, ...props })}
+              {...getInputProps({
+                disabled,
+                required,
+                ref,
+                ...props,
+                onKeyDown: (event) => {
+                  if (event.key === " ") {
+                    event.preventDefault();
+                    if (openMenu && !isOpen) {
+                      openMenu();
+                    }
+                    if (closeMenu && isOpen) {
+                      closeMenu();
+                    }
+                  } else {
+                    // Call the default Downshift onKeyDown handler
+                    getInputProps().onKeyDown(event);
+                  }
+                },
+              })}
               {...(!autocomplete ? { onChange: (event: React.ChangeEvent) => event.preventDefault() } : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpText != null ? helpTextId : null}
