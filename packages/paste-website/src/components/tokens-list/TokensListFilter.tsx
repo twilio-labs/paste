@@ -46,7 +46,7 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
     <Box
       marginBottom="space80"
       position="sticky"
-      top={`${SITE_TOPBAR_HEIGHT}px`}
+      top={`${SITE_TOPBAR_HEIGHT - 1}px`}
       zIndex="zIndex10"
       marginX="spaceNegative40"
       css={{
