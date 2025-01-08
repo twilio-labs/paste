@@ -62,6 +62,7 @@ const SearchForm: React.FC<React.PropsWithChildren<SearchFormProps>> = ({
               onChange={onChange}
               data-cy="paste-docsearch-input"
               ref={inputRef}
+              autoComplete="off"
             />
           </FormControl>
         </FormSection>
