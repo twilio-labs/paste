@@ -1,0 +1,179 @@
+export const meta = {
+  title: 'Elevation',
+  description: 'Elevation organizes elements along a visual hierarchy creating a sense of depth in an interface.',
+  slug: '/foundations/elevation/',
+};
+
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator'
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import TokensDiagram from '../../../assets/images/foundations/colors/tokens-diagram.png';
+
+import {
+  ApplyingLevel1CapriImgCaption,
+  CalloutExampleImgCaption,
+  ApplyLevel2ImgCaption,
+  PopoverExampleImgCaption,
+} from '../../../component-examples/ElevationFoundationExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
+
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+Elevation represents how "close" or "far" an element feels from the user in a digital context, using a combination of **shadows**, **colors**, **borders**, and **overlays** to create a layering effect, making elements feel distinct, focused or prioritized.
+
+Paste’s elevation system is:
+
+- Subtle: Provides just enough visual contrast to create a sense of depth, avoiding excessive visual clutter.
+- Intentional: Provides clear meaning to guide users through interfaces, improving user efficiency by consistently communicating the level of importance of elements across different pages.
+- Dynamic: Adapts to different background colors and themes, ensuring consistent depth perception and usability across light, dark, and custom design contexts.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+## Elevation levels
+
+Paste has a total of 4 levels of elevation, each elevation level corresponds to a perceived distance within the interface. All components are assigned a level based on their intended distance against the surface behind them.
+
+### Level 0
+
+Elements at this level are the baseline for all the other levels and represent the background of the interface.
+
+The majority of elements will be at this level in their resting states, however an element on this level can move to a higher level when interacted with.
+
+For example: a Button might be ‘Level 0’ in its resting state, but ‘Level 1’ when hovered.
+
+### Level 1
+
+Elements that rest in this level require subtle differentiation from the surface behind them without floating on top of other elements.
+
+There are 2 different ways to communicate an element's elevation in level 1:
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+#### Applying Level 1 elevation
+
+**Use borders** when a group of elements requires focus to complete a task while maintaining a close relationship with the surrounding content.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+<ApplyingLevel1ImgCaption />
+
+**Use a tonal difference** when elements provide context for a functionality or task, making it visibly clearer what needs to be done.
+
+*Temporary raised interactive (hover) elements can use a tonal difference to provide additional emphasis.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+<CalloutExampleImgCaption />
+
+### Level 2
+
+Elements that rest at this level are commonly distinctly separated from the background and dynamically overlap content layers and/or are bound to Level 0 elements.
+
+There are 2 different ways to communicate an element's elevation in level 2:
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+#### Applying Level 2 elevation
+
+**Use a tonal difference along with a border**, when an element holds global actions that may be needed at any point in the experience.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+<ApplyLevel2ImgCaption />
+
+**Use a soft, sharp shadow** for elements that have temporary prominence or subtly float above the content.
+
+*Interactive states like vertical or horizontal scroll can dynamically use a soft, sharp shadow to indicate that there is overflown content.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+<PopoverExampleImgCaption />
+
+### Level 3
+
+Elements that sit at this level, float above all other levels, and tend to contain crucial actions or information that temporarily becomes the top hierarchy of the surface.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+#### Applying Level 3 elevation
+
+**Use a border and large, soft shadow**, for elements that are at the top priority and require user focus, but still allow the user to interact with the surrounding content.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+**Use a large soft shadow along with an overlay** for elements that completely isolate the interface to draw full focus from the user.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+## Elevated background color tokens
+
+Subtle tonal shifts are an effective way to communicate hierarchy and prominence for elevated elements without adding visual clutter to the screen.
+
+Paste's elevated background color tokens are derived from a base background color with tonal shifts to indicate elevation.
+Elevated surfaces darken on light backgrounds and lighten on dark backgrounds, ensuring clarity and consistency across themes.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+View our full list of Elevated background color tokens
+
+## Elevated border color tokens
+
+Borders are used across all elevation levels to reinforce separation and define contours. At lower elevations, they provide a lightweight alternative to shadows, while at higher levels, they combine with shadows or tonal changes to emphasize hierarchy and distinguish elements.
+
+Like background color tokens, elevated border color tokens are derived from a base background color with tonal shifts to represent elevation.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+View our full list of Elevated border color tokens
+
+### Callout: Different uses of color
+
+- **Elevation Colors**: Subtle tones for prominence and hierarchy, used to separate elements visually from the background.
+- **Semantic Colors**: Used to communicate meaning or status, such as success, warning, or error.
+- **Decorative Colors**: Reflect the brand identity or give a branded feel to a composition.
+
+Tip: use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
+
+## Shadow tokens
+
+Shadows are the most extreme way to display elevation. Overuse of shadows without understanding your page’s visual hierarchy can have a negative effect on the user experience.
+
+**Level 2 shadows** are small and sharp and indicate a close distance with the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+
+**Level 3 shadows** are larger and softer, this indicates a further distance from the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
+
+<ResponsiveImage src={TokensDiagram} alt="" />
+</content>
+
+</contentwrapper>
