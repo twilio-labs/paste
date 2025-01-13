@@ -1,5 +1,7 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
+import { StoryFn } from "@storybook/react";
 import { Anchor } from "@twilio-paste/anchor";
 import { Blockquote, BlockquoteCitation, BlockquoteContent } from "@twilio-paste/blockquote/";
 import { Box } from "@twilio-paste/box";
@@ -9,6 +11,7 @@ import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { CodeBlock, CodeBlockHeader, CodeBlockWrapper } from "@twilio-paste/code-block";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
@@ -17,6 +20,15 @@ import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { InlineCode } from "@twilio-paste/inline-code";
 import { ListItem, UnorderedList } from "@twilio-paste/list";
 import { Paragraph } from "@twilio-paste/paragraph";
+import { Separator } from "@twilio-paste/separator";
+import {
+  SidePanel,
+  SidePanelBody,
+  SidePanelButton,
+  SidePanelContainer,
+  SidePanelHeader,
+  SidePanelPushContentWrapper,
+} from "@twilio-paste/side-panel";
 import * as React from "react";
 
 import {
@@ -311,4 +323,84 @@ export const MessageBodyTypeWriterComplexComponents = (): React.ReactNode => {
       </Box>
     </Box>
   );
+};
+
+export const MessageBodyTypeWriterFullscreen = (): React.ReactNode => {
+  return (
+    <AIChatMessageBody animated size="fullScreen">
+      <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
+      delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat
+      quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
+      <Anchor showExternal href="https://google.com">
+        434324
+      </Anchor>
+      <UnorderedList>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
+        <ListItem>Item 3</ListItem>
+      </UnorderedList>
+    </AIChatMessageBody>
+  );
+};
+
+export const MessageBodyTypeWriterDefaultSidePanel: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  return (
+    <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel label="example side panel for speed">
+        <SidePanelHeader>
+          <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
+          <Heading as="h3" variant="heading30" marginBottom="space0">
+            Assistant
+          </Heading>
+        </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
+        <SidePanelBody>
+          <Box width="100%">
+            <AIChatLog>
+              <AIChatMessage variant="bot">
+                <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
+                <AIChatMessageBody animated>
+                  <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>{" "}
+                  Deserunt delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem
+                  laborum, ex fugiat quisquam itaque, earum sit{" "}
+                  <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
+                  <Anchor showExternal href="https://google.com">
+                    434324
+                  </Anchor>
+                  <UnorderedList>
+                    <ListItem>Item 1</ListItem>
+                    <ListItem>Item 2</ListItem>
+                    <ListItem>Item 3</ListItem>
+                  </UnorderedList>
+                </AIChatMessageBody>
+              </AIChatMessage>
+            </AIChatLog>
+          </Box>
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <SidePanelButton variant="secondary" pressed={!isOpen}>
+          Toggle Side Panel
+        </SidePanelButton>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+MessageBodyTypeWriterDefaultSidePanel.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };

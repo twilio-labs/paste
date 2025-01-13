@@ -49,7 +49,8 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
   ({ children, size = "default", element = "AI_CHAT_MESSAGE_BODY", animated = false, ...props }, ref) => {
     const { id } = React.useContext(AIMessageContext);
-    const childrenToRender = animated ? useAnimatedText(children) : children;
+    const animationSpeed = size === "fullScreen" ? 8 : 10;
+    const childrenToRender = animated ? useAnimatedText(children, animationSpeed) : children;
 
     return (
       <Box
