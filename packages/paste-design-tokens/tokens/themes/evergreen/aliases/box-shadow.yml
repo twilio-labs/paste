@@ -5,6 +5,6 @@ imports:
   - ./color.yml
 aliases:
   shadow-elevation-0: "none"
-  shadow-elevation-10: "{!offset-0} {!offset-10} {!offset-20} {!offset-0} {!black-transparent-40}"
-  shadow-elevation-20: "{!offset-0} {!offset-20} {!offset-60} {!offset-0} {!black-transparent-50}"
-  shadow-elevation-30: "{!offset-0} {!offset-60} {!offset-80} {!offset-20} {!black-transparent-50}"
+  shadow-elevation-10: "{!offset-0} {!offset-10} {!offset-20} {!offset-0} {!palette-black-transparent-40}"
+  shadow-elevation-20: "{!offset-0} {!offset-20} {!offset-60} {!offset-0} {!palette-black-transparent-50}"
+  shadow-elevation-30: "{!offset-0} {!offset-60} {!offset-80} {!offset-20} {!palette-black-transparent-50}"

@@ -14,7 +14,7 @@ props:
     value: "#E6E8F0"
     comment: Strong default background color.
   color-background-stronger:
-    value: "#C1C4D6"
+    value: "{!palette-gray-30}"
     comment: Stronger default background color.
   color-background-strongest:
     value: "#696F8C"
@@ -23,13 +23,13 @@ props:
     value: "#F9FAFC"
     comment: Weak default background color.
   color-background-inverse:
-    value: "#101840"
+    value: "{!palette-gray-100}"
     comment: Inverse background color for any container. Must be used on color-background-body-inverse.
   color-background-inverse-strong:
-    value: "#474D66"
+    value: "{!palette-gray-75}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
   color-background-inverse-stronger:
-    value: "#696F8C"
+    value: "{!palette-gray-60}"
     comment: Stronger inverse background color for any container. Must be used on color-background-body-inverse.
 
   # brand backgrounds
@@ -61,7 +61,7 @@ props:
     value: "#FFFFFF"
     comment: Background color used for the main page body.
   color-background-body-inverse:
-    value: "#101840"
+    value: "{!palette-gray-100}"
     comment: Inverse background color used for the main page body.
 
   # status
@@ -182,3 +182,14 @@ props:
   color-background-decorative-40-weakest:
     value: "F8F7FD"
     comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+
+  #elevation background
+  color-background-inverse-weak-elevation:
+    value: "{!palette-gray-95}"
+    comment: Elevation token for color-background-inverse-weak elements.
+  color-background-inverse-strong-elevation:
+    value: "{!palette-gray-70}"
+    comment: Elevation token for color-background-inverse-strong elements.
+  color-background-inverse-stronger-elevation:
+    value: "{!palette-gray-55}"
+    comment: Elevation token for color-background-inverse-stronger elements.

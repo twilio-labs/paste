@@ -33,6 +33,9 @@ props:
   color-background-weak:
     value: "{!palette-gray-05}"
     comment: Weak background color used for containers.
+  color-background-weaker:
+    value: "{!palette-gray-0}"
+    comment: Weaker background color used for containers.
 
   # brand backgrounds
   color-background-brand:
@@ -210,3 +213,26 @@ props:
   color-background-notification:
     value: "{!palette-red-60}"
     comment: Background color used for notifications.
+
+  #elevation background
+  color-background-body-elevation:
+    value: "{!palette-gray-05}"
+    comment: Elevation token for color-background-body elements.
+  color-background-weak-elevation:
+    value: "{!palette-gray-05}"
+    comment: Elevation token for color-background-weak elements.
+  color-background-elevation:
+    value: "{!palette-gray-15}"
+    comment: Elevation token for color-background elements.
+  color-background-inverse-elevation:
+    value: "{!palette-gray-95}"
+    comment: Elevation token for color-background-inverse elements.
+  color-background-inverse-weak-elevation:
+    value: "{!palette-gray-85}"
+    comment: Elevation token for color-background-inverse-weak elements.
+  color-background-inverse-strong-elevation:
+    value: "{!palette-gray-75}"
+    comment: Elevation token for color-background-inverse-strong elements.
+  color-background-inverse-stronger-elevation:
+    value: "{!palette-gray-75}"
+    comment: Elevation token for color-background-inverse-stronger elements.
