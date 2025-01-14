@@ -3695,10 +3695,11 @@
       "externalProp": true
     },
     "onAnimationEnd": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
-      "defaultValue": null,
+      "type": "() => void",
+      "defaultValue": false,
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "A callback when the animation is complete"
     },
     "onAnimationEndCapture": {
       "type": "AnimationEventHandler<HTMLDivElement>",
@@ -3719,10 +3720,11 @@
       "externalProp": true
     },
     "onAnimationStart": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
-      "defaultValue": null,
+      "type": "() => void",
+      "defaultValue": false,
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "A callback when the animation is started"
     },
     "onAnimationStartCapture": {
       "type": "AnimationEventHandler<HTMLDivElement>",

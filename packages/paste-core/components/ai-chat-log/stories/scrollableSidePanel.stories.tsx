@@ -32,7 +32,6 @@ import {
   SidePanelHeader,
   SidePanelPushContentWrapper,
 } from "@twilio-paste/side-panel";
-
 import * as React from "react";
 
 import {
@@ -169,7 +168,7 @@ export const SidePanelScroll: StoryFn = () => {
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
             This is an indicator that the message was filtered (blocked) by Twilio or by the carrier. This may be done
-            by Twilio for violating Twilio's{" "}
+            by Twilio for violating Twilio&aposs{" "}
             <Anchor href="https://www.twilio.com/en-us/legal/messaging-policy" showExternal>
               Messaging Policy
             </Anchor>{" "}
@@ -203,7 +202,7 @@ export const SidePanelScroll: StoryFn = () => {
     setMounted(true);
   }, []);
 
-  const scrollToChatEnd = () => {
+  const scrollToChatEnd = (): void => {
     const scrollPosition: any = scrollerRef.current;
     const scrollHeight: any = loggerRef.current;
     scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
@@ -221,12 +220,12 @@ export const SidePanelScroll: StoryFn = () => {
     });
   };
 
-  const onAnimationEnd = () => {
+  const onAnimationEnd = (): void => {
     setIsAnimating(false);
     scrollToChatEnd();
   };
 
-  const onAnimationStart = () => {
+  const onAnimationStart = (): void => {
     setIsAnimating(true);
   };
 
@@ -239,8 +238,8 @@ export const SidePanelScroll: StoryFn = () => {
   }, [isAnimating]);
 
   // eslint-disable-next-line storybook/prefer-pascal-case
-  const createNewMessage = (message: any, forceBot?: boolean): Omit<AIChat, "id"> => {
-    const messageDirection = forceBot ? "bot" : getRandomInt(2) === 1 ? "user" : "bot";
+  const createNewMessage = (newMessage: any, forceBot?: boolean): Omit<AIChat, "id"> => {
+    const messageDirection = getRandomInt(2) === 1 && !forceBot ? "user" : "bot";
 
     return {
       variant: messageDirection,
@@ -248,11 +247,11 @@ export const SidePanelScroll: StoryFn = () => {
         messageDirection === "user" ? (
           <AIChatMessage variant="user">
             <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
-            <AIChatMessageBody>{message}</AIChatMessageBody>
+            <AIChatMessageBody>{newMessage}</AIChatMessageBody>
           </AIChatMessage>
         ) : (
           <AIChatMessage variant="bot">
-            <BotMessage message={message} onAnimationEnd={onAnimationEnd} onAnimationStart={onAnimationStart} />
+            <BotMessage message={newMessage} onAnimationEnd={onAnimationEnd} onAnimationStart={onAnimationStart} />
           </AIChatMessage>
         ),
     };
@@ -263,7 +262,7 @@ export const SidePanelScroll: StoryFn = () => {
     push(createNewMessage(message));
   };
 
-  const pushLargeBotMessage = () => {
+  const pushLargeBotMessage = (): void => {
     push(
       createNewMessage(
         <>
