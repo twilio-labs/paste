@@ -40,6 +40,8 @@ const Content: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
 const defaultTheme = "twilio";
 const defaultFormat = "css";
 
+const hiddenTokens = { "box-shadows": ["shadow", "shadow-low", "shadow-high", "shadow-card"] };
+
 const getTokenListByTheme = (theme: Themes): Tokens => {
   let tokenList: Tokens = TwilioThemeTokens.tokens;
 
@@ -61,6 +63,19 @@ const getTokenListByTheme = (theme: Themes): Tokens => {
       tokenList = TwilioThemeTokens.tokens;
       break;
   }
+
+  // Remove hidden tokens from tokenList
+  Object.keys(hiddenTokens).forEach((category) => {
+    const cat = category as keyof typeof hiddenTokens;
+    hiddenTokens[cat].forEach((token) => {
+      tokenList[cat].forEach((tokenObj) => {
+        if (tokenObj.name === token) {
+          tokenList[cat] = tokenList[cat].filter((item) => item.name !== token);
+        }
+      });
+    });
+  });
+
   return tokenList;
 };
 
