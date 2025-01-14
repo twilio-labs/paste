@@ -63,6 +63,7 @@ const VERTICAL_BASE_STYLES: BoxStyleProps = {
   paddingRight: "space50",
   borderBottomRightRadius: "borderRadius30",
   borderTopRightRadius: "borderRadius30",
+  whiteSpace: "break-spaces",
   _focus: {
     boxShadow: "shadowFocusInset",
     outline: "none",
