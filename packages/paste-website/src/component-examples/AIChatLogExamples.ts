@@ -763,3 +763,75 @@ const AnimatedMessageWithFeedback = () => {
 render(
   <AnimatedMessageWithFeedback />
 )`.trim();
+
+export const animatedBotScrollable = `
+const exampleAIResponseText =
+  "Twilio error codes are numeric codes returned by the Twilio API when an error occurs during a request, providing specific information about the problem encountered, such as invalid phone numbers, network issues, or authentication failures; they help developers identify and troubleshoot issues within their applications using Twilio services";
+
+const AnimatedBotScrollable = () => {
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const loggerRef = React.useRef(null);
+  const scrollerRef = React.useRef(null);
+
+  const { aiChats, push } = useAIChatLogger({
+    variant: "bot",
+    content: (
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>{exampleAIResponseText}</AIChatMessageBody>
+      </AIChatMessage>
+    ),
+  });
+
+  const scrollToChatEnd = () => {
+    const scrollPosition = scrollerRef.current;
+    const scrollHeight = loggerRef.current;
+    scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
+  };
+
+  const onAnimationEnd = () => {
+    setIsAnimating(false);
+    scrollToChatEnd();
+  };
+
+  const onAnimationStart = () => {
+    setIsAnimating(true);
+  };
+
+  React.useEffect(() => {
+    const interval = setInterval(() => isAnimating && scrollToChatEnd(), 30);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isAnimating]);
+
+  const pushLargeBotMessage = () => {
+    push({
+      variant: "bot",
+      content: (
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="Bot said">Good Bot</AIChatMessageAuthor>
+          <AIChatMessageBody animated onAnimationEnd={onAnimationEnd} onAnimationStart={onAnimationStart}>
+            {exampleAIResponseText}
+          </AIChatMessageBody>
+        </AIChatMessage>
+      ),
+    });
+  };
+
+  return (
+    <Box>
+      <Box paddingX="space10" height="size20" overflowY="auto" ref={scrollerRef}>
+        <AIChatLogger ref={loggerRef} aiChats={aiChats} />
+      </Box>
+      <Button variant="primary" onClick={pushLargeBotMessage}>
+        Add animated bot message
+      </Button>
+    </Box>
+  );
+};
+
+render(
+  <AnimatedBotScrollable />
+)`.trim();

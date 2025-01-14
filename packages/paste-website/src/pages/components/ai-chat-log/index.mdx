@@ -60,7 +60,8 @@ import {
   messageGenerationError,
   sendingMessageError,
   systemError,
-  animatedBotWithFeedback
+  animatedBotWithFeedback,
+  animatedBotScrollable
 } from "../../../component-examples/AIChatLogExamples";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
@@ -294,7 +295,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
   {botWithLoadingStopButton}
 </LivePreview>
 
-### Animating
+#### Animating
 The `AIChatMessageBody` component has an optional `animated` prop that can be used to apply a typewriter animation to the text. This should only be applied to the most recent message received from the AI.
 
 <LivePreview
@@ -320,6 +321,26 @@ The `AIChatMessageBody` component has an optional `animated` prop that can be us
 >
   {animatedBotWithFeedback}
 </LivePreview>
+
+##### Scrolling
+The `AIChatMessageBody` component has an optional `animated` prop that can be used to apply a typewriter animation to the text. This should only be applied to the most recent message received from the AI.
+
+<LivePreview
+  scope={{
+    useAIChatLogger,
+    AIChatLogger,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    Button,
+    Box
+  }}
+  language="jsx"
+  noInline
+>
+  {animatedBotScrollable}
+</LivePreview>
+
 
 ### Customizing Avatar
 

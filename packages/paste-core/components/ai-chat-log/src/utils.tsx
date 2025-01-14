@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 // Hook to animate text content of React elements
-export const useAnimatedText = (children: React.ReactNode, speed = 10): React.ReactNode => {
+export const useAnimatedText = (
+  children: React.ReactNode,
+  speed = 10,
+  enabled = true,
+): { animatedChildren: React.ReactNode; isAnimating: boolean } => {
   const [animatedChildren, setAnimatedChildren] = useState<React.ReactNode>();
   const [textIndex, setTextIndex] = useState(0);
 
@@ -58,13 +62,18 @@ export const useAnimatedText = (children: React.ReactNode, speed = 10): React.Re
 
   // Effect to update animated children based on the current text index
   useEffect(() => {
-    const totaLength = calculateTotalTextLength(children);
-    if (textIndex <= totaLength) {
-      setAnimatedChildren(cloneChildren(children, textIndex));
+    if (enabled) {
+      const totaLength = calculateTotalTextLength(children);
+      if (textIndex <= totaLength) {
+        setAnimatedChildren(cloneChildren(children, textIndex));
+      }
     }
-  }, [children, textIndex]);
+  }, [children, textIndex, enabled]);
 
-  return animatedChildren;
+  return {
+    animatedChildren: enabled ? animatedChildren : children,
+    isAnimating: enabled && textIndex < calculateTotalTextLength(children),
+  };
 };
 
 export default useAnimatedText;
