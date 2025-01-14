@@ -206,33 +206,6 @@ The `AIChatMessageBody` component has two sizes, `size="default"` and `size="ful
 </AIChatLog>`}
 </LivePreview>
 
-### Messages with animation
-The `AIChatMessageBody` component has an optional `animate` prop that can be used to apply a typewriter animation to the text. This should only be applied to the most recent message received from the AI.
-
-<LivePreview
-  scope={{
-    AIChatLog,
-    AIChatMessage,
-    AIChatMessageAuthor,
-    AIChatMessageBody,
-    AIChatMessageActionCard,
-    AIChatMessageActionGroup,
-    Button,
-    ThumbsUpIcon,
-    ThumbsDownIcon,
-    CopyIcon,
-    RefreshIcon,
-    Button,
-    ResetIcon,    
-    Anchor,
-    InlineCode
-  }}
-  language="jsx"
-  noInline
->
-  {animatedBotWithFeedback}
-</LivePreview>
-
 ### Message with Actions
 
 Message actions can be used to provide quick responses or actions to the user.
@@ -283,13 +256,13 @@ Actions can still be added in `AIChatMessageBody` which are returned from the AI
   {botWithBodyActions}
 </LivePreview>
 
-### Loading States
+### Generating Messages
+
+#### Loading
 
 Use the `AIChatMessageLoading` component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
 
 The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
-
-#### Loading
 
 <LivePreview
   scope={{
@@ -305,7 +278,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
   {botWithLoading}
 </LivePreview>
 
-#### Loading with Stop Button
+##### Loading with Stop Button
 
 <LivePreview
   scope={{
@@ -319,6 +292,33 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
   noInline
 >
   {botWithLoadingStopButton}
+</LivePreview>
+
+### Animating
+The `AIChatMessageBody` component has an optional `animated` prop that can be used to apply a typewriter animation to the text. This should only be applied to the most recent message received from the AI.
+
+<LivePreview
+  scope={{
+    AIChatLog,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    AIChatMessageActionCard,
+    AIChatMessageActionGroup,
+    Button,
+    ThumbsUpIcon,
+    ThumbsDownIcon,
+    CopyIcon,
+    RefreshIcon,
+    Button,
+    ResetIcon,    
+    Anchor,
+    InlineCode
+  }}
+  language="jsx"
+  noInline
+>
+  {animatedBotWithFeedback}
 </LivePreview>
 
 ### Customizing Avatar
