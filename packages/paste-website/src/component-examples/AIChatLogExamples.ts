@@ -770,6 +770,7 @@ const exampleAIResponseText =
 
 const AnimatedBotScrollable = () => {
   const [isAnimating, setIsAnimating] = React.useState(false);
+  const [userInterctedScroll, setUserInteractedScroll] = React.useState(false);
   const loggerRef = React.useRef(null);
   const scrollerRef = React.useRef(null);
 
@@ -789,22 +790,30 @@ const AnimatedBotScrollable = () => {
     scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
   };
 
+  const userScrolled = () => setUserInteractedScroll(true);
+
   const onAnimationEnd = () => {
     setIsAnimating(false);
-    scrollToChatEnd();
+    setUserInteractedScroll(false);
   };
 
   const onAnimationStart = () => {
+    setUserInteractedScroll(false);
     setIsAnimating(true);
   };
 
   React.useEffect(() => {
-    const interval = setInterval(() => isAnimating && scrollToChatEnd(), 30);
+    scrollerRef.current?.addEventListener("wheel", userScrolled);
+    scrollerRef.current?.addEventListener("touchmove", userScrolled);
+
+    const interval = setInterval(() => isAnimating && !userInterctedScroll && scrollToChatEnd(), 5);
 
     return () => {
       if (interval) clearInterval(interval);
+      scrollerRef.current?.removeEventListener("wheel", userScrolled);
+      scrollerRef.current?.removeEventListener("touchmove", userScrolled);
     };
-  }, [isAnimating]);
+  }, [isAnimating, userInterctedScroll, scrollerRef]);
 
   const pushLargeBotMessage = () => {
     push({

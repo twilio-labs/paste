@@ -195,8 +195,9 @@ export const SidePanelScroll: StoryFn = () => {
   );
   const [message, setMessage] = React.useState("");
   const [mounted, setMounted] = React.useState(false);
-  const loggerRef = React.useRef(null);
-  const scrollerRef = React.useRef(null);
+  const [userInterctedScroll, setUserInteractedScroll] = React.useState(false);
+  const loggerRef = React.useRef<HTMLDivElement>(null);
+  const scrollerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     setMounted(true);
@@ -222,20 +223,27 @@ export const SidePanelScroll: StoryFn = () => {
 
   const onAnimationEnd = (): void => {
     setIsAnimating(false);
-    scrollToChatEnd();
+    setUserInteractedScroll(false);
   };
 
   const onAnimationStart = (): void => {
+    setUserInteractedScroll(false);
     setIsAnimating(true);
   };
 
-  React.useEffect(() => {
-    const interval = setInterval(() => isAnimating && scrollToChatEnd(), 30);
+  const userScrolled = (): void => setUserInteractedScroll(true);
 
+  React.useEffect(() => {
+    scrollerRef.current?.addEventListener("wheel", userScrolled);
+    scrollerRef.current?.addEventListener("touchmove", userScrolled);
+
+    const interval = setInterval(() => isAnimating && !userInterctedScroll && scrollToChatEnd(), 5);
     return () => {
       if (interval) clearInterval(interval);
+      scrollerRef.current?.removeEventListener("wheel", userScrolled);
+      scrollerRef.current?.removeEventListener("touchmove", userScrolled);
     };
-  }, [isAnimating]);
+  }, [isAnimating, userInterctedScroll]);
 
   // eslint-disable-next-line storybook/prefer-pascal-case
   const createNewMessage = (newMessage: any, forceBot?: boolean): Omit<AIChat, "id"> => {
