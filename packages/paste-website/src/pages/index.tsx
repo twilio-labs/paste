@@ -37,6 +37,7 @@ const HomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
+        <meta name="google-site-verification" content="RcDkNXli_nLDStuxzN6Xcwi_LWtDjcHKJlC1uhGU4vU" />
       </Head>
       <HomeHero />
       <NewSection />

@@ -1,5 +1,6 @@
-import { globby } from "globby-esm";
 import type { GetServerSideProps } from "next";
+
+import { SITEMAP } from "../../../../cypress/integration/sitemap-vrt/constants"; // Import the SITEMAP used for cypress
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
@@ -8,29 +9,17 @@ const Sitemap = (): React.ReactElement | null => {
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const BASE_URL = "https://paste.twilio.design";
 
-  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
-    cwd: __dirname,
-  });
-  const staticPaths = paths.map((staticPagePath) => {
-    const path = staticPagePath.replace(".js", "");
-    const route = path === "index" ? "" : `${path}/`;
-
-    return `${BASE_URL}/${route}`;
-  });
-
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${staticPaths
-        .map((url) => {
-          return `
+      ${SITEMAP.map((url) => {
+        return `
             <url>
-              <loc>${url}</loc>
+              <loc>${BASE_URL}${url}</loc>
               <changefreq>daily</changefreq>
               <priority>0.7</priority>
             </url>
           `;
-        })
-        .join("")}
+      }).join("")}
     </urlset>
   `;
 
