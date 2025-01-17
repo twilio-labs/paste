@@ -3,7 +3,6 @@ global:
   category: background-color
 imports:
   - ../../../global/background-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # base background

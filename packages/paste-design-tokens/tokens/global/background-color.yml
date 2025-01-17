@@ -35,7 +35,7 @@ props:
     comment: Weak background color used for containers.
   color-background-weaker:
     value: "{!palette-gray-0}"
-    comment: Weaker background color used for containers.
+    comment: Background color for elevated elements. Matches color-background-body in light mode but appears slightly lighter in dark mode to maintain focus.
 
   # brand backgrounds
   color-background-brand:

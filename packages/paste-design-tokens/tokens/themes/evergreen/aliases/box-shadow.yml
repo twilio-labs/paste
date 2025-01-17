@@ -2,7 +2,6 @@ imports:
   - ../../../aliases/box-shadow.yml
   - ../../../aliases/offset.yml
   - ./color-palette.yml
-  - ./color.yml
 aliases:
   shadow-elevation-0: "none"
   shadow-elevation-10: "{!offset-0} {!offset-10} {!offset-20} {!offset-0} {!palette-black-transparent-40}"

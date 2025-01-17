@@ -3,7 +3,6 @@ global:
   category: border-color
 imports:
   - ../../../global/border-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   color-border-strong:

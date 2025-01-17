@@ -3,7 +3,6 @@ global:
   category: background-color
 imports:
   - ../../../global/background-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # base background
@@ -33,6 +32,7 @@ props:
     comment: Weak default background color.
   color-background-weaker:
     value: "{!palette-gray-100}"
+    comment: Background color for elevated elements. Matches color-background-body in light mode but appears slightly lighter in dark mode to maintain focus.
 
   # brand backgrounds
   color-background-brand:

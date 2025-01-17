@@ -4,7 +4,7 @@ const sampleAliases = ["palette-gray-80", "palette-gray-100", "palette-gray-20",
 const sortedAliases = ["palette-gray-100", "palette-gray-80", "palette-gray-60", "palette-gray-20"];
 const aliasValues = [
   "#121c2d",
-  "#17243a",
+  "#19273E",
   "#1f304c",
   "#25395b",
   "#394762",

@@ -12,7 +12,7 @@ props:
     value: "{!palette-gray-90}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
   color-background-weaker:
-    value: "{!palette-gray-0}"
+    value: "{!palette-gray-100}"
 
   # brand backgrounds
   color-background-brand:
