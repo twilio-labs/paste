@@ -40,7 +40,10 @@ const Content: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
 const defaultTheme = "twilio";
 const defaultFormat = "css";
 
-const hiddenTokens = { "box-shadows": ["shadow", "shadow-low", "shadow-high", "shadow-card"] };
+const hiddenTokens = {
+  "box-shadows": ["shadow", "shadow-low", "shadow-high", "shadow-card"],
+  "color-schemes": ["color-scheme"],
+};
 
 const getTokenListByTheme = (theme: Themes): Tokens => {
   let tokenList: Tokens = TwilioThemeTokens.tokens;
