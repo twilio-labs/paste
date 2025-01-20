@@ -61,9 +61,6 @@ jobs:
       - name: Run migrations on staging
         run: yarn workspace @twilio-paste/backend supabase db push
 
-      - name: Check Supabase Version
-        run: yarn db:version
-
       - name: Start Supabase local development setup
         run: yarn start:backend:dev
 
