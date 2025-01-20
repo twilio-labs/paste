@@ -9,6 +9,6 @@
     "db:reset": "yarn supabase db reset"
   },
   "devDependencies": {
-    "supabase": "^2.8.1"
+    "supabase": "~2.6.8"
   }
 }
