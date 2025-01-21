@@ -182,7 +182,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   /**
    * perform run on the assistant to process the newly added user message
    */
-  let run = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantID });
+  let run = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantID, model: "gpt-4o" });
 
   /**
    * poll the run to see if it's complete or if the assistant need to call some "Functions" find it's status
