@@ -19,7 +19,7 @@ import { AsssistantLayout } from "./AssistantLayout";
 import { AssistantThreads } from "./AssistantThreads";
 import { AssistantHeader } from "./AsststantHeader";
 
-const getMockMessage = ({ message }: { message: string }): Partial<Message> => {
+const getMockMessage = ({ message }: { message: string }): Message => {
   const date = new Date();
 
   return {
@@ -40,6 +40,11 @@ const getMockMessage = ({ message }: { message: string }): Partial<Message> => {
     assistant_id: null,
     run_id: null,
     metadata: {},
+    attachments: null,
+    completed_at: null,
+    incomplete_at: null,
+    incomplete_details: null,
+    status: "incomplete",
   };
 };
 
