@@ -21,6 +21,8 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
 const slackChannelID = process.env.SLACK_CHANNEL_TMP_PASTE_ASSISTANT;
 
+const isDev = process.env.NODE_ENV === "development";
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
 });
@@ -73,39 +75,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
-    if (!slackChannelID) {
+    if (!slackChannelID && !isDev) {
       throw new ApplicationError("Missing environment variable SLACK_CHANNEL_TMP_PASTE_ASSISTANT");
     }
 
     const newThread = await createThread();
     logger.info(`${LOG_PREFIX} Created thread`, { newThread });
 
-    // post to slack
-    const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        message: `New Paste Assistant thread created: ${newThread.id}`,
-        channelID: slackChannelID,
-      }),
-    });
+    let slackResult: ChatPostMessageResponse | undefined;
 
-    const slackResponseJSON = await postToSlackResponse.json();
-    const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
+    if (!isDev) {
+      // post to slack
+      const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: `New Paste Assistant thread created: ${newThread.id}`,
+          channelID: slackChannelID,
+        }),
+      });
 
-    logger.info(`${LOG_PREFIX} Posted to slack`, {
-      slackMessageCreated: slackResult.ts,
-      message: slackResult.message?.text,
-    });
+      const slackResponseJSON = await postToSlackResponse.json();
+      slackResult = slackResponseJSON.result as ChatPostMessageResponse;
+
+      logger.info(`${LOG_PREFIX} Posted to slack`, {
+        slackMessageCreated: slackResult.ts,
+        message: slackResult.message?.text,
+      });
+    }
 
     // save to supabase
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
     const { data: newAssistantThreadData, error: newAssistantThreadError } = await supabaseClient
       .from("assistant_threads")
       // eslint-disable-next-line camelcase
-      .insert([{ openai_thread_id: newThread.id, slack_thread_ts: slackResult.ts }]);
+      .insert([{ openai_thread_id: newThread.id, slack_thread_ts: slackResult?.ts }]);
 
     if (newAssistantThreadError) {
       throw new ApplicationError("Failed to store new thread", newAssistantThreadError);
