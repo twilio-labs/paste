@@ -31,7 +31,7 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   };
 
   const submitMessage = (): void => {
-    if (message === "" || selectedThread == null) return;
+    if (message === "") return;
     onMessageCreation(message, selectedThread);
   };
 
