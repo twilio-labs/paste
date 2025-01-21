@@ -13,6 +13,7 @@
   - [Working on components](#working-on-components)
   - [Working on the docs site](#working-on-the-docs-site)
   - [Working on Remix (Theme Designer)](#working-on-remix-theme-designer)
+  - [Working on Backend](#working-on-backend)
 
 ## Prerequisites
 
@@ -300,3 +301,72 @@ Then run:
 ```bash
 yarn start:theme-designer
 ```
+
+## Working on Website Backend
+
+This section covers how to setup the Supabase backend and 
+
+### Prerequisites
+
+You will need docker or a similar service in odrer to start the local supabase instance.
+
+### Environment
+
+To run the backend and develop all functionality of the website you will need to add additional variable in the `.env` file previously configured
+
+**Note**: access can be granted internally to OpenAI via the Service portal
+
+<table>
+  <tr>
+   <td>OPENAI_API_KEY
+   </td>
+   <td>The token used to interact with OpenAI
+   </td>
+  </tr>
+  <tr>
+   <td>OPENAI_API_SECRET
+   </td>
+   <td>The secret provided by OpenAI
+   </td>
+  </tr>
+  <tr>
+   <td>OPENAI_ASSISTANT_ID
+   </td>
+   <td>The assistant id for the OpenAI project
+   </td>
+  </tr>
+  <tr>
+   <td>SUPABASE_URL
+   </td>
+   <td>The url of the supabase BE you want to use. For local development is should map to <strong>http://127.0.0.1:54321</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>SUPABASE_KEY
+   </td>
+   <td>This will be generated and output from the start command in `/apps/backend`. It can also be retreieved by running `npx supabase status` in the directory.
+   </td>
+  </tr>
+  <tr>
+   <td>GH_SERVICE_ACC_DISCUSSIONS_TOKEN
+   </td>
+   <td>Used for embeddings script, must be a token with read access to Paste repo discussions.
+   </td>
+  </tr>
+  <tr>
+   <td>ROLLBAR_ACCESS_TOKEN
+   </td>
+   <td>A dummy value can be used for local development e.g. "MOCK_TOKEN"
+   </td>
+  </tr>
+</table>
+
+### Running Supabase
+
+Supabase is the data storage layer used by the application. We use it to store messages with the Paste AI Assistant and also storing embeddings used by our search functionality for pages and GitHub discussions.
+
+With Docker or a similar service running, you can start supabase by running `start:backend:dev`. This will output details of the envirnment lile auth tokens used to connect to the APIs and URLs of the frontent and services.
+
+You should be able to access the UI at http://localhost:54323.
+
+Migrations should be applied by default. If there are no tables on startup run the `db:reset` command in the `apps/backend` directory.
