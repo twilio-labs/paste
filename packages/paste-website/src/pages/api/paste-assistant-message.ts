@@ -29,7 +29,7 @@ const LOG_PREFIX = "[/api/paste-assistant-message]:";
 async function createUserMessage({
   threadId,
   message,
-}: { threadId: string; message: string }): Promise<OpenAI.Beta.Threads.Messages.ThreadMessage> {
+}: { threadId: string; message: string }): Promise<OpenAI.Beta.Threads.Messages.Message> {
   return openai.beta.threads.messages.create(threadId, { role: "user", content: message });
 }
 
