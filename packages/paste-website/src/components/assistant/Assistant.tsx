@@ -19,14 +19,14 @@ import { AsssistantLayout } from "./AssistantLayout";
 import { AssistantThreads } from "./AssistantThreads";
 import { AssistantHeader } from "./AsststantHeader";
 
-const getMockMessage = ({ message }: { message: string }): Message => {
+const getMockMessage = ({ message, threadId }: { message: string; threadId: string }): Message => {
   const date = new Date();
 
   return {
     id: "",
     object: "thread.message",
     created_at: Math.floor(date.getTime() / 1000),
-    thread_id: "xxxx",
+    thread_id: threadId,
     role: "user",
     content: [
       {
@@ -62,7 +62,7 @@ export const Assistant: React.FC = () => {
 
   const handleMessageCreation = (message: string, threadId: string): void => {
     // add the new user message to the store to optimistically render it whilst we wait for openAI to do its thing
-    addMessage(getMockMessage({ message }));
+    addMessage(getMockMessage({ message, threadId }));
 
     // Create a new "assistant run" on the thread so that openAI processes the new message and updates the thread with a response
     createAssistantRun.mutate(
@@ -109,7 +109,7 @@ export const Assistant: React.FC = () => {
    *
    * @param {string} message
    */
-  const handleCannedThreadCreation = (message: string): void => {
+  const handleThreadCreationWithMessage = (message: string): void => {
     createThreadMutation.mutate(
       {},
       {
@@ -134,11 +134,19 @@ export const Assistant: React.FC = () => {
       </AsssistantLayout.Threads>
       <AsssistantLayout.Canvas>
         {threadsStore.selectedThreadID == null && (
-          <AssistantEmptyState onCannedThreadCreation={handleCannedThreadCreation} />
+          <AssistantEmptyState onCannedThreadCreation={handleThreadCreationWithMessage} />
         )}
         {threadsStore.selectedThreadID != null && <AssistantCanvas selectedThreadID={threadsStore.selectedThreadID} />}
         <AsssistantLayout.Composer>
-          <AssistantComposer onMessageCreation={handleMessageCreation} />
+          <AssistantComposer
+            onMessageCreation={(message, threadId) => {
+              if (!threadId) {
+                handleThreadCreationWithMessage(message);
+              } else {
+                handleMessageCreation(message, threadId);
+              }
+            }}
+          />
         </AsssistantLayout.Composer>
       </AsssistantLayout.Canvas>
     </AsssistantLayout.Window>
