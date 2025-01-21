@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // thread is optional if you want to reply to a Slack thread
   const { message, channelID, threadID } = requestData;
-  logger.info(`${LOG_PREFIX} User query`, { message, channelID, threadID, slackToken });
+  logger.info(`${LOG_PREFIX} User query`, { message, channelID, threadID });
 
   if (message === undefined || message === "") {
     logger.error(`${LOG_PREFIX} Message is undefined`);
