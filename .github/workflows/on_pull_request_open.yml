@@ -20,9 +20,6 @@ jobs:
           # List of all teams for dsys
           team: "[Design Systems PD,design-systems,Design Systems Eng,Design Systems Eng Leads]"
 
-      - name: Debug in group
-        run: echo "${{ github.actor }} is team member ${{ steps.teamAffiliation.outputs.isTeamMember }}"
-
       - name: Auto contribution labeler
         if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
         uses: actions/labeler@v5
