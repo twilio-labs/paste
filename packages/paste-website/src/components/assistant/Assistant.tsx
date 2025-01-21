@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import type { ThreadMessage } from "openai/resources/beta/threads/messages/messages";
+import type { Message } from "openai/resources/beta/threads/messages";
 import * as React from "react";
 
 import {
@@ -19,7 +19,7 @@ import { AsssistantLayout } from "./AssistantLayout";
 import { AssistantThreads } from "./AssistantThreads";
 import { AssistantHeader } from "./AsststantHeader";
 
-const getMockMessage = ({ message }: { message: string }): ThreadMessage => {
+const getMockMessage = ({ message }: { message: string }): Partial<Message> => {
   const date = new Date();
 
   return {
@@ -37,7 +37,6 @@ const getMockMessage = ({ message }: { message: string }): ThreadMessage => {
         },
       },
     ],
-    file_ids: [],
     assistant_id: null,
     run_id: null,
     metadata: {},
