@@ -1,12 +1,12 @@
 import { AIChatMessage, AIChatMessageAuthor, AIChatMessageBody } from "@twilio-paste/ai-chat-log";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
-import { type ThreadMessage } from "openai/resources/beta/threads/messages";
+import { type Message } from "openai/resources/beta/threads/messages";
 import * as React from "react";
 
 import { formatTimestamp } from "../../utils/formatTimestamp";
 import { AssistantMarkdown } from "./AssistantMarkdown";
 
-export const UserMessage: React.FC<{ threadMessage: ThreadMessage }> = ({ threadMessage }) => {
+export const UserMessage: React.FC<{ threadMessage: Message }> = ({ threadMessage }) => {
   return (
     <AIChatMessage variant="user">
       <AIChatMessageAuthor

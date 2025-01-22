@@ -14,7 +14,7 @@ import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { EnterKeySubmitPlugin } from "./EnterKeySubmitPlugin";
 
-export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread: string) => void }> = ({
+export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread?: string) => void }> = ({
   onMessageCreation,
 }) => {
   const [message, setMessage] = React.useState("");
@@ -31,7 +31,7 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   };
 
   const submitMessage = (): void => {
-    if (message === "" || selectedThread == null) return;
+    if (message === "") return;
     onMessageCreation(message, selectedThread);
   };
 

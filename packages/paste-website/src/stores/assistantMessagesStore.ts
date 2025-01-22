@@ -1,12 +1,12 @@
-import { type ThreadMessage, type ThreadMessagesPage } from "openai/resources/beta/threads/messages";
+import { type Message, type MessagesPage } from "openai/resources/beta/threads/messages";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-export type AssistantThreadMessages = ThreadMessagesPage["data"];
+export type AssistantThreadMessages = MessagesPage["data"];
 type State = { messages: AssistantThreadMessages };
 type Actions = {
   setMessages: (newMessages: AssistantThreadMessages) => void;
-  addMessage: (newMessage: ThreadMessage) => void;
+  addMessage: (newMessage: Message) => void;
   resetMessages: () => void;
 };
 
