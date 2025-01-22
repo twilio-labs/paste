@@ -1,3 +1,4 @@
+import { useIsMutating } from "@tanstack/react-query";
 import { Button } from "@twilio-paste/button";
 import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
@@ -10,12 +11,11 @@ import {
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
 import { useShallow } from "zustand/react/shallow";
-import { useIsMutating } from "@tanstack/react-query";
 
+import { useAssistantRunStore } from "../../stores/assistantRunStore";
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { EnterKeySubmitPlugin } from "./EnterKeySubmitPlugin";
-import { useAssistantRunStore } from "../../stores/assistantRunStore";
 
 export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread?: string) => void }> = ({
   onMessageCreation,

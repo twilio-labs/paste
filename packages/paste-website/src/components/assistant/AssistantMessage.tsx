@@ -4,9 +4,9 @@ import {
   AIChatMessageBody,
   AIChatMessageBodyProps,
 } from "@twilio-paste/ai-chat-log";
+import { compiler } from "markdown-to-jsx";
 import { type Message } from "openai/resources/beta/threads/messages";
 import * as React from "react";
-import { compiler } from "markdown-to-jsx";
 
 import { formatTimestamp } from "../../utils/formatTimestamp";
 import { assistantMarkdownOptions } from "./AssistantMarkdown";
