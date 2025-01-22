@@ -12,7 +12,7 @@ export const AssistantMessage: React.FC<{ threadMessage: ThreadMessage }> = ({ t
         PasteBot
       </AIChatMessageAuthor>
       <AIChatMessageBody>
-        {threadMessage.content[0].type === "text" && (
+        {threadMessage.content.length > 0 && threadMessage.content[0]?.type === "text" && (
           <AssistantMarkdown key={threadMessage.id}>{threadMessage.content[0].text.value}</AssistantMarkdown>
         )}
       </AIChatMessageBody>
