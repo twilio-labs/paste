@@ -1,3 +1,4 @@
+import { AIChatMessageBody } from "@twilio-paste/ai-chat-log";
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { CodeBlock, CodeBlockHeader, type CodeBlockProps, CodeBlockWrapper } from "@twilio-paste/code-block";
@@ -6,7 +7,7 @@ import { InlineCode } from "@twilio-paste/inline-code";
 import { ListItem, OrderedList, UnorderedList } from "@twilio-paste/list";
 import { Separator } from "@twilio-paste/separator";
 import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
-import Markdown from "markdown-to-jsx";
+import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import * as React from "react";
 
 export const AssistantHeading: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -43,11 +44,8 @@ export const AssistantTable: React.FC<React.PropsWithChildren> = ({ children }) 
   );
 };
 
-export const AssistantMarkdown: React.FC<{ children: string }> = ({ children }) => {
-  return (
-    <Markdown
-      options={{
-        renderRule(next, node) {
+export const assistantMarkdownOptions = {
+        renderRule(next: () => React.ReactChild, node: MarkdownToJSX.ParserResult) {
           if (node.type === "3") {
             return (
               <Box marginBottom="space50">
@@ -118,7 +116,13 @@ export const AssistantMarkdown: React.FC<{ children: string }> = ({ children }) 
             component: Th,
           },
         },
-      }}
+      
+}
+
+export const AssistantMarkdown: React.FC<{ children: string }> = ({ children }) => {
+  return (
+    <Markdown
+      options={assistantMarkdownOptions}
     >
       {children}
     </Markdown>

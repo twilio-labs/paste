@@ -13,6 +13,9 @@ import * as React from "react";
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { EnterKeySubmitPlugin } from "./EnterKeySubmitPlugin";
+import { useAssistantRunStore } from "../../stores/assistantRunStore";
+import { useShallow } from "zustand/react/shallow";
+import { useIsMutating } from "@tanstack/react-query";
 
 export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread?: string) => void }> = ({
   onMessageCreation,
@@ -20,8 +23,11 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   const [message, setMessage] = React.useState("");
   const threadsStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const selectedThread = threadsStore?.selectedThreadID;
-
+  const { activeRun } = useAssistantRunStore(useShallow((state) => state));
+  const isCreatingAResponse = useIsMutating({ mutationKey: ["create-assistant-run"] });
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
+
+  const isLoading = !!(isCreatingAResponse || activeRun != null);
 
   const handleComposerChange = (editorState: EditorState): void => {
     editorState.read(() => {
@@ -49,21 +55,25 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
             throw error;
           },
         }}
+        disabled={isLoading}
         ariaLabel="Message"
         placeholder="Type here..."
         onChange={handleComposerChange}
         editorInstanceRef={editorInstanceRef}
       >
         <ClearEditorPlugin />
-        <EnterKeySubmitPlugin onKeyDown={submitMessage} />
+        <EnterKeySubmitPlugin onKeyDown={() => !isLoading && submitMessage()} />
       </ChatComposer>
       <ChatComposerActionGroup>
         <Button
           variant="primary_icon"
           size="reset"
+          disabled={isLoading}
           onClick={() => {
-            submitMessage();
-            editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+            if (!isLoading) {
+              submitMessage();
+              editorInstanceRef.current?.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+            }
           }}
         >
           <SendIcon decorative={false} title="Send" />
