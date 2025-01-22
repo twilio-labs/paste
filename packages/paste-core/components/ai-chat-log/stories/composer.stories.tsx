@@ -59,7 +59,7 @@ const BotMessage = (props): JSX.Element => {
   ) : (
     <AIChatMessage variant="bot">
       <AIChatMessageAuthor aria-label="Bot said">Good Bot</AIChatMessageAuthor>
-      <AIChatMessageBody>{props.message as string}</AIChatMessageBody>
+      <AIChatMessageBody animated>{props.message as string}</AIChatMessageBody>
     </AIChatMessage>
   );
 };

@@ -29,7 +29,7 @@ const LOG_PREFIX = "[/api/paste-assistant-message]:";
 async function createUserMessage({
   threadId,
   message,
-}: { threadId: string; message: string }): Promise<OpenAI.Beta.Threads.Messages.ThreadMessage> {
+}: { threadId: string; message: string }): Promise<OpenAI.Beta.Threads.Messages.Message> {
   return openai.beta.threads.messages.create(threadId, { role: "user", content: message });
 }
 
@@ -182,7 +182,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   /**
    * perform run on the assistant to process the newly added user message
    */
-  let run = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantID });
+  let run = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantID, model: "gpt-4o" });
 
   /**
    * poll the run to see if it's complete or if the assistant need to call some "Functions" find it's status

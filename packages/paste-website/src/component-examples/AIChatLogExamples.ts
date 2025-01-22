@@ -712,3 +712,135 @@ const SystemError = () => {
 render(
   <SystemError />
 )`.trim();
+
+export const animatedBotWithFeedback = `
+const AnimatedMessageWithFeedback = () => {
+  const [animated, setAnimated] = React.useState(true)
+
+  const restart = () => {
+    setAnimated(false)
+    setTimeout(() => {
+      setAnimated(true)
+    }, 100)
+  }
+
+  return (
+    <>
+      <Button variant="secondary" onClick={restart}>
+        <ResetIcon decorative={false} size="sizeIcon10" title="reset" />{" "}Restart
+      </Button>
+      <AIChatLog>
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+          <AIChatMessageBody animated={animated}>
+            I found multiple solutions for the issue with your environment variable, <InlineCode>TWILIO_AUTH_TOKEN</InlineCode>. Other helpful resources can be found at <Anchor href="#" showExternal>Twilio API Docs</Anchor>.
+          </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="reset" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="reset" size="reset">
+                <ThumbsDownIcon decorative={false} title="dislike result" aria-label="this is not a helpful response" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
+              <Button variant="reset" size="reset">
+                <RefreshIcon decorative={true}/> Rewrite
+              </Button>
+              <Button variant="reset" size="reset">
+                <CopyIcon decorative={true}/> Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
+        </AIChatMessage>
+      </AIChatLog>
+    </>
+  );
+};
+
+render(
+  <AnimatedMessageWithFeedback />
+)`.trim();
+
+export const animatedBotScrollable = `
+const exampleAIResponseText =
+  "Twilio error codes are numeric codes returned by the Twilio API when an error occurs during a request, providing specific information about the problem encountered, such as invalid phone numbers, network issues, or authentication failures; they help developers identify and troubleshoot issues within their applications using Twilio services";
+
+const AnimatedBotScrollable = () => {
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const [userInterctedScroll, setUserInteractedScroll] = React.useState(false);
+  const loggerRef = React.useRef(null);
+  const scrollerRef = React.useRef(null);
+
+  const { aiChats, push } = useAIChatLogger({
+    variant: "bot",
+    content: (
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody>{exampleAIResponseText}</AIChatMessageBody>
+      </AIChatMessage>
+    ),
+  });
+
+  const scrollToChatEnd = () => {
+    const scrollPosition = scrollerRef.current;
+    const scrollHeight = loggerRef.current;
+    scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
+  };
+
+  const userScrolled = () => setUserInteractedScroll(true);
+
+  const onAnimationEnd = () => {
+    setIsAnimating(false);
+    setUserInteractedScroll(false);
+  };
+
+  const onAnimationStart = () => {
+    setUserInteractedScroll(false);
+    setIsAnimating(true);
+  };
+
+  React.useEffect(() => {
+    scrollerRef.current?.addEventListener("wheel", userScrolled);
+    scrollerRef.current?.addEventListener("touchmove", userScrolled);
+
+    const interval = setInterval(() => isAnimating && !userInterctedScroll && scrollToChatEnd(), 5);
+
+    return () => {
+      if (interval) clearInterval(interval);
+      scrollerRef.current?.removeEventListener("wheel", userScrolled);
+      scrollerRef.current?.removeEventListener("touchmove", userScrolled);
+    };
+  }, [isAnimating, userInterctedScroll, scrollerRef]);
+
+  const pushLargeBotMessage = () => {
+    push({
+      variant: "bot",
+      content: (
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="Bot said">Good Bot</AIChatMessageAuthor>
+          <AIChatMessageBody animated onAnimationEnd={onAnimationEnd} onAnimationStart={onAnimationStart}>
+            {exampleAIResponseText}
+          </AIChatMessageBody>
+        </AIChatMessage>
+      ),
+    });
+  };
+
+  return (
+    <Box>
+      <Box paddingX="space10" height="size20" overflowY="auto" ref={scrollerRef}>
+        <AIChatLogger ref={loggerRef} aiChats={aiChats} />
+      </Box>
+      <Button variant="primary" onClick={pushLargeBotMessage}>
+        Add animated bot message
+      </Button>
+    </Box>
+  );
+};
+
+render(
+  <AnimatedBotScrollable />
+)`.trim();
