@@ -22,7 +22,7 @@ const LOG_PREFIX = "[/api/paste-assistant-messages/:tid]:";
 
 async function getThreadMessages({
   threadId,
-}: { threadId: OpenAI.Beta.Thread["id"] }): Promise<OpenAI.Beta.Threads.Messages.ThreadMessagesPage> {
+}: { threadId: OpenAI.Beta.Thread["id"] }): Promise<OpenAI.Beta.Threads.Messages.MessagesPage> {
   return openai.beta.threads.messages.list(threadId, { order: "asc" });
 }
 
