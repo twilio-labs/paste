@@ -299,6 +299,8 @@ The `AIChatMessageBody` component has an optional `animated` prop that can be us
 
 It also accepts `onAnimationStart` and `onAnimationEnd` props to trigger actions when the animation starts and ends allowing additional logic such as scrolling to be implemented.
 
+If you are using a Markdown parser to render the message body we recommend using [markdown-to-jsx](https://www.npmjs.com/package/markdown-to-jsx). It allows you to pass in paste elements to replace specific markdown elements. You can view our implementation for the [Paste Assistant](/assistant) for an example. [AIChatMessageBody implementation](https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/components/assistant/AssistantMessage.tsx#L27), [Markdown options implementation](https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/components/assistant/AssistantMarkdown.tsx#L46)
+
 <LivePreview
   scope={{
     useAIChatLogger,
