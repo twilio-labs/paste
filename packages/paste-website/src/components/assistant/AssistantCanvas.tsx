@@ -23,7 +23,7 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
 
   const messages = useAssistantMessagesStore(useShallow((state) => state.messages));
   const setMessages = useAssistantMessagesStore(useShallow((state) => state.setMessages));
-  const { activeRun, lastActiveRun, clearLastActiveRun} = useAssistantRunStore(useShallow((state) => state));
+  const { activeRun, lastActiveRun, clearLastActiveRun } = useAssistantRunStore(useShallow((state) => state));
   const isCreatingAResponse = useIsMutating({ mutationKey: ["create-assistant-run"] });
 
   const memoedMessages = React.useMemo(() => messages, [messages]);
@@ -135,8 +135,8 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
                 <AssistantMessage
                   key={threadMessage.id}
                   threadMessage={threadMessage}
-                  // Only animate the last message recieved from AI and must be most recent run to avoid reanimating 
-                  animated={index === messages.length - 1 && lastActiveRun?.id === threadMessage.run_id }
+                  // Only animate the last message recieved from AI and must be most recent run to avoid reanimating
+                  animated={index === messages.length - 1 && lastActiveRun?.id === threadMessage.run_id}
                   size="fullScreen"
                   onAnimationEnd={onAnimationEnd}
                   onAnimationStart={onAnimationStart}

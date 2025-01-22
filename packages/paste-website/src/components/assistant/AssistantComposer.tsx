@@ -9,13 +9,13 @@ import {
   type LexicalEditor,
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
+import { useShallow } from "zustand/react/shallow";
+import { useIsMutating } from "@tanstack/react-query";
 
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { EnterKeySubmitPlugin } from "./EnterKeySubmitPlugin";
 import { useAssistantRunStore } from "../../stores/assistantRunStore";
-import { useShallow } from "zustand/react/shallow";
-import { useIsMutating } from "@tanstack/react-query";
 
 export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, selectedThread?: string) => void }> = ({
   onMessageCreation,
@@ -27,7 +27,7 @@ export const AssistantComposer: React.FC<{ onMessageCreation: (message: string, 
   const isCreatingAResponse = useIsMutating({ mutationKey: ["create-assistant-run"] });
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
 
-  const isLoading = !!(isCreatingAResponse || activeRun != null);
+  const isLoading = Boolean(isCreatingAResponse || activeRun != null);
 
   const handleComposerChange = (editorState: EditorState): void => {
     editorState.read(() => {

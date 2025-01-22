@@ -19,5 +19,5 @@ export const useAssistantRunStore = create<State & Actions>()(
     clearLastActiveRun: () => {
       set((prevState) => ({ ...prevState, lastActiveRun: undefined }));
     },
-  }))
+  })),
 );
