@@ -304,11 +304,11 @@ yarn start:theme-designer
 
 ## Working on Website Backend
 
-This section covers how to setup the Supabase backend and 
+This section covers how to setup the Supabase backend and configuring additional environemnt variables. This will enable development of AI assistant and generation scripts such as [generate-embeddings.ts](../../packages/paste-website/scripts/search/generate-embeddings.ts) 
 
 ### Prerequisites
 
-You will need docker or a similar service in odrer to start the local supabase instance.
+You will need docker or a similar service in order to start the local supabase instance.
 
 ### Environment
 
@@ -338,13 +338,13 @@ To run the backend and develop all functionality of the website you will need to
   <tr>
    <td>SUPABASE_URL
    </td>
-   <td>The url of the supabase BE you want to use. For local development is should map to <strong>http://127.0.0.1:54321</strong>
+   <td>The url of the supabase backend you want to use. For local development is should map to <strong>http://127.0.0.1:54321</strong>
    </td>
   </tr>
   <tr>
    <td>SUPABASE_KEY
    </td>
-   <td>This will be generated and output from the start command in `/apps/backend`. It can also be retreieved by running `npx supabase status` in the directory.
+   <td>This will be generated and output from the start command in `/apps/backend`. It can also be retrieved by running `npx supabase status` in the directory.
    </td>
   </tr>
   <tr>
@@ -365,7 +365,7 @@ To run the backend and develop all functionality of the website you will need to
 
 Supabase is the data storage layer used by the application. We use it to store messages with the Paste AI Assistant and also storing embeddings used by our search functionality for pages and GitHub discussions.
 
-With Docker or a similar service running, you can start supabase by running `start:backend:dev`. This will output details of the envirnment lile auth tokens used to connect to the APIs and URLs of the frontent and services.
+With Docker or a similar service running, you can start supabase by running `start:backend:dev`. This will output details of the envirnment such as auth tokens used to connect to the APIs and URLs of the frontent and services.
 
 You should be able to access the UI at http://localhost:54323.
 
