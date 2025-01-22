@@ -22,6 +22,7 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { HelpText } from "@twilio-paste/help-text";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { ResetIcon } from "@twilio-paste/icons/esm/ResetIcon";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
@@ -29,6 +30,7 @@ import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { uid } from "@twilio-paste/uid-library";
+
 
 import Logo from "../../../assets/logo.svg";
 import { SidebarCategoryRoutes } from "../../../constants";
@@ -58,11 +60,14 @@ import {
   messageGenerationError,
   sendingMessageError,
   systemError,
+  animatedBotScrollable
 } from "../../../component-examples/AIChatLogExamples";
 import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 import { Text } from "@twilio-paste/text";
 import { Alert } from "@twilio-paste/alert";
+import { Switch } from "@twilio-paste/switch";
+import { InlineCode } from "@twilio-paste/inline-code";
 
 export default ComponentPageLayout;
 
@@ -251,13 +256,13 @@ Actions can still be added in `AIChatMessageBody` which are returned from the AI
   {botWithBodyActions}
 </LivePreview>
 
-### Loading States
+### Generating Messages
+
+#### Loading
 
 Use the `AIChatMessageLoading` component to indicate that the bot is typing or processing a response. During this time **no user input should be accepted**. No new messages should be added to a chat until the AI operation is finished processing.
 
 The SkeletonLoader lengths vary on each render to give a more natural pending message body interaction.
-
-#### Loading
 
 <LivePreview
   scope={{
@@ -273,7 +278,7 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
   {botWithLoading}
 </LivePreview>
 
-#### Loading with Stop Button
+##### Loading with Stop Button
 
 <LivePreview
   scope={{
@@ -288,6 +293,28 @@ The SkeletonLoader lengths vary on each render to give a more natural pending me
 >
   {botWithLoadingStopButton}
 </LivePreview>
+
+#### Animating
+The `AIChatMessageBody` component has an optional `animated` prop that can be used to apply a typewriter animation to the text. This should only be applied to the messages received from the AI.
+
+It also accepts `onAnimationStart` and `onAnimationEnd` props to trigger actions when the animation starts and ends allowing additional logic such as scrolling to be implemented.
+
+<LivePreview
+  scope={{
+    useAIChatLogger,
+    AIChatLogger,
+    AIChatMessage,
+    AIChatMessageAuthor,
+    AIChatMessageBody,
+    Button,
+    Box
+  }}
+  language="jsx"
+  noInline
+>
+  {animatedBotScrollable}
+</LivePreview>
+
 
 ### Customizing Avatar
 

@@ -4,6 +4,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { AIMessageContext } from "./AIMessageContext";
+import { useAnimatedText } from "./utils";
 
 const Sizes: Record<string, BoxStyleProps> = {
   default: {
@@ -35,11 +36,59 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageBodyProps
    */
   size?: "default" | "fullScreen";
+  /**
+   * Whether the text should be animated with type writer effect
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof AIChatMessageBodyProps
+   */
+  animated?: boolean;
+  /**
+   * A callback when the animation is started
+   *
+   * @default false
+   * @type {() => void}
+   * @memberof AIChatMessageBodyProps
+   */
+  onAnimationStart?: () => void;
+  /**
+   * A callback when the animation is complete
+   *
+   * @default false
+   * @type {() => void}
+   * @memberof AIChatMessageBodyProps
+   */
+  onAnimationEnd?: () => void;
 }
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
-  ({ children, size = "default", element = "AI_CHAT_MESSAGE_BODY", ...props }, ref) => {
+  (
+    {
+      children,
+      size = "default",
+      element = "AI_CHAT_MESSAGE_BODY",
+      animated = false,
+      onAnimationEnd,
+      onAnimationStart,
+      ...props
+    },
+    ref,
+  ) => {
     const { id } = React.useContext(AIMessageContext);
+    const [showAnimation] = React.useState(animated && children !== undefined);
+    const animationSpeed = size === "fullScreen" ? 8 : 10;
+    const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
+
+    React.useEffect(() => {
+      if (onAnimationStart && animated && isAnimating) {
+        onAnimationStart();
+      }
+
+      if (animated && !isAnimating && onAnimationEnd) {
+        onAnimationEnd();
+      }
+    }, [isAnimating, showAnimation]);
 
     return (
       <Box
@@ -55,7 +104,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         whiteSpace="pre-wrap"
         id={id}
       >
-        {children}
+        {animatedChildren}
       </Box>
     );
   },

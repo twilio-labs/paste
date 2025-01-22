@@ -3186,6 +3186,13 @@
       "required": false,
       "externalProp": true
     },
+    "animated": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether the text should be animated with type writer effect"
+    },
     "aria-activedescendant": {
       "type": "string",
       "defaultValue": null,
@@ -3688,10 +3695,11 @@
       "externalProp": true
     },
     "onAnimationEnd": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
-      "defaultValue": null,
+      "type": "() => void",
+      "defaultValue": false,
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "A callback when the animation is complete"
     },
     "onAnimationEndCapture": {
       "type": "AnimationEventHandler<HTMLDivElement>",
@@ -3712,10 +3720,11 @@
       "externalProp": true
     },
     "onAnimationStart": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
-      "defaultValue": null,
+      "type": "() => void",
+      "defaultValue": false,
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "A callback when the animation is started"
     },
     "onAnimationStartCapture": {
       "type": "AnimationEventHandler<HTMLDivElement>",
