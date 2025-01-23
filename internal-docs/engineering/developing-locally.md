@@ -304,7 +304,7 @@ yarn start:theme-designer
 
 ## Working on Website Backend
 
-This section covers how to setup the Supabase backend and configuring additional environemnt variables. This will enable development of AI assistant and generation scripts such as [generate-embeddings.ts](../../packages/paste-website/scripts/search/generate-embeddings.ts) 
+This section covers how to setup the Supabase backend and configuring additional environment variables. This will enable development of AI assistant and generation scripts such as [generate-embeddings.ts](../../packages/paste-website/scripts/search/generate-embeddings.ts) 
 
 ### Prerequisites
 
