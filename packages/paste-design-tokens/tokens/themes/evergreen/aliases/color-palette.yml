@@ -99,6 +99,18 @@ aliases:
   palette-gray-80-transparent-90: "rgba(57, 71, 98, 0.9)"
   palette-gray-80-transparent-100: "rgba(57, 71, 98, 1)"
 
+  # Blacks transparent
+  palette-black-transparent-10: "rgba(0, 0, 0, 0.1)"
+  palette-black-transparent-20: "rgba(0, 0, 0, 0.2)"
+  palette-black-transparent-30: "rgba(0, 0, 0, 0.3)"
+  palette-black-transparent-40: "rgba(0, 0, 0, 0.4)"
+  palette-black-transparent-50: "rgba(0, 0, 0, 0.5)"
+  palette-black-transparent-60: "rgba(0, 0, 0, 0.6)"
+  palette-black-transparent-70: "rgba(0, 0, 0, 0.7)"
+  palette-black-transparent-80: "rgba(0, 0, 0, 0.8)"
+  palette-black-transparent-90: "rgba(0, 0, 0, 0.9)"
+  palette-black-transparent-100: "rgba(0, 0, 0, 1)"
+
   ## Greens
   palette-green-10: "#edfdf3"
   palette-green-20: "#d1fae0"

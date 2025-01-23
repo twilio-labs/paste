@@ -86,3 +86,11 @@ props:
   color-background-decorative-40-weakest:
     value: "{!palette-purple-05}"
     comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+
+  #elevation background
+  color-background-inverse-weak-elevation:
+    value: "{!palette-gray-100}"
+    comment: Elevation token for color-background-inverse-weak elements.
+  color-background-inverse-strong-elevation:
+    value: "{!palette-gray-85}"
+    comment: Elevation token for color-background-inverse-strong elements.

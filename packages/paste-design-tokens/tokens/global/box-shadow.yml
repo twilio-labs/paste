@@ -4,19 +4,18 @@ global:
 imports:
   - ../aliases/box-shadow.yml
   - ../aliases/offset.yml
-  - ../aliases/color.yml
 props:
   shadow-high:
-    value: "{!shadow-elevation-30}"
+    value: "{!deprecated-shadow-elevation-30}"
     comment: High elevation default shadow.
   shadow:
-    value: "{!shadow-elevation-20}"
+    value: "{!deprecated-shadow-elevation-20}"
     comment: Default shadow.
   shadow-low:
-    value: "{!shadow-elevation-10}"
+    value: "{!deprecated-shadow-elevation-10}"
     comment: Low elevation default shadow.
   shadow-card:
-    value: "{!shadow-elevation-10}"
+    value: "{!deprecated-shadow-elevation-10}"
     comment: Shadow for cards.
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-60-transparent-70}"
@@ -250,11 +249,43 @@ props:
     value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
     comment: Left shadow border for elements.
   shadow-left-inverse:
-    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    value: "{!offset-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-black-transparent-40}"
     comment: Left shadow border for inverse elements.
   shadow-right:
     value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-gray-100-transparent-20}"
     comment: Right shadow border for elements.
   shadow-right-inverse:
-    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!black-transparent-40}"
+    value: "{!offset-negative-20} {!offset-0} {!offset-40} {!offset-negative-20} {!palette-black-transparent-40}"
     comment: Right shadow border for inverse elements.
+
+  # Elevation
+  shadow-elevation-05:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-15}"
+    comment: Accent shadows that subtly define the edges of a container. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-top-05:
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-15}"
+    comment: Accent shadows that subtly define the top edges of an element. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-bottom-05:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!offset-0} {!palette-gray-15}"
+    comment: Accent shadows that subtly define the bottom edge of an element. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-inverse-05:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-90}"
+    comment: Accent shadows that subtly define the the edges of a container on inverse backgrounds. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-bottom-inverse-05:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!offset-0} {!palette-gray-90}"
+    comment: Accent shadows that subtly define the bottom edge of an inverse element. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-right-inverse-05:
+    value: "{!offset-05} {!offset-0} {!offset-0} {!offset-0} {!palette-gray-90}"
+    comment: Accent shadows that subtly define the right edge of an inverse element. They serve as a lightweight alternative to risen shadows at lower elevations.
+  shadow-elevation-10:
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-10}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-gray-110-transparent-10}"
+    comment: Use on elements that overlay other UI components but remain visually connected to the elements behind them.
+  shadow-elevation-inverse-10:
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-90}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-black-transparent-40}"
+    comment: Use on inverse elements that overlay other UI components but remain visually connected to the elements behind them.
+  shadow-elevation-20:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-05}, {!offset-0} {!offset-30} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-60} {!offset-60} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
+    comment: Use on elements that sit above the UI to indicate a greater distance distance from the surface behind them.
+  shadow-elevation-left-20:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-05}, {!offset-negative-20} {!offset-0} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-negative-60} {!offset-0} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
+    comment: Use for elements that dynamically open from the right side of the screen, appearing above the UI to indicate a greater separation from the underlying surface.
