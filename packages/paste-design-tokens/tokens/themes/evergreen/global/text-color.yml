@@ -3,7 +3,6 @@ global:
   category: text-color
 imports:
   - ../../../global/text-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # body text
