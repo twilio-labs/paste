@@ -3,7 +3,6 @@ global:
   category: background-color
 imports:
   - ../../../global/background-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # base background
@@ -31,6 +30,9 @@ props:
   color-background-weak:
     value: "{!palette-gray-100}"
     comment: Weak default background color.
+  color-background-weaker:
+    value: "{!palette-gray-100}"
+    comment: Background color for elevated elements. Matches color-background-body in light mode but appears slightly lighter in dark mode to maintain focus.
 
   # brand backgrounds
   color-background-brand:
@@ -191,3 +193,14 @@ props:
   color-background-decorative-40-weakest:
     value: "{!palette-purple-80}"
     comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+
+  #elevation background
+  color-background-body-elevation:
+    value: "{!palette-gray-95}"
+    comment: Elevation token for color-background-body elements.
+  color-background-weak-elevation:
+    value: "{!palette-gray-100}"
+    comment: Elevation token for color-background-weak elements.
+  color-background-elevation:
+    value: "{!palette-gray-95}"
+    comment: Elevation token for color-background elements.
