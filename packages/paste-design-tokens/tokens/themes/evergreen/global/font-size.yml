@@ -6,6 +6,8 @@ imports:
 props:
   font-size-10:
     value: "0.75rem" #12px
+  font-size-40:
+    value: "0.875rem" #14px, intentionally the same size as font-size-30
   font-size-50:
     value: "1rem" #16px
   font-size-80:
