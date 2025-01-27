@@ -931,7 +931,7 @@ RowHeaders.storyName = "Row headers";
 
 export const StickyHeaders = (): React.ReactNode => {
   return (
-    <Box maxHeight="size20" overflowY="auto">
+    <Box maxHeight="size20" overflowY="auto" tabIndex={0}>
       <Table>
         <THead stickyHeader={true}>
           <Tr>
@@ -975,7 +975,7 @@ StickyHeaders.storyName = "Sticky headers";
 
 export const BorderlessStickyHeaders = (): React.ReactNode => {
   return (
-    <Box maxHeight="size20" overflowY="auto">
+    <Box maxHeight="size20" overflowY="auto" tabIndex={0}>
       <Table variant="borderless">
         <THead stickyHeader={true}>
           <Tr>
