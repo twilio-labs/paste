@@ -281,6 +281,7 @@ export const SITEMAP = [
   "/foundations/content/content-checklist/",
   "/foundations/content/voice-and-tone/",
   "/foundations/content/word-list/",
+  "/foundations/elevation/",
   "/foundations/illustrations/",
   "/foundations/data-visualization/",
   "/foundations/spacing-and-layout/",
