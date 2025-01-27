@@ -8,6 +8,9 @@ import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Theme} from '@twilio-paste/theme';
 
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -28,6 +31,7 @@ import {
 } from '../../../component-examples/ElevationFoundationExamples';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
+import { ElevatedBackgroundColorTokensExample, ShadowTokensLevel1Example, ShadowTokensLevel2Example, ShadowTokensLevel3Example } from '../../../component-examples/ElevationExamples';
 
 export default DefaultLayout;
 
@@ -134,7 +138,16 @@ Subtle tonal shifts are an effective way to communicate hierarchy and prominence
 
 Paste's elevated background color tokens are derived from a base background color with tonal shifts to indicate elevation. Elevated surfaces darken on light backgrounds and lighten on dark backgrounds, ensuring clarity and consistency across themes.
 
-<ResponsiveImage src={AccentShadow} alt="" />
+<LivePreview
+  scope={{
+    Box,
+    Text,
+  }}
+  noInline
+  showOverflow
+>
+  {ElevatedBackgroundColorTokensExample}
+</LivePreview>
 
 Elevated elements across levels that share the same background color as the main page body should use the token `$color-background-weakest`. This token matches the page body tone in light mode but appears slightly lighter in dark mode to subtly reinforce elevation.
 
@@ -160,15 +173,45 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
 
 **Level 1 shadows** are accent shadows that subtly define the edges of a container. They serve as a lightweight alternative to risen shadows at lower elevations.
 
-<ResponsiveImage src={AccentShadow} alt="" />
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel1Example}
+</LivePreview>
 
 **Level 2 shadows** are small and sharp and indicate a close distance with the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
 
-<ResponsiveImage src={AccentShadow} alt="" />
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel2Example}
+</LivePreview>
 
 **Level 3 shadows** are larger and softer, this indicates a further distance from the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
 
-<ResponsiveImage src={AccentShadow} alt="" />
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel3Example}
+</LivePreview>
 </content>
 
 </contentwrapper>

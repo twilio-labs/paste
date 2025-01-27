@@ -1,19 +1,6 @@
-import { Box } from "@twilio-paste/box";
-import type { BackgroundColor, BoxShadow } from "@twilio-paste/style-props";
-import { Text } from "@twilio-paste/text";
-import { Theme } from "@twilio-paste/theme";
-import * as React from "react";
-
-export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
-  interface TokensTemplateProps {
-    backgroundColor: BackgroundColor;
-    backgroundColorElevated: BackgroundColor;
-    hasBorder?: boolean;
-    backgroundColorBase: string;
-    backgroundColorElevation: string;
-  }
-
-  const TokensTemplate: React.FC<TokensTemplateProps> = ({
+export const ElevatedBackgroundColorTokensExample = `
+const ElevatedBackgroundColorTokens = () => {
+  const TokensTemplate = ({
     backgroundColor,
     backgroundColorElevated,
     hasBorder,
@@ -96,12 +83,18 @@ export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
   );
 };
 
-const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> = ({ boxShadow, boxShadowlabel }) => {
+render(
+  <ElevatedBackgroundColorTokens />
+)
+`.trim();
+
+export const ShadowTokensLevel1Example = `
+const ShadowTokensLevel1 = () => {
   return (
     <Box display="flex" fontSize="fontSize30" fontWeight="fontWeightSemibold">
       <Box
         width="50%"
-        height="100vh"
+        height="300px"
         paddingTop="space130"
         paddingLeft="space80"
         borderWidth="borderWidth10"
@@ -115,20 +108,20 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
           borderRight="none"
           borderTopRightRadius="borderRadius0"
           borderBottomRightRadius="borderRadius0"
-          boxShadow={boxShadow}
+          boxShadow="shadowElevation05"
         />
         <Text as="p" color="colorTextWeak" marginTop="space50">
           Shadow (accent)
         </Text>
         <Text as="p" marginTop="space30">
-          {boxShadowlabel}
+          $shadow-elevation-05
         </Text>
       </Box>
       <Box width="50%">
         <Theme.Provider theme="twilio-dark">
           <Box
             backgroundColor="colorBackgroundBody"
-            height="100vh"
+            height="300px"
             paddingTop="space130"
             paddingRight="space80"
             borderWidth="borderWidth10"
@@ -142,13 +135,13 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
               borderLeft="none"
               borderTopLeftRadius="borderRadius0"
               borderBottomLeftRadius="borderRadius0"
-              boxShadow={boxShadow}
+              boxShadow="shadowElevation05"
             />
             <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
               Shadow (accent)
             </Text>
             <Text as="p" marginTop="space30" paddingLeft="space80">
-              {boxShadowlabel}
+              $shadow-elevation-05
             </Text>
           </Box>
         </Theme.Provider>
@@ -157,30 +150,141 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
   );
 };
 
-export const ShadowTokensLevel1 = (): React.ReactNode => {
-  return <ShadowTokens boxShadow="shadowElevation05" boxShadowlabel="$shadow-elevation-05" />;
+render(
+  <ShadowTokensLevel1 />
+)
+`.trim();
+
+export const ShadowTokensLevel2Example = `
+const ShadowTokensLevel2 = () => {
+  return (
+    <Box display="flex" fontSize="fontSize30" fontWeight="fontWeightSemibold">
+      <Box
+        width="50%"
+        height="300px"
+        paddingTop="space130"
+        paddingLeft="space80"
+        borderWidth="borderWidth10"
+        borderStyle="solid"
+        borderColor="colorBorderWeaker"
+        zIndex="zIndex10"
+      >
+        <Box
+          height="100px"
+          borderRadius="borderRadius30"
+          borderRight="none"
+          borderTopRightRadius="borderRadius0"
+          borderBottomRightRadius="borderRadius0"
+          boxShadow="shadowElevation10"
+        />
+        <Text as="p" color="colorTextWeak" marginTop="space50">
+          Shadow (accent)
+        </Text>
+        <Text as="p" marginTop="space30">
+          $shadow-elevation-10
+        </Text>
+      </Box>
+      <Box width="50%">
+        <Theme.Provider theme="twilio-dark">
+          <Box
+            backgroundColor="colorBackgroundBody"
+            height="300px"
+            paddingTop="space130"
+            paddingRight="space80"
+            borderWidth="borderWidth10"
+            borderLeftWidth="borderWidth0"
+            borderStyle="solid"
+            borderColor="transparent"
+          >
+            <Box
+              height="100px"
+              borderRadius="borderRadius30"
+              borderLeft="none"
+              borderTopLeftRadius="borderRadius0"
+              borderBottomLeftRadius="borderRadius0"
+              boxShadow="shadowElevation10"
+            />
+            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
+              Shadow (accent)
+            </Text>
+            <Text as="p" marginTop="space30" paddingLeft="space80">
+              $shadow-elevation-10
+            </Text>
+          </Box>
+        </Theme.Provider>
+      </Box>
+    </Box>
+  );
 };
 
-ShadowTokensLevel1.parameters = {
-  padding: false,
+render(
+  <ShadowTokensLevel2 />
+)
+`.trim();
+
+export const ShadowTokensLevel3Example = `
+const ShadowTokensLevel3 = () => {
+  return (
+    <Box display="flex" fontSize="fontSize30" fontWeight="fontWeightSemibold">
+      <Box
+        width="50%"
+        height="300px"
+        paddingTop="space130"
+        paddingLeft="space80"
+        borderWidth="borderWidth10"
+        borderStyle="solid"
+        borderColor="colorBorderWeaker"
+        zIndex="zIndex10"
+      >
+        <Box
+          height="100px"
+          borderRadius="borderRadius30"
+          borderRight="none"
+          borderTopRightRadius="borderRadius0"
+          borderBottomRightRadius="borderRadius0"
+          boxShadow="shadowElevation20"
+        />
+        <Text as="p" color="colorTextWeak" marginTop="space50">
+          Shadow (accent)
+        </Text>
+        <Text as="p" marginTop="space30">
+          $shadow-elevation-20
+        </Text>
+      </Box>
+      <Box width="50%">
+        <Theme.Provider theme="twilio-dark">
+          <Box
+            backgroundColor="colorBackgroundBody"
+            height="300px"
+            paddingTop="space130"
+            paddingRight="space80"
+            borderWidth="borderWidth10"
+            borderLeftWidth="borderWidth0"
+            borderStyle="solid"
+            borderColor="transparent"
+          >
+            <Box
+              height="100px"
+              borderRadius="borderRadius30"
+              borderLeft="none"
+              borderTopLeftRadius="borderRadius0"
+              borderBottomLeftRadius="borderRadius0"
+              boxShadow="shadowElevation20"
+            />
+            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
+              Shadow (accent)
+            </Text>
+            <Text as="p" marginTop="space30" paddingLeft="space80">
+              $shadow-elevation-20
+            </Text>
+          </Box>
+        </Theme.Provider>
+      </Box>
+    </Box>
+  );
 };
 
-export const ShadowTokensLevel2 = (): React.ReactNode => {
-  return <ShadowTokens boxShadow="shadowElevation10" boxShadowlabel="$shadow-elevation-10" />;
-};
-
-ShadowTokensLevel2.parameters = {
-  padding: false,
-};
-
-export const ShadowTokensLevel3 = (): React.ReactNode => {
-  return <ShadowTokens boxShadow="shadowElevation20" boxShadowlabel="$shadow-elevation-20" />;
-};
-
-ShadowTokensLevel3.parameters = {
-  padding: false,
-};
-
-export default {
-  title: "Website/Elevation",
-};
+render(
+  <ShadowTokensLevel3 />
+)
+`.trim();
