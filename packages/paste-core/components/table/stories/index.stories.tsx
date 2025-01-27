@@ -931,41 +931,43 @@ RowHeaders.storyName = "Row headers";
 
 export const StickyHeaders = (): React.ReactNode => {
   return (
-    <Table>
-      <THead stickyHeader={true}>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        {[...new Array(40).keys()].map((index) => (
-          <Tr key={index}>
-            <Td>Content</Td>
-            <Td>Content</Td>
-            <Td>Content</Td>
+    <Box maxHeight="size20" overflowY="auto">
+      <Table>
+        <THead stickyHeader={true}>
+          <Tr>
+            <Th>Column 1</Th>
+            <Th>Column 2</Th>
+            <Th>Column 3</Th>
           </Tr>
-        ))}
-      </TBody>
-      <TFoot>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-      </TFoot>
-    </Table>
+          <Tr>
+            <Th>Column 1</Th>
+            <Th>Column 2</Th>
+            <Th>Column 3</Th>
+          </Tr>
+        </THead>
+        <TBody>
+          {[...new Array(5).keys()].map((index) => (
+            <Tr key={index}>
+              <Td>Content</Td>
+              <Td>Content</Td>
+              <Td>Content</Td>
+            </Tr>
+          ))}
+        </TBody>
+        <TFoot>
+          <Tr>
+            <Th>Column 1</Th>
+            <Th>Column 2</Th>
+            <Th>Column 3</Th>
+          </Tr>
+          <Tr>
+            <Th>Column 1</Th>
+            <Th>Column 2</Th>
+            <Th>Column 3</Th>
+          </Tr>
+        </TFoot>
+      </Table>
+    </Box>
   );
 };
 
@@ -973,24 +975,26 @@ StickyHeaders.storyName = "Sticky headers";
 
 export const BorderlessStickyHeaders = (): React.ReactNode => {
   return (
-    <Table variant="borderless">
-      <THead stickyHeader={true}>
-        <Tr>
-          <Th>Column 1</Th>
-          <Th>Column 2</Th>
-          <Th>Column 3</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        {[...new Array(40).keys()].map((index) => (
-          <Tr key={index}>
-            <Td>Content</Td>
-            <Td>Content</Td>
-            <Td>Content</Td>
+    <Box maxHeight="size20" overflowY="auto">
+      <Table variant="borderless">
+        <THead stickyHeader={true}>
+          <Tr>
+            <Th>Column 1</Th>
+            <Th>Column 2</Th>
+            <Th>Column 3</Th>
           </Tr>
-        ))}
-      </TBody>
-    </Table>
+        </THead>
+        <TBody>
+          {[...new Array(5).keys()].map((index) => (
+            <Tr key={index}>
+              <Td>Content</Td>
+              <Td>Content</Td>
+              <Td>Content</Td>
+            </Tr>
+          ))}
+        </TBody>
+      </Table>
+    </Box>
   );
 };
 
