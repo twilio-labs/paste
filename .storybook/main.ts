@@ -16,7 +16,7 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/react-vite",
   features: {
-    interactionsDebugger: false,
+    interactionsDebugger: true,
   },
   staticDirs: ["./static"],
   typescript: {
