@@ -72,13 +72,7 @@ export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
         backgroundColor="colorBackgroundStrong"
         backgroundColorElevated="colorBackgroundElevation"
         backgroundColorBase="$color-background-body"
-        backgroundColorElevation="$color-background-elevation-strong"
-      />
-      <TokensTemplate
-        backgroundColor="colorBackgroundStronger"
-        backgroundColorElevated="colorBackgroundAvailable"
-        backgroundColorBase="$color-background-body"
-        backgroundColorElevation="$color-background-elevation-stronger"
+        backgroundColorElevation="$color-background-elevation"
       />
       <TokensTemplate
         backgroundColor="colorBackgroundInverse"
