@@ -93,3 +93,8 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} #D0CAF4"
     comment: Weaker bottom shadow border for decorative 40
+
+  # Top borders
+  shadow-border-top-primary:
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} #3366FF"
+    comment: Top shadow border for selected status of horizontal tabs

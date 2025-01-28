@@ -18,9 +18,6 @@ props:
   color-background-strongest:
     value: "#696F8C"
     comment: Strongest default background color.
-  color-background-weak:
-    value: "#F9FAFC"
-    comment: Weak default background color.
   color-background-inverse:
     value: "{!palette-gray-100}"
     comment: Inverse background color for any container. Must be used on color-background-body-inverse.
