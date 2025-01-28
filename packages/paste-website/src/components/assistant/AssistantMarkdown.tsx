@@ -21,7 +21,7 @@ export const AssistantParagraph: React.FC<React.PropsWithChildren> = ({ children
     <Box
       as="p"
       color="inherit"
-      fontSize="fontSize30"
+      fontSize="inherit"
       fontWeight="fontWeightNormal"
       lineHeight="lineHeight30"
       marginTop="space0"
