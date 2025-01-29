@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.9.0
+
+### Minor Changes
+
+- [`c128d63c7`](https://github.com/twilio-labs/paste/commit/c128d63c7f72bf35599bb22ba2943a11cc942783) [#4197](https://github.com/twilio-labs/paste/pull/4197) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] added 4 new icons FeedbackIcon, TextIcon, CarouselIcon and CardIcon
+
 ## 12.8.0
 
 ### Minor Changes
