@@ -51,6 +51,7 @@ const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
         display="flex"
         flexDirection="row"
         alignItems="flex-start"
+        backgroundColor="colorBackgroundWeaker"
       >
         <Box display="flex" flexGrow={1} marginRight="space70">
           {children}
