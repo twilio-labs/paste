@@ -1,5 +1,11 @@
 # @twilio-paste/ai-chat-log
 
+## 1.1.0
+
+### Minor Changes
+
+- [`f3a48a4b1`](https://github.com/twilio-labs/paste/commit/f3a48a4b1768694b490fd77b92460b228c7e0185) [#4199](https://github.com/twilio-labs/paste/pull/4199) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AI Chat Log] added optional typewriter animation to AIChatMessageBody
+
 ## 1.0.1
 
 ### Patch Changes

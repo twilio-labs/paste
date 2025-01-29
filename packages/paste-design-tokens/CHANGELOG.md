@@ -1,5 +1,15 @@
 # Change Log
 
+## 10.12.0
+
+### Minor Changes
+
+- [`2fba6b9cd`](https://github.com/twilio-labs/paste/commit/2fba6b9cdb8e4c26fb09095bd8a6144d63e3f0c8) [#4207](https://github.com/twilio-labs/paste/pull/4207) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Update aliases and add new tokens for elevation foundations
+
+### Patch Changes
+
+- [`add4a2d0c`](https://github.com/twilio-labs/paste/commit/add4a2d0c6f600b6879c344a56c09844280973a4) [#4220](https://github.com/twilio-labs/paste/pull/4220) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Added shadow border tokens and font-size-40 token back to evergreen theme
+
 ## 10.11.1
 
 ### Patch Changes
