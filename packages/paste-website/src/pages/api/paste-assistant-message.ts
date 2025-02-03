@@ -20,6 +20,8 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
 const slackChannelID = process.env.SLACK_CHANNEL_TMP_PASTE_ASSISTANT;
 
+const isDev = process.env.NODE_ENV === "development";
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
 });
@@ -94,7 +96,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  if (slackChannelID === undefined || slackChannelID === "") {
+  if ((slackChannelID === undefined || slackChannelID === "") && !isDev) {
     logger.error(`${LOG_PREFIX} Slack channel ID is undefined`);
     rollbar.error(`${LOG_PREFIX} Slack channel ID is undefined`);
     res.status(500).json({
@@ -140,42 +142,44 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
-  // get the slack thread ID for the message thread being updated so that we can post the new message to the correct slack thread
-  const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: slackThreadID, error: slackThreadIDError } = await supabaseClient
-    .from("assistant_threads")
-    .select("slack_thread_ts")
-    .eq("openai_thread_id", threadId);
+  if (!isDev) {
+    // get the slack thread ID for the message thread being updated so that we can post the new message to the correct slack thread
+    const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+    const { data: slackThreadID, error: slackThreadIDError } = await supabaseClient
+      .from("assistant_threads")
+      .select("slack_thread_ts")
+      .eq("openai_thread_id", threadId);
 
-  if (slackThreadIDError || slackThreadID == null) {
-    logger.error(`${LOG_PREFIX} Error getting slack thread ID for the message thread being updated`, {
-      slackThreadIDError,
-    });
-  } else {
-    try {
-      // Post that new message to the correct slack thread for this assistant thread
-      const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: `New message was added to the thread: \n\n --- \n\n${message}`,
-          channelID: slackChannelID,
-          threadID: slackThreadID,
-        }),
+    if (slackThreadIDError || slackThreadID == null) {
+      logger.error(`${LOG_PREFIX} Error getting slack thread ID for the message thread being updated`, {
+        slackThreadIDError,
       });
-      const slackResponseJSON = await postToSlackResponse.json();
-      const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
+    } else {
+      try {
+        // Post that new message to the correct slack thread for this assistant thread
+        const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message: `New message was added to the thread: \n\n --- \n\n${message}`,
+            channelID: slackChannelID,
+            threadID: slackThreadID,
+          }),
+        });
+        const slackResponseJSON = await postToSlackResponse.json();
+        const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
 
-      logger.info(`${LOG_PREFIX} Posted to slack`, {
-        slackMessageCreated: slackResult.ts,
-        message: slackResult.message?.text,
-      });
-    } catch (error) {
-      logger.error(`${LOG_PREFIX} Error sending slack message for thread being updated`, {
-        error,
-      });
+        logger.info(`${LOG_PREFIX} Posted to slack`, {
+          slackMessageCreated: slackResult.ts,
+          message: slackResult.message?.text,
+        });
+      } catch (error) {
+        logger.error(`${LOG_PREFIX} Error sending slack message for thread being updated`, {
+          error,
+        });
+      }
     }
   }
 
