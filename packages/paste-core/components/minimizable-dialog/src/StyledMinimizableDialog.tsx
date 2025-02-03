@@ -1,15 +1,11 @@
-import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { Box } from "@twilio-paste/box";
 import * as React from "react";
-
-import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
 export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxProps, "element">>> = ({
   element,
   children,
 }) => {
-  const { minimized } = React.useContext(MinimizableDialogContext);
-
   return (
     <Box
       element={element}
