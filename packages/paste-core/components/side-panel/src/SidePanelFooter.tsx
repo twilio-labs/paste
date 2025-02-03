@@ -12,7 +12,6 @@ const SidePanelFooter = React.forwardRef<HTMLDivElement, SidePanelFooterProps>(
         paddingBottom="space50"
         paddingTop={variant === "chat" ? "space0" : "space50"}
         boxShadow={variant === "chat" ? "none" : "shadowElevationTop05"}
-        backgroundColor="colorBackgroundWeaker"
         marginBottom="spaceNegative70"
         zIndex="zIndex20"
         display="flex"
