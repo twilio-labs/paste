@@ -25,7 +25,7 @@ export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButt
         size="reset"
         type="button"
         borderRadius="borderRadius20"
-        backgroundColor={variant === "inverse" ? "colorBackgroundInverseElevation" : "colorBackgroundElevation"}
+        backgroundColor={variant === "inverse" ? "colorBackgroundInverseElevation" : "colorBackgroundBodyElevation"}
         marginRight="space30"
         _focus={{
           boxShadow: variant === "inverse" ? "shadowBorderInverseStrong" : "shadowBorderPrimary",
