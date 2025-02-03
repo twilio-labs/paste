@@ -1,6 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import type { BackgroundColor, BorderColor } from "@twilio-paste/style-props";
+import type { BackgroundColor } from "@twilio-paste/style-props";
 import * as React from "react";
 
 import type { Variants } from "./types";
