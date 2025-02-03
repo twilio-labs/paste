@@ -32,8 +32,6 @@ const SideModalFooter = React.forwardRef<HTMLDivElement, SideModalFooterProps>(
         paddingLeft="space90"
         paddingBottom="space90"
         display="flex"
-        backgroundColor="colorBackgroundWeaker"
-        zIndex="zIndex20"
       >
         {children}
       </Box>
