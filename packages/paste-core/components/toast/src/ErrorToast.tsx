@@ -15,7 +15,7 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>(({ element = "TO
       borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      boxShadow="shadowHigh"
+      boxShadow="shadowElevation20"
       element={element}
       padding="space60"
       variant={variant}

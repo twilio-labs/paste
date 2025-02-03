@@ -38,12 +38,9 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
       <Box
         {...safelySpreadBoxProps(props)}
         as="div"
-        backgroundColor="colorBackgroundBody"
+        backgroundColor="colorBackgroundWeaker"
         borderRadius="borderRadius20"
-        borderColor="colorBorderWeak"
-        borderWidth="borderWidth10"
-        borderStyle="solid"
-        boxShadow="shadow"
+        boxShadow="shadowElevation10"
         element={element}
         listStyleType="none"
         margin="space0"

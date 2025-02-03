@@ -14,7 +14,7 @@ import { SidebarNavigationContext } from "./SidebarNavigationContext";
  * only when they are scrolled out of view
  */
 const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) => {
-  const { colorBackgroundInverse, colorBackgroundInverseStronger } = theme.backgroundColors;
+  const { colorBackgroundInverse, colorBackgroundInverseElevation } = theme.backgroundColors;
 
   return css({
     overflowScrolling: "touch",
@@ -36,12 +36,12 @@ const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) =
     },
     // Handle
     "::-webkit-scrollbar-thumb": {
-      background: colorBackgroundInverseStronger,
+      background: colorBackgroundInverseElevation,
       borderRadius: "10px",
     },
     // Handle on hover
     "::-webkit-scrollbar-thumb:hover": {
-      background: colorBackgroundInverseStronger,
+      background: colorBackgroundInverseElevation,
     },
   });
 });

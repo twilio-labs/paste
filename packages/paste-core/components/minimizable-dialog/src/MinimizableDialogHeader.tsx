@@ -60,16 +60,12 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         display="grid"
         gridTemplateColumns="1fr auto auto"
         columnGap="space30"
-        backgroundColor="colorBackground"
+        backgroundColor={minimized ? "colorBackgroundBodyElevation" : "colorBackgroundWeaker"}
         paddingX="space70"
         paddingY="space40"
         color="colorTextWeak"
         overflow="hidden"
-        borderBottomWidth="borderWidth10"
-        borderBottomStyle="solid"
-        borderBottomColor="colorBorderWeaker"
-        borderTopRightRadius="borderRadius20"
-        borderTopLeftRadius="borderRadius20"
+        boxShadow={minimized ? "shadowElevation10" : "none"}
         element={element}
       >
         <Box

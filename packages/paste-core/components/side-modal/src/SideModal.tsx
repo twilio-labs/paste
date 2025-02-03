@@ -96,8 +96,8 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
                   display="grid"
                   gridTemplateRows="auto 1fr auto"
                   height="100vh"
-                  backgroundColor="colorBackgroundBody"
-                  boxShadow="shadow"
+                  backgroundColor="colorBackgroundWeaker"
+                  boxShadow="shadowElevationLeft20"
                   width="size80"
                 >
                   {children}
