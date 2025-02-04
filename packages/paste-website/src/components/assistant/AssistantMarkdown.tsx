@@ -3,37 +3,39 @@ import { Box } from "@twilio-paste/box";
 import { CodeBlock, CodeBlockHeader, type CodeBlockProps, CodeBlockWrapper } from "@twilio-paste/code-block";
 import { Heading } from "@twilio-paste/heading";
 import { InlineCode } from "@twilio-paste/inline-code";
-import { ListItem, OrderedList, UnorderedList } from "@twilio-paste/list";
-import { Separator } from "@twilio-paste/separator";
 import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import * as React from "react";
 
-export const AssistantHeading: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const AssistantHeading1: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <Heading as="h2" variant="heading40">
+    <Heading as="h1" variant="heading10">
       {children}
     </Heading>
   );
 };
-export const AssistantParagraph: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const AssistantHeading2: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <Box
-      as="p"
-      color="inherit"
-      fontSize="inherit"
-      fontWeight="fontWeightNormal"
-      lineHeight="lineHeight30"
-      marginTop="space0"
-      marginBottom="space50"
-    >
+    <Heading as="h2" variant="heading20">
       {children}
-    </Box>
+    </Heading>
   );
 };
-export const AssistantSeparator: React.FC = () => {
-  return <Separator orientation="horizontal" verticalSpacing="space50" />;
+export const AssistantHeading3: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return (
+    <Heading as="h3" variant="heading30">
+      {children}
+    </Heading>
+  );
 };
+export const AssistantHeading4: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return (
+    <Heading as="h4" variant="heading40">
+      {children}
+    </Heading>
+  );
+};
+
 export const AssistantTable: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box marginBottom="space50">
@@ -59,7 +61,6 @@ export const assistantMarkdownOptions = {
         </Box>
       );
     }
-
     return next();
   },
   overrides: {
@@ -68,33 +69,6 @@ export const assistantMarkdownOptions = {
     },
     a: {
       component: Anchor,
-    },
-    h1: {
-      component: AssistantHeading,
-    },
-    h2: {
-      component: AssistantHeading,
-    },
-    h3: {
-      component: AssistantHeading,
-    },
-    h4: {
-      component: AssistantHeading,
-    },
-    p: {
-      component: AssistantParagraph,
-    },
-    ol: {
-      component: OrderedList,
-    },
-    ul: {
-      component: UnorderedList,
-    },
-    li: {
-      component: ListItem,
-    },
-    hr: {
-      component: AssistantSeparator,
     },
     table: {
       component: AssistantTable,
@@ -113,6 +87,18 @@ export const assistantMarkdownOptions = {
     },
     th: {
       component: Th,
+    },
+    h1: {
+      component: AssistantHeading1,
+    },
+    h2: {
+      component: AssistantHeading2,
+    },
+    h3: {
+      component: AssistantHeading3,
+    },
+    h4: {
+      component: AssistantHeading4,
     },
   },
 };
