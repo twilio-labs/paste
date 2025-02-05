@@ -14,6 +14,7 @@ import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Option, Select } from "@twilio-paste/select";
+import { Separator } from "@twilio-paste/separator";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
@@ -72,6 +73,9 @@ export const MessagingInsightsContent: React.FC<React.PropsWithChildren<{ mainCo
                   labelText="Time range"
                   helpText="Times shown in UTC"
                 />
+              </Box>
+              <Box gridArea="separator">
+                <Separator orientation="horizontal" />
               </Box>
               <Box gridArea="field">
                 <Label htmlFor={fieldId}>Field</Label>

@@ -45,7 +45,7 @@ const BackgroundColorStyles: { [variant: string]: { [key: string]: BackgroundCol
   default: {
     default: "colorBackgroundBodyElevation",
     disabled: "colorBackground",
-    readOnly: "colorBackgroundElevation",
+    readOnly: "colorBackgroundBodyElevation",
   },
   inverse: {
     default: "colorBackgroundInverseElevation",

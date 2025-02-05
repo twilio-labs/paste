@@ -19,4 +19,4 @@
 "@twilio-paste/core": patch
 ---
 
-[Paste components]: Update styles to implement new elevation tokens
+[Callout, ChatComposer, ChatLog, Combobox, Input, InputBox, Menu, MinimizableDialog, Modal, Popover, SideModal, SidePanel, Sidebar, Toast, Tooltip, Topbar, UserDialog]: Update styles to implement new elevation tokens
