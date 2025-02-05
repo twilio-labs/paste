@@ -28,6 +28,7 @@ import {
   SidePanelHeader,
   SidePanelHeaderActions,
   SidePanelPushContentWrapper,
+  useSidePanelState,
 } from "../src";
 import { MessagingInsightsContent } from "./components/MessagingInsightsContent";
 import { SidePanelWithAIContent } from "./components/SidePanelWithAIContent";
@@ -58,6 +59,39 @@ export const Default: StoryFn = () => {
   );
 };
 Default.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
+export const NoContent: StoryFn = () => {
+  const { sidePanel, toggleSidePanel } = useSidePanelState({ open: true });
+  return (
+    <SidePanelContainer {...sidePanel}>
+      <SidePanelPushContentWrapper>
+        <SidePanelButton variant="primary" onClick={toggleSidePanel}>
+          open sesame
+        </SidePanelButton>
+      </SidePanelPushContentWrapper>
+      <SidePanel label="intelligent assistant chat">
+        <SidePanelHeader>header</SidePanelHeader>content
+      </SidePanel>
+    </SidePanelContainer>
+  );
+};
+NoContent.parameters = {
   padding: false,
   a11y: {
     config: {
@@ -115,6 +149,47 @@ Basic.parameters = {
   },
 };
 
+export const AIMobile: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+  return (
+    <>
+      <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
+        <Topbar id={topbarSkipLinkID}> </Topbar>
+        <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <SidePanelWithAIContent />
+          <SidePanelPushContentWrapper>
+            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40" id={mainContentSkipLinkID}>
+              <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+            </Box>
+          </SidePanelPushContentWrapper>
+        </SidePanelContainer>
+      </SidebarPushContentWrapper>
+    </>
+  );
+};
+AIMobile.parameters = {
+  viewport: { defaultViewport: "iphonex" },
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
 export const AI: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const sidePanelId = useUID();
@@ -133,6 +208,44 @@ export const AI: StoryFn = () => {
   );
 };
 AI.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
+export const FilterMobile: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanelWithFilterContent />
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space100" paddingLeft="space100">
+          <SidePanelButton variant="secondary" size="rounded_small" pressed={isOpen}>
+            More filters
+            <Badge as="span" variant="neutral_counter">
+              2
+            </Badge>
+          </SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+FilterMobile.parameters = {
+  viewport: { defaultViewport: "iphonex" },
   padding: false,
   a11y: {
     config: {
@@ -357,6 +470,49 @@ export const Composed: StoryFn = () => {
 };
 
 Composed.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
+};
+
+export const ComposedMobile: StoryFn = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
+  return (
+    <Box>
+      {/* Sidebar can be placed anywhere - position fixed */}
+      <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
+        <Topbar id={topbarSkipLinkID}> </Topbar>
+        <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+          <SidePanelPushContentWrapper>
+            <MessagingInsightsContent mainContentSkipLinkID={mainContentSkipLinkID} />
+          </SidePanelPushContentWrapper>
+          {/* Side Panel can be placed anywhere - position fixed */}
+          <SidePanelWithAIContent />
+        </SidePanelContainer>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+};
+
+ComposedMobile.parameters = {
+  viewport: { defaultViewport: "iphonex" },
   padding: false,
   a11y: {
     config: {
