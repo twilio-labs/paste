@@ -166,8 +166,6 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       return desktopTransitions;
     }, [breakpointIndex, desktopTransitions, mobileTransitions]);
 
-    // console.log("breakpointIndex", breakpointIndex);
-
     return (
       <>
         {transitions(
