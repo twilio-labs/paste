@@ -4,6 +4,7 @@ export const meta = {
   slug: '/foundations/elevation/',
 };
 
+import {Anchor} from '@twilio-paste/anchor';
 import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -88,15 +89,15 @@ There are 2 different ways to communicate an element's elevation in level 1:
 
 1. **Use an accent shadow** for elements that need to be distinct from the surrounding elements but not highlighted.
 
-<ResponsiveImage src={AccentShadow} alt="" />
+<ResponsiveImage src={AccentShadow} alt="mock of side panel component with 'shadow elevation 05' as box shadow" />
 
 <ApplyingLevel1ImgCaption />
 
 2. **Use a tonal difference** when elements need to be highlighted as well as distinct from the background.
 
-<ResponsiveImage src={TonalChange} alt="" />
+<ResponsiveImage src={TonalChange} alt="a mock of callout component with 'color background body elevation' token as background color that makes it subtly more prominent" />
 
-<ApplyingLevel1ImgCaption />
+<CalloutExampleImgCaption />
 
 ### Level 2
 
@@ -106,7 +107,7 @@ There are 2 different ways to communicate an element's elevation in level 2:
 
 1. **Use a tonal difference with an accent shadow** when an element needs to be highlighted and prominent but does not overlap content by default. **Combine this with a soft sharp shadow** when the element overlaps other content and extra distance is necessary to make it distinct from the background.
 
-<ResponsiveImage src={Level2AccentChange} alt="" />
+<ResponsiveImage src={Level2AccentChange} alt="mock of a top bar component that uses 'color background weak elevation' as background color and 'shadow elevation bottom 05' as box shadow" />
 
 <ApplyLevel2ImgCaption />
 
@@ -114,9 +115,9 @@ There are 2 different ways to communicate an element's elevation in level 2:
 
 *Interactive states like vertical or horizontal scroll can dynamically use a soft, sharp shadow to indicate that there is overflown content.
 
-<ResponsiveImage src={Level2RisenShadow} alt="" />
+<ResponsiveImage src={Level2RisenShadow} alt="a mock of popover component that uses 'shadow elevation 10' as box shadow" />
 
-<ApplyLevel2ImgCaption />
+<PopoverExampleImgCaption />
 
 ### Level 3
 
@@ -127,11 +128,11 @@ Elements that rest at this level, float above all other levels, and tend to cont
 For elements with decorative or semantic use of color (background or borders), use a large soft shadow without edges.
 
 
-<ResponsiveImage src={Level3RisenShadow} alt="" />
+<ResponsiveImage src={Level3RisenShadow} alt="a mock including toast component using 'shadow elevation 20' as box shadow and minimizable dialog using 'color background weaker' token as background color and 'shadow elevation top 20' as box shadow" />
 
 2. **Use a large soft shadow along with an overlay** for elements that completely isolate the interface to draw full focus from the user.
 
-<ResponsiveImage src={Level3Overlay} alt="" />
+<ResponsiveImage src={Level3Overlay} alt="mock of alert dialog component where the overlay is using 'color background overlay' token as background color and 'shadow elevation 20' token as box shadow for dialog" />
 
 ## Elevated background color tokens
 
@@ -152,7 +153,7 @@ Paste's elevated background color tokens are derived from a base background colo
 
 Elevated elements across levels that share the same background color as the main page body should use the token `$color-background-weakest`. This token matches the page body tone in light mode but appears slightly lighter in dark mode to subtly reinforce elevation.
 
-<ResponsiveImage src={ElevatedBackgroundTokens} alt="" />
+<ResponsiveImage src={ElevatedBackgroundTokens} alt="a mock comparing the 'color background weaker token' in light and dark mode used as background color for minimizable dialog" />
 
 View our full list of Elevated background color tokens
 
@@ -164,8 +165,8 @@ View our full list of Elevated background color tokens
       <CalloutListItem>Semantic Colors: Used to communicate meaning or status, such as success, warning, or error.</CalloutListItem>
       <CalloutListItem>Decorative Colors: Reflect the brand identity or give a branded feel to a composition.</CalloutListItem>
     </CalloutList>
-    Tip: use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
   </CalloutText>
+  Tip: use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
 </Callout>
 
 ## Shadow tokens
@@ -213,6 +214,8 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
 >
   {ShadowTokensLevel3Example}
 </LivePreview>
+
+<Anchor href="/tokens/list">View our full list of Elevated shadow tokens</Anchor>
 </content>
 
 </contentwrapper>
