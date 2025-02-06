@@ -1,4 +1,6 @@
 import { Box } from "@twilio-paste/box";
+import { DarkModeIcon } from "@twilio-paste/icons/esm/DarkModeIcon";
+import { LightModeIcon } from "@twilio-paste/icons/esm/LightModeIcon";
 import type { BackgroundColor, BoxShadow } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
 import { Theme } from "@twilio-paste/theme";
@@ -21,7 +23,7 @@ export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
     backgroundColorElevation,
   }) => {
     return (
-      <Box>
+      <Box flexShrink={0} width="170px">
         <Box position="relative">
           <Box
             backgroundColor={backgroundColor}
@@ -38,21 +40,21 @@ export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
             height="163px"
             width="148px"
             position="absolute"
-            top={35}
-            left={35}
+            top={23}
+            left={23}
           />
         </Box>
-        <Box marginTop="space200" fontSize="fontSize30" fontWeight="fontWeightSemibold">
-          <Text as="p" color="colorTextWeak">
+        <Box marginTop="space200" fontWeight="fontWeightSemibold">
+          <Text as="p" color="colorTextWeak" fontSize="fontSize20">
             Base:
           </Text>
-          <Text as="p" marginTop="space30">
+          <Text as="p" marginTop="space30" fontSize="fontSize20">
             {backgroundColorBase}
           </Text>
-          <Text as="p" marginTop="space40" color="colorTextWeak">
+          <Text as="p" marginTop="space40" color="colorTextWeak" fontSize="fontSize20">
             Elevation:
           </Text>
-          <Text as="p" marginTop="space30">
+          <Text as="p" marginTop="space30" fontSize="fontSize20">
             {backgroundColorElevation}
           </Text>
         </Box>
@@ -60,7 +62,7 @@ export const ElevatedBackgroundColorTokens = (): React.ReactNode => {
     );
   };
   return (
-    <Box display="flex" flexWrap="wrap" columnGap="space70" rowGap="space90">
+    <Box display="flex" overflowX="auto" columnGap="space70">
       <TokensTemplate
         backgroundColor="colorBackgroundBody"
         backgroundColorElevated="colorBackgroundBodyElevation"
@@ -96,7 +98,9 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
       <Box
         width="50%"
         height="100vh"
-        paddingTop="space130"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
         paddingLeft="space80"
         borderWidth="borderWidth10"
         borderStyle="solid"
@@ -104,6 +108,7 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
         zIndex="zIndex10"
       >
         <Box
+          backgroundColor="colorBackgroundWeaker"
           height="100px"
           borderRadius="borderRadius30"
           borderRight="none"
@@ -111,26 +116,32 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
           borderBottomRightRadius="borderRadius0"
           boxShadow={boxShadow}
         />
-        <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow (accent)
-        </Text>
-        <Text as="p" marginTop="space30">
-          {boxShadowlabel}
-        </Text>
-      </Box>
+          <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
+            <LightModeIcon decorative={true} color="colorTextIcon" />
+            <Text as="p" color="colorTextWeak">
+              Light mode
+            </Text>
+          </Box>
+          <Text as="p" marginTop="space30">
+            {boxShadowlabel}
+          </Text>
+        </Box>
       <Box width="50%">
         <Theme.Provider theme="twilio-dark">
           <Box
             backgroundColor="colorBackgroundBody"
             height="100vh"
-            paddingTop="space130"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
             paddingRight="space80"
             borderWidth="borderWidth10"
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
-            borderColor="transparent"
+            borderColor="colorBorderWeaker"
           >
             <Box
+              backgroundColor="colorBackgroundWeaker"
               height="100px"
               borderRadius="borderRadius30"
               borderLeft="none"
@@ -138,9 +149,12 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
               borderBottomLeftRadius="borderRadius0"
               boxShadow={boxShadow}
             />
-            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow (accent)
-            </Text>
+            <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50" paddingLeft="space80">
+              <DarkModeIcon decorative={true} color="colorTextIcon" />
+              <Text as="p" color="colorTextWeak">
+                Dark mode
+              </Text>
+            </Box>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               {boxShadowlabel}
             </Text>

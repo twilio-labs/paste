@@ -33,6 +33,8 @@ import {
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
 import { ElevatedBackgroundColorTokensExample, ShadowTokensLevel1Example, ShadowTokensLevel2Example, ShadowTokensLevel3Example } from '../../../component-examples/ElevationFoundationExamples';
+import { LightModeIcon } from '@twilio-paste/icons/esm/LightModeIcon';
+import { DarkModeIcon } from '@twilio-paste/icons/esm/DarkModeIcon';
 
 export default DefaultLayout;
 
@@ -143,7 +145,7 @@ Paste's elevated background color tokens are derived from a base background colo
 <Anchor href="/tokens/list#background-colors">View our full list of Elevated background color tokens</Anchor>
 <br/><br/>
 
-For levels 1 and 2, when showing elevation through tonal differences, pair elevated background color tokens with their corresponding background color. For example: Use $color-background-body-elevation on top of $color-background-body.
+For levels 1 and 2, when showing elevation through tonal differences, pair elevated background color tokens with their corresponding background color. For example: Use `$color-background-body-elevation` on top of `$color-background-body`.
 
 <LivePreview
   scope={{
@@ -185,7 +187,9 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
   scope={{
     Box,
     Text,
-    Theme
+    Theme,
+    LightModeIcon,
+    DarkModeIcon
   }}
   noInline
   showOverflow
@@ -199,7 +203,9 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
   scope={{
     Box,
     Text,
-    Theme
+    Theme,
+    LightModeIcon,
+    DarkModeIcon
   }}
   noInline
   showOverflow
@@ -213,7 +219,9 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
   scope={{
     Box,
     Text,
-    Theme
+    Theme,
+    LightModeIcon,
+    DarkModeIcon
   }}
   noInline
   showOverflow

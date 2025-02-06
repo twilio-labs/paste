@@ -10,13 +10,13 @@ const ElevatedBackgroundColorTokens = () => {
     backgroundColorElevation,
   }) => {
     return (
-      <Box>
+      <Box flexShrink={0} width="170px">
         <Box position="relative">
           <Box
             backgroundColor={backgroundColor}
             borderRadius="borderRadius30"
-            height="163px"
-            width="148px"
+            height="109px"
+            width="100px"
             borderWidth={hasBorder ? "borderWidth10" : "borderWidth0"}
             borderStyle="solid"
             borderColor="colorBorderWeaker"
@@ -24,24 +24,24 @@ const ElevatedBackgroundColorTokens = () => {
           <Box
             backgroundColor={backgroundColorElevated}
             borderRadius="borderRadius30"
-            height="163px"
-            width="148px"
+            height="109px"
+            width="100px"
             position="absolute"
-            top={35}
-            left={35}
+            top={23}
+            left={23}
           />
         </Box>
-        <Box marginTop="space200" fontSize="fontSize30" fontWeight="fontWeightSemibold">
-          <Text as="p" color="colorTextWeak">
+        <Box marginTop="space200" fontWeight="fontWeightSemibold">
+          <Text as="p" color="colorTextWeak" fontSize="fontSize20">
             Base:
           </Text>
-          <Text as="p" marginTop="space30">
+          <Text as="p" marginTop="space30" fontSize="fontSize20">
             {backgroundColorBase}
           </Text>
-          <Text as="p" marginTop="space40" color="colorTextWeak">
+          <Text as="p" marginTop="space40" color="colorTextWeak" fontSize="fontSize20">
             Elevation:
           </Text>
-          <Text as="p" marginTop="space30">
+          <Text as="p" marginTop="space30" fontSize="fontSize20">
             {backgroundColorElevation}
           </Text>
         </Box>
@@ -49,7 +49,7 @@ const ElevatedBackgroundColorTokens = () => {
     );
   };
   return (
-    <Box display="flex" flexWrap="wrap" columnGap="space70" rowGap="space90">
+    <Box display="flex" overflowX="auto" columnGap="space30">
       <TokensTemplate
         backgroundColor="colorBackgroundBody"
         backgroundColorElevated="colorBackgroundBodyElevation"
@@ -91,7 +91,9 @@ const ShadowTokensLevel1 = () => {
       <Box
         width="50%"
         height="300px"
-        paddingTop="space130"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
         paddingLeft="space80"
         borderWidth="borderWidth10"
         borderStyle="solid"
@@ -99,6 +101,7 @@ const ShadowTokensLevel1 = () => {
         zIndex="zIndex10"
       >
         <Box
+          backgroundColor="colorBackgroundWeaker"
           height="100px"
           borderRadius="borderRadius30"
           borderRight="none"
@@ -106,9 +109,12 @@ const ShadowTokensLevel1 = () => {
           borderBottomRightRadius="borderRadius0"
           boxShadow="shadowElevation05"
         />
-        <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow (accent)
-        </Text>
+        <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
+          <LightModeIcon decorative={true} color="colorTextIcon" />
+          <Text as="p" color="colorTextWeak">
+            Light mode
+          </Text>
+        </Box>
         <Text as="p" marginTop="space30">
           $shadow-elevation-05
         </Text>
@@ -118,15 +124,18 @@ const ShadowTokensLevel1 = () => {
           <Box
             backgroundColor="colorBackgroundBody"
             height="300px"
-            paddingTop="space130"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
             paddingRight="space80"
             borderWidth="borderWidth10"
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
-            borderColor="transparent"
+            borderColor="colorBorderWeaker"
             fontWeight="fontWeightSemibold"
           >
             <Box
+              backgroundColor="colorBackgroundWeaker"
               height="100px"
               borderRadius="borderRadius30"
               borderLeft="none"
@@ -134,9 +143,12 @@ const ShadowTokensLevel1 = () => {
               borderBottomLeftRadius="borderRadius0"
               boxShadow="shadowElevation05"
             />
-            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow in twilio-dark theme
-            </Text>
+            <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50" paddingLeft="space80">
+              <DarkModeIcon decorative={true} color="colorTextIcon" />
+              <Text as="p" color="colorTextWeak">
+                Dark mode
+              </Text>
+            </Box>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-05
             </Text>
@@ -159,7 +171,9 @@ const ShadowTokensLevel2 = () => {
       <Box
         width="50%"
         height="300px"
-        paddingTop="space130"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
         paddingLeft="space80"
         borderWidth="borderWidth10"
         borderStyle="solid"
@@ -167,6 +181,7 @@ const ShadowTokensLevel2 = () => {
         zIndex="zIndex10"
       >
         <Box
+          backgroundColor="colorBackgroundWeaker"
           height="100px"
           borderRadius="borderRadius30"
           borderRight="none"
@@ -174,27 +189,33 @@ const ShadowTokensLevel2 = () => {
           borderBottomRightRadius="borderRadius0"
           boxShadow="shadowElevation10"
         />
-        <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow
-        </Text>
-        <Text as="p" marginTop="space30">
-          $shadow-elevation-10
-        </Text>
+          <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
+            <LightModeIcon decorative={true} color="colorTextIcon" />
+            <Text as="p" color="colorTextWeak">
+              Light mode
+            </Text>
+          </Box>
+          <Text as="p" marginTop="space30">
+            $shadow-elevation-10
+          </Text>
       </Box>
       <Box width="50%">
         <Theme.Provider theme="twilio-dark">
           <Box
             backgroundColor="colorBackgroundBody"
             height="300px"
-            paddingTop="space130"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
             paddingRight="space80"
             borderWidth="borderWidth10"
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
-            borderColor="transparent"
+            borderColor="colorBorderWeaker"
             fontWeight="fontWeightSemibold"
           >
             <Box
+              backgroundColor="colorBackgroundWeaker"
               height="100px"
               borderRadius="borderRadius30"
               borderLeft="none"
@@ -202,9 +223,12 @@ const ShadowTokensLevel2 = () => {
               borderBottomLeftRadius="borderRadius0"
               boxShadow="shadowElevation10"
             />
-            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow in twilio-dark theme
-            </Text>
+            <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50" paddingLeft="space80">
+              <DarkModeIcon decorative={true} color="colorTextIcon" />
+              <Text as="p" color="colorTextWeak">
+                Dark mode
+              </Text>
+            </Box>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-10
             </Text>
@@ -227,7 +251,9 @@ const ShadowTokensLevel3 = () => {
       <Box
         width="50%"
         height="300px"
-        paddingTop="space130"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
         paddingLeft="space80"
         borderWidth="borderWidth10"
         borderStyle="solid"
@@ -235,6 +261,7 @@ const ShadowTokensLevel3 = () => {
         zIndex="zIndex10"
       >
         <Box
+          backgroundColor="colorBackgroundWeaker"
           height="100px"
           borderRadius="borderRadius30"
           borderRight="none"
@@ -242,9 +269,12 @@ const ShadowTokensLevel3 = () => {
           borderBottomRightRadius="borderRadius0"
           boxShadow="shadowElevation20"
         />
-        <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow
-        </Text>
+        <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
+          <LightModeIcon decorative={true} color="colorTextIcon" />
+          <Text as="p" color="colorTextWeak">
+            Light mode
+          </Text>
+        </Box>
         <Text as="p" marginTop="space30">
           $shadow-elevation-20
         </Text>
@@ -254,15 +284,18 @@ const ShadowTokensLevel3 = () => {
           <Box
             backgroundColor="colorBackgroundBody"
             height="300px"
-            paddingTop="space130"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
             paddingRight="space80"
             borderWidth="borderWidth10"
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
-            borderColor="transparent"
+            borderColor="colorBorderWeaker"
             fontWeight="fontWeightSemibold"
           >
             <Box
+              backgroundColor="colorBackgroundWeaker"
               height="100px"
               borderRadius="borderRadius30"
               borderLeft="none"
@@ -270,9 +303,12 @@ const ShadowTokensLevel3 = () => {
               borderBottomLeftRadius="borderRadius0"
               boxShadow="shadowElevation20"
             />
-            <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow in twilio-dark theme
-            </Text>
+            <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50" paddingLeft="space80">
+              <DarkModeIcon decorative={true} color="colorTextIcon" />
+              <Text as="p" color="colorTextWeak">
+                Dark mode
+              </Text>
+            </Box>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-20
             </Text>
