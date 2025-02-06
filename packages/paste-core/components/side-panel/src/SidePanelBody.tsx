@@ -23,7 +23,7 @@ const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
     },
     // Handle
     "::-webkit-scrollbar-thumb": {
-      background: colorBackgroundBodyElevation,
+      background: colorBackgroundElevation,
       borderRadius: "10px",
     },
     // Handle on hover
