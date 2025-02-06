@@ -54,26 +54,26 @@ const ElevatedBackgroundColorTokens = () => {
         backgroundColor="colorBackgroundBody"
         backgroundColorElevated="colorBackgroundBodyElevation"
         backgroundColorBase="$color-background-body"
-        backgroundColorElevation="$color-background-elevation-body"
+        backgroundColorElevation="$color-background-body-elevation"
         hasBorder
       />
       <TokensTemplate
-        backgroundColor="colorBackgroundStrong"
+        backgroundColor="colorBackground"
         backgroundColorElevated="colorBackgroundElevation"
-        backgroundColorBase="$color-background-body"
+        backgroundColorBase="$color-background"
         backgroundColorElevation="$color-background-elevation"
       />
       <TokensTemplate
         backgroundColor="colorBackgroundInverse"
         backgroundColorElevated="colorBackgroundInverseElevation"
-        backgroundColorBase="$color-background-body"
-        backgroundColorElevation="$color-background-elevation-inverse"
+        backgroundColorBase="$color-background-inverse"
+        backgroundColorElevation="$color-background-inverse-elevation"
       />
       <TokensTemplate
         backgroundColor="colorBackgroundInverseStrong"
         backgroundColorElevated="colorBackgroundInverseStrongElevation"
-        backgroundColorBase="$color-background-body"
-        backgroundColorElevation="$color-background-elevation-inverse-strong"
+        backgroundColorBase="$color-background-inverse-strong"
+        backgroundColorElevation="$color-background-inverse-strong-elevation"
       />
     </Box>
   );
@@ -124,6 +124,7 @@ const ShadowTokensLevel1 = () => {
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
             borderColor="transparent"
+            fontWeight="fontWeightSemibold"
           >
             <Box
               height="100px"
@@ -134,7 +135,7 @@ const ShadowTokensLevel1 = () => {
               boxShadow="shadowElevation05"
             />
             <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow (accent)
+              Shadow in twilio-dark theme
             </Text>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-05
@@ -174,7 +175,7 @@ const ShadowTokensLevel2 = () => {
           boxShadow="shadowElevation10"
         />
         <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow (accent)
+          Shadow
         </Text>
         <Text as="p" marginTop="space30">
           $shadow-elevation-10
@@ -191,6 +192,7 @@ const ShadowTokensLevel2 = () => {
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
             borderColor="transparent"
+            fontWeight="fontWeightSemibold"
           >
             <Box
               height="100px"
@@ -201,7 +203,7 @@ const ShadowTokensLevel2 = () => {
               boxShadow="shadowElevation10"
             />
             <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow (accent)
+              Shadow in twilio-dark theme
             </Text>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-10
@@ -241,7 +243,7 @@ const ShadowTokensLevel3 = () => {
           boxShadow="shadowElevation20"
         />
         <Text as="p" color="colorTextWeak" marginTop="space50">
-          Shadow (accent)
+          Shadow
         </Text>
         <Text as="p" marginTop="space30">
           $shadow-elevation-20
@@ -258,6 +260,7 @@ const ShadowTokensLevel3 = () => {
             borderLeftWidth="borderWidth0"
             borderStyle="solid"
             borderColor="transparent"
+            fontWeight="fontWeightSemibold"
           >
             <Box
               height="100px"
@@ -268,7 +271,7 @@ const ShadowTokensLevel3 = () => {
               boxShadow="shadowElevation20"
             />
             <Text as="p" color="colorTextWeak" marginTop="space50" paddingLeft="space80">
-              Shadow (accent)
+              Shadow in twilio-dark theme
             </Text>
             <Text as="p" marginTop="space30" paddingLeft="space80">
               $shadow-elevation-20
@@ -287,29 +290,30 @@ render(
 
 export const ApplyingLevel1ImgCaption = (): JSX.Element => (
   <ImageCaption>
-    For example: The Side Panel pushes content at Level 0 but is categorized as Level 1 because it contains a task that
-    requires user focus while still relying on the background content.
+    For example: The Side Panel pushes content at Level 0 but is categorized as Level 1, and uses $shadow-elevation-05
+    because it contains a task that requires user focus while still relying on the background content.
   </ImageCaption>
 );
 
 export const CalloutExampleImgCaption = (): JSX.Element => (
   <ImageCaption>
     For example: a Callout is typically placed inline with the background content and relies on that context for its
-    meaning. However, it uses a slight background change to subtly appear more prominent and make its information stand
-    out.
+    meaning. However, it uses a slight background change with $color-background-body-elevation to subtly appear more
+    prominent and make its information stand out on top of the default background body color. out.
   </ImageCaption>
 );
 
 export const ApplyLevel2ImgCaption = (): JSX.Element => (
   <ImageCaption>
-    For example: a Top bar role is not to be on a high hierarchy but to have enough emphasis and differentiation to be
-    easily identified at any point of the experience.
+    For example: a Topbar&apos;s role is not to be at a high hierarchy but to have enough emphasis and differentiation
+    to be easily identified at any point of the experience.
   </ImageCaption>
 );
 
 export const PopoverExampleImgCaption = (): JSX.Element => (
   <ImageCaption>
-    For example: a Popover uses a subtle, sharp shadow to create the illusion of floating above the content. This adds
-    depth without dominating the interaction.
+    For example: a Popover uses a subtle, sharp shadow with $shadow-elevation-10 to create the illusion of floating
+    above the content, while still being bound to its trigger button. This adds depth without dominating the
+    interaction.
   </ImageCaption>
 );

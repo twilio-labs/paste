@@ -71,13 +71,13 @@ Paste’s elevation system is:
 
 ## Elevation levels
 
-Paste has a total of 4 levels of elevation, each elevation level corresponds to a perceived distance within the interface. All components are assigned a level based on their intended distance against the surface behind them.
+Paste has a total of 4 levels of elevation. Each elevation level corresponds to a perceived distance within the interface. All components are assigned a level based on their intended distance against the surface behind them.
 
 ### Level 0
 
 Elements at this level are the baseline for all the other levels and represent the background of the interface.
 
-The majority of elements will be at this level in their resting states, however an element on this level can move to a higher level when interacted with.
+The majority of elements will be at this level in their resting states. However an element on this level can move to a higher level when interacted with.
 
 For example: a Button might be ‘Level 0’ in its resting state, but ‘Level 1’ when hovered.
 
@@ -101,7 +101,7 @@ There are 2 different ways to communicate an element's elevation in level 1:
 
 ### Level 2
 
-Elements that rest at this level are commonly distinctly separated from the background and dynamically overlap content layers creating visible distance while still being bound to Level 0 elements.
+Elements that rest at this level are distinctly separated from the background and dynamically overlap content layers creating visible distance while still being bound to Level 0 elements.
 
 There are 2 different ways to communicate an element's elevation in level 2:
 
@@ -113,7 +113,7 @@ There are 2 different ways to communicate an element's elevation in level 2:
 
 2. **Use a soft and sharp shadow** for elements that have temporary prominence or subtly float above the content.
 
-*Interactive states like vertical or horizontal scroll can dynamically use a soft, sharp shadow to indicate that there is overflown content.
+Interactive states like vertical or horizontal scroll can dynamically use a soft, sharp shadow to indicate that there is overflown content.
 
 <ResponsiveImage src={Level2RisenShadow} alt="a mock of popover component that uses 'shadow elevation 10' as box shadow" />
 
@@ -121,11 +121,11 @@ There are 2 different ways to communicate an element's elevation in level 2:
 
 ### Level 3
 
-Elements that rest at this level, float above all other levels, and tend to contain crucial actions or information that temporarily becomes the top hierarchy of the surface.
+Elements that rest at this level float above all other levels, and tend to contain crucial actions or information that temporarily moves to the top hierarchy of the surface.
 
-1. **Use a large, soft shadow with edges**, for elements that are at the top priority and require user focus, but still allow the user to interact with the surrounding content.
+1. **Use a large, soft shadow**, for elements that are at the top priority and require user focus, but still allow the user to interact with the surrounding content.
 
-For elements with decorative or semantic use of color (background or borders), use a large soft shadow without edges.
+For elements that already have their own border, use `$shadow-elevation-20`. Otherwise, use `$shadow-elevation-top-20` to define its edges against the background.
 
 
 <ResponsiveImage src={Level3RisenShadow} alt="a mock including toast component using 'shadow elevation 20' as box shadow and minimizable dialog using 'color background weaker' token as background color and 'shadow elevation top 20' as box shadow" />
@@ -140,6 +140,11 @@ Subtle tonal shifts are an effective way to communicate hierarchy and prominence
 
 Paste's elevated background color tokens are derived from a base background color with tonal shifts to indicate elevation. Elevated surfaces darken on light backgrounds and lighten on dark backgrounds, ensuring clarity and consistency across themes.
 
+<Anchor href="/tokens/list#background-colors">View our full list of Elevated background color tokens</Anchor>
+
+
+For levels 1 and 2, when showing elevation through tonal differences, pair elevated background color tokens with their corresponding background color. For example: Use $color-background-body-elevation on top of $color-background-body.
+
 <LivePreview
   scope={{
     Box,
@@ -151,7 +156,7 @@ Paste's elevated background color tokens are derived from a base background colo
   {ElevatedBackgroundColorTokensExample}
 </LivePreview>
 
-Elevated elements across levels that share the same background color as the main page body should use the token `$color-background-weakest`. This token matches the page body tone in light mode but appears slightly lighter in dark mode to subtly reinforce elevation.
+Elevated elements across levels that share the same background color as the main page body should use the token `$color-background-weaker`. This token matches the page body tone in light mode but appears slightly lighter in dark mode to subtly reinforce elevation.
 
 <ResponsiveImage src={ElevatedBackgroundTokens} alt="a mock comparing the 'color background weaker token' in light and dark mode used as background color for minimizable dialog" />
 
@@ -166,12 +171,14 @@ View our full list of Elevated background color tokens
       <CalloutListItem>Decorative Colors: Reflect the brand identity or give a branded feel to a composition.</CalloutListItem>
     </CalloutList>
   </CalloutText>
-  Tip: use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
+  Tip: Use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
 </Callout>
 
 ## Shadow tokens
 
 Shadows are the most extreme way to display elevation. Overuse of shadows without understanding your page’s visual hierarchy can have a negative effect on the user experience.
+
+<Anchor href="/tokens/list#box-shadows">View our full list of Elevated shadow tokens</Anchor>
 
 **Level 1 shadows** are accent shadows that subtly define the edges of a container. They serve as a lightweight alternative to risen shadows at lower elevations.
 
@@ -214,8 +221,6 @@ Shadows are the most extreme way to display elevation. Overuse of shadows withou
 >
   {ShadowTokensLevel3Example}
 </LivePreview>
-
-<Anchor href="/tokens/list#box-shadows">View our full list of Elevated shadow tokens</Anchor>
 </content>
 
 </contentwrapper>
