@@ -110,9 +110,9 @@ const ShadowTokensLevel1 = () => {
           boxShadow="shadowElevation05"
         />
         <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
-          <LightModeIcon decorative={true} color="colorTextIcon" />
+          <ThemeIcon decorative={true} color="colorTextIcon" />
           <Text as="p" color="colorTextWeak">
-            Light mode
+            Selected theme
           </Text>
         </Box>
         <Text as="p" marginTop="space30">
@@ -190,9 +190,9 @@ const ShadowTokensLevel2 = () => {
           boxShadow="shadowElevation10"
         />
           <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
-            <LightModeIcon decorative={true} color="colorTextIcon" />
+            <ThemeIcon decorative={true} color="colorTextIcon" />
             <Text as="p" color="colorTextWeak">
-              Light mode
+              Selected theme
             </Text>
           </Box>
           <Text as="p" marginTop="space30">
@@ -270,9 +270,9 @@ const ShadowTokensLevel3 = () => {
           boxShadow="shadowElevation20"
         />
         <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
-          <LightModeIcon decorative={true} color="colorTextIcon" />
+          <ThemeIcon decorative={true} color="colorTextIcon" />
           <Text as="p" color="colorTextWeak">
-            Light mode
+            Selected theme
           </Text>
         </Box>
         <Text as="p" marginTop="space30">
@@ -335,7 +335,7 @@ export const CalloutExampleImgCaption = (): JSX.Element => (
   <ImageCaption>
     For example: a Callout is typically placed inline with the background content and relies on that context for its
     meaning. However, it uses a slight background change with $color-background-body-elevation to subtly appear more
-    prominent and make its information stand out on top of the default background body color. out.
+    prominent and make its information stand out on top of the default background body color.
   </ImageCaption>
 );
 

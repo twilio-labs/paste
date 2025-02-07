@@ -1,6 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { DarkModeIcon } from "@twilio-paste/icons/esm/DarkModeIcon";
-import { LightModeIcon } from "@twilio-paste/icons/esm/LightModeIcon";
+import { ThemeIcon } from "@twilio-paste/icons/esm/ThemeIcon";
 import type { BackgroundColor, BoxShadow } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
 import { Theme } from "@twilio-paste/theme";
@@ -116,16 +116,16 @@ const ShadowTokens: React.FC<{ boxShadow: BoxShadow; boxShadowlabel: string }> =
           borderBottomRightRadius="borderRadius0"
           boxShadow={boxShadow}
         />
-          <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
-            <LightModeIcon decorative={true} color="colorTextIcon" />
-            <Text as="p" color="colorTextWeak">
-              Light mode
-            </Text>
-          </Box>
-          <Text as="p" marginTop="space30">
-            {boxShadowlabel}
+        <Box display="flex" alignItems="center" columnGap="space20" marginTop="space50">
+          <ThemeIcon decorative={true} color="colorTextIcon" />
+          <Text as="p" color="colorTextWeak">
+            Selected theme
           </Text>
         </Box>
+        <Text as="p" marginTop="space30">
+          {boxShadowlabel}
+        </Text>
+      </Box>
       <Box width="50%">
         <Theme.Provider theme="twilio-dark">
           <Box
