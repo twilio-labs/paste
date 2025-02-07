@@ -21,6 +21,7 @@
     "/packages/paste-core/components/button-group",
     "/packages/paste-core/components/callout",
     "/packages/paste-core/components/card",
+    "/packages/paste-core/components/chart-provider",
     "/packages/paste-core/components/chat-composer",
     "/packages/paste-core/components/chat-log",
     "/packages/paste-core/components/checkbox",
