@@ -27,6 +27,7 @@
   "disabled": "Use for conveying a status where the entity or feature is preventing a broader feature to function. \n This is a more technical word that could be perceived as jargon, so consider content best practices (simple words!) and your audience. Use the less technical term 'off' if it won't hinder comprehension or accuracy, or if you're writing for a less technical audience (like marketers).",
   "dismiss": "Avoid. Use 'close' instead.",
   "done": "Avoid. Use 'finish' or 'close' instead, depending on the use case. Actions more closely describe what will happen when the user clicks the button.",
+  "downgrade": "Avoid using this.",
   "download": "Use as a call to action when a user need to copy data from Twilio to a computer system",
   "duplicate": "Use when allowing user to create a replica of an existing item.",
   "easy / easily": "Avoid. This contains a value judgement and can make users feel dumb if it doesn't feel easy to them.",
