@@ -11939,7 +11939,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
+"@twilio-paste/chart-provider@^0.0.0, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider"
   dependencies:
@@ -11954,6 +11954,7 @@ __metadata:
     "@twilio-paste/types": ^6.0.0
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
+    highcharts: ^9.3.3
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
@@ -11970,6 +11971,7 @@ __metadata:
     "@twilio-paste/types": ^6.0.0
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    highcharts: ^9.3.3
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
@@ -12384,6 +12386,7 @@ __metadata:
     "@twilio-paste/button-group": ^4.2.0
     "@twilio-paste/callout": ^4.2.1
     "@twilio-paste/card": ^9.1.0
+    "@twilio-paste/chart-provider": ^0.0.0
     "@twilio-paste/chat-composer": ^5.2.1
     "@twilio-paste/chat-log": ^5.2.1
     "@twilio-paste/checkbox": ^13.1.2
