@@ -67,11 +67,6 @@ interface SidePanelContentsProps extends SidePanelProps {
   isMobile: boolean;
 }
 
-const getAs = (isMobile: boolean): any => {
-  if (isMobile) return ModalDialogPrimitiveContent as any;
-  return "div";
-};
-
 const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProps>(
   ({ label, element, sidePanelId, styles, isMobile, children, ...props }, ref) => {
     // Get the offset of the side panel from the top of the viewport
@@ -89,7 +84,7 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
         {...safelySpreadBoxProps(props)}
         position="absolute"
         role="dialog"
-        as={getAs(isMobile)}
+        as={isMobile ? (ModalDialogPrimitiveContent as any) : "div"}
         aria-label={label}
         top={0}
         right={0}
