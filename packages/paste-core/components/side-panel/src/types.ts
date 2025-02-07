@@ -177,30 +177,21 @@ export interface SidePanelContextProps {
 }
 
 export interface SidePanelStateReturn {
-  sidePanel: {
-    /**
-     * State for the Side Panel. Determines whether the Side Panel is open or closed.
-     *
-     * @type {boolean}
-     * @default false
-     * @memberof SidePanelStateReturn
-     */
-    isOpen: boolean;
-    /**
-     * Sets the state of the Side Panel between open and closed.
-     *
-     * @type {React.Dispatch<React.SetStateAction<boolean>>}
-     * @memberof SidePanelStateReturn
-     */
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  };
   /**
-   * Toggles the Side Panel between open and closed states. Apply to the `onClick` of the component that triggers the Side Panel.
+   * State for the Side Panel. Determines whether the Side Panel is open or closed.
    *
-   * @type {() => void}
+   * @type {boolean}
+   * @default false
    * @memberof SidePanelStateReturn
    */
-  toggleSidePanel: () => void;
+  isOpen: boolean;
+  /**
+   * Sets the state of the Side Panel between open and closed.
+   *
+   * @type {React.Dispatch<React.SetStateAction<boolean>>}
+   * @memberof SidePanelStateReturn
+   */
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface UseSidePanelStateProps {

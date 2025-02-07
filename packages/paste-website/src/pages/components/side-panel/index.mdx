@@ -239,7 +239,7 @@ export const SidePanelExample = (): React.ReactNode => {
 
 ### Using the state hook
 
-Side Panel comes with the option of using a hook to manage the open and close state of the panel. The `useSidePanelState` hook returns an object to spread onto SidePanelContainer and a function to pass to the `onClick` of SidePanelButton.
+Side Panel comes with the option of using a hook to manage the open and close state of the panel. The `useSidePanelState` hook returns an object to spread onto SidePanelContainer. To change the default state of the Side Panel from closed to open, pass `open: true` to the hook.
 
 <LivePreview
   scope={{
@@ -257,11 +257,11 @@ Side Panel comes with the option of using a hook to manage the open and close st
   height="300px"
 >
   {`const SidePanelExample = () => {
-    const { sidePanel, toggleSidePanel } = useSidePanelState({});
+    const sidePanel = useSidePanelState({});
     return (
       <SidePanelContainer {...sidePanel}>
         <SidePanelPushContentWrapper>
-          <SidePanelButton variant="primary" onClick={toggleSidePanel}>
+          <SidePanelButton variant="primary">
             Toggle Side Panel
           </SidePanelButton>
         </SidePanelPushContentWrapper>

@@ -64,10 +64,16 @@ const config = {
 interface SidePanelContentsProps extends SidePanelProps {
   sidePanelId: string;
   styles: any;
+  isMobile: boolean;
 }
 
+const getAs = (isMobile: boolean): any => {
+  if (isMobile) return ModalDialogPrimitiveContent as any;
+  return "div";
+};
+
 const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProps>(
-  ({ label, element, sidePanelId, styles, children, ...props }, ref) => {
+  ({ label, element, sidePanelId, styles, isMobile, children, ...props }, ref) => {
     // Get the offset of the side panel from the top of the viewport
     const sidePanelRef = React.useRef<HTMLDivElement>(null);
     const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement>;
@@ -83,7 +89,7 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
         {...safelySpreadBoxProps(props)}
         position="absolute"
         role="dialog"
-        as={ModalDialogPrimitiveContent as any}
+        as={getAs(isMobile)}
         aria-label={label}
         top={0}
         right={0}
@@ -183,6 +189,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                   sidePanelId={sidePanelId}
                   styles={styles}
                   label={label}
+                  isMobile
                   ref={ref}
                 >
                   {children}
@@ -195,6 +202,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                 sidePanelId={sidePanelId}
                 styles={styles}
                 label={label}
+                isMobile={false}
                 ref={ref}
               >
                 {children}

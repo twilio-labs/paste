@@ -77,13 +77,11 @@ Default.parameters = {
 };
 
 export const NoContent: StoryFn = () => {
-  const { sidePanel, toggleSidePanel } = useSidePanelState({ open: true });
+  const sidePanel = useSidePanelState({ open: true });
   return (
     <SidePanelContainer {...sidePanel}>
       <SidePanelPushContentWrapper>
-        <SidePanelButton variant="primary" onClick={toggleSidePanel}>
-          open sesame
-        </SidePanelButton>
+        <SidePanelButton variant="primary">open sesame</SidePanelButton>
       </SidePanelPushContentWrapper>
       <SidePanel label="intelligent assistant chat">
         <SidePanelHeader>header</SidePanelHeader>content
