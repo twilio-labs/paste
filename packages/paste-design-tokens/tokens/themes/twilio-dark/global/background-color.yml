@@ -74,6 +74,9 @@ props:
   color-background-elevation:
     value: "{!palette-gray-95}"
     comment: Elevation token for color-background elements.
+  color-background-strong-elevation:
+    value: "{!palette-gray-90}"
+    comment: Elevation token for color-background-strong elements.
   color-background-inverse-weak-elevation:
     value: "{!palette-gray-100}"
     comment: Elevation token for color-background-inverse-weak elements.
