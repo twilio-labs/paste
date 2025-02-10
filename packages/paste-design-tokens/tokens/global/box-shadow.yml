@@ -285,7 +285,7 @@ props:
     comment: Use on inverse elements that overlay other UI components but remain visually connected to the elements behind them.
   shadow-elevation-20:
     value: "{!offset-0} {!offset-30} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-60} {!offset-60} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
-    comment: Use on elements that sit above the UI to indicate a greater distance distance from the surface behind them.
+    comment: Use on elements with decorative or semantic use of color that sit above the UI to indicate a greater distance distance from the surface behind them.
   shadow-elevation-left-20:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-05}, {!offset-negative-20} {!offset-0} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-negative-60} {!offset-0} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
     comment: Use for elements that dynamically open from the right side of the screen, appearing above the UI to indicate a greater separation from the underlying surface.
