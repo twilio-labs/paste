@@ -7,7 +7,7 @@ import type { SidePanelBodyProps } from "./types";
 
 // This wrapper applies styles that customize the scrollbar and its track
 const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
-  const { colorBackgroundBody, colorBackgroundElevation, colorBackgroundBodyElevation } = theme.backgroundColors;
+  const { colorBackgroundBody, colorBackgroundElevation, colorBackgroundStrongElevation } = theme.backgroundColors;
 
   return css({
     // Scrollbar
@@ -28,7 +28,7 @@ const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
     },
     // Handle on hover
     "::-webkit-scrollbar-thumb:hover": {
-      background: colorBackgroundElevation,
+      background: colorBackgroundStrongElevation,
     },
   });
 });
