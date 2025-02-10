@@ -55,7 +55,7 @@ export const ModalDialogContent = animated(
       minHeight: "170px",
       backgroundColor: "colorBackgroundBody",
       borderRadius: "borderRadius30",
-      boxShadow: "shadowElevation20",
+      boxShadow: "shadowElevationTop20",
       display: "flex",
       flexDirection: "column",
     }),

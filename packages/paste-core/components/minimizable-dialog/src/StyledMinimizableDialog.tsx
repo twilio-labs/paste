@@ -14,7 +14,7 @@ export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxP
       flexDirection="column"
       backgroundColor="colorBackgroundWeaker"
       width="size40"
-      boxShadow="shadowElevation20"
+      boxShadow="shadowElevationTop20"
     >
       {children}
     </Box>
