@@ -1,5 +1,16 @@
 # @twilio-paste/website
 
+## 2.23.51
+
+### Patch Changes
+
+- Updated dependencies [[`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4), [`c128d63c7`](https://github.com/twilio-labs/paste/commit/c128d63c7f72bf35599bb22ba2943a11cc942783), [`2fba6b9cd`](https://github.com/twilio-labs/paste/commit/2fba6b9cdb8e4c26fb09095bd8a6144d63e3f0c8), [`3aa24f5c0`](https://github.com/twilio-labs/paste/commit/3aa24f5c0c10e9449ae01fe67d639e8670853c6d), [`f3a48a4b1`](https://github.com/twilio-labs/paste/commit/f3a48a4b1768694b490fd77b92460b228c7e0185), [`add4a2d0c`](https://github.com/twilio-labs/paste/commit/add4a2d0c6f600b6879c344a56c09844280973a4)]:
+  - @twilio-paste/select@12.1.3
+  - @twilio-paste/icons@12.9.0
+  - @twilio-paste/design-tokens@10.12.0
+  - @twilio-paste/in-page-navigation@4.4.0
+  - @twilio-paste/ai-chat-log@1.1.0
+
 ## 2.23.50
 
 ### Patch Changes

@@ -3,7 +3,6 @@ global:
   category: text-color
 imports:
   - ../../../global/text-color.yml
-  - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # body text
@@ -97,9 +96,6 @@ props:
   color-text-new:
     value: "#524988"
     comment: Color for text indicating a new status.
-  color-text-neutral:
-    value: "#1F3D99"
-    comment: Color for text indicating a neutral status.
 
   # icon
   color-text-icon:
@@ -129,9 +125,6 @@ props:
   color-text-icon-warning:
     value: "#DE7548"
     comment: Icon color for indicating a warning.
-  color-text-icon-neutral:
-    value: "#2952CC"
-    comment: Icon color for being neutral.
   color-text-icon-brand-highlight:
     value: "#52BD94"
     comment: Segment brand color used for the Segment logo.
@@ -154,3 +147,8 @@ props:
   color-text-user:
     value: "#6D2ED1"
     comment: Text color for user avatar.
+
+  # primary
+  color-text-primary:
+    value: "#3366FF"
+    comment: Primary text.

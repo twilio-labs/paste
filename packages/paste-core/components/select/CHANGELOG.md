@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.1.3
+
+### Patch Changes
+
+- [`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4) [#4191](https://github.com/twilio-labs/paste/pull/4191) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Select]: Fix wrong background color during disabled state
+
 ## 12.1.2
 
 ### Patch Changes

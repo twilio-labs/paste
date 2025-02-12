@@ -3,7 +3,7 @@ imports:
   - ./offset.yml
   - ./spacing.yml
 aliases:
-  shadow-elevation-0: "none"
-  shadow-elevation-10: "{!offset-0} {!offset-10} {!offset-40} {!offset-0} {!palette-gray-100-transparent-10}"
-  shadow-elevation-20: "{!offset-0} {!offset-20} {!offset-60} {!offset-0} {!palette-gray-100-transparent-20}"
-  shadow-elevation-30: "{!offset-0} {!offset-60} {!offset-80} {!offset-0} {!palette-gray-100-transparent-20}"
+  deprecated-shadow-elevation-0: "none"
+  deprecated-shadow-elevation-10: "{!offset-0} {!offset-10} {!offset-40} {!offset-0} {!palette-gray-100-transparent-10}"
+  deprecated-shadow-elevation-20: "{!offset-0} {!offset-20} {!offset-60} {!offset-0} {!palette-gray-100-transparent-20}"
+  deprecated-shadow-elevation-30: "{!offset-0} {!offset-60} {!offset-80} {!offset-0} {!palette-gray-100-transparent-20}"

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/ai-chat-log",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "category": "data display",
   "status": "production",
   "description": "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot.",
@@ -57,8 +57,8 @@
     "@twilio-paste/button": "^14.1.2",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
-    "@twilio-paste/design-tokens": "^10.7.0",
-    "@twilio-paste/icons": "^12.7.0",
+    "@twilio-paste/design-tokens": "^10.12.0",
+    "@twilio-paste/icons": "^12.9.0",
     "@twilio-paste/screen-reader-only": "^13.1.1",
     "@twilio-paste/skeleton-loader": "^6.1.0",
     "@twilio-paste/spinner": "^14.1.1",
