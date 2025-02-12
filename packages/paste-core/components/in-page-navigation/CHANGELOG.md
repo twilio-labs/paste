@@ -1,5 +1,11 @@
 # @twilio-paste/in-page-navigation
 
+## 4.4.0
+
+### Minor Changes
+
+- [`3aa24f5c0`](https://github.com/twilio-labs/paste/commit/3aa24f5c0c10e9449ae01fe67d639e8670853c6d) [#4206](https://github.com/twilio-labs/paste/pull/4206) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [InPageNavigation] modified vertical items to wrap text as opposed to using ellipses
+
 ## 4.3.4
 
 ### Patch Changes

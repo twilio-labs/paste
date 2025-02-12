@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/in-page-navigation",
-  "version": "4.3.4",
+  "version": "4.4.0",
   "category": "navigation",
   "status": "production",
   "description": "In Page Navigation is a set of links that lets users navigate between related pages.",
@@ -48,8 +48,8 @@
     "@twilio-paste/box": "^10.3.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
-    "@twilio-paste/design-tokens": "^10.10.0",
-    "@twilio-paste/icons": "^12.2.2",
+    "@twilio-paste/design-tokens": "^10.12.0",
+    "@twilio-paste/icons": "^12.9.0",
     "@twilio-paste/style-props": "^9.1.1",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",

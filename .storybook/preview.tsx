@@ -248,6 +248,30 @@ export const decorators = [
                   </Box>
                 </Box>
               </Theme.Provider>
+              <Theme.Provider theme="evergreen" disableAnimations customBreakpoints={breakpoints}>
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? "space0" : "space80"}
+                >
+                  <Story />
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="evergreen" disableAnimations customBreakpoints={breakpoints}>
+                <Box
+                  backgroundColor="colorBackgroundBody"
+                  color="colorText"
+                  padding={context.parameters.padding === false ? "space0" : "space20"}
+                >
+                  <Box
+                    margin={context.parameters.padding === false ? "space0" : "space40"}
+                    padding={context.parameters.padding === false ? "space0" : "space40"}
+                    backgroundColor="colorBackground"
+                  >
+                    <Story />
+                  </Box>
+                </Box>
+              </Theme.Provider>
             </Stack>
           </RenderPerformanceProfiler>
         );

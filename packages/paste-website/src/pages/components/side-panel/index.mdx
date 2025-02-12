@@ -8,6 +8,9 @@ export const meta = {
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {SidePanel, SidePanelContainer, SidePanelButton, SidePanelPushContentWrapper, SidePanelHeader, SidePanelBody, useSidePanelState} from '@twilio-paste/side-panel';
+import {Heading} from '@twilio-paste/heading';
+import {Separator} from '@twilio-paste/separator';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
@@ -54,17 +57,20 @@ export const SidePanelExample = (): React.ReactNode => {
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
       <SidePanel>
         <SidePanelHeader>
-          <Heading as="h3" variant="heading30">Heading</Heading>
+          <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
+          <Heading as="h3" variant="heading30" marginBottom="space0">
+            Assistant
+          </Heading>
           <SidePanelHeaderActions>
-            <Button variant="reset">
-              <MoreIcon decorative={false} title="side panel actions menu" />
+            <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+              <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
             </Button>
           </SidePanelHeaderActions>
         </SidePanelHeader>
         <SidePanelBody>
           Side Panel content goes here.
         </SidePanelBody>
-        <SidePanelFooter>
+        <SidePanelFooter variant="chat">
           Footer content goes here.
         </SidePanelFooter>
       </SidePanel>
@@ -83,6 +89,8 @@ export const SidePanelExample = (): React.ReactNode => {
 ### About Side Panel
 
 Side Panel is a container that pushes the main page content when open. It's important for page content to be responsive when using a Side Panel so that the opening and closing of the panel doesn't cause the page to jump or shift. At mobile breakpoints, the Side Panel overlays the page content and takes up the full width of the viewport.
+
+Side Panel is primarily used within [AI experiences](/experiences/artificial-intelligence) and on pages using the [filter pattern](/patterns/filter) when there are too many filter options to display on the page.
 
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Only use one Side Panel on a page</CalloutHeading>
@@ -125,13 +133,54 @@ export const SidePanelExample = (): React.ReactNode => {
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
       <SidePanel>
         <SidePanelHeader>
-          <Heading as="h3" variant="heading30">Heading</Heading>
+          <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
+          <Heading as="h3" variant="heading30" marginBottom="space0">
+            Assistant
+          </Heading>
           <SidePanelHeaderActions>
-            <Button variant="reset">
-              <MoreIcon decorative={false} title="side panel actions menu" />
+            <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+              <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
             </Button>
           </SidePanelHeaderActions>
         </SidePanelHeader>
+        <SidePanelBody>
+          Side Panel content goes here.
+        </SidePanelBody>
+        <SidePanelFooter variant="chat">
+          Footer content goes here.
+        </SidePanelFooter>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )
+}`}
+/>
+
+### Side Panel with Footer
+
+Use the `default` variant of SidePanelFooter when you need to add actions to the bottom of the Side Panel. Use the `chat` variant of Side Panel Footer for AI use cases.
+
+<StoryPreview
+  title="Side Panel Footer example"
+  storyID="components-side-panel--filter"
+  height="500px"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+        <Heading as="h3" variant="heading30" marginBottom="space0">
+          More filters
+        </Heading>
+      </SidePanelHeader>
+        <Separator orientation="horizontal" verticalSpacing="space0" />
         <SidePanelBody>
           Side Panel content goes here.
         </SidePanelBody>
@@ -141,7 +190,12 @@ export const SidePanelExample = (): React.ReactNode => {
       </SidePanel>
       <SidePanelPushContentWrapper>
         <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
-          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+          <SidePanelButton variant="secondary" size="rounded_small" pressed={isOpen}>
+            More filters
+            <Badge as="span" variant="neutral_counter">
+              2
+            </Badge>
+          </SidePanelButton>
         </Box>
       </SidePanelPushContentWrapper>
     </SidePanelContainer>
@@ -163,9 +217,9 @@ export const SidePanelExample = (): React.ReactNode => {
   const sidePanelId = useUID();
   return (
     <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen} i18nCloseSidePanelTitle="cerrar panel lateral" i18nOpenSidePanelTitle="abrir panel lateral">
-      <SidePanel>
+      <SidePanel label="el panel lateral">
         <SidePanelHeader>
-          <Heading as="h3" variant="heading30">Título</Heading>
+          <Heading as="h5" variant="heading30" marginBottom="space0">Título</Heading>
         </SidePanelHeader>
         <SidePanelBody>
           Side Panel content goes here.
@@ -173,13 +227,58 @@ export const SidePanelExample = (): React.ReactNode => {
       </SidePanel>
       <SidePanelPushContentWrapper>
         <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
-          <SidePanelButton variant="secondary">Probar Panel Lateral</SidePanelButton>
+          <SidePanelButton variant="primary">Probar Panel Lateral</SidePanelButton>
         </Box>
       </SidePanelPushContentWrapper>
     </SidePanelContainer>
   )
 }`}
 />
+
+### Using the state hook
+
+Side Panel comes with the option of using a hook to manage the open and close state of the panel. The `useSidePanelState` hook returns an object to spread onto SidePanelContainer. To change the default state of the Side Panel from closed to open, pass `open: true` to the hook.
+
+<LivePreview
+  scope={{
+    SidePanel,
+    SidePanelContainer,
+    SidePanelButton,
+    useSidePanelState,
+    SidePanelPushContentWrapper,
+    SidePanelHeader,
+    SidePanelBody,
+    Heading,
+    Separator
+  }}
+  noInline
+  height="300px"
+>
+  {`const SidePanelExample = () => {
+    const sidePanel = useSidePanelState({});
+    return (
+      <SidePanelContainer {...sidePanel}>
+        <SidePanelPushContentWrapper>
+          <SidePanelButton variant="primary">
+            Toggle Side Panel
+          </SidePanelButton>
+        </SidePanelPushContentWrapper>
+        <SidePanel>
+          <SidePanelHeader>
+            <Heading as="h3" variant="heading30" marginBottom="space0">
+              Assistant
+            </Heading>
+          </SidePanelHeader>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          <SidePanelBody>
+            Side Panel content goes here.
+          </SidePanelBody>
+        </SidePanel>
+      </SidePanelContainer>
+    )
+  }
+  render(<SidePanelExample />)`}
+</LivePreview>
 
 ## Composition notes
 

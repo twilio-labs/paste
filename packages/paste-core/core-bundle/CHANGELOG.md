@@ -1,5 +1,29 @@
 # Change Log
 
+## 20.21.0
+
+### Minor Changes
+
+- [`c128d63c7`](https://github.com/twilio-labs/paste/commit/c128d63c7f72bf35599bb22ba2943a11cc942783) [#4197](https://github.com/twilio-labs/paste/pull/4197) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Icons] added 4 new icons FeedbackIcon, TextIcon, CarouselIcon and CardIcon
+
+* [`2fba6b9cd`](https://github.com/twilio-labs/paste/commit/2fba6b9cdb8e4c26fb09095bd8a6144d63e3f0c8) [#4207](https://github.com/twilio-labs/paste/pull/4207) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Update aliases and add new tokens for elevation foundations
+
+- [`3aa24f5c0`](https://github.com/twilio-labs/paste/commit/3aa24f5c0c10e9449ae01fe67d639e8670853c6d) [#4206](https://github.com/twilio-labs/paste/pull/4206) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [InPageNavigation] modified vertical items to wrap text as opposed to using ellipses
+
+* [`f3a48a4b1`](https://github.com/twilio-labs/paste/commit/f3a48a4b1768694b490fd77b92460b228c7e0185) [#4199](https://github.com/twilio-labs/paste/pull/4199) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [AI Chat Log] added optional typewriter animation to AIChatMessageBody
+
+### Patch Changes
+
+- [`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4) [#4191](https://github.com/twilio-labs/paste/pull/4191) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Select]: Fix wrong background color during disabled state
+
+* [`add4a2d0c`](https://github.com/twilio-labs/paste/commit/add4a2d0c6f600b6879c344a56c09844280973a4) [#4220](https://github.com/twilio-labs/paste/pull/4220) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Added shadow border tokens and font-size-40 token back to evergreen theme
+
+* Updated dependencies [[`58096a172`](https://github.com/twilio-labs/paste/commit/58096a172e37a808991d4c81fd1ac73ceaf18de4), [`2fba6b9cd`](https://github.com/twilio-labs/paste/commit/2fba6b9cdb8e4c26fb09095bd8a6144d63e3f0c8), [`3aa24f5c0`](https://github.com/twilio-labs/paste/commit/3aa24f5c0c10e9449ae01fe67d639e8670853c6d), [`f3a48a4b1`](https://github.com/twilio-labs/paste/commit/f3a48a4b1768694b490fd77b92460b228c7e0185), [`add4a2d0c`](https://github.com/twilio-labs/paste/commit/add4a2d0c6f600b6879c344a56c09844280973a4)]:
+  - @twilio-paste/select@12.1.3
+  - @twilio-paste/design-tokens@10.12.0
+  - @twilio-paste/in-page-navigation@4.4.0
+  - @twilio-paste/ai-chat-log@1.1.0
+
 ## 20.20.0
 
 ### Minor Changes
