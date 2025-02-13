@@ -34,28 +34,6 @@ const ChartProvider = React.forwardRef<HTMLDivElement, ChartProviderProps>(
   ({ element = "CHART_PROVIDER", children, highchartsOptions, ...props }, ref) => {
     const [chart, setChart] = React.useState<Highcharts.Chart>();
     const [chartRef, setChartRef] = React.useState<HTMLElement>();
-    const [chartType, setChartType] = React.useState<string>("");
-
-    const modifiedOptions: Highcharts.Options = Highcharts.merge(highchartsOptions, {
-      chart: {
-        events: {
-          /**
-           * Any events we want to fire on changes to charts should be handled here
-           *
-           * Keeping track of chart type is a good way to trigger rerenders of other components inside ChartProvider
-           * There is an issue with useEffects on the chart object change only because React only does shallow
-           * comparisons and considers them the same object. Picking a value that is garuanteed to change
-           * between renders/types will overcome this.
-           */
-
-          // eslint-disable-next-line object-shorthand
-          redraw: function (this) {
-            // eslint-disable-next-line react/no-this-in-sfc
-            setChartType(this.options?.chart?.type || "");
-          },
-        },
-      },
-    } as Highcharts.Options);
 
     return (
       <Box {...safelySpreadBoxProps(props)} ref={ref} element={element} position="relative">
@@ -65,8 +43,7 @@ const ChartProvider = React.forwardRef<HTMLDivElement, ChartProviderProps>(
             setChart,
             chartRef,
             setChartRef,
-            chartType,
-            options: modifiedOptions,
+            options: highchartsOptions,
           }}
         >
           {children}
