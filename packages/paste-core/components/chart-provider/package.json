@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "data display",
   "status": "beta",
-  "description": "A component used to wrap an individual chart to store and share state to child charting elements.",
+  "description": "Chart Provider is a data visualization component used to wrap an individual chart to store and share state to child charting elements.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
