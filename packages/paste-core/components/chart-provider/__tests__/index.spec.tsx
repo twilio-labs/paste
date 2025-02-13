@@ -1,4 +1,4 @@
-import { act, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { BoxProps } from "@twilio-paste/box";
 import * as React from "react";
 
