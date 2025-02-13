@@ -63,7 +63,6 @@ const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachme
         paddingY="space30"
         paddingX="space40"
         borderRadius="borderRadius30"
-        boxShadow="shadowLow"
         backgroundColor="colorBackgroundBodyElevation"
         position="relative"
         display="inline-block"

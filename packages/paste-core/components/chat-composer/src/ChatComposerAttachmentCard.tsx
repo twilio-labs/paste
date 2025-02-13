@@ -85,7 +85,6 @@ const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposer
         paddingX="space40"
         borderRadius="borderRadius30"
         backgroundColor="colorBackgroundBodyElevation"
-        boxShadow="shadowLow"
         position="relative"
         display="inline-block"
         width="100%"
