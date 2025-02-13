@@ -17,7 +17,7 @@ export const PlaceholderWrapper: React.FC<
     right="space40"
     display="flex"
     alignItems="center"
-    color="colorTextWeak"
+    color="inherit"
     pointerEvents="none"
     userSelect="none"
     fontStyle="italic"
