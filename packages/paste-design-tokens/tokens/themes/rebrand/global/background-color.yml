@@ -1,0 +1,19 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../../twilio-dark/global/background-color.yml
+  - ../../../aliases/border-radius.yml
+props:
+  color-background:
+    value: "{!palette-gray-80}"
+  color-background-weaker:
+    value: "{!palette-gray-85}"
+  color-background-strong:
+    value: "{!palette-gray-75}"
+  color-background-body:
+    value: "{!palette-gray-100}"
+  color-background-body-inverse:
+    value: "{!palette-gray-110}"
+  color-background-inverse:
+    value: "{!palette-gray-110}"

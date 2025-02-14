@@ -1,0 +1,5 @@
+global:
+  type: size
+  category: sizing
+imports:
+  - ../../twilio-dark/global/sizing.yml

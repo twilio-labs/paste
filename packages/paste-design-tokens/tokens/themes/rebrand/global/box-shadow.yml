@@ -1,0 +1,11 @@
+global:
+  type: shadow
+  category: box-shadow
+imports:
+  - ../../twilio-dark/global/box-shadow.yml
+  - ../aliases/color-palette.yml
+props:
+  shadow-brand-10:
+    value: "{!offset-0} {!offset-0} {!offset-80} {!offset-0} {!palette-blue-50-transparent-30}"
+  shadow-border-weak:
+    value: "{!palette-gray-55}"

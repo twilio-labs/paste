@@ -13,7 +13,15 @@ import { ThemeVariants } from "./constants";
 import { pasteBaseStyles } from "./styles/base";
 import { pasteFonts } from "./styles/fonts";
 import { pasteGlobalStyles } from "./styles/global";
-import { DarkTheme, DefaultTheme, EvergreenTheme, SendGridTheme, TwilioDarkTheme, TwilioTheme } from "./themes";
+import {
+  DarkTheme,
+  DefaultTheme,
+  EvergreenTheme,
+  RebrandTheme,
+  SendGridTheme,
+  TwilioDarkTheme,
+  TwilioTheme,
+} from "./themes";
 import { getThemeFromHash } from "./utils/getThemeFromHash";
 
 export const StyledBase = styled.div(pasteBaseStyles);
@@ -39,6 +47,11 @@ const useThemeOverwriteHook = (): string | undefined => {
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
+    case ThemeVariants.REBRAND:
+      return {
+        ...RebrandTheme,
+        breakpoints: customBreakpoints || RebrandTheme.breakpoints,
+      };
     case ThemeVariants.TWILIO:
       return {
         ...TwilioTheme,
