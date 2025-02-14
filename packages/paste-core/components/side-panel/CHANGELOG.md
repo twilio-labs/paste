@@ -1,5 +1,11 @@
 # @twilio-paste/side-panel
 
+## 1.2.0
+
+### Minor Changes
+
+- [`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3) [#4230](https://github.com/twilio-labs/paste/pull/4230) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Update mobile styles, add useSidePanelState hook, animation fixes
+
 ## 1.1.0
 
 ### Minor Changes
