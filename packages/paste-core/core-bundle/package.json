@@ -88,6 +88,7 @@
     "@twilio-paste/button-group": "^4.2.0",
     "@twilio-paste/callout": "^4.2.1",
     "@twilio-paste/card": "^9.1.0",
+    "@twilio-paste/chart-provider": "^0.0.0",
     "@twilio-paste/chat-composer": "^5.2.1",
     "@twilio-paste/chat-log": "^5.2.1",
     "@twilio-paste/checkbox": "^13.1.2",

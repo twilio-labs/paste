@@ -14,6 +14,7 @@ export * from "@twilio-paste/button";
 export * from "@twilio-paste/button-group";
 export * from "@twilio-paste/callout";
 export * from "@twilio-paste/card";
+export * from "@twilio-paste/chart-provider";
 export * from "@twilio-paste/chat-composer";
 export * from "@twilio-paste/chat-log";
 export * from "@twilio-paste/checkbox";
