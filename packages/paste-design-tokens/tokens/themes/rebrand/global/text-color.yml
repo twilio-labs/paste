@@ -1,0 +1,5 @@
+global:
+  type: color
+  category: text-color
+imports:
+  - ../../twilio-dark/global/text-color.yml
