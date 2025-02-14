@@ -3,7 +3,7 @@ import React from "react";
 
 const Window: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <Box display="grid" gridTemplateColumns="400px 1fr" height="100svh" width="100%">
+    <Box display="grid" gridTemplateColumns="300px 1fr" height="100svh" width="100%">
       {children}
     </Box>
   );
