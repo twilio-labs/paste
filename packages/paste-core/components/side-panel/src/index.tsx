@@ -17,5 +17,7 @@ export type {
   SidePanelContainerProps,
   SidePanelBodyProps,
   SidePanelFooterProps,
+  SidePanelStateReturn,
 } from "./types";
 export { SidePanelContext } from "./SidePanelContext";
+export { useSidePanelState } from "./hooks";

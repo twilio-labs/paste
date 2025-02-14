@@ -22,6 +22,7 @@ interface LivePreviewProps {
   disabled?: boolean;
   noInline?: boolean;
   showOverflow?: boolean;
+  height?: string;
 }
 
 const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
@@ -31,6 +32,7 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   noInline = false,
   showOverflow = false,
   scope,
+  height = "unset",
 }) => {
   const [viewCode, setViewCode] = React.useState(false);
   const id = useUID();
@@ -72,6 +74,7 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
               borderTopRightRadius="borderRadius20"
               position="relative"
               overflow={overflow}
+              height={height}
             >
               <ReactLivePreview />
             </Box>
