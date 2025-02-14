@@ -11939,6 +11939,44 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/chart-provider@^0.0.0, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider"
+  dependencies:
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.2.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.1.1
+    "@twilio-paste/design-tokens": ^10.3.0
+    "@twilio-paste/style-props": ^9.1.1
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/theme": ^11.0.1
+    "@twilio-paste/types": ^6.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    highcharts: ^9.3.3
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    tsx: ^4.0.0
+    typescript: ^4.9.4
+  peerDependencies:
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.2.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.1.1
+    "@twilio-paste/design-tokens": ^10.3.0
+    "@twilio-paste/style-props": ^9.1.1
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/theme": ^11.0.1
+    "@twilio-paste/types": ^6.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    highcharts: ^9.3.3
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/chat-composer@^5.2.1, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer"
@@ -12348,6 +12386,7 @@ __metadata:
     "@twilio-paste/button-group": ^4.2.0
     "@twilio-paste/callout": ^4.2.1
     "@twilio-paste/card": ^9.1.0
+    "@twilio-paste/chart-provider": ^0.0.0
     "@twilio-paste/chat-composer": ^5.2.1
     "@twilio-paste/chat-log": ^5.2.1
     "@twilio-paste/checkbox": ^13.1.2
@@ -14852,6 +14891,7 @@ __metadata:
     "@twilio-paste/customization": ^8.1.1
     "@twilio-paste/design-tokens": ^10.7.0
     "@twilio-paste/icons": ^12.7.0
+    "@twilio-paste/modal-dialog-primitive": ^2.0.1
     "@twilio-paste/spinner": ^14.1.2
     "@twilio-paste/stack": ^8.1.0
     "@twilio-paste/style-props": ^9.1.1
@@ -14876,6 +14916,7 @@ __metadata:
     "@twilio-paste/customization": ^8.1.1
     "@twilio-paste/design-tokens": ^10.3.0
     "@twilio-paste/icons": ^12.4.0
+    "@twilio-paste/modal-dialog-primitive": ^2.0.1
     "@twilio-paste/spinner": ^14.1.2
     "@twilio-paste/stack": ^8.1.0
     "@twilio-paste/style-props": ^9.1.1
