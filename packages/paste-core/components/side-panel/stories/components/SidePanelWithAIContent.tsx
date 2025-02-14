@@ -10,7 +10,6 @@ import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIn
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
-import { Separator } from "@twilio-paste/separator";
 import * as React from "react";
 
 import { SidePanel, SidePanelBody, SidePanelFooter, SidePanelHeader, SidePanelHeaderActions } from "../../src";
@@ -29,7 +28,6 @@ export const SidePanelWithAIContent: React.FC<React.PropsWithChildren> = () => {
           </Button>
         </SidePanelHeaderActions>
       </SidePanelHeader>
-      <Separator orientation="horizontal" verticalSpacing="space0" />
       <SidePanelBody>
         <Box width="100%">
           <AIChatLog>

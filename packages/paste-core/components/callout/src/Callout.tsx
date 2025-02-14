@@ -64,7 +64,7 @@ export interface CalloutProps extends HTMLPasteProps<"div"> {
 
 const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackgroundBodyElevation",
     color: "colorTextSuccess",
     borderColor: "colorBorderSuccessWeak",
   },
@@ -74,17 +74,17 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
     borderColor: "colorBorderErrorWeak",
   },
   warning: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackgroundBodyElevation",
     color: "colorTextWarningStrong",
     borderColor: "colorBorderWarningWeak",
   },
   new: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackgroundBodyElevation",
     color: "colorTextNew",
     borderColor: "colorBorderNewWeak",
   },
   neutral: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackgroundBodyElevation",
     color: "colorTextNeutral",
     borderColor: "colorBorderNeutralWeak",
   },

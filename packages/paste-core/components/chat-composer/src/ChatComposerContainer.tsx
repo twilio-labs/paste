@@ -5,14 +5,13 @@ import * as React from "react";
 import { ChatComposerContext } from "./ChatComposerContext";
 
 const Styles: Record<string, BoxStyleProps> = {
-  default: {},
+  default: {
+    backgroundColor: "colorBackgroundWeaker",
+  },
   contained: {
-    borderWidth: "borderWidth10",
-    borderStyle: "solid",
     borderRadius: "borderRadius30",
-    borderColor: "colorBorderWeaker",
-    boxShadow: "shadowLow",
-    backgroundColor: "colorBackgroundBody",
+    boxShadow: "shadowElevation10",
+    backgroundColor: "colorBackgroundWeaker",
   },
 };
 
@@ -56,6 +55,7 @@ export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatCompos
           gridAutoColumns="1fr auto"
           disabled={isDisabled}
           aria-disabled={isDisabled}
+          color="colorTextWeak"
           _disabled={{
             color: "colorTextWeaker",
             backgroundColor: "colorBackground",

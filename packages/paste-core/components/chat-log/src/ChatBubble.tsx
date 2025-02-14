@@ -22,11 +22,11 @@ const bubbleVariantStyles: {
   [key in MessageVariants]: BoxStyleProps;
 } = {
   inbound: {
-    backgroundColor: "colorBackground",
+    backgroundColor: "colorBackgroundElevation",
     alignSelf: "flex-start",
   },
   outbound: {
-    backgroundColor: "colorBackgroundInverseStronger",
+    backgroundColor: "colorBackgroundInverseStrongerElevation",
     alignSelf: "flex-end",
     color: "colorTextInverse",
   },
