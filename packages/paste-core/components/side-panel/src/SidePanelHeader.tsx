@@ -4,15 +4,7 @@ import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
 import * as React from "react";
 
 import { SidePanelContext } from "./SidePanelContext";
-import type { SidePanelHeaderProps } from "./types";
-
-type SidePanelCloseButtonProps = {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  i18nCloseSidePanelTitle: string;
-  sidePanelId: string;
-  isOpen: boolean;
-  element: string;
-};
+import type { SidePanelCloseButtonProps, SidePanelHeaderProps } from "./types";
 
 const SidePanelCloseButton: React.FC<React.PropsWithChildren<SidePanelCloseButtonProps>> = ({
   setIsOpen,
