@@ -42,8 +42,8 @@ export const SizeStyles: { [key in ButtonSizes]: BoxStyleProps } = {
   default: {
     paddingTop: "space30",
     paddingBottom: "space30",
-    paddingLeft: "space40",
-    paddingRight: "space40",
+    paddingLeft: "space70",
+    paddingRight: "space70",
     borderRadius: "borderRadius20",
     fontSize: "fontSize30",
     lineHeight: "lineHeight20",

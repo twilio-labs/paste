@@ -8,3 +8,5 @@ imports:
 props:
   color-border-primary:
     value: "{!palette-blue-30}"
+  color-border-weaker:
+    value: "{!palette-gray-80}"

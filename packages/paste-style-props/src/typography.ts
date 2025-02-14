@@ -14,4 +14,5 @@ export const TYPOGRAPHY_PROPS = [
   "wordBreak",
   "wordWrap",
   "overflowWrap",
+  "textUnderlineOffset",
 ];

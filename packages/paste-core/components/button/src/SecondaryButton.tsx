@@ -12,11 +12,11 @@ import type { DirectButtonProps } from "./types";
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: "colorText",
-  backgroundColor: "colorBackgroundBody",
+  backgroundColor: "colorBackgroundWeaker",
   boxShadow: "shadowBorderWeak",
   _hover: {
     color: "colorTextPrimary",
-    backgroundColor: "colorBackgroundBody",
+    backgroundColor: "colorBackgroundWeaker",
     boxShadow: "shadowBorderPrimary",
   },
   _focus: {
@@ -31,7 +31,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 
 const baseLoadingStyles: BoxStyleProps = {
   color: "colorTextPrimary",
-  backgroundColor: "colorBackgroundBody",
+  backgroundColor: "colorBackgroundWeaker",
   boxShadow: "shadowBorderWeak",
 };
 
@@ -44,7 +44,7 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 
 const baseDisabledStyles: BoxStyleProps = {
   color: "colorTextWeaker",
-  backgroundColor: "colorBackgroundBody",
+  backgroundColor: "colorBackgroundWeaker",
   boxShadow: "shadowBorderWeaker",
 };
 

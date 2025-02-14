@@ -6,7 +6,7 @@ imports:
   - ../../../aliases/border-radius.yml
 props:
   color-background:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-85}"
   color-background-weaker:
     value: "{!palette-gray-85}"
   color-background-strong:
@@ -17,3 +17,7 @@ props:
     value: "{!palette-gray-110}"
   color-background-inverse:
     value: "{!palette-gray-110}"
+  color-background-weakest:
+    value: "{!palette-blue-100}"
+  color-background-body-elevation:
+    value: "{!palette-gray-85}"
