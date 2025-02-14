@@ -290,6 +290,7 @@ export const SITEMAP = [
   "/introduction/about-paste/",
   "/introduction/contributing/components/",
   "/foundations/content/",
+  "/foundations/elevation/",
   "/introduction/contributing/icons/",
   "/introduction/contributing/patterns/",
   "/introduction/for-designers/design-guidelines/",

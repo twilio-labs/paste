@@ -1,0 +1,233 @@
+export const meta = {
+  title: 'Elevation',
+  description: 'Elevation organizes elements along a visual hierarchy creating a sense of depth in an interface.',
+  slug: '/foundations/elevation/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator'
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Theme} from '@twilio-paste/theme';
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import AccentShadow from '../../../assets/images/foundations/elevation/level-1-accent-shadow.png';
+import TonalChange from '../../../assets/images/foundations/elevation/level-1-tonal-change.png';
+import Level2AccentChange from '../../../assets/images/foundations/elevation/level-2-accent-shadow.png';
+import Level2RisenShadow from '../../../assets/images/foundations/elevation/level-2-risen-shadow.png';
+import Level3Overlay from '../../../assets/images/foundations/elevation/level-3-overlay.png';
+import Level3RisenShadow from '../../../assets/images/foundations/elevation/level-3-risen-shadow.png';
+import ElevatedBackgroundTokens from '../../../assets/images/foundations/elevation/elevated-background-color-tokens.png';
+
+import {
+  ApplyingLevel1ImgCaption,
+  CalloutExampleImgCaption,
+  ApplyLevel2ImgCaption,
+  PopoverExampleImgCaption,
+} from '../../../component-examples/ElevationFoundationExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+import { ElevatedBackgroundColorTokensExample, ShadowTokensLevel1Example, ShadowTokensLevel2Example, ShadowTokensLevel3Example } from '../../../component-examples/ElevationFoundationExamples';
+import { ThemeIcon } from '@twilio-paste/icons/esm/ThemeIcon';
+import { DarkModeIcon } from '@twilio-paste/icons/esm/DarkModeIcon';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
+
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+Elevation represents how "close" or "far" an element feels from the user in a digital context, using a combination of **shadows**, **colors** and **overlays** to create a layering effect, making elements feel distinct, focused or prioritized.
+
+Paste’s elevation system is:
+
+- Subtle: Provides just enough visual contrast to create a sense of depth, avoiding excessive visual clutter.
+- Intentional: Provides clear meaning to guide users through interfaces, improving user efficiency by consistently communicating the level of importance of elements across different pages.
+- Dynamic: Adapts to different background colors and themes, ensuring consistent depth perception and usability across light, dark, and custom design contexts.
+
+## Elevation levels
+
+Paste has a total of 4 levels of elevation. Each elevation level corresponds to a perceived distance within the interface. All components are assigned a level based on their intended distance against the surface behind them.
+
+### Level 0
+
+Elements at this level are the baseline for all the other levels and represent the background of the interface.
+
+The majority of elements will be at this level in their resting states. However an element on this level can move to a higher level when interacted with.
+
+For example: a Button might be ‘Level 0’ in its resting state, but ‘Level 1’ when hovered.
+
+### Level 1
+
+Elements at this level require subtle differentiation from the surface behind them without adding too much distance. These elements are either presented by default or triggered within the composition but typically do not open on top of other elements.
+
+There are 2 different ways to communicate an element's elevation in level 1:
+
+1. **Use an accent shadow** for elements that need to be distinct from the surrounding elements but not highlighted.
+
+<ResponsiveImage src={AccentShadow} alt="mock of side panel component with 'shadow elevation 05' as box shadow" />
+
+<ApplyingLevel1ImgCaption />
+
+2. **Use a tonal difference** when elements need to be highlighted as well as distinct from the background.
+
+<ResponsiveImage src={TonalChange} alt="a mock of callout component with 'color background body elevation' token as background color that makes it subtly more prominent" />
+
+<CalloutExampleImgCaption />
+
+### Level 2
+
+Elements that rest at this level are distinctly separated from the background and dynamically overlap content layers creating visible distance while still being bound to Level 0 elements.
+
+There are 2 different ways to communicate an element's elevation in level 2:
+
+1. **Use a tonal difference with an accent shadow** when an element needs to be highlighted and prominent but does not overlap content by default. **Combine this with a soft sharp shadow** when the element overlaps other content and extra distance is necessary to make it distinct from the background.
+
+<ResponsiveImage src={Level2AccentChange} alt="mock of a top bar component that uses 'color background weak elevation' as background color and 'shadow elevation bottom 05' as box shadow" />
+
+<ApplyLevel2ImgCaption />
+
+2. **Use a soft and sharp shadow** for elements that have temporary prominence or subtly float above the content.
+
+Interactive states like vertical or horizontal scroll can dynamically use a soft, sharp shadow to indicate that there is overflown content.
+
+<ResponsiveImage src={Level2RisenShadow} alt="a mock of popover component that uses 'shadow elevation 10' as box shadow" />
+
+<PopoverExampleImgCaption />
+
+### Level 3
+
+Elements that rest at this level float above all other levels, and tend to contain crucial actions or information that temporarily moves to the top hierarchy of the surface.
+
+1. **Use a large, soft shadow**, for elements that are at the top priority and require user focus, but still allow the user to interact with the surrounding content.
+
+For elements that already have their own border, use `$shadow-elevation-20`. Otherwise, use `$shadow-elevation-top-20` to define its edges against the background.
+
+
+<ResponsiveImage src={Level3RisenShadow} alt="a mock including toast component using 'shadow elevation 20' as box shadow and minimizable dialog using 'color background weaker' token as background color and 'shadow elevation top 20' as box shadow" />
+
+2. **Use a large soft shadow along with an overlay** for elements that completely isolate the interface to draw full focus from the user.
+
+<ResponsiveImage src={Level3Overlay} alt="mock of alert dialog component where the overlay is using 'color background overlay' token as background color and 'shadow elevation 20' token as box shadow for dialog" />
+
+## Elevated background color tokens
+
+Subtle tonal shifts are an effective way to communicate hierarchy and prominence for elevated elements without adding visual clutter to the screen.
+
+Paste's elevated background color tokens are derived from a base background color with tonal shifts to indicate elevation. Elevated surfaces darken on light backgrounds and lighten on dark backgrounds, ensuring clarity and consistency across themes.
+
+<Anchor href="/tokens/list#background-colors">View our full list of Elevated background color tokens</Anchor>
+<br/><br/>
+
+For levels 1 and 2, when showing elevation through tonal differences, pair elevated background color tokens with their corresponding background color. For example: Use `$color-background-body-elevation` on top of `$color-background-body`.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+  }}
+  noInline
+  showOverflow
+>
+  {ElevatedBackgroundColorTokensExample}
+</LivePreview>
+
+Elevated elements across levels that share the same background color as the main page body should use the token `$color-background-weaker`. This token matches the page body tone in light mode but appears slightly lighter in dark mode to subtly reinforce elevation.
+
+<ResponsiveImage src={ElevatedBackgroundTokens} alt="a mock comparing the 'color background weaker token' in light and dark mode used as background color for minimizable dialog" />
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Different uses of color</CalloutHeading>
+  <CalloutText>
+   <CalloutList as="ul">
+      <CalloutListItem>Elevation Colors: Subtle tones for prominence and hierarchy, used to separate elements visually from the background.</CalloutListItem>
+      <CalloutListItem>Semantic Colors: Used to communicate meaning or status, such as success, warning, or error.</CalloutListItem>
+      <CalloutListItem>Decorative Colors: Reflect the brand identity or give a branded feel to a composition.</CalloutListItem>
+    </CalloutList>
+  </CalloutText>
+  Tip: Use elevation colors for hierarchy, semantic colors for purpose, and branded colors for identity and style.
+</Callout>
+
+## Shadow tokens
+
+Shadows are the most extreme way to display elevation. Overuse of shadows without understanding your page’s visual hierarchy can have a negative effect on the user experience.
+
+<Anchor href="/tokens/list#box-shadows">View our full list of Elevated shadow tokens</Anchor>
+<br/><br/>
+
+**Level 1 shadows** are accent shadows that subtly define the edges of a container. They serve as a lightweight alternative to risen shadows at lower elevations.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme,
+    ThemeIcon,
+    DarkModeIcon
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel1Example}
+</LivePreview>
+
+**Level 2 shadows** are small and sharp and indicate a close distance with the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme,
+    ThemeIcon,
+    DarkModeIcon
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel2Example}
+</LivePreview>
+
+**Level 3 shadows** are larger and softer, this indicates a further distance from the surface behind them. Shadows used in dark backgrounds use a slightly darker hue so the perceived depth is consistent.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Theme,
+    ThemeIcon,
+    DarkModeIcon
+  }}
+  noInline
+  showOverflow
+>
+  {ShadowTokensLevel3Example}
+</LivePreview>
+</content>
+
+</contentwrapper>
