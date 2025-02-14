@@ -154,3 +154,5 @@ aliases:
   palette-purple-80: "#380e78"
   palette-purple-90: "#22094a"
   palette-purple-100: "#160433"
+
+  palette-blue-50-transparent-30: "rgb(24, 102, 238, .3)"

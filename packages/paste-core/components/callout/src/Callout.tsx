@@ -131,7 +131,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         display="flex"
         marginY={marginY}
         padding="space70"
-        borderLeftStyle="solid"
+        // borderLeftStyle="solid"
         borderLeftWidth="borderWidth20"
         variant={variant}
         alignItems="start"
@@ -146,7 +146,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
           {children}
         </Box>
         {onDismiss && typeof onDismiss === "function" && (
-          <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+          <Button onClick={onDismiss} variant="secondary" size="circle_small" element={`${element}_DISMISS_BUTTON`}>
             <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
             <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
           </Button>

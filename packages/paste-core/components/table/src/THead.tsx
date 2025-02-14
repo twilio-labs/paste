@@ -30,6 +30,7 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as={StyledTHead as any}
+        backgroundColor="colorBackgroundWeakest"
         element={element}
         top={top}
         {...getStickyStyles({ stickyHeader })}

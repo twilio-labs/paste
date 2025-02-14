@@ -1,5 +1,6 @@
 import { Alert } from "@twilio-paste/alert";
 import type { AlertProps } from "@twilio-paste/alert";
+import { Anchor } from "@twilio-paste/anchor";
 import { Avatar } from "@twilio-paste/avatar";
 import type { AvatarProps } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
@@ -43,23 +44,16 @@ export const Rebrand = (): React.ReactNode => (
         <DisplayHeading variant="displayHeading30" as="h3">
           Display Heading 3
         </DisplayHeading>
-        <Box
-          borderColor="colorBorder"
-          borderRadius="borderRadius20"
-          backgroundColor="colorBackgroundAvailable"
-          width="size10"
-          height="size10"
-        />
         <Heading as="h3" variant="heading20">
           Paragraph and Inputs
         </Heading>
         <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Nisi porta lorem mollis aliquam ut porttitor leo. Hendrerit gravida rutrum quisque non. A arcu
-          cursus vitae congue mauris rhoncus aenean vel elit. Tortor dignissim convallis aenean et tortor at risus.
-          Vestibulum lorem sed risus ultricies. Tempor nec feugiat nisl pretium fusce id. Morbi tempus iaculis urna id
-          volutpat lacus laoreet non curabitur. In ante metus dictum at. Sit amet risus nullam eget felis eget nunc
-          lobortis.
+          Lorem <Anchor href="#">ipsum</Anchor> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Nisi porta lorem mollis aliquam ut porttitor leo. Hendrerit
+          gravida rutrum quisque non. A arcu cursus vitae congue mauris rhoncus aenean vel elit. Tortor dignissim
+          convallis aenean et tortor at risus. Vestibulum lorem sed risus ultricies. Tempor nec feugiat nisl pretium
+          fusce id. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. In ante metus dictum at. Sit amet
+          risus nullam eget felis eget nunc lobortis.
         </Paragraph>
         <Stack orientation="vertical" spacing="space50">
           <Input aria-label="Search" placeholder="Search options..." type="text" />

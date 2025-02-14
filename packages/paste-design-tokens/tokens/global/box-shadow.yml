@@ -289,3 +289,5 @@ props:
   shadow-elevation-left-20:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-05}, {!offset-negative-20} {!offset-0} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-negative-60} {!offset-0} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
     comment: Use for elements that dynamically open from the right side of the screen, appearing above the UI to indicate a greater separation from the underlying surface.
+  shadow-brand-10:
+    value: "{!offset-0} {!offset-0} {!offset-80} {!offset-0} {!palette-blue-50-transparent-30}"

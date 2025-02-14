@@ -91,11 +91,12 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         flexDirection="row"
         height="100%"
         width="100%"
-        backgroundColor={disabled || groupIsDisabled ? "colorBackgroundWeak" : undefined}
-        borderStyle="solid"
+        backgroundColor={disabled || groupIsDisabled ? "colorBackgroundWeak" : "colorBackgroundWeaker"}
+        // borderStyle="solid"
         borderColor={pickerBorderColor}
         borderWidth="borderWidth10"
         borderRadius="borderRadius30"
+        boxShadow={state.checked ? "shadowBrand10" : undefined}
         padding="space50"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}

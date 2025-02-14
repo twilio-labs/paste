@@ -181,4 +181,11 @@ export interface TypographyProps {
    * @memberof TypographyProps
    */
   listStyleType?: ListStyleType;
+  /**
+   * Responsive style prop for the CSS `text-underline-offset` property
+   *
+   * @type {ListStyleType}
+   * @memberof TypographyProps
+   */
+  textUnderlineOffset?: ListStyleType;
 }

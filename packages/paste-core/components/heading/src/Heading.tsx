@@ -21,6 +21,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight60",
         letterSpacing: "-.02em",
+        color: "colorTextWeak",
       };
     case "heading40":
       return {
@@ -29,6 +30,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight40",
         letterSpacing: "-.02em",
+        color: "colorTextWeak",
       };
     case "heading50":
       return {
@@ -37,6 +39,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight30",
         letterSpacing: "-.02em",
+        color: "colorTextWeak",
       };
     case "heading60":
       return {
@@ -45,6 +48,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight20",
         letterSpacing: "-.02em",
+        color: "colorTextWeak",
       };
     /**
      * heading20 is out of order because its also default.
