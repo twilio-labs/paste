@@ -3,7 +3,7 @@ global:
   category: background-color
 imports:
   - ../../twilio-dark/global/background-color.yml
-  - ../../../aliases/border-radius.yml
+  - ../aliases/color-palette.yml
 props:
   color-background:
     value: "{!palette-gray-85}"

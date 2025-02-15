@@ -68,8 +68,8 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         borderBottomWidth="borderWidth10"
         borderBottomStyle="solid"
         borderBottomColor="colorBorderWeaker"
-        borderTopRightRadius="borderRadius20"
-        borderTopLeftRadius="borderRadius20"
+        borderTopRightRadius="borderRadius40"
+        borderTopLeftRadius="borderRadius40"
         element={element}
       >
         <Box
