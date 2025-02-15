@@ -12,10 +12,9 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as="tr"
-        backgroundColor="colorBackgroundWeakest"
         element={element}
         verticalAlign={verticalAlign}
-        _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "transparent" }}
+        _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "colorBackgroundWeakest" }}
         _last={{ borderWidth: "borderWidth0" }}
       />
     );
