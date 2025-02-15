@@ -1,0 +1,8 @@
+global:
+  category: line-height
+  type: number
+imports:
+  - ../../twilio-dark/global/line-height.yml
+props:
+  line-height-40:
+    value: "{!line-height-60}"

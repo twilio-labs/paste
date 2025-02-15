@@ -36,6 +36,8 @@ props:
   color-background-weaker:
     value: "{!palette-gray-0}"
     comment: Background color for elevated elements. Matches color-background-body in light mode but appears slightly lighter in dark mode to maintain focus.
+  color-background-weakest:
+    value: "{!palette-blue-100}"
 
   # brand backgrounds
   color-background-brand:

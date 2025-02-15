@@ -6,7 +6,7 @@ import type { FauxInputProps } from "../types";
 
 const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildren<FauxInputProps>>(
   ({ disabled, element, hasError, readOnly, children, type, variant }, ref) => {
-    let backgroundColor = "colorBackgroundBody" as BackgroundColor;
+    let backgroundColor = "colorBackgroundWeaker" as BackgroundColor;
     let boxShadow = "shadowBorder" as BoxShadow;
     let boxShadowHover = "shadowBorderPrimary" as BoxShadow;
     let boxShadowActive = "shadowBorderPrimaryStronger" as BoxShadow;
