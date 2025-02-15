@@ -3,7 +3,7 @@ global:
   category: border-color
 imports:
   - ../../twilio-dark/global/border-color.yml
-  - ../../../aliases/color-palette.yml
+  - ../aliases/color-palette.yml
 
 props:
   color-border-primary:

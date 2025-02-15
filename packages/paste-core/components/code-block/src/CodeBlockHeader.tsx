@@ -36,8 +36,8 @@ export const CodeBlockHeader = React.forwardRef<HTMLHeadingElement, CodeBlockHea
       paddingY="space50"
       paddingX="space70"
       margin="space0"
-      borderTopLeftRadius="borderRadius20"
-      borderTopRightRadius="borderRadius20"
+      borderTopLeftRadius="borderRadius70"
+      borderTopRightRadius="borderRadius70"
       fontWeight="fontWeightSemibold"
       fontSize="fontSize30"
     >
