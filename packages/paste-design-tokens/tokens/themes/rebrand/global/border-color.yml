@@ -10,3 +10,5 @@ props:
     value: "{!palette-blue-30}"
   color-border-weaker:
     value: "{!palette-gray-80}"
+  color-border-weakest:
+    value: "{!palette-gray-100}"
