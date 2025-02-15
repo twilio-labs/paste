@@ -9,3 +9,15 @@ props:
     value: "{!palette-gray-40}"
   color-text-link:
     value: "{!palette-gray-0}"
+  color-text-neutral:
+    value: "{!palette-gray-0}"
+  color-text-warning-strong:
+    value: "{!palette-gray-0}"
+  color-text-success:
+    value: "{!palette-gray-0}"
+  color-text-new:
+    value: "{!palette-gray-0}"
+  color-text-icon-neutral:
+    value: "{!palette-blue-10}"
+  color-text-icon:
+    value: "{!palette-gray-30}"
