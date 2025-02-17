@@ -184,7 +184,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-unicorn": "40.1.0",
+    "eslint-plugin-unicorn": "57.0.0",
     "evergreen-ui": "^7.0.0",
     "git-branch-is": "^3.0.0",
     "globby-esm": "npm:globby@^13.1.3",
