@@ -1,5 +1,19 @@
 # Change Log
 
+## 20.22.0
+
+### Minor Changes
+
+- [`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3) [#4230](https://github.com/twilio-labs/paste/pull/4230) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Update mobile styles, add useSidePanelState hook, animation fixes
+
+* [`50da0778c`](https://github.com/twilio-labs/paste/commit/50da0778cb52ab99cbac325d09d1ee15451b91a2) [#4236](https://github.com/twilio-labs/paste/pull/4236) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChartProvider] added a new component that will wrap chart instances to control and share the state to child charting components
+
+### Patch Changes
+
+- Updated dependencies [[`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3), [`50da0778c`](https://github.com/twilio-labs/paste/commit/50da0778cb52ab99cbac325d09d1ee15451b91a2)]:
+  - @twilio-paste/side-panel@1.2.0
+  - @twilio-paste/chart-provider@1.0.0
+
 ## 20.21.0
 
 ### Minor Changes

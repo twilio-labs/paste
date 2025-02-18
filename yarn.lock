@@ -11939,7 +11939,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chart-provider@^0.0.0, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
+"@twilio-paste/chart-provider@^1.0.0, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider"
   dependencies:
@@ -12244,7 +12244,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^20.20.0
+    "@twilio-paste/core": ^20.22.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -12365,7 +12365,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.20.0, @twilio-paste/core@^20.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.22.0, @twilio-paste/core@^20.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
@@ -12386,7 +12386,7 @@ __metadata:
     "@twilio-paste/button-group": ^4.2.0
     "@twilio-paste/callout": ^4.2.1
     "@twilio-paste/card": ^9.1.0
-    "@twilio-paste/chart-provider": ^0.0.0
+    "@twilio-paste/chart-provider": ^1.0.0
     "@twilio-paste/chat-composer": ^5.2.1
     "@twilio-paste/chat-log": ^5.2.1
     "@twilio-paste/checkbox": ^13.1.2
@@ -12455,7 +12455,7 @@ __metadata:
     "@twilio-paste/separator": ^8.1.1
     "@twilio-paste/sibling-box": ^9.1.1
     "@twilio-paste/side-modal": ^4.2.0
-    "@twilio-paste/side-panel": ^1.1.0
+    "@twilio-paste/side-panel": ^1.2.0
     "@twilio-paste/sidebar": ^1.1.2
     "@twilio-paste/skeleton-loader": ^6.1.1
     "@twilio-paste/slider": ^3.0.1
@@ -14878,7 +14878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/side-panel@^1.0.0, @twilio-paste/side-panel@^1.1.0, @twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel":
+"@twilio-paste/side-panel@^1.0.0, @twilio-paste/side-panel@^1.2.0, @twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel"
   dependencies:
