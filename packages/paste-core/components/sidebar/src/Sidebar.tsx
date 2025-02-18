@@ -18,10 +18,11 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
     display="flex"
     flexDirection="column"
     ref={ref}
-    borderRightStyle="solid"
+    boxShadow="shadowElevationRightInverse05"
+    // borderRightStyle="solid"
     borderRightWidth="borderWidth10"
     borderRightColor="colorBorderInverseWeaker"
-    backgroundColor="colorBackgroundInverse"
+    backgroundColor="colorBackgroundBodyInverse"
     zIndex="zIndex50"
     position="fixed"
     top={0}

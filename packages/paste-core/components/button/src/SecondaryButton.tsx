@@ -12,7 +12,7 @@ import type { DirectButtonProps } from "./types";
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: "colorText",
-  backgroundColor: "colorBackgroundWeaker",
+  backgroundColor: "colorBackgroundWeak",
   boxShadow: "shadowBorderWeak",
   _hover: {
     color: "colorTextPrimary",

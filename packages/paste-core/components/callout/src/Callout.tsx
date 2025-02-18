@@ -84,7 +84,7 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
     borderColor: "colorBorderNewWeak",
   },
   neutral: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackground",
     color: "colorTextNeutral",
     borderColor: "colorBorderNeutralWeak",
   },
@@ -133,6 +133,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         padding="space70"
         // borderLeftStyle="solid"
         borderLeftWidth="borderWidth20"
+        borderRadius="borderRadius40"
         variant={variant}
         alignItems="start"
         columnGap="space50"

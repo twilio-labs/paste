@@ -14,7 +14,7 @@ props:
   color-background-body:
     value: "{!palette-gray-100}"
   color-background-body-inverse:
-    value: "{!palette-gray-110}"
+    value: "{!palette-blue-100}"
   color-background-inverse:
     value: "{!palette-gray-110}"
   color-background-weakest:
@@ -24,6 +24,6 @@ props:
   color-background-primary-stronger:
     value: "{!palette-gray-0}"
   color-background-primary-weakest:
-    value: "{!palette-blue-90}"
+    value: "{!palette-gray-70}"
   color-background-overlay:
     value: "{!palette-gray-100-transparent-70}"

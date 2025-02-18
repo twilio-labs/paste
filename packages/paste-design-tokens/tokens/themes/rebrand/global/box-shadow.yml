@@ -8,10 +8,18 @@ props:
   shadow-brand-10:
     value: "{!offset-0} {!offset-0} {!offset-80} {!offset-0} {!palette-blue-50-transparent-30}"
   shadow-border-weak:
-    value: "{!palette-gray-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-60}"
   shadow-border-primary-stronger:
-    value: "{!palette-gray-0}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-0}"
+  shadow-border-primary:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-70}"
   shadow-border-primary-weaker:
-    value: "{!palette-blue-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-blue-90}"
   shadow-elevation-10:
     value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-80}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-gray-110-transparent-10}"
+  shadow-elevation-right-inverse-05:
+    value: "{!offset-10} {!offset-0} {!offset-0} {!offset-0} {!palette-gray-100}"
+  shadow-elevation-bottom-inverse-05:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!offset-0} {!palette-gray-100}"
+  shadow-border-inverse-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-80}"

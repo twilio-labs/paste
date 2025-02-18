@@ -5,6 +5,8 @@ imports:
   - ../../twilio-dark/global/text-color.yml
   - ../aliases/color-palette.yml
 props:
+  color-text:
+    value: "{!palette-gray-10}"
   color-text-weak:
     value: "{!palette-gray-40}"
   color-text-link:
@@ -21,3 +23,5 @@ props:
     value: "{!palette-blue-10}"
   color-text-icon:
     value: "{!palette-gray-30}"
+  color-text-primary:
+    value: "{!palette-gray-0}"
