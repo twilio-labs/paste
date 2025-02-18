@@ -84,7 +84,7 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
     borderColor: "colorBorderNewWeak",
   },
   neutral: {
-    backgroundColor: "colorBackgroundWeak",
+    backgroundColor: "colorBackground",
     color: "colorTextNeutral",
     borderColor: "colorBorderNeutralWeak",
   },
@@ -131,8 +131,9 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         display="flex"
         marginY={marginY}
         padding="space70"
-        borderLeftStyle="solid"
+        // borderLeftStyle="solid"
         borderLeftWidth="borderWidth20"
+        borderRadius="borderRadius40"
         variant={variant}
         alignItems="start"
         columnGap="space50"
@@ -146,7 +147,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
           {children}
         </Box>
         {onDismiss && typeof onDismiss === "function" && (
-          <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
+          <Button onClick={onDismiss} variant="secondary" size="circle_small" element={`${element}_DISMISS_BUTTON`}>
             <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
             <ScreenReaderOnly>{i18nDismissLabel}</ScreenReaderOnly>
           </Button>

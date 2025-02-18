@@ -22,7 +22,7 @@ export const globalTypes = {
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
       icon: "paintbrush",
       // array of plain string values or MenuItem shape (see below)
-      items: ["default", "dark", "sendgrid", "evergreen", "twilio", "twilio-dark"],
+      items: ["default", "dark", "sendgrid", "evergreen", "twilio", "twilio-dark", "rebrand"],
     },
   },
   theme_layout: {

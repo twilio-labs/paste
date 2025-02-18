@@ -27,8 +27,8 @@ const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDia
         element={element}
         ref={ref}
         display={minimized ? "none" : "block"}
-        borderBottomLeftRadius="borderRadius20"
-        borderBottomRightRadius="borderRadius20"
+        borderBottomLeftRadius="borderRadius40"
+        borderBottomRightRadius="borderRadius40"
       >
         {children}
       </Box>
