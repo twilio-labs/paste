@@ -49,6 +49,7 @@ const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props
     width={["100%", "size40", "size40"]}
     height={props.height}
     boxSizing="content-box"
+    backgroundColor="colorBackgroundWeaker"
   />
 ));
 

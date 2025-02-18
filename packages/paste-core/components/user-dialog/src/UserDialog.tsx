@@ -23,9 +23,7 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
       {...safelySpreadBoxProps(props)}
       ref={ref}
       style={style}
-      boxShadow="shadow"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderWeaker"
+      boxShadow="shadowElevation10"
       borderRadius="borderRadius30"
       padding="space0"
       marginTop="space30"
