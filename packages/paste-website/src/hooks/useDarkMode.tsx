@@ -13,7 +13,7 @@ const ValidThemes = {
 type ValidThemeName = ValueOf<typeof ValidThemes>;
 
 const isValidTheme = (themeName: ValidThemeName): boolean => {
-  return Object.values(ValidThemes).includes(themeName);
+  return themeName === ValidThemes.DEFAULT || themeName === ValidThemes.DARK;
 };
 
 export const useDarkMode = (): UseDarkModeReturn => {
@@ -36,7 +36,7 @@ export const useDarkMode = (): UseDarkModeReturn => {
   React.useEffect(() => {
     const localTheme = SimpleStorage.get("theme") as ValidThemeName;
 
-    if (window.matchMedia?.("(prefers-color-scheme: dark)").matches && !localTheme) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {
       setMode(ValidThemes.DARK);
     } else if (localTheme && isValidTheme(localTheme)) {
       setTheme(localTheme);
