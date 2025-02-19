@@ -11,7 +11,8 @@ import { SiteSearch } from "../../site-search";
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { breakpointIndex } = useWindowSize();
-  const isMacOS = navigator.platform.toUpperCase().includes("MAC");
+  // navigator is not available in SSR, so we need to check if it exists before using it
+  const isMacOS = typeof window !== "undefined" && navigator && navigator?.platform.toUpperCase().includes("MAC");
   const platformTriggerKey = isMacOS ? "Meta" : "Control";
 
   const onOpen = (): void => {
