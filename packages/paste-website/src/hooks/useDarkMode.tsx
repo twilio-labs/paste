@@ -14,7 +14,7 @@ const ValidThemes = {
 
 export type ValidThemeName = ValueOf<typeof ValidThemes>;
 
-export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT): UseDarkModeReturn => {
+export const useDarkMode = (defaultValue: ValidThemeName): UseDarkModeReturn => {
   const [theme, setTheme] = React.useState<ValidThemeName>(defaultValue);
   const [componentMounted, setComponentMounted] = React.useState(false);
 
