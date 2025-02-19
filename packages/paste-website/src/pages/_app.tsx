@@ -13,10 +13,11 @@ import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
-import { ValidThemeName, themeCookieKey, useDarkMode } from "../hooks/useDarkMode";
-import * as gtag from "../lib/gtag";
-import { SimpleStorage } from "../utils/SimpleStorage";
-import { inCypress } from "../utils/inCypress";
+import { logger } from "../functions-utils/logger";
+import { logger } from "../functions-utils/logger";
+import { logger } from "../functions-utils/logger";
+import { logger } from "../functions-utils/logger";
+import { logger } from "../functions-utils/lo
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
@@ -141,10 +142,11 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const ctx = await NextApp.getInitialProps(context);
 
   const cookies = context.ctx.req?.headers?.cookie;
-
+logger.info("Cookies found on server, parsing theme cookie", { cookies });
   if (cookies) {
     const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
     const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
+    logger.info("Cookies found on server, parsing theme cookie", { decodedString });
 
     return { ...ctx, serverThemeCookie: decodedString as ValidThemeName };
   }
