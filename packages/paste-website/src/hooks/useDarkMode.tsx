@@ -16,7 +16,7 @@ const setCookie = (name: string, value: any, days: number): void => {
   document.cookie = `${name}=${value || ""}${expires}; path=/`;
 };
 
-const getCookie = (name: string) => {
+const getCookie = (name: string): string | undefined => {
   // eslint-disable-next-line unicorn/no-document-cookie
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
@@ -26,6 +26,7 @@ const getCookie = (name: string) => {
       return part.split(";").shift();
     }
   }
+  return undefined;
 };
 
 const ValidThemes = {

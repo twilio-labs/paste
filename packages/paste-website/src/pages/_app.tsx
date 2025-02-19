@@ -141,7 +141,7 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
     return { ...ctx, themeCookie: null };
   }
 
-  const cookiestring = RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
+  const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
   const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
 
   return { ...ctx, themeCookie: decodedString };
