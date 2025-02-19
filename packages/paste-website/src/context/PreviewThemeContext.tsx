@@ -1,8 +1,10 @@
 import * as React from "react";
 
+import { ValidThemeName } from "../hooks/useDarkMode";
+
 type PreviewThemeContextValue = {
   theme: string;
-  selectTheme: (theme: string) => void;
+  selectTheme: (theme: ValidThemeName) => void;
 };
 
 export const PreviewThemeContext = React.createContext<PreviewThemeContextValue | null>(null);

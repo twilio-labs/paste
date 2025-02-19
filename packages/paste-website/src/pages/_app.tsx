@@ -5,6 +5,7 @@ import NextApp from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
+import { parseCookies } from "nookies";
 import * as React from "react";
 
 import packageJSON from "../../../paste-core/core-bundle/package.json";
@@ -12,7 +13,7 @@ import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
-import { themeCookieKey, useDarkMode } from "../hooks/useDarkMode";
+import { ValidThemeName, themeCookieKey, useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
@@ -20,16 +21,17 @@ import { inCypress } from "../utils/inCypress";
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
 interface AppPageProps {
-  themeCookie: any;
+  serverThemeCookie?: ValidThemeName;
 }
 
-const App = ({ Component, pageProps, themeCookie }: AppProps & AppPageProps): React.ReactElement => {
+const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
   // eslint-disable-next-line no-console
-  console.log("themeCookie", themeCookie);
+  console.log("themeCookie", serverThemeCookie, parseCookies());
+  const cookieTheme = serverThemeCookie || (parseCookies()[themeCookieKey] as ValidThemeName);
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
-  const [theme, toggleMode, componentMounted] = useDarkMode(themeCookie);
-  const [previewTheme, setPreviewTheme] = React.useState(themeCookie || "twilio");
+  const [theme, toggleMode, componentMounted] = useDarkMode(cookieTheme || "twilio");
+  const [previewTheme, setPreviewTheme] = React.useState(cookieTheme || "twilio");
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
   React.useEffect(() => {
@@ -138,19 +140,15 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const ctx = await NextApp.getInitialProps(context);
 
   const cookies = context.ctx.req?.headers?.cookie;
-  // eslint-disable-next-line no-console
-  console.log("cookies", cookies);
-  // eslint-disable-next-line no-console
-  console.log("ctx", context.ctx.res?.getHeader(themeCookieKey));
 
-  if (!cookies) {
-    return { ...ctx, themeCookie: "twilio" };
+  if (cookies) {
+    const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
+    const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
+
+    return { ...ctx, serverThemeCookie: decodedString as ValidThemeName };
   }
 
-  const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
-  const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
-
-  return { ...ctx, themeCookie: decodedString };
+  return { ...ctx };
 };
 
 export default App;
