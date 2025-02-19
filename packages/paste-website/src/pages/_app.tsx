@@ -31,7 +31,7 @@ const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProp
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode(cookieTheme || "twilio");
-  const [previewTheme, setPreviewTheme] = React.useState(cookieTheme || "twilio");
+  const [previewTheme, setPreviewTheme] = React.useState<string>(cookieTheme || "twilio");
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
   React.useEffect(() => {
