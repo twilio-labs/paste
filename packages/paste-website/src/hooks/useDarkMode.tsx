@@ -5,6 +5,8 @@ import { SimpleStorage } from "../utils/SimpleStorage";
 
 export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
 
+export const themeCookieKey = "paste-docs-theme";
+
 const setCookie = (name: string, value: any, days: number): void => {
   let expires = "";
   if (days) {
@@ -23,7 +25,7 @@ const ValidThemes = {
 type ValidThemeName = ValueOf<typeof ValidThemes>;
 
 const isValidTheme = (themeName: ValidThemeName): boolean => {
-  return themeName === ValidThemes.DEFAULT || themeName === ValidThemes.DARK;
+  return Object.values(ValidThemes).includes(themeName);
 };
 
 export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT): UseDarkModeReturn => {
@@ -33,7 +35,7 @@ export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT):
   const setMode = (mode: ValidThemeName): void => {
     SimpleStorage.set("theme", mode);
     setTheme(mode);
-    setCookie("paste-docs-theme", mode, 365);
+    setCookie(themeCookieKey, mode, 365);
   };
 
   const toggleTheme = (): void => {

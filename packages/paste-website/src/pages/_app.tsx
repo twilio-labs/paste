@@ -1,18 +1,18 @@
 import { datadogRum } from "@datadog/browser-rum";
 import { Theme } from "@twilio-paste/theme";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
+import NextApp from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
 
-import NextApp from "next/app";
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
-import { useDarkMode } from "../hooks/useDarkMode";
+import { themeCookieKey, useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
@@ -141,7 +141,7 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
     return { ...ctx, themeCookie: null };
   }
 
-  const cookiestring = RegExp(`${"paste-docs-theme"}=[^;]+`).exec(cookies);
+  const cookiestring = RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
   const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
 
   return { ...ctx, themeCookie: decodedString };
