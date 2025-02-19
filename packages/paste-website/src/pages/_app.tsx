@@ -24,10 +24,11 @@ interface AppPageProps {
 }
 
 const App = ({ Component, pageProps, themeCookie }: AppProps & AppPageProps): React.ReactElement => {
+  console.log("themeCookie", themeCookie);
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode(themeCookie);
-  const [previewTheme, setPreviewTheme] = React.useState("twilio");
+  const [previewTheme, setPreviewTheme] = React.useState(themeCookie || "twilio");
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
   React.useEffect(() => {
@@ -138,7 +139,7 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const cookies = context.ctx.req?.headers?.cookie;
 
   if (!cookies) {
-    return { ...ctx, themeCookie: null };
+    return { ...ctx, themeCookie: "twilio" };
   }
 
   const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
