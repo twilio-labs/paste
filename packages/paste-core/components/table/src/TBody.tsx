@@ -11,7 +11,7 @@ const bodyCellStyles: BoxStyleProps = {
 
 const StyledTBody = styled.tbody<TBodyProps>(
   css({
-    backgroundColor: "colorBackgroundBody",
+    backgroundColor: "colorBackgroundWeak",
     "& > tr:last-of-type > td": bodyCellStyles,
     "& > tr:last-of-type > th": bodyCellStyles,
   }),
@@ -21,7 +21,15 @@ const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>(
   ({ element = "TBODY", children, ...props }, ref) => {
     /* eslint-disable @typescript-eslint/no-explicit-any */
     return (
-      <Box as={StyledTBody as any} {...safelySpreadBoxProps(props)} ref={ref} element={element} color="colorText">
+      <Box
+        as={StyledTBody as any}
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        element={element}
+        color="colorText"
+        borderBottomLeftRadius="borderRadius30"
+        borderBottomRightRadius="borderRadius30"
+      >
         {children}
       </Box>
     );

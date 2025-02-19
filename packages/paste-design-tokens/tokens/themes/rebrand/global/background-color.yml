@@ -27,3 +27,5 @@ props:
     value: "{!palette-gray-70}"
   color-background-overlay:
     value: "{!palette-gray-100-transparent-70}"
+  color-background-weak:
+    value: "{!palette-gray-95}"

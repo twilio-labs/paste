@@ -31,6 +31,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           overflowX={scrollHorizontally ? "auto" : null}
           whiteSpace={noWrap ? "nowrap" : null}
           boxShadow={isActionable ? "shadowFocus" : null}
+          borderRadius="borderRadius30"
         >
           <Box
             {...safelySpreadBoxProps(props)}
@@ -38,6 +39,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             as="table"
             borderCollapse="separate"
             borderColor="colorBorderWeaker"
+            borderRadius="borderRadius30"
             borderSpacing="0"
             borderStyle="solid"
             borderWidth={variant === "borderless" ? "borderWidth0" : "borderWidth10"}

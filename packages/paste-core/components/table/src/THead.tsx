@@ -18,6 +18,8 @@ const StyledTHead = styled.thead<THeadProps>(
   css({
     backgroundColor: "colorBackgroundWeak",
     color: "colorTextWeak",
+    borderTopLeftRadius: "borderRadius30",
+    borderTopRightRadius: "borderRadius30",
     top: (props: THeadProps) => props.top,
   }),
 );
@@ -30,9 +32,11 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(
         {...safelySpreadBoxProps(props)}
         ref={ref}
         as={StyledTHead as any}
-        backgroundColor="colorBackgroundWeakest"
+        // backgroundColor="colorBackgroundWeakest"
         element={element}
         top={top}
+        borderTopLeftRadius="borderRadius30"
+        borderTopRightRadius="borderRadius30"
         {...getStickyStyles({ stickyHeader })}
       />
     );

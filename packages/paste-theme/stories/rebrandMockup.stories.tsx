@@ -1,10 +1,12 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable react/jsx-max-depth */
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
 import { AIChatLog, AIChatMessage, AIChatMessageAuthor, AIChatMessageBody } from "@twilio-paste/ai-chat-log";
 import { Alert } from "@twilio-paste/alert";
 import type { AlertProps } from "@twilio-paste/alert";
 import { Anchor } from "@twilio-paste/anchor";
-import type { AvatarProps } from "@twilio-paste/avatar";
+import { Avatar, type AvatarProps } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import type { ButtonProps } from "@twilio-paste/button";
@@ -13,6 +15,7 @@ import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import type { CalloutProps } from "@twilio-paste/callout";
 import { Card } from "@twilio-paste/card";
 import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import { DetailText } from "@twilio-paste/detail-text";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import type { DisclosureHeadingProps } from "@twilio-paste/disclosure";
 import { DisplayHeading } from "@twilio-paste/display-heading";
@@ -21,6 +24,7 @@ import { Heading } from "@twilio-paste/heading";
 import { AuthenticationIcon } from "@twilio-paste/icons/esm/AuthenticationIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { ProductHomeIcon } from "@twilio-paste/icons/esm/ProductHomeIcon";
 import { ProductJourneysIcon } from "@twilio-paste/icons/esm/ProductJourneysIcon";
 import { TokenIcon } from "@twilio-paste/icons/esm/TokenIcon";
@@ -46,6 +50,13 @@ import { TextArea } from "@twilio-paste/textarea";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import { AssistantImg } from "../public/images/Assistant";
+import { AvatarImg } from "../public/images/Avatar";
+import { BlueImg } from "../public/images/Blue";
+import { MapImg } from "../public/images/Map";
+import { RedImg } from "../public/images/Red";
 import { ThemeProvider } from "../src/themeProvider";
 
 // eslint-disable-next-line import/no-default-export
@@ -120,13 +131,6 @@ export const RebrandMockup = (): React.ReactNode => {
             </SidebarNavigationItem>
           </SidebarNavigation>
         </SidebarBody>
-        <SidebarFooter>
-          <SidebarCollapseButton
-            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
-            i18nCollapseLabel="Close sidebar"
-            i18nExpandLabel="Open sidebar"
-          />
-        </SidebarFooter>
       </Sidebar>
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <div id={topbarSkipLinkID} />
@@ -151,7 +155,7 @@ export const RebrandMockup = (): React.ReactNode => {
           <Box
             display="grid"
             gridTemplateColumns="repeat(8, 1fr)"
-            gridTemplateRows="auto auto"
+            gridTemplateRows="auto"
             gridTemplateAreas="'card1 card1 card2 card2 card3 card3 card4 card4' 'map map map map map ai ai ai'"
             columnGap="space50"
             rowGap="space50"
@@ -188,73 +192,204 @@ export const RebrandMockup = (): React.ReactNode => {
                     <RadioButton value="fraud">By fraud scenario</RadioButton>
                   </RadioButtonGroup>
                 </Box>
-              </Card>
-            </Box>
-            <Box gridArea="ai">
-              <Card>
-                <Box>
-                  <Box>
-                    <RadioButtonGroup attached name="foo" aria-label="choose view" legend="">
-                      <RadioButton value="country" checked>
-                        Orchestration assistant
-                      </RadioButton>
-                      <RadioButton value="channel">Control panel</RadioButton>
-                    </RadioButtonGroup>
-                  </Box>
-                  <AIChatLog>
-                    <AIChatMessage variant="bot">
-                      <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
-                      <AIChatMessageBody>Hello, what can I help you with?</AIChatMessageBody>
-                    </AIChatMessage>
-                    <AIChatMessage variant="user">
-                      <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-                      <AIChatMessageBody>Hi! Can you help me with my user interface?</AIChatMessageBody>
-                    </AIChatMessage>
-                    <AIChatMessage variant="bot">
-                      <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
-                      Of course! What do you need help with?
-                    </AIChatMessage>
-                    <AIChatMessage variant="bot">
-                      <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
-                      <AIChatMessageBody>
-                        I&apos;m happy to help with any questions you have about user interfaces, accessibility, or the
-                        Twilio Paste design system. Just ask!
-                      </AIChatMessageBody>
-                    </AIChatMessage>
-                    <AIChatMessage variant="user">
-                      <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
-                      <AIChatMessageBody>My question is about the Switch component.</AIChatMessageBody>
-                    </AIChatMessage>
-                    <AIChatMessage variant="bot">
-                      <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
-                      <AIChatMessageBody>
-                        A <Anchor href="https://paste.twilio.design/components/switch">Switch</Anchor> is an interactive
-                        binary control. What other information about the Paste Switch component can I help with?
-                      </AIChatMessageBody>
-                    </AIChatMessage>
-                  </AIChatLog>
-                  <ChatComposerContainer variant="contained">
-                    <ChatComposer
-                      maxHeight="size10"
-                      config={{
-                        namespace: "customer-chat",
-                        onError: (e) => {
-                          throw e;
-                        },
-                      }}
-                      initialValue="Are switch labels required? What about "
-                      placeholder="Chat text"
-                      ariaLabel="A basic chat composer"
-                    />
-                    <ChatComposerActionGroup>
-                      <Button variant="secondary_icon" size="reset">
-                        xx
-                      </Button>
-                    </ChatComposerActionGroup>
-                  </ChatComposerContainer>
+                <Box paddingTop="space130" paddingBottom="space60" display="flex" justifyContent="center">
+                  <MapImg />
                 </Box>
               </Card>
             </Box>
+            <Box gridArea="ai" height="100%">
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignSelf="stretch"
+                height="100%"
+                as="article"
+                borderRadius="borderRadius30"
+                backgroundColor="colorBackground"
+                padding="space100"
+                position="relative"
+                overflow="hidden"
+              >
+                <Box position="absolute" right={0} top={100}>
+                  <RedImg />
+                </Box>
+                <Box position="absolute" left={0} top={0}>
+                  <BlueImg />
+                </Box>
+                <Box width="100%" display="flex" justifyContent="center">
+                  <RadioButtonGroup attached name="foo" aria-label="choose view" legend="">
+                    <RadioButton size={9} value="country" checked>
+                      Orchestration assistant
+                    </RadioButton>
+                    <RadioButton value="channel">Control panel</RadioButton>
+                  </RadioButtonGroup>
+                </Box>
+                <Box
+                  flexGrow={1}
+                  width="100%"
+                  height="100%"
+                  display="grid"
+                  rowGap="space40"
+                  paddingY="space70"
+                  justifyItems="center"
+                  gridTemplateRows="min-content min-content auto min-content"
+                >
+                  <AvatarImg />
+                  <DetailText>Hi there, I&apos; m your orchestration assistant. </DetailText>
+                  <Box marginTop="space40">
+                    <Paragraph>
+                      <span role="img" aria-label="lightbulb">
+                        💡
+                      </span>{" "}
+                      Passkeys are gaining traction in the U.S. and Canada, and can increase your security and improve
+                      sign-in experience.
+                    </Paragraph>
+                    <Anchor href="#">More about passkeys</Anchor>
+                  </Box>
+                  <Box width="100%" alignSelf="flex-end">
+                    <ButtonGroup>
+                      <Button variant="secondary">
+                        <NewIcon decorative />
+                        Tell me more about how it works
+                      </Button>
+                      <Button variant="secondary">
+                        <NewIcon decorative />
+                        Yes, add passkeys enrollment
+                      </Button>
+                    </ButtonGroup>
+                  </Box>
+                </Box>
+                <ChatComposerContainer variant="contained">
+                  <ChatComposer
+                    maxHeight="size10"
+                    config={{
+                      namespace: "customer-chat",
+                      onError: (e) => {
+                        throw e;
+                      },
+                    }}
+                    placeholder="Ask me anything..."
+                    ariaLabel="A basic chat composer"
+                  />
+                  <ChatComposerActionGroup>
+                    <Button variant="secondary_icon" size="reset">
+                      <AssistantImg />
+                    </Button>
+                  </ChatComposerActionGroup>
+                </ChatComposerContainer>
+              </Box>
+            </Box>
+          </Box>
+          <Box marginTop="space180" display="flex" flexDirection="column" rowGap="space70">
+            <Box display="flex" alignItems="center" justifyContent="space-between">
+              <Heading as="h2" variant="heading20">
+                Transaction logs
+              </Heading>
+              <Button variant="secondary">
+                <DownloadIcon decorative />
+                Download CSV
+              </Button>
+            </Box>
+            <Table>
+              <THead>
+                <Tr>
+                  <Th>Name</Th>
+                  <Th>First activity</Th>
+                  <Th>Last activity</Th>
+                  <Th>Email</Th>
+                </Tr>
+              </THead>
+              <TBody>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="Jack Candler" size="sizeIcon70" />
+                      Jack Candler
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="Mary Lam" size="sizeIcon70" color="decorative10" />
+                      Mary Lam
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="John MacDonald" size="sizeIcon70" color="decorative20" />
+                      John MacDonald
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="Bo Shephard" size="sizeIcon70" color="decorative30" />
+                      Bo Shephard
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>bshephard@company.com</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="Jane Doe" size="sizeIcon70" color="decorative40" />
+                      Jane Doe
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>jdoe@company.com</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space30">
+                      <Avatar name="Jeff Lewton" size="sizeIcon70" color="decorative30" />
+                      Jeff Lewton
+                    </Box>
+                  </Td>
+                  <Td>4 months ago</Td>
+                  <Td>4 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space40" color="colorTextDecorative10">
+                      <Avatar name="Alex Miller" size="sizeIcon70" color="decorative10" />
+                      Alex Miller
+                    </Box>
+                  </Td>
+                  <Td>4 months ago</Td>
+                  <Td>4 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+                <Tr>
+                  <Td>
+                    <Box display="flex" alignItems="center" columnGap="space40">
+                      <Avatar name="Kate Murphy" size="sizeIcon70" color="decorative20" />
+                      Kate Murphy
+                    </Box>
+                  </Td>
+                  <Td>3 months ago</Td>
+                  <Td>3 min ago</Td>
+                  <Td>-</Td>
+                </Tr>
+              </TBody>
+            </Table>
           </Box>
         </Box>
       </SidebarPushContentWrapper>

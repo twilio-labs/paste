@@ -14,7 +14,8 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         as="tr"
         element={element}
         verticalAlign={verticalAlign}
-        _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "colorBackgroundWeakest" }}
+        backgroundColor="colorBackgroundWeak"
+        // _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "colorBackgroundWeakest" }}
         _last={{ borderWidth: "borderWidth0" }}
       />
     );
