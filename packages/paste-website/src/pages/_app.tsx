@@ -1,11 +1,12 @@
 import { datadogRum } from "@datadog/browser-rum";
 import { Theme } from "@twilio-paste/theme";
-import type { AppProps } from "next/app";
+import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
 
+import NextApp from "next/app";
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
@@ -18,10 +19,14 @@ import { inCypress } from "../utils/inCypress";
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
-const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
+interface AppPageProps {
+  themeCookie: any;
+}
+
+const App = ({ Component, pageProps, themeCookie }: AppProps & AppPageProps): React.ReactElement => {
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
-  const [theme, toggleMode, componentMounted] = useDarkMode();
+  const [theme, toggleMode, componentMounted] = useDarkMode(themeCookie);
   const [previewTheme, setPreviewTheme] = React.useState("twilio");
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
@@ -125,6 +130,21 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
       </Theme.Provider>
     </>
   );
+};
+
+App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppInitialProps> => {
+  const ctx = await NextApp.getInitialProps(context);
+
+  const cookies = context.ctx.req?.headers?.cookie;
+
+  if (!cookies) {
+    return { ...ctx, themeCookie: null };
+  }
+
+  const cookiestring = RegExp(`${"paste-docs-theme"}=[^;]+`).exec(cookies);
+  const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
+
+  return { ...ctx, themeCookie: decodedString };
 };
 
 export default App;
