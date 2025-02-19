@@ -1,6 +1,7 @@
 import type { ValueOf } from "@twilio-paste/types";
 import * as React from "react";
-import { BASE_COOKIE_OPTIONS, setCookie } from "../utils/cookies";
+
+import { setCookie } from "../utils/cookies";
 
 export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
 
@@ -19,9 +20,7 @@ export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT):
 
   const setMode = (mode: ValidThemeName): void => {
     setTheme(mode);
-    setCookie(null, themeCookieKey, mode, BASE_COOKIE_OPTIONS);
-
-    // setCookie(themeCookieKey, mode, 365);
+    setCookie(null, themeCookieKey, mode);
   };
 
   const toggleTheme = (): void => {
@@ -33,12 +32,6 @@ export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT):
   };
 
   React.useEffect(() => {
-    // const cookieTheme = getCookie(themeCookieKey) as ValidThemeName;
-
-    // if (window.matchMedia?.("(prefers-color-scheme: dark)").matches && !cookieTheme) {
-    //   setMode(ValidThemes.DARK);
-    // }
-
     setComponentMounted(true);
   }, []);
 
