@@ -12,8 +12,12 @@ const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { breakpointIndex } = useWindowSize();
   // navigator is not available in SSR, so we need to check if it exists before using it
-  const isMacOS = typeof window !== "undefined" && navigator && navigator?.platform.toUpperCase().includes("MAC");
+  const [isMacOS, setIsMacOS] = React.useState(false);
   const platformTriggerKey = isMacOS ? "Meta" : "Control";
+
+  React.useEffect(() => {
+    setIsMacOS(typeof window !== "undefined" && navigator && navigator?.platform.toUpperCase().includes("MAC"));
+  }, []);
 
   const onOpen = (): void => {
     setIsOpen(true);
