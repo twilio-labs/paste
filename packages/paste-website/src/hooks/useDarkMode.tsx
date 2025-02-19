@@ -1,8 +1,6 @@
 import type { ValueOf } from "@twilio-paste/types";
 import * as React from "react";
 
-import { SimpleStorage } from "../utils/SimpleStorage";
-
 export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
 
 export const themeCookieKey = "paste-docs-theme";
@@ -14,7 +12,20 @@ const setCookie = (name: string, value: any, days: number): void => {
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     expires = `; expires=${date.toUTCString()}`;
   }
+  // eslint-disable-next-line unicorn/no-document-cookie
   document.cookie = `${name}=${value || ""}${expires}; path=/`;
+};
+
+const getCookie = (name: string) => {
+  // eslint-disable-next-line unicorn/no-document-cookie
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    const part = parts.pop();
+    if (part) {
+      return part.split(";").shift();
+    }
+  }
 };
 
 const ValidThemes = {
@@ -24,16 +35,11 @@ const ValidThemes = {
 
 type ValidThemeName = ValueOf<typeof ValidThemes>;
 
-const isValidTheme = (themeName: ValidThemeName): boolean => {
-  return Object.values(ValidThemes).includes(themeName);
-};
-
 export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT): UseDarkModeReturn => {
   const [theme, setTheme] = React.useState<ValidThemeName>(defaultValue);
   const [componentMounted, setComponentMounted] = React.useState(false);
 
   const setMode = (mode: ValidThemeName): void => {
-    SimpleStorage.set("theme", mode);
     setTheme(mode);
     setCookie(themeCookieKey, mode, 365);
   };
@@ -47,14 +53,10 @@ export const useDarkMode = (defaultValue: ValidThemeName = ValidThemes.DEFAULT):
   };
 
   React.useEffect(() => {
-    const localTheme = SimpleStorage.get("theme") as ValidThemeName;
+    const cookieTheme = getCookie(themeCookieKey) as ValidThemeName;
 
-    if (window.matchMedia?.("(prefers-color-scheme: dark)").matches && !localTheme) {
+    if (window.matchMedia?.("(prefers-color-scheme: dark)").matches && !cookieTheme) {
       setMode(ValidThemes.DARK);
-    } else if (localTheme && isValidTheme(localTheme)) {
-      setTheme(localTheme);
-    } else {
-      setMode(ValidThemes.DEFAULT);
     }
 
     setComponentMounted(true);
