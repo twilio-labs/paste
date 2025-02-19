@@ -24,6 +24,7 @@ interface AppPageProps {
 }
 
 const App = ({ Component, pageProps, themeCookie }: AppProps & AppPageProps): React.ReactElement => {
+  // eslint-disable-next-line no-console
   console.log("themeCookie", themeCookie);
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
@@ -137,6 +138,10 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const ctx = await NextApp.getInitialProps(context);
 
   const cookies = context.ctx.req?.headers?.cookie;
+  // eslint-disable-next-line no-console
+  console.log("cookies", cookies);
+  // eslint-disable-next-line no-console
+  console.log("ctx", context.ctx.res?.getHeader(themeCookieKey));
 
   if (!cookies) {
     return { ...ctx, themeCookie: "twilio" };
