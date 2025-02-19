@@ -72,7 +72,7 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
+  ({ size, buttonState, fullWidth, pressed, as = "button", ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : ToggleStyles;
 
     // Must spread size styles after button styles
@@ -81,6 +81,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
         ref={ref}
         width={fullWidth ? "100%" : "auto"}
         aria-pressed={pressed}
+        as={as}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...toggleStyles}
@@ -89,9 +90,6 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
     );
   },
 );
-SecondaryButton.defaultProps = {
-  as: "button",
-};
 
 SecondaryButton.displayName = "SecondaryButton";
 
