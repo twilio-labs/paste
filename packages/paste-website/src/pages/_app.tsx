@@ -144,6 +144,7 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
 
   logger.info({ cookies, clientCookie: parseCookies() });
 
+  // eslint-disable-next-line no-console
   console.log(context.ctx.req);
   if (cookies) {
     const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
