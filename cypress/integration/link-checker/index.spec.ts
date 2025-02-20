@@ -19,8 +19,12 @@ const shouldVisitLink = (link, baseUrl) => {
   // We should never have a `//` in a url other than the one in `http://`
   const passesDoubleSlashTest = link.split("//")[2] == null;
   const passesIrrelevantTest = !link.includes("page-data") && !link.includes("socket.io");
-  // does it include the baseUrl the site is running on, or a production link url including Storybook
-  const passesHostTest = link.includes(baseUrl) || link.includes("paste-storybook.twilio.design");
+  /**
+   * does it include the baseUrl the site is running on, or a production link url including Storybook
+   * Removed the storybooks as the tests were runnnig so long and caused cypress to crash in CI
+   * const passesHostTest = link.includes(baseUrl) || link.includes("paste-storybook.twilio.design");
+   */
+  const passesHostTest = link.includes(baseUrl);
   const passesIgnoreTest = !IGNORE_LIST.some((ignoreItem) => link.includes(ignoreItem));
 
   return passesDoubleSlashTest && passesIrrelevantTest && passesHostTest && passesIgnoreTest;
@@ -29,7 +33,7 @@ const shouldVisitLink = (link, baseUrl) => {
 describe("Broken link checker", () => {
   it("recursively check all website links for any broken links", () => {
     const VISITED_LINKS = new Set();
-    const baseUrl = Cypress.env("CYPRESS_BASE_URL");
+    const baseUrl = Cypress.env("CYPRESS_BASE_URL") || "localhost:3000";
 
     cy.log(`[LINK CHECKER]: Link checking starting on ${baseUrl}`);
 
