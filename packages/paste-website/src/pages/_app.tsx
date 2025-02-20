@@ -24,11 +24,9 @@ interface AppPageProps {
   serverThemeCookie?: ValidThemeName;
 }
 
-const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps) => {
+const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
   const cookieTheme: ValidThemeName =
     serverThemeCookie || (parseCookies()[themeCookieKey] as ValidThemeName) || "twilio";
-  // eslint-disable-next-line no-console
-  console.log({ serverThemeCookie, cookieTheme, clientCookie: parseCookies() });
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode(cookieTheme);
@@ -121,7 +119,7 @@ const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProp
         </>
       )}
       <Theme.Provider
-        theme={cookieTheme}
+        theme={serverThemeCookie || theme}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
         cacheProviderProps={{ key: "next" }}
@@ -141,8 +139,6 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const ctx = await NextApp.getInitialProps(context);
   const cookies = context.ctx.req?.headers?.cookie;
   const responseCookie = context.ctx?.res?.getHeader(themeCookieKey);
-
-  console.log({ cookies, responseCookie });
 
   if (cookies) {
     const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
