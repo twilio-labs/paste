@@ -17,7 +17,6 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void
 
   try {
     /* eslint-disable no-param-reassign */
-    // @ts-expect-error - `ref` is a MutableRefObject
     ref.current = value;
     /* eslint-enable no-param-reassign */
     // eslint-disable-next-line unicorn/prefer-optional-catch-binding

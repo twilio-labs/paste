@@ -44,7 +44,7 @@ export const AIChatLogger = React.forwardRef<HTMLDivElement, AIChatLoggerProps>(
 
   return (
     <AIChatLog {...props} ref={ref}>
-      {animatedAIs}
+      {animatedAIs as React.ReactElement[]}
     </AIChatLog>
   );
 });

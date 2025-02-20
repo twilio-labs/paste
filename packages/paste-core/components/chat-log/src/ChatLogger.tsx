@@ -50,7 +50,7 @@ const ChatLogger = React.forwardRef<HTMLDivElement, ChatLoggerProps>(({ chats, .
 
   return (
     <ChatLog {...props} ref={ref}>
-      {animatedChats}
+      {animatedChats as React.ReactNode}
     </ChatLog>
   );
 });

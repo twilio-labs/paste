@@ -80,7 +80,7 @@ const useAdjustIconColor = ({ icon, selected }: UseAdjustIconColorArgs): Require
       return null;
     }
     if (icon && React.isValidElement(icon) && !selected) {
-      const iconElement = icon as React.ReactElement;
+      const iconElement: React.ReactElement<any> = icon as React.ReactElement;
       return React.cloneElement(iconElement, {
         color: "colorTextIconInverse",
       });

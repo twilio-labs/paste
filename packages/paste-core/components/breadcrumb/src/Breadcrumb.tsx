@@ -136,7 +136,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
     return (
       <Box aria-label="breadcrumb" {...safelySpreadBoxProps(props)} as="nav" element={element} ref={ref}>
         <Box alignItems="center" as="ol" display="inline-flex" listStyleType="none" margin="space0" padding="space0">
-          {validChildren.map((child, index) => {
+          {validChildren.map((child: React.ReactElement<any>, index) => {
             return React.cloneElement(child, {
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),

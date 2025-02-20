@@ -113,7 +113,7 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
         fontSize="fontSize30"
         lineHeight="lineHeight30"
       >
-        {icon}
+        {icon as React.ReactNode}
         <span>{children}</span>
       </Box>
     );

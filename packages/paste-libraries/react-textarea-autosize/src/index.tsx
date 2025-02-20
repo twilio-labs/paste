@@ -1,9 +1,9 @@
 import * as React from "react";
-import useComposedRef from "use-composed-ref";
 
 import { calculateNodeHeight } from "./calculateNodeHeight";
 import type { SizingData } from "./getSizingData";
 import { getSizingData } from "./getSizingData";
+import useComposedRef from "./use-composed-ref";
 import { useHiddenTextarea } from "./useHiddenTextarea";
 import { useWindowResizeListener } from "./useWindowResizeListener";
 
@@ -22,21 +22,20 @@ export interface TextareaAutosizeProps extends Omit<TextareaProps, "style"> {
   onHeightChange?: (height: number, meta: TextareaHeightChangeMeta) => void;
   cacheMeasurements?: boolean;
   style?: Style;
+  ref: React.Ref<HTMLTextAreaElement>;
 }
 
-const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextareaAutosizeProps> = (
-  {
-    cacheMeasurements,
-    maxRows,
-    minRows,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onChange = (): void => {},
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onHeightChange = (): void => {},
-    ...props
-  },
-  userRef: React.Ref<HTMLTextAreaElement>,
-) => {
+const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextareaAutosizeProps> = ({
+  cacheMeasurements,
+  maxRows,
+  minRows,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange = (): void => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onHeightChange = (): void => {},
+  ref,
+  ...props
+}) => {
   if (process.env.NODE_ENV !== "production" && props.style) {
     if ("maxHeight" in props.style) {
       throw new Error("Using `style.maxHeight` for <TextareaAutosize/> is not supported. Please use `maxRows`.");
@@ -47,9 +46,9 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   }
   const isControlled = props.value !== undefined && onChange !== undefined;
   const ownRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const ref = useComposedRef(ownRef, userRef);
+  const mergedRef = useComposedRef(ownRef, ref);
   const heightRef = React.useRef(0);
-  const measurementsCacheRef = React.useRef<SizingData>();
+  const measurementsCacheRef = React.useRef<SizingData>(null);
   const hiddenTextarea = useHiddenTextarea();
 
   const resizeTextarea = (): void => {
@@ -98,10 +97,10 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
     useWindowResizeListener(resizeTextarea);
   }
 
-  return <textarea {...props} onChange={handleChange} ref={ref} />;
+  return <textarea {...props} onChange={handleChange} ref={mergedRef} />;
 };
 
 TextareaAutosize.displayName = "TexareaAutosize";
 
 // eslint-disable-next-line import/no-default-export
-export default /* #__PURE__ */ React.forwardRef(TextareaAutosize);
+export default /* #__PURE__ */ TextareaAutosize;
