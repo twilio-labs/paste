@@ -121,7 +121,7 @@ const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProp
         </>
       )}
       <Theme.Provider
-        theme={theme}
+        theme="twilio-dark"
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
         cacheProviderProps={{ key: "next" }}
