@@ -11,8 +11,8 @@ import { SiteSearch } from "../../site-search";
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { breakpointIndex } = useWindowSize();
-  // navigator is not available in SSR, so we need to check if it exists before using it
-  const [isMacOS, setIsMacOS] = React.useState(false);
+  // navigator is not available in SSR, settign a default until it renders to client
+  const [isMacOS, setIsMacOS] = React.useState<boolean>();
   const platformTriggerKey = isMacOS ? "Meta" : "Control";
 
   React.useEffect(() => {
@@ -73,7 +73,7 @@ const SiteHeaderSearch: React.FC = () => {
               Search
             </Text>
           </Box>
-          {breakpointIndex === 0 ? null : (
+          {breakpointIndex === 0 || isMacOS === undefined ? null : (
             <>
               <Box as="span" color="colorText" aria-hidden="true" marginLeft="space30" lineHeight="lineHeight20">
                 <KeyboardKeyGroup {...keyCombinationState}>
