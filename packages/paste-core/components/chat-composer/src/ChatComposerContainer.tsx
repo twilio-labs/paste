@@ -55,7 +55,6 @@ export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatCompos
           gridAutoColumns="1fr auto"
           disabled={isDisabled}
           aria-disabled={isDisabled}
-          color="colorTextWeak"
           _disabled={{
             color: "colorTextWeaker",
             backgroundColor: "colorBackground",
