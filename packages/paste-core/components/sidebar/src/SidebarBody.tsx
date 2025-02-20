@@ -26,6 +26,7 @@ export const SidebarBody = React.forwardRef<HTMLDivElement, SidebarBodyProps>(
         maxHeight="100%"
         overflow="hidden"
         flexGrow={1}
+        flexShrink={0}
       >
         {children}
       </Box>

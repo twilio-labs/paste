@@ -2,41 +2,31 @@
 /* eslint-disable react/jsx-max-depth */
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import { AIChatLog, AIChatMessage, AIChatMessageAuthor, AIChatMessageBody } from "@twilio-paste/ai-chat-log";
-import { Alert } from "@twilio-paste/alert";
-import type { AlertProps } from "@twilio-paste/alert";
 import { Anchor } from "@twilio-paste/anchor";
-import { Avatar, type AvatarProps } from "@twilio-paste/avatar";
+import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import type { ButtonProps } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
-import type { CalloutProps } from "@twilio-paste/callout";
 import { Card } from "@twilio-paste/card";
 import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
 import { DetailText } from "@twilio-paste/detail-text";
-import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
-import type { DisclosureHeadingProps } from "@twilio-paste/disclosure";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
 import { AuthenticationIcon } from "@twilio-paste/icons/esm/AuthenticationIcon";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { ProductHomeIcon } from "@twilio-paste/icons/esm/ProductHomeIcon";
 import { ProductJourneysIcon } from "@twilio-paste/icons/esm/ProductJourneysIcon";
 import { TokenIcon } from "@twilio-paste/icons/esm/TokenIcon";
-import { Input } from "@twilio-paste/input";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { RadioButton, RadioButtonGroup } from "@twilio-paste/radio-button-group";
-import { Option, Select } from "@twilio-paste/select";
 import {
   Sidebar,
   SidebarBody,
-  SidebarCollapseButton,
-  SidebarFooter,
   SidebarHeader,
   SidebarHeaderIconButton,
   SidebarHeaderLabel,
@@ -44,14 +34,11 @@ import {
   SidebarNavigationItem,
   SidebarPushContentWrapper,
 } from "@twilio-paste/sidebar";
-import { Stack } from "@twilio-paste/stack";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import { Text } from "@twilio-paste/text";
-import { TextArea } from "@twilio-paste/textarea";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
-import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import { AssistantImg } from "../public/images/Assistant";
 import { AvatarImg } from "../public/images/Avatar";
 import { BlueImg } from "../public/images/Blue";
@@ -73,9 +60,12 @@ const ContentCard = ({ number, text }: { number: string; text: string }): JSX.El
           <InformationIcon decorative={false} title="Information" size="sizeIcon20" />
         </Button>
       </Box>
-      <Heading variant="heading10" as="span">
-        {number}
-      </Heading>
+
+      <Box marginBottom="space30">
+        <Heading variant="heading10" as="span" marginBottom="space0">
+          {number}
+        </Heading>
+      </Box>
       <Paragraph marginBottom="space0">{text}</Paragraph>
       <Box alignSelf="end">
         <Anchor href="#">View all</Anchor>
@@ -85,7 +75,7 @@ const ContentCard = ({ number, text }: { number: string; text: string }): JSX.El
 );
 
 export const RebrandMockup = (): React.ReactNode => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
+  const [pushSidebarCollapsed] = React.useState(true);
   const sidebarNavigationSkipLinkID = useUID();
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
@@ -217,12 +207,12 @@ export const RebrandMockup = (): React.ReactNode => {
                   <BlueImg />
                 </Box>
                 <Box width="100%" display="flex" justifyContent="center">
-                  <RadioButtonGroup attached name="foo" aria-label="choose view" legend="">
-                    <RadioButton size={9} value="country" checked>
+                  <ButtonGroup attached>
+                    <Button variant="secondary" pressed>
                       Orchestration assistant
-                    </RadioButton>
-                    <RadioButton value="channel">Control panel</RadioButton>
-                  </RadioButtonGroup>
+                    </Button>
+                    <Button variant="secondary">Control panel</Button>
+                  </ButtonGroup>
                 </Box>
                 <Box
                   flexGrow={1}

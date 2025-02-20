@@ -32,10 +32,12 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           whiteSpace={noWrap ? "nowrap" : null}
           boxShadow={isActionable ? "shadowFocus" : null}
           borderRadius="borderRadius30"
+          backgroundColor="transparent"
         >
           <Box
             {...safelySpreadBoxProps(props)}
             ref={ref}
+            backgroundColor="colorBackgroundWeakest"
             as="table"
             borderCollapse="separate"
             borderColor="colorBorderWeaker"

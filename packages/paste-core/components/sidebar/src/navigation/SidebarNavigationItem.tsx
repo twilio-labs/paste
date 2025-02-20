@@ -101,7 +101,11 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         alignItems="center"
       >
         {icon && (
-          <Box as="span" color={selected ? "colorTextInverse" : "colorTextIconInverse"}>
+          <Box
+            as="span"
+            color={selected ? "colorTextInverse" : "colorTextIconInverse"}
+            _hover={{ color: "colorTextInverse" }}
+          >
             {icon}
           </Box>
         )}
@@ -114,6 +118,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
             columnGap="space20"
             transition="all 120ms ease"
             flexGrow={1}
+            flexShrink={0}
             float={visible ? "none" : "left"}
             opacity={visible ? 1 : 0}
             whiteSpace={visible ? "normal" : "nowrap"}

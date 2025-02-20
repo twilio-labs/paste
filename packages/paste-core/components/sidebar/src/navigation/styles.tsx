@@ -85,4 +85,7 @@ export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
   backgroundColor: "colorBackgroundStrong",
   color: "colorTextInverse",
+  _hover: {
+    backgroundColor: "colorBackgroundWeak",
+  },
 };

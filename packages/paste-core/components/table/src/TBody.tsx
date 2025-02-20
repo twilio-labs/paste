@@ -27,8 +27,7 @@ const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>(
         ref={ref}
         element={element}
         color="colorText"
-        borderBottomLeftRadius="borderRadius30"
-        borderBottomRightRadius="borderRadius30"
+        backgroundColor="transparent"
       >
         {children}
       </Box>
