@@ -29,5 +29,6 @@ export default defineConfig({
     ],
     specPattern: ["cypress/**/*.spec.ts"],
     defaultCommandTimeout: 6000,
+    numTestsKeptInMemory: 0,
   },
 });

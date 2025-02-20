@@ -30,5 +30,6 @@ export default defineConfig({
     specPattern: ["cypress/**/*.spec.ts"],
     excludeSpecPattern: ["cypress/integration/sitemap-vrt/**/*"],
     defaultCommandTimeout: 6000,
+    numTestsKeptInMemory: 0,
   },
 });
