@@ -26,9 +26,9 @@ interface AppPageProps {
 }
 
 const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
-  // eslint-disable-next-line no-console
   const cookieTheme: ValidThemeName =
     serverThemeCookie || (parseCookies()[themeCookieKey] as ValidThemeName) || "twilio";
+
   console.log({ cookieTheme, serverThemeCookie, clientCookie: parseCookies() });
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
