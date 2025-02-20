@@ -13,6 +13,7 @@ import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
+import { logger } from "../functions-utils/logger";
 import { ValidThemeName, themeCookieKey, useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
@@ -26,9 +27,9 @@ interface AppPageProps {
 
 const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
   // eslint-disable-next-line no-console
-  console.log("themeCookie", serverThemeCookie, parseCookies());
   const cookieTheme: ValidThemeName =
     serverThemeCookie || (parseCookies()[themeCookieKey] as ValidThemeName) || "twilio";
+  console.log({ cookieTheme, serverThemeCookie, clientCookie: parseCookies() });
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode(cookieTheme);
@@ -141,6 +142,9 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
   const ctx = await NextApp.getInitialProps(context);
   const cookies = context.ctx.req?.headers?.cookie;
 
+  logger.info({ cookies, clientCookie: parseCookies() });
+
+  console.log(context.ctx.req);
   if (cookies) {
     const cookiestring = new RegExp(`${themeCookieKey}=[^;]+`).exec(cookies);
     const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
