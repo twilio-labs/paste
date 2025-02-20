@@ -29,6 +29,7 @@ const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProp
   const cookieTheme: ValidThemeName =
     serverThemeCookie || (parseCookies()[themeCookieKey] as ValidThemeName) || "twilio";
 
+  // eslint-disable-next-line no-console
   console.log({ cookieTheme, serverThemeCookie, clientCookie: parseCookies() });
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
