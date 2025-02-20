@@ -316,7 +316,7 @@ export const SITEMAP = [
   "/patterns/notifications-and-feedback/",
   "/patterns/pricing/",
   "/patterns/privacy/",
-  "/patterns/status/",
+  "/patterns/object-status/",
   "/primitives/combobox-primitive/",
   "/patterns/create/",
   "/primitives/",
