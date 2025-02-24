@@ -34,7 +34,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       as,
       basis,
       children,
-      display,
+      display = "flex",
       element = "FLEX",
       hAlignContent,
       grow,
@@ -124,8 +124,5 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
 );
 
 Flex.displayName = "Flex";
-Flex.defaultProps = {
-  display: "flex",
-};
 
 export { Flex };

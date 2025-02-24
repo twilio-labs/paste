@@ -32,11 +32,12 @@ const ButtonStyleMapping = {
 };
 
 const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, ...props }, ref) => {
+  ({ size, buttonState, fullWidth, as = "a", ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
+        as={as}
         width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
@@ -45,9 +46,6 @@ const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>
     );
   },
 );
-InverseLinkButton.defaultProps = {
-  as: "a",
-};
 
 InverseLinkButton.displayName = "InverseLinkButton";
 

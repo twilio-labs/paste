@@ -62,13 +62,14 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
+  ({ size, buttonState, fullWidth, pressed, as = "button", ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : DestructiveSecondaryToggleStyles;
 
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
+        as={as}
         width={fullWidth ? "100%" : "auto"}
         aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
@@ -79,9 +80,7 @@ const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectBut
     );
   },
 );
-DestructiveSecondaryButton.defaultProps = {
-  as: "button",
-};
+
 DestructiveSecondaryButton.displayName = "DestructiveSecondaryButton";
 
 export { DestructiveSecondaryButton };
