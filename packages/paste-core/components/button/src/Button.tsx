@@ -312,6 +312,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant={variant}
         size={smartDefaultSize as ButtonSizes}
         aria-busy={buttonState === "loading" ? "true" : "false"}
+        as={as}
+        type={type}
+        fullWidth={fullWidth}
         ref={ref}
       >
         <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
