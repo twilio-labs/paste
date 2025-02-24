@@ -281,7 +281,7 @@ props:
     value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-10}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-gray-110-transparent-10}"
     comment: Use on elements that overlay other UI components but remain visually connected to the elements behind them.
   shadow-elevation-inverse-10:
-    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-90}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-black-transparent-40}"
+    value: "{!offset-0} {!offset-negative-05} {!offset-0} {!offset-0} {!palette-gray-90}, {!offset-0} {!offset-15} {!offset-20} {!offset-0} {!palette-black-transparent-10}"
     comment: Use on inverse elements that overlay other UI components but remain visually connected to the elements behind them.
   shadow-elevation-20:
     value: "{!offset-0} {!offset-30} {!offset-40} {!offset-0} {!palette-gray-110-transparent-10}, {!offset-60} {!offset-60} {!offset-90} {!offset-0} {!palette-gray-110-transparent-05}"
