@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
+import '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.custom-properties.css';
 
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
@@ -110,8 +111,8 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
           />
         </>
       )}
-      <div style={{height: "200px", marginLeft: "400px"}}>
-        <p>Test text for color</p>
+      <div style={{height: "200px", paddingLeft: "400px", backgroundColor: "var(--color-background-success)"}}>
+        <p style={{color: "var(--color-text"}}>Test text for color</p>
       </div>
       <Theme.Provider
         theme={theme}
