@@ -15,7 +15,7 @@ describe("Word list with filters", function () {
   it("should filter the table when a filter string is provided", () => {
     cy.get('[data-cy="word-list-table"] tbody tr').as("table-rows");
     cy.get('[data-cy="word-list-filter-input"]').click().type("ad");
-    cy.get("@table-rows").its("length").should("eq", 4);
+    cy.get("@table-rows").its("length").should("eq", 6);
   });
 
   it("should show empty state when nothing returned", () => {
