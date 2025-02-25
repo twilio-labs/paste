@@ -15,7 +15,6 @@ import { useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
-import { Box } from "@twilio-paste/box";
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
