@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/chart-provider",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "data display",
   "status": "beta",
   "description": "Chart Provider is a data visualization component used to wrap an individual chart to store and share state to child charting elements.",
