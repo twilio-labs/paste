@@ -77,7 +77,7 @@
   "team member": "Don't use 'teammate' or 'team mate'",
   "thank you": "Don't use when users completed something they'd do otherwise. Only use when we've asked them to do something extremely inconvenient.",
   "update": "Use when you are moving to a newer version (most likely in the context of a minor version). For example, 'Update to the latest version of Flex', 'Auto updates for Flex'.",
-  "upgrade": "Reserve for bigger updates that will involve a lot of work. Use the term appropriate to the amount of work involved. Consider this spectrum: [Very little work, one click] Update > Upgrade > Migrate [A lot of work, several steps]"
+  "upgrade": "Reserve for bigger updates that will involve a lot of work. Use the term appropriate to the amount of work involved. Consider this spectrum: [Very little work, one click] Update > Upgrade > Migrate [A lot of work, several steps]",
   "upload": "Use as a call to action when a user needs to copy data of the same format from a computer system into a Twilio product",
   "utilize": "Avoid. Use 'use' instead.",
   "us": "Using 'us' when referring to Twilio is okay for in-product content. Avoid in technical documentation.",
