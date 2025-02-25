@@ -74,6 +74,7 @@ aliases:
   palette-gray-110-transparent-10: "rgba(15, 22, 33, 0.1)"
 
   ## Blacks transparent
+  palette-black-transparent-10: "rgba(0, 0, 0, 0.1)"
   palette-black-transparent-40: "rgba(0, 0, 0, 0.4)"
 
   ## Blues transparent based on darkest blue

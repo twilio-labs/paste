@@ -11,7 +11,7 @@ export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{ elemen
       element={element}
       backgroundColor="colorBackgroundBody"
       borderRadius="borderRadius20"
-      boxShadow="shadowLow"
+      boxShadow="shadowElevation10"
       left={10}
       paddingX="space60"
       paddingY="space30"
