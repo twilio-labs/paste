@@ -64,6 +64,7 @@
   "quit": "Avoid. Unique to Mac. Use 'close' or 'cancel', depending on the situation.",
   "refresh": "Use as a call to action to ask the user to reload the page.",
   "remove": "Use when the item is still available and/or the user can undo the action.",
+  "revert": "Use when you are rolling back to an older version (likely because something broke after you updated). For example, 'Revert to an earlier version of Flex' or 'You can revert to an earlier version at any time.'",
   "run": "Use to describe the action of executing a command or script. Avoid 'fire', 'trigger', and 'execute'.",
   "select": "Use when a user has to take an action in the interface. Select is device agnostic, and is also more inclusive for those using assistive technology.",
   "simple/simply": "Avoid. This contains a value judgement and can make users feel dumb if it doesn't feel easy to them.",
