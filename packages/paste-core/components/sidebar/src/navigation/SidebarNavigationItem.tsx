@@ -82,7 +82,8 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
         display: collapsed && hideItemsOnCollapse ? "none" : "flex",
-        width: collapsed ? "36px" : "100%",
+        width: collapsed ? "58px" : "100%",
+        height: "58px",
       }),
       [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical],
     );
@@ -96,26 +97,35 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         as="a"
         aria-current={selected ? "page" : undefined}
         {...styles}
+        justifyContent="center"
+        alignItems="center"
       >
         {icon && (
-          <Box as="span" color={selected ? "colorTextInverse" : "colorTextIconInverse"}>
+          <Box
+            as="span"
+            color={selected ? "colorTextInverse" : "colorTextIconInverse"}
+            _hover={{ color: "colorTextInverse" }}
+          >
             {icon}
           </Box>
         )}
-        <Box
-          as="span"
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          columnGap="space20"
-          transition="all 120ms ease"
-          flexGrow={1}
-          float={visible ? "none" : "left"}
-          opacity={visible ? 1 : 0}
-          whiteSpace={visible ? "normal" : "nowrap"}
-        >
-          {collapsed ? null : children}
-        </Box>
+        {!collapsed && (
+          <Box
+            as="span"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            columnGap="space20"
+            transition="all 120ms ease"
+            flexGrow={1}
+            flexShrink={0}
+            float={visible ? "none" : "left"}
+            opacity={visible ? 1 : 0}
+            whiteSpace={visible ? "normal" : "nowrap"}
+          >
+            {collapsed ? null : children}
+          </Box>
+        )}
       </Box>
     );
   },

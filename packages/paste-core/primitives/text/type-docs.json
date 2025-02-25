@@ -531,7 +531,7 @@
       "description": "Responsive prop for the CSS `bottom` property"
     },
     "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | \"shadowBorderBottomDecorative10Weaker\" | ... 85 more ... | { ...; }",
+      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | \"shadowBorderBottomDecorative10Weaker\" | ... 86 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -2058,6 +2058,13 @@
       "required": false,
       "externalProp": false,
       "description": "Responsive style prop for the CSS `text-transform` property. Avoid using this prop if possible, as it can have implications for screen readers and internationalization."
+    },
+    "textUnderlineOffset": {
+      "type": "| ListStyleType\n  | (ListStyleType | null | undefined)[]\n  | {\n      [x: string]: ListStyleType | undefined\n      [x: number]: ListStyleType | undefined\n    }",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Responsive style prop for the CSS `text-underline-offset` property"
     },
     "title": {
       "type": "string",

@@ -1,0 +1,9 @@
+global:
+  category: font
+  type: font
+imports:
+  - ../../twilio-dark/global/font-family.yml
+  - ../aliases/font-family.yml
+props:
+  font-family-display:
+    value: "{!font-family-rebrand}"

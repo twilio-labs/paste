@@ -62,7 +62,7 @@ export const ChatComposerContainer = React.forwardRef<HTMLDivElement, ChatCompos
           }}
           padding="space30"
           maxHeight={maxHeight}
-          overflowY="auto"
+          // overflowY="auto"
           rowGap="space50"
           width="100%"
           {...Styles[variant]}

@@ -14,6 +14,7 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
     outline="none"
     ref={ref}
     textDecoration="underline"
+    textUnderlineOffset="4px" // TODO: make work
     _active={{
       color: "colorTextLinkStrongest",
       textDecoration: "none",

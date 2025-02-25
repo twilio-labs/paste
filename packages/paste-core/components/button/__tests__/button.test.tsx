@@ -371,7 +371,7 @@ describe("Button", () => {
 
       expect(button).not.toHaveStyleRule("text-align", "left");
       expect(button).toHaveStyleRule("color", "colorText");
-      expect(button).toHaveStyleRule("background-color", "colorBackgroundBody");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundWeak");
       expect(button).toHaveStyleRule("box-shadow", "shadowBorderWeak");
 
       expect(getByText("Secondary")).toHaveStyleRule("justify-content", "center");

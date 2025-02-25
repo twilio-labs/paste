@@ -7,8 +7,8 @@ import type { BoxProps } from "@twilio-paste/box";
 export const sidebarNavigationLabelStyles: BoxProps = {
   fontStyle: "normal",
   fontWeight: "fontWeightNormal",
-  fontSize: "fontSize30",
-  lineHeight: "lineHeight20",
+  fontSize: "fontSize50",
+  lineHeight: "lineHeight50",
   color: "colorTextInverseWeak",
   transition: "all 120ms ease",
   borderRadius: "borderRadius20",
@@ -50,7 +50,7 @@ export const sidebarNavigationItemStyles: BoxProps = {
   overflow: "hidden",
   paddingLeft: "space30",
   paddingRight: "space30",
-  marginBottom: "space30",
+  marginBottom: "space80",
   columnGap: "space30",
   _hover: {
     textDecoration: "underline",
@@ -83,6 +83,9 @@ export const sidebarNavigationItemCollapsedStyles: BoxProps = {
 // Selected item styles
 export const sidebarNavigationItemSelectedStyles: BoxProps = {
   ...sidebarNavigationLabelSelectedStyles,
-  backgroundColor: "colorBackgroundInverseStrong",
+  backgroundColor: "colorBackgroundStrong",
   color: "colorTextInverse",
+  _hover: {
+    backgroundColor: "colorBackgroundWeak",
+  },
 };
