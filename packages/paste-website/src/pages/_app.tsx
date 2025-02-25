@@ -15,6 +15,7 @@ import { useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
+import { Box } from "@twilio-paste/box";
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
@@ -110,11 +111,14 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
           />
         </>
       )}
+      <div style={{height: "200px", marginLeft: "400px"}}>
+        <p>Test text for color</p>
+      </div>
       <Theme.Provider
         theme={theme}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
-        cacheProviderProps={{ key: "next" }}
+        cacheProviderProps={{ key: "next", prepend: true }}
       >
         <DarkModeContext.Provider value={{ theme, toggleMode, componentMounted }}>
           <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>

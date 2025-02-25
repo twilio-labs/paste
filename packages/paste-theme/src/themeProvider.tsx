@@ -5,6 +5,7 @@ import {
   ThemeProvider as EmotionThemeProvider,
   createCache,
   styled,
+  css,
 } from "@twilio-paste/styling-library";
 import type { CreateCacheOptions } from "@twilio-paste/styling-library";
 import * as React from "react";
@@ -107,6 +108,22 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
           <StylingGlobals styles={pasteGlobalStyles({ theme: providerThemeProps })} />
           <StylingGlobals styles={pasteFonts} />
           <StyledBase className="paste-theme-provider" {...props} />
+          <StylingGlobals styles={css`
+          :root {
+            --color-background-body: #f1f2f3;
+            --text-color: #000000;
+          }
+
+         body[data-theme="evergreen"]{
+          --color-background-body: #494d50;
+          --text-color: #FFFFFF;
+        }
+
+        body {
+          background: var(--color-background-body);
+          color: var(--text-color)
+        }
+      `}/>
         </EmotionThemeProvider>
       </EmotionCacheProvider>
     );

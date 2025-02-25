@@ -26,6 +26,7 @@ export const useDarkMode = (): UseDarkModeReturn => {
   };
 
   const toggleTheme = (): void => {
+    document.body.dataset.theme = "evergreen";
     if (theme === ValidThemes.DEFAULT) {
       setMode(ValidThemes.DARK);
     } else {

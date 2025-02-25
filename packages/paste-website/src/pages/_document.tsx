@@ -1,15 +1,22 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
 
-class _Document extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+interface DocumentProps {
+  cookieTheme: string;
+}
+
+class _Document extends Document<DocumentProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps & DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
 
-    return initialProps;
+
+    return {...initialProps, cookieTheme: "evergreen"};
   }
 
   render(): React.ReactElement {
+    const theme = this.props.cookieTheme;
+
     return (
       <Html lang="en" dir="ltr">
         <Head>
@@ -32,7 +39,7 @@ class _Document extends Document {
           <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
-        <body>
+        <body data-theme={theme}>
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
           <NextScript />
