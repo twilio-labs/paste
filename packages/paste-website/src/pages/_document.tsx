@@ -10,8 +10,7 @@ class _Document extends Document<DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
 
-
-    return {...initialProps, cookieTheme: "twilio-dark"};
+    return { ...initialProps, cookieTheme: "twilio-dark" };
   }
 
   render(): React.ReactElement {
