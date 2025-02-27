@@ -1,5 +1,5 @@
 // import { Box } from "@twilio-paste/box";
-import type { GetServerSideProps, InferGetStaticPropsType } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import * as React from "react";
 // import VisibilitySensor from "react-visibility-sensor";
@@ -18,7 +18,7 @@ import { SiteMetaDefaults } from "../constants";
 import { getNavigationData } from "../utils/api";
 import type { Feature } from "../utils/api";
 
-const HomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
+const HomePage = ({ navigationData }: InferGetServerSidePropsType<typeof getServerSideProps>): React.ReactElement => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)
