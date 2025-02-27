@@ -1,8 +1,10 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
+import nookies, { parseCookies } from "nookies";
+import { themeCookieName } from "../hooks/useDarkMode";
 
 interface DocumentProps {
-  cookieTheme: string;
+  cookieTheme?: string;
 }
 
 class _Document extends Document<DocumentProps> {
@@ -10,11 +12,14 @@ class _Document extends Document<DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...initialProps, cookieTheme: "twilio-dark" };
+    const cookies = nookies.get(ctx);
+
+    return { ...initialProps, cookieTheme: cookies[themeCookieName] };
   }
 
   render(): React.ReactElement {
-    const theme = this.props.cookieTheme;
+    // const localCookies = parseCookies()[themeCookieName];
+    // const theme = this.props.cookieTheme || localCookies || "twilio";
 
     return (
       <Html lang="en" dir="ltr">
@@ -38,9 +43,10 @@ class _Document extends Document<DocumentProps> {
           <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
-        <body data-theme={theme}>
+        <body>
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
+
           <NextScript />
         </body>
       </Html>

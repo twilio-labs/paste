@@ -1,27 +1,30 @@
 import type { ValueOf } from "@twilio-paste/types";
+import { setCookie } from "nookies";
 import * as React from "react";
 
 import { SimpleStorage } from "../utils/SimpleStorage";
 
 export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
+export const themeCookieName = "paste-docs-theme";
 
 const ValidThemes = {
   DEFAULT: "twilio",
   DARK: "twilio-dark",
 } as const;
 
-type ValidThemeName = ValueOf<typeof ValidThemes>;
+export type ValidThemeName = ValueOf<typeof ValidThemes>;
 
 const isValidTheme = (themeName: ValidThemeName): boolean => {
   return themeName === ValidThemes.DEFAULT || themeName === ValidThemes.DARK;
 };
 
-export const useDarkMode = (): UseDarkModeReturn => {
-  const [theme, setTheme] = React.useState<ValidThemeName>(ValidThemes.DEFAULT);
+export const useDarkMode = (defaultTheme: ValidThemeName = ValidThemes.DEFAULT): UseDarkModeReturn => {
+  const [theme, setTheme] = React.useState<ValidThemeName>(defaultTheme);
   const [componentMounted, setComponentMounted] = React.useState(false);
 
   const setMode = (mode: ValidThemeName): void => {
     SimpleStorage.set("theme", mode);
+    setCookie(null, "paste-docs-theme", mode);
     setTheme(mode);
   };
 

@@ -1,28 +1,42 @@
 import { datadogRum } from "@datadog/browser-rum";
 import { Theme } from "@twilio-paste/theme";
-import type { AppProps } from "next/app";
+import type { AppContext, AppInitialProps, AppProps } from "next/app";
+import NextApp from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
 
+import { parseCookies } from "nookies";
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
-import { useDarkMode } from "../hooks/useDarkMode";
+import { ValidThemeName, useDarkMode } from "../hooks/useDarkMode";
+import { themeCookieName } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
-const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
+interface AppPageProps {
+  serverThemeCookie?: ValidThemeName;
+}
+
+const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
+  const cookieTheme: ValidThemeName =
+    serverThemeCookie || (parseCookies()[themeCookieName] as ValidThemeName) || "twilio";
+  console.log({
+    serverThemeCookie,
+    cookieTheme: parseCookies()[themeCookieName],
+    fallback: "twilio",
+  });
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
-  const [theme, toggleMode, componentMounted] = useDarkMode();
-  const [previewTheme, setPreviewTheme] = React.useState("twilio");
+  const [theme, toggleMode, componentMounted] = useDarkMode(cookieTheme);
+  const [previewTheme, setPreviewTheme] = React.useState<string>(cookieTheme);
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
   React.useEffect(() => {
@@ -114,7 +128,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
         theme={theme}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
-        cacheProviderProps={{ key: "next", prepend: true }}
+        cacheProviderProps={{ key: "next-app" }}
       >
         <DarkModeContext.Provider value={{ theme, toggleMode, componentMounted }}>
           <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>
@@ -125,6 +139,24 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
       </Theme.Provider>
     </>
   );
+};
+
+App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppInitialProps> => {
+  const ctx = await NextApp.getInitialProps(context);
+  const cookies = context.ctx.req?.headers?.cookie;
+  const responseCookie = context.ctx?.res?.getHeader(themeCookieName);
+
+  if (cookies) {
+    const cookiestring = new RegExp(`${themeCookieName}=[^;]+`).exec(cookies);
+    const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
+
+    console.log("server cookie", cookies, responseCookie);
+    return { ...ctx, serverThemeCookie: decodedString as ValidThemeName };
+  } else if (responseCookie) {
+    return { ...ctx, serverThemeCookie: responseCookie as ValidThemeName };
+  }
+
+  return { ...ctx };
 };
 
 export default App;
