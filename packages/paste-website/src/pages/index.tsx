@@ -1,5 +1,5 @@
 // import { Box } from "@twilio-paste/box";
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetServerSideProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import * as React from "react";
 // import VisibilitySensor from "react-visibility-sensor";
@@ -52,7 +52,7 @@ const HomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
   );
 };
 
-export const getStaticProps: GetStaticProps<{ navigationData: Feature[] }> = async () => {
+export const getServerSideProps: GetServerSideProps<{ navigationData: Feature[] }> = async () => {
   const navigationData = await getNavigationData();
   return {
     props: {
