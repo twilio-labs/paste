@@ -11,7 +11,7 @@ class _Document extends Document<DocumentProps> {
     const initialProps = await Document.getInitialProps(ctx);
 
 
-    return {...initialProps, cookieTheme: "evergreen"};
+    return {...initialProps, cookieTheme: "twilio-dark"};
   }
 
   render(): React.ReactElement {

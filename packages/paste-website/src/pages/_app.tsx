@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
-import '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.custom-properties.css';
+import '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.custom-properties.css';
 
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
