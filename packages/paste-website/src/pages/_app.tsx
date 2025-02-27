@@ -28,6 +28,7 @@ interface AppPageProps {
 const App = ({ Component, pageProps, serverThemeCookie }: AppProps & AppPageProps): React.ReactElement => {
   const cookieTheme: ValidThemeName =
     serverThemeCookie || (parseCookies()[themeCookieName] as ValidThemeName) || "twilio";
+  // eslint-disable-next-line no-console
   console.log({
     serverThemeCookie,
     cookieTheme: parseCookies()[themeCookieName],
@@ -150,6 +151,7 @@ App.getInitialProps = async (context: AppContext): Promise<AppPageProps & AppIni
     const cookiestring = new RegExp(`${themeCookieName}=[^;]+`).exec(cookies);
     const decodedString = decodeURIComponent(cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
 
+    // eslint-disable-next-line no-console
     console.log("server cookie", cookies, responseCookie);
     return { ...ctx, serverThemeCookie: decodedString as ValidThemeName };
   } else if (responseCookie) {
