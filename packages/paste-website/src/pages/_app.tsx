@@ -6,15 +6,14 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
-
 import { parseCookies } from "nookies";
+
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
 import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
-import { ValidThemeName, useDarkMode } from "../hooks/useDarkMode";
-import { themeCookieName } from "../hooks/useDarkMode";
+import { ValidThemeName, useDarkMode, themeCookieName } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";

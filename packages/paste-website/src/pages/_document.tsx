@@ -1,6 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
-import nookies, { parseCookies } from "nookies";
+import nookies from "nookies";
+
 import { themeCookieName } from "../hooks/useDarkMode";
 
 interface DocumentProps {
@@ -18,8 +19,10 @@ class _Document extends Document<DocumentProps> {
   }
 
   render(): React.ReactElement {
-    // const localCookies = parseCookies()[themeCookieName];
-    // const theme = this.props.cookieTheme || localCookies || "twilio";
+    /** 
+     * const localCookies = parseCookies()[themeCookieName];
+     * const theme = this.props.cookieTheme || localCookies || "twilio";
+     */
 
     return (
       <Html lang="en" dir="ltr">
