@@ -3,7 +3,7 @@ import type { DocumentContext, DocumentInitialProps } from "next/document";
 import nookies, { parseCookies } from "nookies";
 
 interface DocumentProps {
-  cookieTheme: string;
+  cookieTheme?: string;
 }
 
 class _Document extends Document<DocumentProps> {
@@ -11,6 +11,7 @@ class _Document extends Document<DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
     const cookies = nookies.get(ctx);
+    // eslint-disable-next-line no-console
     console.log(cookies, ctx.req?.headers.cookie);
     const cookieTheme = cookies["paste-docs-theme"];
 
