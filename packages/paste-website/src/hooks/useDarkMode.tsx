@@ -1,5 +1,5 @@
 import type { ValueOf } from "@twilio-paste/types";
-import { setCookie } from "nookies";
+import { parseCookies, setCookie } from "nookies";
 import * as React from "react";
 
 import { SimpleStorage } from "../utils/SimpleStorage";
@@ -29,7 +29,6 @@ export const useDarkMode = (): UseDarkModeReturn => {
   };
 
   const toggleTheme = (): void => {
-    document.body.dataset.theme = "evergreen";
     if (theme === ValidThemes.DEFAULT) {
       setMode(ValidThemes.DARK);
     } else {
@@ -38,6 +37,8 @@ export const useDarkMode = (): UseDarkModeReturn => {
   };
 
   React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("useDarkMode useEffect", parseCookies());
     const localTheme = SimpleStorage.get("theme") as ValidThemeName;
 
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {

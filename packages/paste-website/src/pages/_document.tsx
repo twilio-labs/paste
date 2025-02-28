@@ -1,6 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
-import nookies from "nookies";
+import nookies, { parseCookies } from "nookies";
 
 interface DocumentProps {
   cookieTheme: string;
@@ -11,13 +11,13 @@ class _Document extends Document<DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
     const cookies = nookies.get(ctx);
-    const cookieTheme = cookies["paste-docs-theme"] || "twilio";
+    const cookieTheme = cookies["paste-docs-theme"];
 
     return { ...initialProps, cookieTheme };
   }
 
   render(): React.ReactElement {
-    const theme = this.props.cookieTheme;
+    const theme = this.props.cookieTheme || parseCookies()["paste-docs-theme"] || "twilio";
 
     return (
       <Html lang="en" dir="ltr">
