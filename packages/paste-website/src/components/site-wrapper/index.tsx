@@ -20,4 +20,8 @@ const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({ chil
   );
 };
 
+export const getServerSideProps = async () => {
+  return {};
+};
+
 export { SiteWrapper };
