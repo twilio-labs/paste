@@ -37,7 +37,7 @@ class _Document extends Document {
           <Main />
           <NextScript />
           <Script
-            id="gtag-init"
+            id="data-theme-init"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `

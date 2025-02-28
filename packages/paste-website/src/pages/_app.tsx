@@ -90,9 +90,6 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
     SimpleStorage.set(localStorageKey, "false");
   };
 
-  const parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
-  if (parts?.length === 2) console.log(parts?.pop().split(";").shift());
-
   return (
     <>
       <Head>
