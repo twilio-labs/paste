@@ -32,23 +32,23 @@ class _Document extends Document {
           <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
-        <body data-theme="twilio-dark">
+        <body data-theme="twilio">
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+                let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
+                let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
+                console.log("running")
+                if(cookie){
+                  document.body.dataset.theme = cookie;
+                }
+            `,
+            }}
+          />
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
           <NextScript />
-          <Script
-            id="data-theme-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-              let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
-              let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
-              if(cookie){
-                document.body.dataset.theme = cookie;
-              }
-          `,
-            }}
-          />
         </body>
       </Html>
     );
