@@ -11,13 +11,16 @@ class _Document extends Document<DocumentProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
     const cookies = nookies.get(ctx);
+    console.log(cookies, ctx.req?.headers.cookie);
     const cookieTheme = cookies["paste-docs-theme"];
 
     return { ...initialProps, cookieTheme };
   }
 
   render(): React.ReactElement {
-    const theme = this.props.cookieTheme || parseCookies()["paste-docs-theme"] || "twilio";
+    // eslint-disable-next-line no-console
+    console.log("cookieTheme", this.props.cookieTheme, parseCookies()["paste-docs-theme"]);
+    const theme = this.props.cookieTheme || parseCookies()["paste-docs-theme"];
 
     return (
       <Html lang="en" dir="ltr">
