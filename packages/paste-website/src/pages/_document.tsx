@@ -32,7 +32,7 @@ class _Document extends Document {
           <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
-        <body>
+        <body data-theme="twilio-dark">
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
           <NextScript />
