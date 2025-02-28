@@ -238,7 +238,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const typeProps: TypeProps = { type };
 
-    const internalRef = React.useRef<HTMLInputElement>();
+    const internalRef = React.useRef<HTMLInputElement>(undefined);
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
     const [showIncrement, setShowIncrement] = React.useState(true);

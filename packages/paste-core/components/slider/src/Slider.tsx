@@ -162,12 +162,12 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, re
 
   // These hooks manage the state of the slider
   const state = useSliderState(remappedProps);
-  const { trackProps } = useSlider(remappedProps, state, trackRef);
+  const { trackProps } = useSlider(remappedProps, state, trackRef as React.RefObject<HTMLDivElement>);
   const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index: 0,
-      trackRef,
-      inputRef,
+      trackRef: trackRef as React.RefObject<HTMLDivElement>,
+      inputRef: inputRef as React.RefObject<HTMLInputElement>,
     },
     state,
   );

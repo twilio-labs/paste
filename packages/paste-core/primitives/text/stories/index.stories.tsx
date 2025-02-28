@@ -33,7 +33,7 @@ export default {
 };
 
 export const Default = (): React.ReactNode => {
-  const asValue = "p" as keyof JSX.IntrinsicElements;
+  const asValue = "p" as keyof React.JSX.IntrinsicElements;
   const displayValue = "" as Display;
 
   const fontFamilyValue = "" as FontFamily;
@@ -159,7 +159,7 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
 
 PseudoClassesWithHoverPseudoProps.storyName = "Pseudo-classes with hover pseudo props";
 
-const CustomTextCollection = (): JSX.Element => {
+const CustomTextCollection = (): React.JSX.Element => {
   return (
     <>
       <CustomizableTextExample element="RECTANGLE">base</CustomizableTextExample>

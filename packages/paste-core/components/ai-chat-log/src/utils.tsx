@@ -25,7 +25,8 @@ export const useAnimatedText = (
       if (typeof child === "string") {
         length += child.length;
       } else if (React.isValidElement(child)) {
-        length += calculateTotalTextLength(child.props.children);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        length += calculateTotalTextLength((child.props as { children: any }).children);
       }
     });
     return length;
@@ -44,10 +45,16 @@ export const useAnimatedText = (
         }
         return null;
       } else if (React.isValidElement(child)) {
-        const totalChildTextLength = calculateTotalTextLength(child.props.children);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const totalChildTextLength = calculateTotalTextLength((child.props as { children: any }).children);
         // Only include elements if their text animation has started
         if (currentTextIndex > 0) {
-          const clonedChild = React.cloneElement(child, {}, cloneChildren(child.props.children, currentTextIndex));
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const clonedChild = React.cloneElement(
+            child,
+            {},
+            cloneChildren((child.props as { children: any }).children, currentTextIndex),
+          );
           currentTextIndex -= totalChildTextLength;
           return clonedChild;
         } else if (currentTextIndex === 0 && totalChildTextLength === 0) {
@@ -68,6 +75,7 @@ export const useAnimatedText = (
         setAnimatedChildren(cloneChildren(children, textIndex));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children, textIndex, enabled]);
 
   return {

@@ -21,7 +21,7 @@ export default {
 };
 
 export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
-  const asValue = "div" as keyof JSX.IntrinsicElements;
+  const asValue = "div" as keyof React.JSX.IntrinsicElements;
   const gutterValue = "space0" as keyof ThemeShape["space"];
   return (
     <Grid as={asValue} gutter={gutterValue}>

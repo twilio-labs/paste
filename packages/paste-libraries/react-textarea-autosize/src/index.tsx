@@ -1,5 +1,5 @@
+import { useMergeRefs } from "@twilio-paste/utils";
 import * as React from "react";
-import useComposedRef from "use-composed-ref";
 
 import { calculateNodeHeight } from "./calculateNodeHeight";
 import type { SizingData } from "./getSizingData";
@@ -47,9 +47,9 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   }
   const isControlled = props.value !== undefined && onChange !== undefined;
   const ownRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const ref = useComposedRef(ownRef, userRef);
+  const ref = useMergeRefs(ownRef, userRef);
   const heightRef = React.useRef(0);
-  const measurementsCacheRef = React.useRef<SizingData>();
+  const measurementsCacheRef = React.useRef<SizingData>(undefined);
   const hiddenTextarea = useHiddenTextarea();
 
   const resizeTextarea = (): void => {

@@ -45,7 +45,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
    * @type {keyof JSX.IntrinsicElements}
    * @memberof BoxElementProps
    */
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /**
    * Same as HTML
    *

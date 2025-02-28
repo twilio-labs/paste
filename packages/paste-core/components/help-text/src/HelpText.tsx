@@ -49,7 +49,7 @@ export interface HelpTextProps extends HTMLPasteProps<"div"> {
 type VariantOptionsProps = {
   [key in HelpTextVariants]: {
     textColor: TextColor;
-    icon: JSX.Element | null;
+    icon: React.JSX.Element | null;
   };
 };
 const VariantOptions: VariantOptionsProps = {

@@ -32,7 +32,7 @@ const MATCHERS = [
   },
 ];
 
-export const AutoLinkPlugin = (): JSX.Element | null => {
+export const AutoLinkPlugin = (): React.JSX.Element | null => {
   return <LexicalAutoLinkPlugin matchers={MATCHERS} />;
 };
 

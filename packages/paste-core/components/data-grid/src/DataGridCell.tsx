@@ -54,11 +54,12 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
   ...props
 }) => {
   const dataGridState = React.useContext(DataGridContext);
-  const cellRef = React.useRef() as React.MutableRefObject<HTMLTableCellElement>;
+  const cellRef = React.useRef(null) as React.RefObject<HTMLTableCellElement | null>;
 
   const handleMouseDown = React.useCallback(() => {
-    ensureFocus(cellRef.current);
-  }, []);
+    if (cellRef.current) {
+      ensureFocus(cellRef.current);
+    }  }, []);
 
   /**
    * MutationObserver callback for the cell
@@ -95,7 +96,7 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
     },
     [dataGridState.actionable],
   );
-  useMutationObservable(cellRef.current, onListMutation);
+  useMutationObservable(cellRef.current || {} as Element, onListMutation);
 
   /**
    * When actionable mode changes, toggle the tabindex of the cell and children

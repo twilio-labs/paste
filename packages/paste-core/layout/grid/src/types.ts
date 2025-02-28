@@ -5,7 +5,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 
 /** element identifier from BoxProps for customization */
 export interface GridProps extends HTMLPasteProps<"div">, SpaceProps {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -60,7 +60,7 @@ export interface ColumnStyleProps extends Omit<LayoutProps, "minWidth" | "width"
 
 /** element identifier from BoxProps for customization */
 export interface ColumnProps extends HTMLPasteProps<"div">, ColumnStyleProps {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

@@ -37,22 +37,20 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, ...props }, ref) => {
+  ({ size, buttonState, fullWidth, as= "a", ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
         width={fullWidth ? "100%" : "auto"}
-        {...safelySpreadBoxProps(props)}
+        {...safelySpreadBoxProps({as, ...props})}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
     );
   },
 );
-DestructiveLinkButton.defaultProps = {
-  as: "a" as keyof JSX.IntrinsicElements,
-};
+
 DestructiveLinkButton.displayName = "DestructiveLinkButton";
 
 export { DestructiveLinkButton };

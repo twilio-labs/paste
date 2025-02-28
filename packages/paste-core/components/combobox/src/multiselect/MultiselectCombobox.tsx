@@ -59,7 +59,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
     const a11yLabelId = useUID();
     const helpTextId = useUID();
     const pillState = useFormPillState();
-    const parentRef = React.useRef(null);
+    const parentRef = React.useRef<HTMLElement>(null);
     const { width } = useWindowSize();
 
     // gets the dimensions of the inputBox to position the listbox
@@ -365,7 +365,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             </InputChevronWrapper>
           </Box>
         </InputBox>
-        <ListboxWrapper inputBoxRef={inputBoxRef} parentRef={parentRef} usePortal={usePortal}>
+        <ListboxWrapper inputBoxRef={inputBoxRef as React.RefObject<HTMLInputElement>} parentRef={parentRef as React.RefObject<HTMLElement>} usePortal={usePortal}>
           <ComboboxListbox
             {...getMenuProps({ ref: parentRef })}
             element={`${element}_LISTBOX`}

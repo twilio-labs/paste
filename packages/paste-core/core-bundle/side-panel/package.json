@@ -1,8 +1,0 @@
-{
-  "name": "@twilio-paste-core/side-panel",
-  "version": "0.0.0",
-  "private": true,
-  "sideEffects": false,
-  "main": "../dist/side-panel.js",
-  "types": "../dist/side-panel.d.ts"
-}

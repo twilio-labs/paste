@@ -22,7 +22,7 @@ export const Default = (): React.ReactNode => {
   const marginBottomValue = "space0" as keyof ThemeShape["space"];
   const marginTopValue = "space0" as keyof ThemeShape["space"];
   const verticalAlignValue = "top";
-  const asValue = "span" as keyof JSX.IntrinsicElements;
+  const asValue = "span" as keyof React.JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
@@ -45,7 +45,7 @@ export const DoubleFigure = (): React.ReactNode => {
   const marginBottomValue = "space0" as keyof ThemeShape["space"];
   const marginTopValue = "space0" as keyof ThemeShape["space"];
   const verticalAlignValue = "top";
-  const asValue = "span" as keyof JSX.IntrinsicElements;
+  const asValue = "span" as keyof React.JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}

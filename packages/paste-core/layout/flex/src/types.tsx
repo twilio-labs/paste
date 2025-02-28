@@ -26,7 +26,7 @@ export interface FlexProps extends Omit<LayoutProps, "verticalAlign">, MarginPro
    * @type {keyof JSX.IntrinsicElements}
    * @memberof FlexProps
    */
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
