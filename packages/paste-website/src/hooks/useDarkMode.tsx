@@ -1,5 +1,5 @@
 import type { ValueOf } from "@twilio-paste/types";
-import { parseCookies, setCookie } from "nookies";
+import { setCookie } from "nookies";
 import * as React from "react";
 
 import { SimpleStorage } from "../utils/SimpleStorage";
