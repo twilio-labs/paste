@@ -1,10 +1,10 @@
 import { datadogRum } from "@datadog/browser-rum";
 import { CustomizationProvider } from "@twilio-paste/customization";
-import "@twilio-paste/design-tokens/dist/themes/dark/tokens.custom-properties.css";
-import "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.custom-properties.css";
-import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.custom-properties.css";
-import "@twilio-paste/design-tokens/dist/themes/twilio/tokens.custom-properties.css";
-import "@twilio-paste/design-tokens/dist/tokens.custom-properties.css";
+import "@twilio-paste/design-tokens/dist/themes/dark/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/tokens.data-theme.css";
 // import { Theme } from "@twilio-paste/theme";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -14,7 +14,7 @@ import * as React from "react";
 
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
-import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from "../constants";
+import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT } from "../constants";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { PreviewThemeContext } from "../context/PreviewThemeContext";
 import { useDarkMode } from "../hooks/useDarkMode";
