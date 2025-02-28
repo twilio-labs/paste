@@ -34,6 +34,7 @@ class _Document extends Document {
         <body data-theme="twilio">
           <script
             type="text/javascript"
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `
                 let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
