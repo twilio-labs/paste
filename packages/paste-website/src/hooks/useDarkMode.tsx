@@ -1,4 +1,5 @@
 import type { ValueOf } from "@twilio-paste/types";
+import { setCookie } from "nookies";
 import * as React from "react";
 
 import { SimpleStorage } from "../utils/SimpleStorage";
@@ -22,6 +23,8 @@ export const useDarkMode = (): UseDarkModeReturn => {
 
   const setMode = (mode: ValidThemeName): void => {
     SimpleStorage.set("theme", mode);
+    setCookie(null, "paste-docs-theme", mode, { path: "/" });
+    document.body.dataset.theme = mode;
     setTheme(mode);
   };
 

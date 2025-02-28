@@ -1,11 +1,16 @@
 import { datadogRum } from "@datadog/browser-rum";
-import { Theme } from "@twilio-paste/theme";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import "@twilio-paste/design-tokens/dist/themes/dark/tokens.custom-properties.css";
+import "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.custom-properties.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.custom-properties.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio/tokens.custom-properties.css";
+import "@twilio-paste/design-tokens/dist/tokens.custom-properties.css";
+// import { Theme } from "@twilio-paste/theme";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import * as React from "react";
-import '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.custom-properties.css';
 
 import packageJSON from "../../../paste-core/core-bundle/package.json";
 import { CookieConsent } from "../components/CookieConsent";
@@ -16,6 +21,8 @@ import { useDarkMode } from "../hooks/useDarkMode";
 import * as gtag from "../lib/gtag";
 import { SimpleStorage } from "../utils/SimpleStorage";
 import { inCypress } from "../utils/inCypress";
+
+const cssVarsTheme = require("../utils/ccsVarsTheme.json");
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
@@ -111,22 +118,21 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
           />
         </>
       )}
-      <div style={{height: "200px", paddingLeft: "400px", backgroundColor: "var(--color-background-success)"}}>
-        <p style={{color: "var(--color-text"}}>Test text for color</p>
-      </div>
-      <Theme.Provider
+      <CustomizationProvider theme={cssVarsTheme}>
+        {/* <Theme.Provider
         theme={theme}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
         cacheProviderProps={{ key: "next", prepend: true }}
-      >
+      > */}
         <DarkModeContext.Provider value={{ theme, toggleMode, componentMounted }}>
           <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>
             <Component {...pageProps} />
             {cookiesAccepted === null && <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />}
           </PreviewThemeContext.Provider>
         </DarkModeContext.Provider>
-      </Theme.Provider>
+        {/* </Theme.Provider> */}
+      </CustomizationProvider>
     </>
   );
 };
