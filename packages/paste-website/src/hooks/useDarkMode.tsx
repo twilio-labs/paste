@@ -39,6 +39,7 @@ export const useDarkMode = (): UseDarkModeReturn => {
   React.useEffect(() => {
     // eslint-disable-next-line no-console
     console.log("useDarkMode useEffect", parseCookies());
+
     const localTheme = SimpleStorage.get("theme") as ValidThemeName;
 
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {
