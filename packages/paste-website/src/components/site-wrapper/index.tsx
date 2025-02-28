@@ -1,3 +1,4 @@
+import { GetServerSidePropsResult } from "next";
 import * as React from "react";
 
 import { NavigationContext } from "../../context/NavigationContext";
@@ -20,8 +21,8 @@ const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({ chil
   );
 };
 
-export const getServerSideProps = async () => {
-  return {};
+export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Record<string, never>>> => {
+  return { props: {} };
 };
 
 export { SiteWrapper };
