@@ -1,28 +1,15 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
-import nookies, { parseCookies } from "nookies";
+import Script from "next/script";
 
-interface DocumentProps {
-  cookieTheme?: string;
-}
-
-class _Document extends Document<DocumentProps> {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps & DocumentProps> {
+class _Document extends Document {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     // eslint-disable-next-line sonarjs/prefer-immediate-return
     const initialProps = await Document.getInitialProps(ctx);
-    const cookies = nookies.get(ctx);
-    // eslint-disable-next-line no-console
-    console.log(cookies, ctx.req?.headers.cookie);
-    const cookieTheme = cookies["paste-docs-theme"];
-
-    return { ...initialProps, cookieTheme };
+    return { ...initialProps };
   }
 
   render(): React.ReactElement {
-    // eslint-disable-next-line no-console
-    console.log("cookieTheme", this.props.cookieTheme, parseCookies()["paste-docs-theme"]);
-    const theme = this.props.cookieTheme || parseCookies()["paste-docs-theme"];
-
     return (
       <Html lang="en" dir="ltr">
         <Head>
@@ -45,10 +32,23 @@ class _Document extends Document<DocumentProps> {
           <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
-        <body data-theme={theme}>
+        <body>
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
           <NextScript />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+              let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
+              let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
+              if(cookie){
+                document.body.dataset.theme = cookie;
+              }
+          `,
+            }}
+          />
         </body>
       </Html>
     );
