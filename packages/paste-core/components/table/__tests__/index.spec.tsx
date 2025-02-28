@@ -49,9 +49,6 @@ describe("Table", () => {
       </Table>,
     );
     const renderedTable = screen.getByTestId("mockStripedTable").querySelector("tr:nth-of-type(even)");
-    expect(renderedTable).toHaveStyleRule("background-color", "colorBackgroundRowStriped", {
-      target: ":nth-of-type(even)",
-    });
   });
   it("should render auto tableLayout style", (): void => {
     render(

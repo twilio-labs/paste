@@ -97,7 +97,7 @@ const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
     gridTemplateColumns: "1fr auto",
     gridTemplateAreas: '"code-block button-group"',
     columnGap: "space40",
-    borderRadius: "borderRadius20",
+    borderRadius: "borderRadius70",
     paddingY: "space60",
   },
   "multi-line": {

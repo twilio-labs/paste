@@ -7,6 +7,7 @@ export const ThemeVariants = {
   TWILIO: "twilio",
   TWILIO_DARK: "twilio-dark",
   EVERGREEN: "evergreen",
+  REBRAND: "rebrand",
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare

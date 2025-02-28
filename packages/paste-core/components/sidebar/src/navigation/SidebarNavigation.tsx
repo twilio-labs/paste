@@ -101,10 +101,13 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
           maxHeight="100%"
           overflowY="auto"
           overflowX="hidden"
-          paddingY="space50"
-          paddingLeft="space60"
-          paddingRight={collapsed ? "space40" : "space60"}
+          paddingY="space100"
+          paddingLeft="space30"
+          paddingRight={collapsed ? "space30" : "space60"}
           flexGrow={1}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
         >
           {children}
         </Box>

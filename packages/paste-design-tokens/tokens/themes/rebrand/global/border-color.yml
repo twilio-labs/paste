@@ -1,0 +1,14 @@
+global:
+  type: color
+  category: border-color
+imports:
+  - ../../twilio-dark/global/border-color.yml
+  - ../aliases/color-palette.yml
+
+props:
+  color-border-primary:
+    value: "{!palette-blue-30}"
+  color-border-weaker:
+    value: "{!palette-gray-80}"
+  color-border-weakest:
+    value: "{!palette-gray-100}"

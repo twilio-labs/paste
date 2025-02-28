@@ -8,7 +8,7 @@ export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxP
 }) => (
   <Box
     element={element}
-    borderRadius="borderRadius20"
+    borderRadius="borderRadius40"
     display="flex"
     flexDirection="column"
     backgroundColor="colorBackgroundBody"

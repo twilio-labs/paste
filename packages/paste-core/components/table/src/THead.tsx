@@ -16,8 +16,9 @@ const getStickyStyles = ({ stickyHeader }: { stickyHeader: THeadProps["stickyHea
 
 const StyledTHead = styled.thead<THeadProps>(
   css({
-    backgroundColor: "colorBackgroundWeak",
     color: "colorTextWeak",
+    borderTopLeftRadius: "borderRadius30",
+    borderTopRightRadius: "borderRadius30",
     top: (props: THeadProps) => props.top,
   }),
 );

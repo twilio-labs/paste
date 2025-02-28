@@ -1,0 +1,33 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../../twilio-dark/global/background-color.yml
+  - ../aliases/color-palette.yml
+props:
+  color-background:
+    value: "{!palette-gray-85}"
+  color-background-weaker:
+    value: "{!palette-gray-85}"
+  color-background-strong:
+    value: "{!palette-gray-75}"
+  color-background-body:
+    value: "{!palette-gray-100}"
+  color-background-body-inverse:
+    value: "{!palette-blue-100}"
+  color-background-inverse:
+    value: "{!palette-gray-110}"
+  color-background-weakest:
+    value: "{!palette-blue-100}"
+  color-background-body-elevation:
+    value: "{!palette-gray-85}"
+  color-background-primary-stronger:
+    value: "{!palette-gray-0}"
+  color-background-primary-weakest:
+    value: "{!palette-gray-70}"
+  color-background-overlay:
+    value: "{!palette-gray-100-transparent-70}"
+  color-background-weak:
+    value: "{!palette-gray-95}"
+  color-background-primary:
+    value: "{!palette-gray-60}"

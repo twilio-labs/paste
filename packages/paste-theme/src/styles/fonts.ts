@@ -322,4 +322,56 @@ Twilio Sans Display
        url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-ExtraboldItl.woff2') format('woff2'),
        url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-ExtraboldItl.woff') format('woff');
 }
+
+/*
+Tektur
+*/
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+}
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap');
+}
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur:wght@600&display=swap');
+}
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur:wght@700&display=swap');
+}
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur:wght@800&display=swap');
+}
+@font-face {
+  font-family: "Tektur", serif;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: local(''),
+       url('https://fonts.googleapis.com/css2?family=Tektur:wght@900&display=swap');
+}
 `;

@@ -15,7 +15,7 @@ import type { DisclosureVariants } from "./types";
 const baseContainedStyles: BoxStyleProps = {
   borderWidth: "borderWidth10",
   borderStyle: "solid",
-  borderRadius: "borderRadius20",
+  borderRadius: "borderRadius40",
 };
 
 const containedStyles: BoxStyleProps = {

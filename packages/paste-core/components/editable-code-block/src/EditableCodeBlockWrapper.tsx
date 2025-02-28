@@ -7,7 +7,7 @@ import * as React from "react";
 const StyledEditableCodeBlockWrapper = styled(Box)(
   css({
     backgroundColor: "rgb(1, 22, 39)", // Matches the Night Owl background theme
-    borderRadius: "borderRadius20",
+    borderRadius: "borderRadius70",
     overflow: "hidden",
   }),
 );

@@ -12,8 +12,8 @@ export const AnimatedDisclosureContent = animated(Box);
 const baseContainedStyles: BoxStyleProps = {
   borderWidth: "borderWidth10",
   borderStyle: "solid",
-  borderBottomLeftRadius: "borderRadius20",
-  borderBottomRightRadius: "borderRadius20",
+  borderBottomLeftRadius: "borderRadius40",
+  borderBottomRightRadius: "borderRadius40",
   borderTop: "none",
   transition: "border-color 100ms ease-out",
 };

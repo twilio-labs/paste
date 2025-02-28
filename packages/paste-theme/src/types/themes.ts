@@ -1,6 +1,7 @@
 import type { DarkTheme } from "../themes/dark";
 import type { DefaultTheme } from "../themes/default";
 import type { EvergreenTheme } from "../themes/evergreen";
+import type { RebrandTheme } from "../themes/rebrand";
 import type { SendGridTheme } from "../themes/sendgrid";
 import type { TwilioTheme } from "../themes/twilio";
 import type { TwilioDarkTheme } from "../themes/twilio-dark";
@@ -12,3 +13,4 @@ export type ThemeShape = typeof DefaultTheme;
 export type EvergreenThemeShape = typeof EvergreenTheme;
 export type TwilioThemeShape = typeof TwilioTheme;
 export type TwilioDarkThemeShape = typeof TwilioDarkTheme;
+export type RebrandThemeThemeShape = typeof RebrandTheme;

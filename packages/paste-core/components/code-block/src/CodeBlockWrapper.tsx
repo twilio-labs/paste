@@ -32,7 +32,7 @@ export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrappe
       <Tabs variant="inverse" state={state}>
         <Box
           backgroundColor="colorBackgroundInverseStrong"
-          borderRadius="borderRadius20"
+          borderRadius="borderRadius70"
           overflow="hidden"
           element={element}
           ref={ref}

@@ -237,7 +237,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   );
 
   return (
-    <Box element={element} borderRadius="borderRadius10" overflow="hidden">
+    <Box element={element} borderRadius="borderRadius70" overflow="hidden">
       <StylingGlobals styles={globalStyles} />
       <CodeEditor
         {...props}

@@ -1,0 +1,9 @@
+global:
+  category: font-size
+  type: font-size
+imports:
+  - ../../twilio-dark/global/font-size.yml
+  - ../aliases/font-size.yml
+props:
+  font-size-display-10:
+    value: "{!font-size-display-10}"

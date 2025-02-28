@@ -1,0 +1,5 @@
+global:
+  type: color
+  category: color
+imports:
+  - ../../twilio-dark/global/palette-color.yml

@@ -1,0 +1,5 @@
+global:
+  type: string
+  category: color-scheme
+imports:
+  - ../../../themes/twilio-dark/global/color-scheme.yml
