@@ -107,7 +107,6 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
           <StylingGlobals styles={pasteGlobalStyles({ theme: providerThemeProps })} />
           <StylingGlobals styles={pasteFonts} />
           <StyledBase className="paste-theme-provider" {...props} />
-
         </EmotionThemeProvider>
       </EmotionCacheProvider>
     );
