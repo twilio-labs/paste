@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
-import Script from "next/script";
 
 class _Document extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
@@ -39,7 +38,6 @@ class _Document extends Document {
               __html: `
                 let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
                 let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
-                console.log("running")
                 if(cookie){
                   document.body.dataset.theme = cookie;
                 }
