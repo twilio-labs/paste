@@ -189,3 +189,6 @@ props:
   color-background-inverse-stronger-elevation:
     value: "{!palette-gray-55}"
     comment: Elevation token for color-background-inverse-stronger elements.
+  color-background-inverse-elevation:
+    value: "{!palette-gray-95}"
+    comment: Elevation token for color-background-inverse elements.
