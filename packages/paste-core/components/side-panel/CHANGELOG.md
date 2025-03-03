@@ -1,5 +1,15 @@
 # @twilio-paste/side-panel
 
+## 1.2.0
+
+### Minor Changes
+
+- [`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3) [#4230](https://github.com/twilio-labs/paste/pull/4230) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Update mobile styles, add useSidePanelState hook, animation fixes
+
+### Patch Changes
+
+- [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Callout, ChatComposer, ChatLog, Combobox, Input, InputBox, Menu, MinimizableDialog, Modal, Popover, SideModal, SidePanel, Sidebar, Toast, Tooltip, Topbar, UserDialog]: Update styles to implement new elevation tokens
+
 ## 1.1.0
 
 ### Minor Changes

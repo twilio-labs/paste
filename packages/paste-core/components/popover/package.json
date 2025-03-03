@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/popover",
-  "version": "13.3.0",
+  "version": "13.3.1",
   "category": "interaction",
   "status": "production",
   "description": "A Popover is a page overlay triggered by a button that displays additional interactive content.",
@@ -60,7 +60,7 @@
     "@twilio-paste/button": "^14.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.7.0",
+    "@twilio-paste/design-tokens": "^10.13.0",
     "@twilio-paste/form-pill-group": "^8.1.0",
     "@twilio-paste/icons": "^12.7.0",
     "@twilio-paste/non-modal-dialog-primitive": "^2.0.1",

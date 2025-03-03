@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input-box",
-  "version": "10.1.1",
+  "version": "10.1.2",
   "category": "user input",
   "status": "production",
   "description": "Visual box around every Paste input type",
@@ -44,7 +44,7 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
+    "@twilio-paste/design-tokens": "^10.13.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",
