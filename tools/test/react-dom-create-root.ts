@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 /*
  * Patch to help run react-dom tests in jest for versions 16, 17 and 18
  * As of react 18 there are new rendering API's - using react-dom/clients createRoot method to render to the dom

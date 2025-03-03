@@ -12,6 +12,7 @@ import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import type { SkeletonLoaderProps } from "../src";
 import { SkeletonLoader } from "../src";

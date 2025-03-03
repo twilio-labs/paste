@@ -5,6 +5,7 @@ import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/Gener
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { TokenContext } from "../context/TokenContext";
 

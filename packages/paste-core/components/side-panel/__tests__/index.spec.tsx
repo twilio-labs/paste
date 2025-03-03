@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "@twilio-paste/button";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   SidePanel,

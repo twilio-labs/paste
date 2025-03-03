@@ -3,6 +3,7 @@ import { Box } from "@twilio-paste/box";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from "../../../constants";
 import { event } from "../../../lib/gtag";

@@ -5,6 +5,7 @@ import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { css } from "@twilio-paste/styling-library";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
 

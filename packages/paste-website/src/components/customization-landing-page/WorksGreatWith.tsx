@@ -3,6 +3,7 @@ import { Column, Grid } from "@twilio-paste/grid";
 import { css } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import { DoodleLoopArrow } from "../../assets/illustrations/DoodleLoopArrow";
 import { ComingSoonCard } from "./ComingSoonCard";

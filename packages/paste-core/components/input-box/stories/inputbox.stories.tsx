@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
 import { Stack } from "@twilio-paste/stack";
 import * as React from "react";
+import type { JSX } from "react";
 
 import type { InputBoxProps } from "../src";
 import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "../src";

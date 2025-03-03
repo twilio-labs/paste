@@ -8,6 +8,7 @@ import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   Sidebar,

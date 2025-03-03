@@ -4,6 +4,7 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   Sidebar,

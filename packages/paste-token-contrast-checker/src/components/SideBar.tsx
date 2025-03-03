@@ -6,6 +6,7 @@ import { ErrorIcon } from "@twilio-paste/icons/cjs/ErrorIcon";
 import { SuccessIcon } from "@twilio-paste/icons/cjs/SuccessIcon";
 import * as React from "react";
 
+import type { JSX } from "react";
 import { SelectedThemeContext } from "../App";
 import { ThemeSelector } from "./ThemeSelector";
 import { TokenPairRating } from "./TokenPairRating";

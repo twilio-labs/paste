@@ -1,5 +1,6 @@
 import { Column, Grid } from "@twilio-paste/grid";
 import { ListItem, UnorderedList } from "@twilio-paste/list";
+import type { JSX } from "react";
 
 export const CustomThemeKeyList = (): JSX.Element => {
   return (

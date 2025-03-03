@@ -3,6 +3,7 @@ import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from "@twili
 import { styled } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
+import type { JSX } from "react";
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: "fixed",

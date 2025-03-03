@@ -2,6 +2,7 @@ import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DisplayPill } from "../src/DisplayPill";
 import { DisplayPillGroup } from "../src/DisplayPillGroup";

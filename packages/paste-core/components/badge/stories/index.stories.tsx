@@ -10,6 +10,7 @@ import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import { css, styled } from "@twilio-paste/styling-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Badge } from "../src";
 

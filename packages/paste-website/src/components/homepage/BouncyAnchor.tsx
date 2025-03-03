@@ -2,6 +2,7 @@ import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import * as React from "react";
+import type { JSX } from "react";
 
 const BouncyAnchor: React.FC<{ text: string; href: string; inverse?: boolean }> = ({
   text,

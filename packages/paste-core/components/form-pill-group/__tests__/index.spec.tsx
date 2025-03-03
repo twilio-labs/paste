@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
 import { CustomFormPillGroup } from "../stories/customization.stories";

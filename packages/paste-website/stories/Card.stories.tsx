@@ -16,6 +16,7 @@ import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object"
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
+import type { JSX } from "react";
 import * as React from "react";
 
 import { Marketing2 } from "../public/images/card/Marketing2";

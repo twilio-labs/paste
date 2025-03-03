@@ -1,6 +1,7 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
+import type { JSX } from "react";
 
 import { CustomDateFilterGroup } from "./components/CustomDateFilterGroup";
 import { DefaultFilterGroup } from "./components/DefaultFilterGroup";

@@ -9,6 +9,7 @@ import { Text } from "@twilio-paste/core/text";
 import { TextArea } from "@twilio-paste/core/textarea";
 import { useUIDSeed } from "@twilio-paste/core/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 export const ExampleForm = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState("");

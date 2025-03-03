@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 import { ImageCaption } from "../components/ImageCaption";
 
 export const ElevatedBackgroundColorTokensExample = `

@@ -3,6 +3,7 @@ import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { Spinner } from "@twilio-paste/spinner";
 import { Stack } from "@twilio-paste/stack";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   ChatAttachment,

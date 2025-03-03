@@ -6,6 +6,7 @@ import { Option, Select } from "@twilio-paste/select";
 import { Stack } from "@twilio-paste/stack";
 import { TextArea } from "@twilio-paste/textarea";
 import * as React from "react";
+import type { JSX } from "react";
 import { Helmet } from "react-helmet";
 
 import { ThemeProvider } from "../src/themeProvider";

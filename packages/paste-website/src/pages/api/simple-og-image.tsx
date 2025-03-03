@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
+import type { JSX } from "react";
 
 export const config = {
   runtime: "edge",

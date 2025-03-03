@@ -2,7 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { useUIDSeed } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
-import type { LegacyRef, MutableRefObject } from "react";
+import type { JSX, LegacyRef, MutableRefObject } from "react";
 
 import HeroBack from "../../../assets/images/customization/hero-back.png";
 import HeroFront from "../../../assets/images/customization/hero-front.png";

@@ -5,6 +5,7 @@ import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import type { ThemeShape } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { CustomizableBoxExample } from "../__fixtures__/CustomizableBox";
 import { Box } from "../src";
