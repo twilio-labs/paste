@@ -18,9 +18,12 @@ type AssistantCanvasProps = {
 
 export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThreadID }) => {
   const [mounted, setMounted] = React.useState(false);
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const [userInterctedScroll, setUserInteractedScroll] = React.useState(false);
+
   const messages = useAssistantMessagesStore(useShallow((state) => state.messages));
   const setMessages = useAssistantMessagesStore(useShallow((state) => state.setMessages));
-  const activeRun = useAssistantRunStore(useShallow((state) => state.activeRun));
+  const { activeRun, lastActiveRun, clearLastActiveRun } = useAssistantRunStore(useShallow((state) => state));
   const isCreatingAResponse = useIsMutating({ mutationKey: ["create-assistant-run"] });
 
   const memoedMessages = React.useMemo(() => messages, [messages]);
@@ -50,14 +53,46 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
     setMounted(true);
   }, []);
 
+  const scrollToChatEnd = (): void => {
+    const scrollPosition: any = scrollerRef.current;
+    const scrollHeight: any = loggerRef.current;
+    scrollPosition?.scrollTo({ top: scrollHeight.scrollHeight, behavior: "smooth" });
+  };
+
   // scroll to bottom of chat log when new messages are added
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
+    scrollToChatEnd();
   }, [memoedMessages, mounted]);
 
+  const onAnimationEnd = (): void => {
+    setIsAnimating(false);
+    setUserInteractedScroll(false);
+    // avoid reanimating the same message
+    clearLastActiveRun();
+  };
+
+  const onAnimationStart = (): void => {
+    setUserInteractedScroll(false);
+    setIsAnimating(true);
+  };
+
+  const userScrolled = (): void => setUserInteractedScroll(true);
+
+  React.useEffect(() => {
+    scrollerRef.current?.addEventListener("wheel", userScrolled);
+    scrollerRef.current?.addEventListener("touchmove", userScrolled);
+
+    const interval = setInterval(() => isAnimating && !userInterctedScroll && scrollToChatEnd(), 5);
+    return () => {
+      if (interval) clearInterval(interval);
+      scrollerRef.current?.removeEventListener("wheel", userScrolled);
+      scrollerRef.current?.removeEventListener("touchmove", userScrolled);
+    };
+  }, [isAnimating, userInterctedScroll]);
+
   return (
-    <Box ref={scrollerRef} tabIndex={0} overflowY="auto">
+    <Box ref={scrollerRef} tabIndex={0} overflowY="auto" paddingX="space60">
       <Box maxWidth="1000px" marginX="auto">
         {activeRun != null && <AssistantMessagePoller />}
         <AIChatLog ref={loggerRef}>
@@ -94,11 +129,21 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
               Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
             </Text>
           </Box>
-          {messages?.map((threadMessage): React.ReactNode => {
+          {messages?.map((threadMessage, index): React.ReactNode => {
             if (threadMessage.role === "assistant") {
-              return <AssistantMessage key={threadMessage.id} threadMessage={threadMessage} />;
+              return (
+                <AssistantMessage
+                  key={threadMessage.id}
+                  threadMessage={threadMessage}
+                  // Only animate the last message recieved from AI and must be most recent run to avoid reanimating
+                  animated={index === messages.length - 1 && lastActiveRun?.id === threadMessage.run_id}
+                  size="fullScreen"
+                  onAnimationEnd={onAnimationEnd}
+                  onAnimationStart={onAnimationStart}
+                />
+              );
             }
-            return <UserMessage key={threadMessage.id} threadMessage={threadMessage} />;
+            return <UserMessage key={threadMessage.id} threadMessage={threadMessage} size="fullScreen" />;
           })}
           {(isCreatingAResponse || activeRun != null) && <LoadingMessage />}
         </AIChatLog>

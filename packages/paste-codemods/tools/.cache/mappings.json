@@ -48,6 +48,8 @@
   "CalloutListItem": "@twilio-paste/core/callout",
   "CalloutText": "@twilio-paste/core/callout",
   "Card": "@twilio-paste/core/card",
+  "ChartContext": "@twilio-paste/core/chart-provider",
+  "ChartProvider": "@twilio-paste/core/chart-provider",
   "ChatComposer": "@twilio-paste/core/chat-composer",
   "ChatComposerActionGroup": "@twilio-paste/core/chat-composer",
   "ChatComposerAttachmentCard": "@twilio-paste/core/chat-composer",
