@@ -16556,8 +16556,8 @@ __metadata:
     "@types/gtag.js": ^0.0.12
     "@types/lodash": ^4.14.182
     "@types/mdx-js__react": ^1.5.5
-    "@types/react": 19.0.10
-    "@types/react-dom": 19.0.4
+    "@types/react": ^19.0.8
+    "@types/react-dom": ^19.0.3
     "@vercel/og": ^0.5.20
     ai: ^2.2.27
     airtable: ^0.11.6
@@ -17504,15 +17504,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19.0.4":
-  version: 19.0.4
-  resolution: "@types/react-dom@npm:19.0.4"
-  peerDependencies:
-    "@types/react": ^19.0.0
-  checksum: 2d0c74769ddcb4a9f404a62b3241d3e550ca962ff80c8c5b624f6626cd39f8b18aadee8e447424b52cffdd9165b1f02eb51020fc486584c8395236d97d4abedf
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^19.0.3":
   version: 19.0.3
   resolution: "@types/react-dom@npm:19.0.3"
@@ -17582,15 +17573,6 @@ __metadata:
   dependencies:
     csstype: ^3.0.2
   checksum: 80dd2e7fa4b3e0ea2d883c21317563f4af1c4d90a6250c8bcbc052079304dc3335369267026004ed5d7cac09c7b0026e02e71ae5cca3150643507e353219fe47
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:19.0.10":
-  version: 19.0.10
-  resolution: "@types/react@npm:19.0.10"
-  dependencies:
-    csstype: ^3.0.2
-  checksum: e257e87bc3464825014523aecc700540a9da41c3c23136c03da9b2b7999251ac70ef9e594febdefeea6abe51da2475b42e5d96af6559d76f8d54bffc0b0ddacd
   languageName: node
   linkType: hard
 
