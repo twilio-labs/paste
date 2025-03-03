@@ -310,14 +310,14 @@
       "externalProp": true
     },
     "alignContent": {
-      "type": "\"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
+      "type": "\"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop for the CSS `align-content` property"
     },
     "alignItems": {
-      "type": "\"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
+      "type": "\"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -366,18 +366,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -399,6 +412,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -427,6 +447,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -631,6 +658,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -695,13 +729,19 @@
       "description": "Controls the HTML element that that will be rendered in the DOM."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -727,7 +767,7 @@
       "description": "Responsive prop for the CSS `background-attachment` property"
     },
     "backgroundColor": {
-      "type": "\"inherit\" | \"none\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyElevation\" | \"colorBackgroundBodyInverse\" | \"colorBackgroundBrand\" | ... 64 more ... | { ...; }",
+      "type": "\"none\" | \"inherit\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyElevation\" | \"colorBackgroundBodyInverse\" | \"colorBackgroundBrand\" | ... 64 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -1013,7 +1053,7 @@
       "description": "Style prop for the CSS `content` property"
     },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1032,7 +1072,7 @@
       "description": "Responsive style prop for the CSS `cursor` property"
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1094,6 +1134,12 @@
       "required": false,
       "externalProp": false,
       "description": "Used to set a custom element name for customization."
+    },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
     },
     "flex": {
       "type": "| Flex<0 | (string & {})>\n  | (Flex<0 | (string & {})> | null | undefined)[]\n  | {\n      [x: string]: Flex<0 | (string & {})> | undefined\n      [x: number]: Flex<0 | (string & {})> | undefined\n    }",
@@ -1267,6 +1313,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -1274,7 +1326,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1325,14 +1377,14 @@
       "externalProp": true
     },
     "justifyContent": {
-      "type": "\"right\" | \"left\" | \"center\" | \"inherit\" | (string & {}) | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | ... 10 more ... | { ...; }",
+      "type": "\"right\" | \"left\" | \"center\" | (string & {}) | \"inherit\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop for the CSS `justify-content` property"
     },
     "justifyItems": {
-      "type": "\"right\" | \"left\" | \"center\" | \"inherit\" | (string & {}) | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"normal\" | \"end\" | \"start\" | \"flex-end\" | \"flex-start\" | ... 5 more ... | { ...; }",
+      "type": "\"right\" | \"left\" | \"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"normal\" | \"end\" | \"start\" | \"flex-end\" | \"flex-start\" | ... 5 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -1572,6 +1624,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2170,19 +2228,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLElement>",
       "defaultValue": null,
       "required": false,
@@ -2380,6 +2426,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLElement>",
       "defaultValue": null,
@@ -2428,6 +2480,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLElement>",
       "defaultValue": null,
@@ -2435,6 +2499,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLElement>",
       "defaultValue": null,
       "required": false,
@@ -2571,18 +2659,30 @@
       "externalProp": false,
       "description": "Responsive prop of Space tokens for the CSS `padding-top` and `padding-bottom` properties"
     },
-    "placeholder": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "pointerEvents": {
       "type": "| PointerEvents\n  | (PointerEvents | null | undefined)[]\n  | {\n      [x: string]: PointerEvents | undefined\n      [x: number]: PointerEvents | undefined\n    }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive style prop for the CSS `pointer-events` property"
+    },
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
     },
     "position": {
       "type": "| Position\n  | (Position | null | undefined)[]\n  | { [x: string]: Position | undefined; [x: number]: Position | undefined }",
@@ -2631,6 +2731,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2820,7 +2926,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
