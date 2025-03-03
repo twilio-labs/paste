@@ -24,7 +24,7 @@ const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProp
       <Box
         {...safelySpreadBoxProps(props)}
         element={`${element}_LIST`}
-        backgroundColor="colorBackgroundBody"
+        backgroundColor="colorBackgroundWeaker"
         borderRadius="borderRadius30"
         paddingY="space30"
         ref={ref}

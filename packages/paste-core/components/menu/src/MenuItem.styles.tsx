@@ -103,7 +103,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         _disabled={{
           color: "colorTextWeaker",
           cursor: "not-allowed",
-          backgroundColor: "colorBackgroundBody",
+          backgroundColor: "colorBackgroundWeaker",
           borderColor: "transparent",
         }}
         ref={ref}

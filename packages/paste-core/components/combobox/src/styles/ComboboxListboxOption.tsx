@@ -99,7 +99,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         as="li"
         position="relative"
         element={`${element}_LIST_ITEM`}
-        backgroundColor={highlighted ? "colorBackgroundPrimaryWeakest" : "colorBackgroundBody"}
+        backgroundColor={highlighted ? "colorBackgroundPrimaryWeakest" : "colorBackgroundWeaker"}
         color={
           highlighted
             ? "colorTextPrimary"

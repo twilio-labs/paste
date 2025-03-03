@@ -43,14 +43,14 @@ const getInputChevronIconColor = (
 
 const BackgroundColorStyles: { [variant: string]: { [key: string]: BackgroundColor } } = {
   default: {
-    default: "colorBackground",
+    default: "colorBackgroundBodyElevation",
     disabled: "colorBackground",
-    readOnly: "colorBackground",
+    readOnly: "colorBackgroundBodyElevation",
   },
   inverse: {
-    default: "colorBackgroundInverseStrong",
+    default: "colorBackgroundInverseElevation",
     disabled: "colorBackgroundInverse",
-    readOnly: "colorBackgroundInverseStrong",
+    readOnly: "colorBackgroundInverseElevation",
   },
 };
 
