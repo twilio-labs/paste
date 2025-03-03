@@ -7,10 +7,10 @@
 import type { BoxHTMLProps, BoxOptions, PopoverStateReturn } from "@twilio-paste/paste-reakit-fork";
 import { useBox } from "@twilio-paste/paste-reakit-fork";
 import * as React from "react";
+import { useRef } from "react";
 import { createComponent } from "reakit-system/createComponent";
 import { createHook } from "reakit-system/createHook";
 import { useForkRef } from "reakit-utils/useForkRef";
-import { useRef } from "react";
 
 import { POPOVER_ARROW_KEYS } from "./__keys";
 

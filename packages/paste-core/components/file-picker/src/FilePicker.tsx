@@ -1,12 +1,12 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { ButtonProps } from "@twilio-paste/button";
 import { SiblingBox } from "@twilio-paste/sibling-box";
 import type { TextColor } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
-import { ButtonProps } from "@twilio-paste/button";
 
 export interface FilePickerProps extends HTMLPasteProps<"input"> {
   /**
