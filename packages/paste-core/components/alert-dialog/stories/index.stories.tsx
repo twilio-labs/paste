@@ -11,6 +11,7 @@ import { Paragraph } from "@twilio-paste/paragraph";
 import { useTheme } from "@twilio-paste/theme";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { AlertDialog } from "../src";
 import { AlertDialogBody } from "../src/AlertDialogBody";

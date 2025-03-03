@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   DataGrid,

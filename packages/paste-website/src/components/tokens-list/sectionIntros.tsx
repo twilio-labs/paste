@@ -3,6 +3,7 @@ import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { InlineCode } from "@twilio-paste/inline-code";
 import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { SiteLink } from "../SiteLink";
 import type { Token } from "./types";

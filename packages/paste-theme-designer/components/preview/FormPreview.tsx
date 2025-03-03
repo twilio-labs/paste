@@ -9,6 +9,7 @@ import { Option, Select } from "@twilio-paste/core/select";
 import { Stack } from "@twilio-paste/core/stack";
 import { useUIDSeed } from "@twilio-paste/core/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 const FormPreview = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState("input");

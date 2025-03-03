@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Card } from "@twilio-paste/card";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
+import type { JSX } from "react";
 
 import type { StackOrientation } from "../src";
 import { Stack, getStackChildMargins, getStackDisplay, getStackStyles } from "../src/Stack";

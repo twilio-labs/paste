@@ -3,6 +3,7 @@ import { Button } from "@twilio-paste/button";
 import { Theme } from "@twilio-paste/theme";
 import { loremIpsum } from "lorem-ipsum";
 import * as React from "react";
+import type { JSX } from "react";
 
 import type { ToasterProps, ToasterToast } from "../src";
 import { useToaster } from "../src";

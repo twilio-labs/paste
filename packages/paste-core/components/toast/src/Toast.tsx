@@ -86,7 +86,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     ref,
   ) => {
     const ToastComponent = ToastComponentVariants[variant];
-    const buttonRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
+    const buttonRef: React.RefObject<HTMLButtonElement | null> = React.useRef(null);
 
     React.useEffect(() => {
       if (setFocus && buttonRef.current) {

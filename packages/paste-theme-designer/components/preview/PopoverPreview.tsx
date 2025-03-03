@@ -1,6 +1,7 @@
 import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/core/popover";
 import { Text } from "@twilio-paste/core/text";
 import * as React from "react";
+import type { JSX } from "react";
 
 const PopoverPreview = (): JSX.Element => {
   return (

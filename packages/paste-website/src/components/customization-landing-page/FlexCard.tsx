@@ -1,6 +1,7 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
+import type { JSX } from "react";
 
 import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from "./ProjectCard";
 

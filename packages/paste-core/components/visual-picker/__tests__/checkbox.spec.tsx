@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { fireEvent, render, screen } from "@testing-library/react";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { VisualPickerCheckbox, VisualPickerCheckboxGroup } from "../src";
 import { CustomizedCheckbox } from "../stories/customization.stories";

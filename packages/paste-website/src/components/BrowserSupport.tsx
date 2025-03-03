@@ -1,4 +1,5 @@
 import { Anchor } from "@twilio-paste/anchor";
+import type { JSX } from "react";
 
 export const BrowserSupport = (): JSX.Element => (
   <span>

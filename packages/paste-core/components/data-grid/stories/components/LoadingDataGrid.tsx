@@ -1,4 +1,5 @@
 import { SkeletonLoader } from "@twilio-paste/skeleton-loader";
+import type { JSX } from "react";
 import * as React from "react";
 
 import {

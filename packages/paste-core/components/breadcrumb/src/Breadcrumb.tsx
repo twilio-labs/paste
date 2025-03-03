@@ -141,7 +141,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),
               parentElement: element,
-            });
+            } as unknown as React.ReactElement<BreadcrumbItemProps>);
           })}
         </Box>
       </Box>

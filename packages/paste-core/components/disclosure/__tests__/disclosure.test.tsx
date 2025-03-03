@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from "../src";
 import type { DisclosureHeadingProps, DisclosureProps } from "../src";

@@ -8,6 +8,7 @@ import TwilioThemeTokens from "@twilio-paste/design-tokens/dist/themes/twilio/to
 import DefaultThemeTokens from "@twilio-paste/design-tokens/dist/tokens.generic";
 import kebabCase from "lodash/kebabCase";
 import * as React from "react";
+import type { JSX } from "react";
 
 import type { Themes } from "../../types";
 import { SimpleStorage } from "../../utils/SimpleStorage";

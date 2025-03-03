@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Breadcrumb, BreadcrumbItem } from "../src";
 

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
+import type { JSX } from "react";
 
 import featureDataJSON from "../../../data/feature-data.json";
 import packageDataJSON from "../../../data/package-data.json";

@@ -3,6 +3,7 @@ import { Label } from "@twilio-paste/core/label";
 import { Option, Select } from "@twilio-paste/core/select";
 import { useRouter } from "next/router";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Routes } from "../../../constants/Routes";
 

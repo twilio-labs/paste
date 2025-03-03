@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 export const AlertsAndNotifications = (): JSX.Element => {
   return (
     <svg viewBox="0 0 240 102" width="240" height="102" fill="none" xmlns="http://www.w3.org/2000/svg">

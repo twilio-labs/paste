@@ -41,18 +41,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -74,6 +87,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -103,6 +123,13 @@
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
     },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
+    },
     "aria-details": {
       "type": "string",
       "defaultValue": null,
@@ -118,7 +145,7 @@
       "description": "Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable."
     },
     "aria-dropeffect": {
-      "type": "\"link\" | \"none\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
+      "type": "\"none\" | \"link\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -306,6 +333,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -363,13 +397,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| (string & {})\n  | \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -399,8 +439,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -412,7 +458,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -447,6 +493,12 @@
       "required": false,
       "externalProp": true
     },
+    "enterKeyHint": {
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -455,6 +507,12 @@
     },
     "id": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "inert": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -595,6 +653,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<any>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1193,19 +1257,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -1403,6 +1455,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<any>",
       "defaultValue": null,
@@ -1451,6 +1509,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
@@ -1458,6 +1528,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -1499,8 +1593,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"show\" | \"hide\" | \"toggle\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1524,7 +1630,14 @@
       "externalProp": true
     },
     "ref": {
-      "type": "((instance: any) => void) | RefObject<any>",
+      "type": "| ((instance: any) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref)."
+    },
+    "rel": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1537,6 +1650,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1615,7 +1734,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1711,18 +1830,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -1744,6 +1876,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -1773,6 +1912,13 @@
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
     },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
+    },
     "aria-details": {
       "type": "string",
       "defaultValue": null,
@@ -1788,7 +1934,7 @@
       "description": "Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable."
     },
     "aria-dropeffect": {
-      "type": "\"link\" | \"none\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
+      "type": "\"none\" | \"link\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1976,6 +2122,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -2033,13 +2186,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| (string & {})\n  | \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2069,8 +2228,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2082,7 +2247,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2117,6 +2282,12 @@
       "required": false,
       "externalProp": true
     },
+    "enterKeyHint": {
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -2125,6 +2296,12 @@
     },
     "id": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "inert": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2265,6 +2442,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<any>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2863,19 +3046,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -3073,6 +3244,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<any>",
       "defaultValue": null,
@@ -3121,6 +3298,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
@@ -3128,6 +3317,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -3169,8 +3382,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"show\" | \"hide\" | \"toggle\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3194,7 +3419,14 @@
       "externalProp": true
     },
     "ref": {
-      "type": "((instance: any) => void) | RefObject<any>",
+      "type": "| ((instance: any) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref)."
+    },
+    "rel": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3207,6 +3439,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3278,7 +3516,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3346,18 +3584,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -3379,6 +3630,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -3408,6 +3666,13 @@
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
     },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
+    },
     "aria-details": {
       "type": "string",
       "defaultValue": null,
@@ -3423,7 +3688,7 @@
       "description": "Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable."
     },
     "aria-dropeffect": {
-      "type": "\"link\" | \"none\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
+      "type": "\"none\" | \"link\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3611,6 +3876,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -3668,13 +3940,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| (string & {})\n  | \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3697,8 +3975,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3710,7 +3994,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3745,6 +4029,12 @@
       "required": false,
       "externalProp": true
     },
+    "enterKeyHint": {
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "fill": {
       "type": "string",
       "defaultValue": null,
@@ -3759,6 +4049,12 @@
     },
     "id": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "inert": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3899,6 +4195,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<any>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4497,19 +4799,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<any>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -4707,6 +4997,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<any>",
       "defaultValue": null,
@@ -4755,6 +5051,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
@@ -4762,6 +5070,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<any>",
       "defaultValue": null,
       "required": false,
@@ -4803,8 +5135,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"show\" | \"hide\" | \"toggle\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4828,7 +5172,14 @@
       "externalProp": true
     },
     "ref": {
-      "type": "((instance: any) => void) | RefObject<any>",
+      "type": "| ((instance: any) => void | (() => VoidOrUndefinedOnly))\n  | RefObject<any>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null`\n(or call the ref with `null` if you passed a callback ref)."
+    },
+    "rel": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4841,6 +5192,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4925,7 +5282,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true

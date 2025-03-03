@@ -99,4 +99,4 @@ cypress/downloads
 out
 .vscode-test
 
-.nx/cache
+.nx

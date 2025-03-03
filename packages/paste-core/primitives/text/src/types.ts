@@ -80,7 +80,7 @@ export interface TextElementProps extends Omit<React.HTMLAttributes<HTMLElement>
    * @type {keyof JSX.IntrinsicElements}
    * @memberof TextElementProps
    */
-  as: keyof JSX.IntrinsicElements;
+  as: keyof React.JSX.IntrinsicElements;
   /**
    * Same as HTML
    *

@@ -5,6 +5,7 @@ import DefaultRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tok
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 
 import { useDarkModeContext } from "../../context/DarkModeContext";

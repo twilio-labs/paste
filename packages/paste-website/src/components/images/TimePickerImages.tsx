@@ -2,6 +2,7 @@ import { css } from "@twilio-paste/styling-library";
 import { useTheme } from "@twilio-paste/theme";
 import Image from "next/image";
 import * as React from "react";
+import type { JSX } from "react";
 
 import Chrome from "../../assets/images/time-picker/chrome.png";
 import Firefox from "../../assets/images/time-picker/firefox.png";

@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { fireEvent, render, screen } from "@testing-library/react";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { VisualPickerRadio, VisualPickerRadioGroup } from "../src";
 import { CustomizedRadio } from "../stories/customization.stories";

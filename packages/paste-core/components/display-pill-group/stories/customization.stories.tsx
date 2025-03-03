@@ -2,6 +2,7 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DisplayPill } from "../src/DisplayPill";
 import { DisplayPillGroup } from "../src/DisplayPillGroup";

@@ -53,7 +53,7 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
    * The HTML tag to replace the default `<button>` tag.
    * @default 'button'
    */
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /** The various states of interactivity for the button. */
   buttonState: ButtonStates;
   children: React.ReactNode;

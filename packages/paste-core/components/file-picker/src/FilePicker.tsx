@@ -1,5 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { ButtonProps } from "@twilio-paste/button";
 import { SiblingBox } from "@twilio-paste/sibling-box";
 import type { TextColor } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
@@ -141,7 +142,10 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
               boxShadow: "shadowBorderWeaker",
             }}
           >
-            {React.cloneElement(children, { disabled, element: `${element}_BUTTON` })}
+            {React.cloneElement(children, {
+              disabled,
+              element: `${element}_BUTTON`,
+            } as unknown as React.ReactElement<ButtonProps>)}
             <Text
               id={textId}
               as="span"

@@ -6,6 +6,7 @@ import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { FormPill, FormPillGroup, useFormPillState } from "../src";
 import type { FormPillGroupSizeVariant } from "../src/FormPillGroup";

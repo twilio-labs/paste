@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import type { JSX } from "react";
 
 const Document = (): JSX.Element => {
   return (

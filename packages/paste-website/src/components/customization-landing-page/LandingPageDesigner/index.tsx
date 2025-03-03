@@ -3,6 +3,7 @@ import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/Gener
 import { generateTokensFromTheme, useTheme } from "@twilio-paste/theme";
 import Head from "next/head";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DesignerContext } from "./DesignerContext";
 import { DesignerControls } from "./DesignerControls";
