@@ -48,7 +48,7 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, as= "button", ...props }, ref) => {
+  ({ size, buttonState, fullWidth, as = "button", ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box

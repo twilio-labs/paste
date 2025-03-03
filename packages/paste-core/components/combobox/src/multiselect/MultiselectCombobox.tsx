@@ -365,7 +365,11 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             </InputChevronWrapper>
           </Box>
         </InputBox>
-        <ListboxWrapper inputBoxRef={inputBoxRef as React.RefObject<HTMLInputElement>} parentRef={parentRef as React.RefObject<HTMLElement>} usePortal={usePortal}>
+        <ListboxWrapper
+          inputBoxRef={inputBoxRef as React.RefObject<HTMLInputElement>}
+          parentRef={parentRef as React.RefObject<HTMLElement>}
+          usePortal={usePortal}
+        >
           <ComboboxListbox
             {...getMenuProps({ ref: parentRef })}
             element={`${element}_LISTBOX`}

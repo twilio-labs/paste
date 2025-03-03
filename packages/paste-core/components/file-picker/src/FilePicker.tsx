@@ -6,7 +6,7 @@ import { Text } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
-import {ButtonProps} from "@twilio-paste/button";
+import { ButtonProps } from "@twilio-paste/button";
 
 export interface FilePickerProps extends HTMLPasteProps<"input"> {
   /**
@@ -142,7 +142,10 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
               boxShadow: "shadowBorderWeaker",
             }}
           >
-            {React.cloneElement(children, {disabled, element: `${element}_BUTTON`} as unknown as React.ReactElement<ButtonProps>)}
+            {React.cloneElement(children, {
+              disabled,
+              element: `${element}_BUTTON`,
+            } as unknown as React.ReactElement<ButtonProps>)}
             <Text
               id={textId}
               as="span"

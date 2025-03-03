@@ -31,13 +31,13 @@ const ButtonStyleMapping = {
 };
 
 const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({ size, buttonState, fullWidth, as= "a", ...props }, ref) => {
+  ({ size, buttonState, fullWidth, as = "a", ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
         width={fullWidth ? "100%" : "auto"}
-        {...safelySpreadBoxProps({as, ...props})}
+        {...safelySpreadBoxProps({ as, ...props })}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
