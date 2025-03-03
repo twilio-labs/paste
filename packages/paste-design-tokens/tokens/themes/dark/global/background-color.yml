@@ -36,7 +36,7 @@ props:
   color-background-weakest:
     value: "{!palette-gray-110}"
     comment: The weakest background color used for containers.
-  
+
   # brand backgrounds
   color-background-brand:
     value: "{!palette-gray-100}"
