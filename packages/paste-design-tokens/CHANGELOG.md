@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.13.0
+
+### Minor Changes
+
+- [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Add new box shadow and background color tokens for elevation
+
 ## 10.12.0
 
 ### Minor Changes
