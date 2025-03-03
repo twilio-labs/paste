@@ -127,12 +127,17 @@ const handlePropValidation = ({
   if (children == null) {
     throw new Error("[Paste: Button] Must have non-null children.");
   }
+
   if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
+    // eslint-disable-next-line no-console
+    console.error("tabIndex", tabIndex);
     throw new Error("[Paste: Button] tabIndex must be 0 or -1.");
   }
 
   // Toggle button validaton
   if (pressed && !(variant === "secondary" || variant === "secondary_icon" || variant === "destructive_secondary")) {
+    // eslint-disable-next-line no-console
+    console.error("variant", variant, "pressed", pressed);
     throw new Error(
       `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`,
     );
@@ -265,7 +270,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return getButtonSize(variant, children, size);
     }, [size, variant, children]);
 
-    handlePropValidation({ ...props, as, children, fullWidth, disabled, loading, type, variant, size: smartDefaultSize });
+    handlePropValidation({
+      ...props,
+      as,
+      children,
+      fullWidth,
+      disabled,
+      loading,
+      type,
+      variant,
+      size: smartDefaultSize,
+    });
 
     const buttonState = getButtonState(disabled, loading);
     const showLoading = buttonState === "loading";

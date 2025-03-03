@@ -158,8 +158,14 @@ describe("Button", () => {
       // hide console errors from terminal when throwing expected errors
       const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
-      // @ts-expect-error invalid tabindex
-      expect(() => render(<Button variant="primary" tabIndex="-2" />)).toThrow();
+      expect(() =>
+        render(
+          // @ts-expect-error invalid tabindex
+          <Button variant="primary" tabIndex="-2">
+            Button
+          </Button>,
+        ),
+      ).toThrow();
       expect(spy).toHaveBeenCalled();
       spy.mockRestore();
     });
@@ -168,8 +174,13 @@ describe("Button", () => {
       // hide console errors from terminal when throwing expected errors
       const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
-      // @ts-expect-error invalid tabindex
-      expect(() => render(<Button variant="primary" pressed={true} />)).toThrow();
+      expect(() =>
+        render(
+          <Button variant="primary" pressed={true}>
+            Button
+          </Button>,
+        ),
+      ).toThrow();
       expect(spy).toHaveBeenCalled();
       spy.mockRestore();
     });
