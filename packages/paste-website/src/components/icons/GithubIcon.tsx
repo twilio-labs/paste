@@ -1,7 +1,7 @@
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-export interface GithubIconProps {
+export interface GithubIconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
   size?: number;
   color?: string;
@@ -10,10 +10,10 @@ export interface GithubIconProps {
 }
 
 const GithubIcon = React.memo(
-  ({ title = "Github Icon", decorative = true, className, color, size }: GithubIconProps) => {
+  ({ title = "Github Icon", decorative = true, className, color, size, style }: GithubIconProps) => {
     const uid = useUID();
     return (
-      <span style={{ color, width: size, height: size }} className={className}>
+      <span style={{ color, width: size, height: size, ...style }} className={className}>
         <svg role="img" aria-hidden={decorative} aria-labelledby={uid} viewBox="0 0 24 24" width="100%" height="100%">
           <title id={uid}>{title}</title>
           <path

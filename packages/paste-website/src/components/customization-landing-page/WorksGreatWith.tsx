@@ -16,7 +16,7 @@ export const WorksGreatWith = (): JSX.Element => {
   return (
     <Box
       as="section"
-      css={css({
+      style={css({
         background: `linear-gradient(90deg, ${backgroundColors.colorBackgroundBrand} 0%, ${backgroundColors.colorBackgroundBrandStrong} 100%)`,
         clipPath: "polygon(0px 80px,100% 0,100% 100%,0 100%)",
         marginTop: "-80px",

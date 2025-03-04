@@ -213,7 +213,7 @@ const Templates: React.FC = (): React.ReactElement<any> => {
       </Box>
       <Box zIndex="zIndex30" position="absolute" left={-250} element="CIRCLE" top={300}>
         <CircleIcon
-          css={{ height: theme.heights.size20, width: theme.widths.size20 }}
+          size={theme.heights.size20}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}
           decorative
         />
