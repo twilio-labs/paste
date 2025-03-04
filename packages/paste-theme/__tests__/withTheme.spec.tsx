@@ -6,7 +6,7 @@ import { createRoot } from "testing-tools/react-dom-create-root";
 import type { ThemeShape } from "../src";
 import { Theme, withTheme } from "../src";
 
-const MockComponent = ({ theme }: { theme: ThemeShape }): React.ReactElement => <p>{theme.textColors.colorText}</p>;
+const MockComponent = ({ theme }: { theme: ThemeShape }): React.ReactElement<any> => <p>{theme.textColors.colorText}</p>;
 const MockComponentWithTheme = withTheme(MockComponent);
 
 describe("withTheme", () => {

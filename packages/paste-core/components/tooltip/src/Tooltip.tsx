@@ -47,7 +47,7 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
    * @memberof TooltipProps
    */
   element?: BoxProps["element"];
-  children: NonNullable<React.ReactElement>;
+  children: NonNullable<React.ReactElement<any>>;
   /**
    * The returned state from the `useTooltipState` hook.
    *

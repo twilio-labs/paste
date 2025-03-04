@@ -5,7 +5,7 @@ import { createRoot } from "testing-tools/react-dom-create-root";
 
 import { CustomizationConsumer, CustomizationProvider } from "../src";
 
-const ThemeConsumerExample = (): React.ReactElement => {
+const ThemeConsumerExample = (): React.ReactElement<any> => {
   return (
     <CustomizationConsumer>
       {({ theme }) => {
@@ -18,7 +18,7 @@ const ThemeConsumerExample = (): React.ReactElement => {
   );
 };
 
-const ThemeConsumerBreakpointsExample = (): React.ReactElement => {
+const ThemeConsumerBreakpointsExample = (): React.ReactElement<any> => {
   return (
     <CustomizationConsumer>
       {({ theme }) => <p data-testid="breakpoint-test">Breakpoints: {JSON.stringify(theme.breakpoints)}</p>}
@@ -26,7 +26,7 @@ const ThemeConsumerBreakpointsExample = (): React.ReactElement => {
   );
 };
 
-const ThemeConsumerElementsExample = (): React.ReactElement => {
+const ThemeConsumerElementsExample = (): React.ReactElement<any> => {
   return (
     <CustomizationConsumer>
       {({ theme }) => <p data-testid="elements-test">Elements: {JSON.stringify(theme.elements)}</p>}

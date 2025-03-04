@@ -29,7 +29,7 @@ import { CodeBlockOverlayShadow } from "../shortcodes/live-preview/CodeBlockOver
 import { CodeblockTheme } from "../shortcodes/live-preview/theme";
 import { CustomSnippet, DefaultSnippet, PrimitiveSnippet } from "./ThemeableBuilderCodeSnippets";
 
-const StyledComponentsCard: React.FC = (): React.ReactElement => {
+const StyledComponentsCard: React.FC = (): React.ReactElement<any> => {
   return (
     <Card padding="space60">
       <Box display="flex" flexDirection="column" rowGap="space50" alignItems="center" element="INSIDE_OF_WHITE_CARD">
@@ -79,7 +79,7 @@ const StyledComponentsCard: React.FC = (): React.ReactElement => {
   );
 };
 
-const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactElement => {
+const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactElement<any> => {
   const [viewCode, setViewCode] = React.useState(false);
   const handleToggleCodeEditor = (): void => {
     setViewCode(!viewCode);
@@ -148,9 +148,9 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
 const Themes = ["default", "dark", "twilio", "custom"];
 type ThemeType = "default" | "dark" | "twilio" | "custom";
 
-const ComponentsTab: React.FC = (): React.ReactElement => {
+const ComponentsTab: React.FC = (): React.ReactElement<any> => {
   const [hasManuallyChangedtheme, setHasManuallyChangedTheme] = React.useState(false);
-  const intervalRef = React.useRef<NodeJS.Timeout | undefined>();
+  const intervalRef = React.useRef<NodeJS.Timeout | undefined>(undefined);
   const [theme, selectTheme] = React.useState<ThemeType>("default");
 
   React.useEffect(() => {
@@ -257,7 +257,7 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
   );
 };
 
-const PrimitivesTab: React.FC = (): React.ReactElement => {
+const PrimitivesTab: React.FC = (): React.ReactElement<any> => {
   return (
     <>
       <Box
@@ -334,7 +334,7 @@ const PrimitivesTab: React.FC = (): React.ReactElement => {
   );
 };
 
-const ThemeableBuilder: React.FC = (): React.ReactElement => {
+const ThemeableBuilder: React.FC = (): React.ReactElement<any> => {
   const selectedTabId = useUID();
 
   return (

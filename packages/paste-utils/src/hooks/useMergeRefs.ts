@@ -4,7 +4,7 @@
  */
 import * as React from "react";
 
-type ReactRef<T> = React.Ref<T> | React.RefObject<T>;
+type ReactRef<T> = React.Ref<T> | React.RefObject<T | null>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void {

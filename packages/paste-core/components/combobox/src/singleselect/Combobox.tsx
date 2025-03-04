@@ -182,8 +182,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           </ComboboxInputWrapper>
         </InputBox>
         <ListboxWrapper
-          inputBoxRef={inputBoxRef as React.RefObject<HTMLInputElement>}
-          parentRef={parentRef as React.RefObject<HTMLElement>}
+          inputBoxRef={inputBoxRef as React.RefObject<HTMLInputElement | null>}
+          parentRef={parentRef as React.RefObject<HTMLElement | null>}
           usePortal={usePortal}
         >
           <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ ref: parentRef })}>

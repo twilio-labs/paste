@@ -13,7 +13,7 @@ const AnimatedBox = animated(Box);
 const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   children,
   index,
-}): React.ReactElement => {
+}): React.ReactElement<any> => {
   const [show, setShow] = React.useState(false);
 
   function handleVisibilityChange(isVisible: boolean): void {
@@ -53,7 +53,7 @@ const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   );
 };
 
-const WeDoTheThinking: React.FC = (): React.ReactElement => {
+const WeDoTheThinking: React.FC = (): React.ReactElement<any> => {
   return (
     <SectionContainer>
       <Box element="WE_DO_THE_THINKING" maxWidth="size50" textAlign="center" marginX="auto">
