@@ -150,7 +150,7 @@ export const getArticles = async (): Promise<ArticleData[]> => {
     const filename = file.replace(".mdx", "");
 
     // eslint-disable-next-line no-unsanitized/method
-    const meta = await import(`src/pages/blog/${filename}.mdx`).then((mod) => mod.meta);
+    const meta = await import(`../pages/blog/${filename}.mdx`).then((mod) => mod.meta);
     const date = new Date(meta.date);
     const formattedDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()).toLocaleString(
       "en-US",
