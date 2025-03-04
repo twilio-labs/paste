@@ -11,7 +11,7 @@ const bodyCellStyles: BoxStyleProps = {
 
 const StyledTBody = styled.tbody<TBodyProps>(
   css({
-    backgroundColor: "colorBackgroundBody",
+    backgroundColor: "colorBackgroundWeakest",
     "& > tr:last-of-type > td": bodyCellStyles,
     "& > tr:last-of-type > th": bodyCellStyles,
   }),

@@ -45,7 +45,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
         paddingLeft={paddingLeft}
         paddingRight={paddingRight}
         paddingTop={paddingTop}
-        backgroundColor="colorBackgroundBody"
+        backgroundColor="colorBackgroundWeakest"
       >
         {children}
       </Box>

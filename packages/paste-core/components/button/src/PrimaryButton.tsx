@@ -16,7 +16,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   boxShadow: "shadowBorderPrimary",
   _hover: {
     color: "colorTextPrimary",
-    backgroundColor: "colorBackgroundBody",
+    backgroundColor: "colorBackgroundWeakest",
     boxShadow: "shadowBorderPrimary",
   },
   _focus: {
