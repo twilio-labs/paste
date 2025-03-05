@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.13.0
+
+### Minor Changes
+
+- [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Add new box shadow and background color tokens for elevation
+
+* [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7) [#4261](https://github.com/twilio-labs/paste/pull/4261) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design tokens] added new background token, colorBackgroundWeakest and updated dark mode user shadow token in dark themes
+
 ## 10.12.0
 
 ### Minor Changes

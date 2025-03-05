@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.2
+
+### Patch Changes
+
+- [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7) [#4261](https://github.com/twilio-labs/paste/pull/4261) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button, Card, InputBox, Table] updated design tokens used for background color in preparation for theme changes
+
 ## 8.2.1
 
 ### Patch Changes
