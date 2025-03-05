@@ -15,6 +15,7 @@ export const ReadyToGetStarted = (): JSX.Element => {
     <LandingPageSection
       paddingTop={["space200", "space200", "space200"]}
       paddingBottom={["space0", "space0", "space0"]}
+      // @ts-expect-error style is not working here
       css={css({ marginTop: ["50px", "250px", "300px"] })(theme)}
     >
       <LandingPageSectionContent variant="default">

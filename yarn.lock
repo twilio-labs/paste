@@ -16630,9 +16630,9 @@ __metadata:
     react-github-button: ^0.1.11
     react-hook-form: ^7.30.0
     react-hotkeys-hook: ^4.4.1
+    react-intersection-observer: ^9.15.1
     react-live: ^3.1.1
     react-scrollspy: ^3.4.0
-    react-visibility-sensor: 5.1.1
     remark-gfm: ^3.0.1
     rollbar: ^2.26.2
     sharp: ^0.32.5
@@ -39953,6 +39953,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-intersection-observer@npm:^9.15.1":
+  version: 9.15.1
+  resolution: "react-intersection-observer@npm:9.15.1"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 9769b06f065a246c2e477ad6a4ffeeb66c0c00098f094980f123df4ef1e09067b8d4b9f88d5f8e3a6de747c384b02452d0ac8cb91fff7093c15b8375ae097166
+  languageName: node
+  linkType: hard
+
 "react-is@npm:18.0.0":
   version: 18.0.0
   resolution: "react-is@npm:18.0.0"
@@ -40325,18 +40338,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.6.3 || ^17.0.0
   checksum: 1bebc741b01057829a7d7f29256114caecf0597d41b187cb41e75af77f24a87c780bc1a81ec11205b78ee2e9c801fc5e36b20a9e1ab7ddc70a18dd95417795f8
-  languageName: node
-  linkType: hard
-
-"react-visibility-sensor@npm:5.1.1":
-  version: 5.1.1
-  resolution: "react-visibility-sensor@npm:5.1.1"
-  dependencies:
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: ebce7bc743071930a2dd333a041c4a99aac24d5059c47a52eff25a8d81ab9307fadc87b8a6655ebb3154f5c1ceafcc309ae04ee07a7d5fad2949a6903d15acd5
   languageName: node
   linkType: hard
 
