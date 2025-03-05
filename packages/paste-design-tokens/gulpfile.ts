@@ -1,8 +1,10 @@
 import * as gulp from "gulp";
 import gulpif from "gulp-if";
+import gulpRename from "gulp-rename";
 import terser from "gulp-terser";
 import gulpTheo from "gulp-theo";
 import * as theo from "theo";
+import { obj } from "through2";
 
 import { commonTokenFormat } from "./formatters/common";
 import { dTSTokenFormat } from "./formatters/d.ts";
@@ -60,6 +62,34 @@ gulp.task("tokens:css-custom-props", () =>
     .on("error", (err: string) => {
       throw new Error(err);
     })
+    .pipe(gulp.dest(paths.dist)),
+);
+
+gulp.task("tokens:data-theme", () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: { type: "web" },
+        format: { type: "custom-properties.css" },
+      }),
+    )
+    .on("error", (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(
+      obj(function (file: any, _: any, cb: any) {
+        if (file.isBuffer()) {
+          const themeName: string[] | null = file.path.match(/themes\/(.*)\//)?.[1];
+          if (themeName) {
+            const code = file.contents.toString();
+            file.contents = Buffer.from(code.replace(":root", `body[data-theme="${themeName}"]`));
+          }
+        }
+        cb(null, file);
+      }),
+    )
+    .pipe(gulpRename({ extname: ".data-theme.css", basename: "tokens" }))
     .pipe(gulp.dest(paths.dist)),
 );
 
@@ -293,6 +323,7 @@ gulp.task(
     "tokens:sketchpalette",
     "tokens:generic:js",
     "tokens:generic:d:ts",
+    "tokens:data-theme",
   ),
 );
 
