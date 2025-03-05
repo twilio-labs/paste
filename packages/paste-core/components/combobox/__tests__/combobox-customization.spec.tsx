@@ -24,13 +24,13 @@ const getStyles = (element = "COMBOBOX"): { [key: string]: PasteCustomCSS } => (
 });
 
 const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions["wrapper"] =>
-  (function Wrapper({ children }) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={getStyles(elementName)}>
         {children}
       </CustomizationProvider>
     );
-  });
+  };
 
 const ComboboxToTest = ({ element = "COMBOBOX" }): React.ReactElement<any> => (
   <Combobox
