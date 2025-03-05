@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/card",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "category": "data display",
   "status": "production",
   "description": "A Card is a styled container that groups related content and actions.",
@@ -44,7 +44,7 @@
     "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
-    "@twilio-paste/design-tokens": "^10.2.0",
+    "@twilio-paste/design-tokens": "^10.13.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",
