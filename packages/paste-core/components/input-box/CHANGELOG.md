@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.1.2
+
+### Patch Changes
+
+- [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7) [#4261](https://github.com/twilio-labs/paste/pull/4261) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button, Card, InputBox, Table] updated design tokens used for background color in preparation for theme changes
+
+* [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Callout, ChatComposer, ChatLog, Combobox, Input, InputBox, Menu, MinimizableDialog, Modal, Popover, SideModal, SidePanel, Sidebar, Toast, Tooltip, Topbar, UserDialog]: Update styles to implement new elevation tokens
+
 ## 10.1.1
 
 ### Patch Changes

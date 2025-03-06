@@ -49,6 +49,7 @@ const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props
     width={["100%", "size40", "size40"]}
     height={props.height}
     boxSizing="content-box"
+    backgroundColor="colorBackgroundWeaker"
   />
 ));
 
@@ -110,13 +111,11 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
             top={0}
             left={[0, 12, 12]}
             bottom={0}
-            borderStyle="solid"
             borderBottomLeftRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
             borderBottomRightRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
             borderTopRightRadius={["borderRadius60", "borderRadius70", "borderRadius70"]}
             borderTopLeftRadius={["borderRadius60", "borderRadius70", "borderRadius70"]}
-            borderWidth="borderWidth10"
-            borderColor="colorBorderWeaker"
+            boxShadow="shadowElevation05"
             backgroundColor="colorBackgroundBody"
             marginTop={["space100", "space40", "space40"]}
             marginBottom={["space0", "space40", "space40"]}

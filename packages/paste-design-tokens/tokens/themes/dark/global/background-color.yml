@@ -33,6 +33,9 @@ props:
   color-background-weaker:
     value: "{!palette-gray-100}"
     comment: Background color for elevated elements. Matches color-background-body in light mode but appears slightly lighter in dark mode to maintain focus.
+  color-background-weakest:
+    value: "{!palette-gray-110}"
+    comment: The weakest background color used for containers.
 
   # brand backgrounds
   color-background-brand:
@@ -53,7 +56,7 @@ props:
 
   # user background
   color-background-user:
-    value: "{!palette-purple-70}"
+    value: "{!palette-purple-90}"
     comment: User avatar background color.
 
   # account backgrounds
@@ -204,3 +207,6 @@ props:
   color-background-elevation:
     value: "{!palette-gray-95}"
     comment: Elevation token for color-background elements.
+  color-background-strong-elevation:
+    value: "{!palette-gray-90}"
+    comment: Elevation token for color-background-strong elements.

@@ -1,5 +1,47 @@
 # Change Log
 
+## 20.22.0
+
+### Minor Changes
+
+- [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Add new box shadow and background color tokens for elevation
+
+* [`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3) [#4230](https://github.com/twilio-labs/paste/pull/4230) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Update mobile styles, add useSidePanelState hook, animation fixes
+
+- [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7) [#4261](https://github.com/twilio-labs/paste/pull/4261) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design tokens] added new background token, colorBackgroundWeakest and updated dark mode user shadow token in dark themes
+
+* [`50da0778c`](https://github.com/twilio-labs/paste/commit/50da0778cb52ab99cbac325d09d1ee15451b91a2) [#4236](https://github.com/twilio-labs/paste/pull/4236) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [ChartProvider] added a new component that will wrap chart instances to control and share the state to child charting components
+
+### Patch Changes
+
+- [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7) [#4261](https://github.com/twilio-labs/paste/pull/4261) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Button, Card, InputBox, Table] updated design tokens used for background color in preparation for theme changes
+
+* [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e) [#4226](https://github.com/twilio-labs/paste/pull/4226) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Callout, ChatComposer, ChatLog, Combobox, Input, InputBox, Menu, MinimizableDialog, Modal, Popover, SideModal, SidePanel, Sidebar, Toast, Tooltip, Topbar, UserDialog]: Update styles to implement new elevation tokens
+
+* Updated dependencies [[`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7), [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e), [`3e9bf5fbd`](https://github.com/twilio-labs/paste/commit/3e9bf5fbdbfa800a86746baf5369ed104afd1ba3), [`dbd869a0c`](https://github.com/twilio-labs/paste/commit/dbd869a0ce1a1fef4c4d3f57f85611444a1a14a7), [`50da0778c`](https://github.com/twilio-labs/paste/commit/50da0778cb52ab99cbac325d09d1ee15451b91a2), [`0ed9f3482`](https://github.com/twilio-labs/paste/commit/0ed9f348271260678f7a1d5f31e4789315de031e)]:
+  - @twilio-paste/button@14.1.3
+  - @twilio-paste/card@9.1.1
+  - @twilio-paste/input-box@10.1.2
+  - @twilio-paste/table@8.2.2
+  - @twilio-paste/design-tokens@10.13.0
+  - @twilio-paste/side-panel@1.2.0
+  - @twilio-paste/chart-provider@1.0.0
+  - @twilio-paste/callout@4.2.2
+  - @twilio-paste/chat-composer@5.2.2
+  - @twilio-paste/chat-log@5.2.2
+  - @twilio-paste/combobox@16.3.1
+  - @twilio-paste/input@9.1.4
+  - @twilio-paste/menu@14.1.4
+  - @twilio-paste/minimizable-dialog@4.1.2
+  - @twilio-paste/modal@16.1.3
+  - @twilio-paste/popover@13.3.1
+  - @twilio-paste/side-modal@4.2.1
+  - @twilio-paste/sidebar@1.1.3
+  - @twilio-paste/toast@12.2.2
+  - @twilio-paste/tooltip@12.0.1
+  - @twilio-paste/topbar@1.2.1
+  - @twilio-paste/user-dialog@2.1.3
+
 ## 20.21.0
 
 ### Minor Changes

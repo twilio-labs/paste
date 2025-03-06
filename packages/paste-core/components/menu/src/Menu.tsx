@@ -9,12 +9,9 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({ style, .
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      backgroundColor="colorBackgroundBody"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderWeaker"
+      backgroundColor="colorBackgroundWeaker"
       borderRadius="borderRadius30"
-      boxShadow="shadow"
+      boxShadow="shadowElevation10"
       maxWidth="size30"
       minWidth="size20"
       zIndex="zIndex20"

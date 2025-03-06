@@ -25,7 +25,7 @@ export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButt
         size="reset"
         type="button"
         borderRadius="borderRadius20"
-        backgroundColor={variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
+        backgroundColor={variant === "inverse" ? "colorBackgroundInverseElevation" : "colorBackgroundBodyElevation"}
         marginRight="space30"
         _focus={{
           boxShadow: variant === "inverse" ? "shadowBorderInverseStrong" : "shadowBorderPrimary",

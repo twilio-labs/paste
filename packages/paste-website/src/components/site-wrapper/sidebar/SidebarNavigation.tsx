@@ -139,6 +139,18 @@ const SiteSidebarNavigation = (): JSX.Element => {
           Data visualization
         </SidebarAnchor>
         <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/elevation`}
+          onClick={() =>
+            event({
+              category: "Left Navigation",
+              action: "click-elevation",
+              label: "Elevation",
+            })
+          }
+        >
+          Elevation
+        </SidebarAnchor>
+        <SidebarAnchor
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
           onClick={() =>
             event({
