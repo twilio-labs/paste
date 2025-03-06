@@ -84,7 +84,6 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
   const handleToggleCodeEditor = (): void => {
     setViewCode(!viewCode);
   };
-  const liveEditorId = useUID();
   const theme = useTheme();
 
   return (
@@ -110,7 +109,6 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
           onClick={handleToggleCodeEditor}
           aria-label="View Code"
           aria-expanded={viewCode}
-          aria-controls={liveEditorId}
         >
           {viewCode ? (
             <>
@@ -127,7 +125,6 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
       </Box>
       <LiveProvider code={children} language="jsx" theme={CodeblockTheme}>
         <LiveEditor
-          id={liveEditorId}
           style={{
             margin: "-10px",
             fontFamily: theme.fonts.fontFamilyCode,
