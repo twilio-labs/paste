@@ -1,3 +1,4 @@
+import { sizings as fallbackSizings } from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6";
 import type {
   BackgroundColorsKeys,
   BorderColorsKeys,
@@ -19,7 +20,7 @@ import type {
 } from "./types/GenericThemeShape";
 import { remToPx } from "./utils/remToPx";
 
-interface GenerateThemeFromTokensArgs {
+export interface GenerateThemeFromTokensArgs {
   backgroundColors: Partial<{ [key in BackgroundColorsKeys]: any }>;
   borderColors: Partial<{ [key in BorderColorsKeys]: any }>;
   borderWidths: Partial<{ [key in BorderWidthsKeys]: any }>;
@@ -56,11 +57,13 @@ export const generateThemeFromTokens = ({
   textColors,
   zIndices,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
+  // breakpoints need rm not CSS variables so need to use a fallback for the default sizings
+  const sizingsForBrakpoints = sizings.size0.includes("var") ? fallbackSizings : sizings;
   // default breakpoints
   const breakpoints = [
-    remToPx(sizings.size40, "string"),
-    remToPx(sizings.size100, "string"),
-    remToPx(sizings.size120, "string"),
+    remToPx(sizingsForBrakpoints.size40, "string"),
+    remToPx(sizingsForBrakpoints.size100, "string"),
+    remToPx(sizingsForBrakpoints.size120, "string"),
   ];
 
   return {

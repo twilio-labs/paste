@@ -17,21 +17,41 @@ import {
   zIndices,
 } from "@twilio-paste/design-tokens/dist/tokens.es6";
 
-export const CSSVariablesTheme = {
-  backgroundColors,
-  borderColors,
-  borderWidths,
-  radii,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  boxShadows,
-  sizings,
-  spacings,
-  textColors,
-  zIndices,
-  dataVisualization,
-  colors,
-  colorSchemes,
+import { GenerateThemeFromTokensArgs, generateThemeFromTokens } from "../../generateThemeFromTokens";
+
+const convertToCSSVariables = (tokens: GenerateThemeFromTokensArgs | object) => {
+  const cssVariables: Partial<Record<keyof GenerateThemeFromTokensArgs, string | object>> = {};
+
+  for (const [key, value] of Object.entries(tokens) as Array<[keyof GenerateThemeFromTokensArgs, string | object]>) {
+    if (typeof value === "object") {
+      cssVariables[key] = convertToCSSVariables(value);
+    } else {
+      // Convert the key to a CSS variable name colorBagroundPrimary -> --color-background-primary size10 -> --size-10
+      const cssVariableName = `--${key.replace(/([A-Z])/g, "-$1").replace(/(\d+)/g, "-$1").toLowerCase()}`;
+      cssVariables[key] = `var(${cssVariableName})`;
+    }
+  }
+
+  return cssVariables;
 };
+
+export const CSSVariablesTheme = generateThemeFromTokens(
+  convertToCSSVariables({
+    backgroundColors,
+    borderColors,
+    borderWidths,
+    radii,
+    fonts,
+    fontSizes,
+    fontWeights,
+    lineHeights,
+    boxShadows,
+    sizings,
+    spacings,
+    textColors,
+    zIndices,
+    dataVisualization,
+    colors,
+    colorSchemes,
+  }) as GenerateThemeFromTokensArgs,
+);
