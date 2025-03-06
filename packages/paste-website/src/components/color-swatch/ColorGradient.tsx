@@ -6,7 +6,7 @@ import { styled, themeGet } from "@twilio-paste/styling-library";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 import type { JSX } from "react";
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from "react-intersection-observer";
 
 import { useDarkModeContext } from "../../context/DarkModeContext";
 import type { Themes } from "../../types";
@@ -52,11 +52,8 @@ const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
 const StyledGradientSwatchTall = styled.div<{ backgroundColor: string; rounded: boolean }>((props) => {
   return {
     backgroundColor: props.backgroundColor,
-    // @ts-expect-error this works fine
     height: props.theme.space.space120,
-    // @ts-expect-error this works fine
     borderBottomLeftRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
-    // @ts-expect-error this works fine
     borderBottomRightRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
   };
 });
@@ -69,13 +66,18 @@ export const ColorGradient: React.FC<
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
   const count = aliasValues.length - 1;
 
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  React.useEffect(() => {
+    if (inView && !show) {
       setTimeout(() => {
-        setShow(isVisible);
+        setShow(true);
       }, index * 50);
     }
-  }
+  }, [inView, show, index]);
 
   const styles = useSpring({
     opacity: show ? 1 : 0.1,
@@ -86,13 +88,13 @@ export const ColorGradient: React.FC<
 
   if (makeTall) {
     return (
-      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility offset={{ bottom: 100 }}>
+      <Box ref={ref}>
         <AnimatedBox borderRadius="borderRadius20" overflow="hidden" style={styles}>
           {aliasValues.map((aliasValue, _index) => (
             <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} rounded={_index === count} />
           ))}
         </AnimatedBox>
-      </VisibilitySensor>
+      </Box>
     );
   }
   return (

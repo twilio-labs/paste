@@ -71,10 +71,12 @@ const Boop: React.FC<BoopProps> = ({
     };
   }, [isBooped, timing]);
 
+  const AnimatedSpan = animated("span");
+
   return (
-    <animated.span onMouseEnter={trigger} style={style}>
+    <AnimatedSpan onMouseEnter={trigger} style={style}>
       {children}
-    </animated.span>
+    </AnimatedSpan>
   );
 };
 

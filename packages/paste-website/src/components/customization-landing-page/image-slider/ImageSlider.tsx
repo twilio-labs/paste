@@ -2,7 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { useUIDSeed } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
-import type { JSX, Ref, MutableRefObject } from "react";
+import type { JSX, Ref, RefObject } from "react";
 
 import HeroBack from "../../../assets/images/customization/hero-back.png";
 import HeroFront from "../../../assets/images/customization/hero-front.png";
@@ -94,7 +94,7 @@ export const ImageSlider = (): JSX.Element => {
       maxWidth="size60"
       position="absolute"
       top="space150"
-      ref={containerRef as MutableRefObject<HTMLElement>}
+      ref={containerRef as RefObject<HTMLElement>}
       right="spaceNegative150"
       width="60%"
       zIndex="zIndex10"

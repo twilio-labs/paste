@@ -4,7 +4,7 @@ import type { ValueOf } from "@twilio-paste/types";
 import lottie from "lottie-web";
 import Image from "next/image";
 import * as React from "react";
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from "react-intersection-observer";
 
 import HomeHeroIllu from "../../assets/illustrations/home_hero.svg";
 import { inCypress } from "../../utils/inCypress";
@@ -44,11 +44,16 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
   const containerRef = React.useRef(null);
   const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.UNINITIALIZED);
 
-  const handleVisibilityChange = (isVisible: boolean): void => {
-    if (illustrationState === IllustrationStates.UNINITIALIZED && isVisible) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  React.useEffect(() => {
+    if (illustrationState === IllustrationStates.UNINITIALIZED && inView) {
       setIllustrationState(prefersReducedMotion ? IllustrationStates.STATIC : IllustrationStates.DYNAMIC);
     }
-  };
+  }, [inView, illustrationState, prefersReducedMotion]);
 
   React.useEffect(() => {
     if (!prefersReducedMotion && illustrationState === IllustrationStates.DYNAMIC) {
@@ -84,7 +89,7 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
    * Also to prevent height fouc when the animation loads
    */
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={15}>
+    <Box ref={ref}>
       <Box
         aria-hidden="true"
         maxWidth="size70"
@@ -95,7 +100,7 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
       >
         <IllustrationChildren state={illustrationState} />
       </Box>
-    </VisibilitySensor>
+    </Box>
   );
 };
 
