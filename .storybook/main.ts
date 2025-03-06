@@ -2,6 +2,7 @@ import path from "path";
 import type { StorybookConfig } from "@storybook/react-vite";
 import { mergeConfig } from "vite";
 import turbosnap from "vite-plugin-turbosnap";
+
 const config: StorybookConfig = {
   stories: [
     "../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)",
@@ -22,7 +23,9 @@ const config: StorybookConfig = {
   typescript: {
     // enable type checking
     check: true,
+    reactDocgen: "react-docgen-typescript",
   },
+
   async viteFinal(config, { configType }) {
     const isTest = process.env.NODE_ENV === "test";
     return mergeConfig(config, {
@@ -56,6 +59,10 @@ const config: StorybookConfig = {
         include: ["@storybook/addon-viewport", "chromatic", "@emotion/react/jsx-dev-runtime"],
       },
     });
+  },
+
+  docs: {
+    autodocs: false,
   },
 };
 export default config;

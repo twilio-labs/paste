@@ -9,6 +9,12 @@
   "rules": {
     "import/no-default-export": "off",
     "react/display-name": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@next/next/no-img-element": "off"
+  },
+  "settings": {
+    "next": {
+      "rootDir": "packages/paste-website/"
+    }
   }
 }

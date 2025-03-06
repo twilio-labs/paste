@@ -281,7 +281,6 @@ export const decorators = [
 
 export const parameters = {
   isTestEnvironment,
-  actions: { argTypesRegex: "^on[A-Z].*" },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },

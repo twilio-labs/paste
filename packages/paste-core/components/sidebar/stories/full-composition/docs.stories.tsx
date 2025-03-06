@@ -24,17 +24,11 @@ import {
   SidebarNavigationItem,
   SidebarPushContentWrapper,
 } from "../../src";
-import { AppSwitcher } from "./components/AppSwitcher";
-import { NotificationsDialog } from "./components/NotificationsDialog";
 import { SearchBox } from "./components/SearchBox";
-import { SupportMenu } from "./components/SupportMenu";
-import { UpgradeBadge } from "./components/UpgradeBadge";
-import { UserDialogExample } from "./components/UserDialogSegment";
-import { WorkspaceSwitcherMenu } from "./components/WorkspaceSwitcher";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: "Components/Sidebar/FullCompositions",
+  title: "Components/Sidebar/Docs",
 };
 
 /* eslint-disable react/jsx-max-depth */
