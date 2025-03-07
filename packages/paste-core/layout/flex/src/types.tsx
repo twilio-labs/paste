@@ -1,6 +1,7 @@
 import type { BoxProps } from "@twilio-paste/box";
 import type { LayoutProps, MarginProps, PaddingProps } from "@twilio-paste/style-props";
 import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import type { JSX } from "react";
 
 export type DisplayOptions = "flex" | "inline-flex";
 export type Display = ResponsiveValue<DisplayOptions>;
@@ -26,7 +27,7 @@ export interface FlexProps extends Omit<LayoutProps, "verticalAlign">, MarginPro
    * @type {keyof JSX.IntrinsicElements}
    * @memberof FlexProps
    */
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

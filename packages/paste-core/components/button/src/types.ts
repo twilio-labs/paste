@@ -1,5 +1,6 @@
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import type { JSX } from "react";
 
 type ButtonTypes = "submit" | "button" | "reset";
 export type ButtonSizes =
@@ -53,7 +54,7 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
    * The HTML tag to replace the default `<button>` tag.
    * @default 'button'
    */
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements;
   /** The various states of interactivity for the button. */
   buttonState: ButtonStates;
   children: React.ReactNode;

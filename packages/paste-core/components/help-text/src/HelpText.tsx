@@ -6,6 +6,7 @@ import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import type { TextColor } from "@twilio-paste/style-props";
 import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 import * as React from "react";
+import type { JSX } from "react";
 
 export const HelpTextVariants = {
   DEFAULT: "default",
@@ -49,7 +50,7 @@ export interface HelpTextProps extends HTMLPasteProps<"div"> {
 type VariantOptionsProps = {
   [key in HelpTextVariants]: {
     textColor: TextColor;
-    icon: React.JSX.Element | null;
+    icon: JSX.Element | null;
   };
 };
 const VariantOptions: VariantOptionsProps = {
