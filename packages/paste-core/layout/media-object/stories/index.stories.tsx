@@ -6,6 +6,7 @@ import { useTheme } from "@twilio-paste/theme";
 import type { ThemeShape } from "@twilio-paste/theme";
 import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { MediaBody, MediaFigure, MediaObject } from "../src";
 
@@ -22,7 +23,7 @@ export const Default = (): React.ReactNode => {
   const marginBottomValue = "space0" as keyof ThemeShape["space"];
   const marginTopValue = "space0" as keyof ThemeShape["space"];
   const verticalAlignValue = "top";
-  const asValue = "span" as keyof React.JSX.IntrinsicElements;
+  const asValue = "span" as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
@@ -45,7 +46,7 @@ export const DoubleFigure = (): React.ReactNode => {
   const marginBottomValue = "space0" as keyof ThemeShape["space"];
   const marginTopValue = "space0" as keyof ThemeShape["space"];
   const verticalAlignValue = "top";
-  const asValue = "span" as keyof React.JSX.IntrinsicElements;
+  const asValue = "span" as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}

@@ -131,7 +131,7 @@ export interface SliderProps {
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, ref) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
-  const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;
+  const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement | null>;
   const [hovered, setHovered] = React.useState(false);
   const [focused, setFocused] = React.useState(false);
 

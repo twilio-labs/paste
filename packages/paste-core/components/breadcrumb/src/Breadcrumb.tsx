@@ -126,7 +126,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
       () => [
         React.Children.count(children),
         React.Children.toArray(children).filter(
-          (child): child is React.ReactElement => React.isValidElement(child) || typeof child === "string",
+          (child): child is React.ReactElement<any> => React.isValidElement(child) || typeof child === "string",
         ),
       ],
       [children],

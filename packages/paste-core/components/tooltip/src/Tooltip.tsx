@@ -15,11 +15,9 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({ style, eleme
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      backgroundColor="colorBackgroundBodyInverse"
+      backgroundColor="colorBackgroundInverseElevation"
+      boxShadow="shadowElevationInverse10"
       borderRadius="borderRadius30"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderInverse"
       element={element}
       maxWidth="size30"
       paddingX="space50"
@@ -47,7 +45,7 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
    * @memberof TooltipProps
    */
   element?: BoxProps["element"];
-  children: NonNullable<React.ReactElement>;
+  children: NonNullable<React.ReactElement<any>>;
   /**
    * The returned state from the `useTooltipState` hook.
    *

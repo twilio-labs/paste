@@ -16,7 +16,7 @@ export const ChromeImage: React.FC = () => {
       alt="Chrome/Edge implementation of time picker"
       width={300}
       placeholder="blur"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",
@@ -32,7 +32,7 @@ export const SafariImage = (): JSX.Element => {
     <Image
       src={Safari}
       alt="Safari implementation of time picker"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",
@@ -50,7 +50,7 @@ export const FirefoxImage = (): JSX.Element => {
     <Image
       src={Firefox}
       alt="Firefox implementation of time picker"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",

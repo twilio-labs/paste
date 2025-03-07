@@ -49,19 +49,21 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
       top={`${SITE_TOPBAR_HEIGHT - 1}px`}
       zIndex="zIndex10"
       marginX="spaceNegative40"
-      css={{
-        "::before": {
-          content: '""',
-          position: "absolute",
-          bottom: "0",
-          right: "8px",
-          left: "8px",
-          height: "1px",
-          backgroundColor: "#fff",
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.8)",
-          opacity: shadowOpacity,
-        },
-      }}
+      style={
+        {
+          "::before": {
+            content: '""',
+            position: "absolute",
+            bottom: "0",
+            right: "8px",
+            left: "8px",
+            height: "1px",
+            backgroundColor: "#fff",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.8)",
+            opacity: shadowOpacity,
+          },
+        } as React.CSSProperties
+      }
     >
       <Box backgroundColor="colorBackgroundBody" padding="space40" position="relative">
         <Grid gutter="space40" vertical={[true, false, true, false]}>

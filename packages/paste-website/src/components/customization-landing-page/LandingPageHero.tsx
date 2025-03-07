@@ -18,7 +18,7 @@ export const LandingPageHero = (): JSX.Element => {
           paddingX={["space90", "space160"]}
           paddingTop={["space90", "space190"]}
           position="relative"
-          css={{
+          style={{
             paddingBottom: "100px",
           }}
           _before={{

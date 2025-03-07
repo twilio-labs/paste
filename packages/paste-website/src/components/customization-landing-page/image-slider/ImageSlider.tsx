@@ -2,7 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { useUIDSeed } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
-import type { JSX, LegacyRef, MutableRefObject } from "react";
+import type { JSX, Ref, RefObject } from "react";
 
 import HeroBack from "../../../assets/images/customization/hero-back.png";
 import HeroFront from "../../../assets/images/customization/hero-front.png";
@@ -32,8 +32,8 @@ export const ImageSlider = (): JSX.Element => {
   const [isDragging, setIsDragging] = React.useState(false);
   const [refsAreInitiated, setRefsAreInitiated] = React.useState(false);
 
-  const containerRef = React.useRef<HTMLElement>();
-  const svgCircleRef = React.useRef<SVGCircleElement>();
+  const containerRef = React.useRef<HTMLElement>(undefined);
+  const svgCircleRef = React.useRef<SVGCircleElement>(undefined);
 
   const {
     width: containerWidth,
@@ -94,7 +94,7 @@ export const ImageSlider = (): JSX.Element => {
       maxWidth="size60"
       position="absolute"
       top="space150"
-      ref={containerRef as MutableRefObject<HTMLElement>}
+      ref={containerRef as RefObject<HTMLElement>}
       right="spaceNegative150"
       width="60%"
       zIndex="zIndex10"
@@ -138,7 +138,7 @@ export const ImageSlider = (): JSX.Element => {
             <SVGThumb
               left={Math.round(clip - minimumChange)}
               top={svgOffset}
-              svgCircleRef={svgCircleRef as LegacyRef<SVGCircleElement>}
+              svgCircleRef={svgCircleRef as Ref<SVGCircleElement>}
               initRefs={setRefsAreInitiated}
               width={svgWidth}
               height={svgHeight}

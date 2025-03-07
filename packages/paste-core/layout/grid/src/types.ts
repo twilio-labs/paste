@@ -2,10 +2,11 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { FlexboxProps, LayoutProps, Padding, PaddingProps, Space, SpaceProps } from "@twilio-paste/style-props";
 import type { ResponsiveValue } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import type { JSX } from "react";
 
 /** element identifier from BoxProps for customization */
 export interface GridProps extends HTMLPasteProps<"div">, SpaceProps {
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -60,7 +61,7 @@ export interface ColumnStyleProps extends Omit<LayoutProps, "minWidth" | "width"
 
 /** element identifier from BoxProps for customization */
 export interface ColumnProps extends HTMLPasteProps<"div">, ColumnStyleProps {
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

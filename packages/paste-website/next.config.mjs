@@ -21,7 +21,6 @@ const withMDX = nextMdx({
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   reactStrictMode: true,
-  swcMinify: true,
   compiler: {
     emotion: true,
   },

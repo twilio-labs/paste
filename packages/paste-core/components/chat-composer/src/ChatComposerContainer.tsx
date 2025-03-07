@@ -5,14 +5,13 @@ import * as React from "react";
 import { ChatComposerContext } from "./ChatComposerContext";
 
 const Styles: Record<string, BoxStyleProps> = {
-  default: {},
+  default: {
+    backgroundColor: "colorBackgroundWeaker",
+  },
   contained: {
-    borderWidth: "borderWidth10",
-    borderStyle: "solid",
     borderRadius: "borderRadius30",
-    borderColor: "colorBorderWeaker",
-    boxShadow: "shadowLow",
-    backgroundColor: "colorBackgroundBody",
+    boxShadow: "shadowElevation10",
+    backgroundColor: "colorBackgroundWeaker",
   },
 };
 

@@ -9,7 +9,7 @@ import { SiteMetaDefaults } from "../constants";
 import type { NavigationQuery } from "../context/NavigationContext";
 
 interface DefaultLayoutProps {
-  children?: React.ReactElement;
+  children?: React.ReactElement<any>;
   data?: unknown;
   meta: {
     title?: string;

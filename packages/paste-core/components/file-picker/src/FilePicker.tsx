@@ -16,7 +16,7 @@ export interface FilePickerProps extends HTMLPasteProps<"input"> {
    * @memberof FilePickerProps
    */
   accept?: string;
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

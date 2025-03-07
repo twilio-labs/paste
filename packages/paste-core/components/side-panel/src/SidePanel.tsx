@@ -49,6 +49,7 @@ const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props
     width={["100%", "size40", "size40"]}
     height={props.height}
     boxSizing="content-box"
+    backgroundColor="colorBackgroundWeaker"
   />
 ));
 
@@ -71,7 +72,7 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
   ({ label, element, sidePanelId, styles, isMobile, children, ...props }, ref) => {
     // Get the offset of the side panel from the top of the viewport
     const sidePanelRef = React.useRef<HTMLDivElement>(null);
-    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement>;
+    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement | null>;
     const screenSize = window.innerHeight;
     const [offsetY, setOffsetY] = React.useState(0);
     React.useEffect(() => {
@@ -110,13 +111,11 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
             top={0}
             left={[0, 12, 12]}
             bottom={0}
-            borderStyle="solid"
             borderBottomLeftRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
             borderBottomRightRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
             borderTopRightRadius={["borderRadius60", "borderRadius70", "borderRadius70"]}
             borderTopLeftRadius={["borderRadius60", "borderRadius70", "borderRadius70"]}
-            borderWidth="borderWidth10"
-            borderColor="colorBorderWeaker"
+            boxShadow="shadowElevation05"
             backgroundColor="colorBackgroundBody"
             marginTop={["space100", "space40", "space40"]}
             marginBottom={["space0", "space40", "space40"]}

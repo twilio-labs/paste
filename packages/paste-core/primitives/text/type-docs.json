@@ -571,7 +571,7 @@
       "description": "Responsive prop for the CSS `bottom` property"
     },
     "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | \"shadowBorderBottomDecorative10Weaker\" | ... 85 more ... | { ...; }",
+      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | \"shadowBorderBottomDecorative10Weaker\" | ... 86 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

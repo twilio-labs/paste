@@ -22,7 +22,7 @@ const Breadcrumb: React.FC<React.PropsWithChildren> = ({ children }) => {
         display="flex"
         margin="space0"
         padding="space0"
-        css={{
+        style={{
           listStyle: "none",
         }}
       >

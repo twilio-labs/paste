@@ -22,7 +22,7 @@ const ToastComponentVariants = {
   warning: WarningToast,
 };
 
-const renderToastIcon = (variant: ToastVariants, title: string, element?: string): React.ReactElement => {
+const renderToastIcon = (variant: ToastVariants, title: string, element?: string): React.ReactElement<any> => {
   switch (variant) {
     case ToastVariantObject.ERROR:
       return (

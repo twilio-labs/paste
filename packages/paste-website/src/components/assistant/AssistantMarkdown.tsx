@@ -46,7 +46,7 @@ export const AssistantTable: React.FC<React.PropsWithChildren> = ({ children }) 
 };
 
 export const assistantMarkdownOptions = {
-  renderRule(next: () => React.ReactChild, node: MarkdownToJSX.ParserResult) {
+  renderRule(next: () => React.ReactNode, node: MarkdownToJSX.ParserResult) {
     if (node.type === "3") {
       return (
         <Box marginBottom="space50">

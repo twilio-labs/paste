@@ -382,7 +382,7 @@ describe("Button", () => {
 
       expect(button).not.toHaveStyleRule("text-align", "left");
       expect(button).toHaveStyleRule("color", "colorText");
-      expect(button).toHaveStyleRule("background-color", "colorBackgroundBody");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundWeakest");
       expect(button).toHaveStyleRule("box-shadow", "shadowBorderWeak");
 
       expect(getByText("Secondary")).toHaveStyleRule("justify-content", "center");
@@ -441,7 +441,7 @@ describe("Button", () => {
       const button = getByTestId("destructive_secondary-styles");
       expect(button).not.toHaveStyleRule("text-align", "left");
       expect(button).toHaveStyleRule("color", "colorTextDestructive");
-      expect(button).toHaveStyleRule("background-color", "colorBackgroundBody");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundWeakest");
       expect(button).toHaveStyleRule("box-shadow", "shadowBorderWeak");
 
       expect(getByText("Destructive secondary")).toHaveStyleRule("justify-content", "center");

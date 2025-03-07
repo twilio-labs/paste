@@ -10,6 +10,7 @@ import { useTheme } from "@twilio-paste/theme";
 import type { ThemeShape } from "@twilio-paste/theme";
 import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Column, Grid } from "../src";
 
@@ -21,7 +22,7 @@ export default {
 };
 
 export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
-  const asValue = "div" as keyof React.JSX.IntrinsicElements;
+  const asValue = "div" as keyof JSX.IntrinsicElements;
   const gutterValue = "space0" as keyof ThemeShape["space"];
   return (
     <Grid as={asValue} gutter={gutterValue}>

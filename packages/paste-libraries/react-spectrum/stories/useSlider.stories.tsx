@@ -14,7 +14,7 @@ export default {
 interface ThumbProps {
   index: number;
   state: SliderState;
-  trackRef: React.RefObject<HTMLDivElement>;
+  trackRef: React.RefObject<HTMLDivElement | null>;
   isDisabled?: boolean;
 }
 
@@ -25,7 +25,7 @@ const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => 
     {
       index,
       trackRef,
-      inputRef: inputRef as React.RefObject<HTMLInputElement>,
+      inputRef: inputRef as React.RefObject<HTMLInputElement | null>,
     },
     state,
   );
@@ -53,7 +53,7 @@ const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
   const { groupProps, trackProps, labelProps, outputProps } = useSlider(
     props,
     state,
-    trackRef as React.RefObject<HTMLDivElement>,
+    trackRef as React.RefObject<HTMLDivElement | null>,
   );
 
   return (
@@ -76,7 +76,7 @@ const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
           <Thumb
             index={0}
             state={state}
-            trackRef={trackRef as React.RefObject<HTMLInputElement>}
+            trackRef={trackRef as React.RefObject<HTMLInputElement | null>}
             isDisabled={props.isDisabled}
           />
         </Box>

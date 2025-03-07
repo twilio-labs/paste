@@ -21,7 +21,7 @@ export default {
   component: TextArea,
 };
 
-export const Textarea = (): React.ReactElement => {
+export const Textarea = (): React.ReactElement<any> => {
   const uid = useUID();
   return (
     <>
@@ -39,7 +39,7 @@ export const Textarea = (): React.ReactElement => {
   );
 };
 
-export const MultipleTextareas = (): React.ReactElement => {
+export const MultipleTextareas = (): React.ReactElement<any> => {
   const [shouldDisplayTextareas, setShouldDisplayTextareas] = React.useState(true);
   const [textareas, setTextareas] = React.useState<React.ReactNode[]>([]);
 
@@ -90,7 +90,7 @@ MultipleTextareas.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
-export const TextareaMaxRows = (): React.ReactElement => {
+export const TextareaMaxRows = (): React.ReactElement<any> => {
   const uid = useUID();
   const [value, setValue] = React.useState(`1
 2

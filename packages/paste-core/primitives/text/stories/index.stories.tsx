@@ -22,6 +22,7 @@ import type {
 } from "@twilio-paste/style-props";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { CustomizableTextExample } from "../__fixtures__/CustomizableText";
 import { Text } from "../src";
@@ -33,7 +34,7 @@ export default {
 };
 
 export const Default = (): React.ReactNode => {
-  const asValue = "p" as keyof React.JSX.IntrinsicElements;
+  const asValue = "p" as keyof JSX.IntrinsicElements;
   const displayValue = "" as Display;
 
   const fontFamilyValue = "" as FontFamily;
@@ -159,7 +160,7 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
 
 PseudoClassesWithHoverPseudoProps.storyName = "Pseudo-classes with hover pseudo props";
 
-const CustomTextCollection = (): React.JSX.Element => {
+const CustomTextCollection = (): JSX.Element => {
   return (
     <>
       <CustomizableTextExample element="RECTANGLE">base</CustomizableTextExample>

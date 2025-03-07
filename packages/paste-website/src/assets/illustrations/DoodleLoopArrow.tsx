@@ -1,8 +1,9 @@
 import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 import type { JSX } from "react";
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from "react-intersection-observer";
 
 const dashArray = 250;
 
@@ -10,20 +11,27 @@ export const DoodleLoopArrow = (): JSX.Element => {
   const [show, setShow] = React.useState(false);
   const theme = useTheme();
 
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
-      setShow(isVisible);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  React.useEffect(() => {
+    if (inView && !show) {
+      setShow(true);
     }
-  }
+  }, [inView, show]);
 
   const styles = useSpring({
     x: show ? 0 : -1 * dashArray,
     config: { mass: 1, tension: 280, friction: 40 },
   });
 
+  const AnimatedSVG = animated("svg");
+
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={60}>
-      <animated.svg
+    <Box ref={ref}>
+      <AnimatedSVG
         stroke={theme.borderColors.colorBorderInverseStrongest}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -50,7 +58,7 @@ export const DoodleLoopArrow = (): JSX.Element => {
           strokeWidth="2"
           d="M67.65 30.703l24.992 13.844L81.73 9.203"
         />
-      </animated.svg>
-    </VisibilitySensor>
+      </AnimatedSVG>
+    </Box>
   );
 };

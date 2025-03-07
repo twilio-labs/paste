@@ -17,12 +17,9 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({ style, width
     <Box
       {...safelySpreadBoxProps(props)}
       width={width}
-      backgroundColor="colorBackgroundBody"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderWeaker"
+      backgroundColor="colorBackgroundWeaker"
       borderRadius="borderRadius30"
-      boxShadow="shadowLow"
+      boxShadow="shadowElevation10"
       maxWidth="size50"
       zIndex="zIndex80"
       _focus={{ outline: "none" }}

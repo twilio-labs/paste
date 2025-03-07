@@ -12,6 +12,7 @@ import type {
   TypographyProps,
   VerticalAlign,
 } from "@twilio-paste/style-props";
+import type { JSX } from "react";
 
 import type { PseudoPropStyles } from "./PseudoPropStyles";
 
@@ -80,7 +81,7 @@ export interface TextElementProps extends Omit<React.HTMLAttributes<HTMLElement>
    * @type {keyof JSX.IntrinsicElements}
    * @memberof TextElementProps
    */
-  as: keyof React.JSX.IntrinsicElements;
+  as: keyof JSX.IntrinsicElements;
   /**
    * Same as HTML
    *
