@@ -113,7 +113,7 @@ jobs:
         run: yarn lint
 
   tests:
-    name: Test repository using React 18=9
+    name: Test repository using React 19
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
