@@ -1,5 +1,6 @@
 import { AutoLinkPlugin as LexicalAutoLinkPlugin } from "@twilio-paste/lexical-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 const URL_MATCHER =
   /(?:(?:https?:\/\/(?:www\.)?)|(?:www\.))[\w#%+.:=@~-]{1,256}\.[\d()A-Za-z]{1,6}\b[\w#%&()+./:=?@~-]*/;

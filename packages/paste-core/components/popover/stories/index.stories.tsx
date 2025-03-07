@@ -12,6 +12,7 @@ import { useTheme } from "@twilio-paste/theme";
 import { TimePicker } from "@twilio-paste/time-picker";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   Popover,

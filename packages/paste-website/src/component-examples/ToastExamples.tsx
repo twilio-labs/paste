@@ -7,6 +7,7 @@ import { Toaster, useToaster } from "@twilio-paste/toast";
 import type { ToastVariants } from "@twilio-paste/toast";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 export const ToasterExample = (): JSX.Element => {
   const toaster = useToaster();

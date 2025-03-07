@@ -3,11 +3,10 @@ import { Button } from "@twilio-paste/button";
 import { HideIcon } from "@twilio-paste/icons/esm/HideIcon";
 import { ShowIcon } from "@twilio-paste/icons/esm/ShowIcon";
 import { Theme, useTheme } from "@twilio-paste/theme";
-import { useUID } from "@twilio-paste/uid-library";
+import type { Language } from "prism-react-renderer";
 // https://github.com/FormidableLabs/react-live
 import * as React from "react";
 import { LiveEditor, LiveError, LivePreview as ReactLivePreview, LiveProvider } from "react-live";
-import type { LiveProviderProps } from "react-live";
 
 import { usePreviewThemeContext } from "../../../context/PreviewThemeContext";
 import { CopyButton } from "../../CopyButton";
@@ -18,7 +17,7 @@ import { CodeblockTheme } from "./theme";
 interface LivePreviewProps {
   children: string;
   scope: { [key: string]: any };
-  language?: LiveProviderProps["language"];
+  language?: Language;
   disabled?: boolean;
   noInline?: boolean;
   showOverflow?: boolean;
@@ -35,7 +34,6 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   height = "unset",
 }) => {
   const [viewCode, setViewCode] = React.useState(false);
-  const id = useUID();
 
   const pasteTheme = useTheme();
   const { theme: previewTheme } = usePreviewThemeContext();
@@ -104,7 +102,6 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
                 onClick={handleToggleCodeEditor}
                 aria-label="View Code"
                 aria-expanded={viewCode}
-                aria-controls={id}
               >
                 {viewCode ? (
                   <>
@@ -122,7 +119,6 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
           )}
           {/* corrects an inbuilt 10px margin style so we can accurately use token values */}
           <LiveEditor
-            id={id}
             style={{
               margin: "-10px",
               fontFamily: pasteTheme.fonts.fontFamilyCode,

@@ -5,8 +5,8 @@ import * as React from "react";
 
 interface ListBoxPositionerProps {
   children: React.ReactNode;
-  inputBoxRef: React.RefObject<HTMLElement>;
-  dropdownBoxRef: React.RefObject<HTMLElement>;
+  inputBoxRef: React.RefObject<HTMLElement | null>;
+  dropdownBoxRef: React.RefObject<HTMLElement | null>;
 }
 
 export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({ inputBoxRef, dropdownBoxRef, ...props }) => {

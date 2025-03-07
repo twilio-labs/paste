@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import Image from "next/image";
+import type { JSX } from "react";
 
 import FooterImg from "../../../assets/illustrations/footer_img.svg";
 

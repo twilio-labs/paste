@@ -13,6 +13,7 @@ import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { TBody, TFoot, THead, Table, Td, Th, Tr } from "../src";
 

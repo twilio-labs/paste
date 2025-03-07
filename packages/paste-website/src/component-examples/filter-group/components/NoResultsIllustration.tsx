@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
 export const NoResultsIllustration = (): JSX.Element => (

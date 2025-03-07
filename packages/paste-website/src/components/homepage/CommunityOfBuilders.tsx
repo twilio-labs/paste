@@ -8,7 +8,7 @@ import DesignTool from "../../assets/illustrations/illo_design-tool.svg";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionContainer } from "./SectionContainer";
 
-const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, description }): React.ReactElement => {
+const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, description }): React.ReactElement<any> => {
   return (
     <Box display="flex" flexDirection="column" rowGap="space20" element="STAT_BOX">
       <Text
@@ -28,7 +28,7 @@ const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, descri
   );
 };
 
-const CommunityOfBuilders: React.FC = (): React.ReactElement => {
+const CommunityOfBuilders: React.FC = (): React.ReactElement<any> => {
   return (
     <SectionContainer>
       <Box

@@ -9,7 +9,7 @@ type PopChat = (id?: string) => void;
 export type Chat = {
   id: string;
   variant?: MessageVariants;
-  content: React.ReactElement;
+  content: React.ReactElement<any>;
 };
 
 export type PartialIDChat = Omit<Chat, "id"> & Partial<Pick<Chat, "id">>;

@@ -133,7 +133,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
             {githubUrl && (
               <IconAnchor
                 href={githubUrl}
-                icon={<GithubIcon css={{ ...sharedIconStyles, color: githubIconColor }} decorative />}
+                icon={<GithubIcon style={{ ...sharedIconStyles, color: githubIconColor }} decorative />}
               >
                 Github
               </IconAnchor>
@@ -141,7 +141,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
             {storybookUrl && (
               <IconAnchor
                 href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
-                icon={<StorybookIcon css={{ ...sharedIconStyles, color: "#FF4785" }} decorative />}
+                icon={<StorybookIcon style={{ ...sharedIconStyles, color: "#FF4785" }} decorative />}
               >
                 Storybook
               </IconAnchor>

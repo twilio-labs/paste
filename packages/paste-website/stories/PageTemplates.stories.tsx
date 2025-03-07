@@ -77,6 +77,7 @@ import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 import { useUID } from "@twilio-paste/uid-library";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
+import type { JSX } from "react";
 
 export default {
   title: "Website/PageTemplateExamples",

@@ -6,7 +6,7 @@ import type { ThemeShape } from "./types/themes";
 export interface ThemeConsumerProps {
   children: ({ theme }: { theme: ThemeShape }) => React.ReactNode;
 }
-const ThemeConsumer = ({ children, ...props }: ThemeConsumerProps): React.ReactElement => {
+const ThemeConsumer = ({ children, ...props }: ThemeConsumerProps): React.ReactElement<any> => {
   if (children == null || typeof children !== "function") {
     throw new Error("[ThemeConsumer]: You must pass a function as children");
   }

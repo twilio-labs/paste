@@ -18,7 +18,7 @@ const NumberFormatter = new Intl.NumberFormat("en-US");
 
 export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvironment: boolean }>> = ({
   isTestEnvironment,
-}): React.ReactElement => {
+}): React.ReactElement<any> => {
   const progressBarId = useUID();
   const customProgressBarId = useUID();
   const helpTextId = useUID();

@@ -45,7 +45,7 @@ export interface TooltipProps extends TooltipPrimitiveInitialState {
    * @memberof TooltipProps
    */
   element?: BoxProps["element"];
-  children: NonNullable<React.ReactElement>;
+  children: NonNullable<React.ReactElement<any>>;
   /**
    * The returned state from the `useTooltipState` hook.
    *
@@ -105,7 +105,8 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
     return (
       <>
         {React.Children.only(
-          <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          <TooltipPrimitiveReference {...tooltip} ref={ref} {...(children.props as any)}>
             {(referenceProps) => React.cloneElement(children, referenceProps)}
           </TooltipPrimitiveReference>,
         )}

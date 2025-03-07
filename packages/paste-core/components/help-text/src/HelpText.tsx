@@ -6,6 +6,7 @@ import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import type { TextColor } from "@twilio-paste/style-props";
 import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 import * as React from "react";
+import type { JSX } from "react";
 
 export const HelpTextVariants = {
   DEFAULT: "default",

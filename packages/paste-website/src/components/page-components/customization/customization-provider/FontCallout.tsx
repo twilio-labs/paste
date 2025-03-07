@@ -1,4 +1,5 @@
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import type { JSX } from "react";
 
 export const FontCallout = (): JSX.Element => {
   return (

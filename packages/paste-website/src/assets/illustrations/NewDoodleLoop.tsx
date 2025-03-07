@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 /*
  * import { animated, useSpring } from "@twilio-paste/animation-library";
  * import { useTheme } from "@twilio-paste/theme";

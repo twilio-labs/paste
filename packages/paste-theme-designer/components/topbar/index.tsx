@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/core/box";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { SiteHeaderLogo } from "./SiteHeaderLogo";
 

@@ -48,7 +48,7 @@ const CarouselButton = React.forwardRef<HTMLButtonElement, { "aria-label": strin
   },
 );
 
-const TemplatesCarousel: React.FC = (): React.ReactElement => {
+const TemplatesCarousel: React.FC = (): React.ReactElement<any> => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
@@ -179,7 +179,7 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
   );
 };
 
-const Templates: React.FC = (): React.ReactElement => {
+const Templates: React.FC = (): React.ReactElement<any> => {
   const theme = useTheme();
   return (
     <SectionContainer position="relative">
@@ -213,7 +213,7 @@ const Templates: React.FC = (): React.ReactElement => {
       </Box>
       <Box zIndex="zIndex30" position="absolute" left={-250} element="CIRCLE" top={300}>
         <CircleIcon
-          css={{ height: theme.heights.size20, width: theme.widths.size20 }}
+          size={theme.heights.size20}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}
           decorative
         />

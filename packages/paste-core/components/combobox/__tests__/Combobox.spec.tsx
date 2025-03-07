@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
@@ -8,6 +8,7 @@ import { Theme } from "@twilio-paste/theme";
 import filter from "lodash/filter";
 import uniq from "lodash/uniq";
 import * as React from "react";
+import type { JSX } from "react";
 import type { useVirtual as _useVirtual } from "react-virtual";
 
 import { Combobox, useCombobox } from "../src";

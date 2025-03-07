@@ -2,12 +2,12 @@ import { Box } from "@twilio-paste/box";
 import { useTheme } from "@twilio-paste/theme";
 import { useUIDSeed } from "@twilio-paste/uid-library";
 import * as React from "react";
-import type { LegacyRef } from "react";
+import type { Ref } from "react";
 
 interface SVGThumbProps {
   left: number;
   top: number;
-  svgCircleRef: LegacyRef<SVGCircleElement>;
+  svgCircleRef: Ref<SVGCircleElement>;
   initRefs: (bool: boolean) => void;
   height: number | undefined;
   width: number | undefined;

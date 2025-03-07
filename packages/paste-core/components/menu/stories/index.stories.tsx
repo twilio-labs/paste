@@ -9,6 +9,7 @@ import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   Menu,

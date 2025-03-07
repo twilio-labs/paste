@@ -4,7 +4,7 @@ import { Heading } from "@twilio-paste/heading";
 import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from "react-intersection-observer";
 
 import { SectionContainer } from "./SectionContainer";
 
@@ -13,16 +13,22 @@ const AnimatedBox = animated(Box);
 const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   children,
   index,
-}): React.ReactElement => {
+}): React.ReactElement<any> => {
   const [show, setShow] = React.useState(false);
 
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+    delay: 100,
+  });
+
+  React.useEffect(() => {
+    if (inView && !show) {
       setTimeout(() => {
-        setShow(isVisible);
+        setShow(true);
       }, index * 50);
     }
-  }
+  }, [inView, show, index]);
 
   const styles = useSpring({
     opacity: show ? 1 : 0.1,
@@ -32,7 +38,7 @@ const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   });
 
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 100 }}>
+    <Box ref={ref}>
       <Box display="flex" columnGap="space50" alignItems="center">
         <AnimatedBox
           borderRadius="borderRadiusCircle"
@@ -49,11 +55,11 @@ const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
           {children}
         </Text>
       </Box>
-    </VisibilitySensor>
+    </Box>
   );
 };
 
-const WeDoTheThinking: React.FC = (): React.ReactElement => {
+const WeDoTheThinking: React.FC = (): React.ReactElement<any> => {
   return (
     <SectionContainer>
       <Box element="WE_DO_THE_THINKING" maxWidth="size50" textAlign="center" marginX="auto">

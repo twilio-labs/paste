@@ -3,6 +3,7 @@ import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import Image from "next/image";
+import type { JSX } from "react";
 
 import { DoodleLoopArrowLarge } from "../../assets/illustrations/DoodleLoopArrowLarge";
 import WhyPasteMobile from "../../assets/images/customization/why-paste-mobile.png";

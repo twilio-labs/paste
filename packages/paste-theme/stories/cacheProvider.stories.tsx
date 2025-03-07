@@ -6,7 +6,6 @@ import { Option, Select } from "@twilio-paste/select";
 import { Stack } from "@twilio-paste/stack";
 import { TextArea } from "@twilio-paste/textarea";
 import * as React from "react";
-import root from "react-shadow";
 
 import { ThemeProvider } from "../src/themeProvider";
 
@@ -27,20 +26,21 @@ export default {
 
 export const CacheProviderContainer = (): React.ReactNode => {
   const [emotionCache, setEmotionCache] = React.useState<any>(null);
+  const shadowRef = React.useRef<HTMLDivElement>(null);
 
-  function setShadowRef(ref): void {
-    if (ref && !emotionCache) {
+  React.useEffect(() => {
+    if (shadowRef.current && !emotionCache) {
       const createdEmotionWithRef = {
-        container: ref,
+        container: shadowRef.current,
         key: "shadow-dom-paste",
       };
       setEmotionCache(createdEmotionWithRef);
     }
-  }
+  }, [shadowRef, emotionCache]);
 
   return (
-    <root.div className="shadow-dom-container">
-      <div ref={setShadowRef} />
+    <div className="shadow-dom-container">
+      <div ref={shadowRef} />
       {emotionCache ? (
         <ThemeProvider theme="twilio" cacheProviderProps={emotionCache}>
           <Box>
@@ -65,6 +65,6 @@ export const CacheProviderContainer = (): React.ReactNode => {
           </Box>
         </ThemeProvider>
       ) : null}
-    </root.div>
+    </div>
   );
 };

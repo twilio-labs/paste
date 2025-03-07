@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../src";
 import { getElementName } from "../src/utils";
