@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { Combobox } from "@twilio-paste/combobox";
 import "@twilio-paste/design-tokens/dist/themes/dark/tokens.data-theme.css";
 import "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.data-theme.css";
 import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css";
@@ -11,7 +12,6 @@ import { Stack } from "@twilio-paste/stack";
 import { TextArea } from "@twilio-paste/textarea";
 import * as React from "react";
 
-import { Combobox } from "@twilio-paste/combobox";
 import { ThemeProvider } from "../src/themeProvider";
 
 // eslint-disable-next-line import/no-default-export
