@@ -9659,7 +9659,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test@npm:8.6.4, @storybook/test@npm:^8.6.4":
+"@storybook/test@npm:8.6.4":
   version: 8.6.4
   resolution: "@storybook/test@npm:8.6.4"
   dependencies:
@@ -9682,15 +9682,6 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: b7e13026c381e18e7ad2064e1528876eb01b7563ad16aababcac531ce76f5e59b985a72603f57d75465a611ea564bd46b9b1760634211faf4307f9265f06e044
-  languageName: node
-  linkType: hard
-
-"@storybook/types@npm:^8.6.4":
-  version: 8.6.4
-  resolution: "@storybook/types@npm:8.6.4"
-  peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 99c59e960b9b4500c1bfcdcaedf0070fc7eb500c1d3226e39bc17c7ab3671fca89645abe30baf4dcfd65764d4955db6b2c416049aef78ab81535a27a4c671eb5
   languageName: node
   linkType: hard
 
@@ -37457,9 +37448,7 @@ fsevents@^1.2.7:
     "@storybook/manager-api": ^8.6.4
     "@storybook/react": ^8.6.4
     "@storybook/react-vite": ^8.6.4
-    "@storybook/test": ^8.6.4
     "@storybook/test-runner": ^0.22.0
-    "@storybook/types": ^8.6.4
     "@swc/core": ^1.2.160
     "@swc/jest": ^0.2.20
     "@testing-library/jest-dom": ^5.16.5
