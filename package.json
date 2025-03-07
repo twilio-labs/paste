@@ -241,9 +241,5 @@
     "last 2 versions",
     "not dead",
     "not IE 11"
-  ],
-  "devDependencies": {
-    "@storybook/test": "^8.6.4",
-    "@storybook/types": "^8.6.4"
-  }
+  ]
 }
