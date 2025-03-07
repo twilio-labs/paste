@@ -79,7 +79,7 @@ const DisclosureFilter = ({
   };
   setSelectedMoreFilters: React.Dispatch<React.SetStateAction<Record<string, string | string[]>>>;
   tempSelectedMoreFilters: Record<string, string | string[]>;
-}): React.ReactElement<any> => {
+}): React.ReactElement<HTMLElement> => {
   const [selectedCount, setSelectedCount] = React.useState<null | number>(
     tempSelectedMoreFilters[filter.type]?.length || null,
   );

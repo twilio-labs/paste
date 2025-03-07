@@ -15,7 +15,7 @@ import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
 
-const Accessibility: React.FC = (): React.ReactElement<any> => {
+const Accessibility: React.FC = (): React.ReactElement<HTMLElement> => {
   const selectedTabId = useUID();
 
   return (

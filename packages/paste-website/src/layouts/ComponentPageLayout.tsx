@@ -13,7 +13,7 @@ import type { NavigationQuery } from "../context/NavigationContext";
 import type { ApiData } from "../utils/DataUtils";
 
 interface ComponentPageLayoutProps {
-  children?: React.ReactElement<any>;
+  children?: React.ReactNode;
   data: ApiData;
   meta: {
     title?: string;

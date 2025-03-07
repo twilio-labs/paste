@@ -75,7 +75,7 @@ export interface ToastContainerProps extends HTMLPasteProps<"div"> {
 
 export interface ToasterToast extends Pick<ToastProps, "variant" | "setFocus" | "onDismiss"> {
   id: string;
-  message: React.ReactElement<any> | string;
+  message: React.ReactNode;
   /**
    * Time in milliseconds
    */

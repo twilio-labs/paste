@@ -15,7 +15,9 @@ const resizeTo = (w: number, h: number): void => {
   window.dispatchEvent(resizeEvent);
 };
 
-const wrapper = ({ children }): React.ReactElement<any> => <Theme.Provider theme="default">{children}</Theme.Provider>;
+const wrapper = ({ children }): React.ReactElement<HTMLElement> => (
+  <Theme.Provider theme="default">{children}</Theme.Provider>
+);
 
 const renderWindowSize = (): any => renderHook(() => useWindowSize(), { wrapper });
 
