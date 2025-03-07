@@ -5,7 +5,7 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
-  plugins: ["eslint-comments", "jest", "unicorn", "promise", "@emotion/eslint-plugin", "paste-internal"],
+  plugins: ["eslint-comments", "jest", "unicorn", "promise", "@emotion/eslint-plugin", "paste-internal", "storybook"],
   extends: [
     "twilio-react",
     "twilio-ts",

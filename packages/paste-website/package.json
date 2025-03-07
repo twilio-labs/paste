@@ -202,7 +202,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "14.2.24",
-    "@storybook/react": "7.6.4",
+    "@storybook/react": "^8.6.4",
     "@tanstack/eslint-plugin-query": "^5.17.7",
     "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.8",
