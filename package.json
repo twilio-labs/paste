@@ -117,7 +117,6 @@
     "@emotion/jest": "^11.9.1",
     "@expo/spawn-async": "^1.5.0",
     "@manypkg/cli": "0.21.1",
-    "@next/eslint-plugin-next": "^15.2.1",
     "@octokit/core": "^5.0.1",
     "@octokit/graphql-schema": "^14.39.1",
     "@percy/cli": "^1.10.1",
