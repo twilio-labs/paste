@@ -19,7 +19,9 @@ import {
 
 import { GenerateThemeFromTokensArgs, generateThemeFromTokens } from "../../generateThemeFromTokens";
 
-const convertToCSSVariables = (tokens: GenerateThemeFromTokensArgs | object) => {
+const convertToCSSVariables = (
+  tokens: GenerateThemeFromTokensArgs | object,
+): Partial<Record<keyof GenerateThemeFromTokensArgs, string | object>> => {
   const cssVariables: Partial<Record<keyof GenerateThemeFromTokensArgs, string | object>> = {};
 
   for (const [key, value] of Object.entries(tokens) as Array<[keyof GenerateThemeFromTokensArgs, string | object]>) {
