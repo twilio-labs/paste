@@ -80,10 +80,11 @@ import {Theme} from '@twilio-paste/theme';
 
 ### Props
 
-| Prop               | Type     | Description                                                                               | Default           |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| theme?             | enum     | 'default', 'dark', 'twilio', 'twilio-dark' and 'evergreen'                                | 'default'         |
-| customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
+| Prop               | Type     | Description                                                                                                                               | Default           |
+|--------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| theme?             | enum     | 'default', 'dark', 'twilio', 'twilio-dark' and 'evergreen'                                                                                | 'default'         |
+| customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats                                                 | theme.breakpoints |
+| useCSSVariables?   | boolean  | Allows css varibales from generated design tokens to be used instead of absolute values. Useful when using server and static components   | false             |
 
 ### Choosing a theme
 

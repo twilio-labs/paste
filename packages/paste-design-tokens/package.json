@@ -28,8 +28,10 @@
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
     "gulp-terser": "^2.0.1",
     "gulp-theo": "2.0.1",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "through2": "^4.0.2"
   }
 }

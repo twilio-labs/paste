@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CSS Theme should match the snapshot 1`] = `
+Array [
+  "backgroundColors",
+  "borderColors",
+  "borderWidths",
+  "breakpoints",
+  "colorSchemes",
+  "dataVisualization",
+  "fonts",
+  "fontSizes",
+  "fontWeights",
+  "heights",
+  "iconSizes",
+  "lineHeights",
+  "maxHeights",
+  "maxWidths",
+  "minHeights",
+  "minWidths",
+  "radii",
+  "shadows",
+  "sizes",
+  "space",
+  "textColors",
+  "widths",
+  "zIndices",
+]
+`;
+
 exports[`Default theme should match the snapshot 1`] = `
 Array [
   "backgroundColors",
