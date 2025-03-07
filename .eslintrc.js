@@ -206,7 +206,6 @@ module.exports = {
     // We don't use jasmine and this clashes with danger js
     "jest/no-jasmine-globals": "off",
     "jest/no-conditional-expect": "off",
-    // '@next/next/no-html-link-for-pages': [2, path.join(__dirname, 'custom-pages')],
   },
   overrides: [
     {
