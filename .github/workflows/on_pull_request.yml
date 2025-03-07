@@ -208,7 +208,7 @@ jobs:
           yarn set resolution react@npm:^19.0.0 ^18.0.0
           yarn set resolution @types/react@npm:^19.0.0 ^18.0.27
           yarn set resolution react-dom@npm:^19.0.0 ^18.0.0
-          yarn set resolution @testing-library/react@npm:^16.2.0 ^13.4.0
+          yarn set resolution @testing-library/react@npm:^16.2.0 ^12.1.4
 
       - name: Run tests
         run: yarn test
