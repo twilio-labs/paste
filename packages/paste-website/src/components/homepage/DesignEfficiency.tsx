@@ -21,7 +21,7 @@ const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { 
 const someIcons = Object.values(IconComponents);
 someIcons.length = 66; // cap it
 
-const DesignEfficiency: React.FC = (): React.ReactElement<any> => {
+const DesignEfficiency: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <SectionContainer>
       <SectionSeparator>Design efficiency</SectionSeparator>

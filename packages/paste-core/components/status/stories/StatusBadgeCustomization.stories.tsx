@@ -10,7 +10,7 @@ import * as React from "react";
 import { StatusBadge } from "../src";
 import type { StatusBadgeVariants } from "../src/types";
 
-export const makeBadge = (variant: StatusBadgeVariants, element?: string): React.ReactElement<any> => (
+export const makeBadge = (variant: StatusBadgeVariants, element?: string): React.ReactElement<HTMLElement> => (
   <StatusBadge as="span" element={element} variant={variant} data-testid={`${variant}_badge`}>
     HelloWorld
   </StatusBadge>
@@ -40,7 +40,7 @@ export const getStyles = (element = "STATUS_BADGE"): { [key: string]: PasteCusto
 
 const CustomizationWrapper: React.FC<
   React.PropsWithChildren<{ variant: StatusBadgeVariants; isTestEnvironment: boolean }>
-> = ({ variant, isTestEnvironment }): React.ReactElement<any> => {
+> = ({ variant, isTestEnvironment }): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   const customElement = "FOO";
   return (

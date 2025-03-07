@@ -13,7 +13,7 @@ const AnimatedBox = animated(Box);
 const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   children,
   index,
-}): React.ReactElement<any> => {
+}): React.ReactElement<HTMLElement> => {
   const [show, setShow] = React.useState(false);
 
   const { ref, inView } = useInView({
@@ -59,7 +59,7 @@ const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
   );
 };
 
-const WeDoTheThinking: React.FC = (): React.ReactElement<any> => {
+const WeDoTheThinking: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <SectionContainer>
       <Box element="WE_DO_THE_THINKING" maxWidth="size50" textAlign="center" marginX="auto">

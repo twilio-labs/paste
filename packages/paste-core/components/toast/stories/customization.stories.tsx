@@ -10,7 +10,7 @@ import * as React from "react";
 import type { ToastVariants } from "../src";
 import { Toast } from "../src";
 
-export const makeToast = (variant: ToastVariants, element?: string): React.ReactElement<any> => {
+export const makeToast = (variant: ToastVariants, element?: string): React.ReactElement<HTMLElement> => {
   return (
     <Toast variant={variant} element={element} onDismiss={() => {}} data-testid={`toast_${variant}`}>
       <Text as="div">Hello I am a toast</Text>
@@ -38,7 +38,7 @@ export const getStyles = (element = "TOAST"): { [key: string]: PasteCustomCSS } 
 const ShowCustomization: React.FC<React.PropsWithChildren<{ variant: ToastVariants; isTestEnvironment: boolean }>> = ({
   variant,
   isTestEnvironment,
-}): React.ReactElement<any> => {
+}): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space50">

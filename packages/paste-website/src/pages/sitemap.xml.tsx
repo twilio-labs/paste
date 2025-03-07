@@ -2,7 +2,7 @@ import type { GetServerSideProps } from "next";
 
 import { SITEMAP } from "../../../../cypress/integration/sitemap-vrt/constants"; // Import the SITEMAP used for cypress
 
-const Sitemap = (): React.ReactElement<any> | null => {
+const Sitemap = (): React.ReactElement<HTMLElement> | null => {
   return null;
 };
 

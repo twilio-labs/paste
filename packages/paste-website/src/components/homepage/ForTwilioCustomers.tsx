@@ -6,7 +6,7 @@ import * as React from "react";
 import PuzzleIllo from "../../assets/illustrations/puzzle_illo.svg";
 import { BouncyAnchor } from "./BouncyAnchor";
 
-const ForTwilioCustomers: React.FC = (): React.ReactElement<any> => {
+const ForTwilioCustomers: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <Box
       display="flex"

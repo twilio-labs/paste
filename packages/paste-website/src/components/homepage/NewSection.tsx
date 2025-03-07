@@ -6,7 +6,7 @@ import { NewDoodleLoop } from "../../assets/illustrations/NewDoodleLoop";
 import { SectionContainer } from "./SectionContainer";
 import { WhatsNew } from "./WhatsNew";
 
-const NewSection: React.FC = (): React.ReactElement<any> => {
+const NewSection: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <SectionContainer position="relative">
       <Box

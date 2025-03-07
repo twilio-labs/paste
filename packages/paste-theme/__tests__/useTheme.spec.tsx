@@ -5,7 +5,7 @@ import { createRoot } from "testing-tools/react-dom-create-root";
 
 import { Theme, useTheme } from "../src";
 
-const HookExampleComponent = (): React.ReactElement<any> => {
+const HookExampleComponent = (): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   return <p>{theme.textColors.colorText}</p>;
 };

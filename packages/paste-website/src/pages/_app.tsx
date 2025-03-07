@@ -18,7 +18,7 @@ import { inCypress } from "../utils/inCypress";
 
 const isProd = ENVIRONMENT_CONTEXT === "production";
 
-const App = ({ Component, pageProps }: AppProps): React.ReactElement<any> => {
+const App = ({ Component, pageProps }: AppProps): React.ReactElement<HTMLElement> => {
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode();

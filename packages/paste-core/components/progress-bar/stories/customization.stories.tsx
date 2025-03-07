@@ -3,7 +3,6 @@ import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Form, FormControl } from "@twilio-paste/form";
 import { HelpText } from "@twilio-paste/help-text";
-import { Label } from "@twilio-paste/label";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
@@ -18,7 +17,7 @@ const NumberFormatter = new Intl.NumberFormat("en-US");
 
 export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvironment: boolean }>> = ({
   isTestEnvironment,
-}): React.ReactElement<any> => {
+}): React.ReactElement<HTMLElement> => {
   const progressBarId = useUID();
   const customProgressBarId = useUID();
   const helpTextId = useUID();
@@ -27,7 +26,7 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvi
 
   // Randomly updates the value of the progress bar to simulate a real progress bar
   React.useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout;
     if (rerun) {
       interval = setInterval(() => {
         setValue((previousValue) => {

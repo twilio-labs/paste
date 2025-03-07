@@ -13,7 +13,7 @@ export default {
   component: Meter,
 };
 
-export const Default = (): React.ReactElement<any> => {
+export const Default = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size20">
@@ -25,7 +25,7 @@ export const Default = (): React.ReactElement<any> => {
   );
 };
 
-export const Full = (): React.ReactElement<any> => {
+export const Full = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size20">
@@ -37,7 +37,7 @@ export const Full = (): React.ReactElement<any> => {
   );
 };
 
-export const Empty = (): React.ReactElement<any> => {
+export const Empty = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size20">
@@ -49,7 +49,7 @@ export const Empty = (): React.ReactElement<any> => {
   );
 };
 
-export const MinMax = (): React.ReactElement<any> => {
+export const MinMax = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size40">
@@ -61,7 +61,7 @@ export const MinMax = (): React.ReactElement<any> => {
   );
 };
 
-export const MinOnly = (): React.ReactElement<any> => {
+export const MinOnly = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size20">
@@ -73,7 +73,7 @@ export const MinOnly = (): React.ReactElement<any> => {
   );
 };
 
-export const MaxOnly = (): React.ReactElement<any> => {
+export const MaxOnly = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size20">
@@ -85,7 +85,7 @@ export const MaxOnly = (): React.ReactElement<any> => {
   );
 };
 
-export const AriaLabel = (): React.ReactElement<any> => {
+export const AriaLabel = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   return (
     <Box width="size30">
@@ -94,7 +94,7 @@ export const AriaLabel = (): React.ReactElement<any> => {
   );
 };
 
-export const CustomLabel = (): React.ReactElement<any> => {
+export const CustomLabel = (): React.ReactElement<HTMLElement> => {
   const labelId = useUID();
   const meterId = useUID();
   return (
@@ -105,7 +105,7 @@ export const CustomLabel = (): React.ReactElement<any> => {
   );
 };
 
-export const WithHelpText = (): React.ReactElement<any> => {
+export const WithHelpText = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   const helpTextId = useUID();
   return (
@@ -127,7 +127,7 @@ export const WithHelpText = (): React.ReactElement<any> => {
   );
 };
 
-export const Wrapped = (): React.ReactElement<any> => {
+export const Wrapped = (): React.ReactElement<HTMLElement> => {
   const meterId = useUID();
   const helpTextId = useUID();
   return (
@@ -149,7 +149,7 @@ export const Wrapped = (): React.ReactElement<any> => {
   );
 };
 
-export const Customized = (): React.ReactElement<any> => {
+export const Customized = (): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   const meterOneId = useUID();
   const meterTwoId = useUID();

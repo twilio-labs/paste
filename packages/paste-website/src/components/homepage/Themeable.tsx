@@ -80,7 +80,7 @@ const Boop: React.FC<BoopProps> = ({
   );
 };
 
-const Themeable: React.FC = (): React.ReactElement<any> => {
+const Themeable: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <SectionContainer>
       <SectionSeparator>Themeable and composable</SectionSeparator>
