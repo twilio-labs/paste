@@ -48,7 +48,7 @@ const CarouselButton = React.forwardRef<HTMLButtonElement, { "aria-label": strin
   },
 );
 
-const TemplatesCarousel: React.FC = (): React.ReactElement<any> => {
+const TemplatesCarousel: React.FC = (): React.ReactElement<HTMLElement> => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
@@ -179,7 +179,7 @@ const TemplatesCarousel: React.FC = (): React.ReactElement<any> => {
   );
 };
 
-const Templates: React.FC = (): React.ReactElement<any> => {
+const Templates: React.FC = (): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   return (
     <SectionContainer position="relative">

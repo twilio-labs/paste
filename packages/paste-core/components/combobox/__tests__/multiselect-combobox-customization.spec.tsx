@@ -40,7 +40,7 @@ const items = [
   { letter: "b", number: 3 },
 ];
 
-const MultiselectComboboxToTest = ({ element = "MULTISELECT_COMBOBOX" }): React.ReactElement<any> => (
+const MultiselectComboboxToTest = ({ element = "MULTISELECT_COMBOBOX" }): React.ReactElement<HTMLElement> => (
   <MultiselectCombobox
     items={items}
     initialSelectedItems={[items[0], items[2]]}

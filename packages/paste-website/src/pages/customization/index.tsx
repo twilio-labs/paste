@@ -17,7 +17,7 @@ export interface CustomizationLandingPageProps {
 
 const CustomizationLandingPage = ({
   navigationData,
-}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement<any> => {
+}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement<HTMLElement> => {
   return (
     <SiteWrapper navigationData={navigationData}>
       <Head>
