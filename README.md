@@ -88,8 +88,8 @@ When a package has a peer dependency on another internal package in the mono rep
 {
   "name": "button",
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
     "@twilio-paste/box": "^0.0.1",
     "@twilio-paste/theme": "^0.0.1",
     "@twilio-paste/design-tokens": "^0.0.1",

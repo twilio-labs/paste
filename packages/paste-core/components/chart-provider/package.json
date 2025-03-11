@@ -34,11 +34,11 @@
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.1",
     "@twilio-paste/types": "^6.0.0",
-    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27 || ^19.0.0",
-    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10 || ^19.0.0",
+    "@types/react": "^17.0.2 || ^18.0.27 || ^19.0.0",
+    "@types/react-dom": "^17.0.2 || ^18.0.10 || ^19.0.0",
     "highcharts": "^9.3.3",
-    "react": "^16.8.6 || ^17.0.2 || ^18.0.0 || ^19.0.0",
-    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0 || ^19.0.0"
+    "react": "^17.0.2 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",

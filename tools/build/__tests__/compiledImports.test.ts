@@ -26,14 +26,14 @@ describe("esbuild config", () => {
         "@twilio-paste/design-tokens": "^7.0.0",
         "@twilio-paste/styling-library": "^0.3.1",
         "@twilio-paste/theme": "^6.0.0",
-        react: "^16.8.6 || ^17.0.2 || ^18.0.0",
-        "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0 || ^19.0.0",
+        react: "^17.0.2 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0",
       },
       devDependencies: {
         "@twilio-paste/design-tokens": "^7.1.0",
         "@twilio-paste/styling-library": "^0.3.6",
         "@twilio-paste/theme": "^6.0.1",
-        react: "^18.0.0",
+        react: "^19.0.0",
         "react-dom": "^19.0.0",
       },
     });
