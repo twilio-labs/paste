@@ -12402,7 +12402,7 @@ __metadata:
     "@twilio-paste/data-visualization-library": ^5.1.0
     "@twilio-paste/date-picker": ^6.1.1
     "@twilio-paste/description-list": ^4.2.0
-    "@twilio-paste/design-tokens": ^10.13.0
+    "@twilio-paste/design-tokens": ^10.14.0
     "@twilio-paste/detail-text": ^3.1.0
     "@twilio-paste/disclosure": ^12.1.0
     "@twilio-paste/disclosure-primitive": ^2.1.1
@@ -12472,7 +12472,7 @@ __metadata:
     "@twilio-paste/tabs-primitive": ^2.0.1
     "@twilio-paste/text": ^10.1.1
     "@twilio-paste/textarea": ^10.2.0
-    "@twilio-paste/theme": ^11.1.1
+    "@twilio-paste/theme": ^11.2.0
     "@twilio-paste/time-picker": ^6.1.1
     "@twilio-paste/timeline": ^1.0.1
     "@twilio-paste/toast": ^12.2.2
@@ -12750,7 +12750,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^10.0.0, @twilio-paste/design-tokens@^10.10.0, @twilio-paste/design-tokens@^10.11.0, @twilio-paste/design-tokens@^10.11.1, @twilio-paste/design-tokens@^10.12.0, @twilio-paste/design-tokens@^10.13.0, @twilio-paste/design-tokens@^10.2.0, @twilio-paste/design-tokens@^10.3.0, @twilio-paste/design-tokens@^10.4.1, @twilio-paste/design-tokens@^10.5.0, @twilio-paste/design-tokens@^10.7.0, @twilio-paste/design-tokens@^10.8.0, @twilio-paste/design-tokens@^10.9.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^10.0.0, @twilio-paste/design-tokens@^10.10.0, @twilio-paste/design-tokens@^10.11.0, @twilio-paste/design-tokens@^10.11.1, @twilio-paste/design-tokens@^10.12.0, @twilio-paste/design-tokens@^10.13.0, @twilio-paste/design-tokens@^10.14.0, @twilio-paste/design-tokens@^10.2.0, @twilio-paste/design-tokens@^10.3.0, @twilio-paste/design-tokens@^10.4.1, @twilio-paste/design-tokens@^10.5.0, @twilio-paste/design-tokens@^10.7.0, @twilio-paste/design-tokens@^10.8.0, @twilio-paste/design-tokens@^10.9.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   dependencies:
@@ -15585,13 +15585,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^11.0.0, @twilio-paste/theme@^11.0.1, @twilio-paste/theme@^11.1.0, @twilio-paste/theme@^11.1.1, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^11.0.0, @twilio-paste/theme@^11.0.1, @twilio-paste/theme@^11.1.0, @twilio-paste/theme@^11.1.1, @twilio-paste/theme@^11.2.0, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
-    "@twilio-paste/design-tokens": ^10.11.1
+    "@twilio-paste/design-tokens": ^10.14.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/types": ^6.0.0
     "@types/react": ^18.0.27
