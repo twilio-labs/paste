@@ -12760,9 +12760,11 @@ __metadata:
     gulp: ^4.0.2
     gulp-cli: ^2.2.0
     gulp-if: ^3.0.0
+    gulp-rename: ^2.0.0
     gulp-terser: ^2.0.1
     gulp-theo: 2.0.1
     lodash: 4.17.21
+    through2: ^4.0.2
   languageName: unknown
   linkType: soft
 
@@ -28070,6 +28072,13 @@ fsevents@^1.2.7:
   dependencies:
     minimatch: ^3.0.3
   checksum: 1c0950be35013df1f6140ecca791b6cf475c88c81968b0bf7a2ea30ae36384d02ef49f5fb3e9a0cf01e8bdb845dc63179d4c04a63f1c224d8287e4e29954782b
+  languageName: node
+  linkType: hard
+
+"gulp-rename@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "gulp-rename@npm:2.0.0"
+  checksum: b9add0d130487dee6067206eebfc3867e4e254117edef154e8c270e3111b112335439ac1cac1519d6a32541343e04bd299484253a333b4e34c7d430039953e99
   languageName: node
   linkType: hard
 
