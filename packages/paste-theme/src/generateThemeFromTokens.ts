@@ -59,12 +59,12 @@ export const generateThemeFromTokens = ({
   zIndices,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // breakpoints need rm not CSS variables so need to use a fallback for the default sizings
-  const sizingsForBrakpoints = sizings.size0.includes("var") ? fallbackSizings : sizings;
+  const sizingsForBreakpoints = sizings.size0.includes("var") ? fallbackSizings : sizings;
   // default breakpoints
   const breakpoints = [
-    remToPx(sizingsForBrakpoints.size40, "string"),
-    remToPx(sizingsForBrakpoints.size100, "string"),
-    remToPx(sizingsForBrakpoints.size120, "string"),
+    remToPx(sizingsForBreakpoints.size40, "string"),
+    remToPx(sizingsForBreakpoints.size100, "string"),
+    remToPx(sizingsForBreakpoints.size120, "string"),
   ];
 
   return {
