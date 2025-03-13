@@ -14,7 +14,7 @@ interface ExampleOptionProps extends OptionProps {
 const ExampleOption: React.FC<React.PropsWithChildren<ExampleOptionProps>> = ({
   suffix = "test",
   ...props
-}): React.ReactElement => {
+}): React.ReactElement<HTMLElement> => {
   return (
     <Option data-testid={`option-${suffix}`} {...props}>
       Option 1

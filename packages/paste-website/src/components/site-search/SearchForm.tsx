@@ -14,7 +14,7 @@ export interface SearchFormProps {
   ariaLabelledBy: string;
   inputValue: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  inputRef: React.RefObject<HTMLInputElement>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
 const SearchForm: React.FC<React.PropsWithChildren<SearchFormProps>> = ({

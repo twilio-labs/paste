@@ -7,6 +7,7 @@
 import type { BoxHTMLProps, BoxOptions, PopoverStateReturn } from "@twilio-paste/paste-reakit-fork";
 import { useBox } from "@twilio-paste/paste-reakit-fork";
 import * as React from "react";
+import { useRef } from "react";
 import { createComponent } from "reakit-system/createComponent";
 import { createHook } from "reakit-system/createHook";
 import { useForkRef } from "reakit-utils/useForkRef";
@@ -66,8 +67,10 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
       [transform, fill, stroke],
     );
 
+    const modernHtmlRef = useRef<any | undefined>(htmlRef);
+
     return {
-      ref: useForkRef(options.unstable_arrowRef, htmlRef),
+      ref: useForkRef(options.unstable_arrowRef, modernHtmlRef),
       style: {
         ...arrowStyles,
         fontSize: options.size,

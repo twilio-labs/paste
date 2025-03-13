@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuItem, useMenuState } from "@twilio-paste/core/menu";
 import { ChevronDownIcon } from "@twilio-paste/icons/cjs/ChevronDownIcon";
 import * as React from "react";
+import type { JSX } from "react";
 
 const MenuPreview = (): JSX.Element => {
   const menu = useMenuState();

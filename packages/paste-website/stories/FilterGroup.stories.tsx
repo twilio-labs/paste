@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { JSX } from "react";
 
 import { CustomDateFilterGroup } from "../src/component-examples/filter-group/components/CustomDateFilterGroup";
 import { DefaultFilterGroup } from "../src/component-examples/filter-group/components/DefaultFilterGroup";

@@ -5,6 +5,7 @@ import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { css } from "@twilio-paste/styling-library";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
 
@@ -14,6 +15,7 @@ export const ReadyToGetStarted = (): JSX.Element => {
     <LandingPageSection
       paddingTop={["space200", "space200", "space200"]}
       paddingBottom={["space0", "space0", "space0"]}
+      // @ts-expect-error style is not working here
       css={css({ marginTop: ["50px", "250px", "300px"] })(theme)}
     >
       <LandingPageSectionContent variant="default">

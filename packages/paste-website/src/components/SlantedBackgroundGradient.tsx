@@ -37,30 +37,32 @@ export const SlantedBackgroundGradient: React.FC<React.PropsWithChildren<Backgro
 
   return (
     <div
-      css={css({
-        "&:before": {
-          content: `" "`,
-          zIndex: zIndices.zIndex0,
-          position: "absolute",
-          /*
-           * Fixes anti-aliasing
-           * https://stackoverflow.com/questions/6492027/css-transform-jagged-edges-in-chrome/36549674#36549674
-           */
-          outline: "1px solid transparent",
-          right: 0,
-          bottom: 0,
-          left: 0,
-          top: `${skewOffset}px`,
-          transform: `skewY(${skewAngle}rad)`,
-          transition: "top 400ms ease",
-          background: `linear-gradient(
+      style={
+        css({
+          "&:before": {
+            content: `" "`,
+            zIndex: zIndices.zIndex0,
+            position: "absolute",
+            /*
+             * Fixes anti-aliasing
+             * https://stackoverflow.com/questions/6492027/css-transform-jagged-edges-in-chrome/36549674#36549674
+             */
+            outline: "1px solid transparent",
+            right: 0,
+            bottom: 0,
+            left: 0,
+            top: `${skewOffset}px`,
+            transform: `skewY(${skewAngle}rad)`,
+            transition: "top 400ms ease",
+            background: `linear-gradient(
             ${gradientAngle},
             ${backgroundColors[startColor]} 0%,
             ${backgroundColors[endColor]} 100%
           )`,
-          ...styles,
-        },
-      })}
+            ...styles,
+          },
+        }) as React.CSSProperties
+      }
       {...props}
     />
   );

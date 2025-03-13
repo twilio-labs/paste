@@ -9,6 +9,7 @@ import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs, useTabState } from "../src";
 import type { TabStateReturn } from "../src";

@@ -29,7 +29,7 @@ const groupedItems = [
 const ShowCustomization: React.FC<React.PropsWithChildren<{ isTestEnvironment: boolean }>> = ({
   isTestEnvironment,
   children,
-}): React.ReactElement => {
+}): React.ReactElement<HTMLElement> => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space50">
@@ -77,7 +77,7 @@ const ShowCustomization: React.FC<React.PropsWithChildren<{ isTestEnvironment: b
             FOO_SUFFIX: { backgroundColor: "colorBackgroundSubaccount", borderRadius: "borderRadiusCircle" },
           }}
         >
-          {React.cloneElement(children as React.ReactElement, { element: "FOO" })}
+          {React.cloneElement(children as React.ReactElement<HTMLElement>, { element: "FOO" })}
         </CustomizationProvider>
       </Card>
     </Stack>

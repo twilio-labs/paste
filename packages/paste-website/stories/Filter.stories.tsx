@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import * as React from "react";
 
 import { DefaultFilter } from "../src/component-examples/filter/components/DefaultFilter";

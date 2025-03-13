@@ -9,7 +9,7 @@ class _Document extends Document {
     return initialProps;
   }
 
-  render(): React.ReactElement {
+  render(): React.ReactElement<HTMLElement> {
     return (
       <Html lang="en" dir="ltr">
         <Head>

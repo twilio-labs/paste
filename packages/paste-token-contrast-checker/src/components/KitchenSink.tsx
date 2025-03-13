@@ -19,6 +19,7 @@ import { useUID } from "@twilio-paste/core/uid-library";
 import { PlusIcon } from "@twilio-paste/icons/cjs/PlusIcon";
 import { ProductTwilioOrgIcon } from "@twilio-paste/icons/cjs/ProductTwilioOrgIcon";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { ExampleForm } from "./Form";
 import { PlainMenu } from "./Menu";

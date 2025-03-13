@@ -7,7 +7,6 @@
       "esnext"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "module": "esnext" /* Specify what module code is generated. */,
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,

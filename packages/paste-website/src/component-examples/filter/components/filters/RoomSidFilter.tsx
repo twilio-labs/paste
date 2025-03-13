@@ -19,7 +19,7 @@ function getFilteredItems(inputValue: string, roomSidList: string[]): string[] {
   });
 }
 
-const EmptyState = (): React.ReactElement => (
+const EmptyState = (): React.ReactElement<HTMLElement> => (
   <Box paddingY="space40" paddingX="space50">
     <Text as="span" fontStyle="italic" color="colorTextWeak">
       No results found

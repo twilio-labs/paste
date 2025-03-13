@@ -1,6 +1,7 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
 import { useUID } from "@twilio-paste/uid-library";
+import type { JSX } from "react";
 
 export const SearchEmptyIllustration = ({
   width,

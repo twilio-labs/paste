@@ -33,6 +33,7 @@ import {
   SidePanelPushContentWrapper,
 } from "@twilio-paste/side-panel";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   AIChat,

@@ -2,6 +2,7 @@ import { DarkModeIcon } from "@twilio-paste/icons/esm/DarkModeIcon";
 import { LightModeIcon } from "@twilio-paste/icons/esm/LightModeIcon";
 import { Menu, MenuButton, MenuItemRadio, useMenuState } from "@twilio-paste/menu";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { JSX } from "react";
 
 import { useDarkModeContext } from "../../../context/DarkModeContext";
 import { event } from "../../../lib/gtag";

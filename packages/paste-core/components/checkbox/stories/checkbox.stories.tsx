@@ -444,7 +444,7 @@ export const CheckboxIndeterminateGroup = (): React.ReactNode => {
   const allChecked = checkedItems.every(Boolean);
   const indeterminate = checkedItems.some(Boolean) && !allChecked;
 
-  const checkboxRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const checkboxRef: React.RefObject<HTMLInputElement | null> = React.createRef();
 
   return (
     <CheckboxGroup isSelectAll name="bar" legend="Select your favourite">
@@ -486,7 +486,7 @@ export const CheckboxIndeterminateGroupDisabled = (): React.ReactNode => {
   const indeterminate = checkedItems.some(Boolean) && !allChecked;
   const indeterminate2 = checkedItems2.some(Boolean) && !allChecked2;
 
-  const checkboxRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const checkboxRef: React.RefObject<HTMLInputElement | null> = React.createRef();
 
   return (
     <Stack orientation="horizontal" spacing="space70">
@@ -562,7 +562,7 @@ export const CheckboxIndeterminateHorizontalGroup = (): React.ReactNode => {
   const allChecked = checkedItems.every(Boolean);
   const indeterminate = checkedItems.some(Boolean) && !allChecked;
 
-  const checkboxRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const checkboxRef: React.RefObject<HTMLInputElement | null> = React.createRef();
 
   return (
     <CheckboxGroup isSelectAll orientation="horizontal" name="bar" legend="Select your favourite">

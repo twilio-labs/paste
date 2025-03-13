@@ -4,7 +4,7 @@
  */
 import * as React from "react";
 
-type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
+type ReactRef<T> = React.Ref<T> | React.RefObject<T | null>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void {
@@ -16,10 +16,7 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void
   }
 
   try {
-    /* eslint-disable no-param-reassign */
-    // @ts-expect-error - `ref` is a MutableRefObject
     ref.current = value;
-    /* eslint-enable no-param-reassign */
     // eslint-disable-next-line unicorn/prefer-optional-catch-binding
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);

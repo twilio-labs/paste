@@ -8,6 +8,7 @@ import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "../src";
 
@@ -54,7 +55,7 @@ const MockModal: React.FC<React.PropsWithChildren<{ children?: React.ReactNode }
 const MockInitalFocusModal = (): JSX.Element => {
   const [name, setName] = React.useState("");
   const modalHeadingID = `modal-${useUID()}`;
-  const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const nameInputRef: React.RefObject<HTMLInputElement | null> = React.createRef();
   const inputID = useUID();
   return (
     <CustomizationProvider baseTheme="default" theme={TestTheme}>

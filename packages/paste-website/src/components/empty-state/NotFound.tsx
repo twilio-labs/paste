@@ -2,6 +2,7 @@ import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
+import type { JSX } from "react";
 
 import { Breadcrumb, BreadcrumbItem } from "../breadcrumb";
 

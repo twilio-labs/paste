@@ -1,5 +1,6 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { Paragraph } from "@twilio-paste/paragraph";
+import type { JSX } from "react";
 
 import { ReactLogoIcon } from "../icons/ReactLogoIcon";
 import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from "./ProjectCard";

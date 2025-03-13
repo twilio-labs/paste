@@ -1,6 +1,7 @@
 import { Anchor } from "@twilio-paste/core/anchor";
 import { Stack } from "@twilio-paste/core/stack";
 import * as React from "react";
+import type { JSX } from "react";
 
 const AnchorPreview = (): JSX.Element => {
   return (

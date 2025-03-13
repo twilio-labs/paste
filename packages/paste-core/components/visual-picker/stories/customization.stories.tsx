@@ -21,7 +21,7 @@ export default {
   component: VisualPickerRadioGroup,
 };
 
-export const CustomizedRadio = (props: Partial<Record<"element", string>>): React.ReactElement => {
+export const CustomizedRadio = (props: Partial<Record<"element", string>>): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   const [value, setValue] = React.useState("1");
   return (
@@ -155,7 +155,7 @@ export const CustomizedRadio = (props: Partial<Record<"element", string>>): Reac
   );
 };
 
-export const CustomizedCheckbox = (props: Partial<Record<"element", string>>): React.ReactElement => {
+export const CustomizedCheckbox = (props: Partial<Record<"element", string>>): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);

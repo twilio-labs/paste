@@ -16,7 +16,7 @@ export default {
   component: KeyboardKey,
 };
 
-export const Default = (): React.ReactElement => {
+export const Default = (): React.ReactElement<HTMLElement> => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
     onCombinationPress: (): void => {
@@ -52,7 +52,7 @@ export const Default = (): React.ReactElement => {
   );
 };
 
-export const Inverse = (): React.ReactElement => {
+export const Inverse = (): React.ReactElement<HTMLElement> => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
     onCombinationPress: (): void => {
@@ -88,7 +88,7 @@ export const Inverse = (): React.ReactElement => {
   );
 };
 
-export const ForcePressed = (): React.ReactElement => {
+export const ForcePressed = (): React.ReactElement<HTMLElement> => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
     onCombinationPress: (): void => {
@@ -114,7 +114,7 @@ export const ForcePressed = (): React.ReactElement => {
   );
 };
 
-export const MultipleCombinations = (): React.ReactElement => {
+export const MultipleCombinations = (): React.ReactElement<HTMLElement> => {
   const [textToDisplay, setTextToDisplay] = React.useState<string>("");
 
   const stateCtrB = useKeyCombination({
@@ -184,7 +184,7 @@ export const MultipleCombinations = (): React.ReactElement => {
   );
 };
 
-export const TriggerModal = (): React.ReactElement => {
+export const TriggerModal = (): React.ReactElement<HTMLElement> => {
   const [isOpen, setIsOpen] = React.useState(false);
   const state = useKeyCombination({
     keys: ["Control", "k"],
@@ -229,7 +229,7 @@ export const TriggerModal = (): React.ReactElement => {
   );
 };
 
-export const Customization = (): React.ReactElement => {
+export const Customization = (): React.ReactElement<HTMLElement> => {
   const state = useKeyCombination({
     keys: ["Control", "b"],
     onCombinationPress: (): void => {

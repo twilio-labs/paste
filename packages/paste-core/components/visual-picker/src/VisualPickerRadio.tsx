@@ -67,7 +67,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
 
     const { groupHasError, groupIsDisabled } = visualPickerRadioGroupContext;
 
-    const internalRef = React.useRef<HTMLInputElement>();
+    const internalRef = React.useRef<HTMLInputElement>(undefined);
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
     // Border color shouldn't change on hover of selected radio because a radio can't be unselected by clicking on it

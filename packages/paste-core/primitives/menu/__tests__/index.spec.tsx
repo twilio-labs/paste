@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   MenuPrimitive,

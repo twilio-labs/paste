@@ -521,7 +521,7 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
   const [name, setName] = React.useState("");
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
-  const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const nameInputRef: React.RefObject<HTMLInputElement | null> = React.createRef();
   const modalHeadingID = useUID();
   const inputID = useUID();
 
@@ -626,7 +626,7 @@ export const PopoverInModal = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
-  const nameButtonRef: React.RefObject<HTMLButtonElement> = React.createRef();
+  const nameButtonRef: React.RefObject<HTMLButtonElement | null> = React.createRef();
   const modalHeadingID = useUID();
   return (
     <div>
@@ -1045,7 +1045,7 @@ ModalDialogTooltipVRT.storyName = "Modal Dialog with tooltip for VRT";
 
 export const ModalDialogPopoverVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
-  const nameButtonRef: React.RefObject<HTMLButtonElement> = React.createRef();
+  const nameButtonRef: React.RefObject<HTMLButtonElement | null> = React.createRef();
   const onDismiss = NOOP;
   return (
     <ModalContext.Provider value={{ onDismiss }}>

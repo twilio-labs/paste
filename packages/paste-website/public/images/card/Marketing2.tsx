@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 export const Marketing2 = (): JSX.Element => {
   return (
     <svg viewBox="0 0 460 310" width="200" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -6,6 +6,7 @@ import { useTheme } from "@twilio-paste/theme";
 import type { ThemeShape } from "@twilio-paste/theme";
 import { Truncate } from "@twilio-paste/truncate";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { MediaBody, MediaFigure, MediaObject } from "../src";
 

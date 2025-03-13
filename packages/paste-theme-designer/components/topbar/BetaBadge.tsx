@@ -1,6 +1,7 @@
 import { Badge } from "@twilio-paste/core/badge";
 import { NewIcon } from "@twilio-paste/icons/cjs/NewIcon";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { SimpleStorage } from "../../utils/SimpleStorage";
 import { BetaModal } from "./BetaModal";

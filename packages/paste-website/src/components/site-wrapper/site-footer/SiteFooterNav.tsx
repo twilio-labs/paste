@@ -3,6 +3,7 @@ import { Box } from "@twilio-paste/box";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from "../../../constants";
 import { event } from "../../../lib/gtag";
@@ -195,7 +196,7 @@ const SiteFooterNav = (): JSX.Element => {
       <Box marginTop="space120" textAlign={["center", "left"]}>
         <Anchor href="https://twilio.com" display="inline-flex">
           <TwilioLogo
-            css={{ height: theme.heights.sizeIcon40, width: theme.widths.size10 }}
+            style={{ height: theme.heights.sizeIcon40, width: theme.widths.size10 }}
             color={theme.textColors.colorTextInverse}
             title="Twilio"
           />

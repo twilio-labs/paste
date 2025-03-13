@@ -22,6 +22,7 @@ import type {
 } from "@twilio-paste/style-props";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { CustomizableTextExample } from "../__fixtures__/CustomizableText";
 import { Text } from "../src";

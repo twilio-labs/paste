@@ -31,6 +31,7 @@ import {
 import { Text } from "@twilio-paste/text";
 import { VisualPickerRadio, VisualPickerRadioGroup } from "@twilio-paste/visual-picker";
 import * as React from "react";
+import type { JSX } from "react";
 
 export default {
   title: "Website/PricingExamples",

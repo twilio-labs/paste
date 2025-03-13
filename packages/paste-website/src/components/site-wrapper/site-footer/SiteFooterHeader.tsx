@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { useTheme } from "@twilio-paste/theme";
+import type { JSX } from "react";
 
 import HeartDoodleIcon from "../../icons/NewHeartDoodleIcon";
 
@@ -13,11 +14,7 @@ const SiteFooterHeader = (): JSX.Element => {
       marginBottom="space80"
       textAlign={["center", "left"]}
     >
-      <HeartDoodleIcon
-        css={{ height: theme.heights.sizeIcon70, width: theme.widths.sizeIcon70 }}
-        color={theme.textColors.colorTextInverse}
-        decorative
-      />
+      <HeartDoodleIcon size={theme.heights.sizeIcon70} color={theme.textColors.colorTextInverse} decorative />
     </Box>
   );
 };

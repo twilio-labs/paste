@@ -32,7 +32,7 @@ interface BasicModalDialogProps {
 }
 
 const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({ isOpen, handleClose }) => {
-  const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
+  const inputRef: React.RefObject<HTMLInputElement | null> = React.useRef(null);
 
   return (
     <StyledModalDialogOverlay isOpen={isOpen} onDismiss={handleClose} allowPinchZoom initialFocusRef={inputRef}>

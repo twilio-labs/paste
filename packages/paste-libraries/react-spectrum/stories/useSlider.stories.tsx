@@ -14,18 +14,18 @@ export default {
 interface ThumbProps {
   index: number;
   state: SliderState;
-  trackRef: React.RefObject<HTMLDivElement>;
+  trackRef: React.RefObject<HTMLDivElement | null>;
   isDisabled?: boolean;
 }
 
 const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => {
-  const inputRef = React.useRef(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const [focused, setFocused] = React.useState(false);
   const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index,
       trackRef,
-      inputRef,
+      inputRef: inputRef as React.RefObject<HTMLInputElement | null>,
     },
     state,
   );
@@ -48,9 +48,13 @@ const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => 
 };
 
 const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
-  const trackRef = React.useRef(null);
+  const trackRef = React.useRef<HTMLInputElement>(null);
   const state = useSliderState(props);
-  const { groupProps, trackProps, labelProps, outputProps } = useSlider(props, state, trackRef);
+  const { groupProps, trackProps, labelProps, outputProps } = useSlider(
+    props,
+    state,
+    trackRef as React.RefObject<HTMLDivElement | null>,
+  );
 
   return (
     <Box {...groupProps} className={`slider ${state.orientation}`}>
@@ -69,7 +73,12 @@ const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
           width="100%"
           borderRadius="borderRadius20"
         >
-          <Thumb index={0} state={state} trackRef={trackRef} isDisabled={props.isDisabled} />
+          <Thumb
+            index={0}
+            state={state}
+            trackRef={trackRef as React.RefObject<HTMLInputElement | null>}
+            isDisabled={props.isDisabled}
+          />
         </Box>
       </Box>
     </Box>

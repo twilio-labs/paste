@@ -3,6 +3,7 @@ import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DisclosurePrimitive, DisclosurePrimitiveContent, useDisclosurePrimitiveState } from "../src";
 

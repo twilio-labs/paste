@@ -22,7 +22,7 @@ export const Default = (): React.ReactNode => {
 
   // Randomly updates the value of the progress bar to simulate a real progress bar
   React.useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout;
     if (rerun) {
       interval = setInterval(() => {
         setValue((previousValue) => {

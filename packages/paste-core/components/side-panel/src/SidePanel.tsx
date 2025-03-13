@@ -72,7 +72,7 @@ const SidePanelContents = React.forwardRef<HTMLDivElement, SidePanelContentsProp
   ({ label, element, sidePanelId, styles, isMobile, children, ...props }, ref) => {
     // Get the offset of the side panel from the top of the viewport
     const sidePanelRef = React.useRef<HTMLDivElement>(null);
-    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement>;
+    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement | null>;
     const screenSize = window.innerHeight;
     const [offsetY, setOffsetY] = React.useState(0);
     React.useEffect(() => {
