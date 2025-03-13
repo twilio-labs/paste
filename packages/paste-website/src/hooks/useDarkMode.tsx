@@ -1,9 +1,8 @@
 import type { ValueOf } from "@twilio-paste/types";
+import { parseCookies, setCookie } from "nookies";
 import * as React from "react";
 
-import { SimpleStorage } from "../utils/SimpleStorage";
-
-export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
+export type UseDarkModeReturn = [ValidThemeName | undefined, () => void, boolean];
 
 const ValidThemes = {
   DEFAULT: "twilio",
@@ -13,15 +12,16 @@ const ValidThemes = {
 type ValidThemeName = ValueOf<typeof ValidThemes>;
 
 const isValidTheme = (themeName: ValidThemeName): boolean => {
-  return themeName === ValidThemes.DEFAULT || themeName === ValidThemes.DARK;
+  return Object.values(ValidThemes).includes(themeName);
 };
 
 export const useDarkMode = (): UseDarkModeReturn => {
-  const [theme, setTheme] = React.useState<ValidThemeName>(ValidThemes.DEFAULT);
+  const [theme, setTheme] = React.useState<ValidThemeName>();
   const [componentMounted, setComponentMounted] = React.useState(false);
 
   const setMode = (mode: ValidThemeName): void => {
-    SimpleStorage.set("theme", mode);
+    setCookie(null, "paste-docs-theme", mode, { path: "/" });
+    document.body.dataset.theme = mode;
     setTheme(mode);
   };
 
@@ -34,7 +34,7 @@ export const useDarkMode = (): UseDarkModeReturn => {
   };
 
   React.useEffect(() => {
-    const localTheme = SimpleStorage.get("theme") as ValidThemeName;
+    const localTheme = parseCookies()["paste-docs-theme"] as ValidThemeName;
 
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {
       setMode(ValidThemes.DARK);

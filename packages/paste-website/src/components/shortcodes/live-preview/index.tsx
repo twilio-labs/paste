@@ -49,6 +49,8 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
 
   const overflow = showOverflow ? "visible" : "auto";
 
+  if (!previewTheme) return null;
+
   return (
     <Box marginBottom="space110" data-cy="live-preview">
       <LiveProvider

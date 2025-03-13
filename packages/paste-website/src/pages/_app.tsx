@@ -1,4 +1,6 @@
 import { datadogRum } from "@datadog/browser-rum";
+import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio/tokens.custom-properties.css";
 import { Theme } from "@twilio-paste/theme";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -22,7 +24,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const router = useRouter();
   const localStorageKey = "cookie-consent-accepted";
   const [theme, toggleMode, componentMounted] = useDarkMode();
-  const [previewTheme, setPreviewTheme] = React.useState("twilio");
+  const [previewTheme, setPreviewTheme] = React.useState<string | undefined>();
   const [cookiesAccepted, setCookiesAccepted] = React.useState<null | string>();
 
   React.useEffect(() => {
@@ -111,7 +113,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
         </>
       )}
       <Theme.Provider
-        theme={theme}
+        useCSSVariables={true}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
         cacheProviderProps={{ key: "next" }}
