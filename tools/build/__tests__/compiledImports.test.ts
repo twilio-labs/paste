@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const { build } = require("../esbuild");
+import { build } from "../esbuild");
 
 const filePaths = {
   mainDev: path.resolve(__dirname, "../__fixtures__/random_package/src/index.tsx"),
