@@ -2,8 +2,8 @@ const path = require("path");
 const esbuild = require("esbuild");
 const { esbuildPluginVersionInjector } = require("esbuild-plugin-version-injector");
 
-const { PasteCJSResolverPlugin } = require("./plugins/PasteCJSResolver");
-const { EsmExternalsPlugin } = require("./plugins/EsmExternals");
+const { PasteCJSResolverPlugin } = require("./plugins/PasteCJSResolver.cjs");
+const { EsmExternalsPlugin } = require("./plugins/EsmExternals.cjs");
 
 /**
  * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't

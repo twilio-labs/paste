@@ -5,16 +5,9 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.ts",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
