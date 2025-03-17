@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.14.0
+
+### Minor Changes
+
+- [`b5e73f1a7`](https://github.com/twilio-labs/paste/commit/b5e73f1a7485b707fed2aaa491f23e55263326d1) [#4264](https://github.com/twilio-labs/paste/pull/4264) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Tokens] added a new build script to generate a CSS file that applies variables for individual themes using the body[data-theme] attribute.
+
 ## 10.13.0
 
 ### Minor Changes
