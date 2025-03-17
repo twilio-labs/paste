@@ -7,7 +7,7 @@
   "types": "dist/tokens.common.d.ts",
   "type": "module",
   "exports": {
-    ".":  {
+    ".": {
       "import": "./dist/tokens.es6.js",
       "require": "./dist/tokens.common.js"
     }
