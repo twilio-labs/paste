@@ -33,6 +33,22 @@ class _Document extends Document {
           <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
         </Head>
         <body>
+          <script
+            type="text/javascript"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+                let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
+                let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
+                if(cookie){
+                  document.body.dataset.theme = cookie;
+                }
+                else if(window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
+                  document.body.dataset.theme = "twilio-dark";
+                }
+            `,
+            }}
+          />
           <noscript key="noscript">This app works best with JavaScript enabled.</noscript>
           <Main />
           <NextScript />

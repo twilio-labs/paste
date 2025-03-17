@@ -65,7 +65,7 @@ export const ColorGradient: React.FC<
 > = ({ aliasPrefix, makeTall = "false", index = 0 }) => {
   const [show, setShow] = React.useState(false);
   const { theme } = useDarkModeContext();
-  const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
+  const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme || "twilio");
   const count = aliasValues.length - 1;
 
   function handleVisibilityChange(isVisible: boolean): void {

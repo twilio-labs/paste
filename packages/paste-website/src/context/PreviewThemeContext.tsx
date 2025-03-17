@@ -1,7 +1,7 @@
 import * as React from "react";
 
 type PreviewThemeContextValue = {
-  theme: string;
+  theme?: string;
   selectTheme: (theme: string) => void;
 };
 
