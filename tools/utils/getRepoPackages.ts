@@ -1,5 +1,8 @@
+import { createRequire } from "node:module";
+
 import { runCmdJson } from "./runCmd";
 
+const require = createRequire(import.meta.url);
 const LERNA_INDEX_PATH = require.resolve("lerna");
 const LERNA_CLI_PATH = LERNA_INDEX_PATH.replace("index.js", "cli.js");
 

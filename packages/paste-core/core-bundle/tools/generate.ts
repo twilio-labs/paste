@@ -1,3 +1,4 @@
+import { createRequire } from "module";
 import sortBy from "lodash/sortBy";
 
 import { CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH } from "./constants";
@@ -52,6 +53,7 @@ import {
    */
   createCodeSandboxCIjson(sortedPackageList);
 
+  const require = createRequire(import.meta.url);
   /*
    * Update package.json file
    */
