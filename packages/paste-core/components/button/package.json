@@ -9,6 +9,13 @@
   "main:dev": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    }
+  },
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "publishConfig": {
@@ -18,8 +25,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
-    "build:js": "NODE_ENV=development node build.js",
+    "build": "yarn clean && NODE_ENV=production node build.cjs && tsc",
+    "build:js": "NODE_ENV=development node build.cjs",
     "build:typedocs": "tsx ../../../../tools/build/generate-type-docs",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
