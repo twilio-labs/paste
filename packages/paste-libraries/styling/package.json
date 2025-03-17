@@ -7,14 +7,14 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "sideEffects": false,
@@ -28,7 +28,7 @@
     "build": "yarn clean && NODE_ENV=production node build.cjs && tsc",
     "build:js": "NODE_ENV=development node build.cjs",
     "clean": "rm -rf ./dist",
-    "tsc": "tsc"
+    "tsc": "tsc && cp ./dist/index.d.ts ./dist/index.es.d.ts"
   },
   "dependencies": {
     "@emotion/cache": "11.10.5",

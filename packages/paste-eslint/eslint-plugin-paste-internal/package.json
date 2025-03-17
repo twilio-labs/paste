@@ -5,7 +5,7 @@
   "license": "MIT",
   "publisher": "TwilioPaste",
   "author": "Twilio Inc.",
-  "main": "src/index.js",
+  "main": "src/index.cjs",
   "devDependencies": {
     "eslint": "^8.29.0"
   }

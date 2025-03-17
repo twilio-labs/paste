@@ -2,7 +2,7 @@
   "name": "paste",
   "private": true,
   "version": "2020.05.19",
-  "main": "index.js",
+  "main": "index.cjs",
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {

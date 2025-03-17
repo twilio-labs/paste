@@ -108,7 +108,7 @@ async function build(packageJson) {
     .build({
       ...config,
       format: "cjs",
-      outfile: outFileCJS.replace(".js", ".debug.js"),
+      outfile: outFileCJS.replace(".cjs", ".debug.cjs"),
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
     })
@@ -122,7 +122,7 @@ async function build(packageJson) {
     .build({
       ...config,
       format: "esm",
-      outfile: outFileESM.replace(".es.js", ".debug.es.js"),
+      outfile: outFileESM.replace(".js", ".debug.js"),
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
     })

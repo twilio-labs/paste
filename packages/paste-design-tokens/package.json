@@ -10,7 +10,33 @@
     ".": {
       "import": "./dist/tokens.es6.js",
       "require": "./dist/tokens.common.js"
-    }
+    },
+    "./dist/themes/dark/tokens.es6": {
+      "import": "./dist/themes/dark/tokens.es6.js",
+      "require": "./dist/themes/dark/tokens.common.js"
+    },
+    "./dist/themes/twilio/tokens.es6": {
+      "import": "./dist/themes/twilio/tokens.es6.js",
+      "require": "./dist/themes/twilio/tokens.common.js"
+    },
+    "./dist/themes/twilio-dark/tokens.es6": {
+      "import": "./dist/themes/twilio-dark/tokens.es6.js",
+      "require": "./dist/themes/twilio-dark/tokens.common.js"
+    },
+    "./dist/themes/sendgrid/tokens.es6": {
+      "import": "./dist/themes/sendgrid/tokens.es6.js",
+      "require": "./dist/themes/sendgrid/tokens.common.js"
+    },
+    "./dist/themes/evergreen/tokens.es6": {
+      "import": "./dist/themes/evergreen/tokens.es6.js",
+      "require": "./dist/themes/evergreen/tokens.common.js"
+    },
+    "./dist/tokens.es6": {
+      "import": "./dist/tokens.es6.js",
+      "require": "./dist/tokens.common.js"
+    },
+    "./dist/tokens.raw.json": "./dist/tokens.raw.json",
+    "./dist/tokens.generic": "./dist/tokens.generic.js"
   },
   "author": "Twilio",
   "license": "MIT",

@@ -22,6 +22,7 @@ const config: StorybookConfig = {
   typescript: {
     // enable type checking
     check: true,
+    reactDocgen: false,
   },
   async viteFinal(config, { configType }) {
     const isTest = process.env.NODE_ENV === "test";
