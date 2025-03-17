@@ -11,7 +11,20 @@
   "module": "dist/index.js",
   "type": "module",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./customization": "./dist/customization.js",
+    "./theme": "./dist/theme.js",
+    "./styling-library": "./dist/styling-library.js",
+    "./heading": "./dist/heading.js",
+    "./paragraph": "./dist/paragraph.js",
+    "./text": "./dist/text.js",
+    "./sidebar": "./dist/sidebar.js",
+    "./topbar": "./dist/topbar.js",
+    "./breadcrumb": "./dist/breadcrumb.js",
+    "./box": "./dist/box.js",
+    "./input": "./dist/input.js",
+    "./badge": "./dist/badge.js",
+    "./user-dialog": "./dist/user-dialog.js"
   },
   "sideEffects": false,
   "publishConfig": {

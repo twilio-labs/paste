@@ -169,7 +169,7 @@
     "cypress": "10.8.0",
     "danger": "^11.0.2",
     "dotenv": "^16.0.0",
-    "esbuild": "^0.15.18",
+    "esbuild": "^0.25.1",
     "esbuild-plugin-version-injector": "^1.1.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "8.5.0",
