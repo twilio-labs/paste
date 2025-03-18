@@ -1,39 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateThemeFromTokens should generate a theme in the desired shape based on design tokens provided 1`] = `
-Object {
-  "backgroundColors": Object {
+{
+  "backgroundColors": {
     "colorBackground": "red",
   },
-  "borderColors": Object {
+  "borderColors": {
     "colorBorder": "blue",
   },
-  "borderWidths": Object {
+  "borderWidths": {
     "borderWidth0": "10px",
   },
-  "breakpoints": Array [
+  "breakpoints": [
     "16px",
     "16px",
     "16px",
   ],
-  "colorSchemes": Object {
+  "colorSchemes": {
     "colorScheme": "dark",
   },
-  "dataVisualization": Object {
+  "dataVisualization": {
     "colorDataVisualization1": "red",
     "colorDataVisualization2": "blue",
     "colorDataVisualization3": "green",
   },
-  "fontSizes": Object {
+  "fontSizes": {
     "fontSize100": "300px",
   },
-  "fontWeights": Object {
+  "fontWeights": {
     "fontWeightBold": "800",
   },
-  "fonts": Object {
+  "fonts": {
     "fontFamilyCode": "arial",
   },
-  "heights": Object {
+  "heights": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -82,7 +82,7 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "iconSizes": Object {
+  "iconSizes": {
     "sizeIcon05": undefined,
     "sizeIcon10": "1px",
     "sizeIcon100": "1px",
@@ -96,10 +96,10 @@ Object {
     "sizeIcon80": "1px",
     "sizeIcon90": "1px",
   },
-  "lineHeights": Object {
+  "lineHeights": {
     "lineHeight0": "20px",
   },
-  "maxHeights": Object {
+  "maxHeights": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -148,7 +148,7 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "maxWidths": Object {
+  "maxWidths": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -197,7 +197,7 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "minHeights": Object {
+  "minHeights": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -246,7 +246,7 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "minWidths": Object {
+  "minWidths": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -295,13 +295,13 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "radii": Object {
+  "radii": {
     "borderRadius0": "20px",
   },
-  "shadows": Object {
+  "shadows": {
     "shadow": "grey",
   },
-  "sizes": Object {
+  "sizes": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -350,13 +350,13 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "space": Object {
+  "space": {
     "space10": "28px",
   },
-  "textColors": Object {
+  "textColors": {
     "colorText": "black",
   },
-  "widths": Object {
+  "widths": {
     "size0": "1px",
     "size10": "1px",
     "size100": "1px",
@@ -405,7 +405,7 @@ Object {
     "sizeSquare80": "1px",
     "sizeSquare90": "1px",
   },
-  "zIndices": Object {
+  "zIndices": {
     "zIndex0": "-20",
   },
 }

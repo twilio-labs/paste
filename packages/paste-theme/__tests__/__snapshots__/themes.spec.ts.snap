@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CSS Theme should match the snapshot 1`] = `
-Array [
+[
   "backgroundColors",
   "borderColors",
   "borderWidths",
@@ -29,7 +29,7 @@ Array [
 `;
 
 exports[`Default theme should match the snapshot 1`] = `
-Array [
+[
   "backgroundColors",
   "borderColors",
   "borderWidths",
@@ -57,7 +57,7 @@ Array [
 `;
 
 exports[`Sendgrid theme should match the snapshot 1`] = `
-Array [
+[
   "backgroundColors",
   "borderColors",
   "borderWidths",

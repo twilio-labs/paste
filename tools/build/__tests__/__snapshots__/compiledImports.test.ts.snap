@@ -18,33 +18,37 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === \\"object\\" || typeof from === \\"function\\") {
+  if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
       if (!__hasOwnProp.call(to, key) && key !== except)
         __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
   return to;
 };
-var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, \\"default\\"), secondTarget && __copyProps(secondTarget, mod, \\"default\\"));
+var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, \\"default\\", { value: mod, enumerable: true }) : target,
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, \\"__esModule\\", { value: true }), mod);
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/clipboard-copy/index.js
 var require_clipboard_copy = __commonJS({
-  \\"node_modules/clipboard-copy/index.js\\"(exports, module) {
+  "node_modules/clipboard-copy/index.js"(exports, module) {
     module.exports = clipboardCopy;
     function clipboardCopy(text) {
       if (navigator.clipboard) {
         return navigator.clipboard.writeText(text).catch(function(err) {
-          throw err !== void 0 ? err : new DOMException(\\"The request is not allowed\\", \\"NotAllowedError\\");
+          throw err !== void 0 ? err : new DOMException("The request is not allowed", "NotAllowedError");
         });
       }
-      var span = document.createElement(\\"span\\");
+      var span = document.createElement("span");
       span.textContent = text;
-      span.style.whiteSpace = \\"pre\\";
+      span.style.whiteSpace = "pre";
       document.body.appendChild(span);
       var selection = window.getSelection();
       var range = window.document.createRange();
@@ -53,13 +57,13 @@ var require_clipboard_copy = __commonJS({
       selection.addRange(range);
       var success = false;
       try {
-        success = window.document.execCommand(\\"copy\\");
+        success = window.document.execCommand("copy");
       } catch (err) {
-        console.log(\\"error\\", err);
+        console.log("error", err);
       }
       selection.removeAllRanges();
       window.document.body.removeChild(span);
-      return success ? Promise.resolve() : Promise.reject(new DOMException(\\"The request is not allowed\\", \\"NotAllowedError\\"));
+      return success ? Promise.resolve() : Promise.reject(new DOMException("The request is not allowed", "NotAllowedError"));
     }
   }
 });
@@ -69,19 +73,19 @@ var react_exports = {};
 __export(react_exports, {
   default: () => default2
 });
-import * as default2 from \\"react\\";
-import * as react_star from \\"react\\";
+import * as default2 from "react";
+import * as react_star from "react";
 var init_react = __esm({
-  \\"esm-externals:react\\"() {
+  "esm-externals:react"() {
     __reExport(react_exports, react_star);
   }
 });
 
 // node_modules/use-clipboard-copy/dist/useTimedToggle.js
 var require_useTimedToggle = __commonJS({
-  \\"node_modules/use-clipboard-copy/dist/useTimedToggle.js\\"(exports) {
-    \\"use strict\\";
-    Object.defineProperty(exports, \\"__esModule\\", { value: true });
+  "node_modules/use-clipboard-copy/dist/useTimedToggle.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     exports.useTimedToggle = void 0;
     var react_1 = (init_react(), __toCommonJS(react_exports));
     function useTimedToggle(initialValue) {
@@ -108,18 +112,18 @@ var require_useTimedToggle = __commonJS({
 
 // node_modules/use-clipboard-copy/dist/index.js
 var require_dist = __commonJS({
-  \\"node_modules/use-clipboard-copy/dist/index.js\\"(exports) {
-    \\"use strict\\";
+  "node_modules/use-clipboard-copy/dist/index.js"(exports) {
+    "use strict";
     var __importDefault = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { \\"default\\": mod };
+      return mod && mod.__esModule ? mod : { "default": mod };
     };
-    Object.defineProperty(exports, \\"__esModule\\", { value: true });
+    Object.defineProperty(exports, "__esModule", { value: true });
     exports.useClipboard = void 0;
     var clipboard_copy_1 = __importDefault(require_clipboard_copy());
     var react_1 = (init_react(), __toCommonJS(react_exports));
     var useTimedToggle_1 = require_useTimedToggle();
     function isInputLike(node) {
-      return node && (node.nodeName === \\"TEXTAREA\\" || node.nodeName === \\"INPUT\\");
+      return node && (node.nodeName === "TEXTAREA" || node.nodeName === "INPUT");
     }
     function useClipboard2(options) {
       if (options === void 0) {
@@ -130,7 +134,7 @@ var require_dist = __commonJS({
       var optionsRef = react_1.useRef(options);
       optionsRef.current = options;
       function isSupported() {
-        return !!navigator.clipboard || typeof document.execCommand === \\"function\\" && typeof document.queryCommandSupported === \\"function\\" && document.queryCommandSupported(\\"copy\\");
+        return !!navigator.clipboard || typeof document.execCommand === "function" && typeof document.queryCommandSupported === "function" && document.queryCommandSupported("copy");
       }
       var copyHandler = react_1.useCallback(function(text) {
         var opts = optionsRef.current;
@@ -157,7 +161,7 @@ var require_dist = __commonJS({
         function copy(value) {
           clipboard_copy_1.default(value).then(handleSuccess).catch(handleError);
         }
-        if (typeof text === \\"string\\") {
+        if (typeof text === "string") {
           copy(text);
         } else if (target) {
           copy(target.value);
@@ -176,25 +180,25 @@ var require_dist = __commonJS({
 
 // node_modules/lodash/_freeGlobal.js
 var require_freeGlobal = __commonJS({
-  \\"node_modules/lodash/_freeGlobal.js\\"(exports, module) {
-    var freeGlobal = typeof global == \\"object\\" && global && global.Object === Object && global;
+  "node_modules/lodash/_freeGlobal.js"(exports, module) {
+    var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
     module.exports = freeGlobal;
   }
 });
 
 // node_modules/lodash/_root.js
 var require_root = __commonJS({
-  \\"node_modules/lodash/_root.js\\"(exports, module) {
+  "node_modules/lodash/_root.js"(exports, module) {
     var freeGlobal = require_freeGlobal();
-    var freeSelf = typeof self == \\"object\\" && self && self.Object === Object && self;
-    var root = freeGlobal || freeSelf || Function(\\"return this\\")();
+    var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+    var root = freeGlobal || freeSelf || Function("return this")();
     module.exports = root;
   }
 });
 
 // node_modules/lodash/_Symbol.js
 var require_Symbol = __commonJS({
-  \\"node_modules/lodash/_Symbol.js\\"(exports, module) {
+  "node_modules/lodash/_Symbol.js"(exports, module) {
     var root = require_root();
     var Symbol2 = root.Symbol;
     module.exports = Symbol2;
@@ -203,7 +207,7 @@ var require_Symbol = __commonJS({
 
 // node_modules/lodash/_arrayMap.js
 var require_arrayMap = __commonJS({
-  \\"node_modules/lodash/_arrayMap.js\\"(exports, module) {
+  "node_modules/lodash/_arrayMap.js"(exports, module) {
     function arrayMap(array, iteratee) {
       var index = -1, length = array == null ? 0 : array.length, result = Array(length);
       while (++index < length) {
@@ -217,7 +221,7 @@ var require_arrayMap = __commonJS({
 
 // node_modules/lodash/isArray.js
 var require_isArray = __commonJS({
-  \\"node_modules/lodash/isArray.js\\"(exports, module) {
+  "node_modules/lodash/isArray.js"(exports, module) {
     var isArray = Array.isArray;
     module.exports = isArray;
   }
@@ -225,7 +229,7 @@ var require_isArray = __commonJS({
 
 // node_modules/lodash/_getRawTag.js
 var require_getRawTag = __commonJS({
-  \\"node_modules/lodash/_getRawTag.js\\"(exports, module) {
+  "node_modules/lodash/_getRawTag.js"(exports, module) {
     var Symbol2 = require_Symbol();
     var objectProto = Object.prototype;
     var hasOwnProperty = objectProto.hasOwnProperty;
@@ -254,7 +258,7 @@ var require_getRawTag = __commonJS({
 
 // node_modules/lodash/_objectToString.js
 var require_objectToString = __commonJS({
-  \\"node_modules/lodash/_objectToString.js\\"(exports, module) {
+  "node_modules/lodash/_objectToString.js"(exports, module) {
     var objectProto = Object.prototype;
     var nativeObjectToString = objectProto.toString;
     function objectToString(value) {
@@ -266,12 +270,12 @@ var require_objectToString = __commonJS({
 
 // node_modules/lodash/_baseGetTag.js
 var require_baseGetTag = __commonJS({
-  \\"node_modules/lodash/_baseGetTag.js\\"(exports, module) {
+  "node_modules/lodash/_baseGetTag.js"(exports, module) {
     var Symbol2 = require_Symbol();
     var getRawTag = require_getRawTag();
     var objectToString = require_objectToString();
-    var nullTag = \\"[object Null]\\";
-    var undefinedTag = \\"[object Undefined]\\";
+    var nullTag = "[object Null]";
+    var undefinedTag = "[object Undefined]";
     var symToStringTag = Symbol2 ? Symbol2.toStringTag : void 0;
     function baseGetTag(value) {
       if (value == null) {
@@ -285,9 +289,9 @@ var require_baseGetTag = __commonJS({
 
 // node_modules/lodash/isObjectLike.js
 var require_isObjectLike = __commonJS({
-  \\"node_modules/lodash/isObjectLike.js\\"(exports, module) {
+  "node_modules/lodash/isObjectLike.js"(exports, module) {
     function isObjectLike(value) {
-      return value != null && typeof value == \\"object\\";
+      return value != null && typeof value == "object";
     }
     module.exports = isObjectLike;
   }
@@ -295,12 +299,12 @@ var require_isObjectLike = __commonJS({
 
 // node_modules/lodash/isSymbol.js
 var require_isSymbol = __commonJS({
-  \\"node_modules/lodash/isSymbol.js\\"(exports, module) {
+  "node_modules/lodash/isSymbol.js"(exports, module) {
     var baseGetTag = require_baseGetTag();
     var isObjectLike = require_isObjectLike();
-    var symbolTag = \\"[object Symbol]\\";
+    var symbolTag = "[object Symbol]";
     function isSymbol(value) {
-      return typeof value == \\"symbol\\" || isObjectLike(value) && baseGetTag(value) == symbolTag;
+      return typeof value == "symbol" || isObjectLike(value) && baseGetTag(value) == symbolTag;
     }
     module.exports = isSymbol;
   }
@@ -308,7 +312,7 @@ var require_isSymbol = __commonJS({
 
 // node_modules/lodash/_baseToString.js
 var require_baseToString = __commonJS({
-  \\"node_modules/lodash/_baseToString.js\\"(exports, module) {
+  "node_modules/lodash/_baseToString.js"(exports, module) {
     var Symbol2 = require_Symbol();
     var arrayMap = require_arrayMap();
     var isArray = require_isArray();
@@ -317,17 +321,17 @@ var require_baseToString = __commonJS({
     var symbolProto = Symbol2 ? Symbol2.prototype : void 0;
     var symbolToString = symbolProto ? symbolProto.toString : void 0;
     function baseToString(value) {
-      if (typeof value == \\"string\\") {
+      if (typeof value == "string") {
         return value;
       }
       if (isArray(value)) {
-        return arrayMap(value, baseToString) + \\"\\";
+        return arrayMap(value, baseToString) + "";
       }
       if (isSymbol(value)) {
-        return symbolToString ? symbolToString.call(value) : \\"\\";
+        return symbolToString ? symbolToString.call(value) : "";
       }
-      var result = value + \\"\\";
-      return result == \\"0\\" && 1 / value == -INFINITY ? \\"-0\\" : result;
+      var result = value + "";
+      return result == "0" && 1 / value == -INFINITY ? "-0" : result;
     }
     module.exports = baseToString;
   }
@@ -335,10 +339,10 @@ var require_baseToString = __commonJS({
 
 // node_modules/lodash/toString.js
 var require_toString = __commonJS({
-  \\"node_modules/lodash/toString.js\\"(exports, module) {
+  "node_modules/lodash/toString.js"(exports, module) {
     var baseToString = require_baseToString();
     function toString(value) {
-      return value == null ? \\"\\" : baseToString(value);
+      return value == null ? "" : baseToString(value);
     }
     module.exports = toString;
   }
@@ -346,7 +350,7 @@ var require_toString = __commonJS({
 
 // node_modules/lodash/_baseSlice.js
 var require_baseSlice = __commonJS({
-  \\"node_modules/lodash/_baseSlice.js\\"(exports, module) {
+  "node_modules/lodash/_baseSlice.js"(exports, module) {
     function baseSlice(array, start, end) {
       var index = -1, length = array.length;
       if (start < 0) {
@@ -370,7 +374,7 @@ var require_baseSlice = __commonJS({
 
 // node_modules/lodash/_castSlice.js
 var require_castSlice = __commonJS({
-  \\"node_modules/lodash/_castSlice.js\\"(exports, module) {
+  "node_modules/lodash/_castSlice.js"(exports, module) {
     var baseSlice = require_baseSlice();
     function castSlice(array, start, end) {
       var length = array.length;
@@ -383,15 +387,15 @@ var require_castSlice = __commonJS({
 
 // node_modules/lodash/_hasUnicode.js
 var require_hasUnicode = __commonJS({
-  \\"node_modules/lodash/_hasUnicode.js\\"(exports, module) {
-    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
-    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
-    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
-    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+  "node_modules/lodash/_hasUnicode.js"(exports, module) {
+    var rsAstralRange = "\\\\ud800-\\\\udfff";
+    var rsComboMarksRange = "\\\\u0300-\\\\u036f";
+    var reComboHalfMarksRange = "\\\\ufe20-\\\\ufe2f";
+    var rsComboSymbolsRange = "\\\\u20d0-\\\\u20ff";
     var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
-    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
-    var rsZWJ = \\"\\\\\\\\u200d\\";
-    var reHasUnicode = RegExp(\\"[\\" + rsZWJ + rsAstralRange + rsComboRange + rsVarRange + \\"]\\");
+    var rsVarRange = "\\\\ufe0e\\\\ufe0f";
+    var rsZWJ = "\\\\u200d";
+    var reHasUnicode = RegExp("[" + rsZWJ + rsAstralRange + rsComboRange + rsVarRange + "]");
     function hasUnicode(string) {
       return reHasUnicode.test(string);
     }
@@ -401,9 +405,9 @@ var require_hasUnicode = __commonJS({
 
 // node_modules/lodash/_asciiToArray.js
 var require_asciiToArray = __commonJS({
-  \\"node_modules/lodash/_asciiToArray.js\\"(exports, module) {
+  "node_modules/lodash/_asciiToArray.js"(exports, module) {
     function asciiToArray(string) {
-      return string.split(\\"\\");
+      return string.split("");
     }
     module.exports = asciiToArray;
   }
@@ -411,27 +415,27 @@ var require_asciiToArray = __commonJS({
 
 // node_modules/lodash/_unicodeToArray.js
 var require_unicodeToArray = __commonJS({
-  \\"node_modules/lodash/_unicodeToArray.js\\"(exports, module) {
-    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
-    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
-    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
-    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+  "node_modules/lodash/_unicodeToArray.js"(exports, module) {
+    var rsAstralRange = "\\\\ud800-\\\\udfff";
+    var rsComboMarksRange = "\\\\u0300-\\\\u036f";
+    var reComboHalfMarksRange = "\\\\ufe20-\\\\ufe2f";
+    var rsComboSymbolsRange = "\\\\u20d0-\\\\u20ff";
     var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
-    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
-    var rsAstral = \\"[\\" + rsAstralRange + \\"]\\";
-    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
-    var rsFitz = \\"\\\\\\\\ud83c[\\\\\\\\udffb-\\\\\\\\udfff]\\";
-    var rsModifier = \\"(?:\\" + rsCombo + \\"|\\" + rsFitz + \\")\\";
-    var rsNonAstral = \\"[^\\" + rsAstralRange + \\"]\\";
-    var rsRegional = \\"(?:\\\\\\\\ud83c[\\\\\\\\udde6-\\\\\\\\uddff]){2}\\";
-    var rsSurrPair = \\"[\\\\\\\\ud800-\\\\\\\\udbff][\\\\\\\\udc00-\\\\\\\\udfff]\\";
-    var rsZWJ = \\"\\\\\\\\u200d\\";
-    var reOptMod = rsModifier + \\"?\\";
-    var rsOptVar = \\"[\\" + rsVarRange + \\"]?\\";
-    var rsOptJoin = \\"(?:\\" + rsZWJ + \\"(?:\\" + [rsNonAstral, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsOptVar + reOptMod + \\")*\\";
+    var rsVarRange = "\\\\ufe0e\\\\ufe0f";
+    var rsAstral = "[" + rsAstralRange + "]";
+    var rsCombo = "[" + rsComboRange + "]";
+    var rsFitz = "\\\\ud83c[\\\\udffb-\\\\udfff]";
+    var rsModifier = "(?:" + rsCombo + "|" + rsFitz + ")";
+    var rsNonAstral = "[^" + rsAstralRange + "]";
+    var rsRegional = "(?:\\\\ud83c[\\\\udde6-\\\\uddff]){2}";
+    var rsSurrPair = "[\\\\ud800-\\\\udbff][\\\\udc00-\\\\udfff]";
+    var rsZWJ = "\\\\u200d";
+    var reOptMod = rsModifier + "?";
+    var rsOptVar = "[" + rsVarRange + "]?";
+    var rsOptJoin = "(?:" + rsZWJ + "(?:" + [rsNonAstral, rsRegional, rsSurrPair].join("|") + ")" + rsOptVar + reOptMod + ")*";
     var rsSeq = rsOptVar + reOptMod + rsOptJoin;
-    var rsSymbol = \\"(?:\\" + [rsNonAstral + rsCombo + \\"?\\", rsCombo, rsRegional, rsSurrPair, rsAstral].join(\\"|\\") + \\")\\";
-    var reUnicode = RegExp(rsFitz + \\"(?=\\" + rsFitz + \\")|\\" + rsSymbol + rsSeq, \\"g\\");
+    var rsSymbol = "(?:" + [rsNonAstral + rsCombo + "?", rsCombo, rsRegional, rsSurrPair, rsAstral].join("|") + ")";
+    var reUnicode = RegExp(rsFitz + "(?=" + rsFitz + ")|" + rsSymbol + rsSeq, "g");
     function unicodeToArray(string) {
       return string.match(reUnicode) || [];
     }
@@ -441,7 +445,7 @@ var require_unicodeToArray = __commonJS({
 
 // node_modules/lodash/_stringToArray.js
 var require_stringToArray = __commonJS({
-  \\"node_modules/lodash/_stringToArray.js\\"(exports, module) {
+  "node_modules/lodash/_stringToArray.js"(exports, module) {
     var asciiToArray = require_asciiToArray();
     var hasUnicode = require_hasUnicode();
     var unicodeToArray = require_unicodeToArray();
@@ -454,7 +458,7 @@ var require_stringToArray = __commonJS({
 
 // node_modules/lodash/_createCaseFirst.js
 var require_createCaseFirst = __commonJS({
-  \\"node_modules/lodash/_createCaseFirst.js\\"(exports, module) {
+  "node_modules/lodash/_createCaseFirst.js"(exports, module) {
     var castSlice = require_castSlice();
     var hasUnicode = require_hasUnicode();
     var stringToArray = require_stringToArray();
@@ -464,7 +468,7 @@ var require_createCaseFirst = __commonJS({
         string = toString(string);
         var strSymbols = hasUnicode(string) ? stringToArray(string) : void 0;
         var chr = strSymbols ? strSymbols[0] : string.charAt(0);
-        var trailing = strSymbols ? castSlice(strSymbols, 1).join(\\"\\") : string.slice(1);
+        var trailing = strSymbols ? castSlice(strSymbols, 1).join("") : string.slice(1);
         return chr[methodName]() + trailing;
       };
     }
@@ -474,16 +478,16 @@ var require_createCaseFirst = __commonJS({
 
 // node_modules/lodash/upperFirst.js
 var require_upperFirst = __commonJS({
-  \\"node_modules/lodash/upperFirst.js\\"(exports, module) {
+  "node_modules/lodash/upperFirst.js"(exports, module) {
     var createCaseFirst = require_createCaseFirst();
-    var upperFirst = createCaseFirst(\\"toUpperCase\\");
+    var upperFirst = createCaseFirst("toUpperCase");
     module.exports = upperFirst;
   }
 });
 
 // node_modules/lodash/capitalize.js
 var require_capitalize = __commonJS({
-  \\"node_modules/lodash/capitalize.js\\"(exports, module) {
+  "node_modules/lodash/capitalize.js"(exports, module) {
     var toString = require_toString();
     var upperFirst = require_upperFirst();
     function capitalize(string) {
@@ -495,7 +499,7 @@ var require_capitalize = __commonJS({
 
 // node_modules/lodash/_arrayReduce.js
 var require_arrayReduce = __commonJS({
-  \\"node_modules/lodash/_arrayReduce.js\\"(exports, module) {
+  "node_modules/lodash/_arrayReduce.js"(exports, module) {
     function arrayReduce(array, iteratee, accumulator, initAccum) {
       var index = -1, length = array == null ? 0 : array.length;
       if (initAccum && length) {
@@ -512,7 +516,7 @@ var require_arrayReduce = __commonJS({
 
 // node_modules/lodash/_basePropertyOf.js
 var require_basePropertyOf = __commonJS({
-  \\"node_modules/lodash/_basePropertyOf.js\\"(exports, module) {
+  "node_modules/lodash/_basePropertyOf.js"(exports, module) {
     function basePropertyOf(object) {
       return function(key) {
         return object == null ? void 0 : object[key];
@@ -524,199 +528,201 @@ var require_basePropertyOf = __commonJS({
 
 // node_modules/lodash/_deburrLetter.js
 var require_deburrLetter = __commonJS({
-  \\"node_modules/lodash/_deburrLetter.js\\"(exports, module) {
+  "node_modules/lodash/_deburrLetter.js"(exports, module) {
     var basePropertyOf = require_basePropertyOf();
     var deburredLetters = {
-      \\"\\\\xC0\\": \\"A\\",
-      \\"\\\\xC1\\": \\"A\\",
-      \\"\\\\xC2\\": \\"A\\",
-      \\"\\\\xC3\\": \\"A\\",
-      \\"\\\\xC4\\": \\"A\\",
-      \\"\\\\xC5\\": \\"A\\",
-      \\"\\\\xE0\\": \\"a\\",
-      \\"\\\\xE1\\": \\"a\\",
-      \\"\\\\xE2\\": \\"a\\",
-      \\"\\\\xE3\\": \\"a\\",
-      \\"\\\\xE4\\": \\"a\\",
-      \\"\\\\xE5\\": \\"a\\",
-      \\"\\\\xC7\\": \\"C\\",
-      \\"\\\\xE7\\": \\"c\\",
-      \\"\\\\xD0\\": \\"D\\",
-      \\"\\\\xF0\\": \\"d\\",
-      \\"\\\\xC8\\": \\"E\\",
-      \\"\\\\xC9\\": \\"E\\",
-      \\"\\\\xCA\\": \\"E\\",
-      \\"\\\\xCB\\": \\"E\\",
-      \\"\\\\xE8\\": \\"e\\",
-      \\"\\\\xE9\\": \\"e\\",
-      \\"\\\\xEA\\": \\"e\\",
-      \\"\\\\xEB\\": \\"e\\",
-      \\"\\\\xCC\\": \\"I\\",
-      \\"\\\\xCD\\": \\"I\\",
-      \\"\\\\xCE\\": \\"I\\",
-      \\"\\\\xCF\\": \\"I\\",
-      \\"\\\\xEC\\": \\"i\\",
-      \\"\\\\xED\\": \\"i\\",
-      \\"\\\\xEE\\": \\"i\\",
-      \\"\\\\xEF\\": \\"i\\",
-      \\"\\\\xD1\\": \\"N\\",
-      \\"\\\\xF1\\": \\"n\\",
-      \\"\\\\xD2\\": \\"O\\",
-      \\"\\\\xD3\\": \\"O\\",
-      \\"\\\\xD4\\": \\"O\\",
-      \\"\\\\xD5\\": \\"O\\",
-      \\"\\\\xD6\\": \\"O\\",
-      \\"\\\\xD8\\": \\"O\\",
-      \\"\\\\xF2\\": \\"o\\",
-      \\"\\\\xF3\\": \\"o\\",
-      \\"\\\\xF4\\": \\"o\\",
-      \\"\\\\xF5\\": \\"o\\",
-      \\"\\\\xF6\\": \\"o\\",
-      \\"\\\\xF8\\": \\"o\\",
-      \\"\\\\xD9\\": \\"U\\",
-      \\"\\\\xDA\\": \\"U\\",
-      \\"\\\\xDB\\": \\"U\\",
-      \\"\\\\xDC\\": \\"U\\",
-      \\"\\\\xF9\\": \\"u\\",
-      \\"\\\\xFA\\": \\"u\\",
-      \\"\\\\xFB\\": \\"u\\",
-      \\"\\\\xFC\\": \\"u\\",
-      \\"\\\\xDD\\": \\"Y\\",
-      \\"\\\\xFD\\": \\"y\\",
-      \\"\\\\xFF\\": \\"y\\",
-      \\"\\\\xC6\\": \\"Ae\\",
-      \\"\\\\xE6\\": \\"ae\\",
-      \\"\\\\xDE\\": \\"Th\\",
-      \\"\\\\xFE\\": \\"th\\",
-      \\"\\\\xDF\\": \\"ss\\",
-      \\"\\\\u0100\\": \\"A\\",
-      \\"\\\\u0102\\": \\"A\\",
-      \\"\\\\u0104\\": \\"A\\",
-      \\"\\\\u0101\\": \\"a\\",
-      \\"\\\\u0103\\": \\"a\\",
-      \\"\\\\u0105\\": \\"a\\",
-      \\"\\\\u0106\\": \\"C\\",
-      \\"\\\\u0108\\": \\"C\\",
-      \\"\\\\u010A\\": \\"C\\",
-      \\"\\\\u010C\\": \\"C\\",
-      \\"\\\\u0107\\": \\"c\\",
-      \\"\\\\u0109\\": \\"c\\",
-      \\"\\\\u010B\\": \\"c\\",
-      \\"\\\\u010D\\": \\"c\\",
-      \\"\\\\u010E\\": \\"D\\",
-      \\"\\\\u0110\\": \\"D\\",
-      \\"\\\\u010F\\": \\"d\\",
-      \\"\\\\u0111\\": \\"d\\",
-      \\"\\\\u0112\\": \\"E\\",
-      \\"\\\\u0114\\": \\"E\\",
-      \\"\\\\u0116\\": \\"E\\",
-      \\"\\\\u0118\\": \\"E\\",
-      \\"\\\\u011A\\": \\"E\\",
-      \\"\\\\u0113\\": \\"e\\",
-      \\"\\\\u0115\\": \\"e\\",
-      \\"\\\\u0117\\": \\"e\\",
-      \\"\\\\u0119\\": \\"e\\",
-      \\"\\\\u011B\\": \\"e\\",
-      \\"\\\\u011C\\": \\"G\\",
-      \\"\\\\u011E\\": \\"G\\",
-      \\"\\\\u0120\\": \\"G\\",
-      \\"\\\\u0122\\": \\"G\\",
-      \\"\\\\u011D\\": \\"g\\",
-      \\"\\\\u011F\\": \\"g\\",
-      \\"\\\\u0121\\": \\"g\\",
-      \\"\\\\u0123\\": \\"g\\",
-      \\"\\\\u0124\\": \\"H\\",
-      \\"\\\\u0126\\": \\"H\\",
-      \\"\\\\u0125\\": \\"h\\",
-      \\"\\\\u0127\\": \\"h\\",
-      \\"\\\\u0128\\": \\"I\\",
-      \\"\\\\u012A\\": \\"I\\",
-      \\"\\\\u012C\\": \\"I\\",
-      \\"\\\\u012E\\": \\"I\\",
-      \\"\\\\u0130\\": \\"I\\",
-      \\"\\\\u0129\\": \\"i\\",
-      \\"\\\\u012B\\": \\"i\\",
-      \\"\\\\u012D\\": \\"i\\",
-      \\"\\\\u012F\\": \\"i\\",
-      \\"\\\\u0131\\": \\"i\\",
-      \\"\\\\u0134\\": \\"J\\",
-      \\"\\\\u0135\\": \\"j\\",
-      \\"\\\\u0136\\": \\"K\\",
-      \\"\\\\u0137\\": \\"k\\",
-      \\"\\\\u0138\\": \\"k\\",
-      \\"\\\\u0139\\": \\"L\\",
-      \\"\\\\u013B\\": \\"L\\",
-      \\"\\\\u013D\\": \\"L\\",
-      \\"\\\\u013F\\": \\"L\\",
-      \\"\\\\u0141\\": \\"L\\",
-      \\"\\\\u013A\\": \\"l\\",
-      \\"\\\\u013C\\": \\"l\\",
-      \\"\\\\u013E\\": \\"l\\",
-      \\"\\\\u0140\\": \\"l\\",
-      \\"\\\\u0142\\": \\"l\\",
-      \\"\\\\u0143\\": \\"N\\",
-      \\"\\\\u0145\\": \\"N\\",
-      \\"\\\\u0147\\": \\"N\\",
-      \\"\\\\u014A\\": \\"N\\",
-      \\"\\\\u0144\\": \\"n\\",
-      \\"\\\\u0146\\": \\"n\\",
-      \\"\\\\u0148\\": \\"n\\",
-      \\"\\\\u014B\\": \\"n\\",
-      \\"\\\\u014C\\": \\"O\\",
-      \\"\\\\u014E\\": \\"O\\",
-      \\"\\\\u0150\\": \\"O\\",
-      \\"\\\\u014D\\": \\"o\\",
-      \\"\\\\u014F\\": \\"o\\",
-      \\"\\\\u0151\\": \\"o\\",
-      \\"\\\\u0154\\": \\"R\\",
-      \\"\\\\u0156\\": \\"R\\",
-      \\"\\\\u0158\\": \\"R\\",
-      \\"\\\\u0155\\": \\"r\\",
-      \\"\\\\u0157\\": \\"r\\",
-      \\"\\\\u0159\\": \\"r\\",
-      \\"\\\\u015A\\": \\"S\\",
-      \\"\\\\u015C\\": \\"S\\",
-      \\"\\\\u015E\\": \\"S\\",
-      \\"\\\\u0160\\": \\"S\\",
-      \\"\\\\u015B\\": \\"s\\",
-      \\"\\\\u015D\\": \\"s\\",
-      \\"\\\\u015F\\": \\"s\\",
-      \\"\\\\u0161\\": \\"s\\",
-      \\"\\\\u0162\\": \\"T\\",
-      \\"\\\\u0164\\": \\"T\\",
-      \\"\\\\u0166\\": \\"T\\",
-      \\"\\\\u0163\\": \\"t\\",
-      \\"\\\\u0165\\": \\"t\\",
-      \\"\\\\u0167\\": \\"t\\",
-      \\"\\\\u0168\\": \\"U\\",
-      \\"\\\\u016A\\": \\"U\\",
-      \\"\\\\u016C\\": \\"U\\",
-      \\"\\\\u016E\\": \\"U\\",
-      \\"\\\\u0170\\": \\"U\\",
-      \\"\\\\u0172\\": \\"U\\",
-      \\"\\\\u0169\\": \\"u\\",
-      \\"\\\\u016B\\": \\"u\\",
-      \\"\\\\u016D\\": \\"u\\",
-      \\"\\\\u016F\\": \\"u\\",
-      \\"\\\\u0171\\": \\"u\\",
-      \\"\\\\u0173\\": \\"u\\",
-      \\"\\\\u0174\\": \\"W\\",
-      \\"\\\\u0175\\": \\"w\\",
-      \\"\\\\u0176\\": \\"Y\\",
-      \\"\\\\u0177\\": \\"y\\",
-      \\"\\\\u0178\\": \\"Y\\",
-      \\"\\\\u0179\\": \\"Z\\",
-      \\"\\\\u017B\\": \\"Z\\",
-      \\"\\\\u017D\\": \\"Z\\",
-      \\"\\\\u017A\\": \\"z\\",
-      \\"\\\\u017C\\": \\"z\\",
-      \\"\\\\u017E\\": \\"z\\",
-      \\"\\\\u0132\\": \\"IJ\\",
-      \\"\\\\u0133\\": \\"ij\\",
-      \\"\\\\u0152\\": \\"Oe\\",
-      \\"\\\\u0153\\": \\"oe\\",
-      \\"\\\\u0149\\": \\"'n\\",
-      \\"\\\\u017F\\": \\"s\\"
+      // Latin-1 Supplement block.
+      "\\xC0": "A",
+      "\\xC1": "A",
+      "\\xC2": "A",
+      "\\xC3": "A",
+      "\\xC4": "A",
+      "\\xC5": "A",
+      "\\xE0": "a",
+      "\\xE1": "a",
+      "\\xE2": "a",
+      "\\xE3": "a",
+      "\\xE4": "a",
+      "\\xE5": "a",
+      "\\xC7": "C",
+      "\\xE7": "c",
+      "\\xD0": "D",
+      "\\xF0": "d",
+      "\\xC8": "E",
+      "\\xC9": "E",
+      "\\xCA": "E",
+      "\\xCB": "E",
+      "\\xE8": "e",
+      "\\xE9": "e",
+      "\\xEA": "e",
+      "\\xEB": "e",
+      "\\xCC": "I",
+      "\\xCD": "I",
+      "\\xCE": "I",
+      "\\xCF": "I",
+      "\\xEC": "i",
+      "\\xED": "i",
+      "\\xEE": "i",
+      "\\xEF": "i",
+      "\\xD1": "N",
+      "\\xF1": "n",
+      "\\xD2": "O",
+      "\\xD3": "O",
+      "\\xD4": "O",
+      "\\xD5": "O",
+      "\\xD6": "O",
+      "\\xD8": "O",
+      "\\xF2": "o",
+      "\\xF3": "o",
+      "\\xF4": "o",
+      "\\xF5": "o",
+      "\\xF6": "o",
+      "\\xF8": "o",
+      "\\xD9": "U",
+      "\\xDA": "U",
+      "\\xDB": "U",
+      "\\xDC": "U",
+      "\\xF9": "u",
+      "\\xFA": "u",
+      "\\xFB": "u",
+      "\\xFC": "u",
+      "\\xDD": "Y",
+      "\\xFD": "y",
+      "\\xFF": "y",
+      "\\xC6": "Ae",
+      "\\xE6": "ae",
+      "\\xDE": "Th",
+      "\\xFE": "th",
+      "\\xDF": "ss",
+      // Latin Extended-A block.
+      "\\u0100": "A",
+      "\\u0102": "A",
+      "\\u0104": "A",
+      "\\u0101": "a",
+      "\\u0103": "a",
+      "\\u0105": "a",
+      "\\u0106": "C",
+      "\\u0108": "C",
+      "\\u010A": "C",
+      "\\u010C": "C",
+      "\\u0107": "c",
+      "\\u0109": "c",
+      "\\u010B": "c",
+      "\\u010D": "c",
+      "\\u010E": "D",
+      "\\u0110": "D",
+      "\\u010F": "d",
+      "\\u0111": "d",
+      "\\u0112": "E",
+      "\\u0114": "E",
+      "\\u0116": "E",
+      "\\u0118": "E",
+      "\\u011A": "E",
+      "\\u0113": "e",
+      "\\u0115": "e",
+      "\\u0117": "e",
+      "\\u0119": "e",
+      "\\u011B": "e",
+      "\\u011C": "G",
+      "\\u011E": "G",
+      "\\u0120": "G",
+      "\\u0122": "G",
+      "\\u011D": "g",
+      "\\u011F": "g",
+      "\\u0121": "g",
+      "\\u0123": "g",
+      "\\u0124": "H",
+      "\\u0126": "H",
+      "\\u0125": "h",
+      "\\u0127": "h",
+      "\\u0128": "I",
+      "\\u012A": "I",
+      "\\u012C": "I",
+      "\\u012E": "I",
+      "\\u0130": "I",
+      "\\u0129": "i",
+      "\\u012B": "i",
+      "\\u012D": "i",
+      "\\u012F": "i",
+      "\\u0131": "i",
+      "\\u0134": "J",
+      "\\u0135": "j",
+      "\\u0136": "K",
+      "\\u0137": "k",
+      "\\u0138": "k",
+      "\\u0139": "L",
+      "\\u013B": "L",
+      "\\u013D": "L",
+      "\\u013F": "L",
+      "\\u0141": "L",
+      "\\u013A": "l",
+      "\\u013C": "l",
+      "\\u013E": "l",
+      "\\u0140": "l",
+      "\\u0142": "l",
+      "\\u0143": "N",
+      "\\u0145": "N",
+      "\\u0147": "N",
+      "\\u014A": "N",
+      "\\u0144": "n",
+      "\\u0146": "n",
+      "\\u0148": "n",
+      "\\u014B": "n",
+      "\\u014C": "O",
+      "\\u014E": "O",
+      "\\u0150": "O",
+      "\\u014D": "o",
+      "\\u014F": "o",
+      "\\u0151": "o",
+      "\\u0154": "R",
+      "\\u0156": "R",
+      "\\u0158": "R",
+      "\\u0155": "r",
+      "\\u0157": "r",
+      "\\u0159": "r",
+      "\\u015A": "S",
+      "\\u015C": "S",
+      "\\u015E": "S",
+      "\\u0160": "S",
+      "\\u015B": "s",
+      "\\u015D": "s",
+      "\\u015F": "s",
+      "\\u0161": "s",
+      "\\u0162": "T",
+      "\\u0164": "T",
+      "\\u0166": "T",
+      "\\u0163": "t",
+      "\\u0165": "t",
+      "\\u0167": "t",
+      "\\u0168": "U",
+      "\\u016A": "U",
+      "\\u016C": "U",
+      "\\u016E": "U",
+      "\\u0170": "U",
+      "\\u0172": "U",
+      "\\u0169": "u",
+      "\\u016B": "u",
+      "\\u016D": "u",
+      "\\u016F": "u",
+      "\\u0171": "u",
+      "\\u0173": "u",
+      "\\u0174": "W",
+      "\\u0175": "w",
+      "\\u0176": "Y",
+      "\\u0177": "y",
+      "\\u0178": "Y",
+      "\\u0179": "Z",
+      "\\u017B": "Z",
+      "\\u017D": "Z",
+      "\\u017A": "z",
+      "\\u017C": "z",
+      "\\u017E": "z",
+      "\\u0132": "IJ",
+      "\\u0133": "ij",
+      "\\u0152": "Oe",
+      "\\u0153": "oe",
+      "\\u0149": "'n",
+      "\\u017F": "s"
     };
     var deburrLetter = basePropertyOf(deburredLetters);
     module.exports = deburrLetter;
@@ -725,19 +731,19 @@ var require_deburrLetter = __commonJS({
 
 // node_modules/lodash/deburr.js
 var require_deburr = __commonJS({
-  \\"node_modules/lodash/deburr.js\\"(exports, module) {
+  "node_modules/lodash/deburr.js"(exports, module) {
     var deburrLetter = require_deburrLetter();
     var toString = require_toString();
-    var reLatin = /[\\\\xc0-\\\\xd6\\\\xd8-\\\\xf6\\\\xf8-\\\\xff\\\\u0100-\\\\u017f]/g;
-    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
-    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
-    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+    var reLatin = /[\\xc0-\\xd6\\xd8-\\xf6\\xf8-\\xff\\u0100-\\u017f]/g;
+    var rsComboMarksRange = "\\\\u0300-\\\\u036f";
+    var reComboHalfMarksRange = "\\\\ufe20-\\\\ufe2f";
+    var rsComboSymbolsRange = "\\\\u20d0-\\\\u20ff";
     var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
-    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
-    var reComboMark = RegExp(rsCombo, \\"g\\");
+    var rsCombo = "[" + rsComboRange + "]";
+    var reComboMark = RegExp(rsCombo, "g");
     function deburr(string) {
       string = toString(string);
-      return string && string.replace(reLatin, deburrLetter).replace(reComboMark, \\"\\");
+      return string && string.replace(reLatin, deburrLetter).replace(reComboMark, "");
     }
     module.exports = deburr;
   }
@@ -745,8 +751,8 @@ var require_deburr = __commonJS({
 
 // node_modules/lodash/_asciiWords.js
 var require_asciiWords = __commonJS({
-  \\"node_modules/lodash/_asciiWords.js\\"(exports, module) {
-    var reAsciiWord = /[^\\\\x00-\\\\x2f\\\\x3a-\\\\x40\\\\x5b-\\\\x60\\\\x7b-\\\\x7f]+/g;
+  "node_modules/lodash/_asciiWords.js"(exports, module) {
+    var reAsciiWord = /[^\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\x7f]+/g;
     function asciiWords(string) {
       return string.match(reAsciiWord) || [];
     }
@@ -756,7 +762,7 @@ var require_asciiWords = __commonJS({
 
 // node_modules/lodash/_hasUnicodeWord.js
 var require_hasUnicodeWord = __commonJS({
-  \\"node_modules/lodash/_hasUnicodeWord.js\\"(exports, module) {
+  "node_modules/lodash/_hasUnicodeWord.js"(exports, module) {
     var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
     function hasUnicodeWord(string) {
       return reHasUnicodeWord.test(string);
@@ -767,56 +773,56 @@ var require_hasUnicodeWord = __commonJS({
 
 // node_modules/lodash/_unicodeWords.js
 var require_unicodeWords = __commonJS({
-  \\"node_modules/lodash/_unicodeWords.js\\"(exports, module) {
-    var rsAstralRange = \\"\\\\\\\\ud800-\\\\\\\\udfff\\";
-    var rsComboMarksRange = \\"\\\\\\\\u0300-\\\\\\\\u036f\\";
-    var reComboHalfMarksRange = \\"\\\\\\\\ufe20-\\\\\\\\ufe2f\\";
-    var rsComboSymbolsRange = \\"\\\\\\\\u20d0-\\\\\\\\u20ff\\";
+  "node_modules/lodash/_unicodeWords.js"(exports, module) {
+    var rsAstralRange = "\\\\ud800-\\\\udfff";
+    var rsComboMarksRange = "\\\\u0300-\\\\u036f";
+    var reComboHalfMarksRange = "\\\\ufe20-\\\\ufe2f";
+    var rsComboSymbolsRange = "\\\\u20d0-\\\\u20ff";
     var rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
-    var rsDingbatRange = \\"\\\\\\\\u2700-\\\\\\\\u27bf\\";
-    var rsLowerRange = \\"a-z\\\\\\\\xdf-\\\\\\\\xf6\\\\\\\\xf8-\\\\\\\\xff\\";
-    var rsMathOpRange = \\"\\\\\\\\xac\\\\\\\\xb1\\\\\\\\xd7\\\\\\\\xf7\\";
-    var rsNonCharRange = \\"\\\\\\\\x00-\\\\\\\\x2f\\\\\\\\x3a-\\\\\\\\x40\\\\\\\\x5b-\\\\\\\\x60\\\\\\\\x7b-\\\\\\\\xbf\\";
-    var rsPunctuationRange = \\"\\\\\\\\u2000-\\\\\\\\u206f\\";
-    var rsSpaceRange = \\" \\\\\\\\t\\\\\\\\x0b\\\\\\\\f\\\\\\\\xa0\\\\\\\\ufeff\\\\\\\\n\\\\\\\\r\\\\\\\\u2028\\\\\\\\u2029\\\\\\\\u1680\\\\\\\\u180e\\\\\\\\u2000\\\\\\\\u2001\\\\\\\\u2002\\\\\\\\u2003\\\\\\\\u2004\\\\\\\\u2005\\\\\\\\u2006\\\\\\\\u2007\\\\\\\\u2008\\\\\\\\u2009\\\\\\\\u200a\\\\\\\\u202f\\\\\\\\u205f\\\\\\\\u3000\\";
-    var rsUpperRange = \\"A-Z\\\\\\\\xc0-\\\\\\\\xd6\\\\\\\\xd8-\\\\\\\\xde\\";
-    var rsVarRange = \\"\\\\\\\\ufe0e\\\\\\\\ufe0f\\";
+    var rsDingbatRange = "\\\\u2700-\\\\u27bf";
+    var rsLowerRange = "a-z\\\\xdf-\\\\xf6\\\\xf8-\\\\xff";
+    var rsMathOpRange = "\\\\xac\\\\xb1\\\\xd7\\\\xf7";
+    var rsNonCharRange = "\\\\x00-\\\\x2f\\\\x3a-\\\\x40\\\\x5b-\\\\x60\\\\x7b-\\\\xbf";
+    var rsPunctuationRange = "\\\\u2000-\\\\u206f";
+    var rsSpaceRange = " \\\\t\\\\x0b\\\\f\\\\xa0\\\\ufeff\\\\n\\\\r\\\\u2028\\\\u2029\\\\u1680\\\\u180e\\\\u2000\\\\u2001\\\\u2002\\\\u2003\\\\u2004\\\\u2005\\\\u2006\\\\u2007\\\\u2008\\\\u2009\\\\u200a\\\\u202f\\\\u205f\\\\u3000";
+    var rsUpperRange = "A-Z\\\\xc0-\\\\xd6\\\\xd8-\\\\xde";
+    var rsVarRange = "\\\\ufe0e\\\\ufe0f";
     var rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
-    var rsApos = \\"['\\\\u2019]\\";
-    var rsBreak = \\"[\\" + rsBreakRange + \\"]\\";
-    var rsCombo = \\"[\\" + rsComboRange + \\"]\\";
-    var rsDigits = \\"\\\\\\\\d+\\";
-    var rsDingbat = \\"[\\" + rsDingbatRange + \\"]\\";
-    var rsLower = \\"[\\" + rsLowerRange + \\"]\\";
-    var rsMisc = \\"[^\\" + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + \\"]\\";
-    var rsFitz = \\"\\\\\\\\ud83c[\\\\\\\\udffb-\\\\\\\\udfff]\\";
-    var rsModifier = \\"(?:\\" + rsCombo + \\"|\\" + rsFitz + \\")\\";
-    var rsNonAstral = \\"[^\\" + rsAstralRange + \\"]\\";
-    var rsRegional = \\"(?:\\\\\\\\ud83c[\\\\\\\\udde6-\\\\\\\\uddff]){2}\\";
-    var rsSurrPair = \\"[\\\\\\\\ud800-\\\\\\\\udbff][\\\\\\\\udc00-\\\\\\\\udfff]\\";
-    var rsUpper = \\"[\\" + rsUpperRange + \\"]\\";
-    var rsZWJ = \\"\\\\\\\\u200d\\";
-    var rsMiscLower = \\"(?:\\" + rsLower + \\"|\\" + rsMisc + \\")\\";
-    var rsMiscUpper = \\"(?:\\" + rsUpper + \\"|\\" + rsMisc + \\")\\";
-    var rsOptContrLower = \\"(?:\\" + rsApos + \\"(?:d|ll|m|re|s|t|ve))?\\";
-    var rsOptContrUpper = \\"(?:\\" + rsApos + \\"(?:D|LL|M|RE|S|T|VE))?\\";
-    var reOptMod = rsModifier + \\"?\\";
-    var rsOptVar = \\"[\\" + rsVarRange + \\"]?\\";
-    var rsOptJoin = \\"(?:\\" + rsZWJ + \\"(?:\\" + [rsNonAstral, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsOptVar + reOptMod + \\")*\\";
-    var rsOrdLower = \\"\\\\\\\\d*(?:1st|2nd|3rd|(?![123])\\\\\\\\dth)(?=\\\\\\\\b|[A-Z_])\\";
-    var rsOrdUpper = \\"\\\\\\\\d*(?:1ST|2ND|3RD|(?![123])\\\\\\\\dTH)(?=\\\\\\\\b|[a-z_])\\";
+    var rsApos = "['\\u2019]";
+    var rsBreak = "[" + rsBreakRange + "]";
+    var rsCombo = "[" + rsComboRange + "]";
+    var rsDigits = "\\\\d+";
+    var rsDingbat = "[" + rsDingbatRange + "]";
+    var rsLower = "[" + rsLowerRange + "]";
+    var rsMisc = "[^" + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + "]";
+    var rsFitz = "\\\\ud83c[\\\\udffb-\\\\udfff]";
+    var rsModifier = "(?:" + rsCombo + "|" + rsFitz + ")";
+    var rsNonAstral = "[^" + rsAstralRange + "]";
+    var rsRegional = "(?:\\\\ud83c[\\\\udde6-\\\\uddff]){2}";
+    var rsSurrPair = "[\\\\ud800-\\\\udbff][\\\\udc00-\\\\udfff]";
+    var rsUpper = "[" + rsUpperRange + "]";
+    var rsZWJ = "\\\\u200d";
+    var rsMiscLower = "(?:" + rsLower + "|" + rsMisc + ")";
+    var rsMiscUpper = "(?:" + rsUpper + "|" + rsMisc + ")";
+    var rsOptContrLower = "(?:" + rsApos + "(?:d|ll|m|re|s|t|ve))?";
+    var rsOptContrUpper = "(?:" + rsApos + "(?:D|LL|M|RE|S|T|VE))?";
+    var reOptMod = rsModifier + "?";
+    var rsOptVar = "[" + rsVarRange + "]?";
+    var rsOptJoin = "(?:" + rsZWJ + "(?:" + [rsNonAstral, rsRegional, rsSurrPair].join("|") + ")" + rsOptVar + reOptMod + ")*";
+    var rsOrdLower = "\\\\d*(?:1st|2nd|3rd|(?![123])\\\\dth)(?=\\\\b|[A-Z_])";
+    var rsOrdUpper = "\\\\d*(?:1ST|2ND|3RD|(?![123])\\\\dTH)(?=\\\\b|[a-z_])";
     var rsSeq = rsOptVar + reOptMod + rsOptJoin;
-    var rsEmoji = \\"(?:\\" + [rsDingbat, rsRegional, rsSurrPair].join(\\"|\\") + \\")\\" + rsSeq;
+    var rsEmoji = "(?:" + [rsDingbat, rsRegional, rsSurrPair].join("|") + ")" + rsSeq;
     var reUnicodeWord = RegExp([
-      rsUpper + \\"?\\" + rsLower + \\"+\\" + rsOptContrLower + \\"(?=\\" + [rsBreak, rsUpper, \\"$\\"].join(\\"|\\") + \\")\\",
-      rsMiscUpper + \\"+\\" + rsOptContrUpper + \\"(?=\\" + [rsBreak, rsUpper + rsMiscLower, \\"$\\"].join(\\"|\\") + \\")\\",
-      rsUpper + \\"?\\" + rsMiscLower + \\"+\\" + rsOptContrLower,
-      rsUpper + \\"+\\" + rsOptContrUpper,
+      rsUpper + "?" + rsLower + "+" + rsOptContrLower + "(?=" + [rsBreak, rsUpper, "$"].join("|") + ")",
+      rsMiscUpper + "+" + rsOptContrUpper + "(?=" + [rsBreak, rsUpper + rsMiscLower, "$"].join("|") + ")",
+      rsUpper + "?" + rsMiscLower + "+" + rsOptContrLower,
+      rsUpper + "+" + rsOptContrUpper,
       rsOrdUpper,
       rsOrdLower,
       rsDigits,
       rsEmoji
-    ].join(\\"|\\"), \\"g\\");
+    ].join("|"), "g");
     function unicodeWords(string) {
       return string.match(reUnicodeWord) || [];
     }
@@ -826,7 +832,7 @@ var require_unicodeWords = __commonJS({
 
 // node_modules/lodash/words.js
 var require_words = __commonJS({
-  \\"node_modules/lodash/words.js\\"(exports, module) {
+  "node_modules/lodash/words.js"(exports, module) {
     var asciiWords = require_asciiWords();
     var hasUnicodeWord = require_hasUnicodeWord();
     var toString = require_toString();
@@ -845,15 +851,15 @@ var require_words = __commonJS({
 
 // node_modules/lodash/_createCompounder.js
 var require_createCompounder = __commonJS({
-  \\"node_modules/lodash/_createCompounder.js\\"(exports, module) {
+  "node_modules/lodash/_createCompounder.js"(exports, module) {
     var arrayReduce = require_arrayReduce();
     var deburr = require_deburr();
     var words = require_words();
-    var rsApos = \\"['\\\\u2019]\\";
-    var reApos = RegExp(rsApos, \\"g\\");
+    var rsApos = "['\\u2019]";
+    var reApos = RegExp(rsApos, "g");
     function createCompounder(callback) {
       return function(string) {
-        return arrayReduce(words(deburr(string).replace(reApos, \\"\\")), callback, \\"\\");
+        return arrayReduce(words(deburr(string).replace(reApos, "")), callback, "");
       };
     }
     module.exports = createCompounder;
@@ -862,7 +868,7 @@ var require_createCompounder = __commonJS({
 
 // node_modules/lodash/camelCase.js
 var require_camelCase = __commonJS({
-  \\"node_modules/lodash/camelCase.js\\"(exports, module) {
+  "node_modules/lodash/camelCase.js"(exports, module) {
     var capitalize = require_capitalize();
     var createCompounder = require_createCompounder();
     var camelCase2 = createCompounder(function(result, word, index) {
@@ -874,7 +880,7 @@ var require_camelCase = __commonJS({
 });
 
 // tools/build/__fixtures__/random_package/src/index.tsx
-import * as React from \\"react\\";
+import * as React from "react";
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/_rollupPluginBabelHelpers-1f0bf8c2.js
 function _defineProperty(obj, key, value) {
@@ -894,10 +900,9 @@ function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly)
-      symbols = symbols.filter(function(sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
+    if (enumerableOnly) symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
     keys.push.apply(keys, symbols);
   }
   return keys;
@@ -920,68 +925,57 @@ function _objectSpread2(target) {
   return target;
 }
 function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null)
-    return {};
+  if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0)
-      continue;
+    if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
   return target;
 }
 function _unsupportedIterableToArray(o, minLen) {
-  if (!o)
-    return;
-  if (typeof o === \\"string\\")
-    return _arrayLikeToArray(o, minLen);
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === \\"Object\\" && o.constructor)
-    n = o.constructor.name;
-  if (n === \\"Map\\" || n === \\"Set\\")
-    return Array.from(o);
-  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-    return _arrayLikeToArray(o, minLen);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length)
-    len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 function _createForOfIteratorHelperLoose(o, allowArrayLike) {
   var it;
-  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
-      if (it)
-        o = it;
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
       var i = 0;
       return function() {
-        if (i >= o.length)
-          return {
-            done: true
-          };
+        if (i >= o.length) return {
+          done: true
+        };
         return {
           done: false,
           value: o[i++]
         };
       };
     }
-    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
   it = o[Symbol.iterator]();
   return it.next.bind(it);
 }
 
 // node_modules/reakit-system/es/createComponent.js
-import { forwardRef as forwardRef$1, memo as memo$1 } from \\"react\\";
+import { forwardRef as forwardRef$1, memo as memo$1 } from "react";
 
 // node_modules/reakit-system/es/SystemContext.js
-import { createContext } from \\"react\\";
+import { createContext } from "react";
 var SystemContext = /* @__PURE__ */ createContext({});
 
 // node_modules/reakit-system/es/_rollupPluginBabelHelpers-0c84a174.js
@@ -1002,10 +996,9 @@ function ownKeys2(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly)
-      symbols = symbols.filter(function(sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
+    if (enumerableOnly) symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
     keys.push.apply(keys, symbols);
   }
   return keys;
@@ -1028,67 +1021,56 @@ function _objectSpread22(target) {
   return target;
 }
 function _objectWithoutPropertiesLoose2(source, excluded) {
-  if (source == null)
-    return {};
+  if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0)
-      continue;
+    if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
   return target;
 }
 function _unsupportedIterableToArray2(o, minLen) {
-  if (!o)
-    return;
-  if (typeof o === \\"string\\")
-    return _arrayLikeToArray2(o, minLen);
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray2(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === \\"Object\\" && o.constructor)
-    n = o.constructor.name;
-  if (n === \\"Map\\" || n === \\"Set\\")
-    return Array.from(o);
-  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-    return _arrayLikeToArray2(o, minLen);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray2(o, minLen);
 }
 function _arrayLikeToArray2(arr, len) {
-  if (len == null || len > arr.length)
-    len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 function _createForOfIteratorHelperLoose2(o, allowArrayLike) {
   var it;
-  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray2(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
-      if (it)
-        o = it;
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray2(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
       var i = 0;
       return function() {
-        if (i >= o.length)
-          return {
-            done: true
-          };
+        if (i >= o.length) return {
+          done: true
+        };
         return {
           done: false,
           value: o[i++]
         };
       };
     }
-    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
   it = o[Symbol.iterator]();
   return it.next.bind(it);
 }
 
 // node_modules/reakit-system/es/useCreateElement.js
-import { useContext, createElement } from \\"react\\";
+import { useContext, createElement } from "react";
 function isRenderProp(children) {
-  return typeof children === \\"function\\";
+  return typeof children === "function";
 }
 var useCreateElement = function useCreateElement2(type, props, children) {
   if (children === void 0) {
@@ -1098,8 +1080,8 @@ var useCreateElement = function useCreateElement2(type, props, children) {
   if (context.useCreateElement) {
     return context.useCreateElement(type, props, children);
   }
-  if (typeof type === \\"string\\" && isRenderProp(children)) {
-    var _ = props.children, rest = _objectWithoutPropertiesLoose2(props, [\\"children\\"]);
+  if (typeof type === "string" && isRenderProp(children)) {
+    var _ = props.children, rest = _objectWithoutPropertiesLoose2(props, ["children"]);
     return children(rest);
   }
   return /* @__PURE__ */ createElement(type, props, children);
@@ -1123,10 +1105,9 @@ function ownKeys3(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly)
-      symbols = symbols.filter(function(sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
+    if (enumerableOnly) symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
     keys.push.apply(keys, symbols);
   }
   return keys;
@@ -1149,58 +1130,47 @@ function _objectSpread23(target) {
   return target;
 }
 function _objectWithoutPropertiesLoose3(source, excluded) {
-  if (source == null)
-    return {};
+  if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0)
-      continue;
+    if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
   return target;
 }
 function _unsupportedIterableToArray3(o, minLen) {
-  if (!o)
-    return;
-  if (typeof o === \\"string\\")
-    return _arrayLikeToArray3(o, minLen);
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray3(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === \\"Object\\" && o.constructor)
-    n = o.constructor.name;
-  if (n === \\"Map\\" || n === \\"Set\\")
-    return Array.from(o);
-  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-    return _arrayLikeToArray3(o, minLen);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray3(o, minLen);
 }
 function _arrayLikeToArray3(arr, len) {
-  if (len == null || len > arr.length)
-    len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 function _createForOfIteratorHelperLoose3(o, allowArrayLike) {
   var it;
-  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray3(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
-      if (it)
-        o = it;
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray3(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
       var i = 0;
       return function() {
-        if (i >= o.length)
-          return {
-            done: true
-          };
+        if (i >= o.length) return {
+          done: true
+        };
         return {
           done: false,
           value: o[i++]
         };
       };
     }
-    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
   it = o[Symbol.iterator]();
   return it.next.bind(it);
@@ -1208,17 +1178,15 @@ function _createForOfIteratorHelperLoose3(o, allowArrayLike) {
 
 // node_modules/reakit-utils/es/isObject.js
 function isObject(arg) {
-  return typeof arg === \\"object\\" && arg != null;
+  return typeof arg === "object" && arg != null;
 }
 
 // node_modules/reakit-utils/es/isPlainObject.js
 function isPlainObject(arg) {
   var _proto$constructor;
-  if (!isObject(arg))
-    return false;
+  if (!isObject(arg)) return false;
   var proto = Object.getPrototypeOf(arg);
-  if (proto == null)
-    return true;
+  if (proto == null) return true;
   return ((_proto$constructor = proto.constructor) === null || _proto$constructor === void 0 ? void 0 : _proto$constructor.toString()) === Object.toString();
 }
 
@@ -1244,28 +1212,22 @@ function splitProps(props, keys) {
   if (!isPlainObject(props.state)) {
     return __deprecatedSplitProps(props, keys);
   }
-  var _deprecatedSplitProp = __deprecatedSplitProps(props, [].concat(keys, [\\"state\\"])), picked = _deprecatedSplitProp[0], omitted = _deprecatedSplitProp[1];
-  var state = picked.state, restPicked = _objectWithoutPropertiesLoose3(picked, [\\"state\\"]);
+  var _deprecatedSplitProp = __deprecatedSplitProps(props, [].concat(keys, ["state"])), picked = _deprecatedSplitProp[0], omitted = _deprecatedSplitProp[1];
+  var state = picked.state, restPicked = _objectWithoutPropertiesLoose3(picked, ["state"]);
   return [_objectSpread23(_objectSpread23({}, state), restPicked), omitted];
 }
 
 // node_modules/reakit-utils/es/shallowEqual.js
 function shallowEqual(objA, objB) {
-  if (objA === objB)
-    return true;
-  if (!objA)
-    return false;
-  if (!objB)
-    return false;
-  if (typeof objA !== \\"object\\")
-    return false;
-  if (typeof objB !== \\"object\\")
-    return false;
+  if (objA === objB) return true;
+  if (!objA) return false;
+  if (!objB) return false;
+  if (typeof objA !== "object") return false;
+  if (typeof objB !== "object") return false;
   var aKeys = Object.keys(objA);
   var bKeys = Object.keys(objB);
   var length = aKeys.length;
-  if (bKeys.length !== length)
-    return false;
+  if (bKeys.length !== length) return false;
   for (var _i = 0, _aKeys = aKeys; _i < _aKeys.length; _i++) {
     var key = _aKeys[_i];
     if (objA[key] !== objB[key]) {
@@ -1277,7 +1239,7 @@ function shallowEqual(objA, objB) {
 
 // node_modules/reakit-utils/es/normalizePropsAreEqual.js
 function normalizePropsAreEqual(propsAreEqual3) {
-  if (propsAreEqual3.name === \\"normalizePropsAreEqualInner\\") {
+  if (propsAreEqual3.name === "normalizePropsAreEqualInner") {
     return propsAreEqual3;
   }
   return function normalizePropsAreEqualInner(prev, next) {
@@ -1298,13 +1260,13 @@ function memo(component, propsAreEqual3) {
 function createComponent(_ref) {
   var type = _ref.as, useHook = _ref.useHook, shouldMemo = _ref.memo, _ref$propsAreEqual = _ref.propsAreEqual, propsAreEqual3 = _ref$propsAreEqual === void 0 ? useHook === null || useHook === void 0 ? void 0 : useHook.unstable_propsAreEqual : _ref$propsAreEqual, _ref$keys = _ref.keys, keys = _ref$keys === void 0 ? (useHook === null || useHook === void 0 ? void 0 : useHook.__keys) || [] : _ref$keys, _ref$useCreateElement = _ref.useCreateElement, useCreateElement$1 = _ref$useCreateElement === void 0 ? useCreateElement : _ref$useCreateElement;
   var Comp = function Comp2(_ref2, ref) {
-    var _ref2$as = _ref2.as, as = _ref2$as === void 0 ? type : _ref2$as, props = _objectWithoutPropertiesLoose2(_ref2, [\\"as\\"]);
+    var _ref2$as = _ref2.as, as = _ref2$as === void 0 ? type : _ref2$as, props = _objectWithoutPropertiesLoose2(_ref2, ["as"]);
     if (useHook) {
       var _as$render;
       var _splitProps = splitProps(props, keys), _options = _splitProps[0], htmlProps = _splitProps[1];
       var _useHook = useHook(_options, _objectSpread22({
         ref
-      }, htmlProps)), wrapElement = _useHook.wrapElement, elementProps = _objectWithoutPropertiesLoose2(_useHook, [\\"wrapElement\\"]);
+      }, htmlProps)), wrapElement = _useHook.wrapElement, elementProps = _objectWithoutPropertiesLoose2(_useHook, ["wrapElement"]);
       var asKeys = ((_as$render = as.render) === null || _as$render === void 0 ? void 0 : _as$render.__keys) || as.__keys;
       var asOptions = asKeys && splitProps(props, asKeys)[0];
       var allProps = asOptions ? _objectSpread22(_objectSpread22({}, elementProps), asOptions) : elementProps;
@@ -1319,7 +1281,7 @@ function createComponent(_ref) {
     }, props));
   };
   if (useHook) {
-    Comp.displayName = useHook.name.replace(/^(unstable_)?use/, \\"\\");
+    Comp.displayName = useHook.name.replace(/^(unstable_)?use/, "");
   }
   Comp = forwardRef(Comp);
   if (shouldMemo) {
@@ -1331,10 +1293,10 @@ function createComponent(_ref) {
 }
 
 // node_modules/reakit-system/es/createHook.js
-import \\"react\\";
+import "react";
 
 // node_modules/reakit-system/es/useToken.js
-import { useDebugValue, useContext as useContext2 } from \\"react\\";
+import { useDebugValue, useContext as useContext2 } from "react";
 function useToken(token, defaultValue) {
   useDebugValue(token);
   var context = useContext2(SystemContext);
@@ -1342,7 +1304,7 @@ function useToken(token, defaultValue) {
 }
 
 // node_modules/reakit-system/es/useProps.js
-import { useDebugValue as useDebugValue2 } from \\"react\\";
+import { useDebugValue as useDebugValue2 } from "react";
 function useProps(name, options, htmlProps) {
   if (options === void 0) {
     options = {};
@@ -1350,7 +1312,7 @@ function useProps(name, options, htmlProps) {
   if (htmlProps === void 0) {
     htmlProps = {};
   }
-  var hookName = \\"use\\" + name + \\"Props\\";
+  var hookName = "use" + name + "Props";
   useDebugValue2(hookName);
   var useHook = useToken(hookName);
   if (useHook) {
@@ -1360,7 +1322,7 @@ function useProps(name, options, htmlProps) {
 }
 
 // node_modules/reakit-system/es/useOptions.js
-import { useDebugValue as useDebugValue3 } from \\"react\\";
+import { useDebugValue as useDebugValue3 } from "react";
 function useOptions(name, options, htmlProps) {
   if (options === void 0) {
     options = {};
@@ -1368,7 +1330,7 @@ function useOptions(name, options, htmlProps) {
   if (htmlProps === void 0) {
     htmlProps = {};
   }
-  var hookName = \\"use\\" + name + \\"Options\\";
+  var hookName = "use" + name + "Options";
   useDebugValue3(hookName);
   var useHook = useToken(hookName);
   if (useHook) {
@@ -1382,7 +1344,7 @@ function toArray(arg) {
   if (Array.isArray(arg)) {
     return arg;
   }
-  return typeof arg !== \\"undefined\\" ? [arg] : [];
+  return typeof arg !== "undefined" ? [arg] : [];
 }
 
 // node_modules/reakit-system/es/createHook.js
@@ -1453,25 +1415,24 @@ function createHook(options) {
   useHook.__keys = [].concat(composedKeys, ((_options$useState = options.useState) === null || _options$useState === void 0 ? void 0 : _options$useState.__keys) || [], options.keys || []);
   useHook.unstable_propsAreEqual = options.propsAreEqual || ((_composedHooks$ = composedHooks[0]) === null || _composedHooks$ === void 0 ? void 0 : _composedHooks$.unstable_propsAreEqual) || shallowEqual;
   if (options.name) {
-    Object.defineProperty(useHook, \\"name\\", {
-      value: \\"use\\" + options.name
+    Object.defineProperty(useHook, "name", {
+      value: "use" + options.name
     });
   }
   return useHook;
 }
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/index.js
-import \\"react\\";
+import "react";
 
 // node_modules/reakit-utils/es/useForkRef.js
-import { useMemo } from \\"react\\";
+import { useMemo } from "react";
 function setRef(ref, value) {
   if (value === void 0) {
     value = null;
   }
-  if (!ref)
-    return;
-  if (typeof ref === \\"function\\") {
+  if (!ref) return;
+  if (typeof ref === "function") {
     ref(value);
   } else {
     ref.current = value;
@@ -1490,11 +1451,10 @@ function useForkRef(refA, refB) {
 }
 
 // node_modules/reakit-utils/es/isButton.js
-var buttonInputTypes = [\\"button\\", \\"color\\", \\"file\\", \\"image\\", \\"reset\\", \\"submit\\"];
+var buttonInputTypes = ["button", "color", "file", "image", "reset", "submit"];
 function isButton(element) {
-  if (element.tagName === \\"BUTTON\\")
-    return true;
-  if (element.tagName === \\"INPUT\\") {
+  if (element.tagName === "BUTTON") return true;
+  if (element.tagName === "INPUT") {
     var input = element;
     return buttonInputTypes.indexOf(input.type) !== -1;
   }
@@ -1519,30 +1479,29 @@ function flatten(array) {
 function warning(condition) {
   if (true) {
     var _console;
-    if (!condition)
-      return;
+    if (!condition) return;
     for (var _len = arguments.length, messages = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       messages[_key - 1] = arguments[_key];
     }
     var warns = flatten(messages.map(function(message) {
-      return [message, \\"\\\\n\\"];
+      return [message, "\\n"];
     }));
     (_console = console).warn.apply(_console, warns.slice(0, -1));
     try {
-      throw Error(warns.join(\\"\\"));
+      throw Error(warns.join(""));
     } catch (x) {
     }
   }
 }
 
 // node_modules/reakit-warning/es/index.js
-import \\"react\\";
+import "react";
 
 // node_modules/reakit-warning/es/useWarning.js
-import { useEffect } from \\"react\\";
+import { useEffect } from "react";
 
 // node_modules/reakit-utils/es/useLiveRef.js
-import { useRef } from \\"react\\";
+import { useRef } from "react";
 
 // node_modules/reakit-utils/es/getDocument.js
 function getDocument(element) {
@@ -1565,12 +1524,12 @@ function getWindow(element) {
 // node_modules/reakit-utils/es/canUseDOM.js
 function checkIsBrowser() {
   var _window2 = getWindow();
-  return Boolean(typeof _window2 !== \\"undefined\\" && _window2.document && _window2.document.createElement);
+  return Boolean(typeof _window2 !== "undefined" && _window2.document && _window2.document.createElement);
 }
 var canUseDOM = checkIsBrowser();
 
 // node_modules/reakit-utils/es/useIsomorphicEffect.js
-import { useEffect as useEffect2, useLayoutEffect } from \\"react\\";
+import { useEffect as useEffect2, useLayoutEffect } from "react";
 var useIsomorphicEffect = !canUseDOM ? useEffect2 : useLayoutEffect;
 
 // node_modules/reakit-utils/es/useLiveRef.js
@@ -1604,16 +1563,12 @@ function contains(parent, child) {
 // node_modules/reakit-utils/es/hasFocusWithin.js
 function hasFocusWithin(element) {
   var activeElement = getActiveElement(element);
-  if (!activeElement)
-    return false;
-  if (contains(element, activeElement))
-    return true;
-  var activeDescendant = activeElement.getAttribute(\\"aria-activedescendant\\");
-  if (!activeDescendant)
-    return false;
-  if (activeDescendant === element.id)
-    return true;
-  return !!element.querySelector(\\"#\\" + activeDescendant);
+  if (!activeElement) return false;
+  if (contains(element, activeElement)) return true;
+  var activeDescendant = activeElement.getAttribute("aria-activedescendant");
+  if (!activeDescendant) return false;
+  if (activeDescendant === element.id) return true;
+  return !!element.querySelector("#" + activeDescendant);
 }
 
 // node_modules/reakit-utils/es/isPortalEvent.js
@@ -1623,24 +1578,23 @@ function isPortalEvent(event) {
 
 // node_modules/reakit-utils/es/dom.js
 function isUA(string) {
-  if (!canUseDOM)
-    return false;
+  if (!canUseDOM) return false;
   return window.navigator.userAgent.indexOf(string) !== -1;
 }
 
 // node_modules/reakit-utils/es/matches.js
 function matches(element, selectors) {
-  if (\\"matches\\" in element) {
+  if ("matches" in element) {
     return element.matches(selectors);
   }
-  if (\\"msMatchesSelector\\" in element) {
+  if ("msMatchesSelector" in element) {
     return element.msMatchesSelector(selectors);
   }
   return element.webkitMatchesSelector(selectors);
 }
 
 // node_modules/reakit-utils/es/tabbable.js
-var selector = \\"input:not([type='hidden']):not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], button:not([disabled]), [tabindex], iframe, object, embed, area[href], audio[controls], video[controls], [contenteditable]:not([contenteditable='false'])\\";
+var selector = "input:not([type='hidden']):not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], button:not([disabled]), [tabindex], iframe, object, embed, area[href], audio[controls], video[controls], [contenteditable]:not([contenteditable='false'])";
 function isVisible(element) {
   var htmlElement = element;
   return htmlElement.offsetWidth > 0 || htmlElement.offsetHeight > 0 || element.getClientRects().length > 0;
@@ -1650,13 +1604,13 @@ function isFocusable(element) {
 }
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Role/Role.js
-var ROLE_KEYS = [\\"unstable_system\\"];
+var ROLE_KEYS = ["unstable_system"];
 var useRole = createHook({
-  name: \\"Role\\",
+  name: "Role",
   keys: ROLE_KEYS,
   propsAreEqual: function propsAreEqual(prev, next) {
-    var prevSystem = prev.unstable_system, prevProps = _objectWithoutPropertiesLoose(prev, [\\"unstable_system\\"]);
-    var nextSystem = next.unstable_system, nextProps = _objectWithoutPropertiesLoose(next, [\\"unstable_system\\"]);
+    var prevSystem = prev.unstable_system, prevProps = _objectWithoutPropertiesLoose(prev, ["unstable_system"]);
+    var nextSystem = next.unstable_system, nextProps = _objectWithoutPropertiesLoose(next, ["unstable_system"]);
     if (prevSystem !== nextSystem && !shallowEqual(prevSystem, nextSystem)) {
       return false;
     }
@@ -1664,24 +1618,24 @@ var useRole = createHook({
   }
 });
 var Role = createComponent({
-  as: \\"div\\",
+  as: "div",
   useHook: useRole
 });
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Tabbable/Tabbable.js
-import { useRef as useRef2, useState, useCallback } from \\"react\\";
-var TABBABLE_KEYS = [\\"disabled\\", \\"focusable\\"];
-var isSafariOrFirefoxOnMac = isUA(\\"Mac\\") && !isUA(\\"Chrome\\") && (isUA(\\"Safari\\") || isUA(\\"Firefox\\"));
+import { useRef as useRef2, useState, useCallback } from "react";
+var TABBABLE_KEYS = ["disabled", "focusable"];
+var isSafariOrFirefoxOnMac = isUA("Mac") && !isUA("Chrome") && (isUA("Safari") || isUA("Firefox"));
 function focusIfNeeded(element) {
   if (!hasFocusWithin(element) && isFocusable(element)) {
     element.focus();
   }
 }
 function isNativeTabbable(element) {
-  return [\\"BUTTON\\", \\"INPUT\\", \\"SELECT\\", \\"TEXTAREA\\", \\"A\\"].includes(element.tagName);
+  return ["BUTTON", "INPUT", "SELECT", "TEXTAREA", "A"].includes(element.tagName);
 }
 function supportsDisabledAttribute(element) {
-  return [\\"BUTTON\\", \\"INPUT\\", \\"SELECT\\", \\"TEXTAREA\\"].includes(element.tagName);
+  return ["BUTTON", "INPUT", "SELECT", "TEXTAREA"].includes(element.tagName);
 }
 function getTabIndex(trulyDisabled, nativeTabbable, supportsDisabled, htmlTabIndex) {
   if (trulyDisabled) {
@@ -1699,8 +1653,7 @@ function useDisableEvent(htmlEventRef, disabled) {
   return useCallback(function(event) {
     var _htmlEventRef$current;
     (_htmlEventRef$current = htmlEventRef.current) === null || _htmlEventRef$current === void 0 ? void 0 : _htmlEventRef$current.call(htmlEventRef, event);
-    if (event.defaultPrevented)
-      return;
+    if (event.defaultPrevented) return;
     if (disabled) {
       event.stopPropagation();
       event.preventDefault();
@@ -1708,7 +1661,7 @@ function useDisableEvent(htmlEventRef, disabled) {
   }, [htmlEventRef, disabled]);
 }
 var useTabbable = createHook({
-  name: \\"Tabbable\\",
+  name: "Tabbable",
   compose: useRole,
   keys: TABBABLE_KEYS,
   useOptions: function useOptions2(options, _ref) {
@@ -1718,7 +1671,7 @@ var useTabbable = createHook({
     }, options);
   },
   useProps: function useProps2(options, _ref2) {
-    var htmlRef = _ref2.ref, htmlTabIndex = _ref2.tabIndex, htmlOnClickCapture = _ref2.onClickCapture, htmlOnMouseDownCapture = _ref2.onMouseDownCapture, htmlOnMouseDown = _ref2.onMouseDown, htmlOnKeyPressCapture = _ref2.onKeyPressCapture, htmlStyle = _ref2.style, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"ref\\", \\"tabIndex\\", \\"onClickCapture\\", \\"onMouseDownCapture\\", \\"onMouseDown\\", \\"onKeyPressCapture\\", \\"style\\"]);
+    var htmlRef = _ref2.ref, htmlTabIndex = _ref2.tabIndex, htmlOnClickCapture = _ref2.onClickCapture, htmlOnMouseDownCapture = _ref2.onMouseDownCapture, htmlOnMouseDown = _ref2.onMouseDown, htmlOnKeyPressCapture = _ref2.onKeyPressCapture, htmlStyle = _ref2.style, htmlProps = _objectWithoutPropertiesLoose(_ref2, ["ref", "tabIndex", "onClickCapture", "onMouseDownCapture", "onMouseDown", "onKeyPressCapture", "style"]);
     var ref = useRef2(null);
     var onClickCaptureRef = useLiveRef(htmlOnClickCapture);
     var onMouseDownCaptureRef = useLiveRef(htmlOnMouseDownCapture);
@@ -1728,12 +1681,12 @@ var useTabbable = createHook({
     var _React$useState = useState(true), nativeTabbable = _React$useState[0], setNativeTabbable = _React$useState[1];
     var _React$useState2 = useState(true), supportsDisabled = _React$useState2[0], setSupportsDisabled = _React$useState2[1];
     var style = options.disabled ? _objectSpread2({
-      pointerEvents: \\"none\\"
+      pointerEvents: "none"
     }, htmlStyle) : htmlStyle;
     useIsomorphicEffect(function() {
       var tabbable = ref.current;
       if (!tabbable) {
-        true ? warning(true, \\"Can't determine if the element is a native tabbable element because \`ref\` wasn't passed to the component.\\", \\"See https://reakit.io/docs/tabbable\\") : void 0;
+        true ? warning(true, "Can't determine if the element is a native tabbable element because \`ref\` wasn't passed to the component.", "See https://reakit.io/docs/tabbable") : void 0;
         return;
       }
       if (!isNativeTabbable(tabbable)) {
@@ -1750,23 +1703,19 @@ var useTabbable = createHook({
       var _onMouseDownRef$curre;
       (_onMouseDownRef$curre = onMouseDownRef.current) === null || _onMouseDownRef$curre === void 0 ? void 0 : _onMouseDownRef$curre.call(onMouseDownRef, event);
       var element = event.currentTarget;
-      if (event.defaultPrevented)
-        return;
-      if (!isSafariOrFirefoxOnMac)
-        return;
-      if (isPortalEvent(event))
-        return;
-      if (!isButton(element))
-        return;
+      if (event.defaultPrevented) return;
+      if (!isSafariOrFirefoxOnMac) return;
+      if (isPortalEvent(event)) return;
+      if (!isButton(element)) return;
       var raf = requestAnimationFrame(function() {
-        element.removeEventListener(\\"mouseup\\", focusImmediately, true);
+        element.removeEventListener("mouseup", focusImmediately, true);
         focusIfNeeded(element);
       });
       var focusImmediately = function focusImmediately2() {
         cancelAnimationFrame(raf);
         focusIfNeeded(element);
       };
-      element.addEventListener(\\"mouseup\\", focusImmediately, {
+      element.addEventListener("mouseup", focusImmediately, {
         once: true,
         capture: true
       });
@@ -1776,7 +1725,7 @@ var useTabbable = createHook({
       style,
       tabIndex: getTabIndex(trulyDisabled, nativeTabbable, supportsDisabled, htmlTabIndex),
       disabled: trulyDisabled && supportsDisabled ? true : void 0,
-      \\"aria-disabled\\": options.disabled ? true : void 0,
+      "aria-disabled": options.disabled ? true : void 0,
       onClickCapture,
       onMouseDownCapture,
       onMouseDown,
@@ -1785,51 +1734,45 @@ var useTabbable = createHook({
   }
 });
 var Tabbable = createComponent({
-  as: \\"div\\",
+  as: "div",
   useHook: useTabbable
 });
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Clickable/Clickable.js
-import { useState as useState2, useCallback as useCallback2 } from \\"react\\";
-var CLICKABLE_KEYS = [\\"unstable_clickOnEnter\\", \\"unstable_clickOnSpace\\"];
+import { useState as useState2, useCallback as useCallback2 } from "react";
+var CLICKABLE_KEYS = ["unstable_clickOnEnter", "unstable_clickOnSpace"];
 function isNativeClick(event) {
   var element = event.currentTarget;
-  if (!event.isTrusted)
-    return false;
-  return isButton(element) || element.tagName === \\"INPUT\\" || element.tagName === \\"TEXTAREA\\" || element.tagName === \\"A\\" || element.tagName === \\"SELECT\\";
+  if (!event.isTrusted) return false;
+  return isButton(element) || element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "A" || element.tagName === "SELECT";
 }
 var useClickable = createHook({
-  name: \\"Clickable\\",
+  name: "Clickable",
   compose: useTabbable,
   keys: CLICKABLE_KEYS,
   useOptions: function useOptions3(_ref) {
-    var _ref$unstable_clickOn = _ref.unstable_clickOnEnter, unstable_clickOnEnter = _ref$unstable_clickOn === void 0 ? true : _ref$unstable_clickOn, _ref$unstable_clickOn2 = _ref.unstable_clickOnSpace, unstable_clickOnSpace = _ref$unstable_clickOn2 === void 0 ? true : _ref$unstable_clickOn2, options = _objectWithoutPropertiesLoose(_ref, [\\"unstable_clickOnEnter\\", \\"unstable_clickOnSpace\\"]);
+    var _ref$unstable_clickOn = _ref.unstable_clickOnEnter, unstable_clickOnEnter = _ref$unstable_clickOn === void 0 ? true : _ref$unstable_clickOn, _ref$unstable_clickOn2 = _ref.unstable_clickOnSpace, unstable_clickOnSpace = _ref$unstable_clickOn2 === void 0 ? true : _ref$unstable_clickOn2, options = _objectWithoutPropertiesLoose(_ref, ["unstable_clickOnEnter", "unstable_clickOnSpace"]);
     return _objectSpread2({
       unstable_clickOnEnter,
       unstable_clickOnSpace
     }, options);
   },
   useProps: function useProps3(options, _ref2) {
-    var htmlOnKeyDown = _ref2.onKeyDown, htmlOnKeyUp = _ref2.onKeyUp, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"onKeyDown\\", \\"onKeyUp\\"]);
+    var htmlOnKeyDown = _ref2.onKeyDown, htmlOnKeyUp = _ref2.onKeyUp, htmlProps = _objectWithoutPropertiesLoose(_ref2, ["onKeyDown", "onKeyUp"]);
     var _React$useState = useState2(false), active = _React$useState[0], setActive = _React$useState[1];
     var onKeyDownRef = useLiveRef(htmlOnKeyDown);
     var onKeyUpRef = useLiveRef(htmlOnKeyUp);
     var onKeyDown = useCallback2(function(event) {
       var _onKeyDownRef$current;
       (_onKeyDownRef$current = onKeyDownRef.current) === null || _onKeyDownRef$current === void 0 ? void 0 : _onKeyDownRef$current.call(onKeyDownRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (options.disabled)
-        return;
-      if (event.metaKey)
-        return;
-      if (!isSelfTarget(event))
-        return;
-      var isEnter = options.unstable_clickOnEnter && event.key === \\"Enter\\";
-      var isSpace = options.unstable_clickOnSpace && event.key === \\" \\";
+      if (event.defaultPrevented) return;
+      if (options.disabled) return;
+      if (event.metaKey) return;
+      if (!isSelfTarget(event)) return;
+      var isEnter = options.unstable_clickOnEnter && event.key === "Enter";
+      var isSpace = options.unstable_clickOnSpace && event.key === " ";
       if (isEnter || isSpace) {
-        if (isNativeClick(event))
-          return;
+        if (isNativeClick(event)) return;
         event.preventDefault();
         if (isEnter) {
           event.currentTarget.click();
@@ -1841,37 +1784,34 @@ var useClickable = createHook({
     var onKeyUp = useCallback2(function(event) {
       var _onKeyUpRef$current;
       (_onKeyUpRef$current = onKeyUpRef.current) === null || _onKeyUpRef$current === void 0 ? void 0 : _onKeyUpRef$current.call(onKeyUpRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (options.disabled)
-        return;
-      if (event.metaKey)
-        return;
-      var isSpace = options.unstable_clickOnSpace && event.key === \\" \\";
+      if (event.defaultPrevented) return;
+      if (options.disabled) return;
+      if (event.metaKey) return;
+      var isSpace = options.unstable_clickOnSpace && event.key === " ";
       if (active && isSpace) {
         setActive(false);
         event.currentTarget.click();
       }
     }, [options.disabled, options.unstable_clickOnSpace, active]);
     return _objectSpread2({
-      \\"data-active\\": active || void 0,
+      "data-active": active || void 0,
       onKeyDown,
       onKeyUp
     }, htmlProps);
   }
 });
 var Clickable = createComponent({
-  as: \\"button\\",
+  as: "button",
   memo: true,
   useHook: useClickable
 });
 
 // node_modules/reakit-utils/es/createEvent.js
 function createEvent(element, type, eventInit) {
-  if (typeof Event === \\"function\\") {
+  if (typeof Event === "function") {
     return new Event(type, eventInit);
   }
-  var event = getDocument(element).createEvent(\\"Event\\");
+  var event = getDocument(element).createEvent("Event");
   event.initEvent(type, eventInit === null || eventInit === void 0 ? void 0 : eventInit.bubbles, eventInit === null || eventInit === void 0 ? void 0 : eventInit.cancelable);
   return event;
 }
@@ -1899,7 +1839,7 @@ function getCurrentId(options, passedId) {
 }
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/__keys-6742f591.js
-var COMPOSITE_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\"];
+var COMPOSITE_STATE_KEYS = ["baseId", "unstable_idCountRef", "setBaseId", "unstable_virtual", "rtl", "orientation", "items", "groups", "currentId", "loop", "wrap", "shift", "unstable_moves", "unstable_hasActiveWidget", "unstable_includesBaseElement", "registerItem", "unregisterItem", "registerGroup", "unregisterGroup", "move", "next", "previous", "up", "down", "first", "last", "sort", "unstable_setVirtual", "setRTL", "setOrientation", "setCurrentId", "setLoop", "setWrap", "setShift", "reset", "unstable_setIncludesBaseElement", "unstable_setHasActiveWidget"];
 var COMPOSITE_KEYS = COMPOSITE_STATE_KEYS;
 var COMPOSITE_GROUP_KEYS = COMPOSITE_KEYS;
 var COMPOSITE_ITEM_KEYS = COMPOSITE_GROUP_KEYS;
@@ -1921,8 +1861,8 @@ function setUserFocus(element, value) {
 function isTextField(element) {
   try {
     var isTextInput = element instanceof HTMLInputElement && element.selectionStart !== null;
-    var isTextArea = element.tagName === \\"TEXTAREA\\";
-    var isContentEditable = element.contentEditable === \\"true\\";
+    var isTextArea = element.tagName === "TEXTAREA";
+    var isContentEditable = element.contentEditable === "true";
     return isTextInput || isTextArea || isContentEditable || false;
   } catch (error) {
     return false;
@@ -1932,26 +1872,21 @@ function isTextField(element) {
 // node_modules/reakit-utils/es/hasFocus.js
 function hasFocus(element) {
   var activeElement = getActiveElement(element);
-  if (!activeElement)
-    return false;
-  if (activeElement === element)
-    return true;
-  var activeDescendant = activeElement.getAttribute(\\"aria-activedescendant\\");
-  if (!activeDescendant)
-    return false;
+  if (!activeElement) return false;
+  if (activeElement === element) return true;
+  var activeDescendant = activeElement.getAttribute("aria-activedescendant");
+  if (!activeDescendant) return false;
   return activeDescendant === element.id;
 }
 
 // node_modules/reakit-utils/es/ensureFocus.js
 function ensureFocus(element, _temp) {
   var _ref = _temp === void 0 ? {} : _temp, preventScroll = _ref.preventScroll, _ref$isActive = _ref.isActive, isActive = _ref$isActive === void 0 ? hasFocus : _ref$isActive;
-  if (isActive(element))
-    return -1;
+  if (isActive(element)) return -1;
   element.focus({
     preventScroll
   });
-  if (isActive(element))
-    return -1;
+  if (isActive(element)) return -1;
   return requestAnimationFrame(function() {
     element.focus({
       preventScroll
@@ -1960,20 +1895,20 @@ function ensureFocus(element, _temp) {
 }
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Id/IdProvider.js
-import { createContext as createContext2, useRef as useRef3, useCallback as useCallback3, createElement as createElement2 } from \\"react\\";
-var defaultPrefix = \\"id\\";
+import { createContext as createContext2, useRef as useRef3, useCallback as useCallback3, createElement as createElement2 } from "react";
+var defaultPrefix = "id";
 function generateRandomString(prefix) {
   if (prefix === void 0) {
     prefix = defaultPrefix;
   }
-  return (prefix ? prefix + \\"-\\" : \\"\\") + Math.random().toString(32).substr(2, 6);
+  return (prefix ? prefix + "-" : "") + Math.random().toString(32).substr(2, 6);
 }
 var unstable_IdContext = /* @__PURE__ */ createContext2(generateRandomString);
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Id/Id.js
-import { useContext as useContext3, useState as useState3, useMemo as useMemo2 } from \\"react\\";
-var ID_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\"];
-var ID_KEYS = [].concat(ID_STATE_KEYS, [\\"id\\"]);
+import { useContext as useContext3, useState as useState3, useMemo as useMemo2 } from "react";
+var ID_STATE_KEYS = ["baseId", "unstable_idCountRef", "setBaseId"];
+var ID_KEYS = [].concat(ID_STATE_KEYS, ["id"]);
 var unstable_useId = createHook({
   keys: ID_KEYS,
   useOptions: function useOptions4(options, htmlProps) {
@@ -1981,17 +1916,17 @@ var unstable_useId = createHook({
     var _React$useState = useState3(function() {
       if (options.unstable_idCountRef) {
         options.unstable_idCountRef.current += 1;
-        return \\"-\\" + options.unstable_idCountRef.current;
+        return "-" + options.unstable_idCountRef.current;
       }
       if (options.baseId) {
-        return \\"-\\" + generateId(\\"\\");
+        return "-" + generateId("");
       }
-      return \\"\\";
+      return "";
     }), suffix = _React$useState[0];
     var baseId = useMemo2(function() {
       return options.baseId || generateId();
     }, [options.baseId, generateId]);
-    var id = htmlProps.id || options.id || \\"\\" + baseId + suffix;
+    var id = htmlProps.id || options.id || "" + baseId + suffix;
     return _objectSpread2(_objectSpread2({}, options), {}, {
       id
     });
@@ -2003,7 +1938,7 @@ var unstable_useId = createHook({
   }
 });
 var unstable_Id = createComponent({
-  as: \\"div\\",
+  as: "div",
   useHook: unstable_useId
 });
 
@@ -2017,10 +1952,10 @@ function setTextFieldValue(element, value) {
   if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
     var _Object$getOwnPropert;
     var proto = Object.getPrototypeOf(element);
-    var setValue = (_Object$getOwnPropert = Object.getOwnPropertyDescriptor(proto, \\"value\\")) === null || _Object$getOwnPropert === void 0 ? void 0 : _Object$getOwnPropert.set;
+    var setValue = (_Object$getOwnPropert = Object.getOwnPropertyDescriptor(proto, "value")) === null || _Object$getOwnPropert === void 0 ? void 0 : _Object$getOwnPropert.set;
     if (setValue) {
       setValue.call(element, value);
-      fireEvent(element, \\"input\\", {
+      fireEvent(element, "input", {
         bubbles: true
       });
     }
@@ -2028,9 +1963,9 @@ function setTextFieldValue(element, value) {
 }
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Composite/CompositeItem.js
-import { useRef as useRef4, useMemo as useMemo3, useEffect as useEffect3, useCallback as useCallback4 } from \\"react\\";
+import { useRef as useRef4, useMemo as useMemo3, useEffect as useEffect3, useCallback as useCallback4 } from "react";
 function getWidget(itemElement) {
-  return itemElement.querySelector(\\"[data-composite-item-widget]\\");
+  return itemElement.querySelector("[data-composite-item-widget]");
 }
 function useItem(options) {
   return useMemo3(function() {
@@ -2041,8 +1976,7 @@ function useItem(options) {
   }, [options.items, options.id]);
 }
 function targetIsAnotherItem(event, items) {
-  if (isSelfTarget(event))
-    return false;
+  if (isSelfTarget(event)) return false;
   for (var _iterator = _createForOfIteratorHelperLoose(items), _step; !(_step = _iterator()).done; ) {
     var item = _step.value;
     if (item.ref.current === event.target) {
@@ -2052,15 +1986,15 @@ function targetIsAnotherItem(event, items) {
   return false;
 }
 var useCompositeItem = createHook({
-  name: \\"CompositeItem\\",
+  name: "CompositeItem",
   compose: [useClickable, unstable_useId],
   keys: COMPOSITE_ITEM_KEYS,
   propsAreEqual: function propsAreEqual2(prev, next) {
     if (!next.id || prev.id !== next.id) {
       return useClickable.unstable_propsAreEqual(prev, next);
     }
-    var prevCurrentId = prev.currentId, prevMoves = prev.unstable_moves, prevProps = _objectWithoutPropertiesLoose(prev, [\\"currentId\\", \\"unstable_moves\\"]);
-    var nextCurrentId = next.currentId, nextMoves = next.unstable_moves, nextProps = _objectWithoutPropertiesLoose(next, [\\"currentId\\", \\"unstable_moves\\"]);
+    var prevCurrentId = prev.currentId, prevMoves = prev.unstable_moves, prevProps = _objectWithoutPropertiesLoose(prev, ["currentId", "unstable_moves"]);
+    var nextCurrentId = next.currentId, nextMoves = next.unstable_moves, nextProps = _objectWithoutPropertiesLoose(next, ["currentId", "unstable_moves"]);
     if (nextCurrentId !== prevCurrentId) {
       if (next.id === nextCurrentId || next.id === prevCurrentId) {
         return false;
@@ -2079,7 +2013,7 @@ var useCompositeItem = createHook({
   },
   useProps: function useProps5(options, _ref) {
     var _options$items2;
-    var htmlRef = _ref.ref, _ref$tabIndex = _ref.tabIndex, htmlTabIndex = _ref$tabIndex === void 0 ? 0 : _ref$tabIndex, htmlOnMouseDown = _ref.onMouseDown, htmlOnFocus = _ref.onFocus, htmlOnBlurCapture = _ref.onBlurCapture, htmlOnKeyDown = _ref.onKeyDown, htmlOnClick = _ref.onClick, htmlProps = _objectWithoutPropertiesLoose(_ref, [\\"ref\\", \\"tabIndex\\", \\"onMouseDown\\", \\"onFocus\\", \\"onBlurCapture\\", \\"onKeyDown\\", \\"onClick\\"]);
+    var htmlRef = _ref.ref, _ref$tabIndex = _ref.tabIndex, htmlTabIndex = _ref$tabIndex === void 0 ? 0 : _ref$tabIndex, htmlOnMouseDown = _ref.onMouseDown, htmlOnFocus = _ref.onFocus, htmlOnBlurCapture = _ref.onBlurCapture, htmlOnKeyDown = _ref.onKeyDown, htmlOnClick = _ref.onClick, htmlProps = _objectWithoutPropertiesLoose(_ref, ["ref", "tabIndex", "onMouseDown", "onFocus", "onBlurCapture", "onKeyDown", "onClick"]);
     var ref = useRef4(null);
     var id = options.id;
     var trulyDisabled = options.disabled && !options.focusable;
@@ -2092,11 +2026,12 @@ var useCompositeItem = createHook({
     var onBlurCaptureRef = useLiveRef(htmlOnBlurCapture);
     var onKeyDownRef = useLiveRef(htmlOnKeyDown);
     var onClickRef = useLiveRef(htmlOnClick);
-    var shouldTabIndex = !options.unstable_virtual && !options.unstable_hasActiveWidget && isCurrentItem || !((_options$items2 = options.items) !== null && _options$items2 !== void 0 && _options$items2.length);
+    var shouldTabIndex = !options.unstable_virtual && !options.unstable_hasActiveWidget && isCurrentItem || // We don't want to set tabIndex="-1" when using CompositeItem as a
+    // standalone component, without state props.
+    !((_options$items2 = options.items) !== null && _options$items2 !== void 0 && _options$items2.length);
     useEffect3(function() {
       var _options$registerItem;
-      if (!id)
-        return void 0;
+      if (!id) return void 0;
       (_options$registerItem = options.registerItem) === null || _options$registerItem === void 0 ? void 0 : _options$registerItem.call(options, {
         id,
         ref,
@@ -2110,7 +2045,7 @@ var useCompositeItem = createHook({
     useEffect3(function() {
       var element = ref.current;
       if (!element) {
-        true ? warning(true, \\"Can't focus composite item component because \`ref\` wasn't passed to component.\\", \\"See https://reakit.io/docs/composite\\") : void 0;
+        true ? warning(true, "Can't focus composite item component because \`ref\` wasn't passed to component.", "See https://reakit.io/docs/composite") : void 0;
         return;
       }
       if (options.unstable_moves && isCurrentItemRef.current) {
@@ -2127,14 +2062,10 @@ var useCompositeItem = createHook({
       var shouldFocusComposite = hasUserFocus(event.currentTarget);
       setUserFocus(event.currentTarget, false);
       (_onFocusRef$current = onFocusRef.current) === null || _onFocusRef$current === void 0 ? void 0 : _onFocusRef$current.call(onFocusRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (isPortalEvent(event))
-        return;
-      if (!id)
-        return;
-      if (targetIsAnotherItem(event, options.items))
-        return;
+      if (event.defaultPrevented) return;
+      if (isPortalEvent(event)) return;
+      if (!id) return;
+      if (targetIsAnotherItem(event, options.items)) return;
       (_options$setCurrentId = options.setCurrentId) === null || _options$setCurrentId === void 0 ? void 0 : _options$setCurrentId.call(options, id);
       if (shouldFocusComposite && options.unstable_virtual && options.baseId && isSelfTarget(event)) {
         var target = event.target;
@@ -2148,8 +2079,7 @@ var useCompositeItem = createHook({
     var onBlurCapture = useCallback4(function(event) {
       var _onBlurCaptureRef$cur;
       (_onBlurCaptureRef$cur = onBlurCaptureRef.current) === null || _onBlurCaptureRef$cur === void 0 ? void 0 : _onBlurCaptureRef$cur.call(onBlurCaptureRef, event);
-      if (event.defaultPrevented)
-        return;
+      if (event.defaultPrevented) return;
       if (options.unstable_virtual && hasFocusedComposite.current) {
         hasFocusedComposite.current = false;
         event.preventDefault();
@@ -2158,10 +2088,9 @@ var useCompositeItem = createHook({
     }, [options.unstable_virtual]);
     var onKeyDown = useCallback4(function(event) {
       var _onKeyDownRef$current;
-      if (!isSelfTarget(event))
-        return;
-      var isVertical = options.orientation !== \\"horizontal\\";
-      var isHorizontal = options.orientation !== \\"vertical\\";
+      if (!isSelfTarget(event)) return;
+      var isVertical = options.orientation !== "horizontal";
+      var isHorizontal = options.orientation !== "vertical";
       var isGrid = !!(item !== null && item !== void 0 && item.groupId);
       var keyMap = {
         ArrowUp: (isGrid || isVertical) && options.up,
@@ -2212,27 +2141,25 @@ var useCompositeItem = createHook({
         return;
       }
       (_onKeyDownRef$current = onKeyDownRef.current) === null || _onKeyDownRef$current === void 0 ? void 0 : _onKeyDownRef$current.call(onKeyDownRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (event.key.length === 1 && event.key !== \\" \\") {
+      if (event.defaultPrevented) return;
+      if (event.key.length === 1 && event.key !== " ") {
         var widget = getWidget(event.currentTarget);
         if (widget && isTextField(widget)) {
           widget.focus();
-          setTextFieldValue(widget, \\"\\");
+          setTextFieldValue(widget, "");
         }
-      } else if (event.key === \\"Delete\\" || event.key === \\"Backspace\\") {
+      } else if (event.key === "Delete" || event.key === "Backspace") {
         var _widget = getWidget(event.currentTarget);
         if (_widget && isTextField(_widget)) {
           event.preventDefault();
-          setTextFieldValue(_widget, \\"\\");
+          setTextFieldValue(_widget, "");
         }
       }
     }, [options.orientation, item, options.up, options.next, options.down, options.previous, options.first, options.last]);
     var onClick = useCallback4(function(event) {
       var _onClickRef$current;
       (_onClickRef$current = onClickRef.current) === null || _onClickRef$current === void 0 ? void 0 : _onClickRef$current.call(onClickRef, event);
-      if (event.defaultPrevented)
-        return;
+      if (event.defaultPrevented) return;
       var element = event.currentTarget;
       var widget = getWidget(element);
       if (widget && !hasFocusWithin(widget)) {
@@ -2243,7 +2170,7 @@ var useCompositeItem = createHook({
       ref: useForkRef(ref, htmlRef),
       id,
       tabIndex: shouldTabIndex ? htmlTabIndex : -1,
-      \\"aria-selected\\": options.unstable_virtual && isCurrentItem ? true : void 0,
+      "aria-selected": options.unstable_virtual && isCurrentItem ? true : void 0,
       onMouseDown,
       onFocus,
       onBlurCapture,
@@ -2253,37 +2180,37 @@ var useCompositeItem = createHook({
   }
 });
 var CompositeItem = createComponent({
-  as: \\"button\\",
+  as: "button",
   memo: true,
   useHook: useCompositeItem
 });
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/index.js
-import \\"react-dom\\";
+import "react-dom";
 
 // node_modules/body-scroll-lock/lib/bodyScrollLock.esm.js
 var hasPassiveEvents = false;
-if (typeof window !== \\"undefined\\") {
+if (typeof window !== "undefined") {
   passiveTestOptions = {
     get passive() {
       hasPassiveEvents = true;
       return void 0;
     }
   };
-  window.addEventListener(\\"testPassive\\", null, passiveTestOptions);
-  window.removeEventListener(\\"testPassive\\", null, passiveTestOptions);
+  window.addEventListener("testPassive", null, passiveTestOptions);
+  window.removeEventListener("testPassive", null, passiveTestOptions);
 }
 var passiveTestOptions;
-var isIosDevice = typeof window !== \\"undefined\\" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === \\"MacIntel\\" && window.navigator.maxTouchPoints > 1);
+var isIosDevice = typeof window !== "undefined" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/__keys-3c0b2243.js
-var TAB_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"selectedId\\", \\"panels\\", \\"manual\\", \\"setBaseId\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\", \\"select\\", \\"setSelectedId\\", \\"registerPanel\\", \\"unregisterPanel\\"];
+var TAB_STATE_KEYS = ["baseId", "unstable_idCountRef", "unstable_virtual", "rtl", "orientation", "items", "groups", "currentId", "loop", "wrap", "shift", "unstable_moves", "unstable_hasActiveWidget", "unstable_includesBaseElement", "selectedId", "panels", "manual", "setBaseId", "registerItem", "unregisterItem", "registerGroup", "unregisterGroup", "move", "next", "previous", "up", "down", "first", "last", "sort", "unstable_setVirtual", "setRTL", "setOrientation", "setCurrentId", "setLoop", "setWrap", "setShift", "reset", "unstable_setIncludesBaseElement", "unstable_setHasActiveWidget", "select", "setSelectedId", "registerPanel", "unregisterPanel"];
 var TAB_KEYS = TAB_STATE_KEYS;
 var TAB_LIST_KEYS = TAB_KEYS;
-var TAB_PANEL_KEYS = [].concat(TAB_LIST_KEYS, [\\"tabId\\"]);
+var TAB_PANEL_KEYS = [].concat(TAB_LIST_KEYS, ["tabId"]);
 
 // node_modules/@twilio-paste/paste-reakit-fork/es/Tab/Tab.js
-import { useMemo as useMemo4, useCallback as useCallback5 } from \\"react\\";
+import { useMemo as useMemo4, useCallback as useCallback5 } from "react";
 function useTabPanelId(options) {
   return useMemo4(function() {
     var _options$panels, _options$panels$find;
@@ -2293,17 +2220,17 @@ function useTabPanelId(options) {
   }, [options.panels, options.id]);
 }
 var useTab = createHook({
-  name: \\"Tab\\",
+  name: "Tab",
   compose: useCompositeItem,
   keys: TAB_KEYS,
   useOptions: function useOptions6(_ref) {
-    var _ref$focusable = _ref.focusable, focusable = _ref$focusable === void 0 ? true : _ref$focusable, options = _objectWithoutPropertiesLoose(_ref, [\\"focusable\\"]);
+    var _ref$focusable = _ref.focusable, focusable = _ref$focusable === void 0 ? true : _ref$focusable, options = _objectWithoutPropertiesLoose(_ref, ["focusable"]);
     return _objectSpread2({
       focusable
     }, options);
   },
   useProps: function useProps6(options, _ref2) {
-    var htmlOnClick = _ref2.onClick, htmlOnFocus = _ref2.onFocus, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"onClick\\", \\"onFocus\\"]);
+    var htmlOnClick = _ref2.onClick, htmlOnFocus = _ref2.onFocus, htmlProps = _objectWithoutPropertiesLoose(_ref2, ["onClick", "onFocus"]);
     var selected = options.selectedId === options.id;
     var tabPanelId = useTabPanelId(options);
     var onClickRef = useLiveRef(htmlOnClick);
@@ -2311,42 +2238,33 @@ var useTab = createHook({
     var onClick = useCallback5(function(event) {
       var _onClickRef$current, _options$select;
       (_onClickRef$current = onClickRef.current) === null || _onClickRef$current === void 0 ? void 0 : _onClickRef$current.call(onClickRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (options.disabled)
-        return;
-      if (!options.id)
-        return;
-      if (selected)
-        return;
+      if (event.defaultPrevented) return;
+      if (options.disabled) return;
+      if (!options.id) return;
+      if (selected) return;
       (_options$select = options.select) === null || _options$select === void 0 ? void 0 : _options$select.call(options, options.id);
     }, [options.disabled, selected, options.select, options.id]);
     var onFocus = useCallback5(function(event) {
       var _onFocusRef$current, _options$select2;
       (_onFocusRef$current = onFocusRef.current) === null || _onFocusRef$current === void 0 ? void 0 : _onFocusRef$current.call(onFocusRef, event);
-      if (event.defaultPrevented)
-        return;
-      if (options.disabled)
-        return;
-      if (options.manual)
-        return;
-      if (!options.id)
-        return;
-      if (selected)
-        return;
+      if (event.defaultPrevented) return;
+      if (options.disabled) return;
+      if (options.manual) return;
+      if (!options.id) return;
+      if (selected) return;
       (_options$select2 = options.select) === null || _options$select2 === void 0 ? void 0 : _options$select2.call(options, options.id);
     }, [options.id, options.disabled, options.manual, selected, options.select]);
     return _objectSpread2({
-      role: \\"tab\\",
-      \\"aria-selected\\": selected,
-      \\"aria-controls\\": tabPanelId,
+      role: "tab",
+      "aria-selected": selected,
+      "aria-controls": tabPanelId,
       onClick,
       onFocus
     }, htmlProps);
   }
 });
 var Tab = createComponent({
-  as: \\"button\\",
+  as: "button",
   memo: true,
   useHook: useTab
 });
@@ -2354,7 +2272,7 @@ var Tab = createComponent({
 // tools/build/__fixtures__/random_package/src/index.tsx
 var import_use_clipboard_copy = __toESM(require_dist());
 var import_camelCase = __toESM(require_camelCase());
-import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
+import DefaultRawTokenJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json";
 var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => (0, import_camelCase.default)(deprecatedToken.name));
 var convertRawTokenJSONToArray = (rawTokens) => {
   const rawTokenNames = Object.keys(rawTokens);
@@ -2363,7 +2281,7 @@ var convertRawTokenJSONToArray = (rawTokens) => {
   }, []);
 };
 var getTokensWithTextContrastRequirements = (rawTokens) => convertRawTokenJSONToArray(rawTokens).filter(
-  (token) => token.type === \\"color\\" && token.text_contrast_pairing != null
+  (token) => token.type === "color" && token.text_contrast_pairing != null
 );
 var getContrastRatingsOfTokensWithTextContrastRequirements = () => {
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
