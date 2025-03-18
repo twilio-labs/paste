@@ -14,9 +14,12 @@ import { pasteBaseStyles } from "./styles/base";
 import { pasteFonts } from "./styles/fonts";
 import { pasteGlobalStyles } from "./styles/global";
 import { DarkTheme, DefaultTheme, EvergreenTheme, SendGridTheme, TwilioDarkTheme, TwilioTheme } from "./themes";
+import { CSSVariablesTheme } from "./themes/css-variables";
 import { getThemeFromHash } from "./utils/getThemeFromHash";
 
 export const StyledBase = styled.div(pasteBaseStyles);
+
+const CSSVariablesThemeKey = "CSSVariables";
 
 const useThemeOverwriteHook = (): string | undefined => {
   const [overwriteTheme, setOverwriteTheme] = React.useState(getThemeFromHash());
@@ -37,7 +40,7 @@ const useThemeOverwriteHook = (): string | undefined => {
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
+function getProviderThemeProps(theme: ThemeVariants | typeof CSSVariablesThemeKey, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.TWILIO:
       return {
@@ -64,6 +67,11 @@ function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[
         ...EvergreenTheme,
         breakpoints: customBreakpoints || EvergreenTheme.breakpoints,
       };
+    case CSSVariablesThemeKey:
+      return {
+        ...CSSVariablesTheme,
+        breakpoints: customBreakpoints || CSSVariablesTheme.breakpoints,
+      };
     case ThemeVariants.DEFAULT:
     default:
       return {
@@ -73,13 +81,24 @@ function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[
   }
 }
 
-export interface ThemeProviderProps {
+interface BaseThemeProviderProps {
   customBreakpoints?: string[];
-  theme?: ThemeVariants;
   disableAnimations?: boolean;
   cacheProviderProps?: CreateCacheOptions;
   style?: React.CSSProperties;
 }
+
+interface ThemeProviderThemeProps extends BaseThemeProviderProps {
+  theme?: ThemeVariants;
+  useCSSVariables?: never;
+}
+
+interface ThemeProviderCSSVariablesProps extends BaseThemeProviderProps {
+  theme?: never;
+  useCSSVariables?: boolean;
+}
+
+export type ThemeProviderProps = ThemeProviderThemeProps | ThemeProviderCSSVariablesProps;
 
 const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProviderProps>> = ({
   customBreakpoints,
@@ -87,6 +106,7 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
   disableAnimations = false,
   // https://emotion.sh/docs/@emotion/cache#options
   cacheProviderProps,
+  useCSSVariables,
   ...props
 }) => {
   const [cache] = React.useState(cacheProviderProps ? createCache(cacheProviderProps) : null);
@@ -98,7 +118,10 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
   }, [disableAnimations, prefersReducedMotion]);
   const overwriteTheme = useThemeOverwriteHook();
 
-  const providerThemeProps = getProviderThemeProps(overwriteTheme || theme, customBreakpoints);
+  const providerThemeProps = getProviderThemeProps(
+    overwriteTheme || (useCSSVariables ? CSSVariablesThemeKey : theme),
+    customBreakpoints,
+  );
 
   if (cache) {
     return (

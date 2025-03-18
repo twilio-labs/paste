@@ -1,5 +1,19 @@
 # Change Log
 
+## 20.23.0
+
+### Minor Changes
+
+- [`b5e73f1a7`](https://github.com/twilio-labs/paste/commit/b5e73f1a7485b707fed2aaa491f23e55263326d1) [#4264](https://github.com/twilio-labs/paste/pull/4264) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Design Tokens] added a new build script to generate a CSS file that applies variables for individual themes using the body[data-theme] attribute.
+
+* [`b5e73f1a7`](https://github.com/twilio-labs/paste/commit/b5e73f1a7485b707fed2aaa491f23e55263326d1) [#4264](https://github.com/twilio-labs/paste/pull/4264) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Theme] Added the property `useCssVariables` which allows the color values to be pulled from CSS variables instead of static values
+
+### Patch Changes
+
+- Updated dependencies [[`b5e73f1a7`](https://github.com/twilio-labs/paste/commit/b5e73f1a7485b707fed2aaa491f23e55263326d1), [`b5e73f1a7`](https://github.com/twilio-labs/paste/commit/b5e73f1a7485b707fed2aaa491f23e55263326d1)]:
+  - @twilio-paste/design-tokens@10.14.0
+  - @twilio-paste/theme@11.2.0
+
 ## 20.22.0
 
 ### Minor Changes
