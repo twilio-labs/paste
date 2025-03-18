@@ -1,3 +1,4 @@
+"use client";
 export { SummaryDetail, useSummaryDetailState } from "./SummaryDetail";
 export type { SummaryDetailProps, SummaryDetailStateReturn, SummaryDetailInitialState } from "./SummaryDetail";
 

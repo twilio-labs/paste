@@ -1,3 +1,4 @@
+"use client";
 import type { MenuInitialStateProps, MenuStateReturnProps } from "@twilio-paste/menu";
 
 type StatusMenuInitialStateProps = MenuInitialStateProps;

@@ -1,3 +1,4 @@
+"use client";
 export { Table } from "./Table";
 export { THead } from "./THead";
 export { TBody } from "./TBody";

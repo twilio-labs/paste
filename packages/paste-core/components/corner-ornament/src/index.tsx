@@ -1,3 +1,4 @@
+"use client";
 export { CornerOrnament } from "./CornerOrnament";
 export { CornerOrnamentContainer } from "./CornerOrnamentContainer";
 export { CornerOrnamentBase } from "./CornerOrnamentBase";

@@ -1,3 +1,4 @@
+"use client";
 import type { TabStateReturn } from "./Tabs";
 
 export { Tabs, useTabState } from "./Tabs";

@@ -25108,7 +25108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.15.1, esbuild@npm:^0.15.18":
+"esbuild@npm:^0.15.1":
   version: 0.15.18
   resolution: "esbuild@npm:0.15.18"
   dependencies:
@@ -45944,7 +45944,7 @@ resolve@^2.0.0-next.3:
     "@typescript-eslint/parser": ^5.46.0
     "@vscode/test-electron": ^2.4.1
     base-64: 1.0.0
-    esbuild: ^0.15.18
+    esbuild: 0.25.1
     eslint: ^8.29.0
     glob: ^10.0.0
     lodash.camelcase: 4.3.0

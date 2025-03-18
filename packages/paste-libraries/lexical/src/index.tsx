@@ -1,3 +1,4 @@
+"use client";
 import type { LexicalComposer } from "@lexical/react/LexicalComposer";
 import type { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import ErrorBoundary from "@lexical/react/LexicalErrorBoundary";

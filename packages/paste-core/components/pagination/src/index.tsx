@@ -1,3 +1,4 @@
+"use client";
 export { Pagination } from "./Pagination";
 export { PaginationItems } from "./PaginationItems";
 export { PaginationArrow } from "./PaginationArrow";

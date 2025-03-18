@@ -1,3 +1,4 @@
+"use client";
 export { AIChatMessage } from "./AIChatMessage";
 export type { AIChatMessageProps } from "./AIChatMessage";
 export { AIChatMessageActionGroup } from "./AIChatMessageActionGroup";

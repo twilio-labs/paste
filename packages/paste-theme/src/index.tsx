@@ -1,3 +1,4 @@
+"use client";
 import { ThemeConsumer } from "./themeConsumer";
 import { StyledBase, ThemeProvider } from "./themeProvider";
 import type { ThemeProviderProps } from "./themeProvider";

@@ -1,3 +1,4 @@
+"use client";
 import Downshift from "@twilio-paste/dropdown-library";
 
 export { Downshift as ComboboxPrimitive };

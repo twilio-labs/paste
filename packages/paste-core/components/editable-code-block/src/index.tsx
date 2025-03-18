@@ -1,3 +1,4 @@
+"use client";
 export { EditableCodeBlockWrapper } from "./EditableCodeBlockWrapper";
 export type { EditableCodeBlockWrapperProps } from "./EditableCodeBlockWrapper";
 export { EditableCodeBlockHeader } from "./EditableCodeBlockHeader";

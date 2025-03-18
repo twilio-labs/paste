@@ -1,3 +1,4 @@
+"use client";
 import type { DisclosureInitialState, DisclosureStateReturn } from "./types";
 
 export { Disclosure, useDisclosureState } from "./Disclosure";

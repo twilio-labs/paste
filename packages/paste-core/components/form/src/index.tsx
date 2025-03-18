@@ -1,3 +1,4 @@
+"use client";
 export { Form } from "./Form";
 export type { FormProps } from "./Form";
 export { FormActions } from "./FormActions";

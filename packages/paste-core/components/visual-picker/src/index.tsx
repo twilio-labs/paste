@@ -1,3 +1,4 @@
+"use client";
 export { VisualPickerRadioGroup } from "./VisualPickerRadioGroup";
 export type { VisualPickerRadioGroupProps } from "./VisualPickerRadioGroup";
 export { VisualPickerRadio } from "./VisualPickerRadio";

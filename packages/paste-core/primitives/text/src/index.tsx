@@ -1,3 +1,4 @@
+"use client";
 export { Text } from "./Text";
 export { TEXT_PROPS_TO_BLOCK, safelySpreadTextProps } from "./SafelySpreadProps";
 // We only want to document TextProps, by using inline type exports we can avoid documenting other exported types

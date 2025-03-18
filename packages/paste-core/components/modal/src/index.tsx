@@ -1,3 +1,4 @@
+"use client";
 export { ModalDialogOverlay, ModalDialogContent, type ModalDialogContentProps, Modal } from "./Modal";
 export type { ModalProps } from "./Modal";
 export { ModalHeader } from "./ModalHeader";

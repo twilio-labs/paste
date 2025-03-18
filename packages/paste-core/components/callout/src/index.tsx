@@ -1,3 +1,4 @@
+"use client";
 export { Callout } from "./Callout";
 export type { CalloutProps } from "./Callout";
 export { CalloutHeading } from "./CalloutHeading";

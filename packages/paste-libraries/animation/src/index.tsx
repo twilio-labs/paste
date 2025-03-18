@@ -1,3 +1,4 @@
+"use client";
 import { Globals } from "@react-spring/shared";
 import { animated, interpolate, useChain, useSpring, useSprings, useTrail, useTransition } from "@react-spring/web";
 import type {

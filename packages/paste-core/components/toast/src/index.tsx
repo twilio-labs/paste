@@ -1,3 +1,4 @@
+"use client";
 export { Toast } from "./Toast";
 export { ToastContainer } from "./ToastContainer";
 export { Toaster } from "./Toaster";

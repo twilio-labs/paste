@@ -1,3 +1,4 @@
+"use client";
 import {
   type PopoverInitialState as NonModalDialogPrimitivePopoverInitialState,
   type PopoverStateReturn as NonModalDialogPrimitiveStateReturn,

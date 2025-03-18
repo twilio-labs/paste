@@ -1,3 +1,4 @@
+"use client";
 export { DescriptionList } from "./DescriptionList";
 export type { DescriptionListProps } from "./DescriptionList";
 export { DescriptionListTerm } from "./DescriptionListTerm";

@@ -1,3 +1,4 @@
+"use client";
 import type { MinimizableDialogStateReturn, UseMinimizableDialogStateArgs } from "./MinimizableDialogContainer";
 
 // for the sake of documenting the types we rename the state hook types to append Props to the name, so we can docuemnt them and not cause a breaking change.

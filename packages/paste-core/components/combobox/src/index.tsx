@@ -1,3 +1,4 @@
+"use client";
 export {
   useComboboxPrimitive as useCombobox,
   useMultiSelectPrimitive as useMultiselectCombobox,

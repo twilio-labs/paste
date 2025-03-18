@@ -1,3 +1,4 @@
+"use client";
 export { Box } from "./Box";
 export { getCustomElementStyles } from "./StyleFunctions";
 export { BOX_PROPS_TO_BLOCK, safelySpreadBoxProps } from "./SafelySpreadProps";

@@ -1,3 +1,4 @@
+"use client";
 export { KeyboardKey } from "./KeyboardKey";
 export type { KeyboardKeyProps } from "./KeyboardKey";
 export { KeyboardKeyGroup } from "./KeyboardKeyGroup";

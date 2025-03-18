@@ -1,3 +1,4 @@
+"use client";
 export {
   useMenuState as useMenuPrimitiveState,
   Menu as MenuPrimitive,

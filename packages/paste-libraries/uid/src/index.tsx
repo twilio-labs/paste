@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { UIDFork, uid, useUID as useUIDLegacy, useUIDSeed as useUIDSeedLegacy } from "react-uid";
 

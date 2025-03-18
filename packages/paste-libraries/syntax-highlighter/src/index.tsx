@@ -1,3 +1,4 @@
+"use client";
 /*
  * https://github.com/react-syntax-highlighter/react-syntax-highlighter#light-build
  * We are using the light build for a smaller bundle size. This means we need to import and

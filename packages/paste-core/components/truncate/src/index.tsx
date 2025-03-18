@@ -1,3 +1,4 @@
+"use client";
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";

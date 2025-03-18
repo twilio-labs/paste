@@ -1,3 +1,4 @@
+"use client";
 export { UserDialog } from "./UserDialog";
 export type { UserDialogProps } from "./UserDialog";
 export { UserDialogContainer, useUserDialogState } from "./UserDialogContainer";

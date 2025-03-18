@@ -1,3 +1,4 @@
+"use client";
 import {
   type SidebarNavigationDisclosureInitialState,
   type SidebarNavigationDisclosureStateReturn,

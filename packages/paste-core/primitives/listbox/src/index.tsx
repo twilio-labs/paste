@@ -1,3 +1,4 @@
+"use client";
 export * from "./ListboxPrimitive";
 export * from "./ListboxPrimitiveItem";
 export * from "./useListboxPrimitiveState";

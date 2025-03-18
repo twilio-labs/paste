@@ -1,3 +1,4 @@
+"use client";
 import { PopoverArrow } from "./Popover/PopoverArrow";
 import type { PopoverArrowProps } from "./Popover/PopoverArrow";
 import { TooltipArrow } from "./Tooltip/TooltipArrow";

@@ -1,3 +1,4 @@
+"use client";
 export { ProductSwitcher } from "./ProductSwitcher";
 export type { ProductSwitcherProps } from "./ProductSwitcher";
 export { ProductSwitcherItem } from "./ProductSwitcherItem";

@@ -1,3 +1,4 @@
+"use client";
 export {
   useTooltipState as useTooltipPrimitiveState,
   Tooltip as TooltipPrimitive,

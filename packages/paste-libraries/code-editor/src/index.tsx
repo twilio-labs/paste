@@ -1,3 +1,4 @@
+"use client";
 export {
   Editor as CodeEditor,
   DiffEditor as CodeEditorDiff,

@@ -1,3 +1,4 @@
+"use client";
 /**
  * If you’re wondering why we wrapped that package into our own, we reasoned that it
  * would be best for our consumers’ DX, with reasons such as:

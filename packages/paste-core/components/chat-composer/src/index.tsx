@@ -1,3 +1,4 @@
+"use client";
 export { ChatComposer } from "./ChatComposer";
 export type { ChatComposerProps } from "./ChatComposer";
 export { ChatComposerActionGroup } from "./ChatComposerActionGroup";

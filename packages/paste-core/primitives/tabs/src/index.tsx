@@ -1,3 +1,4 @@
+"use client";
 export {
   useTabState as useTabPrimitiveState,
   Tab as TabPrimitive,

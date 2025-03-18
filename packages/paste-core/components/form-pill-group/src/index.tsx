@@ -1,3 +1,4 @@
+"use client";
 import type { CompositeStateReturn } from "@twilio-paste/reakit-library";
 
 import type { FormPillInitialState } from "./useFormPillState";

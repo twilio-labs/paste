@@ -1,3 +1,4 @@
+"use client";
 export { ProgressSteps } from "./ProgressSteps";
 export type { ProgressStepsProps } from "./ProgressSteps";
 export { ProgressStepSeparator } from "./ProgressStepSeparator";

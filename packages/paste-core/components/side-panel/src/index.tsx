@@ -1,3 +1,4 @@
+"use client";
 export { SidePanel } from "./SidePanel";
 export { SidePanelPushContentWrapper } from "./SidePanelPushContentWrapper";
 export { SidePanelHeader } from "./SidePanelHeader";

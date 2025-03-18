@@ -1,3 +1,4 @@
+"use client";
 import createCache from "@emotion/cache";
 // Base styling system (emotion)
 import styled from "@emotion/styled";

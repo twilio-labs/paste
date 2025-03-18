@@ -1,3 +1,4 @@
+"use client";
 export { DataGrid } from "./DataGrid";
 export type { DataGridProps } from "./DataGrid";
 export { DataGridHead } from "./DataGridHead";

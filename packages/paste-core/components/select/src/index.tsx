@@ -1,3 +1,4 @@
+"use client";
 export { Option } from "./Option";
 export type { OptionProps } from "./Option";
 export { OptionGroup } from "./OptionGroup";

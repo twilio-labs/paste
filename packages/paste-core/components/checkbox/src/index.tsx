@@ -1,3 +1,4 @@
+"use client";
 export { Checkbox, HiddenCheckbox, CheckboxIcon } from "./Checkbox";
 export type { CheckboxProps } from "./Checkbox";
 export { CheckboxGroup } from "./CheckboxGroup";
