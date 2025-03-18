@@ -1,3 +1,5 @@
+"use client";
+
 import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react

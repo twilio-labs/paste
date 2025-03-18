@@ -1,3 +1,5 @@
+"use client";
+
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 /**

@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { IconSize } from "@twilio-paste/style-props";
