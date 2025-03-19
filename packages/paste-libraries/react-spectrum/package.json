@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/react-spectrum-library",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "category": "library",
   "status": "production",
   "description": "React Spectrum Library is a collection of tools that help you build adaptive, accessible, and robust user experiences.",
