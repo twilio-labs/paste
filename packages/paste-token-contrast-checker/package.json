@@ -1,10 +1,10 @@
 {
   "name": "@twilio-paste/token-contrast-checker",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@twilio-paste/core": "^20.4.0",
-    "@twilio-paste/icons": "^12.2.0",
+    "@twilio-paste/core": "^21.0.0",
+    "@twilio-paste/icons": "^13.0.0",
     "lodash": "4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

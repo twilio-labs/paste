@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/theme",
-  "version": "11.2.0",
+  "version": "12.0.0",
   "description": "Paste Design System Theme Package which provides support for APIs to theme UIs and components.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -22,22 +22,22 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/animation-library": "^3.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/design-tokens": "^10.0.0",
-    "@twilio-paste/styling-library": "^3.0.0",
-    "@twilio-paste/types": "^6.0.0",
+    "@twilio-paste/styling-library": "^4.0.0",
+    "@twilio-paste/types": "^7.0.0",
     "@types/react": "^17.0.2 || ^18.0.27 || ^19.0.0",
     "@types/react-dom": "^17.0.2 || ^18.0.10 || ^19.0.0",
     "react": "^17.0.2 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/animation-library": "^3.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/design-tokens": "^10.14.0",
-    "@twilio-paste/styling-library": "^3.0.0",
-    "@twilio-paste/types": "^6.0.0",
+    "@twilio-paste/styling-library": "^4.0.0",
+    "@twilio-paste/types": "^7.0.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "react": "^19.0.0",

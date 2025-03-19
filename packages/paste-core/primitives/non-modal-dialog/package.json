@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/non-modal-dialog-primitive",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible base upon which to build a non-modal dialog.",
@@ -25,12 +25,12 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^2.0.0",
+    "@twilio-paste/reakit-library": "^3.0.0",
     "react": "^17.0.2 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^2.1.0",
+    "@twilio-paste/reakit-library": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsx": "^4.0.0",

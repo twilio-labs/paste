@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/reakit-library",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "category": "library",
   "status": "production",
   "description": "The reakit third-party library.",
