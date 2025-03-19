@@ -114,7 +114,7 @@
 "@twilio-paste/theme": major
 "@twilio-paste/types": major
 "@twilio-paste/utils": major
-"@twilio-paste/token-contrast-checker": minor
+"@twilio-paste/token-contrast-checker": major
 ---
 
 [all packages]: Upgrade to React 19 and drop support for React 16. Paste only supports the three latest versions of React. If you're using Paste in a React 17, 18, or 19 app, you should be able to upgrade with full backwards compatibility. If you experience any issues, please let us know on Github.
