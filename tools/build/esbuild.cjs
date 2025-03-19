@@ -32,7 +32,10 @@ async function build(packageJson) {
   const outFileCJS = packageJson.main;
   const outFileESM = packageJson.module;
   // Things we don't want to bundle
-  const external = getWildcardExternalPeers(packageJson.peerDependencies);
+  const external = [
+    ...getWildcardExternalPeers(packageJson.peerDependencies),
+    ...(packageJson.bundleDependencies || []),
+  ];
 
   // ESbuild config
   const config = {
@@ -95,8 +98,9 @@ async function build(packageJson) {
       minifySyntax: true,
       format: "esm",
       outfile: outFileESM,
+      bundle: true,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [esbuildPluginVersionInjector(versionInjectorConfig)],
+      plugins: [PasteExternalCjsToEsmPlugin(external), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -124,6 +128,7 @@ async function build(packageJson) {
       ...config,
       format: "esm",
       outfile: outFileESM.replace(".js", ".debug.js"),
+      bundle: true,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [PasteExternalCjsToEsmPlugin(external), esbuildPluginVersionInjector(versionInjectorConfig)],
     })

@@ -15,7 +15,7 @@ import {
   spacings,
   textColors,
   zIndices,
-} from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6";
+} from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6.js";
 
 import { generateThemeFromTokens } from "../../generateThemeFromTokens";
 

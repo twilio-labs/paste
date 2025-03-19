@@ -39,6 +39,14 @@
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
     "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
+  "bundleDependencies": [
+    "@twilio-paste/design-tokens/dist/themes/dark/tokens.es6.js",
+    "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6.js",
+    "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.es6.js",
+    "@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6.js",
+    "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.es6.js",
+    "@twilio-paste/design-tokens/dist/tokens.es6.js"
+  ],
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",

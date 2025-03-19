@@ -1,4 +1,4 @@
-import { sizings as fallbackSizings } from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6";
+import { sizings as fallbackSizings } from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6.js";
 
 import type {
   BackgroundColorsKeys,
@@ -59,7 +59,7 @@ export const generateThemeFromTokens = ({
   zIndices,
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // breakpoints need rm not CSS variables so need to use a fallback for the default sizings
-  const sizingsForBreakpoints = sizings.size0.includes("var") ? fallbackSizings : sizings;
+  const sizingsForBreakpoints = sizings?.size0.includes("var") ? fallbackSizings : sizings;
   // default breakpoints
   const breakpoints = [
     remToPx(sizingsForBreakpoints.size40, "string"),

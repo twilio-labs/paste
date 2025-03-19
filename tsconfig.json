@@ -9,7 +9,7 @@
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["ES2022", "dom", "dom.iterable"],
-    "module": "ES2022",
+    "module": "ES6",
     "moduleResolution": "node",
     "noEmitOnError": false,
     "noImplicitAny": true,

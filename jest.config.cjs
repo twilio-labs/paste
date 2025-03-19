@@ -1,4 +1,4 @@
-const TestTheme = require("./.jest/globals/TestTheme");
+const TestTheme = require("./.jest/globals/TestTheme.cjs");
 
 module.exports = {
   globals: {
