@@ -8,6 +8,7 @@ import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import { Theme, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Tooltip, useTooltipState } from "../src";
 

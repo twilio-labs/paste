@@ -2,6 +2,7 @@ import { css } from "@twilio-paste/styling-library";
 import { useTheme } from "@twilio-paste/theme";
 import Image from "next/image";
 import * as React from "react";
+import type { JSX } from "react";
 
 import Chrome from "../../assets/images/date-picker/chrome.png";
 import Firefox from "../../assets/images/date-picker/firefox.png";
@@ -15,7 +16,7 @@ export const ChromeImage: React.FC = () => {
       alt="Chrome/Edge implementation of date picker"
       width={300}
       placeholder="blur"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",
@@ -31,7 +32,7 @@ export const SafariImage = (): JSX.Element => {
     <Image
       src={Safari}
       alt="Safari implementation of date picker"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",
@@ -49,7 +50,7 @@ export const FirefoxImage = (): JSX.Element => {
     <Image
       src={Firefox}
       alt="Firefox implementation of date picker"
-      css={css({
+      style={css({
         margin: "space20",
         display: "block",
         marginLeft: "auto",

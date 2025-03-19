@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 import { useWindowSize } from "@twilio-paste/utils";
+import type { JSX } from "react";
 import * as React from "react";
 import GitHubButton from "react-github-button";
 import "react-github-button/assets/style.css";

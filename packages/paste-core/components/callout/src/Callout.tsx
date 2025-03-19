@@ -90,7 +90,7 @@ const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   },
 };
 
-const variantIcons: Record<CalloutVariants, React.ReactElement> = {
+const variantIcons: Record<CalloutVariants, React.ReactElement<HTMLElement>> = {
   success: <SuccessIcon decorative color="colorTextIconSuccess" />,
   error: <ErrorIcon decorative color="colorTextIconError" />,
   warning: <WarningIcon decorative color="colorTextIconWarning" />,

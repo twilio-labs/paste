@@ -71,7 +71,7 @@ export interface ButtonGroupProps extends HTMLPasteProps<"div"> {
    * @memberof ButtonGroupProps
    */
   justifyContent?: JustifyOptions;
-  children: React.ReactElement[];
+  children: React.ReactNode;
 }
 
 export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(

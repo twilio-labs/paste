@@ -5,8 +5,8 @@
     - [Build system packages](#build-system-packages)
     - [Type Check](#type-check)
     - [Lint](#lint)
+    - [Test React 18](#test-react-18)
     - [Test React 17](#test-react-17)
-    - [Test React 16](#test-react-16)
     - [Code formatting checks](#code-formatting-checks)
     - [Categorize the PR using labels](#categorize-the-pr-using-labels)
     - [Danger checks](#danger-checks)
@@ -47,13 +47,13 @@ This job downloads the build cache of the monorepo, and then runs the Typescript
 
 This job downloads the build cache of the monorepo, and then runs ESLint.
 
+### Test React 18
+
+This job downloads the build cache of the monorepo, and then runs our Jest test suite using React 18.
+
 ### Test React 17
 
 This job downloads the build cache of the monorepo, and then runs our Jest test suite using React 17.
-
-### Test React 16
-
-This job downloads the build cache of the monorepo, and then runs our Jest test suite using React 16.
 
 ### Code formatting checks
 

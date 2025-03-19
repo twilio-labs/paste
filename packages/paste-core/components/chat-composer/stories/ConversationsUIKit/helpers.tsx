@@ -10,6 +10,7 @@ import {
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 function getRandomInt(max): number {
   return Math.floor(Math.random() * max);

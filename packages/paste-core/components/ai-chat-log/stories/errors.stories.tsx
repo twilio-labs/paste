@@ -18,6 +18,7 @@ import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { ClearEditorPlugin } from "@twilio-paste/lexical-library";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { Callout, CalloutHeading, CalloutText } from "../../callout/src";
 import {

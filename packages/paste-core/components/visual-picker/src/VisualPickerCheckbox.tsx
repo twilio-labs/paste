@@ -58,7 +58,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
 
     const { groupHasError, groupIsDisabled } = visualPickerCheckboxGroupContext;
 
-    const internalRef = React.useRef<HTMLInputElement>();
+    const internalRef = React.useRef<HTMLInputElement>(undefined);
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
     let pickerBorderColor = "colorBorderWeak" as BorderColor;

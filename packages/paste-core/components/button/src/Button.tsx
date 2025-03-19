@@ -127,12 +127,17 @@ const handlePropValidation = ({
   if (children == null) {
     throw new Error("[Paste: Button] Must have non-null children.");
   }
+
   if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
+    // eslint-disable-next-line no-console
+    console.error("tabIndex", tabIndex);
     throw new Error("[Paste: Button] tabIndex must be 0 or -1.");
   }
 
   // Toggle button validaton
   if (pressed && !(variant === "secondary" || variant === "secondary_icon" || variant === "destructive_secondary")) {
+    // eslint-disable-next-line no-console
+    console.error("variant", variant, "pressed", pressed);
     throw new Error(
       `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`,
     );
@@ -236,8 +241,21 @@ const getButtonComponent = (
  * @see [Accessiblity](https://paste.twilio.design/components/button#button-vs-anchor-link)
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ element = "BUTTON", i18nExternalLinkLabel = "(link takes you to an external page)", ...props }, ref) => {
-    const { size, variant, children, disabled, loading, ...rest } = props;
+  (
+    {
+      element = "BUTTON",
+      i18nExternalLinkLabel = "(link takes you to an external page)",
+      as = "button",
+      fullWidth = false,
+      disabled = false,
+      loading = false,
+      variant = "primary",
+      type = "button",
+      ...props
+    },
+    ref,
+  ) => {
+    const { size, children, ...rest } = props;
     const [hovered, setHovered] = React.useState(false);
     const arrowIconStyles = useSpring({
       translateX: hovered ? "4px" : "0px",
@@ -252,7 +270,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return getButtonSize(variant, children, size);
     }, [size, variant, children]);
 
-    handlePropValidation({ ...props, size: smartDefaultSize });
+    handlePropValidation({
+      ...props,
+      as,
+      children,
+      fullWidth,
+      disabled,
+      loading,
+      type,
+      variant,
+      size: smartDefaultSize,
+    });
 
     const buttonState = getButtonState(disabled, loading);
     const showLoading = buttonState === "loading";
@@ -262,7 +290,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
     let injectIconChildren = children;
-    if (props.as === "a" && props.href != null && typeof children === "string" && variant !== "reset") {
+    if (as === "a" && props.href != null && typeof children === "string" && variant !== "reset") {
       injectIconChildren = (
         <>
           {children}
@@ -299,6 +327,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant={variant}
         size={smartDefaultSize as ButtonSizes}
         aria-busy={buttonState === "loading" ? "true" : "false"}
+        as={as}
+        type={type}
+        fullWidth={fullWidth}
         ref={ref}
       >
         <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
@@ -308,15 +339,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-
-Button.defaultProps = {
-  as: "button",
-  fullWidth: false,
-  disabled: false,
-  loading: false,
-  type: "button",
-  variant: "primary",
-};
 
 Button.displayName = "Button";
 

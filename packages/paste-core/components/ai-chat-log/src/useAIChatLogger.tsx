@@ -6,7 +6,7 @@ import type { AIMessageVariants } from "./AIMessageContext";
 export type AIChat = {
   id: string;
   variant: AIMessageVariants;
-  content: React.ReactElement;
+  content: React.ReactElement<HTMLElement>;
 };
 
 export type AIPartialIDChat = Omit<AIChat, "id"> & Partial<Pick<AIChat, "id">>;

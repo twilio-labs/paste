@@ -5,6 +5,7 @@ import { Paragraph } from "@twilio-paste/core/paragraph";
 import { Option, Select } from "@twilio-paste/core/select";
 import { useUID } from "@twilio-paste/core/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 const ModalPreview = (): JSX.Element => {
   const [value, setValue] = React.useState("");

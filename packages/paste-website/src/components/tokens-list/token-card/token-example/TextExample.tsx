@@ -32,7 +32,7 @@ export const TextExample: React.FC<React.PropsWithChildren<TextExampleProps>> = 
         fontWeight={fontWeight}
         lineHeight={lineHeight}
         color={color}
-        css={{
+        style={{
           textShadow,
         }}
         aria-hidden

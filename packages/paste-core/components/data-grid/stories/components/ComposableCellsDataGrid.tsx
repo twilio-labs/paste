@@ -4,6 +4,7 @@ import { Input } from "@twilio-paste/input";
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { Option, Select } from "@twilio-paste/select";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
 import { TableBodyData, TableHeaderData } from "./constants";

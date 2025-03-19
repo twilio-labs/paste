@@ -11,6 +11,7 @@ import {
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
 import { PaginatedTableBodyData, TableHeaderData } from "./constants";

@@ -43,7 +43,7 @@ export default {
   component: PageHeader,
 };
 
-export const Default = (): React.ReactElement => {
+export const Default = (): React.ReactElement<HTMLElement> => {
   return (
     <PageHeader size="default">
       <PageHeaderSetting>
@@ -86,7 +86,7 @@ export const Default = (): React.ReactElement => {
   );
 };
 
-export const SeparatorVersusNav = (): React.ReactElement => {
+export const SeparatorVersusNav = (): React.ReactElement<HTMLElement> => {
   return (
     <Box display="flex" columnGap="space200">
       <Box width="size70" backgroundColor="colorBackground" height="min-content">
@@ -161,7 +161,7 @@ export const SeparatorVersusNav = (): React.ReactElement => {
   );
 };
 
-export const Compact = (): React.ReactElement => {
+export const Compact = (): React.ReactElement<HTMLElement> => {
   return (
     <Box maxWidth="size50">
       <PageHeader size="compact">
@@ -204,7 +204,7 @@ export const Compact = (): React.ReactElement => {
   );
 };
 
-export const Wizard = (): React.ReactElement => {
+export const Wizard = (): React.ReactElement<HTMLElement> => {
   return (
     <Box maxWidth="size70">
       <PageHeader>
@@ -238,7 +238,7 @@ export const Wizard = (): React.ReactElement => {
   );
 };
 
-export const Wrapped = (): React.ReactElement => {
+export const Wrapped = (): React.ReactElement<HTMLElement> => {
   return (
     <PageHeader size="default">
       <PageHeaderSetting>
@@ -296,7 +296,7 @@ export const Wrapped = (): React.ReactElement => {
   );
 };
 
-export const TwilioExamples = (): React.ReactElement => {
+export const TwilioExamples = (): React.ReactElement<HTMLElement> => {
   return (
     <Box display="flex" flexDirection="column" rowGap="space150" maxWidth="size70">
       <PageHeader>
@@ -381,7 +381,7 @@ export const TwilioExamples = (): React.ReactElement => {
   );
 };
 
-export const Customized = (): React.ReactElement => {
+export const Customized = (): React.ReactElement<HTMLElement> => {
   const theme = useTheme();
   return (
     <CustomizationProvider

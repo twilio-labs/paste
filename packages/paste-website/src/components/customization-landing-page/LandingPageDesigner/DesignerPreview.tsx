@@ -12,6 +12,7 @@ import { Stack } from "@twilio-paste/stack";
 import { generateThemeFromTokens } from "@twilio-paste/theme";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { useDarkModeContext } from "../../../context/DarkModeContext";
 import { DesignerContext } from "./DesignerContext";

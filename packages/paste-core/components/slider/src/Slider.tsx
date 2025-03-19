@@ -131,7 +131,7 @@ export interface SliderProps {
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, ref) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
-  const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;
+  const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement | null>;
   const [hovered, setHovered] = React.useState(false);
   const [focused, setFocused] = React.useState(false);
 
@@ -162,12 +162,12 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, re
 
   // These hooks manage the state of the slider
   const state = useSliderState(remappedProps);
-  const { trackProps } = useSlider(remappedProps, state, trackRef);
+  const { trackProps } = useSlider(remappedProps, state, trackRef as React.RefObject<HTMLDivElement>);
   const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index: 0,
-      trackRef,
-      inputRef,
+      trackRef: trackRef as React.RefObject<HTMLDivElement>,
+      inputRef: inputRef as React.RefObject<HTMLInputElement>,
     },
     state,
   );

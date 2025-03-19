@@ -12,7 +12,7 @@ const getFilteredItems = (inputValue: string): string[] => {
   });
 };
 
-const SampleEmptyState = (): React.ReactElement => (
+const SampleEmptyState = (): React.ReactElement<HTMLElement> => (
   <Box paddingY="space40" paddingX="space50">
     <Text as="span" fontStyle="italic" color="colorTextWeak">
       No results found

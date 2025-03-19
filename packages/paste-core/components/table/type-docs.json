@@ -27,18 +27,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -60,6 +73,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -88,6 +108,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -292,6 +319,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -349,7 +383,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -360,14 +394,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -379,7 +425,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -420,6 +466,12 @@
       "required": false,
       "externalProp": false
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -432,6 +484,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -439,7 +497,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -568,6 +626,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1166,19 +1230,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -1376,6 +1428,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -1424,6 +1482,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -1431,6 +1501,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -1472,8 +1566,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1496,6 +1602,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -1504,6 +1616,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1569,7 +1687,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1609,18 +1727,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -1642,6 +1773,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -1670,6 +1808,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -1874,6 +2019,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -1931,7 +2083,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1942,14 +2094,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1961,7 +2125,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2002,6 +2166,12 @@
       "required": false,
       "externalProp": false
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -2014,6 +2184,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -2021,7 +2197,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -2150,6 +2326,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2748,19 +2930,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -2958,6 +3128,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -3006,6 +3182,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -3013,6 +3201,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -3054,8 +3266,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3078,6 +3302,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -3086,6 +3316,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3151,7 +3387,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3191,18 +3427,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -3224,6 +3473,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -3252,6 +3508,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -3456,6 +3719,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -3513,7 +3783,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3524,14 +3794,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3543,7 +3825,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3585,6 +3867,12 @@
       "externalProp": false,
       "description": "Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider."
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -3597,6 +3885,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -3604,7 +3898,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3733,6 +4027,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4331,19 +4631,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableSectionElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -4541,6 +4829,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -4589,6 +4883,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
@@ -4596,6 +4902,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableSectionElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableSectionElement>",
       "defaultValue": null,
       "required": false,
@@ -4637,8 +4967,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4661,6 +5003,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -4669,6 +5017,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4748,7 +5102,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4794,18 +5148,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -4827,6 +5194,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -4855,6 +5229,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -5059,6 +5440,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -5116,13 +5504,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -5157,8 +5551,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -5170,7 +5570,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -5212,6 +5612,12 @@
       "externalProp": false,
       "description": "Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider."
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "frame": {
       "type": "boolean",
       "defaultValue": null,
@@ -5230,6 +5636,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -5237,7 +5649,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -5384,6 +5796,12 @@
       "required": false,
       "externalProp": true
     },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onBlur": {
       "type": "FocusEventHandler<HTMLTableElement>",
       "defaultValue": null,
@@ -5978,19 +6396,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableElement>",
       "defaultValue": null,
       "required": false,
@@ -6188,6 +6594,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableElement>",
       "defaultValue": null,
@@ -6236,6 +6648,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableElement>",
       "defaultValue": null,
@@ -6243,6 +6667,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableElement>",
       "defaultValue": null,
       "required": false,
@@ -6284,8 +6732,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6308,6 +6768,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -6316,6 +6782,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6414,7 +6886,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6479,18 +6951,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -6512,6 +6997,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -6540,6 +7032,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -6744,6 +7243,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -6801,13 +7307,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6824,8 +7336,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6837,7 +7355,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6879,6 +7397,12 @@
       "externalProp": false,
       "description": "Overrides the default element name ('TD') to apply unique styles with the Customization Provider."
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "headers": {
       "type": "string",
       "defaultValue": null,
@@ -6903,6 +7427,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -6910,7 +7440,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -7039,6 +7569,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableDataCellElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -7637,19 +8173,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableDataCellElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableDataCellElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableDataCellElement>",
       "defaultValue": null,
       "required": false,
@@ -7847,6 +8371,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableDataCellElement>",
       "defaultValue": null,
@@ -7895,6 +8425,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableDataCellElement>",
       "defaultValue": null,
@@ -7902,6 +8444,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableDataCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableDataCellElement>",
       "defaultValue": null,
       "required": false,
@@ -7943,8 +8509,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -7967,6 +8545,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -7975,6 +8559,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8059,7 +8649,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8130,18 +8720,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -8163,6 +8766,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -8191,6 +8801,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -8395,6 +9012,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -8452,13 +9076,19 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8475,8 +9105,14 @@
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8488,7 +9124,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8530,6 +9166,12 @@
       "externalProp": false,
       "description": "Overrides the default element name ('TH') to apply unique styles with the Customization Provider."
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "headers": {
       "type": "string",
       "defaultValue": null,
@@ -8548,6 +9190,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -8555,7 +9203,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8684,6 +9332,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableHeaderCellElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9282,19 +9936,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableHeaderCellElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableHeaderCellElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableHeaderCellElement>",
       "defaultValue": null,
       "required": false,
@@ -9492,6 +10134,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableHeaderCellElement>",
       "defaultValue": null,
@@ -9540,6 +10188,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
       "defaultValue": null,
@@ -9547,6 +10207,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableHeaderCellElement>",
       "defaultValue": null,
       "required": false,
@@ -9588,8 +10272,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9612,6 +10308,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -9620,6 +10322,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9704,7 +10412,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9758,18 +10466,31 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -9791,6 +10512,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -9819,6 +10547,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -10023,6 +10758,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -10080,7 +10822,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "autoCapitalize": {
-      "type": "string",
+      "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -10091,14 +10833,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -10110,7 +10864,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -10152,6 +10906,12 @@
       "externalProp": false,
       "description": "Overrides the default element name ('TR') to apply unique styles with the Customization Provider."
     },
+    "enterKeyHint": {
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -10164,6 +10924,12 @@
       "required": false,
       "externalProp": true
     },
+    "inert": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "inlist": {
       "type": "any",
       "defaultValue": null,
@@ -10171,7 +10937,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -10300,6 +11066,12 @@
     },
     "onBeforeInputCapture": {
       "type": "FormEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onBeforeToggle": {
+      "type": "ToggleEventHandler<HTMLTableRowElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -10898,19 +11670,7 @@
       "required": false,
       "externalProp": true
     },
-    "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLTableRowElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLTableRowElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "onPointerLeaveCapture": {
       "type": "PointerEventHandler<HTMLTableRowElement>",
       "defaultValue": null,
       "required": false,
@@ -11108,6 +11868,12 @@
       "required": false,
       "externalProp": true
     },
+    "onToggle": {
+      "type": "ToggleEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTouchCancel": {
       "type": "TouchEventHandler<HTMLTableRowElement>",
       "defaultValue": null,
@@ -11156,6 +11922,18 @@
       "required": false,
       "externalProp": true
     },
+    "onTransitionCancel": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionCancelCapture": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "onTransitionEnd": {
       "type": "TransitionEventHandler<HTMLTableRowElement>",
       "defaultValue": null,
@@ -11163,6 +11941,30 @@
       "externalProp": true
     },
     "onTransitionEndCapture": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRun": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionRunCapture": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStart": {
+      "type": "TransitionEventHandler<HTMLTableRowElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onTransitionStartCapture": {
       "type": "TransitionEventHandler<HTMLTableRowElement>",
       "defaultValue": null,
       "required": false,
@@ -11204,8 +12006,20 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
+    "popover": {
+      "type": "\"\" | \"auto\" | \"manual\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTarget": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "popoverTargetAction": {
+      "type": "\"toggle\" | \"show\" | \"hide\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -11228,6 +12042,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -11236,6 +12056,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -11301,7 +12127,7 @@
       "externalProp": true
     },
     "unselectable": {
-      "type": "\"on\" | \"off\"",
+      "type": "\"off\" | \"on\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true

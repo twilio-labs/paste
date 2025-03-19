@@ -5,6 +5,7 @@ import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { ColorTokenInput } from "./ColorTokenInput";
 import { DesignerContext } from "./DesignerContext";

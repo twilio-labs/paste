@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
+import type { JSX } from "react";
 
 import {
   SummaryDetail,

@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { SiteLink } from "../SiteLink";
 
@@ -21,7 +22,7 @@ const Breadcrumb: React.FC<React.PropsWithChildren> = ({ children }) => {
         display="flex"
         margin="space0"
         padding="space0"
-        css={{
+        style={{
           listStyle: "none",
         }}
       >

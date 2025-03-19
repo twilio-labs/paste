@@ -13,8 +13,8 @@ import { ListBoxPositioner } from "./ListboxPositioner";
  */
 
 export const ListboxWrapper: React.FC<{
-  inputBoxRef: React.RefObject<HTMLElement>;
-  parentRef: React.RefObject<HTMLElement>;
+  inputBoxRef: React.RefObject<HTMLElement | null>;
+  parentRef: React.RefObject<HTMLElement | null>;
   usePortal: boolean;
   children: React.ReactNode;
 }> = ({ inputBoxRef, parentRef, usePortal, children }) => {

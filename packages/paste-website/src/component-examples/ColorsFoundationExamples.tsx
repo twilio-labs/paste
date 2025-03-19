@@ -3,6 +3,7 @@ import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import type { BackgroundColorOptions, BorderColorOptions, TextColorOptions } from "@twilio-paste/style-props";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { useUID } from "@twilio-paste/uid-library";
+import type { JSX } from "react";
 
 import { ImageCaption } from "../components/ImageCaption";
 import { ColorSwatch, ColorSwatchText } from "../components/color-swatch/ColorSwatch";

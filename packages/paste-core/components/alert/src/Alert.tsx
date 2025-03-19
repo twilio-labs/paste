@@ -112,7 +112,7 @@ export interface AlertProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
 
-const renderAlertIcon = (variant: AlertVariants, element: string, title: string): React.ReactElement => {
+const renderAlertIcon = (variant: AlertVariants, element: string, title: string): React.ReactElement<HTMLElement> => {
   switch (variant) {
     case AlertVariants.ERROR:
       return (

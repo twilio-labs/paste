@@ -126,7 +126,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
       () => [
         React.Children.count(children),
         React.Children.toArray(children).filter(
-          (child): child is React.ReactElement => React.isValidElement(child) || typeof child === "string",
+          (child): child is React.ReactElement<HTMLElement> => React.isValidElement(child) || typeof child === "string",
         ),
       ],
       [children],
@@ -141,7 +141,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),
               parentElement: element,
-            });
+            } as unknown as React.ReactElement<BreadcrumbItemProps>);
           })}
         </Box>
       </Box>

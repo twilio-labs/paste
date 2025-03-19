@@ -4,6 +4,7 @@ import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { UIDFork, useUID, useUIDSeed } from "../src";
 

@@ -32,7 +32,7 @@ const initCustomizationWrapper = (elementName?: string | undefined): RenderOptio
     );
   };
 
-const ComboboxToTest = ({ element = "COMBOBOX" }): React.ReactElement => (
+const ComboboxToTest = ({ element = "COMBOBOX" }): React.ReactElement<HTMLElement> => (
   <Combobox
     items={[
       { letter: "a", number: 1 },

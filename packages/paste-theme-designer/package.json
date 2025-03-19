@@ -16,8 +16,8 @@
     "@datadog/browser-rum": "^5.0.0",
     "@twilio-paste/core": "^20.0.0",
     "@twilio-paste/icons": "^12.0.0",
-    "next": "^14.0.0",
-    "react": "^18.0.0",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
     "react-color": "^2.19.3"
   }
 }

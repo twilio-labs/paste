@@ -61,14 +61,15 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       }
 
       if (React.isValidElement(children)) {
-        if (children.props.children && typeof children.props.children === "string") {
+        const childrenProps = children.props as { children: any };
+        if (childrenProps.children && typeof childrenProps.children === "string") {
           return (
             <Box minWidth="0" element={`${element}_TEXT_TRUNCATE_WRAPPER`}>
-              <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>
+              <children.type {...childrenProps}>{renderChildren(childrenProps.children)}</children.type>
             </Box>
           );
         }
-        return <children.type {...children.props}>{renderChildren(children.props.children)}</children.type>;
+        return <children.type {...childrenProps}>{renderChildren(childrenProps.children)}</children.type>;
       }
 
       if (Array.isArray(children)) {

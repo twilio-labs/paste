@@ -2,6 +2,7 @@ import { Box } from "@twilio-paste/box";
 import { ThemeContext, styled, themeGet } from "@twilio-paste/styling-library";
 import type { ThemeShape } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { ImageCaption } from "../components/ImageCaption";
 import { ColorSwatchText } from "../components/color-swatch/ColorSwatch";

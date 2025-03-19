@@ -1,6 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
+import type { JSX } from "react";
 
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";

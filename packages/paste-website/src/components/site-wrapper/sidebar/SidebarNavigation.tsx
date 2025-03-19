@@ -12,6 +12,7 @@ import {
 } from "@twilio-paste/sidebar";
 import kebabCase from "lodash/kebabCase";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { SidebarCategoryRoutes } from "../../../constants";
 import { useNavigationContext } from "../../../context/NavigationContext";

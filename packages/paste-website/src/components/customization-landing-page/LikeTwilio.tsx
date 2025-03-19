@@ -4,6 +4,7 @@ import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Stack } from "@twilio-paste/stack";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
+import type { JSX } from "react";
 
 import { DoodleBurst } from "../../assets/illustrations/DoodleBurst";
 import { DoodleLoopMedium } from "../../assets/illustrations/DoodleLoopMedium";

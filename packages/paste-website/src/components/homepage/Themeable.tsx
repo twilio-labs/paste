@@ -71,14 +71,16 @@ const Boop: React.FC<BoopProps> = ({
     };
   }, [isBooped, timing]);
 
+  const AnimatedSpan = animated("span");
+
   return (
-    <animated.span onMouseEnter={trigger} style={style}>
+    <AnimatedSpan onMouseEnter={trigger} style={style}>
       {children}
-    </animated.span>
+    </AnimatedSpan>
   );
 };
 
-const Themeable: React.FC = (): React.ReactElement => {
+const Themeable: React.FC = (): React.ReactElement<HTMLElement> => {
   return (
     <SectionContainer>
       <SectionSeparator>Themeable and composable</SectionSeparator>

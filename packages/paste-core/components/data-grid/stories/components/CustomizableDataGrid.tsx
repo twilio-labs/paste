@@ -3,6 +3,7 @@ import { Heading } from "@twilio-paste/heading";
 import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
+import type { JSX } from "react";
 
 import { PlainDataGrid } from "./PlainDataGrid";
 

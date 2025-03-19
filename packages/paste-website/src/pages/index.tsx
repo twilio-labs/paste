@@ -18,7 +18,9 @@ import { SiteMetaDefaults } from "../constants";
 import { getNavigationData } from "../utils/api";
 import type { Feature } from "../utils/api";
 
-const HomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
+const HomePage = ({
+  navigationData,
+}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement<HTMLElement> => {
   /*
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)

@@ -11,6 +11,7 @@ import type {
   SpaceProps,
   TypographyProps,
 } from "@twilio-paste/style-props";
+import type { JSX } from "react";
 
 import type { PseudoPropStyles } from "./PseudoPropStyles";
 

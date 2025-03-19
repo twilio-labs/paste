@@ -5,7 +5,7 @@ import { createRoot } from "testing-tools/react-dom-create-root";
 
 import { Theme } from "../src";
 
-const ThemeConsumerExampleComponent = (): React.ReactElement => {
+const ThemeConsumerExampleComponent = (): React.ReactElement<HTMLElement> => {
   return <Theme.Consumer>{({ theme }) => <p>{theme.textColors.colorText}</p>}</Theme.Consumer>;
 };
 

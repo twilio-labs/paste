@@ -3,6 +3,7 @@ import { Button } from "@twilio-paste/button";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
+import type { JSX } from "react";
 
 import HeroSlider from "../../assets/images/customization/hero-slider-mobile.png";
 import { LandingPageSectionContent } from "./LandingPageLayoutUtils";
@@ -17,7 +18,7 @@ export const LandingPageHero = (): JSX.Element => {
           paddingX={["space90", "space160"]}
           paddingTop={["space90", "space190"]}
           position="relative"
-          css={{
+          style={{
             paddingBottom: "100px",
           }}
           _before={{

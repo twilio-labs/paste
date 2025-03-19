@@ -5,7 +5,7 @@ import { createRoot } from "testing-tools/react-dom-create-root";
 
 import { Theme } from "../src";
 
-const ThemeConsumerExampleComponent = (): React.ReactElement => {
+const ThemeConsumerExampleComponent = (): React.ReactElement<HTMLElement> => {
   return (
     <Theme.Consumer>
       {({ theme }) => <p>{theme.breakpoints.map((breakpoint: string) => `${breakpoint},`)}</p>}
@@ -13,7 +13,7 @@ const ThemeConsumerExampleComponent = (): React.ReactElement => {
   );
 };
 
-const ThemeConsumerExampleTextColor = (): React.ReactElement => {
+const ThemeConsumerExampleTextColor = (): React.ReactElement<HTMLElement> => {
   return <Theme.Consumer>{({ theme }) => <p>Color: {theme.textColors.colorTextLink}</p>}</Theme.Consumer>;
 };
 
