@@ -1,0 +1,189 @@
+export const meta = {
+  title: 'Theme switching with SSR and SSG',
+  slug: '/blog/2025-03-20-css-variables-ssr-ssg/',
+  date: '2025-03-20',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  excerpt: 'This blog describes how the Paste website uses CSS variables to switch themes with server-side rendering (SSR) and static site generation (SSG) with our existing ThemeProvider component.',
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {InlineCode} from '@twilio-paste/inline-code';
+import {Anchor} from '@twilio-paste/anchor';
+import {CodeBlock, CodeBlockHeader, CodeBlockWrapper} from '@twilio-paste/code-block';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## What is SSR and SSG?
+
+Server-Side Rendering (SSR) and Static Site Generation (SSG) are two different rendering strategies used in frameworks like Next.js, each with its own advantages and use cases.
+
+SSR generates pages on the server for every request, ensuring that users always receive the latest data. In Next.js, this is achieved using <InlineCode>getServerSideProps</InlineCode>. This approach is useful for dynamic content that changes frequently, such as personalized dashboards or real-time data feeds. However, because the server must generate the page before sending it to the client, it can be slower than other rendering methods.
+
+SSG, on the other hand, generates pages at build time, meaning the content is pre-rendered and stored as static files. In Next.js, this is done using <InlineCode>getStaticProps</InlineCode>. This method is ideal for pages where content doesn’t change often, such as blogs, marketing pages, or documentation. Since the pages are served as static files, they load much faster than SSR-generated pages.
+
+As our docs site data doesn't change between builds we use SSG to generate our pages to utilize the speed benefits of static site generation.
+
+### Issue with theme switching
+
+When using SSG (Static Site Generation) and SSR (Server-Side Rendering) in Next.js, you may sometimes experience a flashbang effect or theme flickering when loading a page. This happens due to differences in how the initial HTML is generated versus how the React client-side hydration process takes over, recognizing the client preferences. Here’s why:
+
+#### Mismatch Between Pre-Rendered HTML and Client State
+With SSG, the page is pre-built at build time and served as static HTML. If the theme (e.g., dark mode or light mode) is determined dynamically on the client side—perhaps by checking localStorage or user preferences—there can be a mismatch between the initial HTML (which doesn't know the user's preference) and the hydrated React state. This causes a flicker when React updates the page with the correct theme after loading.
+
+SSR generates the page on each request, which can help deliver the correct theme initially, but if the theme is still set on the client side, the same flickering issue can occur.
+
+#### Delay in Hydration Process
+Next.js sends pre-rendered HTML first, then React hydrates it by attaching event listeners and making it interactive. If the theme is set dynamically via JavaScript on the client, React may initially render the wrong theme (based on the server-provided HTML) before correcting it after hydration. This is particularly noticeable when using a system preference-based theme (like dark mode) or when checking user preferences stored in localStorage.
+
+#### Fallback or Default Theme During Initial Render
+If you don’t handle the theme properly, Next.js may serve a default theme (e.g., light mode) before applying the correct one. This results in a brief flash where the wrong theme appears before React updates it.
+
+
+### The solution: CSS variables
+
+Using CSS variables with <InlineCode>data-theme</InlineCode> set on the <InlineCode>html</InlineCode> or <InlineCode>body</InlineCode> is the most effective solution as the styles are applied <strong>before</strong> React hydrates the page. This ensures that the correct theme is applied from the start, preventing any flickering or flash.
+
+To support this approach, as of <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/design-tokens">@twilio-paste/design-tokens v10.14.0</Anchor> and <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/core">@twilio-paste/core v20.23.0</Anchor> we have added a new file to each of our themes called <InlineCode>tokens.data-theme.css</InlineCode> which contains the CSS variables for each theme when the <InlineCode>data-theme</InlineCode> is set.
+
+An example of how this CSS file is structured:
+
+<Box marginBottom="space60">
+  <CodeBlockWrapper>
+    <CodeBlockHeader>
+      @twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css
+    </CodeBlockHeader>
+    <CodeBlock language='javascript' code={`body[data-theme="twilio-dark"] {
+  --color-background-user: rgb(34, 9, 74);
+  --color-background-notification: rgb(214, 31, 31);
+  --color-background-trial: rgb(5, 41, 18);
+  --color-background-subaccount: rgb(18, 28, 45);
+  --color-background-primary-stronger: rgb(204, 228, 255);
+  ...
+    `}/>
+  </CodeBlockWrapper>
+</Box>
+
+We have also added a new prop to the <InlineCode>ThemeProvider</InlineCode> called <InlineCode>useCSSVariables</InlineCode> which will allow you to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encoutnering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
+
+
+## Paste Doc site implementation
+
+This section will cover how we implemented this solution on the Paste documentation site using Next.js.
+
+### _documents.tsx
+
+We added a script to the <InlineCode>head</InlineCode> of our <InlineCode>_documents.tsx</InlineCode> file to set the <InlineCode>data-theme</InlineCode> attribute on the <InlineCode>body</InlineCode> element element using a script. This script will check to see if they have a cookie set and if not check the systme prefernces to determine whether users prefer dark or light themes and apply the dark theme if they do. Otherwise we do not set a value. You will see in <InlineCode>_app.tsx</InlineCode> how we handle the default value.
+
+Here is the script that is found in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages/_document.tsx"><InlineCode>_documents.tsx</InlineCode></Anchor>:
+
+<Box marginBottom="space60">
+  <CodeBlockWrapper>
+  <CodeBlockHeader>Setting data-theme using cookie before render</CodeBlockHeader>
+    <CodeBlock language='javascript' code={`<script
+  type="text/javascript"
+  dangerouslySetInnerHTML={{
+    __html: \`
+      let parts = typeof document !== "undefined" && document?.cookie.split("paste-docs-theme=");
+      let cookie = parts.length == 2 ?parts?.pop().split(";").shift() : null;
+      if(cookie){
+        document.body.dataset.theme = cookie;
+      }
+      else if(window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
+        document.body.dataset.theme = "twilio-dark";
+      }
+  \`,
+  }}
+/>`}/>
+  </CodeBlockWrapper>
+</Box>
+
+### _app.tsx
+
+In our <InlineCode>_app.tsx</InlineCode> file we import the CSS files that should be applues. We have 2, one that applies the values to root and is considered the default theme and the other that uses the new <InlineCode>tokens.data-theme.css</InlineCode> attribute to apply the theme based on the value set in the <InlineCode>data-theme</InlineCode> attribute.
+
+You can find the source code <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages/_app.tsx">here</Anchor>.
+
+<Box marginBottom="space60">
+  <CodeBlockWrapper>
+    <CodeBlockHeader>Importing CSS files</CodeBlockHeader>
+    <CodeBlock language='javascript' code={`import "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css";
+import "@twilio-paste/design-tokens/dist/themes/twilio/tokens.custom-properties.css";
+`}/>
+  </CodeBlockWrapper>
+</Box>
+
+Note here that the import <InlineCode>"@twilio-paste/design-tokens/dist/themes/twilio/tokens.custom-properties.css"</InlineCode> is the default theme and the <InlineCode>"@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.data-theme.css"</InlineCode> is the theme that is applied when the <InlineCode>data-theme</InlineCode> attribute is set to <InlineCode>twilio-dark</InlineCode>.
+
+#### ThemeProvider
+
+In this same file we set the ThemeProvider to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encoutnering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
+
+<Box marginBottom="space60">
+  <CodeBlockWrapper>
+    <CodeBlockHeader>ThemeProvider implementation</CodeBlockHeader>
+    <CodeBlock language='javascript' code={`<Theme.Provider
+  useCSSVariables={true}
+  cacheProviderProps={{ key: "next" }}
+>`}/>
+  </CodeBlockWrapper>
+</Box>
+
+### Switching the theme
+
+We have a hook that is used to switch the themes in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/hooks/useDarkMode.tsx"><InlineCode>useDarkMode.tsx</InlineCode></Anchor>. It is in the <InlineCode>setMode</InlineCode> function we handle setting the data attribute on the body element. This occurs when the user intentionally changes the theme using the theme switcher in the header as this will run client side it cannot be used to set the default value. That comes from the scirpt in the <InlineCode>_document.tsx</InlineCode>.
+
+<Box marginBottom="space60">
+  <CodeBlockWrapper>
+  <CodeBlockHeader>setMode</CodeBlockHeader>
+    <CodeBlock language='javascript' code={`const setMode = (mode: ValidThemeName): void => {
+  setCookie(null, "paste-docs-theme", mode, { path: "/" });
+  document.body.dataset.theme = mode;
+  setTheme(mode);
+};`}/>
+  </CodeBlockWrapper>
+</Box>
+
+## Conclusion
+
+By leveraging Static Site Generation (SSG) in our documentation site, we optimize performance by serving pre-rendered pages. However, this approach introduces challenges with theme switching, such as flickering due to mismatches between the pre-rendered HTML and client-side theme preferences.
+
+To resolve this, we implemented a <InlineCode>data-theme</InlineCode> attribute combined with CSS variables, ensuring that the correct theme is applied before React hydrates the page. This method prevents the flash effect and provides a seamless user experience. Additionally, our implementation in <InlineCode>_document.tsx</InlineCode> and <InlineCode>_app.tsx</InlineCode>, along with the <InlineCode>ThemeProvider</InlineCode> configuration, ensures that theme switching is handled efficiently without unnecessary re-renders.
+
+By following this approach, we maintain both the performance benefits of SSG and a smooth, flicker-free theme transition for users.
+
+</ArticleContent>
+
+</contentwrapper>
