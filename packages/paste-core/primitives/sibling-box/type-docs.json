@@ -412,14 +412,14 @@
       "externalProp": true
     },
     "alignContent": {
-      "type": "(string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"center\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
+      "type": "\"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop for the CSS `align-content` property"
     },
     "alignItems": {
-      "type": "(string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"center\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
+      "type": "\"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -537,7 +537,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"\n  | \"time\"",
+      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -572,7 +572,7 @@
       "description": "Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable."
     },
     "aria-dropeffect": {
-      "type": "\"none\" | \"link\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
+      "type": "\"link\" | \"none\" | \"copy\" | \"execute\" | \"move\" | \"popup\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -607,7 +607,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"true\"\n  | \"false\"\n  | \"dialog\"\n  | \"grid\"\n  | \"listbox\"\n  | \"menu\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -824,7 +824,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "as": {
-      "type": "string | number | symbol",
+      "type": "keyof IntrinsicElements",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -1238,7 +1238,7 @@
       "description": "Used to set a custom element name for customization."
     },
     "enterKeyHint": {
-      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
+      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1428,7 +1428,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"none\"\n  | \"search\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"search\"\n  | \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1479,14 +1479,14 @@
       "externalProp": true
     },
     "justifyContent": {
-      "type": "\"right\" | \"left\" | (string & {}) | \"inherit\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"center\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | ... 10 more ... | { ...; }",
+      "type": "\"right\" | \"left\" | \"center\" | (string & {}) | \"inherit\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"fixed\" | \"-webkit-sticky\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | ... 10 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop for the CSS `justify-content` property"
     },
     "justifyItems": {
-      "type": "\"right\" | \"left\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"center\" | \"normal\" | \"end\" | \"start\" | \"flex-end\" | \"flex-start\" | ... 5 more ... | { ...; }",
+      "type": "\"right\" | \"left\" | \"center\" | (string & {}) | \"inherit\" | \"auto\" | \"-moz-initial\" | \"initial\" | \"revert\" | \"unset\" | \"baseline\" | \"normal\" | \"end\" | \"start\" | \"flex-end\" | \"flex-start\" | ... 5 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

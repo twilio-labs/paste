@@ -4575,7 +4575,7 @@
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
     },
     "as": {
-      "type": "string | number | symbol",
+      "type": "keyof IntrinsicElements",
       "defaultValue": "'button'",
       "required": false,
       "externalProp": false,
