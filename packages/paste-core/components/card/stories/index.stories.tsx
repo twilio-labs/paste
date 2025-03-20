@@ -1,13 +1,13 @@
 import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { Box } from "@twilio-paste/box";
-import { Column, Grid } from "@twilio-paste/grid";
 import { Card } from "../src";
 
 // eslint-disable-next-line import/no-default-export
