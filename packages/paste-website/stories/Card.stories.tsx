@@ -5,6 +5,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { Card } from "@twilio-paste/card";
+import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { AcceptIcon } from "@twilio-paste/icons/esm/AcceptIcon";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
@@ -19,7 +20,6 @@ import { Stack } from "@twilio-paste/stack";
 import type { JSX } from "react";
 import * as React from "react";
 
-import { Column, Grid } from "@twilio-paste/grid";
 import { Marketing2 } from "../public/images/card/Marketing2";
 import { Marketing3 } from "../public/images/card/Marketing3";
 import { Marketing4 } from "../public/images/card/Marketing4";
