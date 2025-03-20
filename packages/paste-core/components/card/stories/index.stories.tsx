@@ -6,6 +6,8 @@ import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
 import { Card } from "../src";
 
 // eslint-disable-next-line import/no-default-export
@@ -60,6 +62,49 @@ export const PropPassthrough = (): React.ReactNode => (
       one platform with the Conversations API.
     </Paragraph>
   </Card>
+);
+
+export const FillHeight = (): React.ReactNode => (
+  <Box>
+    <Grid gutter="space30">
+      <Column>
+        <Card>
+          <Paragraph>Without fillHeight, the card will only be as tall as its content.</Paragraph>
+        </Card>
+      </Column>
+      <Column>
+        <Card>
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          </Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+
+    <Grid gutter="space30" marginTop="space100">
+      <Column>
+        <Card fillHeight>
+          <Paragraph>
+            With fillHeight, the card will stretch to fill the height of the container. This can be useful when you need
+            to align multiple cards in a row.
+          </Paragraph>
+        </Card>
+      </Column>
+      <Column>
+        <Card>
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          </Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+  </Box>
 );
 
 export const CustomCard: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {

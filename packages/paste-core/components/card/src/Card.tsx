@@ -14,6 +14,15 @@ export interface CardProps extends HTMLPasteProps<"article">, PaddingProps {
    * @memberof CardProps
    */
   element?: BoxProps["element"];
+
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof CardProps
+   */
+  fillHeight?: boolean;
 }
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
@@ -26,6 +35,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
       paddingLeft,
       paddingRight,
       paddingTop,
+      fillHeight,
       ...props
     },
     ref,
@@ -46,6 +56,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
         paddingRight={paddingRight}
         paddingTop={paddingTop}
         backgroundColor="colorBackgroundWeakest"
+        height={fillHeight ? "100%" : undefined}
       >
         {children}
       </Box>
