@@ -163,7 +163,7 @@ In this same file we set the ThemeProvider to use CSS variables instead of the t
 
 ### Switching the theme
 
-We have a hook that is used to switch the themes in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/hooks/useDarkMode.tsx"><InlineCode>useDarkMode.tsx</InlineCode></Anchor>. It is in the <InlineCode>setMode</InlineCode> function we handle setting the data attribute on the body element. This occurs when the user intentionally changes the theme using the theme switcher in the header as this will run client side it cannot be used to set the default value. That comes from the scirpt in the <InlineCode>_document.tsx</InlineCode>.
+We have a hook that is used to switch the themes in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/hooks/useDarkMode.tsx"><InlineCode>useDarkMode.tsx</InlineCode></Anchor>. It is in the <InlineCode>setMode</InlineCode> function we handle setting the data attribute on the body element. This occurs when the user intentionally changes the theme using the theme switcher in the header as this will run client side it cannot be used to set the default value. That comes from the script in the <InlineCode>_document.tsx</InlineCode>.
 
 <Box marginBottom="space60">
   <CodeBlockWrapper>
