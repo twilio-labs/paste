@@ -27,7 +27,7 @@ import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
 import packageJson from '@twilio-paste/card/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample} from '../../../component-examples/CardExamples'
+import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample, FillHeightExample} from '../../../component-examples/CardExamples'
 
 export default ComponentPageLayout;
 
@@ -111,6 +111,17 @@ digest and provides a clear call to action.
   title="Card examples - title body button"
   storyID="website-cardexamples--title-body-button-example"
   code={TitleBodyButtonExample}
+/>
+
+#### Fill height
+
+In scenarios where there is a requirement for the card to fill the height of the parent container, you can use the `fillHeight` prop.
+
+<StoryPreview
+  height="350px"
+  title="Card examples - Fill height"
+  storyID="website-cardexamples--fill-height-example"
+  code={FillHeightExample}
 />
 
 #### Marketing Card

@@ -19,6 +19,7 @@ import { Stack } from "@twilio-paste/stack";
 import type { JSX } from "react";
 import * as React from "react";
 
+import { Column, Grid } from "@twilio-paste/grid";
 import { Marketing2 } from "../public/images/card/Marketing2";
 import { Marketing3 } from "../public/images/card/Marketing3";
 import { Marketing4 } from "../public/images/card/Marketing4";
@@ -132,6 +133,28 @@ export const TitleBodyButtonExample = (): JSX.Element => {
 };
 
 TitleBodyButtonExample.parameters = {
+  padding: false,
+};
+
+export const FillHeightExample = (): JSX.Element => (
+  <Grid gutter="space30">
+    <Column>
+      <Card fillHeight>
+        <Paragraph>With fillHeight, the card will stretch to fill the height of the container.</Paragraph>
+      </Card>
+    </Column>
+    <Column>
+      <Card>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+        </Paragraph>
+      </Card>
+    </Column>
+  </Grid>
+);
+
+FillHeightExample.parameters = {
   padding: false,
 };
 
