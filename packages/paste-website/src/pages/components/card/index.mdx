@@ -27,7 +27,7 @@ import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
 import packageJson from '@twilio-paste/card/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample} from '../../../component-examples/CardExamples'
+import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample, FillHeightExample} from '../../../component-examples/CardExamples'
 
 export default ComponentPageLayout;
 
@@ -77,9 +77,9 @@ If you find yourself limited by the default styling and constraints of a Card, y
 but first consider bringing the problem you are trying to solve
 to Design System Office Hours to see if another component or pattern could fit your needs.
 
-### Examples
+## Examples
 
-#### Default Card
+### Default Card
 
 By default, a Card has `space100` padding, which can be adjusted with [padding props](/components/card/api#card) and [spacing tokens](/tokens/list#spacings).
 
@@ -90,7 +90,7 @@ By default, a Card has `space100` padding, which can be adjusted with [padding p
   code={DefaultExample}
 />
 
-#### Adjusting padding
+### Adjusting padding
 
 You can set non-default padding on all sides of a Card.
 
@@ -101,7 +101,7 @@ You can set non-default padding on all sides of a Card.
   code={AdjustingPaddingExample}
 />
 
-#### Card with Title, Body and Button
+### Card with Title, Body and Button
 
 One of the most common use cases for a Card is to relate a title ([Heading](/components/heading)), supporting body copy ([Paragraph](/components/paragraph)),
 and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to
@@ -113,7 +113,18 @@ digest and provides a clear call to action.
   code={TitleBodyButtonExample}
 />
 
-#### Marketing Card
+### Fill height
+
+In scenarios where there is a requirement for the card to fill the height of the parent container, you can use the `fillHeight` prop.
+
+<StoryPreview
+  height="350px"
+  title="Card examples - Fill height"
+  storyID="website-cardexamples--fill-height-example"
+  code={FillHeightExample}
+/>
+
+### Marketing Card
 
 Use these layouts when you need to draw customers’ attention to upsell and cross-sell opportunities. Use them sparingly, mainly when they’ll help customers solve immediate problems.
 

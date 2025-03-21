@@ -5,6 +5,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { Card } from "@twilio-paste/card";
+import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
 import { AcceptIcon } from "@twilio-paste/icons/esm/AcceptIcon";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
@@ -132,6 +133,28 @@ export const TitleBodyButtonExample = (): JSX.Element => {
 };
 
 TitleBodyButtonExample.parameters = {
+  padding: false,
+};
+
+export const FillHeightExample = (): JSX.Element => (
+  <Grid gutter="space30">
+    <Column>
+      <Card fillHeight>
+        <Paragraph>With fillHeight, the card will stretch to fill the height of the container.</Paragraph>
+      </Card>
+    </Column>
+    <Column>
+      <Card>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+        </Paragraph>
+      </Card>
+    </Column>
+  </Grid>
+);
+
+FillHeightExample.parameters = {
   padding: false,
 };
 
