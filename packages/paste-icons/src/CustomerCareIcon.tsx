@@ -59,3 +59,4 @@ const CustomerCareIcon = React.forwardRef<HTMLElement, CustomerCareIconProps>(
 
 CustomerCareIcon.displayName = "CustomerCareIcon";
 export { CustomerCareIcon };
+export default CustomerCareIcon;

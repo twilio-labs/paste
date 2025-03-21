@@ -56,3 +56,4 @@ const Box = React.forwardRef<HTMLElement, BoxProps>(({ children, element = "BOX"
 Box.displayName = "Box";
 
 export { Box };
+export default Box;

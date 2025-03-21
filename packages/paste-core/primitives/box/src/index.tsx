@@ -11,3 +11,4 @@ export {
 } from "./types";
 // this is the only interface we want to document
 export type { BoxProps } from "./types";
+export { default } from "./Box";

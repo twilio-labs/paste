@@ -4,8 +4,8 @@ import * as React from "react";
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 
-import { IconWrapper } from "./helpers/IconWrapper";
 import type { IconWrapperProps } from "./helpers/IconWrapper";
+import { IconWrapper } from "./helpers/IconWrapper.js";
 
 export interface SentimentNeutralIconProps extends IconWrapperProps {
   title?: string;
