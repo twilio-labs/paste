@@ -11254,6 +11254,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/box-module@workspace:packages/paste-core/primitives/box/dist/esm":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/box-module@workspace:packages/paste-core/primitives/box/dist/esm"
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/box@^11.0.0, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/box@workspace:packages/paste-core/primitives/box"
@@ -12976,6 +12982,12 @@ __metadata:
     "@types/react-dom": ^17.0.2 || ^18.0.10 || ^19.0.0
     react: ^17.0.2 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/icons-module@workspace:packages/paste-icons/esm":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/icons-module@workspace:packages/paste-icons/esm"
   languageName: unknown
   linkType: soft
 
@@ -14803,6 +14815,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/style-props-module@workspace:packages/paste-style-props/dist/esm":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/style-props-module@workspace:packages/paste-style-props/dist/esm"
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/style-props@^10.0.0, @twilio-paste/style-props@workspace:packages/paste-style-props":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/style-props@workspace:packages/paste-style-props"
@@ -14830,6 +14848,12 @@ __metadata:
     "@types/react-dom": ^17.0.2 || ^18.0.10 || ^19.0.0
     react: ^17.0.2 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/styling-library-module@workspace:packages/paste-libraries/styling/dist/esm":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/styling-library-module@workspace:packages/paste-libraries/styling/dist/esm"
   languageName: unknown
   linkType: soft
 
@@ -15562,6 +15586,12 @@ __metadata:
     "@types/react": ^17.0.2 || ^18.0.27 || ^19.0.0
     "@types/react-dom": ^17.0.2 || ^18.0.10 || ^19.0.0
     react: ^17.0.2 || ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/uid-library-module@workspace:packages/paste-libraries/uid/dist/esm":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/uid-library-module@workspace:packages/paste-libraries/uid/dist/esm"
   languageName: unknown
   linkType: soft
 

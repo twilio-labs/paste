@@ -118,19 +118,19 @@ async function build(packageJson) {
       return process.exit(1);
     });
 
-  await esbuild
-    .build({
-      ...config,
-      format: "esm",
-      outfile: outFileESM.replace(".es.js", ".debug.es.js"),
-      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
-    })
-    .catch((error) => {
-      console.error(error);
-      // eslint-disable-next-line unicorn/no-process-exit
-      return process.exit(1);
-    });
+  // await esbuild
+  //   .build({
+  //     ...config,
+  //     format: "esm",
+  //     outfile: outFileESM.replace(".es.js", ".debug.es.js"),
+  //     // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+  //     plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //     // eslint-disable-next-line unicorn/no-process-exit
+  //     return process.exit(1);
+  //   });
 }
 
 module.exports = { build };

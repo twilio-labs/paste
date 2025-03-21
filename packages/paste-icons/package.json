@@ -4,6 +4,22 @@
   "description": "Twilio's icon library, ready for use and with accessibility considerations",
   "author": "Twilio Inc.",
   "license": "MIT",
+  "exports": {
+    "./*": {
+      "types": "./esm/*.d.ts",
+      "import": "./esm/*.js",
+      "require": "./cjs/*.js"
+    },
+    "./esm/*": {
+      "types": "./esm/*.d.ts",
+      "import": "./esm/*.js"
+    },
+    "./cjs/*": {
+      "types": "./cjs/*.d.ts",
+      "import": "./cjs/*.js",
+      "require": "./cjs/*.js"
+    }
+  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
