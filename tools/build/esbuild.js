@@ -1,3 +1,4 @@
+const fs = require("fs");
 const path = require("path");
 const esbuild = require("esbuild");
 const { esbuildPluginVersionInjector } = require("esbuild-plugin-version-injector");
@@ -24,12 +25,29 @@ const getWildcardExternalPeers = (peerDeps = {}) => {
   return [...externalDeps, ...wildcardedExternalDeps];
 };
 
+// Function to generate a package.json file for the ESM output
+function generateESMPackageJson(packageJson, esmOutputDir) {
+  console.log("Generating ESM package.json", esmOutputDir);
+  if (esmOutputDir.includes("esm")) {
+    const esmPackageJson = {
+      name: `${packageJson.name}-module`,
+      type: "module",
+    };
+
+    const esmPackageJsonPath = path.join(esmOutputDir, "package.json");
+    fs.writeFileSync(esmPackageJsonPath, JSON.stringify(esmPackageJson, null, 2), "utf8");
+    console.log("Written file");
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 async function build(packageJson) {
   // Entry and Output file paths
   const entryPoints = [packageJson["main:dev"]];
   const outFileCJS = packageJson.main;
   const outFileESM = packageJson.module;
+  const esmOutputDir = path.dirname(outFileESM); // Directory for ESM output
+
   // Things we don't want to bundle
   const external = getWildcardExternalPeers(packageJson.peerDependencies);
 
@@ -102,6 +120,9 @@ async function build(packageJson) {
       // eslint-disable-next-line unicorn/no-process-exit
       return process.exit(1);
     });
+
+  // Generate the ESM-specific package.json
+  generateESMPackageJson(packageJson, esmOutputDir);
 
   // Debug
   await esbuild

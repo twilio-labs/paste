@@ -10,7 +10,9 @@
       "apps/**/*",
       "packages/**/*",
       "templates/**/*",
-      "!packages/paste-core/core-bundle/**/*"
+      "!packages/paste-core/core-bundle/**/*",
+      "!packages/**/dist/**/*",
+      "!packages/paste-icons/esm"
     ]
   },
   "types": "./types/index.d.ts",

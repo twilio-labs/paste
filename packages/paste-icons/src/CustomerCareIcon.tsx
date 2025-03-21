@@ -5,7 +5,7 @@ import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
 import type { IconWrapperProps } from "./helpers/IconWrapper";
-import { IconWrapper } from "./helpers/IconWrapper.js";
+import { IconWrapper } from "./helpers/IconWrapper";
 
 export interface CustomerCareIconProps extends IconWrapperProps {
   title?: string;
