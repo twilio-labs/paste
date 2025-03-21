@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/syntax-highlighter-library",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "category": "library",
   "status": "production",
   "description": "A code block syntax highlighter for making code examples readable.",
