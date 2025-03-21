@@ -1,0 +1,225 @@
+export const meta = {
+  title: "Paste Design System Newsletter - March 2025 Edition",
+  slug: "/blog/2025-03-20-paste-newsletter/",
+  date: "2025-03-20",
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  excerpt: "What's new in Paste in March 2025? React 19, new wireframe theme, and more!",
+};
+
+import Image from "next/image";
+import { Box } from "@twilio-paste/box";
+
+import { ResponsiveImage } from "../../components/ResponsiveImage";
+import { ResponsiveBorderedImage } from "../../components/ResponsiveBorderedImage";
+
+import PricingPattern from "../../assets/images/articles/2024-11-07-paste-newsletter/pricing-pattern.png";
+import Timeline from "../../assets/images/articles/2024-11-07-paste-newsletter/timeline.png";
+import ProgressSteps from "../../assets/images/articles/2024-11-07-paste-newsletter/progress-steps.png";
+import Tabs from "../../assets/images/articles/2024-11-07-paste-newsletter/tabs.gif";
+import AIErrorState from "../../assets/images/articles/2024-11-07-paste-newsletter/ai-error-state.png";
+import Callout from "../../assets/images/articles/2024-11-07-paste-newsletter/callout.png";
+import Pastemate from "../../assets/images/articles/2024-11-07-paste-newsletter/paste-mate-2024-11.png";
+
+import PasteTeam from "../../assets/images/articles/2025-03-20-paste-newsletter/paste-team.png";
+import Elevation from "../../assets/images/articles/2025-03-20-paste-newsletter/elevation.png";
+import Wireframe from "../../assets/images/articles/2025-03-20-paste-newsletter/wireframe.png";
+import KeyboardKey from "../../assets/images/articles/2025-03-20-paste-newsletter/keyboard-key.png";
+import Blockquote from "../../assets/images/articles/2025-03-20-paste-newsletter/blockquote.png";
+import Tony from "../../assets/images/articles/2025-03-20-paste-newsletter/tony.png";
+import AI from "../../assets/images/articles/2025-03-20-paste-newsletter/ai.gif";
+
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { getNavigationData } from "../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 👋 Hello from Paste!
+
+It’s been a while since we’ve hit your inbox, so we wanted to introduce ourselves in case you’re new or haven’t hit us up in a while. We’ve been hard at work collaborating with the Brand, Commerce, and AI teams (on Voice, Flex, and Messaging), but as always, we’re available on [Github Discussions](https://github.com/twilio-labs/paste/discussions) and [office hours](https://docs.google.com/spreadsheets/d/10vD91zdwr9hjgDOV3HSGnoC0LgvYw-thmn3X_kvW0xk/edit?gid=800758837#gid=800758837).
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="70%"
+      height="100%"
+      src={PasteTeam}
+      alt="Paste team members: Jhanvi Bhatia, Kristian Antrobus, Nora Krantz, Roxana Gómez, Sarah Li, Shoaib Ahmed, Tony Ip"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+**Engineering team**: Kristian Antrobus, Nora Krantz, Shoaib Ahmed <br/>
+**Design team**: Jhanvi Bhatia, Roxana Gómez, Sarah Li, Tony Ip
+
+## 📣 What was new in Paste?
+
+### 🚀 React 19 support 🚀
+
+The latest version release includes full support for Paste within a React 19 app. No changes should be necessary for consuming applications – this change should be 100% backwards compatible (with a minimum of React v17.0.2). Please let us know if you experience any issues by [opening a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
+
+*Note: only the three latest versions of React are supported with Paste, so React 16 support is no longer guaranteed.*
+
+### [Elevation foundations](/foundations/elevation)
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="70%"
+      height="100%"
+      src={Elevation}
+      alt="Elevation foundations documentation"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+Elevation represents how "close" or "far" an element feels from the user in a digital context, using a combination of shadows, colors and overlays to create a layering effect, making elements feel distinct, focused or prioritized. Take a look at the new guidelines for context on styles used in Paste components or for direction on styling your own custom components with elevation.
+
+### Figma wireframe theme
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="70%"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderColor="colorBorder"
+      height="100%"
+      src={Wireframe}
+      alt="Figma wireframe theme"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+A wireframe theme is now available in Figma! This theme can help with testing design concepts, presenting early work, and learning and iterating rapidly.
+
+Huge thanks to **Sam Muñoz** for contributing this theme, and his amazing work in learning about theming in Paste and iterating quickly based on feedback. [Watch this video on how to apply the wireframe theme](https://www.loom.com/share/cea84863304c437ca1ecb95df560f010?sid=5ecd699b-5e26-47b9-8b43-e6fcbe834f71), and send Sam any feedback you have.
+
+If you’re an engineer who would find a theme like this helpful in code, please reach out to us in a [Github Discussion](https://github.com/twilio-labs/paste/discussions)
+
+### [Keyboard Key](/components-keyboard-key) component
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="40%"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderColor="colorBorder"
+      height="100%"
+      src={KeyboardKey}
+      alt="Keyboard Key component example"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+Keyboard Key is a styled text component intended to differentiate keyboard commands and shortcuts from other types of text. The component also includes a `pressed` state, adjusting styles to provide feedback to the user when the given key is active.
+
+### [Blockquote](/components/blockquote) and [Example Text](/components/example-text) components
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="40%"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderColor="colorBorder"
+      height="100%"
+      src={Blockquote}
+      alt="Blockquote and Example Text components"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+A Blockquote is a stylized text wrapper for a quotation and source, while Example Text is a stylized text wrapper that distinguishes user input examples from body text. Both can be used to enhance readability and understanding of written text.
+
+### [Typewriter animations in AI Chat Log](/components/ai-chat-log#animating)
+
+<Box marginBottom="space60" display="flex" justifyContent="center">
+    <Box
+      as={Image}
+      maxWidth="80%"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderColor="colorBorder"
+      height="100%"
+      src={AI}
+      alt="AI Chat Log with typewriter animations"
+      style={{ objectFit: "contain" }}
+    />
+</Box>
+
+Typewriter animations now work out-of-the-box on the AI Chat Log component. Use the animated prop on messages returned from the AI in order to implement the typewriter animations. The animations will perform well even with non-text components in the body of the AI message.
+
+### Additional updates
+
+- Combobox (Figma): Added a slot to Combobox options
+- [Icons](/components/icon): Added rich content icons for Content Template Builder in Flex and Messaging
+- [Side Modal](/components/side-modal): Footer actions are now aligned on the left by default
+- [Side Panel](/components/side-panel): Zhuzh’d the responsive behavior
+
+## ✨ Pastemates™ spotlight
+
+*Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system.*
+
+<Box width="100%" maxWidth="200px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={Tony} alt="image of Tony Ip" />
+</Box>
+
+In this edition of Pastemates, we’re spotlighting an interim addition to the design systems team: Tony Ip!
+
+Tony joins us from the Flex Mobile Platform team, where he recently created the Design Guideline and UI Kit for Flex Mobile following its Public Beta launch. Over his 7 years at Twilio, including time at Zipwhip, he worked on the Zipwhip Mobile App, Zipwhip Embeddables, 10DLC, AMB, RCS, Twilio Frontline, and Twilio Flex. He is now working on an Address validation pattern with the Commerce Team.
+
+Residing in Seattle, Tony enjoys watching suspenseful TV series, gardening, tackling home improvement projects, and building out his camper.
+
+## 👀 What we're working on next
+
+| Feature                        | Description                                                                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Refined AI Experiences**     | In collaboration with the Voice, Flex, and Messaging teams, research and iterate on the Artificial Intelligence experience guidelines and AI Chat Log component.|
+| **Form pattern and refined form fields**      | Holistic guidelines on how to structure and lay out forms, working off a previous contribution (thanks, Andy Doyle!), along with an update to the visual design of form fields. |
+| **Design Address validation pattern**       | In collaboration with the Commerce team, design guidelines, layout, and validation rules when asking customers for addresses. |
+
+<Box marginBottom="space120" />
+
+See you next time! 👋
+
+<em>— The UX Infrastructure Team
+
+<br />
+<br />
+Engineering team: Kristian Antrobus, Nora Krantz, Shoaib Ahmed
+<br />
+Design team: Jhanvi Bhatia, Roxana Gómez, Sarah Li, Tony Ip
+
+</em>
+
+</ArticleContent>
+
+</contentwrapper>
