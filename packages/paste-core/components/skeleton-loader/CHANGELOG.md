@@ -1,5 +1,11 @@
 # @twilio-paste/skeleton-loader
 
+## 7.0.1
+
+### Patch Changes
+
+- [`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597) [#4281](https://github.com/twilio-labs/paste/pull/4281) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [all packages]: add use client directive to the components and icons. This will make paste library compatible with server components
+
 ## 7.0.0
 
 ### Major Changes

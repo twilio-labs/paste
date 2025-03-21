@@ -1,5 +1,130 @@
 # Change Log
 
+## 21.1.0
+
+### Minor Changes
+
+- [`ee25fa4eb`](https://github.com/twilio-labs/paste/commit/ee25fa4eb43160bad0d0038c6d1fe124c2e54d60) [#4286](https://github.com/twilio-labs/paste/pull/4286) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Card]: add `fillHeight` prop to make card height stretch to the container height
+
+### Patch Changes
+
+- [`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597) [#4281](https://github.com/twilio-labs/paste/pull/4281) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [all packages]: add use client directive to the components and icons. This will make paste library compatible with server components
+
+- Updated dependencies [[`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597), [`ee25fa4eb`](https://github.com/twilio-labs/paste/commit/ee25fa4eb43160bad0d0038c6d1fe124c2e54d60)]:
+  - @twilio-paste/account-switcher@4.0.1
+  - @twilio-paste/ai-chat-log@2.0.1
+  - @twilio-paste/alert@15.0.1
+  - @twilio-paste/alert-dialog@10.0.1
+  - @twilio-paste/anchor@13.0.1
+  - @twilio-paste/avatar@10.0.1
+  - @twilio-paste/badge@9.0.1
+  - @twilio-paste/base-radio-checkbox@14.0.1
+  - @twilio-paste/blockquote@2.0.1
+  - @twilio-paste/breadcrumb@12.0.1
+  - @twilio-paste/button@15.0.1
+  - @twilio-paste/button-group@5.0.1
+  - @twilio-paste/callout@5.0.1
+  - @twilio-paste/card@10.1.0
+  - @twilio-paste/chart-provider@2.0.1
+  - @twilio-paste/chat-composer@6.0.1
+  - @twilio-paste/chat-log@6.0.1
+  - @twilio-paste/checkbox@14.0.1
+  - @twilio-paste/code-block@6.0.1
+  - @twilio-paste/combobox@17.0.1
+  - @twilio-paste/corner-ornament@2.0.1
+  - @twilio-paste/data-grid@9.0.1
+  - @twilio-paste/date-picker@7.0.1
+  - @twilio-paste/description-list@5.0.1
+  - @twilio-paste/detail-text@4.0.1
+  - @twilio-paste/disclosure@13.0.1
+  - @twilio-paste/display-heading@5.0.1
+  - @twilio-paste/display-pill-group@9.0.1
+  - @twilio-paste/editable-code-block@3.0.1
+  - @twilio-paste/example-text@2.0.1
+  - @twilio-paste/file-picker@5.0.1
+  - @twilio-paste/file-uploader@5.0.1
+  - @twilio-paste/form@12.0.1
+  - @twilio-paste/form-pill-group@9.0.1
+  - @twilio-paste/heading@12.0.1
+  - @twilio-paste/help-text@14.0.1
+  - @twilio-paste/in-page-navigation@5.0.1
+  - @twilio-paste/inline-code@5.0.1
+  - @twilio-paste/inline-control-group@14.0.1
+  - @twilio-paste/input@10.0.1
+  - @twilio-paste/input-box@11.0.1
+  - @twilio-paste/keyboard-key@2.0.1
+  - @twilio-paste/label@14.0.1
+  - @twilio-paste/list@9.0.1
+  - @twilio-paste/menu@15.0.1
+  - @twilio-paste/meter@2.0.1
+  - @twilio-paste/minimizable-dialog@5.0.1
+  - @twilio-paste/modal@17.0.1
+  - @twilio-paste/page-header@2.0.1
+  - @twilio-paste/pagination@8.0.1
+  - @twilio-paste/paragraph@11.0.1
+  - @twilio-paste/popover@14.0.1
+  - @twilio-paste/product-switcher@4.0.1
+  - @twilio-paste/progress-bar@2.0.1
+  - @twilio-paste/progress-steps@3.0.1
+  - @twilio-paste/radio-button-group@5.0.1
+  - @twilio-paste/radio-group@14.0.1
+  - @twilio-paste/screen-reader-only@14.0.1
+  - @twilio-paste/select@13.0.1
+  - @twilio-paste/separator@9.0.1
+  - @twilio-paste/side-modal@5.0.1
+  - @twilio-paste/side-panel@2.0.1
+  - @twilio-paste/sidebar@2.0.1
+  - @twilio-paste/skeleton-loader@7.0.1
+  - @twilio-paste/slider@4.0.1
+  - @twilio-paste/spinner@15.0.1
+  - @twilio-paste/status@3.0.1
+  - @twilio-paste/summary-detail@2.0.1
+  - @twilio-paste/switch@6.0.1
+  - @twilio-paste/table@9.0.1
+  - @twilio-paste/tabs@9.0.1
+  - @twilio-paste/textarea@11.0.1
+  - @twilio-paste/time-picker@7.0.1
+  - @twilio-paste/timeline@2.0.1
+  - @twilio-paste/toast@13.0.1
+  - @twilio-paste/tooltip@13.0.1
+  - @twilio-paste/topbar@2.0.1
+  - @twilio-paste/truncate@15.0.1
+  - @twilio-paste/user-dialog@3.0.1
+  - @twilio-paste/visual-picker@3.0.1
+  - @twilio-paste/aspect-ratio@11.0.1
+  - @twilio-paste/flex@9.0.1
+  - @twilio-paste/grid@9.0.1
+  - @twilio-paste/media-object@11.0.1
+  - @twilio-paste/stack@9.0.1
+  - @twilio-paste/box@11.0.1
+  - @twilio-paste/combobox-primitive@3.0.1
+  - @twilio-paste/disclosure-primitive@3.0.1
+  - @twilio-paste/listbox-primitive@4.0.1
+  - @twilio-paste/menu-primitive@3.0.1
+  - @twilio-paste/modal-dialog-primitive@3.0.1
+  - @twilio-paste/non-modal-dialog-primitive@3.0.1
+  - @twilio-paste/sibling-box@10.0.1
+  - @twilio-paste/tabs-primitive@3.0.1
+  - @twilio-paste/text@11.0.1
+  - @twilio-paste/tooltip-primitive@3.0.1
+  - @twilio-paste/customization@9.0.1
+  - @twilio-paste/animation-library@3.0.1
+  - @twilio-paste/clipboard-copy-library@4.0.1
+  - @twilio-paste/code-editor-library@3.0.1
+  - @twilio-paste/data-visualization-library@6.0.1
+  - @twilio-paste/dropdown-library@4.0.1
+  - @twilio-paste/lexical-library@5.0.1
+  - @twilio-paste/react-spectrum-library@3.0.1
+  - @twilio-paste/react-textarea-autosize-library@4.0.1
+  - @twilio-paste/reakit-library@3.0.1
+  - @twilio-paste/styling-library@4.0.1
+  - @twilio-paste/syntax-highlighter-library@4.0.1
+  - @twilio-paste/uid-library@3.0.1
+  - @twilio-paste/style-props@10.0.1
+  - @twilio-paste/theme@12.0.1
+  - @twilio-paste/types@7.0.1
+  - @twilio-paste/utils@6.0.1
+
 ## 21.0.0
 
 ### Major Changes

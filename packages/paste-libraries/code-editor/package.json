@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/code-editor-library",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "category": "library",
   "status": "production",
   "description": "A library to display and make changes to large blocks of code.",
