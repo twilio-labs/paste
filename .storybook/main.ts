@@ -21,9 +21,12 @@ const config: StorybookConfig = {
   },
   staticDirs: ["./static"],
   typescript: {
-    // enable type checking
     check: true,
-    reactDocgen: "react-docgen-typescript",
+    reactDocgen: true,
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
   },
 
   async viteFinal(config, { configType }) {

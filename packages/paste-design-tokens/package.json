@@ -3,8 +3,40 @@
   "version": "10.14.0",
   "description": "Paste Design System Tokens package with a number of different formats for Web, Mobile, and Sketch.",
   "main": "dist/tokens.common.js",
-  "module": "dist/tokens.es6.js",
+  "module": "dist/esm/tokens.es6.js",
   "types": "dist/tokens.common.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/tokens.common.d.ts",
+      "import": "./dist/esm/tokens.es6.js",
+      "require": "./dist/tokens.common.js"
+    },
+    "./*": {
+      "types": "./*.d.ts",
+      "import": "./*.js",
+      "require": "./*.js"
+    },
+    "./*.js": {
+      "import": "./*",
+      "require": "./*"
+    },
+    "./*.json": {
+      "import": "./*.json",
+      "require": "./*.json"
+    },
+    "./*.css": {
+      "import": "./*.css",
+      "require": "./*.css"
+    },
+    "./*.scss": {
+      "import": "./*.scss",
+      "require": "./*.scss"
+    },
+    "./*.xml": {
+      "import": "./*.xml",
+      "require": "./*.xml"
+    }
+  },
   "author": "Twilio",
   "license": "MIT",
   "sideEffects": false,
@@ -13,7 +45,7 @@
     "types"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production gulp",
+    "build": "yarn clean && NODE_ENV=production gulp && NODE_ENV=production node ./tools/build/generateESMPackage.js",
     "build:js": "NODE_ENV=development gulp",
     "build:watch": "gulp dev",
     "clean": "rm -rf ./dist",

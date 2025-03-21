@@ -131,7 +131,7 @@
     "@storybook/cli": "^8.6.4",
     "@storybook/manager-api": "^8.6.4",
     "@storybook/react": "^8.6.4",
-    "@storybook/react-vite": "^8.6.4",
+    "@storybook/react-vite": "^8.6.7",
     "@storybook/test-runner": "^0.22.0",
     "@swc/core": "^1.2.160",
     "@swc/jest": "^0.2.20",

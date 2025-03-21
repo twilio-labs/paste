@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { StoryFn } from "@storybook/react";
 import { Anchor } from "@twilio-paste/anchor";
-import { Blockquote, BlockquoteCitation, BlockquoteContent } from "@twilio-paste/blockquote/";
+import { Blockquote, BlockquoteCitation, BlockquoteContent } from "@twilio-paste/blockquote";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";

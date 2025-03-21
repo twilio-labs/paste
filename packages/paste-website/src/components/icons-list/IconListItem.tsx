@@ -4,6 +4,8 @@ import type { CompositeStateReturn } from "@twilio-paste/reakit-library";
 import { styled } from "@twilio-paste/styling-library";
 import * as React from "react";
 
+import { GenericIconProps } from "@twilio-paste/icons/esm/types";
+import dynamic from "next/dynamic";
 import { IconTile } from "./IconTile";
 import type { IconObject } from "./types";
 
@@ -15,6 +17,14 @@ const IconTileWrapper = styled(Box)({
   width: "33.33%",
 });
 
+const getDynamicComponent = (name: string) => {
+  const importName = `@twilio-paste/icons/esm/${name}`;
+
+  return dynamic<GenericIconProps>(() => import(importName).then((m) => m.AcceptIcon), {
+    ssr: false,
+  });
+};
+
 interface IconListItemProps extends CompositeStateReturn {
   icon: IconObject;
   setSelectedIcon: (icon: IconObject) => void;
@@ -24,15 +34,23 @@ export const IconListItem: React.FC<React.PropsWithChildren<IconListItemProps>> 
   setSelectedIcon,
   ...props
 }) => {
-  if (icon.name !== "index") {
-    const { Component } = icon;
-    return (
-      <IconTileWrapper paddingX="space40" marginBottom="space60">
-        <CompositeItem as={IconTile} icon={icon} onClick={() => setSelectedIcon(icon)} {...props}>
-          <Component decorative size="sizeIcon70" />
-        </CompositeItem>
-      </IconTileWrapper>
-    );
-  }
-  return null;
+  const { Component, name } = icon;
+  const importName = `@twilio-paste/icons/esm/${name}`;
+  const ImportComponent = getDynamicComponent(name);
+
+  // @ts-ignore
+  const El = dynamic<GenericIconProps>(() => import(importName).then((m) => m.AcceptIcon), {
+    ssr: false,
+  });
+
+  return (
+    <IconTileWrapper paddingX="space40" marginBottom="space60">
+      <CompositeItem as={IconTile} icon={icon} onClick={() => setSelectedIcon(icon)} {...props}>
+        <Box size="sizeIcon70">
+          <El decorative />
+          <ImportComponent decorative />
+        </Box>
+      </CompositeItem>
+    </IconTileWrapper>
+  );
 };

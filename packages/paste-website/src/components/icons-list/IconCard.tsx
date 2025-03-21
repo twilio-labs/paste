@@ -33,7 +33,7 @@ const IconCard: React.FC<React.PropsWithChildren<IconCardProps>> = ({ selectedIc
       </Heading>
       <Card>
         <Box display="flex" justifyContent="center" marginBottom="space70">
-          <Icon decorative size="sizeIcon110" />
+          <Box size="sizeIcon110">{/* <Icon decorative size="sizeIcon110" /> */}</Box>
         </Box>
         <Heading as="h2" variant="heading30">
           Install using React

@@ -9,7 +9,7 @@
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["es2020", "dom", "dom.iterable"],
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": false,
     "noImplicitAny": true,

@@ -1,4 +1,4 @@
-import DefaultRawTokenJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json";
+import DefaultRawTokenJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json" assert { type: "json" };
 import type { DesignToken, DesignTokensJSON, TokenPairContrastRating } from "@twilio-paste/design-tokens/types";
 import type { AllGenericTokens, GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
 import ColorCombos from "color-combos";

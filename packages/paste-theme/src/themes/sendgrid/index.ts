@@ -15,7 +15,7 @@ import {
   spacings,
   textColors,
   zIndices,
-} from "@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6";
+} from "@twilio-paste/design-tokens/dist/esm/themes/sendgrid/tokens.es6";
 
 import { generateThemeFromTokens } from "../../generateThemeFromTokens";
 

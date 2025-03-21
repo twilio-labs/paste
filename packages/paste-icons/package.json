@@ -12,12 +12,25 @@
     },
     "./esm/*": {
       "types": "./esm/*.d.ts",
-      "import": "./esm/*.js"
+      "import": "./esm/*.js",
+      "require": "./esm/*.js"
     },
     "./cjs/*": {
       "types": "./cjs/*.d.ts",
-      "import": "./cjs/*.js",
-      "require": "./cjs/*.js"
+      "require": "./cjs/*.js",
+      "import": "./cjs/*.js"
+    },
+    "./CHANGELOG.md": {
+      "import": "./CHANGELOG.md",
+      "require": "./CHANGELOG.md"
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./json/*": {
+      "import": "./json/*",
+      "require": "./json/*"
     }
   },
   "sideEffects": false,

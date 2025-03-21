@@ -19,6 +19,7 @@ const browserSync = require("browser-sync");
 const paths = {
   aliases: "./tokens/aliases",
   dist: "./dist",
+  esmDist: "./dist/esm",
   docs: "./docs",
   formatters: "./formatters",
   globals: "./tokens/global",
@@ -214,6 +215,22 @@ gulp.task("tokens:commonjs", () =>
     .pipe(gulp.dest(paths.dist)),
 );
 
+gulp.task("tokens:es6:esm", () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: { type: "web", includeMeta: true },
+        format: { type: "es6.js" },
+      }),
+    )
+    .on("error", (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(gulpif(process.env.NODE_ENV === "production", terser()))
+    .pipe(gulp.dest(paths.esmDist)),
+);
+
 gulp.task("tokens:es6", () =>
   gulp
     .src(paths.tokensEntry)
@@ -258,6 +275,21 @@ gulp.task("tokens:es6:dts", () =>
       throw new Error(err);
     })
     .pipe(gulp.dest(paths.dist)),
+);
+
+gulp.task("tokens:es6:dts:esm", () =>
+  gulp
+    .src(paths.tokensEntry)
+    .pipe(
+      gulpTheo({
+        transform: { type: "web", includeMeta: true },
+        format: { type: "es6.d.ts" },
+      }),
+    )
+    .on("error", (err: string) => {
+      throw new Error(err);
+    })
+    .pipe(gulp.dest(paths.esmDist)),
 );
 
 gulp.task("tokens:generic:js", () =>
@@ -316,6 +348,7 @@ gulp.task(
     "tokens:commonjs",
     "tokens:common:dts",
     "tokens:es6",
+    "tokens:es6:esm",
     "tokens:es6:dts",
     "tokens:ios",
     "tokens:android",
@@ -324,6 +357,7 @@ gulp.task(
     "tokens:generic:js",
     "tokens:generic:d:ts",
     "tokens:data-theme",
+    "tokens:es6:dts:esm",
   ),
 );
 
@@ -343,6 +377,9 @@ gulp.task("watch", () => {
   );
 });
 
-gulp.task("dev", gulp.series("tokens:raw", "tokens:es6", "tokens:es6:dts", "watch"));
+gulp.task(
+  "dev",
+  gulp.series("tokens:raw", "tokens:es6", "tokens:es6:esm", "tokens:es6:dts", "tokens:es6:dts:esm", "watch"),
+);
 
 gulp.task("default", gulp.series("tokens:all", "docs"));

@@ -1,4 +1,4 @@
-import { sizings as fallbackSizings } from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.es6";
+import { sizings as fallbackSizings } from "@twilio-paste/design-tokens/dist/esm/themes/twilio/tokens.es6";
 
 import type {
   BackgroundColorsKeys,

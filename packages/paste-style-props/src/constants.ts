@@ -1,4 +1,4 @@
-import RawJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json";
+import RawJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json" assert { type: "json" };
 import camelCase from "lodash/camelCase";
 
 export const DEPRECATE_TOKENS = Object.values(RawJSON.props)

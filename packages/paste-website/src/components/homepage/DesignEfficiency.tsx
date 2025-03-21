@@ -14,7 +14,7 @@ const { icons: iconsJson } = require("@twilio-paste/icons/json/icons.json");
 
 const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { name }: IconObject) => {
   // eslint-disable-next-line global-require, @typescript-eslint/no-require-imports, unicorn/prefer-module
-  icons[name] = require(`@twilio-paste/icons/esm/${name}.js`)[name];
+  icons[name] = require(`@twilio-paste/icons/cjs/${name}.js`)[name];
   return icons;
 }, {});
 
@@ -64,7 +64,9 @@ const DesignEfficiency: React.FC = (): React.ReactElement<HTMLElement> => {
               if (index >= 22 && index < 44) {
                 return (
                   <Box key={Icon.displayName} marginLeft="spaceNegative180">
-                    <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
+                    <Box size="sizeIcon70">
+                      <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
+                    </Box>
                   </Box>
                 );
               }
