@@ -358,6 +358,7 @@
   "Stack": "@twilio-paste/core/stack",
   "BOX_PROPS_TO_BLOCK": "@twilio-paste/core/box",
   "Box": "@twilio-paste/core/box",
+  "default": "@twilio-paste/core/box",
   "getCustomElementStyles": "@twilio-paste/core/box",
   "safelySpreadBoxProps": "@twilio-paste/core/box",
   "ComboboxPrimitive": "@twilio-paste/core/combobox-primitive",

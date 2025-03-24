@@ -1,3 +1,4 @@
+import { Box } from "./Box";
 export { Box } from "./Box";
 export { getCustomElementStyles } from "./StyleFunctions";
 export { BOX_PROPS_TO_BLOCK, safelySpreadBoxProps } from "./SafelySpreadProps";
@@ -11,3 +12,4 @@ export {
 } from "./types";
 // this is the only interface we want to document
 export type { BoxProps } from "./types";
+export default Box;

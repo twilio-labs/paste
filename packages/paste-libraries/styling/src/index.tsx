@@ -35,3 +35,4 @@ export {
 } from "@emotion/react";
 
 export { styled, createCache };
+export default styled;

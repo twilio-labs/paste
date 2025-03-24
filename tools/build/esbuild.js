@@ -1,7 +1,7 @@
 const path = require("path");
 const esbuild = require("esbuild");
 const { esbuildPluginVersionInjector } = require("esbuild-plugin-version-injector");
-
+const { generateESMPackageJson } = require("./generateESMPackageJson");
 const { PasteCJSResolverPlugin } = require("./plugins/PasteCJSResolver");
 const { EsmExternalsPlugin } = require("./plugins/EsmExternals");
 
@@ -109,34 +109,36 @@ async function build(packageJson) {
       return process.exit(1);
     });
 
-  // Debug
-  await esbuild
-    .build({
-      ...config,
-      format: "cjs",
-      outfile: outFileCJS.replace(".js", ".debug.js"),
-      // Needed to fix ES6 module import paths for CJS builds
-      plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
-    })
-    .catch((error) => {
-      console.error(error);
-      // eslint-disable-next-line unicorn/no-process-exit
-      return process.exit(1);
-    });
+  generateESMPackageJson(packageJson, path.dirname(outFileESM));
 
-  await esbuild
-    .build({
-      ...config,
-      format: "esm",
-      outfile: outFileESM.replace(".es.js", ".debug.es.js"),
-      // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
-    })
-    .catch((error) => {
-      console.error(error);
-      // eslint-disable-next-line unicorn/no-process-exit
-      return process.exit(1);
-    });
+  // Debug
+  // await esbuild
+  //   .build({
+  //     ...config,
+  //     format: "cjs",
+  //     outfile: outFileCJS.replace(".js", ".debug.js"),
+  //     // Needed to fix ES6 module import paths for CJS builds
+  //     plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //     // eslint-disable-next-line unicorn/no-process-exit
+  //     return process.exit(1);
+  //   });
+
+  // await esbuild
+  //   .build({
+  //     ...config,
+  //     format: "esm",
+  //     outfile: outFileESM.replace(".es.js", ".debug.es.js"),
+  //     // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
+  //     plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //     // eslint-disable-next-line unicorn/no-process-exit
+  //     return process.exit(1);
+  //   });
 }
 
 module.exports = { build };
