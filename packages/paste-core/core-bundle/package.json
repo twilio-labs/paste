@@ -7,7 +7,35 @@
   "license": "MIT",
   "main:dev": "src/index.tsx",
   "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    },
+    "./*.js": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    },
+    "./dist/*.js": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    }
+  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -60,7 +88,7 @@
     ]
   },
   "scripts": {
-    "build": "yarn clean && yarn generate-packages && yarn compile && yarn build:types",
+    "build": "yarn clean && yarn clean && NODE_ENV=production node build.js && yarn build:types",
     "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",
     "build:js": "yarn clean && yarn generate-packages && yarn compile",
     "build:types": "./tools/build-types.sh",

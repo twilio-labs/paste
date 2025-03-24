@@ -8,6 +8,24 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "cjs/AcceptIcon.js",
+  "module": "esm/AcceptIcon.js",
+  "exports": {
+    "./*": {
+      "import": "./esm/*.js",
+      "require": "./cjs/*.js",
+      "types": "./esm/*.d.ts"
+    },
+    "./esm/*": {
+      "import": "./esm/*.js",
+      "types": "./esm/*.d.ts"
+    },
+    "./cjs/*": {
+      "import": "./cjs/*.js",
+      "require": "./cjs/*.js",
+      "types": "./cjs/*.d.ts"
+    }
+  },
   "files": [
     "cjs",
     "esm",
@@ -55,6 +73,7 @@
     "lodash": "4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tsx": "^4.0.0"
+    "tsx": "^4.0.0",
+    "typescript": "^4.9.4"
   }
 }

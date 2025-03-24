@@ -12999,6 +12999,7 @@ __metadata:
     react: ^19.0.0
     react-dom: ^19.0.0
     tsx: ^4.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^3.0.0
     "@twilio-paste/box": ^11.0.0
