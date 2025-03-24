@@ -8,8 +8,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "cjs/AcceptIcon.js",
-  "module": "esm/AcceptIcon.js",
   "exports": {
     "./*": {
       "import": "./esm/*.js",
@@ -17,13 +15,22 @@
       "types": "./esm/*.d.ts"
     },
     "./esm/*": {
+      "types": "./esm/*.d.ts",
       "import": "./esm/*.js",
-      "types": "./esm/*.d.ts"
+      "require": "./cjs/*.js"
+    },
+    "./esm": {
+      "import": "./esm",
+      "require": "./esm"
     },
     "./cjs/*": {
+      "types": "./cjs/*.d.ts",
       "import": "./cjs/*.js",
-      "require": "./cjs/*.js",
-      "types": "./cjs/*.d.ts"
+      "require": "./cjs/*.js"
+    },
+    "./*.json": {
+      "import": "./*.json",
+      "require": "./*.json"
     }
   },
   "files": [
