@@ -97,6 +97,7 @@ async function build(packageJson) {
       minifySyntax: true,
       format: "esm",
       outfile: outFileESM,
+      platform: "neutral",
       banner: {
         js: `"use client";`,
       },

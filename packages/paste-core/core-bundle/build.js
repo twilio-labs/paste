@@ -104,6 +104,7 @@ async function build() {
       minifyWhitespace: true,
       minifyIdentifiers: false,
       minifySyntax: true,
+      platform: "neutral",
       format: "esm",
       outdir: "dist/esm",
       banner: {
