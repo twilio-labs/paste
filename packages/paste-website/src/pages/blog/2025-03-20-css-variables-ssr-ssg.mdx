@@ -105,7 +105,7 @@ This section will cover how we implemented this solution on the Paste documentat
 
 ### _documents.tsx
 
-We added a script to the <InlineCode>head</InlineCode> of our <InlineCode>_documents.tsx</InlineCode> file to set the <InlineCode>data-theme</InlineCode> attribute on the <InlineCode>body</InlineCode> element element using a script. This script will check to see if they have a cookie set and if not check the systme prefernces to determine whether users prefer dark or light themes and apply the dark theme if they do. Otherwise we do not set a value. You will see in <InlineCode>_app.tsx</InlineCode> how we handle the default value.
+We added a script to the <InlineCode>head</InlineCode> of our <InlineCode>_documents.tsx</InlineCode> file to set the <InlineCode>data-theme</InlineCode> attribute on the <InlineCode>body</InlineCode> element using a script. This script will check to see if users have a cookie set and if not check the system preferences to determine whether users prefer dark or light themes, and apply the dark theme if they do. Otherwise we do not set a value. You will see in <InlineCode>_app.tsx</InlineCode> how we handle the default value.
 
 Here is the script that is found in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages/_document.tsx"><InlineCode>_documents.tsx</InlineCode></Anchor>:
 
@@ -132,9 +132,9 @@ Here is the script that is found in <Anchor showExternal={true} href="https://gi
 
 ### _app.tsx
 
-In our <InlineCode>_app.tsx</InlineCode> file we import the CSS files that should be applues. We have 2, one that applies the values to root and is considered the default theme and the other that uses the new <InlineCode>tokens.data-theme.css</InlineCode> attribute to apply the theme based on the value set in the <InlineCode>data-theme</InlineCode> attribute.
+In our <InlineCode>_app.tsx</InlineCode> file we import the CSS files that should be applied. We have 2: One that applies the values to root and is considered the default theme, and the other that uses the new <InlineCode>tokens.data-theme.css</InlineCode> attribute to apply the theme based on the value set in the <InlineCode>data-theme</InlineCode> attribute.
 
-You can find the source code <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages/_app.tsx">here</Anchor>.
+You can find the <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages/_app.tsx">source code for _app.tsx here</Anchor>.
 
 <Box marginBottom="space60">
   <CodeBlockWrapper>
@@ -149,7 +149,7 @@ Note here that the import <InlineCode>"@twilio-paste/design-tokens/dist/themes/t
 
 #### ThemeProvider
 
-In this same file we set the ThemeProvider to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encoutnering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
+In this same file we set the ThemeProvider to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encountering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
 
 <Box marginBottom="space60">
   <CodeBlockWrapper>
@@ -163,7 +163,7 @@ In this same file we set the ThemeProvider to use CSS variables instead of the t
 
 ### Switching the theme
 
-We have a hook that is used to switch the themes in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/hooks/useDarkMode.tsx"><InlineCode>useDarkMode.tsx</InlineCode></Anchor>. It is in the <InlineCode>setMode</InlineCode> function we handle setting the data attribute on the body element. This occurs when the user intentionally changes the theme using the theme switcher in the header as this will run client side it cannot be used to set the default value. That comes from the script in the <InlineCode>_document.tsx</InlineCode>.
+We have a hook that is used to switch the themes in <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/hooks/useDarkMode.tsx"><InlineCode>useDarkMode.tsx</InlineCode></Anchor>. In the <InlineCode>setMode</InlineCode> function, we handle setting the data attribute on the body element. This occurs when the user intentionally changes the theme using the theme switcher in the header. As this will run client side, it cannot be used to set the default value. That comes from the script in the <InlineCode>_document.tsx</InlineCode>.
 
 <Box marginBottom="space60">
   <CodeBlockWrapper>
