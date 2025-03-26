@@ -1,0 +1,714 @@
+export const meta = {
+  title: 'Form',
+  description: 'Forms allow users to provide information, complete tasks, or submit requests.',
+  slug: '/patterns/form/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
+import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
+
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import MainImage from '../../../assets/images/patterns/filter-main.png';
+import UsageImage from '../../../assets/images/patterns/filter-usage.png';
+import FilterBarImage from '../../../assets/images/patterns/filter-filter_bar.png';
+import FetchingImage from '../../../assets/images/patterns/filter-fetching.png';
+import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
+import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
+import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
+import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Filter');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<ResponsiveImage src={MainImage} alt="a demo page with filter pattern" />
+
+```jsx
+// import the components for filter group patterns as required
+
+import { FormPillGroup, useFormPillState } from "@twilio-paste/core/form-pill-group";
+import {Input} from '@twilio-paste/core/input';
+import {MultiselectCombobox, useMultiselectCombobox} from "@twilio-paste/core/combobox";
+import {Button} from '@twilio-paste/core/button';
+import {ButtonGroup} from "@twilio-paste/core/button-group";
+import {Disclosure, DisclosureContent, DisclosureHeading} from "@twilio-paste/core/disclosure";
+import {Badge} from "@twilio-paste/core/badge";
+import {Checkbox, CheckboxGroup} from "@twilio-paste/core/checkbox";
+import {Radio, RadioGroup} from "@twilio-paste/core/radio-group";
+import { Popover, PopoverButton, PopoverContainer, usePopoverState } from "@twilio-paste/core/popover";
+```
+
+## Usage
+
+### General
+
+Use forms to present input fields, selection options, and actions in a clear, accessible, and logical flow, ensuring users can easily understand, complete, and submit their information.
+
+A form can be:
+
+<UnorderedList>
+  <ListItem>
+    Simple and user-oriented like survey forms, login form, or a contact form.
+  </ListItem>
+  <ListItem>
+    A complex and feature-driven form like settings, and multi-step forms spread across multiple screens.
+  </ListItem>
+</UnorderedList>
+
+Before designing a form you should:
+
+<UnorderedList>
+  <ListItem>
+    Think about the user’s relationship with the product.
+  </ListItem>
+  <ListItem>
+    Understand the user’s goals associated with the form.
+  </ListItem>
+  <ListItem>
+    Identify essential data needed to achieve your goals. Then, consider the optional data that would be helpful if available but are not critical to the form's success.
+  </ListItem>
+  <ListItem>
+    Communicate the outcome of completing the form so users know what to expect once they submit it.
+  </ListItem>
+</UnorderedList>
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>Don't ask for the same information twice in the same session. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry">WCAG</Anchor></ListItem>
+  <ListItem>Provide accessible error identification and messaging. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification">WCAG</Anchor></ListItem>
+  <ListItem>Group related fields using fieldsets and legends with `FormSection` and `FormSectionHeading` from the <Anchor href="/components/form">Form layout component</Anchor>, which render an HTML fieldset and legend. Reference: <Anchor href="https://webaim.org/techniques/forms/controls">WebAIM</Anchor></ListItem>
+  <ListItem>The order in which form elements are presented on a webpage should be logical and meaningful. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG</Anchor></ListItem>
+</UnorderedList>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Check accessibility for each form element component—for example, follow Time Picker accessibility guidelines. You can also refer to the WCAG Forms Tutorial for more details.
+  </CalloutText>
+</Callout>
+
+## Ingredients
+
+### What’s in a form?
+
+The different parts of a form are:
+
+- [Form layout component]("/components/form"): A wrapper layout component that sets layout and spacing between form elements
+- **Form element**: Any UI component in a form. Examples: Input, Button, Callout.
+- **Form header**: Includes form elements like [Heading](/components/heading) and [Paragraph](/components/paragraph) that describe the purpose of the form. 
+- **Form field**: A UI component in a form where users enter information, including their associated Label and Help Text. Examples: Checkbox, Input, Time Picker—with their Label and Help Text.
+- **Form actions**: Includes form elements like [Button](/components/button) or [Button Group](/components/button-group) for submitting or navigating a form.
+
+ <ResponsiveImage src={FormIngredients} alt="form components split into header, sections and actions" />
+
+
+### General form elements
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Component</Th>
+      <Th>When to use</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/form">Form layout</Anchor></Td>
+      <Td>Arranges a layout of form elements with preset spacing.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/heading">Heading</Anchor> and <Anchor href="/components/paragraph">Paragraph</Anchor></Td>
+      <Td>Explains the purpose of the form or form section.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/label">Label</Anchor></Td>
+      <Td>Provides a visible and accessible name to a form field.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/help-text">Help Text</Anchor></Td>
+      <Td>Helps users prevent an error and describe what makes the form field successful. It also includes error, warning, and success variants to communicate different states on a field.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/button">Button</Anchor> or <Anchor href="/components/button-group">Button Group</Anchor></Td>
+      <Td>Triggers actions and submits forms.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/callout">Callout</Anchor></Td>
+      <Td>Summarizes errors or other important information in the header.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<br />
+
+### User input fields
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Component</Th>
+      <Th>When to use</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/input">Input</Anchor> or <Anchor href="/components/textarea">Textarea</Anchor></Td>
+      <Td>Use Input for single-line text input and Textarea for multi-line text input.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/checkbox">Checkbox</Anchor> or <Anchor href="/components/switch">Switch</Anchor></Td>
+      <Td>Use a Checkbox to enable binary choices that require a submit action. <br/ ><br/ > Use a Switch for immediate binary on/off choices that don’t require a submit action and applies the user's choice instantly.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/file-picker#file-uploader-vs-file-picker">File Picker</Anchor></Td>
+      <Td>Allows the user to upload only one file at a time.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/file-uploader">File Uploader</Anchor></Td>
+      <Td>Allows the user to upload multiple files.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<br />
+
+### Single selection fields
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Component</Th>
+      <Th>When to use</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/radio-group">Radio Group</Anchor> or{" "}
+      <Anchor href="/components/radio-button-group">Radio Button Group</Anchor> or{" "}
+      <Anchor href="/components/visual-picker#visual-picker-radio">Visual Picker Radio</Anchor></Td>
+      <Td>Use for up to 6 fixed list items and when only one selection is allowed.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/select">Select</Anchor> or <Anchor href="/components/combobox">Singleselect Combobox</Anchor></Td>
+      <Td>Use for 6+ fixed list items and when only one selection is allowed. By default, use Select.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/combobox#autocomplete-combobox">Singleselect Combobox - Autocomplete</Anchor></Td>
+      <Td>Use for lists with 15+ options or when users need to search a database to select one option.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<br />
+
+### Multiple selection fields
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Component</Th>
+      <Th>When to use</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/checkbox">Checkbox Group</Anchor> or{" "}
+      <Anchor href="/components/visual-picker#visual-picker-checkbox">Visual Picker Checkbox</Anchor></Td>
+      <Td>Use for up to 6 fixed list items and when multiple selection is allowed.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/multiselect-combobox">Multiselect Combobox</Anchor></Td>
+      <Td>Use for 6+ fixed list items and when multiple selection is allowed.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/form-pill-group">Form Pill Group</Anchor></Td>
+      <Td>Use when you’re editing a collection of data within a form.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<br />
+
+### Numeric fields
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Component</Th>
+      <Th>When to use</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/slider">Slider</Anchor></Td>
+      <Td>Use it when the exact value doesn’t matter.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/input#input-with-number-functionality">Input with number functionality</Anchor></Td>
+      <Td>Use it when the exact numeric value matters.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/date-picker">Date Picker</Anchor></Td>
+      <Td>Use it for selecting specific dates.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/date-picker#date-range-picker">Date Range Picker</Anchor></Td>
+      <Td>Use it for selecting date ranges.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/time-picker">Time Picker</Anchor></Td>
+      <Td>Use it for selecting specific times.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td><Anchor href="/components/time-picker#time-range-picker">Time Range Picker</Anchor></Td>
+      <Td>Use it for selecting time ranges.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<br />
+
+## Variations
+
+### Single step or page forms
+
+A single-step form presents all elements on one page, allowing users to fill out and submit the form in one continuous action. 
+
+Use single-step forms for:
+
+<UnorderedList>
+  <ListItem>
+    Tasks that users can complete in one go without interruptions or needing external references.
+  </ListItem>
+  <ListItem>
+    Low cognitive load forms that require a maximum of 8 fields. For longer forms, use a <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d">Multi-step</Anchor> form or for settings, use the <Anchor href="/page-templates/settings">Settings</Anchor> template and divide the fields with In Page Navigation or Tabs.
+  </ListItem>
+</UnorderedList>
+
+### Multi-step forms
+
+A multi-step form divides the input process into stages, allowing users to complete one section of fields at a time.
+
+Use multi-step forms when:
+
+<UnorderedList>
+  <ListItem>
+    Tasks require a lot of information (example: account creation, application forms, or surveys.)
+  </ListItem>
+  <ListItem>
+    Some fields depend on previous answers.
+  </ListItem>
+  <ListItem>
+    The data being collected can be grouped into distinct sections (example: personal information, preferences, payment details)
+  </ListItem>
+  <ListItem>
+    Helping users focus on one task at a time.
+  </ListItem>
+</UnorderedList>
+
+Use the [Wizard template](/page-templates/wizard#about-wizard) for designing multi-step forms.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Adding a rough time estimate in multi-step form can be helpful as it sets clear expectations and reduces uncertainty for long forms.
+  </CalloutText>
+</Callout>
+
+### Interruptive forms
+
+Interruptive forms use a [Modal](/components/modal), [Alert Dialog](/components/alert-dialog), or [Side Modal](/components/side-modal) as a page overlay that collects user input and blocks interaction with the page until the form is submitted or the modal is dismissed.
+
+Use interruptive forms:
+
+<UnorderedList>
+  <ListItem>
+    For brief interruptions where user input is required, but the interaction is short enough that the user retains context from their previous task.
+  </ListItem>
+  <ListItem>
+    When users need to confirm an action before proceeding, such as deleting an account or submitting a payment.
+  </ListItem>
+  <ListItem>
+    When the form doesn’t require leaving the page or referencing background content.
+  </ListItem>
+</UnorderedList>
+
+Avoid long/multi-step forms inside modals unless absolutely necessary. If a multi-step form inside a modal is needed:
+
+<UnorderedList>
+  <ListItem>
+    Avoid using progress indicators.
+  </ListItem>
+  <ListItem>
+    Ensure that it’s a form that needs to be shown across multiple user flows. For example, phone number provisioning flows are in Modals because they can be launched from multiple touchpoints.
+  </ListItem>
+  <ListItem>
+    Plan for scalability and consider how the form may evolve over time. If the form is likely to get more complex over time, put the form on the page instead.
+  </ListItem>
+</UnorderedList>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Users may lose progress by clicking outside or pressing "Esc." Use the <Anchor href="/patterns/confirmation">Confirmation pattern</Anchor> before closing the form.
+  </CalloutText>
+</Callout>
+
+### Contextual forms
+
+Contextual forms use our [Side Panel](/components/side-panel) component and are primarily used on pages using the [Filter pattern](/patterns/filter) when there are too many filter options to display on the page. 
+Use Contextual forms if the form is something users might interact with while still needing visibility of the background content 
+(e.g., adjusting settings, applying filters, or configuring options without losing context).
+
+### Inline forms
+
+Inline forms use our [Popover](/components/popover) component. Use Inline forms when the input is optional and concise. Popovers work best for lightweight interactions that don’t disrupt the user’s primary workflow.
+
+## Composition
+
+Designing a good form requires making decisions about composition, sequence, form elements, copy, and feedback. 
+Use the [Form layout component](/components/form) to arrange a layout of form elements with preset spacing.
+
+### Number of form elements
+
+The process of completing forms should be as simple as possible. Take the time to evaluate every field you add to your forms. Before adding form elements, ask yourself:
+
+<UnorderedList>
+  <ListItem>
+    Do you really need to ask for this information?
+  </ListItem>
+  <ListItem>
+    Is it information that you can get automatically?
+  </ListItem>
+  <ListItem>
+    Can we prepopulate the field from data we already have from a user?
+  </ListItem>
+  <ListItem>
+    Is there a better time or place to get an answer from our users?
+  </ListItem>
+</UnorderedList>
+
+<Blockquote url="https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php">
+  <BlockquoteContent>
+    Each question in a Web form has a cost…If there are too many questions in the form, you’ll lose users…if there are questions in the form that users consider impertinent or irrelevant—or, even worse, you’ll get made-up data.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Caroline Jarrett" source="The Question Protocol: How to Make Sure Every Form Field Is Necessary" />
+</Blockquote>
+
+Don’t make the user repeat information. For example, if the shipping and billing addresses are the same, provide an option to reuse the shipping address instead of requiring duplicate input.
+
+### Form order
+
+#### Order form fields logically
+
+When ordering your form, place fields in a logical order from a user’s perspective, not the application or database’s logic. For example, it’s unusual to ask for someone’s address before their name.
+
+<Blockquote url="https://www.uxmatters.com/mt/archives/2010/06/the-question-protocol-how-to-make-sure-every-form-field-is-necessary.php">
+  <BlockquoteContent>
+    The order of questions in your form should, as closely as possible, match the way things flow in the user’s mind.
+  </BlockquoteContent>
+  <BlockquoteCitation author="Jessica Enders" source="Designing UX Forms" />
+</Blockquote>
+
+
+#### Organization: When to break into sections or new pages
+
+After determining the number of form fields, decide how to group them into sections, using `FormSection` from the [Form layout component](/components/form). If a form naturally breaks down into short sections, a [single step form](https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.3vpocpbk0gl7) is likely to be a good way to organize the form. When a form becomes long and has more than 8 questions that are only related by a few topics, [multi-step form](https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d) would be a better way to organize the form.
+
+### Form field composition
+
+#### Alignment
+
+Keep forms left-aligned to improve scannability and help users quickly understand the required information. This also makes it easier for keyboard users to tab through fields.
+
+#### Field length
+
+Ensure that field lengths provide both:
+
+<UnorderedList>
+  <ListItem>
+    Meaningful affordances that help people answer questions.
+  </ListItem>
+  <ListItem>
+    Enough room for inputs across multiple languages.
+  </ListItem>
+</UnorderedList>
+
+For example, a “Zip code” field can be `size-20` in width because it’s not expected to maintain a small content length across languages. However a “Destination name” field should stretch to the max width you’ve defined on your content area. Refer to [page templates](/page-templates) for suggested max widths based on the type of page you’re building.
+
+#### Optional vs. Required
+
+Make required and optional fields distinguishable in the Label. Try to avoid optional input fields in forms.
+
+<UnorderedList>
+  <ListItem>
+    If most of the inputs on a form are required, indicate only the few that are optional.
+  </ListItem>
+  <ListItem>
+    If most of the inputs on a form are optional, indicate only the few that are required.
+  </ListItem>
+</UnorderedList>
+
+If you use the `required` prop to indicate required fields, you'll see a "Required" title on the symbol. If you're building for other languages, use the `i18nLabel` prop to translate the "Required" title.
+
+#### Using Help Text
+
+Use [Help Text](/components/help-text) to help users prevent an error and describe what makes the form field successful. Include examples to show the expected format (example: "Example: 123-456-7890" for phone numbers)
+
+Avoid placeholder text. It is not broadly supported by assistive technologies, does not display in older browsers, and disappears from the field when a user enters text.
+
+### Friendly name or non-PII fields
+
+Non-PII (Non-Personally Identifiable Information) fields, especially Friendly name Inputs, require us to inform users when they might accidentally input sensitive information. These fields are marked as “Not PII” in the Twilio API, and require a visible representation in the UI.
+
+Check out to the [Privacy pattern](/patterns/privacy) for more information.
+
+### Conditional fields
+
+Conditional fields in forms appear to users based on their previous interactions or choices.
+
+When using conditional fields:
+
+<UnorderedList>
+  <ListItem>
+    Limit nesting to one level deep. If a conditional field reveals another conditional field (and so on), it can make a form unpredictable and harder to complete.
+  </ListItem>
+  <ListItem>
+    If more than 3 fields need to be conditionally displayed, consider moving them to the next step of the multi-step form.
+  </ListItem>
+  <ListItem>
+    Ensure users understand why new fields appear.
+  </ListItem>
+  <ListItem>
+    Ensure that the revealed conditional field remains on the same page for user reference to previously selected fields and within the recommended field limit for a single page.
+  </ListItem>
+</UnorderedList>
+
+### Form actions
+
+<UnorderedList>
+  <ListItem>
+    Use primary Buttons for key actions like Submit, Save, or Next, helping users complete the form and secondary Buttons for actions like Back or Cancel.
+  </ListItem>
+  <ListItem>
+    When a user is submitting a form, use the format “[Verb] [Object]”. For example, “Add funds” or “Update credit card”.
+  </ListItem>
+</UnorderedList>
+
+#### Actions placement
+
+The primary Button placement depends on the form type:
+
+<UnorderedList>
+  <ListItem>
+    For <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.3vpocpbk0gl7">Single Step Forms</Anchor>, <Anchor href="/components/side-modal">Side Modals</Anchor>, <Anchor href="/components/side-panel">Side Panels</Anchor>, <Anchor href="/components/minimizable-dialog">Minimizable Dialogs</Anchor> and <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.7xhk5supgjav">Popover</Anchor> forms, keep the primary button left-aligned, and placed before secondary buttons for better scannability of the content and its related actions.
+  </ListItem>
+  <ListItem>
+    For <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d">Multi-step Forms</Anchor> and <Anchor href="/page-templates/wizard">Wizards</Anchor>, keep the primary button right-aligned, placed after secondary buttons to indicate the direction of the form. Refer to our <Anchor href="/page-templates/wizard#actions-footer">Wizards action footer</Anchor> guidelines for additional guidance.
+  </ListItem>
+</UnorderedList>
+
+## Behavior
+
+### Validation
+
+#### Validation on submit
+
+Most form validation should occur after a user presses the submit button.
+
+<UnorderedList>
+  <ListItem>
+    Don't prevent form submission by disabling the submit button. Assistive technologies cannot detect disabled buttons. Use error messages to explain what information is missing or incorrect.
+  </ListItem>
+  <ListItem>
+    Disable the primary action button only if you need to prevent duplicate form submissions, or you clearly explain what a user needs to do before submitting the form.
+  </ListItem>
+  <ListItem>
+    If it’s going to take a while to process a form, communicate this to the user with feedback messages and progress indicators (For example, use a loading Button).
+  </ListItem>
+</UnorderedList>
+
+#### Inline validation
+
+Inline validation, either on blur or while typing, should be used rarely. It can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred `on-blur`.
+
+If you absolutely need to validate inline:
+
+<UnorderedList>
+  <ListItem>
+    Use inline validation only where immediate feedback helps, like creating passwords.
+  </ListItem>
+  <ListItem>
+    If validation fails, do not display an error message while the user is typing. Keep the form field in a neutral state and consider using a checklist-style inline validation that marks rules as complete as the user types.
+  </ListItem>
+  <ListItem>
+    Use positive inline validation once the user has entered the data again.
+  </ListItem>
+</UnorderedList>
+
+### Errors
+
+Use an [error Callout](/components/callout#error-callout) to communicate errors for a particular section of a page, or that applies to the whole page. Within the Callout, list errored fields as anchors and shift focus to the first errored field in the form. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+### Confirmation and deletion
+
+<UnorderedList>
+  <ListItem>
+    Use the <Anchor href="/patterns/confirmation">Confirmation pattern</Anchor> for critical, infrequent, and possibly destructive actions. For frequent actions, use the <Anchor href="/patterns/delete#after-deletion">after deletion pattern</Anchor> and offer a way to undo the action in the success message instead.
+  </ListItem>
+  <ListItem>
+    If a user needs to agree to Terms of Service or similar, use <Anchor href="/components/checkbox#checkbox-disclaimer">Checkbox Disclaimer</Anchor>
+  </ListItem>
+  <ListItem>
+    If the user needs to review multiple answers, show a full page with the question asked, answer they gave, and allow them to change their answer, if they need to.
+  </ListItem>
+</UnorderedList>
+
+### Success
+
+Clearly communicate when a form has been completed successfully and what happened as a result using success messages with the [Toast](/components/toast) component.
+
+Refer to our [Notifications and feedback pattern](/patterns/notifications-and-feedback) for additional guidance on processing states of different complexity and emotional levels in forms.
+
+## Related patterns and templates
+
+<UnorderedList>
+  <ListItem>
+    <Anchor href="/patterns/confirmation">Confirmation</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/patterns/create">Create</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/patterns/error-state">Error state</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/patterns/notifications-and-feedback">Notifications and feedback</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/patterns/privacy">Privacy</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/page-templates/settings">Settings</Anchor>
+  </ListItem>
+  <ListItem>
+    <Anchor href="/page-templates/wizard">Wizard</Anchor>
+  </ListItem>
+</UnorderedList>
+
+## References
+
+Further reading on forms best practices.
+
+<OrderedList>
+  <ListItem>
+    Kathryn Whitenton, <Anchor href="https://www.nngroup.com/articles/web-form-design/">Website Form Usability: Top 10 Recommendations</Anchor> (Nielsen Norman Group)
+  </ListItem>
+  <ListItem>
+    Katie Sherwin, <Anchor href="https://www.nngroup.com/articles/form-design-placeholders/">Placeholders in Form Fields are Harmful</Anchor> (Nielsen Norman Group, 2014)
+  </ListItem>
+  <ListItem>
+    Andrew Coyle, <Anchor href="https://uxdesign.cc/design-better-forms-96fadca0f49c">Design Better Forms</Anchor> (UX Collective, 2016)
+  </ListItem>
+  <ListItem>
+    Adam Silver, <Anchor href="https://adamsilver.io/blog/form-design-from-zero-to-hero-all-in-one-blog-post/">Form Design: From zero to hero all in one blog post</Anchor> (2019)
+  </ListItem>
+  <ListItem>
+    Luke Wroblewski, <Anchor href="https://www.lukew.com/resources/web_form_design.asp">Web Form Design: Filling in the blanks</Anchor> (2008)
+  </ListItem>
+</OrderedList>
+
+---
+
+<StoryPreview
+  title="Filter bar example"
+  storyID="website-filterexamples--default-filter-example"
+  height="600px"
+  code={`
+export const FilterPatternExample = ({data}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  const pillState = useFormPillState();
+  const popover = usePopoverState({ baseId: pill });
+  return (
+    <>
+      <Heading as="h1" variant="heading50">Filter</Heading>
+      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
+        {filterList.map((pill) => {
+          return (
+            <PopoverContainer key={pill} state={popover}>
+              <PopoverButton
+                variant="reset"
+                size="reset"
+                borderRadius="borderRadiusPill"
+              >
+                <FormPill
+                  {...pillState}
+                  selected={isSelected}
+                  onDismiss={
+                    // Remove the filter from the selected filters
+                  }
+                >
+                  {!isSelected ? <PlusIcon decorative /> : null}
+                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
+                </FormPill>
+              </PopoverButton>
+              <Popover aria-label={pill} width="size40">
+                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
+              </Popover>
+            </PopoverContainer>
+          );
+        })}
+      </FormPillGroup>
+      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
+        <Box display="flex" columnGap="space30">
+          <DetailText marginTop="space0">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
+            </Text>
+          </DetailText>
+          {filteredTableData.length !== data.length ? (
+            <Button variant="link" onClick={handleClearAll}>
+              Clear all
+            </Button>
+          ) : null}
+        </Box>
+      </Box>
+      <DataGrid data={filteredTableData} />
+    </>
+  )
+}`}
+/>
+</content>
+
+</contentwrapper>
