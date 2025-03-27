@@ -2,8 +2,8 @@ export const meta = {
   title: 'Theme switching with SSR and SSG',
   slug: '/blog/2025-03-20-css-variables-ssr-ssg/',
   date: '2025-03-20',
-  author: 'Paste',
-  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author: 'Kristian Antrobus',
+  avatar: 'https://avatars.githubusercontent.com/u/55083528?v=4&size=64',
   excerpt: 'This blog describes how the Paste website uses CSS variables to switch themes with server-side rendering (SSR) and static site generation (SSG) with our existing ThemeProvider component.',
 };
 
@@ -12,6 +12,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {InlineCode} from '@twilio-paste/inline-code';
 import {Anchor} from '@twilio-paste/anchor';
+import {Grid, Column} from '@twilio-paste/grid';
 import {CodeBlock, CodeBlockHeader, CodeBlockWrapper} from '@twilio-paste/code-block';
 import {ResponsiveImage} from '../../components/ResponsiveImage';
 
@@ -46,6 +47,14 @@ export const getStaticProps = async () => {
 
 <ArticleContent>
 
+## TL;DR
+By leveraging Static Site Generation (SSG) in our documentation site, we optimize performance by serving pre-rendered pages. However, this approach introduces challenges with theme switching, such as flickering due to mismatches between the pre-rendered HTML and client-side theme preferences.
+
+To resolve this, we implemented a <InlineCode>data-theme</InlineCode> attribute combined with CSS variables, ensuring that the correct theme is applied before React hydrates the page. This method prevents the flash effect and provides a seamless user experience. Additionally, our implementation in <InlineCode>_document.tsx</InlineCode> and <InlineCode>_app.tsx</InlineCode>, along with the <InlineCode>ThemeProvider</InlineCode> configuration, ensures that theme switching is handled efficiently without unnecessary re-renders.
+
+By following this approach, we maintain both the performance benefits of SSG and a smooth, flicker-free theme transition for users.
+
+
 ## What is SSR and SSG?
 
 Server-Side Rendering (SSR) and Static Site Generation (SSG) are two different rendering strategies used in frameworks like Next.js, each with its own advantages and use cases.
@@ -65,16 +74,19 @@ With SSG, the page is pre-built at build time and served as static HTML. If the 
 
 SSR generates the page on each request, which can help deliver the correct theme initially, but if the theme is still set on the client side, the same flickering issue can occur.
 
-#### Delay in Hydration Process
+#### Delay in Hydration process
 Next.js sends pre-rendered HTML first, then React hydrates it by attaching event listeners and making it interactive. If the theme is set dynamically via JavaScript on the client, React may initially render the wrong theme (based on the server-provided HTML) before correcting it after hydration. This is particularly noticeable when using a system preference-based theme (like dark mode) or when checking user preferences stored in localStorage.
 
 #### Fallback or Default Theme During Initial Render
 If you don’t handle the theme properly, Next.js may serve a default theme (e.g., light mode) before applying the correct one. This results in a brief flash where the wrong theme appears before React updates it.
 
-
 ### The solution: CSS variables
 
 Using CSS variables with <InlineCode>data-theme</InlineCode> set on the <InlineCode>html</InlineCode> or <InlineCode>body</InlineCode> is the most effective solution as the styles are applied <strong>before</strong> React hydrates the page. This ensures that the correct theme is applied from the start, preventing any flickering or flash.
+
+This works because the browser applies the correct theme instantly, even before JavaScript runs, ensuring there is no mismatch between the server-rendered page and the client-rendered one. The original behaviour picked up stlying changes **after** JavaScript executes, causing a visible flicker when the correct theme is applied later.
+
+
 
 To support this approach, as of <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/design-tokens">@twilio-paste/design-tokens v10.14.0</Anchor> and <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/core">@twilio-paste/core v20.23.0</Anchor> we have added a new file to each of our themes called <InlineCode>tokens.data-theme.css</InlineCode> which contains the CSS variables for each theme when the <InlineCode>data-theme</InlineCode> is set.
 
@@ -151,15 +163,26 @@ Note here that the import <InlineCode>"@twilio-paste/design-tokens/dist/themes/t
 
 In this same file we set the ThemeProvider to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encountering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
 
-<Box marginBottom="space60">
-  <CodeBlockWrapper>
-    <CodeBlockHeader>ThemeProvider implementation</CodeBlockHeader>
-    <CodeBlock language='javascript' code={`<Theme.Provider
+<Grid gutter="space30" vertical={[true, true, false]}>
+  <Column span={[12, 12, 6]}>
+    <CodeBlockWrapper>
+        <CodeBlockHeader>ThemeProvider CSS implementation</CodeBlockHeader>
+        <CodeBlock language='javascript' code={`<Theme.Provider
   useCSSVariables={true}
   cacheProviderProps={{ key: "next" }}
 >`}/>
-  </CodeBlockWrapper>
-</Box>
+    </CodeBlockWrapper>
+  </Column>
+  <Column span={[12,12,6]}>
+    <CodeBlockWrapper>
+        <CodeBlockHeader>ThemeProvider theme implementation</CodeBlockHeader>
+        <CodeBlock language='javascript' code={`<Theme.Provider
+  theme={theme || 'twilio'}
+  cacheProviderProps={{ key: "next" }}
+>`}/>
+      </CodeBlockWrapper>
+  </Column>
+</Grid>
 
 ### Switching the theme
 
@@ -175,14 +198,6 @@ We have a hook that is used to switch the themes in <Anchor showExternal={true} 
 };`}/>
   </CodeBlockWrapper>
 </Box>
-
-## Conclusion
-
-By leveraging Static Site Generation (SSG) in our documentation site, we optimize performance by serving pre-rendered pages. However, this approach introduces challenges with theme switching, such as flickering due to mismatches between the pre-rendered HTML and client-side theme preferences.
-
-To resolve this, we implemented a <InlineCode>data-theme</InlineCode> attribute combined with CSS variables, ensuring that the correct theme is applied before React hydrates the page. This method prevents the flash effect and provides a seamless user experience. Additionally, our implementation in <InlineCode>_document.tsx</InlineCode> and <InlineCode>_app.tsx</InlineCode>, along with the <InlineCode>ThemeProvider</InlineCode> configuration, ensures that theme switching is handled efficiently without unnecessary re-renders.
-
-By following this approach, we maintain both the performance benefits of SSG and a smooth, flicker-free theme transition for users.
 
 </ArticleContent>
 
