@@ -72,6 +72,8 @@ As our docs site data doesn't change between builds we use SSG to generate our p
   <ResponsiveBorderedImage src={FlickerDemo} alt="Preview of theme flicker issue" />
 </Box>
 
+When loading our site previously with a dark mode preference you would see the above flicker. This is due to the style being applied at the JavaScript level on the client and the server rendering the default light theme. This means there is a breif moment where the light theme is applied before the dark theme is applied by JavaScript.
+
 When using SSG (Static Site Generation) and SSR (Server-Side Rendering) in Next.js, you may sometimes experience a flashbang effect or theme flickering when loading a page. This happens due to differences in how the initial HTML is generated versus how the React client-side hydration process takes over, recognizing the client preferences. Here’s why:
 
 #### Mismatch between pre-rendered HTML and client state
@@ -166,7 +168,7 @@ Note here that the import <InlineCode>"@twilio-paste/design-tokens/dist/themes/t
 
 In this same file we set the ThemeProvider to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encountering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
 
-<Grid gutter="space30" vertical={[true, true, false]}>
+<Grid gutter="space30" vertical={[true, true, false]} marginBottom="space60">
   <Column span={[12, 12, 6]}>
     <CodeBlockWrapper>
         <CodeBlockHeader>ThemeProvider CSS implementation</CodeBlockHeader>
@@ -201,6 +203,8 @@ We have a hook that is used to switch the themes in <Anchor showExternal={true} 
 };`}/>
   </CodeBlockWrapper>
 </Box>
+
+As this update the body attribute <InlineCode>theme</InlineCode> and we are importing a CSS stylesheet that switches the variable values based on that value, the new theme will be applied. This works because the <InlineCode>ThemeProvider</InlineCode> is listening for the variable values and not pulling them from a static theme via JavaScript. It also stores the preference in a cookie ready to be picked up and applied to the body before React hydrates the page resulting in no flicker.
 
 </ArticleContent>
 
