@@ -14,10 +14,12 @@ import {InlineCode} from '@twilio-paste/inline-code';
 import {Anchor} from '@twilio-paste/anchor';
 import {Grid, Column} from '@twilio-paste/grid';
 import {CodeBlock, CodeBlockHeader, CodeBlockWrapper} from '@twilio-paste/code-block';
-import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {ResponsiveBorderedImage} from '../../components/ResponsiveBorderedImage';
 
 import DefaultLayout from '../../layouts/DefaultLayout';
 import {getNavigationData} from '../../utils/api';
+import FlickerDemo from "../../assets/images/articles/2025-03-20-css-variables-ssr-ssg/flicker.gif";
+
 
 export default DefaultLayout;
 
@@ -54,7 +56,6 @@ To resolve this, we implemented a <InlineCode>data-theme</InlineCode> attribute 
 
 By following this approach, we maintain both the performance benefits of SSG and a smooth, flicker-free theme transition for users.
 
-
 ## What is SSR and SSG?
 
 Server-Side Rendering (SSR) and Static Site Generation (SSG) are two different rendering strategies used in frameworks like Next.js, each with its own advantages and use cases.
@@ -66,6 +67,10 @@ SSG, on the other hand, generates pages at build time, meaning the content is pr
 As our docs site data doesn't change between builds we use SSG to generate our pages to utilize the speed benefits of static site generation.
 
 ### Issue with theme switching
+
+<Box width="100%" maxWidth="700px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={FlickerDemo} alt="Preview of theme flicker issue" />
+</Box>
 
 When using SSG (Static Site Generation) and SSR (Server-Side Rendering) in Next.js, you may sometimes experience a flashbang effect or theme flickering when loading a page. This happens due to differences in how the initial HTML is generated versus how the React client-side hydration process takes over, recognizing the client preferences. Here’s why:
 
