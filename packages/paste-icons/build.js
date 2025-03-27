@@ -19,6 +19,9 @@ esbuild
     ...config,
     format: "cjs",
     outdir: "cjs",
+    banner: {
+      js: `"use client";`,
+    },
   })
   .catch(() => process.exit(1));
 
@@ -27,5 +30,8 @@ esbuild
     ...config,
     format: "esm",
     outdir: "esm",
+    banner: {
+      js: `"use client";`,
+    },
   })
   .catch(() => process.exit(1));

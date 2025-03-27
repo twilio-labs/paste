@@ -99,6 +99,30 @@ export const TitleBodyButtonExample = `const CardExample = () => {
 
 render(<CardExample />);`.trim();
 
+export const FillHeightExample = `const CardExample = () => {
+  return (
+    <Grid gutter="space30">
+      <Column>
+        <Card fillHeight>
+          <Paragraph>
+            With fillHeight, the card will stretch to fill the height of the container.
+          </Paragraph>
+        </Card>
+      </Column>
+      <Column>
+        <Card>
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+          </Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+  );
+};
+
+render(<CardExample />);`.trim();
+
 export const MarketingOneExample = `const CardExample = () => {
   return (
     <Card>

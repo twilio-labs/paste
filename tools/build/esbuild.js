@@ -77,6 +77,9 @@ async function build(packageJson) {
       minifySyntax: true,
       format: "cjs",
       outfile: outFileCJS,
+      banner: {
+        js: `"use client";`,
+      },
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
     })
@@ -94,6 +97,9 @@ async function build(packageJson) {
       minifySyntax: true,
       format: "esm",
       outfile: outFileESM,
+      banner: {
+        js: `"use client";`,
+      },
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
