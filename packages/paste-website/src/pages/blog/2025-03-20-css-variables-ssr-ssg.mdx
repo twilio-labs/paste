@@ -46,7 +46,7 @@ export const getStaticProps = async () => {
 
 <ArticleContent>
 
-## What is SSR and SSG?
+## What are SSR and SSG?
 
 Server-Side Rendering (SSR) and Static Site Generation (SSG) are two different rendering strategies used in frameworks like Next.js, each with its own advantages and use cases.
 
@@ -60,7 +60,7 @@ As our docs site data doesn't change between builds we use SSG to generate our p
 
 When using SSG (Static Site Generation) and SSR (Server-Side Rendering) in Next.js, you may sometimes experience a flashbang effect or theme flickering when loading a page. This happens due to differences in how the initial HTML is generated versus how the React client-side hydration process takes over, recognizing the client preferences. Here’s why:
 
-#### Mismatch Between Pre-Rendered HTML and Client State
+#### Mismatch between pre-rendered HTML and client state
 With SSG, the page is pre-built at build time and served as static HTML. If the theme (e.g., dark mode or light mode) is determined dynamically on the client side—perhaps by checking localStorage or user preferences—there can be a mismatch between the initial HTML (which doesn't know the user's preference) and the hydrated React state. This causes a flicker when React updates the page with the correct theme after loading.
 
 SSR generates the page on each request, which can help deliver the correct theme initially, but if the theme is still set on the client side, the same flickering issue can occur.
@@ -68,7 +68,7 @@ SSR generates the page on each request, which can help deliver the correct theme
 #### Delay in Hydration Process
 Next.js sends pre-rendered HTML first, then React hydrates it by attaching event listeners and making it interactive. If the theme is set dynamically via JavaScript on the client, React may initially render the wrong theme (based on the server-provided HTML) before correcting it after hydration. This is particularly noticeable when using a system preference-based theme (like dark mode) or when checking user preferences stored in localStorage.
 
-#### Fallback or Default Theme During Initial Render
+#### Fallback or default theme during initial render
 If you don’t handle the theme properly, Next.js may serve a default theme (e.g., light mode) before applying the correct one. This results in a brief flash where the wrong theme appears before React updates it.
 
 
@@ -76,7 +76,7 @@ If you don’t handle the theme properly, Next.js may serve a default theme (e.g
 
 Using CSS variables with <InlineCode>data-theme</InlineCode> set on the <InlineCode>html</InlineCode> or <InlineCode>body</InlineCode> is the most effective solution as the styles are applied <strong>before</strong> React hydrates the page. This ensures that the correct theme is applied from the start, preventing any flickering or flash.
 
-To support this approach, as of <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/design-tokens">@twilio-paste/design-tokens v10.14.0</Anchor> and <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/core">@twilio-paste/core v20.23.0</Anchor> we have added a new file to each of our themes called <InlineCode>tokens.data-theme.css</InlineCode> which contains the CSS variables for each theme when the <InlineCode>data-theme</InlineCode> is set.
+To support this approach, as of <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/design-tokens">@twilio-paste/design-tokens v10.14.0</Anchor> and <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/core">@twilio-paste/core v20.23.0</Anchor>, we have added a new file to each of our themes called <InlineCode>tokens.data-theme.css</InlineCode> which contains the CSS variables for each theme when the <InlineCode>data-theme</InlineCode> is set.
 
 An example of how this CSS file is structured:
 
@@ -99,7 +99,7 @@ An example of how this CSS file is structured:
 We have also added a new prop to the <InlineCode>ThemeProvider</InlineCode> called <InlineCode>useCSSVariables</InlineCode> which will allow you to use CSS variables instead of the theme files we previously configured. Note that we only want to use CSS variables when encoutnering this issue and not as a standard. For all other use cases we recommend using the <InlineCode>theme</InlineCode> prop.
 
 
-## Paste Doc site implementation
+## Paste docs site implementation
 
 This section will cover how we implemented this solution on the Paste documentation site using Next.js.
 
