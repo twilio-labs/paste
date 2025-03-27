@@ -78,7 +78,7 @@ The latest version release includes full support for Paste within a React 19 app
 
 *Note: only the three latest versions of React are supported with Paste, so React 16 support is no longer guaranteed.*
 
-### [Elevation foundations](/foundations/elevation)
+### Elevation foundations
 
 <Box marginBottom="space60" display="flex" justifyContent="center">
     <Box
@@ -91,22 +91,12 @@ The latest version release includes full support for Paste within a React 19 app
     />
 </Box>
 
-Elevation represents how "close" or "far" an element feels from the user in a digital context, using a combination of shadows, colors and overlays to create a layering effect, making elements feel distinct, focused or prioritized. Take a look at the new guidelines for context on styles used in Paste components or for direction on styling your own custom components with elevation.
+Elevation represents how "close" or "far" an element feels from the user in a digital context, using a combination of shadows, colors and overlays to create a layering effect, making elements feel distinct, focused or prioritized. [Take a look at the new guidelines](/foundations/elevation) for context on styles used in Paste components or for direction on styling your own custom components with elevation.
 
 ### Figma wireframe theme
 
-<Box marginBottom="space60" display="flex" justifyContent="center">
-    <Box
-      as={Image}
-      maxWidth="70%"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorder"
-      height="100%"
-      src={Wireframe}
-      alt="Figma wireframe theme"
-      style={{ objectFit: "contain" }}
-    />
+<Box width="100%" maxWidth="600px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={Wireframe} alt="Figma wireframe theme" />
 </Box>
 
 A wireframe theme is now available in Figma! This theme can help with testing design concepts, presenting early work, and learning and iterating rapidly.
@@ -115,51 +105,32 @@ Huge thanks to **Sam Muñoz** for contributing this theme, and his amazing work 
 
 If you’re an engineer who would find a theme like this helpful in code, please reach out to us in a [Github Discussion](https://github.com/twilio-labs/paste/discussions)
 
-### [Keyboard Key](/components-keyboard-key) component
+### Keyboard Key component
 
-<Box marginBottom="space60" display="flex" justifyContent="center">
-    <Box
-      as={Image}
-      maxWidth="40%"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorder"
-      height="100%"
-      src={KeyboardKey}
-      alt="Keyboard Key component example"
-      style={{ objectFit: "contain" }}
-    />
+<Box width="100%" maxWidth="400px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={KeyboardKey} alt="Keyboard Key component example" />
 </Box>
 
-Keyboard Key is a styled text component intended to differentiate keyboard commands and shortcuts from other types of text. The component also includes a `pressed` state, adjusting styles to provide feedback to the user when the given key is active.
+[Keyboard Key](/components/keyboard-key) is a styled text component intended to differentiate keyboard commands and shortcuts from other types of text. The component also includes a `pressed` state, adjusting styles to provide feedback to the user when the given key is active.
 
-### [Blockquote](/components/blockquote) and [Example Text](/components/example-text) components
+### Blockquote and Example Text components
 
-<Box marginBottom="space60" display="flex" justifyContent="center">
-    <Box
-      as={Image}
-      maxWidth="40%"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorder"
-      height="100%"
-      src={Blockquote}
-      alt="Blockquote and Example Text components"
-      style={{ objectFit: "contain" }}
-    />
+<Box width="100%" maxWidth="400px" display="block" margin="0 auto">
+  <ResponsiveBorderedImage src={Blockquote} alt="Blockquote and Example Text components" />
 </Box>
 
-A Blockquote is a stylized text wrapper for a quotation and source, while Example Text is a stylized text wrapper that distinguishes user input examples from body text. Both can be used to enhance readability and understanding of written text.
+A [Blockquote](/components/blockquote) is a stylized text wrapper for a quotation and source, while [Example Text](/components/example-text) is a stylized text wrapper that distinguishes user input examples from body text. Both can be used to enhance readability and understanding of written text.
 
-### [Typewriter animations in AI Chat Log](/components/ai-chat-log#animating)
+### Typewriter animations in AI Chat Log
 
 <Box marginBottom="space60" display="flex" justifyContent="center">
     <Box
       as={Image}
       maxWidth="80%"
+      borderColor="colorBorderWeaker"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderColor="colorBorder"
+      borderRadius="borderRadius20"
       height="100%"
       src={AI}
       alt="AI Chat Log with typewriter animations"
@@ -167,7 +138,8 @@ A Blockquote is a stylized text wrapper for a quotation and source, while Exampl
     />
 </Box>
 
-Typewriter animations now work out-of-the-box on the AI Chat Log component. Use the animated prop on messages returned from the AI in order to implement the typewriter animations. The animations will perform well even with non-text components in the body of the AI message.
+
+[Typewriter animations](/components/ai-chat-log#animating) now work out-of-the-box on the AI Chat Log component. Use the animated prop on messages returned from the AI in order to implement the typewriter animations. The animations will perform well even with non-text components in the body of the AI message.
 
 ### Additional updates
 
