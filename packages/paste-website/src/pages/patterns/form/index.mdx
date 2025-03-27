@@ -13,6 +13,42 @@ import {Heading} from '@twilio-paste/heading';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
+import {
+  Form,
+  FormActions,
+  FormControl,
+  FormControlTwoColumn,
+  FormSection,
+  FormSectionDescription,
+  FormSectionHeading,
+} from '@twilio-paste/form';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {ArrowBackIcon} from '@twilio-paste/icons/esm/ArrowBackIcon';
+import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import {Select, Option} from '@twilio-paste/select';
+import {Separator} from '@twilio-paste/separator';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {HelpText} from '@twilio-paste/help-text';
+import {Button} from '@twilio-paste/button';
+import {Text} from '@twilio-paste/text';
+import {
+  PageHeader,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderKeyword,
+  PageHeaderParagraph,
+  PageHeaderSetting,
+} from "@twilio-paste/page-header";
+import {
+  ProgressStepComplete,
+  ProgressStepCurrent,
+  ProgressStepIncomplete,
+  ProgressStepSeparator,
+  ProgressSteps,
+} from "@twilio-paste/progress-steps";
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -25,6 +61,9 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
+import {sectionsForm} from '../../../component-examples/FormExamples';
+import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
+import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 
 export default DefaultLayout;
 
@@ -317,6 +356,32 @@ Use single-step forms for:
   </ListItem>
 </UnorderedList>
 
+<LivePreview
+  scope={{
+    Form,
+    FormActions,
+    FormControl,
+    FormSection,
+    FormSectionDescription,
+    FormSectionHeading,
+    Separator,
+    SearchIcon,
+    Heading,
+    Input,
+    Label,
+    Button,
+    Select,
+    Option,
+    useUIDSeed,
+    HelpText,
+    Paragraph,
+  }}
+  language="jsx"
+  noInline
+>
+  {sectionsForm}
+</LivePreview>
+
 ### Multi-step forms
 
 A multi-step form divides the input process into stages, allowing users to complete one section of fields at a time.
@@ -345,6 +410,41 @@ Use the [Wizard template](/page-templates/wizard#about-wizard) for designing mul
     Adding a rough time estimate in multi-step form can be helpful as it sets clear expectations and reduces uncertainty for long forms.
   </CalloutText>
 </Callout>
+
+<LivePreview
+  scope={{
+    Box,
+    PageHeader,
+    PageHeaderSetting,
+    PageHeaderDetails,
+    PageHeaderKeyword,
+    PageHeaderHeading,
+    PageHeaderParagraph,
+    ProgressSteps,
+    ProgressStepComplete,
+    ProgressStepSeparator,
+    ProgressStepCurrent,
+    ProgressStepIncomplete,
+    Form,
+    FormSection,
+    FormSectionHeading,
+    FormSectionDescription,
+    FormControl,
+    Label,
+    Input,
+    Text,
+    Button,
+    Separator,
+    ArrowBackIcon,
+    ArrowForwardIcon,
+    Paragraph,
+    useUID
+  }}
+  language="jsx"
+  noInline
+>
+  {DefaultWizardOrderedListExampleRender}
+</LivePreview>
 
 ### Interruptive forms
 
@@ -389,6 +489,92 @@ Avoid long/multi-step forms inside modals unless absolutely necessary. If a mult
 Contextual forms use our [Side Panel](/components/side-panel) component and are primarily used on pages using the [Filter pattern](/patterns/filter) when there are too many filter options to display on the page. 
 Use Contextual forms if the form is something users might interact with while still needing visibility of the background content 
 (e.g., adjusting settings, applying filters, or configuring options without losing context).
+
+<StoryPreview
+  title="More filters Side Panel example"
+  storyID="website-filterexamples--more-filter-example"
+  height="600px"
+  code={`
+export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode => {
+  const [selectedFilters, setSelectedFilters] = React.useState({});
+  const pillState = useFormPillState();
+  const [filteredTableData, setFilteredTableData] = React.useState(data);
+  return (
+    <>
+      <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <SidePanel>
+          <SidePanelHeader>
+            <Heading as="h3" variant="heading30">
+              More filters
+            </Heading>
+          </SidePanelHeader>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          <SidePanelBody>
+            <Box
+              display="flex"
+              flexDirection="column"
+              rowGap="space40"
+              marginTop="space70"
+              marginBottom="space70"
+              width="100%"
+            >
+              {filterList.map((filter) => {
+                return (
+                <Disclosure>
+                  <DisclosureHeading as="h2" variant="heading50">
+                    <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space20" width="100%">
+                      <Box as="span">{filter.label}</Box>
+                        {selectedCount ? (
+                          <Badge as="span" variant="neutral_counter" size="small">
+                            Selected {filter.type === "status" ? 1 : selectedCount}
+                          </Badge>
+                        ) : null}
+                      </Box>
+                  </DisclosureHeading>
+                  <DisclosureContent>
+                    <FilterComponent
+                      key={filter.label}
+                      label={filter.label}
+                      items={filter.items}
+                      setSelectedCount={setSelectedCount}
+                      setSelectedMoreFilters={setSelectedMoreFilters}
+                      selectedMoreFilters={tempSelectedMoreFilters}
+                    />
+                  </DisclosureContent>
+                </Disclosure>
+                );
+              })}
+            </Box>
+          </SidePanelBody>
+          <SidePanelFooter>
+            <ButtonGroup>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  // Apply filters
+                }}
+              >
+                Apply
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  // Clear all filters
+                }}
+              >
+                Clear all
+              </Button>
+            </ButtonGroup>
+          </SidePanelFooter>
+        </SidePanel>
+        <SidePanelPushContentWrapper>
+        // Filter components from other examples
+        </SidePanelPushContentWrapper>
+      </SidePanelContainer>
+    </>
+  )
+}`}
+/>
 
 ### Inline forms
 
@@ -492,6 +678,8 @@ Avoid placeholder text. It is not broadly supported by assistive technologies, d
 Non-PII (Non-Personally Identifiable Information) fields, especially Friendly name Inputs, require us to inform users when they might accidentally input sensitive information. These fields are marked as “Not PII” in the Twilio API, and require a visible representation in the UI.
 
 Check out to the [Privacy pattern](/patterns/privacy) for more information.
+
+<LivePreview scope={{Label, Input, HelpText, Anchor}}>{PrivacyExample}</LivePreview>
 
 ### Conditional fields
 
