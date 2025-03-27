@@ -72,7 +72,7 @@ As our docs site data doesn't change between builds we use SSG to generate our p
   <ResponsiveBorderedImage src={FlickerDemo} alt="Preview of theme flicker issue" />
 </Box>
 
-When loading our site previously with a dark mode preference you would see the above flicker. This is due to the style being applied at the JavaScript level on the client and the server rendering the default light theme. This means there is a breif moment where the light theme is applied before the dark theme is applied by JavaScript.
+When loading our site previously with a dark mode preference you would see the above flicker. This is due to the style being applied at the JavaScript level on the client and the server rendering the default light theme. This means there is a brief moment where the light theme is applied before the dark theme is applied by JavaScript.
 
 When using SSG (Static Site Generation) and SSR (Server-Side Rendering) in Next.js, you may sometimes experience a flashbang effect or theme flickering when loading a page. This happens due to differences in how the initial HTML is generated versus how the React client-side hydration process takes over, recognizing the client preferences. Here’s why:
 
@@ -91,7 +91,7 @@ If you don’t handle the theme properly, Next.js may serve a default theme (e.g
 
 Using CSS variables with <InlineCode>data-theme</InlineCode> set on the <InlineCode>html</InlineCode> or <InlineCode>body</InlineCode> is the most effective solution as the styles are applied <strong>before</strong> React hydrates the page. This ensures that the correct theme is applied from the start, preventing any flickering or flash.
 
-This works because the browser applies the correct theme instantly, even before JavaScript runs, ensuring there is no mismatch between the server-rendered page and the client-rendered one. The original behaviour picked up stlying changes **after** JavaScript executes, causing a visible flicker when the correct theme is applied later.
+This works because the browser applies the correct theme instantly, even before JavaScript runs, ensuring there is no mismatch between the server-rendered page and the client-rendered one. The original behavior picked up stlying changes **after** JavaScript executes, causing a visible flicker when the correct theme is applied later.
 
 To support this approach, as of <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/design-tokens">@twilio-paste/design-tokens v10.14.0</Anchor> and <Anchor showExternal={true} href="https://www.npmjs.com/package/@twilio-paste/core">@twilio-paste/core v20.23.0</Anchor>, we have added a new file to each of our themes called <InlineCode>tokens.data-theme.css</InlineCode> which contains the CSS variables for each theme when the <InlineCode>data-theme</InlineCode> is set.
 
