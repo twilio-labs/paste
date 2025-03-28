@@ -73,7 +73,7 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {ConditionalFormsExample, InlineFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
+import {ConditionalFormsExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 
@@ -844,6 +844,20 @@ If you absolutely need to validate inline:
     Use positive inline validation once the user has entered the data again.
   </ListItem>
 </UnorderedList>
+
+<LivePreview
+  scope={{
+    Box,
+    Label,
+    Input,
+    HelpText,
+    useUID
+  }}
+  language="jsx"
+  noInline
+>
+  {InlineValidationFormsExample}
+</LivePreview>
 
 ### Errors
 

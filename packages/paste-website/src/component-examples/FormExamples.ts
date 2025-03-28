@@ -603,3 +603,33 @@ const FormExample = () => {
 render(
   <FormExample />
 )`.trim();
+
+export const InlineValidationFormsExample = `
+const FormExample = () => {
+  const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
+  const password = useUID();
+  const isFourCharacter = selectedValue?.length >= 4;
+  const hasNumber = /\d/.test(selectedValue || "");
+  const hasUppercase = /[A-Z]/.test(selectedValue || "");
+  return (
+    <Box maxWidth="size30" margin="auto" marginTop="space130">
+      <Box>
+        <Label htmlFor={password}>Password</Label>
+        <Input
+          name="password"
+          id={password}
+          type="password"
+          value={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        />
+      </Box>
+      <HelpText variant={isFourCharacter ? "success" : "default"}>Atleast 4 character</HelpText>
+      <HelpText variant={hasNumber ? "success" : "default"}>Atleast 1 number</HelpText>
+      <HelpText variant={hasUppercase ? "success" : "default"}>Atleast 1 uppercase</HelpText>
+    </Box>
+  );
+};
+
+render(
+  <FormExample />
+)`.trim();
