@@ -4,10 +4,14 @@ import { ButtonGroup } from "@twilio-paste/button-group";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { Form, FormControl } from "@twilio-paste/form";
 import { Heading } from "@twilio-paste/heading";
+import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Paragraph } from "@twilio-paste/paragraph";
 import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+import { Radio, RadioGroup } from "@twilio-paste/radio-group";
 import { Option, Select } from "@twilio-paste/select";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
@@ -132,5 +136,59 @@ export const InlineForms = (): JSX.Element => {
 };
 
 InlineForms.parameters = {
+  padding: false,
+};
+
+export const ConditionalForm = (): JSX.Element => {
+  const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
+  const tax = useUID();
+  return (
+    <Box display="flex" justifyContent="center" marginTop="space130">
+      <Box maxWidth="712px">
+        <Heading as="h1" variant="heading10">
+          Tax information
+        </Heading>
+        <Paragraph marginBottom="space0">
+          Based on your jurisdiction, Twilio may need to collect tax on the services sold, in order to abide by local
+          laws. Please provide your tax number so that we can apply this correctly to your invoice
+        </Paragraph>
+
+        <Box marginTop="space130">
+          <RadioGroup
+            name="uncontrolled-radio-group"
+            legend="Can you provide a business tax number?"
+            value={selectedValue}
+            onChange={setSelectedValue}
+          >
+            <Radio id={useUID()} value="yes" name="uncontrolled-radio-group">
+              Yes, I can provide a tax number
+            </Radio>
+            {selectedValue === "yes" ? (
+              <Box paddingLeft="space70">
+                <Label htmlFor={tax}>Tax Number</Label>
+                <Input name="tax" id={tax} type="text" />
+              </Box>
+            ) : null}
+            <Radio id={useUID()} value="no" name="uncontrolled-radio-group">
+              No, I cannot provide a tax number
+            </Radio>
+          </RadioGroup>
+        </Box>
+
+        <Box marginTop="space130" display="flex" justifyContent="space-between" columnGap="space40" alignItems="center">
+          <Button variant="secondary">
+            <ArrowBackIcon decorative />
+            Back
+          </Button>
+          <Button variant="primary" disabled={selectedValue === undefined}>
+            Next <ArrowForwardIcon decorative />
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+ConditionalForm.parameters = {
   padding: false,
 };
