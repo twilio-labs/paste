@@ -496,3 +496,57 @@ const FormExample = () => {
 render(
   <FormExample />
 )`.trim();
+
+export const InlineFormsExample = `
+const FormExample = () => {
+  const popoverID = useUID();
+  const phone = useUID();
+  const country = useUID();
+  return (
+    <Box display="flex" alignItems="center" justifyContent="center" height="300px">
+      <PopoverContainer baseId={popoverID}>
+        <PopoverButton variant="primary">Edit Phone Number</PopoverButton>
+        <Popover aria-label="Popover" width="size40">
+          <Form>
+            <Heading as="h2" variant="heading40">
+              Edit Phone Number
+            </Heading>
+            <FormControl>
+              <Box>
+                <Label htmlFor={phone}>Phone Number</Label>
+                <Input name="phone" id={phone} type="text" />
+              </Box>
+            </FormControl>
+            <FormControl>
+              <Box>
+                <Label htmlFor={country}>Country</Label>
+                <Select id={country} name="country">
+                  <Option value="in">India</Option>
+                  <Option value="us">United States</Option>
+                  <Option value="mx">Mexico</Option>
+                  <Option value="ca">Canada</Option>
+                  <Option value="br">Brazil</Option>
+                  <Option value="ar">Argentina</Option>
+                </Select>
+              </Box>
+            </FormControl>
+          </Form>
+          <Box marginTop="space130">
+            <ButtonGroup>
+              <Button onClick={() => {}} variant="primary">
+                Save
+              </Button>
+              <Button onClick={() => {}} variant="secondary">
+                Cancel
+              </Button>
+            </ButtonGroup>
+          </Box>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
+render(
+  <FormExample />
+)`.trim();
