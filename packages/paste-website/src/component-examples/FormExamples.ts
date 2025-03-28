@@ -430,3 +430,69 @@ render(
   <FormExample />
 )
 `.trim();
+
+export const InterruptiveFormsExample = `
+const FormExample = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  const modalHeadingID = useUID();
+  const name = useUID();
+  const email = useUID();
+  const phone = useUID();
+  const birthday = useUID();
+  return (
+    <Box display="flex" alignItems="center" justifyContent="center" height="300px">
+      <Button variant="primary" onClick={handleOpen}>
+        Open modal
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader>
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Add New Contact
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody>
+          <Form>
+            <FormControl>
+              <Box>
+                <Label htmlFor={name}>Full Name</Label>
+                <Input name="name" id={name} type="text" />
+              </Box>
+            </FormControl>
+            <FormControl>
+              <Box>
+                <Label htmlFor={email}>Email Address</Label>
+                <Input name="name" id={email} type="text" />
+              </Box>
+            </FormControl>
+            <FormControl>
+              <Box>
+                <Label htmlFor={phone}>Phone Number</Label>
+                <Input name="name" id={phone} type="text" />
+              </Box>
+            </FormControl>
+            <FormControl>
+              <Box>
+                <Label htmlFor={birthday}>Birthday</Label>
+                <DatePicker name="name" id={birthday} />
+              </Box>
+            </FormControl>
+          </Form>
+        </ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary">Save</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </Box>
+  );
+};
+
+render(
+  <FormExample />
+)`.trim();

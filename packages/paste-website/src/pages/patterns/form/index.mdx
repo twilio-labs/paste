@@ -49,6 +49,15 @@ import {
   ProgressStepSeparator,
   ProgressSteps,
 } from "@twilio-paste/progress-steps";
+import { 
+  Modal, 
+  ModalBody, 
+  ModalFooter, 
+  ModalFooterActions, 
+  ModalHeader, 
+  ModalHeading 
+} from "@twilio-paste/modal";
+import {DatePicker} from "@twilio-paste/date-picker";
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -61,7 +70,7 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {sectionsForm} from '../../../component-examples/FormExamples';
+import {InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 
@@ -484,6 +493,29 @@ Avoid long/multi-step forms inside modals unless absolutely necessary. If a mult
   </CalloutText>
 </Callout>
 
+<LivePreview
+  scope={{
+    Box,
+    Form,
+    FormControl,
+    Label,
+    Input,
+    Button,
+    Modal, 
+    ModalBody, 
+    ModalFooter, 
+    ModalFooterActions, 
+    ModalHeader, 
+    ModalHeading,
+    DatePicker,
+    useUID
+  }}
+  language="jsx"
+  noInline
+>
+  {InterruptiveFormsExample}
+</LivePreview>
+
 ### Contextual forms
 
 Contextual forms use our [Side Panel](/components/side-panel) component and are primarily used on pages using the [Filter pattern](/patterns/filter) when there are too many filter options to display on the page. 
@@ -835,68 +867,6 @@ Further reading on forms best practices.
     Luke Wroblewski, <Anchor href="https://www.lukew.com/resources/web_form_design.asp">Web Form Design: Filling in the blanks</Anchor> (2008)
   </ListItem>
 </OrderedList>
-
----
-
-<StoryPreview
-  title="Filter bar example"
-  storyID="website-filterexamples--default-filter-example"
-  height="600px"
-  code={`
-export const FilterPatternExample = ({data}): React.ReactNode => {
-  const [selectedFilters, setSelectedFilters] = React.useState({});
-  const [filteredTableData, setFilteredTableData] = React.useState(data);
-  const pillState = useFormPillState();
-  const popover = usePopoverState({ baseId: pill });
-  return (
-    <>
-      <Heading as="h1" variant="heading50">Filter</Heading>
-      <FormPillGroup {...pillState} aria-label="Filters:" size="large">
-        {filterList.map((pill) => {
-          return (
-            <PopoverContainer key={pill} state={popover}>
-              <PopoverButton
-                variant="reset"
-                size="reset"
-                borderRadius="borderRadiusPill"
-              >
-                <FormPill
-                  {...pillState}
-                  selected={isSelected}
-                  onDismiss={
-                    // Remove the filter from the selected filters
-                  }
-                >
-                  {!isSelected ? <PlusIcon decorative /> : null}
-                  <FilterPillView label={filterMap[pill].label} selectedType={isSelected ? pill : null} selectedValue={value} />
-                </FormPill>
-              </PopoverButton>
-              <Popover aria-label={pill} width="size40">
-                <FilterComponent value={value} onApply={onApply} popover={popover} onRemove={onRemove} /> // Create different filter components
-              </Popover>
-            </PopoverContainer>
-          );
-        })}
-      </FormPillGroup>
-      <Box display="flex" justifyContent="space-between" alignItems="center" columnGap="space30" marginTop="space50">
-        <Box display="flex" columnGap="space30">
-          <DetailText marginTop="space0">
-            <Text as="span" color="colorTextWeak" fontSize="fontSize30">
-              {filteredTableData.length} result{filteredTableData.length !== 1 && "s"}
-            </Text>
-          </DetailText>
-          {filteredTableData.length !== data.length ? (
-            <Button variant="link" onClick={handleClearAll}>
-              Clear all
-            </Button>
-          ) : null}
-        </Box>
-      </Box>
-      <DataGrid data={filteredTableData} />
-    </>
-  )
-}`}
-/>
 </content>
 
 </contentwrapper>
