@@ -33,6 +33,7 @@ import {Input} from '@twilio-paste/input';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {HelpText} from '@twilio-paste/help-text';
 import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
 import {Text} from '@twilio-paste/text';
 import {
   PageHeader,
@@ -58,6 +59,8 @@ import {
   ModalHeading 
 } from "@twilio-paste/modal";
 import {DatePicker} from "@twilio-paste/date-picker";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -70,7 +73,7 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
+import {InlineFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 
@@ -611,6 +614,29 @@ export const MoreFilterPatternExample = ({data, filterList}): React.ReactNode =>
 ### Inline forms
 
 Inline forms use our [Popover](/components/popover) component. Use Inline forms when the input is optional and concise. Popovers work best for lightweight interactions that don’t disrupt the user’s primary workflow.
+
+<LivePreview
+  scope={{
+    Box,
+    Form,
+    FormControl,
+    Label,
+    Input,
+    Button,
+    Popover, 
+    PopoverButton, 
+    PopoverContainer,
+    Heading,
+    Select,
+    Option,
+    ButtonGroup,
+    useUID
+  }}
+  language="jsx"
+  noInline
+>
+  {InlineFormsExample}
+</LivePreview>
 
 ## Composition
 
