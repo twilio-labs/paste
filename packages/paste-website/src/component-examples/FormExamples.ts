@@ -550,3 +550,56 @@ const FormExample = () => {
 render(
   <FormExample />
 )`.trim();
+
+export const ConditionalFormsExample = `
+const FormExample = () => {
+  const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
+  const tax = useUID();
+  return (
+    <Box display="flex" justifyContent="center" marginTop="space130">
+      <Box maxWidth="712px">
+        <Heading as="h1" variant="heading10">
+          Tax information
+        </Heading>
+        <Paragraph marginBottom="space0">
+          Based on your jurisdiction, Twilio may need to collect tax on the services sold, in order to abide by local
+          laws. Please provide your tax number so that we can apply this correctly to your invoice
+        </Paragraph>
+        <Box marginTop="space130">
+          <RadioGroup
+            name="uncontrolled-radio-group"
+            legend="Can you provide a business tax number?"
+            value={selectedValue}
+            onChange={setSelectedValue}
+          >
+            <Radio id={useUID()} value="yes" name="uncontrolled-radio-group">
+              Yes, I can provide a tax number
+            </Radio>
+            {selectedValue === "yes" ? (
+              <Box paddingLeft="space70">
+                <Label htmlFor={tax}>Tax Number</Label>
+                <Input name="tax" id={tax} type="text" />
+              </Box>
+            ) : null}
+            <Radio id={useUID()} value="no" name="uncontrolled-radio-group">
+              No, I cannot provide a tax number
+            </Radio>
+          </RadioGroup>
+        </Box>
+        <Box marginTop="space130" display="flex" justifyContent="space-between" columnGap="space40" alignItems="center">
+          <Button variant="secondary">
+            <ArrowBackIcon decorative />
+            Back
+          </Button>
+          <Button variant="primary" disabled={selectedValue === undefined}>
+            Next <ArrowForwardIcon decorative />
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+render(
+  <FormExample />
+)`.trim();
