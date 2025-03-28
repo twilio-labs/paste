@@ -1,5 +1,15 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+- [`ee25fa4eb`](https://github.com/twilio-labs/paste/commit/ee25fa4eb43160bad0d0038c6d1fe124c2e54d60) [#4286](https://github.com/twilio-labs/paste/pull/4286) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Card]: add `fillHeight` prop to make card height stretch to the container height
+
+### Patch Changes
+
+- [`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597) [#4281](https://github.com/twilio-labs/paste/pull/4281) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [all packages]: add use client directive to the components and icons. This will make paste library compatible with server components
+
 ## 10.0.0
 
 ### Major Changes
