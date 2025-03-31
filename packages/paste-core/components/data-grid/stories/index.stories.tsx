@@ -9,6 +9,7 @@ export { I18nDataGrid } from "./components/I18nDataGrid";
 export { DataGridLayouts } from "./components/DataGridLayouts";
 export { ColumnSpanDataGrid } from "./components/ColumnSpanDataGrid";
 export { StickyHeaderDataGrid } from "./components/StickyHeaderDataGrid";
+export { FixedCellHeightDataGrid } from "./components/FixedCellHeights";
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,8 +1,9 @@
 import { Box } from "@twilio-paste/box";
+import { EditableCodeBlock } from "@twilio-paste/editable-code-block";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
-import { Input } from "@twilio-paste/input";
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { Option, Select } from "@twilio-paste/select";
+import { TextArea } from "@twilio-paste/textarea";
 import * as React from "react";
 import type { JSX } from "react";
 
@@ -37,21 +38,30 @@ const InputCell: React.FC<{ colIndex: number; rowIndex: number; value: string | 
 }): JSX.Element => {
   const [value, setValue] = React.useState<string | null>(originalValue);
   return (
-    <DataGridCell key={`col-${colIndex}`}>
-      <Input
+    <DataGridCell
+      key={`col-${colIndex}`}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.currentTarget.getElementsByTagName("input")[0]?.focus();
+      }}
+    >
+      <TextArea
         aria-label={TableHeaderData[colIndex]}
         data-testid={`input-${rowIndex}-${colIndex}`}
         value={value || ""}
-        type="text"
         onChange={(change) => {
           setValue(change.target.value);
         }}
+        maxRows={6}
+        minRows={6}
+        id={`text-area-${rowIndex}-${colIndex}`}
       />
     </DataGridCell>
   );
 };
 
-export const ComposableCellsDataGrid = (): JSX.Element => {
+export const FixedCellHeightDataGrid = (): JSX.Element => {
   /* eslint-disable react/no-array-index-key */
   return (
     <DataGrid aria-label="User list" data-testid="data-grid" striped>
@@ -79,10 +89,23 @@ export const ComposableCellsDataGrid = (): JSX.Element => {
                   />
                 );
               }
+              if (colIndex === 3) {
+                return (
+                  <DataGridCell key={`col-${colIndex}`}>
+                    <EditableCodeBlock
+                      width="300px"
+                      // calculated height based on min row number (20px) * number of rows (6) + padding (2 * 8px)
+                      height="136px"
+                      defaultLanguage="typescript"
+                      defaultValue={`const user: User = new UserAccount("${row[colIndex]}");`}
+                    />
+                  </DataGridCell>
+                );
+              }
               if (colIndex === 4) {
                 return (
                   <DataGridCell key={`col-${colIndex}`}>
-                    <Select defaultValue="dogs" aria-label="Phone">
+                    <Select key={`select-${rowIndex}-${colIndex}`} defaultValue="dogs" aria-label="Phone">
                       <Option value="cats">(415) 555-CATS</Option>
                       <Option value="dogs">(415) 555-DOGS</Option>
                       <Option value="mice">(415) 555-MICE</Option>
