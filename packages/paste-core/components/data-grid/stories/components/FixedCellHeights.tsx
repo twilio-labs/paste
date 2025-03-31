@@ -38,14 +38,7 @@ const InputCell: React.FC<{ colIndex: number; rowIndex: number; value: string | 
 }): JSX.Element => {
   const [value, setValue] = React.useState<string | null>(originalValue);
   return (
-    <DataGridCell
-      key={`col-${colIndex}`}
-      onClick={(event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        event.currentTarget.getElementsByTagName("input")[0]?.focus();
-      }}
-    >
+    <DataGridCell key={`col-${colIndex}`}>
       <TextArea
         aria-label={TableHeaderData[colIndex]}
         data-testid={`input-${rowIndex}-${colIndex}`}

@@ -632,6 +632,13 @@
       "required": false,
       "externalProp": true
     },
+    "minRows": {
+      "type": "number",
+      "defaultValue": "3",
+      "required": false,
+      "externalProp": false,
+      "description": "Adjust how big the textarea should start."
+    },
     "name": {
       "type": "string",
       "defaultValue": null,
