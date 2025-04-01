@@ -39,31 +39,31 @@ export const InterruptiveForms = (): JSX.Element => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" height="100vh">
       <Button variant="primary" onClick={handleOpen}>
-        Open modal
+        Add new contact
       </Button>
       <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
-            Add New Contact
+            Add new contact
           </ModalHeading>
         </ModalHeader>
         <ModalBody>
           <Form>
             <FormControl>
               <Box>
-                <Label htmlFor={name}>Full Name</Label>
+                <Label htmlFor={name}>Full name</Label>
                 <Input name="name" id={name} type="text" />
               </Box>
             </FormControl>
             <FormControl>
               <Box>
-                <Label htmlFor={email}>Email Address</Label>
+                <Label htmlFor={email}>Email address</Label>
                 <Input name="email" id={email} type="text" />
               </Box>
             </FormControl>
             <FormControl>
               <Box>
-                <Label htmlFor={phone}>Phone Number</Label>
+                <Label htmlFor={phone}>Phone number</Label>
                 <Input name="phone" id={phone} type="text" />
               </Box>
             </FormControl>
@@ -99,15 +99,15 @@ export const InlineForms = (): JSX.Element => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" height="100vh">
       <PopoverContainer baseId={popoverID}>
-        <PopoverButton variant="primary">Edit Phone Number</PopoverButton>
+        <PopoverButton variant="primary">Edit phone number</PopoverButton>
         <Popover aria-label="Popover" width="size40">
           <Form>
             <Heading as="h2" variant="heading40">
-              Edit Phone Number
+              Edit phone number
             </Heading>
             <FormControl>
               <Box>
-                <Label htmlFor={phone}>Phone Number</Label>
+                <Label htmlFor={phone}>Phone number</Label>
                 <Input name="phone" id={phone} type="text" />
               </Box>
             </FormControl>
@@ -171,7 +171,7 @@ export const ConditionalForm = (): JSX.Element => {
             </Radio>
             {selectedValue === "yes" ? (
               <Box paddingLeft="space70">
-                <Label htmlFor={tax}>Tax Number</Label>
+                <Label htmlFor={tax}>Tax number</Label>
                 <Input name="tax" id={tax} type="text" />
               </Box>
             ) : null}
@@ -304,7 +304,7 @@ export const ErrorState = (): JSX.Element => {
       </Paragraph>
       {Object.keys(errors).length > 0 ? (
         <Callout variant="error">
-          <CalloutHeading as="h4">Missing Values</CalloutHeading>
+          <CalloutHeading as="h4">Missing values</CalloutHeading>
           <CalloutText>Enter values for all required fields</CalloutText>
           <CalloutList as="ul">
             {Object.keys(errors).map((errorKey) => (
