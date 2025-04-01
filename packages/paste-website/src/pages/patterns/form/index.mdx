@@ -10,7 +10,7 @@ import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste
 import {Card} from '@twilio-paste/card';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '@twilio-paste/callout';
 import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
 import {
@@ -73,9 +73,11 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {ConditionalFormsExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
+import {ConditionalFormsExample, ErrorStateFormExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
+import { ErrorMessage } from '@hookform/error-message';
+import { useForm, useFormState, UseFormRegister } from 'react-hook-form';
 
 export default DefaultLayout;
 
@@ -862,6 +864,35 @@ If you absolutely need to validate inline:
 ### Errors
 
 Use an [error Callout](/components/callout#error-callout) to communicate errors for a particular section of a page, or that applies to the whole page. Within the Callout, list errored fields as anchors and shift focus to the first errored field in the form. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<LivePreview
+  scope={{
+    Box,
+    Label,
+    Input,
+    HelpText,
+    useUIDSeed,
+    Button,
+    Form,
+    Heading,
+    Paragraph,
+    Callout,
+    CalloutHeading,
+    CalloutText,
+    CalloutList,
+    CalloutListItem,
+    Text,
+    ErrorMessage,
+    useForm,
+    useFormState,
+    UseFormRegister,
+    SearchIcon
+  }}
+  language="jsx"
+  noInline
+>
+  {ErrorStateFormExample}
+</LivePreview>
 
 ### Confirmation and deletion
 

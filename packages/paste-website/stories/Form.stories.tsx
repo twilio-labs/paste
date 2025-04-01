@@ -1,12 +1,15 @@
+import { ErrorMessage } from "@hookform/error-message";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from "@twilio-paste/callout";
 import { DatePicker } from "@twilio-paste/date-picker";
 import { Form, FormControl } from "@twilio-paste/form";
 import { Heading } from "@twilio-paste/heading";
 import { HelpText } from "@twilio-paste/help-text";
 import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
@@ -14,10 +17,11 @@ import { Paragraph } from "@twilio-paste/paragraph";
 import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import { Radio, RadioGroup } from "@twilio-paste/radio-group";
 import { Option, Select } from "@twilio-paste/select";
-import { Stack } from "@twilio-paste/stack";
-import { useUID } from "@twilio-paste/uid-library";
+import { Text } from "@twilio-paste/text";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
 import * as React from "react";
 import type { JSX } from "react";
+import { UseFormRegister, useForm, useFormState } from "react-hook-form";
 
 export default {
   title: "Website/FormExamples",
@@ -221,5 +225,186 @@ export const InlineValidationForm = (): JSX.Element => {
 };
 
 InlineValidationForm.parameters = {
+  padding: false,
+};
+
+type FormValues = {
+  country: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+};
+const InputWithError = React.memo(
+  ({
+    id,
+    label,
+    placeholder,
+    registerName,
+    registerOptions,
+    insertAfter,
+    errors,
+    register,
+  }: {
+    id: string;
+    label: string;
+    placeholder: string;
+    registerName: keyof FormValues;
+    registerOptions: any;
+    insertAfter?: React.ReactNode;
+    errors: Record<string, any>;
+    register: UseFormRegister<FormValues>;
+  }) => {
+    return (
+      <Box>
+        <Label htmlFor={id}>{label}</Label>
+        <Input
+          id={id}
+          type="text"
+          placeholder={placeholder}
+          {...register(registerName, registerOptions)}
+          insertAfter={insertAfter ? insertAfter : undefined}
+          hasError={!!errors[registerName]}
+        />
+        <ErrorMessage
+          errors={errors}
+          name={registerName}
+          render={({ message }) => (
+            <HelpText variant="error" id={id} data-cy={`${registerName}-error`}>
+              {message}
+            </HelpText>
+          )}
+        />
+      </Box>
+    );
+  },
+);
+
+export const ErrorState = (): JSX.Element => {
+  const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
+    defaultValues: {
+      country: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+    },
+  });
+  const { errors } = useFormState({ control });
+  const seed = useUIDSeed();
+
+  return (
+    <Box maxWidth="608px" margin="auto" marginTop="space140">
+      <Heading as="h1" variant="heading10">
+        Main address
+      </Heading>
+      <Paragraph>
+        This information will be used for taxation purposes. For US customers, this is your service address. For
+        international customers, this is your permanent place of establishment (e.g. head office.)
+      </Paragraph>
+      {Object.keys(errors).length > 0 ? (
+        <Callout variant="error">
+          <CalloutHeading as="h4">Missing Values</CalloutHeading>
+          <CalloutText>Enter values for all required fields</CalloutText>
+          <CalloutList as="ul">
+            {Object.keys(errors).map((errorKey) => (
+              <CalloutListItem key={errorKey}>
+                <Button
+                  variant="link"
+                  onClick={() => {
+                    setFocus(errorKey as keyof FormValues);
+                  }}
+                >
+                  <Text as="span" fontWeight="fontWeightNormal" color="colorTextLink">
+                    {errorKey}
+                  </Text>
+                </Button>
+              </CalloutListItem>
+            ))}
+          </CalloutList>
+        </Callout>
+      ) : null}
+      <Box marginTop="space50" maxWidth="296px">
+        <Form>
+          <InputWithError
+            id={seed("country")}
+            label="Country"
+            placeholder="Enter country"
+            registerName="country"
+            registerOptions={{
+              required: "Country is required",
+            }}
+            insertAfter={<SearchIcon color="colorTextIcon" decorative />}
+            errors={errors}
+            register={register}
+          />
+          <InputWithError
+            id={seed("address")}
+            label="Address line 1"
+            placeholder="Enter address"
+            registerName="address"
+            registerOptions={{
+              required: "Address is required",
+            }}
+            errors={errors}
+            register={register}
+          />
+          <InputWithError
+            id={seed("city")}
+            label="City"
+            placeholder="Enter city"
+            registerName="city"
+            registerOptions={{
+              required: "City is required",
+            }}
+            errors={errors}
+            register={register}
+          />
+          <InputWithError
+            id={seed("state")}
+            label="State"
+            placeholder="Enter state"
+            registerName="state"
+            registerOptions={{
+              required: "State is required",
+            }}
+            errors={errors}
+            register={register}
+          />
+          <InputWithError
+            id={seed("zip")}
+            label="Zip code"
+            placeholder="Enter zip code"
+            registerName="zip"
+            registerOptions={{
+              required: "Zip code is required",
+            }}
+            errors={errors}
+            register={register}
+          />
+
+          <Box>
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleSubmit(() => {})();
+                setTimeout(() => {
+                  const firstError = Object.keys(errors)[0];
+                  if (firstError) {
+                    setFocus(firstError as keyof FormValues);
+                  }
+                }, 100);
+              }}
+            >
+              Save
+            </Button>
+          </Box>
+        </Form>
+      </Box>
+    </Box>
+  );
+};
+
+ErrorState.parameters = {
   padding: false,
 };
