@@ -73,7 +73,7 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {ConditionalFormsExample, ErrorStateFormExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm} from '../../../component-examples/FormExamples';
+import {ConditionalFormsExample, ErrorStateFormExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm, ValidationOnSubmitFormsExample} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 import { ErrorMessage } from '@hookform/error-message';
@@ -828,6 +828,24 @@ Most form validation should occur after a user presses the submit button.
     If it’s going to take a while to process a form, communicate this to the user with feedback messages and progress indicators (For example, use a loading Button).
   </ListItem>
 </UnorderedList>
+
+
+<LivePreview
+  scope={{
+    Box,
+    Label,
+    Input,
+    HelpText,
+    useUID,
+    Form,
+    FormControl,
+    Button,
+  }}
+  language="jsx"
+  noInline
+>
+  {ValidationOnSubmitFormsExample}
+</LivePreview>
 
 #### Inline validation
 

@@ -408,3 +408,62 @@ export const ErrorState = (): JSX.Element => {
 ErrorState.parameters = {
   padding: false,
 };
+
+export const ValidationOnSubmit = (): JSX.Element => {
+  const [selectedValue, setSelectedValue] = React.useState<string | undefined>("");
+  const [formState, setFormState] = React.useState<"default" | "loading" | "error" | "success">("default");
+  const previousFormState = React.useRef<"default" | "error" | "success">("default");
+  const vatID = useUID();
+
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    previousFormState.current = formState === "loading" ? previousFormState.current : formState;
+    setFormState("loading");
+
+    setTimeout(() => {
+      const vatRegex = /^[A-Z]{2}\d{9}$/;
+      if (vatRegex.test(selectedValue || "")) {
+        setFormState("success");
+      } else {
+        setFormState("error");
+      }
+    }, 1000);
+  }
+
+  const helpTextContent = {
+    default: "Use the following format: IEXXXXXXXXX",
+    error: "Enter VAT in this format: IEXXXXXXXXX",
+    success: "VAT number validated",
+  };
+
+  return (
+    <Box maxWidth="size30" margin="auto" marginTop="space130">
+      <Form>
+        <FormControl>
+          <Box>
+            <Label htmlFor={vatID}>Enter a valid VAT number</Label>
+            <Input
+              name="vat"
+              id={vatID}
+              type="text"
+              value={selectedValue}
+              onChange={(e) => setSelectedValue(e.target.value)}
+            />
+            <HelpText variant={formState === "loading" ? previousFormState.current : formState}>
+              {formState === "loading" ? helpTextContent[previousFormState.current] : helpTextContent[formState]}
+            </HelpText>
+          </Box>
+        </FormControl>
+      </Form>
+      <Box marginTop="space130">
+        <Button variant="primary" loading={formState === "loading"} onClick={handleSubmit}>
+          Save
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
+ValidationOnSubmit.parameters = {
+  padding: false,
+};
