@@ -868,3 +868,143 @@ const FormExample = () => {
 render(
   <FormExample />
 )`.trim();
+
+export const ConfirmationFormsExample = `
+const FormExample = () => {
+  const TableComponent = () => {
+    return (
+      <DataGrid aria-label="Answer table">
+        <DataGridHead>
+          <DataGridRow>
+            <DataGridHeader>Field name</DataGridHeader>
+            <DataGridHeader>Answer</DataGridHeader>
+            <DataGridHeader textAlign="right">Action</DataGridHeader>
+          </DataGridRow>
+        </DataGridHead>
+        <DataGridBody>
+          <DataGridRow>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell textAlign="right">
+              <Button variant="link">Change</Button>
+            </DataGridCell>
+          </DataGridRow>
+          <DataGridRow>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell textAlign="right">
+              <Button variant="link">Change</Button>
+            </DataGridCell>
+          </DataGridRow>
+          <DataGridRow>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell textAlign="right">
+              <Button variant="link">Change</Button>
+            </DataGridCell>
+          </DataGridRow>
+          <DataGridRow>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell>Content</DataGridCell>
+            <DataGridCell textAlign="right">
+              <Button variant="link">Change</Button>
+            </DataGridCell>
+          </DataGridRow>
+        </DataGridBody>
+      </DataGrid>
+    );
+  };
+  return (
+    <Box display="flex" width="100%" justifyContent="center" paddingX="space10">
+      <Box paddingTop="space130" paddingBottom="space160" width="size70" maxWidth="size80">
+        <PageHeader>
+          <PageHeaderSetting>
+            <ProgressSteps>
+              <ProgressStepComplete as="div">Label</ProgressStepComplete>
+              <ProgressStepSeparator />
+              <ProgressStepComplete as="div">Label</ProgressStepComplete>
+              <ProgressStepSeparator />
+              <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
+            </ProgressSteps>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Confirmation</PageHeaderKeyword>
+            <PageHeaderHeading>Check and confirm your answers</PageHeaderHeading>
+            <PageHeaderParagraph>
+              See all your selected answers below. You can also change them if you need to.
+            </PageHeaderParagraph>
+          </PageHeaderDetails>
+        </PageHeader>
+        <Box display="flex" flexDirection="column" rowGap="space130">
+          <Box display="flex" flexDirection="column" rowGap="space130" role="list">
+            <Form>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    1
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30">Step 1</FormSectionHeading>
+                    <FormSectionDescription>Paragraph</FormSectionDescription>
+                    <TableComponent />
+                  </FormSection>
+                </Box>
+              </Box>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    2
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30">Step 2</FormSectionHeading>
+                    <FormSectionDescription>Paragraph</FormSectionDescription>
+                    <TableComponent />
+                  </FormSection>
+                </Box>
+              </Box>
+            </Form>
+          </Box>
+          <Box>
+            <Separator orientation="horizontal" />
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              columnGap="space40"
+              marginTop="space50"
+              alignItems="center"
+            >
+              <Button variant="secondary">
+                <ArrowBackIcon decorative />
+                Back
+              </Button>
+              <ButtonGroup>
+                <Button variant="secondary">Cancel</Button>
+                <Button variant="primary">Finish</Button>
+              </ButtonGroup>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+render(
+  <FormExample />
+)`.trim();

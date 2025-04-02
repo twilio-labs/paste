@@ -61,6 +61,14 @@ import {
 import {DatePicker} from "@twilio-paste/date-picker";
 import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
 import {RadioGroup, Radio} from "@twilio-paste/radio-group";
+import {
+  DataGrid,
+  DataGridBody,
+  DataGridCell,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
+} from "@twilio-paste/data-grid";
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -73,7 +81,7 @@ import DynamicImage from '../../../assets/images/patterns/filter-dynamic.png';
 import Responsive1Image from '../../../assets/images/patterns/filter-responsive.png';
 import Responsive2Image from '../../../assets/images/patterns/filter-responsive_2.png';
 import FormIngredients from '../../../assets/images/patterns/form-ingredients.png';
-import {ConditionalFormsExample, ErrorStateFormExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm, ValidationOnSubmitFormsExample} from '../../../component-examples/FormExamples';
+import {ConditionalFormsExample, ConfirmationFormsExample, ErrorStateFormExample, InlineFormsExample, InlineValidationFormsExample, InterruptiveFormsExample, sectionsForm, ValidationOnSubmitFormsExample} from '../../../component-examples/FormExamples';
 import { DefaultWizardOrderedListExampleRender } from '../../../component-examples/page-templates/WizardExamples';
 import { PrivacyExample } from '../../../component-examples/PrivacyPatternExamples';
 import { ErrorMessage } from '@hookform/error-message';
@@ -925,6 +933,41 @@ Use an [error Callout](/components/callout#error-callout) to communicate errors 
     If the user needs to review multiple answers, show a full page with the question asked, answer they gave, and allow them to change their answer, if they need to.
   </ListItem>
 </UnorderedList>
+
+<LivePreview
+  scope={{
+    Box,
+    DataGrid,
+    DataGridBody,
+    DataGridCell,
+    DataGridHead,
+    DataGridHeader,
+    DataGridRow,
+    ButtonGroup,
+    Button,
+    ProgressSteps,
+    ProgressStepComplete,
+    ProgressStepCurrent,
+    ProgressStepSeparator,
+    Form,
+    FormSection,
+    FormSectionHeading,
+    FormSectionDescription,
+    Separator,
+    ArrowBackIcon,
+    Text,
+    PageHeader,
+    PageHeaderSetting,
+    PageHeaderDetails,
+    PageHeaderKeyword,
+    PageHeaderHeading,
+    PageHeaderParagraph,
+  }}
+  language="jsx"
+  noInline
+>
+  {ConfirmationFormsExample}
+</LivePreview>
 
 ### Success
 
