@@ -44,7 +44,7 @@ import { Text } from "@twilio-paste/text";
 import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
 import type { JSX } from "react";
 import * as React from "react";
-import { UseFormRegister, useForm, useFormState } from "react-hook-form";
+import { type UseFormRegister, useForm, useFormState } from "react-hook-form";
 
 export default {
   title: "Website/FormExamples",
@@ -52,8 +52,8 @@ export default {
 
 export const InterruptiveForms = (): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
+  const handleOpen: () => void = () => setIsOpen(true);
+  const handleClose: () => void = () => setIsOpen(false);
   const modalHeadingID = useUID();
   const name = useUID();
   const email = useUID();
@@ -287,7 +287,7 @@ const InputWithError = React.memo(
           placeholder={placeholder}
           {...register(registerName, registerOptions)}
           insertAfter={insertAfter ? insertAfter : undefined}
-          hasError={!!errors[registerName]}
+          hasError={Boolean(errors[registerName])}
         />
         <ErrorMessage
           errors={errors}
@@ -438,7 +438,7 @@ export const ValidationOnSubmit = (): JSX.Element => {
   const previousFormState = React.useRef<"default" | "error" | "success">("default");
   const vatID = useUID();
 
-  function handleSubmit(event: React.FormEvent) {
+  function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
     previousFormState.current = formState === "loading" ? previousFormState.current : formState;
     setFormState("loading");
@@ -492,7 +492,7 @@ ValidationOnSubmit.parameters = {
 };
 
 export const ConfirmationForm = (): JSX.Element => {
-  const TableComponent = () => {
+  const TableComponent = (): JSX.Element => {
     return (
       <DataGrid aria-label="Answer table">
         <DataGridHead>
