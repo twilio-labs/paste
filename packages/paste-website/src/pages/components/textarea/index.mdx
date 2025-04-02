@@ -63,22 +63,22 @@ A Textarea allows for any text to be entered and can't be restricted as other [i
 ### Accessibility
 
 - Include a visible label on **all** form fields.
-- Each label must use the `htmlFor` prop that equals the `id` of the associated textarea.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated Textarea.
 - Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
 - Use 1 of 3 ways to label a form field:
   - Visible label with [Label](/components/label) (preferred)
-  - Visible label that's associated to the textarea with `aria-labelledby`
+  - Visible label that's associated to the Textarea with `aria-labelledby`
   - Label directly using `aria-label`
 - Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
   - Use the `required` prop to programatically indicate they are required to browsers.
 - Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
-- If the textarea has associated help text or error text, include the `aria-describedby` prop on the textarea. This should match the `id` of the help or error text.
+- If the Textarea has associated help text or error text, include the `aria-describedby` prop on the Textarea. This should match the `id` of the help or error text.
 
 ## Examples
 
 ### Textarea
 
-The Textarea should include the base `Textarea`, along with supporting elements to compose a textarea field that gives the user the context they need to successfully fill it out:
+The Textarea should include the base `Textarea`, along with supporting elements to compose a Textarea field that gives the user the context they need to successfully fill it out:
 
 - [**Label**](/components/label) — Every form field should have a label. The label should indicate what should be entered into field.
 - **Required field indicator** — If most of the fields on a form are optional, indicate the few that are required with text or a required indicator.
@@ -88,13 +88,13 @@ The Textarea should include the base `Textarea`, along with supporting elements 
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>TextArea</inlineCode>. This is done with
-    the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the textarea.
+    the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Textarea.
     Those two need to match.
   </CalloutText>
   <CalloutText>
-    If the textarea has any associated help text, the textarea should also use the{' '}
+    If the Textarea has any associated help text, the Textarea should also use the{' '}
     <inlineCode>aria-describedby</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the help text. This
-    ensures screen readers know the help text ties directly to the textarea.
+    ensures screen readers know the help text ties directly to the Textarea.
   </CalloutText>
 </Callout>
 
@@ -139,9 +139,9 @@ The Textarea should include the base `Textarea`, along with supporting elements 
 
 ### Resizable Textarea
 
-By default, the textarea is not resizable by the user. To change this, add the prop `resize='vertical'`.
+By default, the Textarea is not resizable by the user. To change this, add the prop `resize='vertical'`.
 
-You may also provide a `maxRows` prop to limit how much the textArea grows. By default this value is 10. You can also set a `minRows` value used to control the minimum height of the textarea. By default this value is 3.
+You may also provide a `maxRows` prop to limit how much the Textarea grows. By default this value is 10. You can also set a `minRows` value used to control the minimum height of the Textarea. By default this value is 3.
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
@@ -191,7 +191,7 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 ## Composition notes
 
-A textarea field must have at least a label and a textarea.
+A Textarea field must have at least a label and a Textarea.
 
 <LivePreview scope={{Label, TextArea}} language="jsx">
   {`<>
@@ -228,7 +228,7 @@ Labels should clearly describe the value being requested. They should be concise
 
 To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
 
-Give users enough information in help text to prevent textarea and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
+Give users enough information in help text to prevent Textarea and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Required field indicator
 
@@ -250,15 +250,15 @@ Use Help Text to show an inline error that to explains how to fix the error. For
 
 ### Optional compositional elements
 
-- **Prefix/suffix** — Use a prefix or suffix to help users format their textarea and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
+- **Prefix/suffix** — Use a prefix or suffix to help users format their Textarea and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
 
 ## When to use a Textarea
 
-Use a textarea when users are expected to enter text that exceeds a single line, usually longer than a sentence.
+Use a Textarea when users are expected to enter text that exceeds a single line, usually longer than a sentence.
 
 <DoDont>
-  <Do title="Do" body="Use a textarea to encourage longer text entry." center>
+  <Do title="Do" body="Use a Textarea to encourage longer text entry." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="long_do">Tell us your life story</Label>
       <TextArea onChange={() => {}} id="long_do" name="long_do" />
@@ -266,7 +266,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   </Do>
   <Dont
     title="Don't"
-    body="Don't use a textarea when text entry is expected to be short since it could confuse users. Use an input instead."
+    body="Don't use a Textarea when text entry is expected to be short since it could confuse users. Use an input instead."
     center
   >
     <Box width="100%" padding="space60">
