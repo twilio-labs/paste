@@ -104,6 +104,14 @@ export interface TextAreaProps extends Omit<HTMLPasteProps<"textarea">, "maxRows
    */
   maxRows?: number;
   /**
+   * Adjust how big the textarea should start.
+   *
+   * @default 3
+   * @type {(number)}
+   * @memberof TextAreaProps
+   */
+  minRows?: number;
+  /**
    * The size of the textarea is strictly controlled by the component
    *
    * @type {never}
@@ -182,6 +190,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       variant,
       resize = "none",
       maxRows = 10,
+      minRows = 3,
       // size, height and width should not be passed down
       size,
       height,
@@ -209,7 +218,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           readOnly={readOnly}
           ref={ref}
           rows={3}
-          minRows={3}
+          minRows={minRows}
           maxRows={maxRows}
           spellCheck
           resize={resize}
