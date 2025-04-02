@@ -1,5 +1,11 @@
 # @twilio-paste/data-grid
 
+## 9.0.2
+
+### Patch Changes
+
+- [`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db) [#4291](https://github.com/twilio-labs/paste/pull/4291) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [DataGridCell] reworked the click events triggered to allow interactive elements to correctly pull focus
+
 ## 9.0.1
 
 ### Patch Changes
