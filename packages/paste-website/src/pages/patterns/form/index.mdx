@@ -64,6 +64,9 @@ import {
   DataGridHeader,
   DataGridRow,
 } from "@twilio-paste/data-grid";
+import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
+import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
+import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -179,14 +182,25 @@ Before designing a form you should:
 
 The different parts of a form are:
 
-- [Form layout component]("/components/form"): A wrapper layout component that sets layout and spacing between form elements
-- **Form element**: Any UI component in a form. Examples: Input, Button, Callout.
-- **Form header**: Includes form elements like [Heading](/components/heading) and [Paragraph](/components/paragraph) that describe the purpose of the form. 
-- **Form field**: A UI component in a form where users enter information, including their associated Label and Help Text. Examples: Checkbox, Input, Time Picker—with their Label and Help Text.
-- **Form actions**: Includes form elements like [Button](/components/button) or [Button Group](/components/button-group) for submitting or navigating a form.
+<UnorderedList>
+  <ListItem>
+  <strong><Anchor href="/components/form">Form layout component</Anchor></strong>: A wrapper layout component that sets layout and spacing between form elements.
+  </ListItem>
+  <ListItem>
+    <strong>Form element</strong>: Any UI component in a form. Examples: Input, Button, Callout.
+  </ListItem>
+  <ListItem>
+    <strong>Form header</strong>: Includes form elements like <Anchor href="/components/heading">Heading</Anchor> and <Anchor href="/components/paragraph">Paragraph</Anchor> that describe the purpose of the form.
+  </ListItem>
+  <ListItem>
+    <strong>Form field</strong>: A UI component in a form where users enter information, including their associated Label and Help Text. Examples: Checkbox, Input, Time Picker—with their Label and Help Text.
+  </ListItem>
+  <ListItem>
+    <strong>Form actions</strong>: Includes form elements like <Anchor href="/components/button">Button</Anchor> or <Anchor href="/components/button-group">Button Group</Anchor> for submitting or navigating a form.
+  </ListItem>
+</UnorderedList>
 
  <ResponsiveImage src={FormIngredients} alt="form components split into header, sections and actions" />
-
 
 ### General form elements
 
