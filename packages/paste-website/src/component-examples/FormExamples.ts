@@ -442,7 +442,7 @@ const FormExample = () => {
   const phone = useUID();
   const birthday = useUID();
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" height="300px">
+    <Box>
       <Button variant="primary" onClick={handleOpen}>
         Add new contact
       </Button>
@@ -503,7 +503,7 @@ const FormExample = () => {
   const phone = useUID();
   const country = useUID();
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" height="300px">
+    <Box>
       <PopoverContainer baseId={popoverID}>
         <PopoverButton variant="primary">Edit phone number</PopoverButton>
         <Popover aria-label="Popover" width="size40">
@@ -556,7 +556,7 @@ const FormExample = () => {
   const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
   const tax = useUID();
   return (
-    <Box display="flex" justifyContent="center" marginTop="space130">
+    <Box display="flex" justifyContent="center">
       <Box maxWidth="712px">
         <Heading as="h1" variant="heading10">
           Tax information
@@ -612,7 +612,7 @@ const FormExample = () => {
   const hasNumber = /\d/.test(selectedValue || "");
   const hasUppercase = /[A-Z]/.test(selectedValue || "");
   return (
-    <Box maxWidth="size30" margin="auto" marginTop="space130">
+    <Box maxWidth="size30">
       <Box>
         <Label htmlFor={password}>Password</Label>
         <Input
@@ -646,7 +646,6 @@ const InputWithError = React.memo(
   ({
     id,
     label,
-    placeholder,
     registerName,
     registerOptions,
     insertAfter,
@@ -655,7 +654,6 @@ const InputWithError = React.memo(
   }: {
     id: string;
     label: string;
-    placeholder: string;
     registerName: keyof FormValues;
     registerOptions: any;
     insertAfter?: React.ReactNode;
@@ -668,7 +666,6 @@ const InputWithError = React.memo(
         <Input
           id={id}
           type="text"
-          placeholder={placeholder}
           {...register(registerName, registerOptions)}
           insertAfter={insertAfter ? insertAfter : undefined}
           hasError={!!errors[registerName]}
@@ -698,8 +695,15 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
   });
   const { errors } = useFormState({ control });
   const seed = useUIDSeed();
+    const fieldList = {
+    country: "Country",
+    address: "Address line 1",
+    city: "City",
+    state: "State",
+    zip: "Zip code",
+  };
   return (
-    <Box maxWidth="608px" margin="auto" marginTop="space140">
+    <Box maxWidth="608px">
       <Heading as="h1" variant="heading10">
         Main address
       </Heading>
@@ -721,7 +725,7 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
                   }}
                 >
                   <Text as="span" fontWeight="fontWeightNormal" color="colorTextLink">
-                    {errorKey}
+                    {fieldList[errorKey as keyof FormValues]}
                   </Text>
                 </Button>
               </CalloutListItem>
@@ -734,7 +738,6 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
           <InputWithError
             id={seed("country")}
             label="Country"
-            placeholder="Enter country"
             registerName="country"
             registerOptions={{
               required: "Country is required",
@@ -746,7 +749,6 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
           <InputWithError
             id={seed("address")}
             label="Address line 1"
-            placeholder="Enter address"
             registerName="address"
             registerOptions={{
               required: "Address is required",
@@ -757,7 +759,6 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
           <InputWithError
             id={seed("city")}
             label="City"
-            placeholder="Enter city"
             registerName="city"
             registerOptions={{
               required: "City is required",
@@ -768,7 +769,6 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
           <InputWithError
             id={seed("state")}
             label="State"
-            placeholder="Enter state"
             registerName="state"
             registerOptions={{
               required: "State is required",
@@ -779,7 +779,6 @@ const { control, handleSubmit, register, setFocus } = useForm<FormValues>({
           <InputWithError
             id={seed("zip")}
             label="Zip code"
-            placeholder="Enter zip code"
             registerName="zip"
             registerOptions={{
               required: "Zip code is required",
@@ -838,7 +837,7 @@ const FormExample = () => {
     success: "VAT number validated",
   };
   return (
-    <Box maxWidth="size30" margin="auto" marginTop="space130">
+    <Box maxWidth="size30">
       <Form>
         <FormControl>
           <Box>
@@ -886,28 +885,28 @@ const FormExample = () => {
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#confirmation-and-deletion">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#confirmation-and-deletion">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#confirmation-and-deletion">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#confirmation-and-deletion">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
         </DataGridBody>
