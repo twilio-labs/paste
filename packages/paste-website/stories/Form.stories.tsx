@@ -1,4 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
@@ -262,7 +263,6 @@ const InputWithError = React.memo(
   ({
     id,
     label,
-    placeholder,
     registerName,
     registerOptions,
     insertAfter,
@@ -271,7 +271,6 @@ const InputWithError = React.memo(
   }: {
     id: string;
     label: string;
-    placeholder: string;
     registerName: keyof FormValues;
     registerOptions: any;
     insertAfter?: React.ReactNode;
@@ -284,7 +283,6 @@ const InputWithError = React.memo(
         <Input
           id={id}
           type="text"
-          placeholder={placeholder}
           {...register(registerName, registerOptions)}
           insertAfter={insertAfter ? insertAfter : undefined}
           hasError={Boolean(errors[registerName])}
@@ -316,6 +314,14 @@ export const ErrorState = (): JSX.Element => {
   const { errors } = useFormState({ control });
   const seed = useUIDSeed();
 
+  const fieldList = {
+    country: "Country",
+    address: "Address line 1",
+    city: "City",
+    state: "State",
+    zip: "Zip code",
+  };
+
   return (
     <Box maxWidth="608px" margin="auto" marginTop="space140">
       <Heading as="h1" variant="heading10">
@@ -339,7 +345,7 @@ export const ErrorState = (): JSX.Element => {
                   }}
                 >
                   <Text as="span" fontWeight="fontWeightNormal" color="colorTextLink">
-                    {errorKey}
+                    {fieldList[errorKey as keyof FormValues]}
                   </Text>
                 </Button>
               </CalloutListItem>
@@ -352,7 +358,6 @@ export const ErrorState = (): JSX.Element => {
           <InputWithError
             id={seed("country")}
             label="Country"
-            placeholder="Enter country"
             registerName="country"
             registerOptions={{
               required: "Country is required",
@@ -364,7 +369,6 @@ export const ErrorState = (): JSX.Element => {
           <InputWithError
             id={seed("address")}
             label="Address line 1"
-            placeholder="Enter address"
             registerName="address"
             registerOptions={{
               required: "Address is required",
@@ -375,7 +379,6 @@ export const ErrorState = (): JSX.Element => {
           <InputWithError
             id={seed("city")}
             label="City"
-            placeholder="Enter city"
             registerName="city"
             registerOptions={{
               required: "City is required",
@@ -386,7 +389,6 @@ export const ErrorState = (): JSX.Element => {
           <InputWithError
             id={seed("state")}
             label="State"
-            placeholder="Enter state"
             registerName="state"
             registerOptions={{
               required: "State is required",
@@ -397,7 +399,6 @@ export const ErrorState = (): JSX.Element => {
           <InputWithError
             id={seed("zip")}
             label="Zip code"
-            placeholder="Enter zip code"
             registerName="zip"
             registerOptions={{
               required: "Zip code is required",
@@ -507,28 +508,28 @@ export const ConfirmationForm = (): JSX.Element => {
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
           <DataGridRow>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell>Content</DataGridCell>
             <DataGridCell textAlign="right">
-              <Button variant="link">Change</Button>
+              <Anchor href="#">Change</Anchor>
             </DataGridCell>
           </DataGridRow>
         </DataGridBody>
