@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/data-grid",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "category": "interaction",
   "status": "alpha",
   "description": "A data grid is an interactive table used for working with a large collection of data in a scannable way.",
