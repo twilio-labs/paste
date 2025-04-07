@@ -1,5 +1,22 @@
 # Change Log
 
+## 21.2.0
+
+### Minor Changes
+
+- [`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db) [#4291](https://github.com/twilio-labs/paste/pull/4291) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [TextArea] exposed a prop to allow the minRows to be configured effectively setting the min height
+
+### Patch Changes
+
+- [`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db) [#4291](https://github.com/twilio-labs/paste/pull/4291) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [DataGridCell] reworked the click events triggered to allow interactive elements to correctly pull focus
+
+* [`a9e30405c`](https://github.com/twilio-labs/paste/commit/a9e30405cae79335b2ef953f63ffe3171d6405e8) [#4292](https://github.com/twilio-labs/paste/pull/4292) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Make `attachmentIcon` optional for the attachment card, adjust spacing slightly. NOTE: if you are using the Customization Provider to target "CHAT_COMPOSER_MEDIA_OBJECT", you will need to update your styles as Media Object is no longer being used in the Chat Composer package.
+
+* Updated dependencies [[`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db), [`a9e30405c`](https://github.com/twilio-labs/paste/commit/a9e30405cae79335b2ef953f63ffe3171d6405e8), [`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db)]:
+  - @twilio-paste/data-grid@9.0.2
+  - @twilio-paste/chat-composer@6.0.2
+  - @twilio-paste/textarea@11.1.0
+
 ## 21.1.0
 
 ### Minor Changes
