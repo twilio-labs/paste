@@ -9,7 +9,7 @@ import { Td } from "./table/Td";
 import type { TdProps } from "./table/Td";
 import { Th } from "./table/Th";
 import type { ThProps } from "./table/Th";
-import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
+import { isCell, updateTabIndexForActionable } from "./utils";
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 
@@ -55,12 +55,6 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
 }) => {
   const dataGridState = React.useContext(DataGridContext);
   const cellRef = React.useRef(null) as React.RefObject<HTMLTableCellElement | null>;
-
-  const handleMouseDown = React.useCallback(() => {
-    if (cellRef.current) {
-      ensureFocus(cellRef.current);
-    }
-  }, []);
 
   /**
    * MutationObserver callback for the cell
@@ -111,16 +105,7 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
     }, 10);
   }, [dataGridState.actionable]);
 
-  return (
-    <CompositeItem
-      {...props}
-      {...dataGridState}
-      element={element}
-      ref={cellRef}
-      as={as === "td" ? Td : Th}
-      onClick={handleMouseDown}
-    />
-  );
+  return <CompositeItem {...props} {...dataGridState} element={element} ref={cellRef} as={as === "td" ? Td : Th} />;
 };
 
 DataGridCell.displayName = "DataGridCell";

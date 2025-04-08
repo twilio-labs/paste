@@ -30,6 +30,27 @@ const ActionMenu = (): JSX.Element => {
   );
 };
 
+const InputCell: React.FC<{ colIndex: number; rowIndex: number; value: string | null }> = ({
+  colIndex,
+  rowIndex,
+  value: originalValue,
+}): JSX.Element => {
+  const [value, setValue] = React.useState<string | null>(originalValue);
+  return (
+    <DataGridCell key={`col-${colIndex}`}>
+      <Input
+        aria-label={TableHeaderData[colIndex]}
+        data-testid={`input-${rowIndex}-${colIndex}`}
+        value={value || ""}
+        type="text"
+        onChange={(change) => {
+          setValue(change.target.value);
+        }}
+      />
+    </DataGridCell>
+  );
+};
+
 export const ComposableCellsDataGrid = (): JSX.Element => {
   /* eslint-disable react/no-array-index-key */
   return (
@@ -50,15 +71,12 @@ export const ComposableCellsDataGrid = (): JSX.Element => {
             {row.map((col, colIndex) => {
               if (colIndex === 0 || colIndex === 1) {
                 return (
-                  <DataGridCell key={`col-${colIndex}`}>
-                    <Input
-                      aria-label={TableHeaderData[colIndex]}
-                      data-testid={`input-${rowIndex}-${colIndex}`}
-                      value={col || ""}
-                      type="text"
-                      onChange={() => {}}
-                    />
-                  </DataGridCell>
+                  <InputCell
+                    key={`input-cell-${rowIndex}-${colIndex}`}
+                    colIndex={colIndex}
+                    rowIndex={rowIndex}
+                    value={col}
+                  />
                 );
               }
               if (colIndex === 4) {

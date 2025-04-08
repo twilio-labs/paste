@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/animation-library",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "category": "interaction",
   "status": "production",
   "description": "Paste's animation library of choice.",

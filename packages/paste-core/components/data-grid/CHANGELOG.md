@@ -1,5 +1,17 @@
 # @twilio-paste/data-grid
 
+## 9.0.2
+
+### Patch Changes
+
+- [`986703e4a`](https://github.com/twilio-labs/paste/commit/986703e4ac8cfd9f7185594fa20a5719635789db) [#4291](https://github.com/twilio-labs/paste/pull/4291) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [DataGridCell] reworked the click events triggered to allow interactive elements to correctly pull focus
+
+## 9.0.1
+
+### Patch Changes
+
+- [`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597) [#4281](https://github.com/twilio-labs/paste/pull/4281) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [all packages]: add use client directive to the components and icons. This will make paste library compatible with server components
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/types",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Shared typescript typings for Paste",
   "author": "Twilio Inc.",
   "license": "MIT",

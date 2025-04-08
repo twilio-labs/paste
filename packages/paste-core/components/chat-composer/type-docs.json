@@ -2464,13 +2464,6 @@
     }
   },
   "ChatComposerAttachmentCard": {
-    "attachmentIcon": {
-      "type": "NonNullable<ReactNode>",
-      "defaultValue": "null",
-      "required": true,
-      "externalProp": false,
-      "description": "Pass an icon to use for the attachment message. DownloadIcon recommended"
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -2852,6 +2845,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines the human readable text alternative of aria-valuenow for a range widget."
+    },
+    "attachmentIcon": {
+      "type": "NonNullable<ReactNode>",
+      "defaultValue": "null",
+      "required": false,
+      "externalProp": false,
+      "description": "Pass an icon to use for the attachment message. DownloadIcon recommended"
     },
     "autoCapitalize": {
       "type": "| \"off\"\n  | \"none\"\n  | \"on\"\n  | \"sentences\"\n  | \"words\"\n  | \"characters\"\n  | (string & {})",

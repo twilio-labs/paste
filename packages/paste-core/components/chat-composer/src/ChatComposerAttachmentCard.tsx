@@ -2,7 +2,6 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
-import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Stack } from "@twilio-paste/stack";
 import type { HTMLPasteProps } from "@twilio-paste/types";
@@ -60,7 +59,7 @@ export interface ChatComposerAttachmentCardProps extends HTMLPasteProps<"div"> {
    * @type {NonNullable<React.ReactNode>}
    * @memberof ChatComposerAttachmentProps
    */
-  attachmentIcon: NonNullable<React.ReactNode>;
+  attachmentIcon?: NonNullable<React.ReactNode>;
 }
 
 const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposerAttachmentCardProps>(
@@ -81,27 +80,24 @@ const ChatComposerAttachmentCard = React.forwardRef<HTMLDivElement, ChatComposer
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
-        paddingY="space30"
-        paddingX="space40"
+        padding="space40"
         borderRadius="borderRadius30"
         backgroundColor="colorBackgroundBodyElevation"
         position="relative"
-        display="inline-block"
+        display="inline-flex"
+        columnGap="space30"
+        alignItems="center"
         width="100%"
         element={element}
       >
-        <MediaObject as="div" ref={ref} verticalAlign="center" element={`${element}_MEDIA_OBJECT`}>
-          <MediaFigure as="div" spacing="space30">
-            <Box color="colorTextIcon" element={`${element}_ICON`}>
-              {attachmentIcon}
-            </Box>
-          </MediaFigure>
-          <MediaBody as="div" element={`${element}_BODY`}>
-            <Stack orientation="vertical" spacing="space10">
-              {children}
-            </Stack>
-          </MediaBody>
-        </MediaObject>
+        {attachmentIcon && (
+          <Box color="colorTextIcon" element={`${element}_ICON`}>
+            {attachmentIcon}
+          </Box>
+        )}
+        <Stack orientation="vertical" spacing="space10">
+          {children}
+        </Stack>
         {onDismiss && (
           <Box
             position="absolute"

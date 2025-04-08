@@ -6,6 +6,7 @@ export const meta = {
 
 import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
+import {Anchor} from '@twilio-paste/anchor'
 
 import {SidebarCategoryRoutes} from '../../constants';
 import DefaultLayout from '../../layouts/DefaultLayout';
@@ -61,6 +62,16 @@ To change the theme, simply change the value of the `theme` prop on the `Theme.P
 Alternatively, Paste will automatically load the default theme's font via JavaScript. **Note:** this will result in slower download times than including the fonts in the `<head />`.
 
 **For other themes, see our [manual installation page](/introduction/for-engineers/manual-installation/#how-to-load-the-right-font) for more information.**
+
+## SSR and SSG
+
+If you are using server-side rendering (SSR) or static site generation (SSG), <strong>and</strong> you support theme switching, you will need to use CSS variables and set a `body` `data-theme` attribute to avoid theme flicker on initial renders. You can view our <Anchor href="/blog/2025-03-20-css-variables-ssr-ssg/">blog post</Anchor> on this topic, discussing the problem and demonstrating how we solved it for the Paste website. 
+
+```jsx
+<Theme.Provider
+  useCSSVariables={true}
+>
+```
 
 ## FAQs
 

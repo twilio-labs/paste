@@ -1,5 +1,17 @@
 # @twilio-paste/chat-composer
 
+## 6.0.2
+
+### Patch Changes
+
+- [`a9e30405c`](https://github.com/twilio-labs/paste/commit/a9e30405cae79335b2ef953f63ffe3171d6405e8) [#4292](https://github.com/twilio-labs/paste/pull/4292) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Make `attachmentIcon` optional for the attachment card, adjust spacing slightly. NOTE: if you are using the Customization Provider to target "CHAT_COMPOSER_MEDIA_OBJECT", you will need to update your styles as Media Object is no longer being used in the Chat Composer package.
+
+## 6.0.1
+
+### Patch Changes
+
+- [`262c1b715`](https://github.com/twilio-labs/paste/commit/262c1b71503e735ef98a4bdb6491ad5277cc2597) [#4281](https://github.com/twilio-labs/paste/pull/4281) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [all packages]: add use client directive to the components and icons. This will make paste library compatible with server components
+
 ## 6.0.0
 
 ### Major Changes
