@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface SplitIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface SplitIconProps extends IconWrapperProps {
 }
 
 const SplitIcon = React.forwardRef<HTMLElement, SplitIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `SplitIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[SplitIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[SplitIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -54,8 +54,8 @@ const SplitIcon = React.forwardRef<HTMLElement, SplitIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-SplitIcon.displayName = 'SplitIcon';
-export {SplitIcon};
+SplitIcon.displayName = "SplitIcon";
+export { SplitIcon };
