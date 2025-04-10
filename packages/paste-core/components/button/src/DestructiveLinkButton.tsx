@@ -30,6 +30,12 @@ const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   _focus: { color: "colorTextLinkDestructiveWeak" },
 });
 
+const linkSizeStyles = (size: keyof typeof SizeStyles): BoxStyleProps =>
+  merge(SizeStyles[size], {
+    borderRadius: "borderRadius20",
+  });
+
+
 const ButtonStyleMapping = {
   default: defaultStyles,
   loading: loadingStyles,
@@ -45,7 +51,7 @@ const DestructiveLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
         width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps({ as, ...props })}
         {...ButtonStyleMapping[buttonState]}
-        {...SizeStyles[size]}
+        {...linkSizeStyles(size)}
       />
     );
   },
