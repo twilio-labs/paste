@@ -22,6 +22,9 @@ export const Default = (): React.ReactNode => {
       <Label htmlFor="label" required>
         Required Label
       </Label>
+      <Label htmlFor="label" optional>
+        Optional Label
+      </Label>
     </>
   );
 };
@@ -35,6 +38,9 @@ export const Disabled = (): React.ReactNode => {
       <Label htmlFor="label" required disabled>
         Required Label
       </Label>
+      <Label htmlFor="label" optional disabled>
+        Optional Label
+      </Label>
     </>
   );
 };
@@ -47,6 +53,9 @@ export const Inverse = (): React.ReactNode => {
       </Label>
       <Label htmlFor="label" required variant="inverse">
         Required Label
+      </Label>
+      <Label htmlFor="label" optional variant="inverse">
+        Optional Label
       </Label>
     </Box>
   );
@@ -78,6 +87,9 @@ export const Customized: Story = () => {
           <Box display="flex" alignContent="start">
             <RequiredDot />
           </Box>
+          <Label optional htmlFor="optional_label" data-testid="label_test">
+            Optional label
+          </Label>
         </Card>
       </Box>
       <Box marginBottom="space70">
@@ -100,6 +112,9 @@ export const Customized: Story = () => {
             <Box display="flex" alignContent="start">
               <RequiredDot data-testid="required_dot" />
             </Box>
+            <Label optional htmlFor="optional_label" data-testid="label_test">
+              Optional label
+            </Label>
           </CustomizationProvider>
         </Card>
       </Box>
@@ -114,6 +129,7 @@ export const Customized: Story = () => {
               FOO_REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
               BAR: { backgroundColor: "colorBackgroundDestructiveStrong" },
               BAR_WRAPPER: { cursor: "help" },
+              TAR_OPTIONAL_TEXT: { fontStyle: "normal", color: "colorTextWarningStrong" },
             }}
           >
             <Label htmlFor="label" element="FOO">
@@ -125,6 +141,9 @@ export const Customized: Story = () => {
             <Box display="flex" alignContent="start">
               <RequiredDot data-testid="custom_required_dot" element="BAR" />
             </Box>
+            <Label optional htmlFor="optional_label" data-testid="label_test" element="TAR">
+              Optional label
+            </Label>
           </CustomizationProvider>
         </Card>
       </Box>

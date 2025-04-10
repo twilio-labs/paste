@@ -2,6 +2,7 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import type { TextColor } from "@twilio-paste/style-props";
+import { Text } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
@@ -31,6 +32,13 @@ type LabelBaseProps = {
    * @memberof LabelBaseProps
    */
   required?: boolean;
+  /**
+   * Shows the input is optional.
+   *
+   * @type {boolean}
+   * @memberof LabelBaseProps
+   */
+  optional?: boolean;
   /**
    *
    * @type {LabelVariants}
@@ -83,6 +91,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
       as = "label",
       marginBottom,
       required,
+      optional,
       disabled,
       children,
       variant,
@@ -124,7 +133,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         textTransform="none"
         element={element}
         fontSize="fontSize30"
-        fontWeight="fontWeightSemibold"
+        fontWeight="fontWeightMedium"
         lineHeight="lineHeight30"
         color={textColor}
         cursor={cursor}
@@ -136,7 +145,15 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
               <RequiredDot element={`${element}_REQUIRED_DOT`} i18nLabel={i18nRequiredLabel} />
             </MediaFigure>
           )}
-          <MediaBody>{children}</MediaBody>
+          <MediaBody>
+            {children}
+            {optional && (
+              <Text as="span" fontStyle="italic" color="colorTextWeak" element={`${element}_OPTIONAL_TEXT`}>
+                {" "}
+                (optional)
+              </Text>
+            )}
+          </MediaBody>
         </MediaObject>
       </Box>
     );
