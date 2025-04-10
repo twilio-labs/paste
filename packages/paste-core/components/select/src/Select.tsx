@@ -91,7 +91,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         // must set a solid color to inherit in options for Windows
         backgroundColor={variant === "inverse" ? "colorBackgroundInverse" : "colorBackgroundBody"}
         border="none"
-        borderRadius="borderRadius20"
+        borderRadius="borderRadius30"
         boxShadow="none"
         color="inherit"
         cursor="pointer"
