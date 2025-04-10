@@ -35,7 +35,6 @@ const linkSizeStyles = (size: keyof typeof SizeStyles): BoxStyleProps =>
     borderRadius: "borderRadius20",
   });
 
-
 const ButtonStyleMapping = {
   default: defaultStyles,
   loading: loadingStyles,
