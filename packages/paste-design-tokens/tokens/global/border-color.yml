@@ -29,7 +29,7 @@ props:
       - color-background-destructive-weaker
       - color-background-destructive-weakest
   color-border:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-40}"
     comment: Default border color
     uicontrol_contrast_pairing:
       # - color-background
