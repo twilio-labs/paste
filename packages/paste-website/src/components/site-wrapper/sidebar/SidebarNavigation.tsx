@@ -135,9 +135,18 @@ const SiteSidebarNavigation = (): JSX.Element => {
           </SidebarAnchor>
           <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/word-list`}>Word list</SidebarAnchor>
         </NavigationDisclosure>
-        <SidebarAnchor href={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
-          Data visualization
-        </SidebarAnchor>
+        <NavigationDisclosure buttonText="Data visualization" categoryRoute={SidebarCategoryRoutes.DATA_VISUALIZATION}>
+          <SidebarAnchor href={SidebarCategoryRoutes.DATA_VISUALIZATION}>Overview</SidebarAnchor>
+          <NavigationDisclosure
+            buttonText="Engineering"
+            categoryRoute={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering`}
+          >
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering/`}>Overview</SidebarAnchor>
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering/base-chart`}>
+              Base Chart
+            </SidebarAnchor>
+          </NavigationDisclosure>
+        </NavigationDisclosure>
         <SidebarAnchor
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/elevation`}
           onClick={() =>

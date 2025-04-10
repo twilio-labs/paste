@@ -1,0 +1,112 @@
+export const meta = {
+  title: "Data Visualization - Base Chart",
+  description: "The base component required to funciton with Paste components.",
+  slug: "/foundations/data-visualization/engineering/base-chart",
+};
+
+import Image from "next/image";
+import Highcharts from "highcharts";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import HighchartsReact from "highcharts-react-official";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
+
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
+
+import { SidebarCategoryRoutes } from "../../../../constants";
+import DefaultLayout from "../../../../layouts/DefaultLayout";
+import { getNavigationData } from "../../../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+This foundation page was created to help establish a familiar and accessible user experience when interacting with data visualization across all Twilio products. These recommendations should enable you to tell accurate and convincing stories around data in a visually consistent and accessible manner.
+
+### Adding Highcharts Accessibility module
+
+Highcharts by default does not include its [Accessibility](https://www.highcharts.com/docs/accessibility/accessibility-module) module. Every Highcharts license includes the Accessibility module which adheres to the WCAG 2.1 standard and adds enhanced keyboard navigation and screen reader functionality.
+
+A helper function `applyPasteHighchartsModules` is available from the [data visualization library package](/core/libraries/data-visualization#applypastehighchartsmodules), which applies additional modules to Highcharts. This function should be called at the component level where the Highcharts namespace is passed to HighchartsReact.
+
+```jsx
+import * as Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import * as React from "react";
+import {
+  usePasteHighchartsTheme,
+  applyPasteHighchartsModules,
+} from "@twilio-paste/core/data-visualization-library";
+import { ChartContext } from "@twilio-paste/core/chart-provider";
+import { Box } from "@twilio-paste/core/box";
+
+
+const Chart: React.FC = () => {
+  applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
+  const chartRef = React.useRef<HTMLElement | null>(null);
+  const { options, setChart, setChartRef } = React.useContext<ChartContext>();
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
+    usePasteHighchartsTheme(options)
+  );
+
+  React.useLayoutEffect(() => {
+    setChartOptions(Highcharts.merge(chartOptions, options));
+  }, [options]);
+
+  React.useEffect(() => {
+    if (chartRef.current) {
+      setChartRef(chartRef.current);
+    }
+  }, [chartRef.current]);
+
+  const callback = (chart: Highcharts.Chart) => {
+    if (chart?.series?.length > 0) {
+      setChart(chart);
+    }
+  };
+
+  return (
+    <Box gridArea="base-chart" ref={chartRef} position="relative">
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={chartOptions}
+        constructorType={chartOptions.chart?.map ? "mapChart" : undefined}
+        updateArgs={[true, true, false]}
+        callback={callback}
+      />
+    </Box>
+  );
+};
+
+export const BaseChart = React.memo(Chart);
+```
+
+</content>
+
+</contentwrapper>
