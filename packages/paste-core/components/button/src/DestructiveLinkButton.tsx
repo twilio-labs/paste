@@ -15,11 +15,11 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: "colorTextLinkDestructive",
+  color: "colorTextWeaker",
   textAlign: "left",
-  _hover: { color: "colorTextLinkDestructiveStronger" },
-  _active: { color: "colorTextLinkDestructiveStronger" },
-  _focus: { color: "colorTextLinkDestructiveStronger" },
+  _hover: { color: "colorTextWeaker" },
+  _active: { color: "colorTextWeaker" },
+  _focus: { color: "colorTextWeaker" },
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
