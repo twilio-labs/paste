@@ -16,7 +16,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: "colorTextInverse",
+  color: "colorTextInverseWeakest",
   textAlign: "left",
 });
 
