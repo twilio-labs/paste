@@ -21,7 +21,7 @@ const selectAllStyleProps = {
   paddingRight: "space30",
   paddingBottom: "space20",
   paddingLeft: "space30",
-  borderRadius: "borderRadius10",
+  borderRadius: "borderRadius20",
   backgroundColor: "colorBackground",
 };
 
