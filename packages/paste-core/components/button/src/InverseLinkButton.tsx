@@ -25,6 +25,11 @@ const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   textAlign: "left",
 });
 
+const linkSizeStyles = (size: keyof typeof SizeStyles): BoxStyleProps =>
+  merge(SizeStyles[size], {
+    borderRadius: "borderRadius20",
+  });
+
 const ButtonStyleMapping = {
   default: defaultStyles,
   loading: loadingStyles,
@@ -40,7 +45,7 @@ const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>
         width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps({ as, ...props })}
         {...ButtonStyleMapping[buttonState]}
-        {...SizeStyles[size]}
+        {...linkSizeStyles(size)}
       />
     );
   },
