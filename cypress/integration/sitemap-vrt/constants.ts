@@ -321,6 +321,7 @@ export const SITEMAP = [
   "/patterns/object-status/",
   "/primitives/combobox-primitive/",
   "/patterns/create/",
+  "/patterns/form/",
   "/primitives/",
   "/primitives/menu-primitive/",
   "/primitives/disclosure-primitive/",
