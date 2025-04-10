@@ -276,6 +276,23 @@ export const DefaultWizardOrderedListExample = `
 </Box>
 `.trim();
 
+export const DefaultWizardOrderedListExampleRender = `
+const App = () => {
+  const input1 = useUID();
+  const input2 = useUID();
+  const input3 = useUID();
+  const input4 = useUID();
+  const input5 = useUID();
+  return (
+    ${DefaultWizardOrderedListExample}
+  );
+}
+
+render(
+  <App />
+)
+`.trim();
+
 export const WizardFooterOptionsExample = `
 <Box
   display="flex"
