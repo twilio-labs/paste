@@ -82,7 +82,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Form');
+  const feature = await getFeature('Form pattern');
   return {
     props: {
       data: {
