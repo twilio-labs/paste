@@ -1,7 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
-import type { PositionOptions } from "@twilio-paste/style-props";
+import type { BackgroundColor, PositionOptions } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
@@ -66,9 +66,19 @@ const getVirtualStyles = (startHeight: number): Record<string, unknown> => ({
   position: "absolute" as PositionOptions,
   top: 0,
   left: 0,
-  width: "100%",
+  width: "fill-available",
   transform: `translateY(${startHeight}px)`,
 });
+
+function getBackgroundColor(highlightedProp?: boolean, selectedProp?: boolean): BackgroundColor {
+  if (highlightedProp && selectedProp) {
+    return "colorBackgroundWeak";
+  }
+  if (highlightedProp || selectedProp) {
+    return "colorBackgroundBodyElevationPrimary";
+  }
+  return "colorBackgroundWeaker";
+}
 
 const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
   (
@@ -99,49 +109,34 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         as="li"
         position="relative"
         element={`${element}_LIST_ITEM`}
-        backgroundColor={highlighted ? "colorBackgroundPrimaryWeakest" : "colorBackgroundWeaker"}
-        color={
-          highlighted
-            ? "colorTextPrimary"
-            : // eslint-disable-next-line unicorn/no-nested-ternary
-            selected
-            ? "colorTextPrimary"
-            : "colorText"
-        }
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        paddingY="space40"
+        color={highlighted ? "colorTextPrimary" : "colorText"}
         cursor={disabled ? "not-allowed" : "pointer"}
         ref={ref}
-        transition="background-color 150ms ease, color 150ms ease"
-        borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderWeaker"
-        borderBottomStyle="solid"
         opacity={disabled ? 0.3 : 1}
-        _before={{
-          content: `""`,
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          borderLeftWidth: "borderWidth20",
-          borderLeftColor: highlighted ? "colorBorderPrimary" : "transparent",
-          borderLeftStyle: "solid",
-        }}
-        _last={{
-          borderBottomColor: "transparent",
-        }}
         {...virtualItemStyles}
-        {...VariantStyles[variant]}
       >
-        <Box as="span">
-          <Text as="span" color="inherit" element={`${element}_LIST_ITEM_TEXT`}>
-            {children}
-          </Text>
-        </Box>
-        <Box as="span" hidden={!selected}>
-          <SelectedIcon decorative color="inherit" />
+        {/* extra box to add proper margin since li is based on absolute positioning */}
+        <Box
+          as="span"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          margin="space10"
+          borderRadius="borderRadius30"
+          backgroundColor={getBackgroundColor(highlighted, selected)}
+          paddingY="space40"
+          transition="background-color 150ms ease, color 150ms ease"
+          {...VariantStyles[variant]}
+        >
+          <Box as="span">
+            <Text as="span" color="inherit" element={`${element}_LIST_ITEM_TEXT`}>
+              {children}
+            </Text>
+          </Box>
+
+          <Box as="span" hidden={!selected}>
+            <SelectedIcon decorative color={highlighted && selected ? "colorTextIcon" : "colorTextPrimary"} />
+          </Box>
         </Box>
       </Box>
     );
