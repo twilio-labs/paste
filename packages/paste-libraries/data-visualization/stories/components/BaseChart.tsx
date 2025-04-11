@@ -12,7 +12,7 @@ const Chart: React.FC = () => {
   const chartRef = React.useRef<HTMLElement | null>(null);
   const { options, setChart, setChartRef } = React.useContext(ChartContext);
   const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
-    // disabling animation for stories only. Not included in our docs exmaples
+    // disabling animation for stories only. Not included in our docs examples
     usePasteHighchartsTheme({ ...options, plotOptions: { series: { animation: false } } }),
   );
 

@@ -16,6 +16,7 @@ import { Text } from "@twilio-paste/text";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { PageHeaderSeparator } from "@twilio-paste/page-header";
 import { Separator } from "@twilio-paste/separator";
+import { InlineCode } from "@twilio-paste/inline-code";
 
 import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
@@ -46,9 +47,38 @@ export const getStaticProps = async () => {
 
 ## Introduction
 
-When building
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>In progress</CalloutHeading>
+    <CalloutText>As our current data visualization offerings are in progress these documents are subject to change. We will revise and expand these pages when new features are supported.</CalloutText>
+  </Callout>
+</Box>
 
-## Base chart
+Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in our library. This limitation creates challenges when developing components for a library we cannot directly integrate with.
+
+To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply styles to the charts for a consistent appearance.
+
+## Setup
+
+To ensure our components function correctly, some initial configuration is required in your project. This seciton will cover:
+- Storing and retrieving rendered chart objects.
+- Setting up the chart context.
+- Adding any additional modules required for additional functionality such as gauges, exporting etc.
+
+### Base chart
+
+You will need to include a component that retrieves the chart configuration from our components' context and passes it to Highcharts. This component must also capture the rendered chart and store it in our `ChartContext`.
+
+Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component.
+
+<Box marginBottom="space60">
+  <Callout variant="warning">
+    <CalloutHeading>Modules subject to change</CalloutHeading>
+    <CalloutText>As we expand our supported charts you will need to maintain this file to include any required modules for the new charts or functionality of our components to work correctly. The change will look like the following:</CalloutText>
+    <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);</InlineCode></CalloutText>
+    <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule, HighchartsSankeyModule, ...);</InlineCode></CalloutText>
+  </Callout>
+</Box>
 
 ```jsx
 import { ChartContext } from "@twilio-paste/core/chart-provider";
@@ -60,6 +90,7 @@ import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
 import * as React from "react";
 
 const Chart: React.FC = () => {
+  // Load the accessibility module and any other modules you need.
   applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const chartRef = React.useRef<HTMLElement | null>(null);
   const { options, setChart, setChartRef } = React.useContext(ChartContext);
@@ -76,6 +107,7 @@ const Chart: React.FC = () => {
   }, [chartRef.current]);
 
   const callback = (chart: Highcharts.Chart) => {
+    // Ensure the chart has been rendered before setting it. This will cause issues in our components if the series is empty.
     if (chart?.series?.length > 0) {
       setChart(chart);
     }
