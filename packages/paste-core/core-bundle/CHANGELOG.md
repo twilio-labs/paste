@@ -1,5 +1,18 @@
 # Change Log
 
+## 21.3.0
+
+### Minor Changes
+
+- [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48) [#4303](https://github.com/twilio-labs/paste/pull/4303) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icons] added 2 new icons SplitIcon and RandomizeIcon
+
+* [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c) [#4304](https://github.com/twilio-labs/paste/pull/4304) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Card]: add `fillWidth` prop to make card width stretch to the container width
+
+### Patch Changes
+
+- Updated dependencies [[`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c)]:
+  - @twilio-paste/card@10.2.0
+
 ## 21.2.0
 
 ### Minor Changes
