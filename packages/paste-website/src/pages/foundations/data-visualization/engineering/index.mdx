@@ -46,34 +46,24 @@ export const getStaticProps = async () => {
 
 ## Introduction
 
-This foundation page was created to help establish a familiar and accessible user experience when interacting with data visualization across all Twilio products. These recommendations should enable you to tell accurate and convincing stories around data in a visually consistent and accessible manner.
+When building
 
-### Adding Highcharts Accessibility module
-
-Highcharts by default does not include its [Accessibility](https://www.highcharts.com/docs/accessibility/accessibility-module) module. Every Highcharts license includes the Accessibility module which adheres to the WCAG 2.1 standard and adds enhanced keyboard navigation and screen reader functionality.
-
-A helper function `applyPasteHighchartsModules` is available from the [data visualization library package](/core/libraries/data-visualization#applypastehighchartsmodules), which applies additional modules to Highcharts. This function should be called at the component level where the Highcharts namespace is passed to HighchartsReact.
+## Base chart
 
 ```jsx
+import { ChartContext } from "@twilio-paste/core/chart-provider";
+import { Box } from "@twilio-paste/core/box";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/core/data-visualization-library";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
 import * as React from "react";
-import {
-  usePasteHighchartsTheme,
-  applyPasteHighchartsModules,
-} from "@twilio-paste/core/data-visualization-library";
-import { ChartContext } from "@twilio-paste/core/chart-provider";
-import { Box } from "@twilio-paste/core/box";
-
 
 const Chart: React.FC = () => {
   applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const chartRef = React.useRef<HTMLElement | null>(null);
-  const { options, setChart, setChartRef } = React.useContext<ChartContext>();
-  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
-    usePasteHighchartsTheme(options)
-  );
+  const { options, setChart, setChartRef } = React.useContext(ChartContext);
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(usePasteHighchartsTheme(options));
 
   React.useLayoutEffect(() => {
     setChartOptions(Highcharts.merge(chartOptions, options));

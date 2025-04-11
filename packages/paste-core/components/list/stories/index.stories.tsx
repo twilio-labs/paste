@@ -5,7 +5,7 @@ import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { ListItem, OrderedList, UnorderedList } from "../src";
+import { List, ListItem, OrderedList, UnorderedList } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -106,6 +106,46 @@ export const NestedUnorderedList = (): React.ReactNode => {
           API.
         </ListItem>
       </UnorderedList>
+    </>
+  );
+};
+
+export const DefaultList = (): React.ReactNode => {
+  return (
+    <>
+      <List as="ol" listStyleType="upper-alpha" data-test="something" aria-label="ordered list">
+        <ListItem>
+          Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+          API.
+        </ListItem>
+        <List as="ol" listStyleType="lower-alpha" data-test="something" aria-label="ordered list">
+          <ListItem>
+            Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+            API.
+          </ListItem>
+          <List as="ol" listStyleType="lower-roman" data-test="something" aria-label="ordered list">
+            <ListItem>
+              Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+              Messaging API.
+            </ListItem>
+            <ListItem>
+              Proactively inform customers about account activity, purchase confirmations, and shipping notifications
+              with the
+              <i>Programmable Messaging API</i>.
+            </ListItem>
+          </List>
+          <ListItem>
+            Proactively inform customers about account activity, purchase confirmations, and shipping notifications with
+            the
+            <i>Programmable Messaging API</i>.
+          </ListItem>
+        </List>
+        <ListItem>
+          Proactively inform customers about account activity, purchase confirmations, and shipping notifications with
+          the
+          <i>Programmable Messaging API</i>.
+        </ListItem>
+      </List>
     </>
   );
 };
