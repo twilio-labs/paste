@@ -12,24 +12,24 @@ const baseVariantStyles: MenuItemVariantStyles = {
     color: "colorText",
     _hover: {
       color: "colorTextPrimary",
-      backgroundColor: "colorBackgroundPrimaryWeakest",
-      borderColor: "colorBorderPrimary",
+      backgroundColor: "colorBackgroundBodyElevationPrimary",
     },
     _focus: {
       color: "colorTextPrimary",
-      backgroundColor: "colorBackgroundPrimaryWeakest",
-      borderColor: "colorBorderPrimary",
+      backgroundColor: "colorBackgroundBodyElevationPrimary",
+    },
+    _checked: {
+      backgroundColor: "colorBackgroundBodyElevationPrimary",
+      color: "colorText",
     },
   },
   [MenuItemVariants.DESTRUCTIVE]: {
     color: "colorTextDestructive",
     _hover: {
       backgroundColor: "colorBackgroundDestructiveWeakest",
-      borderColor: "colorBorderDestructive",
     },
     _focus: {
       backgroundColor: "colorBackgroundDestructiveWeakest",
-      borderColor: "colorBorderDestructive",
     },
   },
 };
@@ -90,16 +90,23 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         fontSize="fontSize30"
         fontWeight="fontWeightNormal"
         lineHeight="lineHeight30"
-        margin="space0"
         outline="none"
         paddingY="space30"
-        borderLeftStyle="solid"
-        borderLeftWidth="borderWidth20"
-        borderColor="transparent"
+        borderRadius="borderRadius30"
+        margin="space10"
         cursor="pointer"
         paddingX="space70"
-        width="100%"
+        width="fill-available"
         {...variantStyles[variant]}
+        _checked_hover={
+          {
+            backgroundColor: "colorBackgroundWeak",
+            color: variant === MenuItemVariants.DESTRUCTIVE ? "colorTextDestructive" : "colorTextPrimary",
+            "& [data-paste-element='ICON']": {
+              color: "colorTextIcon",
+            },
+          } as BoxProps["_checked_hover"]
+        }
         _disabled={{
           color: "colorTextWeaker",
           cursor: "not-allowed",
