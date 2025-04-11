@@ -1,0 +1,36 @@
+import {SidebarCategoryRoutes} from '../../../../constants';
+import Changelog from '@twilio-paste/chart-provider/CHANGELOG.md';
+import packageJson from '@twilio-paste/chart-provider/package.json';
+import ComponentPageLayout from '../../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../../utils/api';
+
+export const meta = {
+  title: 'Chart Provider',
+  package: '@twilio-paste/chart-provider',
+  description: packageJson.description,
+  slug: '/components/chart-provider/changelog',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chart Provider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chart-provider',
+        storybookUrl: '/?path=/story/components-chartprovider',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -142,6 +142,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
             categoryRoute={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering`}
           >
             <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering/`}>Overview</SidebarAnchor>
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering/chart-types`}>
+              Chart types
+            </SidebarAnchor>
           </NavigationDisclosure>
         </NavigationDisclosure>
         <SidebarAnchor
@@ -368,6 +371,29 @@ const SiteSidebarNavigation = (): JSX.Element => {
           }
           if (name === "Sidebar Navigation") {
             return null;
+          }
+          if (name === "Data Visualization") {
+            return (
+              <NavigationDisclosure
+                buttonText={name}
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: name,
+                  })
+                }
+              >
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/data-visualization/chart-provider`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/data-visualization/chart-provider`)}
+                >
+                  Chart Provider
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
           }
           return (
             <SidebarAnchor selected={selected} href={categoryRoute} key={slug}>
