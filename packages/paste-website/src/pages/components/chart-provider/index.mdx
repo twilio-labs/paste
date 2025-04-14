@@ -4,6 +4,8 @@ import packageJson from '@twilio-paste/chart-provider/package.json';
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
+import {ExamplesDataVizBaseChart as BaseChart} from '../../../component-examples/data-visualization/BaseChart';
+import {CustomChartProviderExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartProviderExamples';
 
 export const meta = {
   title: 'Chart Provider',
@@ -35,10 +37,11 @@ export const getStaticProps = async () => {
 };
 
 <LivePreview
-  scope={{ChartProvider}}
+  scope={{ChartProvider, BaseChart}}
   language="jsx"
+  noInline
 >
-  {`<ChartProvider/>`}
+{SimpleChartProviderExample}
 </LivePreview>
 
 ## Guidelines
@@ -47,11 +50,16 @@ export const getStaticProps = async () => {
 
 ## Examples
 
+### Custom Chart
+
+
+
 <LivePreview
-  scope={{ChartProvider}}
+  scope={{ChartProvider, BaseChart}}
   language="jsx"
+  noInline
 >
-  {`<ChartProvider/>`}
+{CustomChartProviderExample}
 </LivePreview>
 
 ## Composition Notes
