@@ -137,7 +137,7 @@ export const BaseChart = React.memo(Chart);
 
 We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the BaseChart to read and use.
 
-Each individual chart instance will be wrapped in a [ChartProvider](/components/data-visualization/chart-provider) which sets the initial configuration and apply chart specific styles.
+Each individual chart instance will be wrapped in a [ChartProvider](/components/chart-provider) which sets the initial configuration and apply chart specific styles.
 
 An individual chart instance does not mean a chart only. It may also mean chart titles, legends, tooltips and any other component that does not sit in or on the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements but any of our Paste components that interact with that chart instance.
 

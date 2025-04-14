@@ -372,6 +372,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
           if (name === "Sidebar Navigation") {
             return null;
           }
+          if(['Chart Provider'].includes(name)) {return null}
           if (name === "Data Visualization") {
             return (
               <NavigationDisclosure
@@ -387,8 +388,8 @@ const SiteSidebarNavigation = (): JSX.Element => {
                 }
               >
                 <SidebarAnchor
-                  href={`${SidebarCategoryRoutes.COMPONENTS}/data-visualization/chart-provider`}
-                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/data-visualization/chart-provider`)}
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/chart-provider`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/chart-provider`)}
                 >
                   Chart Provider
                 </SidebarAnchor>
