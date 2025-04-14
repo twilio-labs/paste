@@ -1,4 +1,6 @@
 import { ChartProvider } from '@twilio-paste/chart-provider';
+import { Box } from '@twilio-paste/box';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
 import packageJson from '@twilio-paste/chart-provider/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -48,11 +50,22 @@ export const getStaticProps = async () => {
 
 ## About Chart Provider
 
+ChartProvider is a wrapper around Highcharts that provides a consistent API for configuring an individual chart instance. This component has no visible elements and is an engineering asset only. It acts as a store for chart options and provides a context for managing chart state. The ChartProvider component is responsible for rendering the chart and managing its lifecycle.
+
+We highly recommend using our [BaseChart](/foundations/data-visualization/engineering#basechart) code inside the ChartProvider to ensure that the chart is rendered correctly and state is correctly stored.
+
 ## Examples
 
-### Custom Chart
+### Custom charts
 
+You can use the `highchartsOptions` to create unsupported charts by passing options directly to the base chart without modification, but we recommend using our wrappers for easier migration, access to the rendered chart object, and enhanced custom interactions.
 
+<Box marginBottom="space60">
+  <Callout variant="warning">
+    <CalloutHeading>Compatibility</CalloutHeading>
+    <CalloutText>If you build charts using the Highcharts API it will be unlikely that our Paste components will function as they depend on helper funcitons and event tracking that we enrich the default options with.</CalloutText>
+  </Callout>
+</Box>
 
 <LivePreview
   scope={{ChartProvider, BaseChart}}
@@ -61,6 +74,4 @@ export const getStaticProps = async () => {
 >
 {CustomChartProviderExample}
 </LivePreview>
-
-## Composition Notes
 

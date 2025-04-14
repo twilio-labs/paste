@@ -47,7 +47,7 @@ const ChartProviderExample = () => {
     ]
 
     return (
-        <ChartProvider highchartsOptions={series: lineSeriesData}>
+        <ChartProvider highchartsOptions={{title: {floating: true, align: "right", text: "Custom charting title"}, series: lineSeriesData}}>
             <BaseChart />
         </ChartProvider>
     );

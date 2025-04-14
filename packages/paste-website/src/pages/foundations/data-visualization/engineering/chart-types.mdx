@@ -14,6 +14,7 @@ import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { ChartProvider } from "@twilio-paste/chart-provider";
 import { PageHeaderSeparator } from "@twilio-paste/page-header";
 import { Separator } from "@twilio-paste/separator";
 import { InlineCode } from "@twilio-paste/inline-code";
@@ -21,6 +22,8 @@ import { InlineCode } from "@twilio-paste/inline-code";
 import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
 import { getNavigationData } from "../../../../utils/api";
+import { CustomChartProviderExample } from "../../../../component-examples/data-visualization/ChartProviderExamples";
+import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
 
 export default DefaultLayout;
 
@@ -51,6 +54,16 @@ export const getStaticProps = async () => {
     <CalloutText>As our current data visualization offerings are in progress these documents are subject to change. We will revise and expand these pages when new chart types are supported.</CalloutText>
   </Callout>
 </Box>
+
+### Custom
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{CustomChartProviderExample}
+</LivePreview>
 
 </content>
 
