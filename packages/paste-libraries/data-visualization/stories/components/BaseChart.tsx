@@ -26,7 +26,7 @@ const Chart: React.FC = () => {
     }
   }, [chartRef.current]);
 
-  const callback = (chart: Highcharts.Chart) => {
+  const callback = (chart: Highcharts.Chart): void => {
     if (chart?.series?.length > 0) {
       setChart(chart);
     }

@@ -1,9 +1,8 @@
 import type { Meta, StoryFn } from "@storybook/react";
+import { ChartProvider } from "@twilio-paste/chart-provider";
 import { Stack } from "@twilio-paste/stack";
 import * as React from "react";
-/* eslint-enable */
 
-import { ChartProvider } from "@twilio-paste/chart-provider";
 import { BaseChart } from "./components/BaseChart";
 import { lineChartOptions } from "./options/lineChartOptions";
 

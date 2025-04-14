@@ -372,7 +372,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           if (name === "Sidebar Navigation") {
             return null;
           }
-          if(['Chart Provider'].includes(name)) {return null}
+          if (["Chart Provider"].includes(name)) {
+            return null;
+          }
           if (name === "Data Visualization") {
             return (
               <NavigationDisclosure

@@ -6,14 +6,11 @@ import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
 import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
 import * as React from "react";
 
-
 const Chart: React.FC = () => {
   applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const chartRef = React.useRef<HTMLElement | null>(null);
   const { options, setChart, setChartRef } = React.useContext(ChartContext);
-  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
-    usePasteHighchartsTheme(options),
-  );
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(usePasteHighchartsTheme(options));
 
   React.useLayoutEffect(() => {
     setChartOptions(Highcharts.merge(chartOptions, options));
