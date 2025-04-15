@@ -8,8 +8,6 @@ import {
   DescriptionListTerm,
 } from "@twilio-paste/core/description-list";
 import { Heading } from "@twilio-paste/core/heading";
-import { InformationIcon } from "@twilio-paste/core/icons/esm/InformationIcon";
-import { WarningIcon } from "@twilio-paste/core/icons/esm/WarningIcon";
 import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/core/in-page-navigation";
 import {
   PageHeader,
@@ -22,6 +20,8 @@ import {
 import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/core/table";
 import { Text } from "@twilio-paste/core/text";
 import { useUID } from "@twilio-paste/core/uid-library";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 
 import * as React from "react";
 import type { JSX } from "react";

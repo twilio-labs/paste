@@ -1,4 +1,3 @@
-import { FilterIcon } from "@twilio-core/icons/esm/FilterIcon";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { Box } from "@twilio-paste/core/box";
@@ -23,13 +22,16 @@ import {
   PageHeaderSetting,
 } from "@twilio-paste/core/page-header";
 import { ScreenReaderOnly } from "@twilio-paste/core/screen-reader-only";
-import { useUID } from "@twilio-paste/core/uid-library";
+import { useUID, useUIDSeed } from "@twilio-paste/core/uid-library";
+import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
 import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
 
 import type { JSX } from "react";
 import * as React from "react";
 
 export const ObjectsList = (): JSX.Element => {
+  const seed = useUIDSeed();
+
   return (
     <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
       <PageHeader size="default">
@@ -54,12 +56,12 @@ export const ObjectsList = (): JSX.Element => {
         <Box maxWidth="size70" marginBottom="space90" display="flex" columnGap="space80" alignItems="flex-end">
           <Box maxWidth="size90" display="flex" columnGap="space50">
             <Box width="100%">
-              <Label htmlFor={input1}>Phone number</Label>
-              <Input type="text" id={input1} />
+              <Label htmlFor={seed("phone")}>Phone number</Label>
+              <Input type="text" id={seed("phone")} />
             </Box>
             <Box width="100%">
-              <Label htmlFor={input2}>Friendly name</Label>
-              <Input type="text" id={input2} />
+              <Label htmlFor={seed("name")}>Friendly name</Label>
+              <Input type="text" id={seed("name")} />
             </Box>
           </Box>
           <Box display="flex" width="size20" justifyContent="flex-start">

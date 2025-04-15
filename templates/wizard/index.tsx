@@ -19,13 +19,15 @@ import {
   ProgressStepSeparator,
   ProgressSteps,
 } from "@twilio-paste/core/progress-steps";
-import { useUID } from "@twilio-paste/core/uid-library";
+import { useUID, useUIDSeed } from "@twilio-paste/core/uid-library";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 
 import type { JSX } from "react";
 import * as React from "react";
 
 export const Wizard = (): JSX.Element => {
+  const seed = useUIDSeed();
+
   return (
     <Box display="flex" width="100%" justifyContent="center" paddingX="space10">
       <Box paddingTop="space130" paddingBottom="space160" width="size70" maxWidth="size80">
@@ -61,20 +63,20 @@ export const Wizard = (): JSX.Element => {
           <Box>
             <Form>
               <FormControl>
-                <Label htmlFor={input1}>Label</Label>
-                <Input type="text" id={input1} name="input1" />
+                <Label htmlFor={seed("label-1")}>Label</Label>
+                <Input type="text" id={seed("label-1")} name="input1" />
               </FormControl>
               <FormControl>
-                <Label htmlFor={input2}>Label</Label>
-                <Input type="text" id={input2} name="input2" />
+                <Label htmlFor={seed("label-2")}>Label</Label>
+                <Input type="text" id={seed("label-2")} name="input2" />
               </FormControl>
               <FormControl>
-                <Label htmlFor={input3}>Label</Label>
-                <Input type="text" id={input3} name="input3" />
+                <Label htmlFor={seed("label-3")}>Label</Label>
+                <Input type="text" id={seed("label-3")} name="input3" />
               </FormControl>
               <FormControl>
-                <Label htmlFor={input4}>Label</Label>
-                <Input type="text" id={input4} name="input4" />
+                <Label htmlFor={seed("label-4")}>Label</Label>
+                <Input type="text" id={seed("label-4")} name="input4" />
               </FormControl>
             </Form>
           </Box>
