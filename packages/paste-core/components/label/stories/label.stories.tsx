@@ -87,7 +87,7 @@ export const Customized: Story = () => {
           <Box display="flex" alignContent="start">
             <RequiredDot />
           </Box>
-          <Label optional htmlFor="optional_label" data-testid="label_test">
+          <Label optional htmlFor="optional_label">
             Optional label
           </Label>
         </Card>
@@ -112,7 +112,7 @@ export const Customized: Story = () => {
             <Box display="flex" alignContent="start">
               <RequiredDot data-testid="required_dot" />
             </Box>
-            <Label optional htmlFor="optional_label" data-testid="label_test">
+            <Label optional htmlFor="optional_label">
               Optional label
             </Label>
           </CustomizationProvider>
@@ -141,7 +141,7 @@ export const Customized: Story = () => {
             <Box display="flex" alignContent="start">
               <RequiredDot data-testid="custom_required_dot" element="BAR" />
             </Box>
-            <Label optional htmlFor="optional_label" data-testid="label_test" element="TAR">
+            <Label optional htmlFor="optional_label" element="TAR">
               Optional label
             </Label>
           </CustomizationProvider>
