@@ -52,6 +52,7 @@
     "@twilio-paste/card": "^10.1.0",
     "@twilio-paste/chat-composer": "^6.0.1",
     "@twilio-paste/chat-log": "^6.0.1",
+    "@twilio-paste/chart-provider": "^2.0.1",
     "@twilio-paste/checkbox": "^14.0.1",
     "@twilio-paste/clipboard-copy-library": "^4.0.1",
     "@twilio-paste/code-block": "^6.0.1",

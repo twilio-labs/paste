@@ -1,9 +1,9 @@
 import { Box } from "@twilio-paste/box";
 import { ChartContext } from "@twilio-paste/chart-provider";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
-import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
 import * as React from "react";
 
 const Chart: React.FC = () => {
@@ -22,7 +22,7 @@ const Chart: React.FC = () => {
     }
   }, [chartRef.current]);
 
-  const callback = (chart: Highcharts.Chart) => {
+  const callback = (chart: Highcharts.Chart): void => {
     if (chart?.series?.length > 0) {
       setChart(chart);
     }
