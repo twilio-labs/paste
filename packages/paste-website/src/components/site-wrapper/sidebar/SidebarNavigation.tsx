@@ -372,20 +372,20 @@ const SiteSidebarNavigation = (): JSX.Element => {
           if (name === "Sidebar Navigation") {
             return null;
           }
-          if (["Chart Provider"].includes(name)) {
+          if (["Data Visualization"].includes(name)) {
             return null;
           }
-          if (name === "Data Visualization") {
+          if (name === "Chart Provider") {
             return (
               <NavigationDisclosure
-                buttonText={name}
+                buttonText="Data Visualization"
                 categoryRoute={categoryRoute}
                 key={slug}
                 onClick={() =>
                   event({
                     category: "Left Navigation",
                     action: `click-${name}`,
-                    label: name,
+                    label: "Data Visualization",
                   })
                 }
               >
