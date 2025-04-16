@@ -131,9 +131,15 @@ Object {
     "text": "Solar Employment Growth by Sector, 2010-2016",
   },
   "tooltip": Object {
-    "backgroundColor": "rgb(244, 244, 246)",
+    "backgroundColor": "rgb(18, 28, 45)",
+    "borderColor": "rgb(136, 145, 170)",
+    "borderRadius": "8",
+    "borderWidth": "1px",
+    "padding": 12,
     "style": Object {
       "color": "rgb(18, 28, 45)",
+      "fontFamily": "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      "fontSize": "0.875rem",
     },
   },
   "xAxis": Object {
@@ -228,9 +234,15 @@ Object {
     },
   },
   "tooltip": Object {
-    "backgroundColor": "rgb(244, 244, 246)",
+    "backgroundColor": "rgb(18, 28, 45)",
+    "borderColor": "rgb(136, 145, 170)",
+    "borderRadius": "8",
+    "borderWidth": "1px",
+    "padding": 12,
     "style": Object {
       "color": "rgb(18, 28, 45)",
+      "fontFamily": "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      "fontSize": "0.875rem",
     },
   },
   "xAxis": Object {
