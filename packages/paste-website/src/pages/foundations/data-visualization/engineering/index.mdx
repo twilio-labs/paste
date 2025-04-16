@@ -133,6 +133,7 @@ const Chart: React.FC = () => {
 
 export const BaseChart = React.memo(Chart);
 ```
+
 ## Chart context
 
 We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the `BaseChart` to read and use.
