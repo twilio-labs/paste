@@ -1601,6 +1601,13 @@
       "required": false,
       "externalProp": true
     },
+    "optional": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Shows the input is optional."
+    },
     "popover": {
       "type": "\"\" | \"auto\" | \"manual\"",
       "defaultValue": null,
