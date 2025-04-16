@@ -1,5 +1,7 @@
 import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";
@@ -101,6 +103,109 @@ export const FillHeight = (): React.ReactNode => (
             ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
           </Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+  </Box>
+);
+
+export const FillWidth = (): React.ReactNode => (
+  <Box>
+    <Grid gutter="space40" rowGap="space70" equalColumnHeights>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                the title
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit quam ad magnam cumque
+            libero nam veniam consequuntur deserunt, officia cupiditate similique accusamus expedita possimus, commodi
+            voluptate enim harum amet.
+          </Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card fillWidth={true}>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                With fillWidth prop
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>the description</Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                Without fillWidth prop
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>the description</Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                the title
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit quam ad magnam cumque
+            libero nam veniam consequuntur deserunt, officia cupiditate similique accusamus expedita possimus, commodi
+            voluptate enim harum amet.
+          </Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
         </Card>
       </Column>
     </Grid>

@@ -123,6 +123,111 @@ export const FillHeightExample = `const CardExample = () => {
 
 render(<CardExample />);`.trim();
 
+export const FillWidthExample = `const CardExample = () => {
+  return (
+    <Grid gutter="space40" rowGap="space70" equalColumnHeights>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                the title
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit quam ad magnam cumque libero
+            nam veniam consequuntur deserunt, officia cupiditate similique accusamus expedita possimus, commodi voluptate
+            enim harum amet.
+          </Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card fillWidth={true}>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                With fillWidth prop
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>the description</Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                Without fillWidth prop
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>the description</Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+      <Column span={[12, 6]}>
+        <Card>
+          <Box marginBottom="space30">
+            <Stack orientation="horizontal" spacing="space30">
+              <Heading as="h4" variant="heading40" marginBottom="space0">
+                the title
+              </Heading>
+            </Stack>
+          </Box>
+
+          <Paragraph>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit quam ad magnam cumque libero
+            nam veniam consequuntur deserunt, officia cupiditate similique accusamus expedita possimus, commodi voluptate
+            enim harum amet.
+          </Paragraph>
+
+          <Stack orientation="horizontal" spacing="space40">
+            <Button variant="secondary" as="a" href="#">
+              button
+            </Button>
+            <Anchor href="#" showExternal>
+              link
+            </Anchor>
+          </Stack>
+        </Card>
+      </Column>
+    </Grid>
+  );
+};
+
+render(<CardExample />);`.trim();
+
 export const MarketingOneExample = `const CardExample = () => {
   return (
     <Card>

@@ -11,6 +11,8 @@ import packageJson from '@twilio-paste/code-editor-library/package.json';
 import {SidebarCategoryRoutes} from '../../../../constants';
 import {getNavigationData} from '../../../../utils/api';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 export default DefaultLayout;
 
@@ -43,13 +45,18 @@ export const getStaticProps = async () => {
 
 ## About
 
-The Code Editor allows for a full code-editing experiences on the web, including syntax highlighting and displaying line numbers.
+The Code Editor library is the code editor that powers the stylized [Editable Code Block](/components/editable-code-block) component. It allows for full code-editing functionality on the web, including syntax highlighting and displaying line numbers. 
 
 This library is built on top of [monaco-react](https://github.com/suren-atoyan/monaco-react), which wraps the
-[Monaco Editor](https://github.com/microsoft/monaco-editor).
-
-Our library exposes a theme for use in Twilio products, aptly called the `PasteTheme`. This theme is based on the
+[Monaco Editor](https://github.com/microsoft/monaco-editor). The library exposes a theme for use in Twilio products, aptly called the `PasteTheme`. This theme is based on the
 [Night Owl theme by Sarah Drasner](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl&WT.mc_id=github-theme-sdras).
+
+<Callout variant='neutral' marginY="space70">
+    <CalloutHeading as="h3">Are you looking for stylized UI components?</CalloutHeading>
+    <CalloutText>
+      For fully styled components, use the <Anchor href="https://paste.twilio.design/components/editable-code-block">Editable Code Block</Anchor>. Or if you don't need editing functionality, use the <Anchor href="https://paste.twilio.design/components/code-block">Code Block</Anchor>.
+    </CalloutText>
+</Callout>
 
 ### Installation
 
@@ -105,7 +112,7 @@ const PasteThemeEditor = (): React.ReactNode => {
 
 ---
 
-See more examples on our [Storybook](https://paste-storybook.twilio.design/?path=/story/libraries-code-editor-editor--).
+See more examples on our [Storybook](https://paste-storybook.twilio.design/?path=/story/libraries-code-editor-editor--javascript-editor).
 
 </content>
 

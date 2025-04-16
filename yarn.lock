@@ -11543,7 +11543,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-composer@^6.0.1, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
+"@twilio-paste/chat-composer@^6.0.1, @twilio-paste/chat-composer@^6.0.2, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer"
   dependencies:
@@ -11556,7 +11556,6 @@ __metadata:
     "@twilio-paste/design-tokens": ^10.13.0
     "@twilio-paste/icons": ^13.0.1
     "@twilio-paste/lexical-library": ^5.0.1
-    "@twilio-paste/media-object": ^11.0.1
     "@twilio-paste/screen-reader-only": ^14.0.1
     "@twilio-paste/stack": ^9.0.1
     "@twilio-paste/style-props": ^10.0.1
@@ -11953,7 +11952,7 @@ __metadata:
     "@twilio-paste/callout": ^5.0.1
     "@twilio-paste/card": ^10.1.0
     "@twilio-paste/chart-provider": ^2.0.1
-    "@twilio-paste/chat-composer": ^6.0.1
+    "@twilio-paste/chat-composer": ^6.0.2
     "@twilio-paste/chat-log": ^6.0.1
     "@twilio-paste/checkbox": ^14.0.1
     "@twilio-paste/clipboard-copy-library": ^4.0.1
@@ -11964,7 +11963,7 @@ __metadata:
     "@twilio-paste/combobox-primitive": ^3.0.1
     "@twilio-paste/corner-ornament": ^2.0.1
     "@twilio-paste/customization": ^9.0.1
-    "@twilio-paste/data-grid": ^9.0.1
+    "@twilio-paste/data-grid": ^9.0.2
     "@twilio-paste/data-visualization-library": ^6.0.1
     "@twilio-paste/date-picker": ^7.0.1
     "@twilio-paste/description-list": ^5.0.1
@@ -12037,7 +12036,7 @@ __metadata:
     "@twilio-paste/tabs": ^9.0.1
     "@twilio-paste/tabs-primitive": ^3.0.1
     "@twilio-paste/text": ^11.0.1
-    "@twilio-paste/textarea": ^11.0.1
+    "@twilio-paste/textarea": ^11.1.0
     "@twilio-paste/theme": ^12.0.1
     "@twilio-paste/time-picker": ^7.0.1
     "@twilio-paste/timeline": ^2.0.1
@@ -12136,7 +12135,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/data-grid@^9.0.1, @twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid":
+"@twilio-paste/data-grid@^9.0.1, @twilio-paste/data-grid@^9.0.2, @twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid"
   dependencies:
@@ -15113,7 +15112,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/textarea@^11.0.1, @twilio-paste/textarea@workspace:packages/paste-core/components/textarea":
+"@twilio-paste/textarea@^11.0.1, @twilio-paste/textarea@^11.1.0, @twilio-paste/textarea@workspace:packages/paste-core/components/textarea":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/textarea@workspace:packages/paste-core/components/textarea"
   dependencies:

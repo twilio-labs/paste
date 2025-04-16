@@ -110,6 +110,48 @@ export const ContainedVariantWithAttachments: StoryFn = () => {
   );
 };
 
+export const ContainedVariantWithAttachmentsNoIcons: StoryFn = () => {
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
+      <ChatComposerActionGroup>
+        <Button variant="secondary_icon" size="reset">
+          <AttachIcon decorative={false} title="attach a file to your message" />
+        </Button>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+      <ChatComposerAttachmentGroup>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+      </ChatComposerAttachmentGroup>
+    </ChatComposerContainer>
+  );
+};
+
 ContainedVariantWithAttachments.storyName = "Contained Variant with Attachments";
 
 export const ResponsiveContainedVariantWithAttachments: StoryFn = () => {

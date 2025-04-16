@@ -478,7 +478,14 @@
       "defaultValue": false,
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Force the height to take up the full height of the parent element"
+    },
+    "fillWidth": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Force the width to take up the full width of the parent element"
     },
     "hidden": {
       "type": "boolean",

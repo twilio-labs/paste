@@ -27,7 +27,7 @@ import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
 import packageJson from '@twilio-paste/card/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
-import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample, FillHeightExample} from '../../../component-examples/CardExamples'
+import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample, FillHeightExample, FillWidthExample} from '../../../component-examples/CardExamples'
 
 export default ComponentPageLayout;
 
@@ -122,6 +122,17 @@ In scenarios where there is a requirement for the card to fill the height of the
   title="Card examples - Fill height"
   storyID="website-cardexamples--fill-height-example"
   code={FillHeightExample}
+/>
+
+### Fill width
+
+By default, Card width fills the available space of the parent container. However, when wrapped in a flexbox, Card shrinks to fit the available space. To prevent this, use the `fillWidth` prop.
+
+<StoryPreview
+  height="350px"
+  title="Card examples - Fill width"
+  storyID="website-cardexamples--fill-width-example"
+  code={FillWidthExample}
 />
 
 ### Marketing Card
