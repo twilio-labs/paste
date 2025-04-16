@@ -50,7 +50,7 @@ export const getStaticProps = async () => {
 
 ## About Chart Provider
 
-ChartProvider is a wrapper around Highcharts that provides a consistent API for configuring an individual chart instance. This component has no visible elements and is an engineering asset only. It acts as a store for chart options and provides a context for managing chart state. The ChartProvider component is responsible for rendering the chart and managing its lifecycle.
+Chart Provider is a wrapper around Highcharts that provides a consistent API for configuring an individual chart instance. This component has no visible elements and is an engineering asset only. It acts as a store for chart options and provides a context for managing chart state.
 
 We highly recommend using our [BaseChart](/foundations/data-visualization/engineering#basechart) code inside the ChartProvider to ensure that the chart is rendered correctly and state is correctly stored.
 
@@ -58,12 +58,12 @@ We highly recommend using our [BaseChart](/foundations/data-visualization/engine
 
 ### Custom charts
 
-You can use the `highchartsOptions` to create unsupported charts by passing options directly to the base chart without modification, but we recommend using our wrappers for easier migration, access to the rendered chart object, and enhanced custom interactions.
+You can use the `highchartsOptions` to create unsupported charts by passing the Higcharts config directly to the base chart without modification. We recommend using our wrappers for easier migration and a simpler way of accessing the rendered chart object for building custom interactions.
 
 <Box marginBottom="space60">
   <Callout variant="warning">
     <CalloutHeading>Compatibility</CalloutHeading>
-    <CalloutText>If you build charts using the Highcharts API it will be unlikely that our Paste components will function as they depend on helper funcitons and event tracking that we enrich the default options with.</CalloutText>
+    <CalloutText>If you build charts using the Highcharts API it will be unlikely that our Paste data visualization components will function correctly as they depend on helper funcitons and event tracking that we enrich the default options with.</CalloutText>
   </Callout>
 </Box>
 

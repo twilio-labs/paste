@@ -54,13 +54,13 @@ export const getStaticProps = async () => {
   </Callout>
 </Box>
 
-Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in our library. This limitation creates challenges when developing components for a library we cannot directly integrate with.
+Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in our library. This limitation creates challenges when developing components for a library we cannot directly interact with.
 
 To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply styles to the charts for a consistent appearance on a chart type bases. Global styles will be set in the `BaseChart` using our existing hook.
 
 ## Licensing
 
-Paste does not provide a license for Twilio usage. Licenses are acquired on an applicaiton level. ODds are, if you are developing in one of our existing products you already have one. If you are creating a new application you may need to acquire a new license.
+Paste does not provide a license for Twilio usage. Licenses are acquired on an applicaiton level. If you are developing in one of our existing products it is highly likely licenses are already purchased. If you are creating a new application you may need to acquire a new license. If you need further information you can reach out to us via [GitHub discussions](https://github.com/twilio-labs/paste/discussions/new?category=q-a) or the Procurement team.
 
 ## Setup
 
@@ -68,7 +68,7 @@ To ensure our components function correctly, some initial configuration is requi
 - Storing and retrieving rendered chart objects.
 - Adding any additional modules required for additional functionality such as gauges, exporting etc.
 
-You will need to include a component that retrieves the chart configuration from our components' context and passes it to Highcharts. This component must also capture the rendered chart and store it in our `ChartContext`.
+You will need to include a component that retrieves the chart configuration from our [ChartProvider](/components/chart-provider)'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context.
 
 Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component.
 
@@ -135,11 +135,11 @@ export const BaseChart = React.memo(Chart);
 ```
 ## Chart context
 
-We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the BaseChart to read and use.
+We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the `BaseChart` to read and use.
 
 Each individual chart instance will be wrapped in a [ChartProvider](/components/chart-provider) which sets the initial configuration and apply chart specific styles.
 
-An individual chart instance does not mean a chart only. It may also mean chart titles, legends, tooltips and any other component that does not sit in or on the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements but any of our Paste components that interact with that chart instance.
+An individual chart instance does not mean a chart only. It may also mean chart titles, legends, tooltips and any other component that does not sit in or on the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements but any of our Paste components that interact with that chart and canvas.
 
 </content>
 
