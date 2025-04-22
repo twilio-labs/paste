@@ -13,7 +13,10 @@ export const handleBaseChartOptionsFormatting = ({
   panningType,
   chart,
   type,
+  yAxisTitle,
+  xAxisTitle,
   pointFormatter: userPointFormatter,
+  enableCredits = false,
   ...rest
 }: BaseChartOptions): Highcharts.Options => {
   const context = React.useContext(ThemeContext) as ThemeShape;
@@ -40,17 +43,31 @@ export const handleBaseChartOptionsFormatting = ({
     title: {
       text: title?.text,
       style: {
-        display: title?.visible ? "block" : "none",
+        display: title?.hide ? "none" : "block",
       },
     },
     subtitle: {
       text: subtitle?.text,
       style: {
-        display: title?.visible ? "block" : "none",
+        display: title?.hide ? "none" : "block",
       },
     },
     xAxis: {
       type: isXTimeAxis ? "datetime" : undefined,
+      title: {
+        text: xAxisTitle?.text,
+        style: {
+          display: xAxisTitle?.hide ? "none" : "block",
+        },
+      },
+    },
+    yAxis: {
+      title: {
+        text: yAxisTitle?.text,
+        style: {
+          display: yAxisTitle?.hide ? "none" : "block",
+        },
+      },
     },
     legend: {
       enabled: showLegend,
@@ -72,6 +89,14 @@ export const handleBaseChartOptionsFormatting = ({
             return userPointFormatter(this);
           }
         : undefined,
+    },
+    credits: {
+      enabled: enableCredits,
+      style: {
+        fontFamily: context.fonts.fontFamilyText,
+        color: context.textColors.colorTextWeak,
+        fontSize: context.fontSizes.fontSize10,
+      },
     },
     ...rest,
   };

@@ -23,7 +23,7 @@ export interface ChartConfig extends Pick<Highcharts.ChartOptions, "animation" |
 export type ChartAccessibilityConfig = Pick<Highcharts.AccessibilityOptions, "description" | "point">;
 
 interface TitleConfig extends Pick<Highcharts.TitleOptions, "text"> {
-  visible?: boolean;
+  hide?: boolean;
 }
 
 export interface BaseChartOptions {
@@ -37,6 +37,9 @@ export interface BaseChartOptions {
   zoomingType?: Highcharts.ChartOptions["zoomType"];
   panningType?: Highcharts.ChartOptions["zoomType"];
   pointFormatter?: (point: Highcharts.Point) => string;
+  yAxisTitle?: TitleConfig;
+  xAxisTitle?: TitleConfig;
+  enableCredits?: boolean;
 }
 
 export interface LineChartConfig extends BaseChartOptions {

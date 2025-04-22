@@ -29,7 +29,6 @@ export const Line: StoryFn = () => {
           type: "line",
           series: lineSeries,
           title: {
-            visible: true,
             text: "Solar Employment Growth by Sector, 2010-2016",
           },
         }}
@@ -48,7 +47,6 @@ export const Column: StoryFn = () => {
           type: "column",
           series: columnChartData,
           title: {
-            visible: true,
             text: "Fruit popularity",
           },
         }}
@@ -67,16 +65,20 @@ export const LineZoomPanningTimeSeries: StoryFn = () => {
           type: "line",
           series: [{ data: usdEurData, name: "USD to EUR" }],
           title: {
-            visible: true,
             text: "USD to EUR exchange rate",
           },
           subtitle: {
-            visible: true,
             text: "Zooming and panning enabled - use drag to zoom and shift+drag to pan",
           },
           isXTimeAxis: true,
           zoomingType: "xy",
           panningType: "xy",
+          xAxisTitle: {
+            text: "Date",
+          },
+          yAxisTitle: {
+            text: "Exchange rate",
+          },
         }}
       >
         <BaseChart />
@@ -93,7 +95,6 @@ export const StackedColumn: StoryFn = () => {
           type: "column",
           series: columnChartData,
           title: {
-            visible: true,
             text: "Fruit popularity - percent",
           },
           stackingType: "percent",
@@ -106,7 +107,6 @@ export const StackedColumn: StoryFn = () => {
           type: "column",
           series: columnChartData,
           title: {
-            visible: true,
             text: "Fruit popularity - normal",
           },
           stackingType: "normal",
@@ -136,7 +136,6 @@ export const StackedColumnSwitchType: StoryFn = () => {
           type: "column",
           series: columnChartData,
           title: {
-            visible: true,
             text: "Fruit popularity",
           },
           stackingType: stackingType,
