@@ -1,0 +1,149 @@
+import type { Meta, StoryFn } from "@storybook/react";
+import { ChartProvider } from "@twilio-paste/chart-provider";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
+
+import { ColumnChartConfig } from "../src";
+import { BaseChart } from "./components/BaseChart";
+import { usdEurData } from "./data/usdEurData";
+import { columnChartData } from "./supported-data/column";
+import { lineSeries } from "./supported-data/line";
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: "Libraries/data-visualization/supported-charts",
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    a11y: {
+      // no need to a11y check composition of a11y checked components
+      disable: true,
+    },
+  },
+} as Meta;
+
+export const Line: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "line",
+          series: lineSeries,
+          title: {
+            visible: true,
+            text: "Solar Employment Growth by Sector, 2010-2016",
+          },
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
+export const Column: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "column",
+          series: columnChartData,
+          title: {
+            visible: true,
+            text: "Fruit popularity",
+          },
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
+export const LineZoomPanningTimeSeries: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "line",
+          series: [{ data: usdEurData, name: "USD to EUR" }],
+          title: {
+            visible: true,
+            text: "USD to EUR exchange rate",
+          },
+          subtitle: {
+            visible: true,
+            text: "Zooming and panning enabled - use drag to zoom and shift+drag to pan",
+          },
+          isXTimeAxis: true,
+          zoomingType: "xy",
+          panningType: "xy",
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
+export const StackedColumn: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "column",
+          series: columnChartData,
+          title: {
+            visible: true,
+            text: "Fruit popularity - percent",
+          },
+          stackingType: "percent",
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+      <ChartProvider
+        options={{
+          type: "column",
+          series: columnChartData,
+          title: {
+            visible: true,
+            text: "Fruit popularity - normal",
+          },
+          stackingType: "normal",
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
+export const StackedColumnSwitchType: StoryFn = () => {
+  const [stackingType, setStackingType] = React.useState<ColumnChartConfig["stackingType"]>("normal");
+
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <button
+        type="button"
+        onClick={() => {
+          setStackingType((prev) => (prev === "normal" ? "percent" : "normal"));
+        }}
+      >
+        Switch stacking type
+      </button>
+      <ChartProvider
+        options={{
+          type: "column",
+          series: columnChartData,
+          title: {
+            visible: true,
+            text: "Fruit popularity",
+          },
+          stackingType: stackingType,
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
