@@ -1,4 +1,5 @@
-import { ChartTypeOptions, ColumnChartConfig, LineChartConfig } from "../types";
+import { AreaChartConfig, ChartTypeOptions, ColumnChartConfig, LineChartConfig } from "../types";
+import { handleAreaOptions } from "./areaChart";
 import { handleBaseChartOptionsFormatting } from "./baseFormatter";
 import { handleColumnOptions } from "./columnChart";
 import { handleLineOptions } from "./lineChart";
@@ -15,8 +16,8 @@ export const transformToHighchartsOptions = (options: ChartTypeOptions): Highcha
   switch (options.type) {
     case "line":
       return handleLineOptions(options as LineChartConfig);
-    //   case "area":
-    //     return handleAreaOptions(options as AreaChartConfig);
+    case "area":
+      return handleAreaOptions(options as AreaChartConfig);
     case "column":
       return handleColumnOptions(options as ColumnChartConfig);
     default: {

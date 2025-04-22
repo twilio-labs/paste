@@ -1,24 +1,29 @@
 import * as Highcharts from "highcharts";
 
-type SupportedCharts = "line" | "column" | "pie" | "donut" | "arc" | "donut-arc" | "area";
+type SupportedCharts = "line" | "column" | "area";
 
+/**
+ * The object structure required for use as a `series` prop in a chart with the type `line`.
+ */
 export type LineSeries = Pick<
   Highcharts.SeriesLineOptions,
   "data" | "color" | "accessibility" | "dashStyle" | "lineWidth" | "marker" | "name"
 >;
 
+/**
+ * The object structure required for use as a `series` prop in a chart with the type `area`.
+ */
 export type AreaSeries = Pick<Highcharts.SeriesAreaOptions, "data" | "color" | "accessibility" | "name">;
 
+/**
+ * The object structure required for use as a `series` prop in a chart with the type `column`.
+ */
 export type ColumnSeries = Pick<
   Highcharts.SeriesColumnOptions,
   "data" | "color" | "accessibility" | "events" | "name" | "stacking"
 >;
 
-export type PieSeries = Pick<Highcharts.SeriesPieOptions, "data" | "name">;
-
-export interface ChartConfig extends Pick<Highcharts.ChartOptions, "animation" | "height" | "width"> {
-  type?: "line";
-}
+type ChartConfig = Pick<Highcharts.ChartOptions, "animation" | "height" | "width">;
 
 export type ChartAccessibilityConfig = Pick<Highcharts.AccessibilityOptions, "description" | "point">;
 
@@ -56,15 +61,9 @@ export interface ColumnChartConfig extends BaseChartOptions {
   showDataLabels?: boolean;
 }
 
-export interface PieChartConfig extends BaseChartOptions {
-  series: PieSeries[];
-  showDataLabels?: boolean;
-  type: "pie" | "donut" | "arc" | "donut-arc";
-}
-
 export interface AreaChartConfig extends BaseChartOptions {
   series: AreaSeries[];
   type: "area";
 }
 
-export type ChartTypeOptions = LineChartConfig | ColumnChartConfig;
+export type ChartTypeOptions = LineChartConfig | ColumnChartConfig | AreaChartConfig;

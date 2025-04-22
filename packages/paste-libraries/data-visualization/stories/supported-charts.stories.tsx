@@ -146,3 +146,21 @@ export const StackedColumnSwitchType: StoryFn = () => {
     </Stack>
   );
 };
+
+export const Area: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "area",
+          series: lineSeries,
+          title: {
+            text: "Solar Employment Growth by Sector, 2010-2016",
+          },
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
