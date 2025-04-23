@@ -32,7 +32,7 @@ export const handleBaseChartOptionsFormatting = ({
         },
       },
       type,
-      zoomType: zoomingType || undefined,
+      zoomType: zoomingType,
       panKey: "shift",
       panning: {
         enabled: Boolean(panningType),
