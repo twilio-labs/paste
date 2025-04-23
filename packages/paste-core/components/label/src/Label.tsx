@@ -148,7 +148,12 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
           <MediaBody>
             {children}
             {optional && (
-              <Text as="span" fontStyle="italic" color="colorTextWeak" element={`${element}_OPTIONAL_TEXT`}>
+              <Text
+                as="span"
+                fontStyle="italic"
+                color={variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak"}
+                element={`${element}_OPTIONAL_TEXT`}
+              >
                 {" "}
                 (optional)
               </Text>
