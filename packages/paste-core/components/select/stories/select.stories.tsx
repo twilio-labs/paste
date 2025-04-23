@@ -348,7 +348,7 @@ export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         onFocus={action("handleFocus")}
         onBlur={action("handleBlur")}
         insertBefore={
-          <Text color="colorTextWeaker" as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -430,7 +430,7 @@ export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onFocus={action("handleFocus")}
         onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" color="colorTextInverseWeakest" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeaker" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
