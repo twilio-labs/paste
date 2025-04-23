@@ -205,6 +205,7 @@ describe("Base Transformer", () => {
     );
 
     expect(result.current.tooltip?.pointFormatter).toBeTruthy();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore complains point isn't correct format but not needed in this instance
     result.current.tooltip?.pointFormatter?.call({ x: 50 });
     expect(mockFormatter).toHaveBeenCalled();

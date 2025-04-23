@@ -157,7 +157,7 @@ export const StackedColumnSwitchType: StoryFn = () => {
           title: {
             text: "Fruit popularity",
           },
-          stackingType: stackingType,
+          stackingType,
         }}
       >
         <BaseChart />

@@ -69,7 +69,7 @@ describe("Column Chart Transformer", () => {
     );
   });
 
-  it("should transform column chart data correctly with only required props", () => {
+  it("should transform column chart data correctly with optional props", () => {
     const xAxisCategories = ["2020", "2021", "2022", "2023"];
     const { result } = renderHook(
       () =>

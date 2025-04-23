@@ -6,6 +6,7 @@ import { handleLineOptions } from "./lineChart";
 
 const handleDefaultOptions = ({ chart, series, type, ...baseChartProps }: ChartTypeOptions): Highcharts.Options => {
   return {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore mentions incompatible types but is correct
     series: series.map((s) => ({ ...s, type })),
     ...handleBaseChartOptionsFormatting({ ...baseChartProps, type }),
