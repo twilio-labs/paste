@@ -2,7 +2,7 @@ export const meta = {
   title: 'Form',
   package: '@twilio-paste/form',
   description: 'A Form groups related form elements that allow users to input information or configure options.',
-  slug: '/components/form/',
+  slug: '/components/form-layout/',
 };
 
 import {Box} from '@twilio-paste/box';
@@ -18,7 +18,7 @@ import {
   FormSection,
   FormSectionDescription,
   FormSectionHeading,
-} from '@twilio-paste/form';
+} from '../../../../../paste-core/components/form-layout/dist';
 import {Heading} from '@twilio-paste/heading';
 import {HelpText} from '@twilio-paste/help-text';
 import {InlineCode} from '@twilio-paste/inline-code';
@@ -43,7 +43,7 @@ import {
   errorExample,
   maxWidthForm,
 } from '../../../component-examples/FormExamples';
-import packageJson from '@twilio-paste/form/package.json';
+import packageJson from '../../../../../paste-core/components/form-layout/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
@@ -62,7 +62,7 @@ export const getStaticProps = async () => {
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form',
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-layout',
         storybookUrl: '/?path=/story/components-form--default',
       },
     },

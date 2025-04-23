@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
 import { Button } from "@twilio-paste/button";
-import { Form } from "@twilio-paste/form";
+import { Form } from "@twilio-paste/form-layout";
 import { Theme } from "@twilio-paste/theme";
 import filter from "lodash/filter";
 import uniq from "lodash/uniq";

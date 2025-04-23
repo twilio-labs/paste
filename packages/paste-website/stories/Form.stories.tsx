@@ -13,7 +13,7 @@ import {
   DataGridRow,
 } from "@twilio-paste/data-grid";
 import { DatePicker } from "@twilio-paste/date-picker";
-import { Form, FormControl, FormSection, FormSectionDescription, FormSectionHeading } from "@twilio-paste/form";
+import { Form, FormControl, FormSection, FormSectionDescription, FormSectionHeading } from "@twilio-paste/form-layout";
 import { Heading } from "@twilio-paste/heading";
 import { HelpText } from "@twilio-paste/help-text";
 import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";

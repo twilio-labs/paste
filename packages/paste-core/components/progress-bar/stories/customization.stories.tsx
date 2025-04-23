@@ -1,7 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
-import { Form, FormControl } from "@twilio-paste/form";
+import { Form, FormControl } from "@twilio-paste/form-layout";
 import { HelpText } from "@twilio-paste/help-text";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";

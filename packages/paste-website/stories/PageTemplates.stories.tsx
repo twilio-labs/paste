@@ -29,7 +29,7 @@ import {
   FormSection,
   FormSectionDescription,
   FormSectionHeading,
-} from "@twilio-paste/form";
+} from "@twilio-paste/form-layout";
 import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Column, Grid } from "@twilio-paste/grid";
 import { Heading } from "@twilio-paste/heading";

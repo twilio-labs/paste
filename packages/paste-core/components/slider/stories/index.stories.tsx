@@ -1,6 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { CustomizationProvider } from "@twilio-paste/customization";
-import { Form, FormControl } from "@twilio-paste/form";
+import { Form, FormControl } from "@twilio-paste/form-layout";
 import { HelpText } from "@twilio-paste/help-text";
 import { Label } from "@twilio-paste/label";
 import { Paragraph } from "@twilio-paste/paragraph";

@@ -2,7 +2,7 @@ import type { Meta, StoryContext, StoryFn } from "@storybook/react";
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { Form } from "@twilio-paste/form";
+import { Form } from "@twilio-paste/form-layout";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";

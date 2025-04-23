@@ -1,11 +1,11 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { Form, FormControl, FormSection } from "@twilio-paste/form";
 import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
 import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { Input } from "@twilio-paste/input";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import { Form, FormControl, FormSection } from "../../../../paste-core/components/form-layout/dist";
 
 export interface SearchFormProps {
   onSubmit: () => void;
