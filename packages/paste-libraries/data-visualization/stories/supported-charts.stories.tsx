@@ -57,6 +57,25 @@ export const Column: StoryFn = () => {
   );
 };
 
+export const ColumnDefinedXAxisCategories: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "column",
+          series: columnChartData,
+          title: {
+            text: "Fruit popularity",
+          },
+          xAxisCategories: ["2020", "2021", "2022", "2023", "2024", "2025"],
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
 export const LineZoomPanningTimeSeries: StoryFn = () => {
   return (
     <Stack orientation="vertical" spacing="space100">
