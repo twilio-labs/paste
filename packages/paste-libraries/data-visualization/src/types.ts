@@ -45,6 +45,7 @@ export interface BaseChartOptions {
   yAxisTitle?: TitleConfig;
   xAxisTitle?: TitleConfig;
   enableCredits?: boolean;
+  isAnimated?: boolean;
 }
 
 export interface LineChartConfig extends BaseChartOptions {

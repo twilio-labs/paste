@@ -17,6 +17,7 @@ export const handleBaseChartOptionsFormatting = ({
   xAxisTitle,
   pointFormatter: userPointFormatter,
   enableCredits = false,
+  isAnimated = true,
   ...rest
 }: BaseChartOptions): Highcharts.Options => {
   const context = React.useContext(ThemeContext) as ThemeShape;
@@ -38,6 +39,7 @@ export const handleBaseChartOptionsFormatting = ({
         enabled: Boolean(panningType),
         type: panningType,
       },
+      animation: isAnimated,
       ...chart,
     },
     title: {
