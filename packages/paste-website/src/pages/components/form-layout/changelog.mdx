@@ -16,7 +16,7 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Form');
+  const feature = await getFeature('Form Layout');
   return {
     props: {
       data: {
