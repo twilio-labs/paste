@@ -1,5 +1,5 @@
 export const meta = {
-  title: 'Form',
+  title: 'Form Layout',
   package: '@twilio-paste/form',
   description: 'A Form groups related form elements that allow users to input information or configure options.',
   slug: '/components/form-layout/',
@@ -57,6 +57,9 @@ export const getStaticProps = async () => {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Form Layout',
+        descriptionOverride:
+          'A Form Layout groups related form elements that allow users to input information or configure options.',
       },
       navigationData,
       mdxHeadings,
