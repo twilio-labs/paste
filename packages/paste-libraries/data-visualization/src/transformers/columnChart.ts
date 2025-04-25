@@ -24,6 +24,7 @@ export const handleColumnOptions = ({
         dataLabels: {
           enabled: showDataLabels,
         },
+        borderRadius: 2,
       },
     },
     yAxis: Highcharts.merge(

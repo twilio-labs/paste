@@ -12,7 +12,14 @@ const ChartProviderExample = () => {
     ]
 
     return (
-        <ChartProvider highchartsOptions={{ chart: { type: "line" }, series: lineSeriesData }}>
+        <ChartProvider options={{
+                type: "line",
+                series: lineSeriesData,
+                title: {
+                    text: "Solar Employment Growth by Sector, 2010-2016",
+                },
+                enableCredits: true,
+            }}>
             <BaseChart />
         </ChartProvider>
     );
@@ -77,6 +84,7 @@ const DefaultLineExample = () => {
                 title: {
                     text: "Solar Employment Growth by Sector, 2010-2016",
                 },
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -115,6 +123,7 @@ const LineTimeSeriesPanZoomExample = () => {
                 yAxisTitle: {
                     text: "Exchange rate",
                 },
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -146,6 +155,7 @@ const DefaultAreaExample = () => {
                 title: {
                     text: "Solar Employment Growth by Sector, 2010-2016",
                 },
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -185,6 +195,7 @@ const AreaTimeSeriesPanZoomExample = () => {
                 yAxisTitle: {
                     text: "Exchange rate",
                 },
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -220,6 +231,7 @@ const DefaultColumnExample = () => {
                 title: {
                     text: "Fruit popularity",
                 },
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -256,6 +268,8 @@ const ColumnStackedNormalExample = () => {
                     text: "Fruit popularity",
                 },
                 stackingType: "normal",
+                showDataLabels: true,
+                enableCredits: true
             }}
         >
             <BaseChart />
@@ -292,6 +306,7 @@ const ColumnStackedPercentExample = () => {
                     text: "Fruit popularity",
                 },
                 stackingType: "percent",
+                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -329,6 +344,7 @@ const ColumnGroupedAxisExample = () => {
                     text: "Fruit popularity",
                 },
                 xAxisCategories: ["2020", "2021", "2022", "2023"],
+                enableCredits: true,
             }}
         >
             <BaseChart />

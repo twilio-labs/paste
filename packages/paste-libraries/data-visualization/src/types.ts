@@ -137,7 +137,13 @@ export interface ColumnChartConfig extends BaseChartOptions {
 }
 
 export interface AreaChartConfig extends BaseChartOptions {
+  /**
+   * The series data for an area chart.
+   */
   series: AreaSeries[];
+  /**
+   * Specifies that this is an area chart.
+   */
   type: "area";
 }
 
