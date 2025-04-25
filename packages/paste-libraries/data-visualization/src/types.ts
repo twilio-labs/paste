@@ -25,11 +25,12 @@ export type ColumnSeries = Pick<
 
 type ChartConfig = Pick<Highcharts.ChartOptions, "animation" | "height" | "width">;
 
-export type ChartAccessibilityConfig = Pick<Highcharts.AccessibilityOptions, "description" | "point">;
+type ChartAccessibilityConfig = Pick<Highcharts.AccessibilityOptions, "description" | "point" | "linkedDescription" | "series">;
 
 interface TitleConfig extends Pick<Highcharts.TitleOptions, "text"> {
   hide?: boolean;
 }
+
 
 export interface BaseChartOptions {
   chart?: ChartConfig;
@@ -46,6 +47,7 @@ export interface BaseChartOptions {
   xAxisTitle?: TitleConfig;
   enableCredits?: boolean;
   isAnimated?: boolean;
+  xAxisCategories?: Highcharts.XAxisOptions["categories"];
 }
 
 export interface LineChartConfig extends BaseChartOptions {
@@ -57,7 +59,6 @@ export interface ColumnChartConfig extends BaseChartOptions {
   series: ColumnSeries[];
   type: "column";
   stackingType?: "normal" | "percent";
-  xAxisCategories?: Highcharts.XAxisOptions["categories"];
   showStackedLabels?: boolean;
   showDataLabels?: boolean;
 }

@@ -28,12 +28,6 @@ export const handleColumnOptions = ({
         },
       },
     },
-    xAxis: Highcharts.merge(
-      {
-        categories: xAxisCategories,
-      },
-      xAxis,
-    ),
     yAxis: Highcharts.merge(
       {
         stackLabels: {

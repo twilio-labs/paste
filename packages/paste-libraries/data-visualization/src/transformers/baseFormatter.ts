@@ -15,6 +15,7 @@ export const handleBaseChartOptionsFormatting = ({
   type,
   yAxisTitle,
   xAxisTitle,
+  xAxisCategories,
   pointFormatter: userPointFormatter,
   enableCredits = false,
   isAnimated = true,
@@ -62,6 +63,7 @@ export const handleBaseChartOptionsFormatting = ({
           display: xAxisTitle?.hide ? "none" : "block",
         },
       },
+      categories: xAxisCategories,
     },
     yAxis: {
       title: {
@@ -78,7 +80,7 @@ export const handleBaseChartOptionsFormatting = ({
       backgroundColor: context.backgroundColors.colorBackgroundBodyInverse,
       borderColor: context.borderColors.colorBorderInverse,
       borderWidth: context.borderWidths.borderWidth10,
-      borderRadius: context.radii.borderRadius30.replace("px", ""),
+      borderRadius: context.radii.borderRadius30?.replace("px", ""),
       padding: 12,
       useHTML: Boolean(userPointFormatter),
       style: {

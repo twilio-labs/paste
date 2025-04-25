@@ -10,7 +10,9 @@ const Chart: React.FC = () => {
   applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const chartRef = React.useRef<HTMLElement | null>(null);
   const { options, setChart, setChartRef } = React.useContext(ChartContext);
-  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(usePasteHighchartsTheme(options));
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
+    Highcharts.merge({ plotOptions: { series: { animation: false } } }, usePasteHighchartsTheme(options)),
+  );
 
   React.useLayoutEffect(() => {
     setChartOptions(Highcharts.merge(chartOptions, options));

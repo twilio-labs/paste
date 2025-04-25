@@ -7,7 +7,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {ExamplesDataVizBaseChart as BaseChart} from '../../../component-examples/data-visualization/BaseChart';
-import {CustomChartProviderExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartProviderExamples';
+import {CustomChartProviderExample, DefaultAreaExample, DefaultColumnExample, DefaultLineExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartExamples';
 
 export const meta = {
   title: 'Chart Provider',
@@ -55,6 +55,42 @@ Chart Provider is a wrapper around Highcharts that provides a consistent API for
 We highly recommend using our [BaseChart](/foundations/data-visualization/engineering#basechart) code inside the ChartProvider to ensure that the chart is rendered correctly and state is correctly stored.
 
 ## Examples
+
+### Line Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/engineering/chart-types#line).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultLineExample}
+</LivePreview>
+
+### Area Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/engineering/chart-types#area).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultAreaExample}
+</LivePreview>
+
+### Column Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/engineering/chart-types#column).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultColumnExample}
+</LivePreview>
 
 ### Custom charts
 
