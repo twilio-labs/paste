@@ -10,12 +10,23 @@ const Chart: React.FC = () => {
   applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
   const chartRef = React.useRef<HTMLElement | null>(null);
   const { options, setChart, setChartRef } = React.useContext(ChartContext);
+  const pasteThemedOptions = usePasteHighchartsTheme(options);
   const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(
-    Highcharts.merge({ plotOptions: { series: { animation: false } } }, usePasteHighchartsTheme(options)),
+    Highcharts.merge(pasteThemedOptions, {
+      // only affects our docs live examples. Want to optimize and show licensing info
+      plotOptions: { series: { animation: false } },
+      credits: { ...pasteThemedOptions.credits, enabled: true },
+    }),
   );
 
   React.useLayoutEffect(() => {
-    setChartOptions(Highcharts.merge(chartOptions, options));
+    setChartOptions(
+      Highcharts.merge(chartOptions, options, {
+        // only affects our docs live examples. Want to optimize and show licensing info
+        plotOptions: { series: { animation: false } },
+        credits: { ...pasteThemedOptions.credits, enabled: true },
+      }),
+    );
   }, [options]);
 
   React.useEffect(() => {

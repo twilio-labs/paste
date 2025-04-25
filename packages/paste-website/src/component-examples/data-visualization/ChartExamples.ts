@@ -16,9 +16,8 @@ const ChartProviderExample = () => {
                 type: "line",
                 series: lineSeriesData,
                 title: {
-                    text: "Solar Employment Growth by Sector, 2010-2016",
+                    text: "Solar Employment Growth by Sector",
                 },
-                enableCredits: true,
             }}>
             <BaseChart />
         </ChartProvider>
@@ -82,9 +81,8 @@ const DefaultLineExample = () => {
                 type: "line",
                 series: lineSeriesData,
                 title: {
-                    text: "Solar Employment Growth by Sector, 2010-2016",
+                    text: "Solar Employment Growth by Sector",
                 },
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -123,7 +121,6 @@ const LineTimeSeriesPanZoomExample = () => {
                 yAxisTitle: {
                     text: "Exchange rate",
                 },
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -153,9 +150,8 @@ const DefaultAreaExample = () => {
                 type: "area",
                 series: areaSeriesData,
                 title: {
-                    text: "Solar Employment Growth by Sector, 2010-2016",
+                    text: "Solar Employment Growth by Sector",
                 },
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -165,7 +161,6 @@ const DefaultAreaExample = () => {
 
 render(<DefaultAreaExample />);
 `.trim();
-
 
 export const AreaTimeSeriesPanZoomExample = `
 const AreaTimeSeriesPanZoomExample = () => {
@@ -195,7 +190,6 @@ const AreaTimeSeriesPanZoomExample = () => {
                 yAxisTitle: {
                     text: "Exchange rate",
                 },
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -231,7 +225,6 @@ const DefaultColumnExample = () => {
                 title: {
                     text: "Fruit popularity",
                 },
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -269,7 +262,6 @@ const ColumnStackedNormalExample = () => {
                 },
                 stackingType: "normal",
                 showDataLabels: true,
-                enableCredits: true
             }}
         >
             <BaseChart />
@@ -306,7 +298,6 @@ const ColumnStackedPercentExample = () => {
                     text: "Fruit popularity",
                 },
                 stackingType: "percent",
-                enableCredits: true,
             }}
         >
             <BaseChart />
@@ -316,7 +307,6 @@ const ColumnStackedPercentExample = () => {
 
 render(<ColumnStackedPercentExample />);
 `.trim();
-
 
 export const ColumnGroupedAxisExample = `
 const ColumnGroupedAxisExample = () => {
@@ -344,7 +334,6 @@ const ColumnGroupedAxisExample = () => {
                     text: "Fruit popularity",
                 },
                 xAxisCategories: ["2020", "2021", "2022", "2023"],
-                enableCredits: true,
             }}
         >
             <BaseChart />
