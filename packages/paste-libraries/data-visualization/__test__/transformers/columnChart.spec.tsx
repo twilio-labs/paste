@@ -77,7 +77,6 @@ describe("Column Chart Transformer", () => {
           ...options,
           xAxisCategories,
           stackingType: "normal",
-          showStackedLabels: true,
           showDataLabels: true,
         }),
       { wrapper: container },

@@ -40,6 +40,36 @@ export const Line: StoryFn = () => {
   );
 };
 
+export const LineZoomPanningTimeSeries: StoryFn = () => {
+  return (
+    <Stack orientation="vertical" spacing="space100">
+      <ChartProvider
+        options={{
+          type: "line",
+          series: [{ data: usdEurData, name: "USD to EUR" }],
+          title: {
+            text: "USD to EUR exchange rate",
+          },
+          subtitle: {
+            text: "Zooming and panning enabled - use drag to zoom and shift+drag to pan",
+          },
+          isXTimeAxis: true,
+          zoomingType: "xy",
+          panningType: "xy",
+          xAxisTitle: {
+            text: "Date",
+          },
+          yAxisTitle: {
+            text: "Exchange rate",
+          },
+        }}
+      >
+        <BaseChart />
+      </ChartProvider>
+    </Stack>
+  );
+};
+
 export const Column: StoryFn = () => {
   return (
     <Stack orientation="vertical" spacing="space100">
@@ -69,36 +99,6 @@ export const ColumnDefinedXAxisCategories: StoryFn = () => {
             text: "Fruit popularity",
           },
           xAxisCategories: ["2020", "2021", "2022", "2023", "2024", "2025"],
-        }}
-      >
-        <BaseChart />
-      </ChartProvider>
-    </Stack>
-  );
-};
-
-export const LineZoomPanningTimeSeries: StoryFn = () => {
-  return (
-    <Stack orientation="vertical" spacing="space100">
-      <ChartProvider
-        options={{
-          type: "line",
-          series: [{ data: usdEurData, name: "USD to EUR" }],
-          title: {
-            text: "USD to EUR exchange rate",
-          },
-          subtitle: {
-            text: "Zooming and panning enabled - use drag to zoom and shift+drag to pan",
-          },
-          isXTimeAxis: true,
-          zoomingType: "xy",
-          panningType: "xy",
-          xAxisTitle: {
-            text: "Date",
-          },
-          yAxisTitle: {
-            text: "Exchange rate",
-          },
         }}
       >
         <BaseChart />

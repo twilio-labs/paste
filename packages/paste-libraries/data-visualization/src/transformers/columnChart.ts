@@ -8,12 +8,10 @@ export const handleColumnOptions = ({
   series,
   type,
   stackingType,
-  xAxisCategories,
   showDataLabels,
-  showStackedLabels,
   ...baseChartProps
 }: ColumnChartConfig): Highcharts.Options => {
-  const { xAxis, yAxis, ...rest } = handleBaseChartOptionsFormatting({
+  const { yAxis, ...rest } = handleBaseChartOptionsFormatting({
     ...baseChartProps,
     type,
   });
@@ -31,7 +29,7 @@ export const handleColumnOptions = ({
     yAxis: Highcharts.merge(
       {
         stackLabels: {
-          enabled: showStackedLabels,
+          enabled: showDataLabels,
         },
       },
       yAxis,
