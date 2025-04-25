@@ -2,7 +2,7 @@ export const meta = {
   title: 'Form - API',
   package: '@twilio-paste/form',
   description: 'A Form groups related form elements that allow users to input information or configure options.',
-  slug: '/components/form/api',
+  slug: '/components/form-layout/api',
 };
 
 import Changelog from '@twilio-paste/form/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
@@ -16,13 +16,16 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Form');
+  const feature = await getFeature('Form Layout');
   const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/form');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Form Layout',
+        descriptionOverride:
+          'A Form Layout groups related form elements that allow users to input information or configure options.',
       },
       componentApi,
       mdxHeadings: [...mdxHeadings, ...componentApiTocData],
