@@ -22,6 +22,9 @@ export const getStaticProps = async () => {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Form Layout',
+        descriptionOverride:
+          'A Form Layout groups related form elements that allow users to input information or configure options.',
       },
       navigationData,
       mdxHeadings,
