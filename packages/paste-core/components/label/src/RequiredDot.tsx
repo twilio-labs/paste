@@ -40,6 +40,7 @@ export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = 
         display="block"
         height="4px"
         width="4px"
+        position="relative"
         element={element}
       >
         <ScreenReaderOnly>{i18nLabel}</ScreenReaderOnly>
