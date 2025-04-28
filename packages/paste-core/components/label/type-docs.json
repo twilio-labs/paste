@@ -499,6 +499,13 @@
       "externalProp": true,
       "description": "You must specify the 'htmlFor' prop to associate the label with an input.\n\n\nYou cannot apply htmlFor to a legend element.\n\n\nYou cannot apply htmlFor to a div element."
     },
+    "i18nOptionalLabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Label text for the optional label."
+    },
     "i18nRequiredLabel": {
       "type": "string",
       "defaultValue": null,
