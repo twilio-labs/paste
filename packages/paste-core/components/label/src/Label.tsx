@@ -53,6 +53,13 @@ type LabelBaseProps = {
    */
   i18nRequiredLabel?: string;
   /**
+   * Label text for the optional label.
+   *
+   * @type {string}
+   * @memberof LabelBaseProps
+   */
+  i18nOptionalLabel?: string;
+  /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
    * @default 'LABEL'
@@ -97,6 +104,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
       variant,
       element = "LABEL",
       i18nRequiredLabel = "",
+      i18nOptionalLabel = "(optional)",
       ...props
     },
     ref,
@@ -153,9 +161,9 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
                 fontStyle="italic"
                 color={variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak"}
                 element={`${element}_OPTIONAL_TEXT`}
+                marginLeft="space20"
               >
-                {" "}
-                (optional)
+                {i18nOptionalLabel}
               </Text>
             )}
           </MediaBody>
