@@ -54,6 +54,14 @@ Chart Provider is a wrapper around Highcharts that provides a consistent API for
 
 We highly recommend using our [BaseChart](/foundations/data-visualization/engineering#basechart) code inside the ChartProvider to ensure that the chart is rendered correctly and state is correctly stored.
 
+## Usage
+
+The Chart Provider accepts a single object that defines the chart to render. This can be passed either through the `options` prop for supported Paste charts or through the `highchartsOptions` prop to render custom charts using the full Highcharts API.
+
+Using our supported chart options gives engineers a more streamlined and intuitive API for building various chart types. We offer a set of base configuration options shared across all charts, along with additional options specific to certain chart types. This approach simplifies the often heavily nested Highcharts API, making it easier to configure charts with clearer and more approachable property names.
+
+For all chart configuration options you can check our code [here](https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/data-visualization/src/types.ts)
+
 ## Examples
 
 ### Line Chart
