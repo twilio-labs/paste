@@ -164,7 +164,6 @@ const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
                     available properties. Below is a list of the props this component has inherited and are also
                     available to use.
                   </Paragraph>
-                  {JSON.stringify(externalProps, null, 2)}
                   <PropsList props={externalProps} />
                 </DisclosureContent>
               </Disclosure>

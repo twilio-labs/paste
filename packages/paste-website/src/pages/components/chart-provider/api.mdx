@@ -1,5 +1,7 @@
 import Changelog from '@twilio-paste/chart-provider/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
 import packageJson from '@twilio-paste/chart-provider/package.json';
+import {Separator} from '@twilio-paste/separator';
+import {Box} from '@twilio-paste/box';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -18,6 +20,23 @@ export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
   const feature = await getFeature('Chart Provider');
   const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/chart-provider');
+  const {componentApi: dataVizTypes, componentApiTocData: dataVizApiToDoc } = getComponentApi('@twilio-paste/data-visualization-library');
+  const baseChartOptions = Object.keys(dataVizTypes["BaseChartOptions"]["internalProps"]);
+  /**
+   * Reformatting the types for data visualization so props for chart tpye configs that inherit form base config is under inherited so users
+   * can see the configurations that are only affecting that specific chart
+  */ 
+  Object.keys(dataVizTypes).forEach(typeName => {
+    if (typeName.includes("ChartConfig")) {
+        dataVizTypes[typeName].internalProps = Object.keys(dataVizTypes[typeName].internalProps).reduce((acc, propName) => {
+          if (!baseChartOptions.includes(propName)) {
+            acc[propName] = dataVizTypes[typeName].internalProps[propName];
+          }
+          return acc;
+        }, {});
+        dataVizTypes[typeName].externalProps = dataVizTypes["BaseChartOptions"]["internalProps"];
+      }
+  });
   return {
     props: {
       data: {
@@ -25,13 +44,14 @@ export const getStaticProps = async () => {
         ...feature,
       },
       componentApi,
-      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData, ...dataVizApiToDoc],
       navigationData,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
         githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chart-provider',
         storybookUrl: '/?path=/story/components-chartprovider',
       },
+      dataVizTypes,
     },
   };
 };
@@ -59,3 +79,15 @@ const ChartProviderExample = () => {
 ## Props
 
 <PropsTable componentApi={props.componentApi} />
+
+<Box marginBottom="space220">
+  <Separator orientation="horizontal" />
+</Box>
+
+The props below are used to configure supported chart types and can be imported from `@twilio-paste/data-visualization-library`. These are used to construct the chart options, ensuring type safety before providing them to the Chart Provider component.
+
+```javascript
+import { LineChartConfig } from '@twilio-paste/data-visualization-library';
+```
+
+<PropsTable componentApi={props.dataVizTypes} />
