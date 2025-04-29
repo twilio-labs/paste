@@ -1,8 +1,8 @@
 export const meta = {
-  title: 'Form',
+  title: 'Form Layout',
   package: '@twilio-paste/form',
   description: 'A Form groups related form elements that allow users to input information or configure options.',
-  slug: '/components/form/',
+  slug: '/components/form-layout/',
 };
 
 import {Box} from '@twilio-paste/box';
@@ -51,12 +51,15 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Form');
+  const feature = await getFeature('Form Layout');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Form Layout',
+        descriptionOverride:
+          'A Form Layout groups related form elements that allow users to input information or configure options.',
       },
       navigationData,
       mdxHeadings,
