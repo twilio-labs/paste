@@ -1,5 +1,5 @@
 export const meta = {
-  title: "Data Visualization",
+  title: "Data Types",
   description: "Display the supported chart types for the Paste Data Visualization library with coded examples.",
   slug: "/foundations/data-visualization/engineering/chart-types",
 };
@@ -30,6 +30,7 @@ export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
+  
   return {
     props: {
       navigationData,

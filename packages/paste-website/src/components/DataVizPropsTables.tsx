@@ -140,20 +140,36 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
 };
 PropsList.displayName = "PropsList";
 
-const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
+const DataVizPropsTables: React.FC<PropsTableProps> = ({ componentApi }) => {
   const propsTable = React.useMemo(() => componentApi, [componentApi]);
+  const baseChartOptions = Object.keys(propsTable.BaseChartOptions.internalProps);
 
   return (
     <>
       {Object.keys(propsTable).map((componentName) => {
         const { internalProps, externalProps } = propsTable[componentName];
+        const isChartConfig = componentName.includes("ChartConfig");
+        console.log(internalProps);
+        /**
+         * filter internalProps to remove baseChartOptions and put them under inherited so consumers can see the options
+         * that only apply to the chart type
+         **/
+        const getNonBaseChartOptions = () => {
+          return Object.keys(internalProps).reduce((acc: ComponentApiProp, propName: string) => {
+            if (!baseChartOptions.includes(propName)) {
+              acc[propName] = internalProps[propName];
+            }
+            return acc;
+          }, {});
+        };
+
         return (
           <Box marginTop="space90" marginBottom="space200" key={componentName}>
             <AnchoredHeading as="h3" variant="heading30" existingSlug={componentName.toLowerCase()}>
               {componentName}
             </AnchoredHeading>
-            {internalProps && <PropsList props={internalProps} />}
-            {externalProps && (
+            {internalProps && <PropsList props={isChartConfig ? getNonBaseChartOptions() : internalProps} />}
+            {(isChartConfig || externalProps) && (
               <Disclosure>
                 <DisclosureHeading as="h4" variant="heading40">
                   Inherited props
@@ -164,8 +180,7 @@ const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
                     available properties. Below is a list of the props this component has inherited and are also
                     available to use.
                   </Paragraph>
-                  {JSON.stringify(externalProps, null, 2)}
-                  <PropsList props={externalProps} />
+                  <PropsList props={isChartConfig ? propsTable.BaseChartOptions.internalProps : externalProps} />
                 </DisclosureContent>
               </Disclosure>
             )}
@@ -176,6 +191,6 @@ const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
   );
 };
 
-PropsTable.displayName = "PropsTable";
+DataVizPropsTables.displayName = "DataVizPropsTables";
 
-export { PropsTable };
+export { DataVizPropsTables };
