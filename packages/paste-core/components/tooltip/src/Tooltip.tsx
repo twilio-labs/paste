@@ -107,7 +107,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipVariantProps>(
         {React.Children.only(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           <TooltipPrimitiveReference {...tooltip} ref={ref} {...(children.props as any)}>
-            {/* Cannot find type references for props in lib */}
+            {/* Cannot find type refernce for props in lib */}
             {(referenceProps: any) => React.cloneElement(children, referenceProps)}
           </TooltipPrimitiveReference>,
         )}
