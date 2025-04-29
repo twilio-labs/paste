@@ -20,6 +20,7 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
+    "build:typedocs": "tsx ../../../tools/build/generate-type-docs --skipPropsNameRule",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },

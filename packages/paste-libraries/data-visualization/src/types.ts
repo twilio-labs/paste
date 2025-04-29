@@ -18,12 +18,9 @@ export type AreaSeries = Pick<Highcharts.SeriesAreaOptions, "data" | "color" | "
 /**
  * The object structure required for use as a `series` prop in a chart with the type `column`.
  */
-export type ColumnSeries = Pick<
-  Highcharts.SeriesColumnOptions,
-  "data" | "color" | "accessibility" | "events" | "name" | "stacking"
->;
+export type ColumnSeries = Pick<Highcharts.SeriesColumnOptions, "data" | "color" | "accessibility" | "events" | "name">;
 
-type ChartConfig = Pick<Highcharts.ChartOptions, "animation" | "height" | "width">;
+export type ChartConfig = Pick<Highcharts.ChartOptions, "animation" | "height" | "width">;
 
 type ChartAccessibilityConfig = Pick<
   Highcharts.AccessibilityOptions,
@@ -90,13 +87,13 @@ export interface BaseChartOptions {
   xAxisTitle?: TitleConfig;
   /**
    * Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default.
-   * 
+   *
    * @default false
    */
   enableCredits?: boolean;
   /**
    * Controls whether the chart is animated.
-   * 
+   *
    * @default true
    */
   isAnimated?: boolean;
@@ -108,7 +105,7 @@ export interface BaseChartOptions {
 
 export interface LineChartConfig extends BaseChartOptions {
   /**
-   * The series data for a line chart. 
+   * The series data for a line chart.
    */
   series: LineSeries[];
   /**
