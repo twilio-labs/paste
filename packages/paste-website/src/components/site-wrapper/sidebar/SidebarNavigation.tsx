@@ -138,7 +138,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
         <NavigationDisclosure buttonText="Data visualization" categoryRoute={SidebarCategoryRoutes.DATA_VISUALIZATION}>
           <SidebarAnchor href={SidebarCategoryRoutes.DATA_VISUALIZATION}>Overview</SidebarAnchor>
           <NavigationDisclosure
-            buttonText="Engineering"
+            buttonText="For engineers"
             categoryRoute={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering`}
           >
             <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/engineering/`}>Overview</SidebarAnchor>
