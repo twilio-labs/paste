@@ -63,6 +63,8 @@ export const SITEMAP = [
   "/components/card/api",
   "/components/card/changelog",
   "/components/chart-provider/",
+  "/components/chart-provider/api",
+  "/components/chart-provider/changelog",
   "/components/chat-composer/",
   "/components/chat-composer/api",
   "/components/chat-composer/changelog",
