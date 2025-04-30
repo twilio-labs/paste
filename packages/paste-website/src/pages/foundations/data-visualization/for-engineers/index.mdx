@@ -17,6 +17,7 @@ import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { PageHeaderSeparator } from "@twilio-paste/page-header";
 import { Separator } from "@twilio-paste/separator";
 import { InlineCode } from "@twilio-paste/inline-code";
+import { Anchor} from "@twilio-paste/anchor";
 
 import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
@@ -50,7 +51,7 @@ export const getStaticProps = async () => {
 <Box marginBottom="space60">
   <Callout variant="neutral">
     <CalloutHeading>In progress</CalloutHeading>
-    <CalloutText>As our current data visualization offerings are in progress these documents are subject to change. We will revise and expand these pages when new features are supported.</CalloutText>
+    <CalloutText>As our current data visualization offerings are in progress these documents are subject to change. We will revise and expand these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
   </Callout>
 </Box>
 
