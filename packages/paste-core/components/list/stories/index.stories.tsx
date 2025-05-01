@@ -304,17 +304,6 @@ export const PrimitiveNestedUnorderedList = (): React.ReactNode => {
                   Proactively inform customers about account activity, purchase confirmations, and shipping
                   notifications with the
                   <i>Programmable Messaging API</i>.
-                  <List as="ul">
-                    <ListItem>
-                      Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
-                      Messaging API.
-                    </ListItem>
-                    <ListItem>
-                      Proactively inform customers about account activity, purchase confirmations, and shipping
-                      notifications with the
-                      <i>Programmable Messaging API</i>.
-                    </ListItem>
-                  </List>
                 </ListItem>
               </List>
             </ListItem>
@@ -355,17 +344,6 @@ export const PrimitiveNestedOrderedList = (): React.ReactNode => {
                   Proactively inform customers about account activity, purchase confirmations, and shipping
                   notifications with the
                   <i>Programmable Messaging API</i>.
-                  <List as="ol">
-                    <ListItem>
-                      Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
-                      Messaging API.
-                    </ListItem>
-                    <ListItem>
-                      Proactively inform customers about account activity, purchase confirmations, and shipping
-                      notifications with the
-                      <i>Programmable Messaging API</i>.
-                    </ListItem>
-                  </List>
                 </ListItem>
               </List>
             </ListItem>
