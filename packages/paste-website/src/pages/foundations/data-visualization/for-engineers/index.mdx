@@ -51,17 +51,25 @@ export const getStaticProps = async () => {
 <Box marginBottom="space60">
   <Callout variant="neutral">
     <CalloutHeading>In progress</CalloutHeading>
-    <CalloutText>As our current data visualization offerings are in progress these documents are subject to change. We will revise and expand these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
+    <CalloutText>As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
   </Callout>
 </Box>
 
-Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in our library. This limitation creates challenges when developing components for a library we cannot directly interact with.
+Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in the Paste library.
 
-To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply styles to the charts for a consistent appearance on a chart type bases. Global styles will be set in the `BaseChart` using our existing hook.
+To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply consistent styles to the charts. Global styles will be set in the `BaseChart` using our existing hook.
 
 ## Licensing
 
-Paste does not provide a license for Twilio usage. Licenses are acquired on an application level. If you are developing in one of our existing products it is highly likely licenses are already purchased. If you are creating a new application you may need to acquire a new license. If you need further information you can reach out to us via [GitHub discussions](https://github.com/twilio-labs/paste/discussions/new?category=q-a) or the Procurement team.
+Paste does not provide a license for Twilio usage. Licenses are acquired on an application level. For 2025, licenses have already been purchased for these applications:
+
+- Twilio Admin
+- Twilio Console
+- Twilio Flex
+- Twilio Segment
+- Twilio SendGrid
+ 
+If you want to use the Paste charting components in another application, you'll need to acquire a new license. If you're a Twilio employee and need further information, you can reach out to us via [GitHub discussions](https://github.com/twilio-labs/paste/discussions/new?category=q-a) or the Twilio Procurement team.
 
 ## Setup
 
@@ -69,9 +77,9 @@ To ensure our components function correctly, some initial configuration is requi
 - Adding any additional modules required for additional functionality such as gauges, exporting etc.
 - Storing and retrieving rendered chart objects.
 
-You will need to include a component that retrieves the chart configuration from our [ChartProvider](/components/chart-provider)'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context.
+You will need to include a component that retrieves the chart configuration from a [Chart Provider](/components/chart-provider)'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context.
 
-Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component.
+Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like Tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component.
 
 ### BaseChart
 
@@ -79,9 +87,10 @@ We recommend copying the below code and creating an instance of it in your appli
 
 <Box marginBottom="space60">
   <Callout variant="warning">
-    <CalloutHeading>Modules subject to change</CalloutHeading>
-    <CalloutText>As we expand our supported charts you will need to maintain this file to include any required modules for the new charts or functionality of our components to work correctly. The change will look like the following:</CalloutText>
+    <CalloutHeading>Modules are subject to change</CalloutHeading>
+    <CalloutText>As we expand our supported charts you will need to maintain this file to include any required modules for the new charts or functionality of our components to work correctly. For example, you might change this line of code from this:</CalloutText>
     <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);</InlineCode></CalloutText>
+    <CalloutText>To this:</CalloutText>
     <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule, HighchartsSankeyModule, ...);</InlineCode></CalloutText>
   </Callout>
 </Box>
@@ -139,9 +148,9 @@ export const BaseChart = React.memo(Chart);
 
 We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the `BaseChart` to read and use.
 
-Each individual chart instance will be wrapped in a [ChartProvider](/components/chart-provider) which sets the initial configuration and apply chart specific styles.
+Each individual chart instance must be wrapped in a [Chart Provider](/components/chart-provider) which sets the initial configuration and applies chart-specific styles.
 
-An individual chart instance does not mean a chart only. It may also mean chart titles, legends, tooltips and any other component that does not sit in or on the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements but any of our Paste components that interact with that chart and canvas.
+An individual chart instance doesn't only contain a chart. It also contains chart titles, legends, tooltips, and any other component that's not part of the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements, but also any of our Paste components that interact with that chart and canvas.
 
 </content>
 
