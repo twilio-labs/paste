@@ -141,7 +141,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
             buttonText="For engineers"
             categoryRoute={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers`}
           >
-            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers/`}>Overview</SidebarAnchor>
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers`}>
+              Getting started
+            </SidebarAnchor>
             <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers/chart-types`}>
               Chart types
             </SidebarAnchor>
