@@ -1,0 +1,720 @@
+{
+  "BaseChartOptions": {
+    "type": {
+      "type": "SupportedCharts",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The type of chart to render. This will determine what other chart specfic options are available."
+    },
+    "accessibility": {
+      "type": "ChartAccessibilityConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets global accessiblity options such as formatting the point and series text that is read to users when they focus on elements."
+    },
+    "chart": {
+      "type": "ChartConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets metadata for the chart such as whether it is animated, the height and width of the chart, and other chart options."
+    },
+    "enableCredits": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default."
+    },
+    "isAnimated": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls whether the chart is animated."
+    },
+    "isXTimeAxis": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Render the X axis as a datetime."
+    },
+    "panningType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of panning to enable on the chart allowing users to move the region currently zoomed in on.\nThis will determine whether users can pan in the x, y or both axis."
+    },
+    "pointFormatter": {
+      "type": "(point: Point) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "A function that formats the point text for Highcharts native tooltips."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether to show the native legend provided by Highcharts."
+    },
+    "subtitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the sub title of the chart. Optionall hide the sub title too. The purpose of setting text but hiding the sub title allows the\nsub title to still be included in any chart descritions read by screen readers."
+    },
+    "title": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the title of the chart. Optionall hide the title too. The purpose of setting text but hiding the title allows the\ntitle to still be included in any chart descritions read by screen readers."
+    },
+    "xAxisCategories": {
+      "type": "string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The data to be displayed on the x axis labels. This is useful when you do not have the x plot data in your series but need to set the tick labels on teh x axis."
+    },
+    "xAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the x axis of the chart. Optionall hide the x axis too. The purpose of setting text but hiding the x axis allows the\nx axis to still be included in any chart descritions read by screen readers."
+    },
+    "yAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the y axis of the chart. Optionall hide the y axis too. The purpose of setting text but hiding the y axis allows the\ny axis to still be included in any chart descritions read by screen readers."
+    },
+    "zoomingType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of zooming to enable on the chart. This will determine whether users can zoom in the x, y or both axis."
+    }
+  },
+  "ChartTypeOptions": {
+    "series": {
+      "type": "LineSeries[] | ColumnSeries[] | AreaSeries[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The series data for a line chart.\n\n\nThe series data for a column chart.\n\n\nThe series data for an area chart."
+    },
+    "type": {
+      "type": "\"line\" | \"column\" | \"area\"",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Specifies that this is a line chart.\n\n\nSpecifies that this is a column chart.\n\n\nSpecifies that this is an area chart."
+    },
+    "accessibility": {
+      "type": "ChartAccessibilityConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets global accessiblity options such as formatting the point and series text that is read to users when they focus on elements."
+    },
+    "chart": {
+      "type": "ChartConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets metadata for the chart such as whether it is animated, the height and width of the chart, and other chart options."
+    },
+    "enableCredits": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default."
+    },
+    "isAnimated": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls whether the chart is animated."
+    },
+    "isXTimeAxis": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Render the X axis as a datetime."
+    },
+    "panningType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of panning to enable on the chart allowing users to move the region currently zoomed in on.\nThis will determine whether users can pan in the x, y or both axis."
+    },
+    "pointFormatter": {
+      "type": "(point: Point) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "A function that formats the point text for Highcharts native tooltips."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether to show the native legend provided by Highcharts."
+    },
+    "subtitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the sub title of the chart. Optionall hide the sub title too. The purpose of setting text but hiding the sub title allows the\nsub title to still be included in any chart descritions read by screen readers."
+    },
+    "title": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the title of the chart. Optionall hide the title too. The purpose of setting text but hiding the title allows the\ntitle to still be included in any chart descritions read by screen readers."
+    },
+    "xAxisCategories": {
+      "type": "string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The data to be displayed on the x axis labels. This is useful when you do not have the x plot data in your series but need to set the tick labels on teh x axis."
+    },
+    "xAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the x axis of the chart. Optionall hide the x axis too. The purpose of setting text but hiding the x axis allows the\nx axis to still be included in any chart descritions read by screen readers."
+    },
+    "yAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the y axis of the chart. Optionall hide the y axis too. The purpose of setting text but hiding the y axis allows the\ny axis to still be included in any chart descritions read by screen readers."
+    },
+    "zoomingType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of zooming to enable on the chart. This will determine whether users can zoom in the x, y or both axis."
+    }
+  },
+  "ChartConfig": {
+    "animation": {
+      "type": "boolean | Partial<AnimationOptionsObject>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) Set the overall animation for\nall chart updating. Animation can be disabled throughout the chart by\nsetting it to false here. It can be overridden for each individual API\nmethod as a function parameter. The only animation not affected by this\noption is the initial series animation, see plotOptions.series.animation.\n\nThe animation can either be set as a boolean or a configuration object.\nIf `true`, it will use the 'swing' jQuery easing and a duration of 500\nms. If used as a configuration object, the following properties are\nsupported:\n\n- `defer`: The animation delay time in milliseconds.\n\n- `duration`: The duration of the animation in milliseconds.\n\n- `easing`: A string reference to an easing function set on the `Math`\nobject. See the easing demo.\n\nWhen zooming on a series with less than 100 points, the chart redraw will\nbe done with animation, but in case of more data points, it is necessary\nto set this option to ensure animation on zoom."
+    },
+    "height": {
+      "type": "string | number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) An explicit height for the\nchart. If a _number_, the height is given in pixels. If given a\n_percentage string_ (for example `'56%'`), the height is given as the\npercentage of the actual chart width. This allows for preserving the\naspect ratio across responsive sizes.\n\nBy default (when `null`) the height is calculated from the offset height\nof the containing element, or 400 pixels if the containing element's\nheight is 0."
+    },
+    "width": {
+      "type": "string | number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) An explicit width for the chart.\nBy default (when `null`) the width is calculated from the offset width of\nthe containing element."
+    }
+  },
+  "AreaChartConfig": {
+    "series": {
+      "type": "AreaSeries[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The series data for an area chart."
+    },
+    "type": {
+      "type": "\"area\"",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Specifies that this is an area chart."
+    },
+    "accessibility": {
+      "type": "ChartAccessibilityConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets global accessiblity options such as formatting the point and series text that is read to users when they focus on elements."
+    },
+    "chart": {
+      "type": "ChartConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets metadata for the chart such as whether it is animated, the height and width of the chart, and other chart options."
+    },
+    "enableCredits": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default."
+    },
+    "isAnimated": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls whether the chart is animated."
+    },
+    "isXTimeAxis": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Render the X axis as a datetime."
+    },
+    "panningType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of panning to enable on the chart allowing users to move the region currently zoomed in on.\nThis will determine whether users can pan in the x, y or both axis."
+    },
+    "pointFormatter": {
+      "type": "(point: Point) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "A function that formats the point text for Highcharts native tooltips."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether to show the native legend provided by Highcharts."
+    },
+    "subtitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the sub title of the chart. Optionall hide the sub title too. The purpose of setting text but hiding the sub title allows the\nsub title to still be included in any chart descritions read by screen readers."
+    },
+    "title": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the title of the chart. Optionall hide the title too. The purpose of setting text but hiding the title allows the\ntitle to still be included in any chart descritions read by screen readers."
+    },
+    "xAxisCategories": {
+      "type": "string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The data to be displayed on the x axis labels. This is useful when you do not have the x plot data in your series but need to set the tick labels on teh x axis."
+    },
+    "xAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the x axis of the chart. Optionall hide the x axis too. The purpose of setting text but hiding the x axis allows the\nx axis to still be included in any chart descritions read by screen readers."
+    },
+    "yAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the y axis of the chart. Optionall hide the y axis too. The purpose of setting text but hiding the y axis allows the\ny axis to still be included in any chart descritions read by screen readers."
+    },
+    "zoomingType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of zooming to enable on the chart. This will determine whether users can zoom in the x, y or both axis."
+    }
+  },
+  "AreaSeries": {
+    "accessibility": {
+      "type": "SeriesAccessibilityOptionsObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Accessibility options for a series."
+    },
+    "color": {
+      "type": "string | GradientColorObject | PatternObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) The main color of the series. In line type series\nit applies to the line and the point markers unless otherwise specified.\nIn bar type series it applies to the bars unless a color is specified per\npoint. The default value is pulled from the `options.colors` array.\n\nIn styled mode, the color can be defined by the colorIndex option. Also,\nthe series color can be set with the `.highcharts-series`,\n`.highcharts-color-{n}`, `.highcharts-{type}-series` or\n`.highcharts-series-{n}` class, or individual classes given by the\n`className` option."
+    },
+    "data": {
+      "type": "(\n  | number\n  | [string | number, number | null]\n  | PointOptionsObject\n  | null\n)[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) An array of data points for the series. For the\n`area` series type, points can be given in the following ways:\n\n1. An array of numerical values. In this case, the numerical values will\nbe interpreted as `y` options. The `x` values will be automatically\ncalculated, either starting at 0 and incremented by 1, or from\n`pointStart` * and `pointInterval` given in the series options. If the\naxis has categories, these will be used. Example: (see online\ndocumentation for example)\n\n2. An array of arrays with 2 values. In this case, the values correspond\nto `x,y`. If the first value is a string, it is applied as the name of\nthe point, and the `x` value is inferred. (see online documentation for\nexample)\n\n3. An array of objects with named values. The following snippet shows\nonly a few settings, see the complete options set below. If the total\nnumber of data points exceeds the series' turboThreshold, this option is\nnot available. (see online documentation for example)"
+    },
+    "name": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) The name of the series as shown\nin the legend, tooltip etc."
+    }
+  },
+  "ColumnChartConfig": {
+    "series": {
+      "type": "ColumnSeries[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The series data for a column chart."
+    },
+    "type": {
+      "type": "\"column\"",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Specifies that this is a column chart."
+    },
+    "accessibility": {
+      "type": "ChartAccessibilityConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets global accessiblity options such as formatting the point and series text that is read to users when they focus on elements."
+    },
+    "chart": {
+      "type": "ChartConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets metadata for the chart such as whether it is animated, the height and width of the chart, and other chart options."
+    },
+    "enableCredits": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default."
+    },
+    "isAnimated": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls whether the chart is animated."
+    },
+    "isXTimeAxis": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Render the X axis as a datetime."
+    },
+    "panningType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of panning to enable on the chart allowing users to move the region currently zoomed in on.\nThis will determine whether users can pan in the x, y or both axis."
+    },
+    "pointFormatter": {
+      "type": "(point: Point) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "A function that formats the point text for Highcharts native tooltips."
+    },
+    "showDataLabels": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Show the number value for the column on top of the section. Works for regular and stacked variants."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether to show the native legend provided by Highcharts."
+    },
+    "stackingType": {
+      "type": "\"normal\" | \"percent\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of stacking to use for the column chart, whether to show percentage stacked or normal."
+    },
+    "subtitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the sub title of the chart. Optionall hide the sub title too. The purpose of setting text but hiding the sub title allows the\nsub title to still be included in any chart descritions read by screen readers."
+    },
+    "title": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the title of the chart. Optionall hide the title too. The purpose of setting text but hiding the title allows the\ntitle to still be included in any chart descritions read by screen readers."
+    },
+    "xAxisCategories": {
+      "type": "string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The data to be displayed on the x axis labels. This is useful when you do not have the x plot data in your series but need to set the tick labels on teh x axis."
+    },
+    "xAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the x axis of the chart. Optionall hide the x axis too. The purpose of setting text but hiding the x axis allows the\nx axis to still be included in any chart descritions read by screen readers."
+    },
+    "yAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the y axis of the chart. Optionall hide the y axis too. The purpose of setting text but hiding the y axis allows the\ny axis to still be included in any chart descritions read by screen readers."
+    },
+    "zoomingType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of zooming to enable on the chart. This will determine whether users can zoom in the x, y or both axis."
+    }
+  },
+  "ColumnSeries": {
+    "accessibility": {
+      "type": "SeriesAccessibilityOptionsObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Accessibility options for a series."
+    },
+    "color": {
+      "type": "string | GradientColorObject | PatternObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) The main color of the series. In line type series\nit applies to the line and the point markers unless otherwise specified.\nIn bar type series it applies to the bars unless a color is specified per\npoint. The default value is pulled from the `options.colors` array.\n\nIn styled mode, the color can be defined by the colorIndex option. Also,\nthe series color can be set with the `.highcharts-series`,\n`.highcharts-color-{n}`, `.highcharts-{type}-series` or\n`.highcharts-series-{n}` class, or individual classes given by the\n`className` option."
+    },
+    "data": {
+      "type": "(\n  | number\n  | [string | number, number | null]\n  | PointOptionsObject\n  | null\n)[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) An array of data points for the series. For the\n`column` series type, points can be given in the following ways:\n\n1. An array of numerical values. In this case, the numerical values will\nbe interpreted as `y` options. The `x` values will be automatically\ncalculated, either starting at 0 and incremented by 1, or from\n`pointStart` and `pointInterval` given in the series options. If the axis\nhas categories, these will be used. Example: (see online documentation\nfor example)\n\n2. An array of arrays with 2 values. In this case, the values correspond\nto `x,y`. If the first value is a string, it is applied as the name of\nthe point, and the `x` value is inferred. (see online documentation for\nexample)\n\n3. An array of objects with named values. The following snippet shows\nonly a few settings, see the complete options set below. If the total\nnumber of data points exceeds the series' turboThreshold, this option is\nnot available. (see online documentation for example)"
+    },
+    "events": {
+      "type": "SeriesEventsOptionsObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) General event handlers for the series items.\nThese event hooks can also be attached to the series at run time using\nthe `Highcharts.addEvent` function."
+    },
+    "name": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) The name of the series as shown\nin the legend, tooltip etc."
+    }
+  },
+  "LineChartConfig": {
+    "series": {
+      "type": "LineSeries[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The series data for a line chart."
+    },
+    "type": {
+      "type": "\"line\"",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Specifies that this is a line chart."
+    },
+    "accessibility": {
+      "type": "ChartAccessibilityConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets global accessiblity options such as formatting the point and series text that is read to users when they focus on elements."
+    },
+    "chart": {
+      "type": "ChartConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Sets metadata for the chart such as whether it is animated, the height and width of the chart, and other chart options."
+    },
+    "enableCredits": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls the display of teh watermark in the bottom right of the chart accrediting Highcharts. Not needed for projects with a license and disbaled by default."
+    },
+    "isAnimated": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false,
+      "description": "Controls whether the chart is animated."
+    },
+    "isXTimeAxis": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Render the X axis as a datetime."
+    },
+    "panningType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of panning to enable on the chart allowing users to move the region currently zoomed in on.\nThis will determine whether users can pan in the x, y or both axis."
+    },
+    "pointFormatter": {
+      "type": "(point: Point) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "A function that formats the point text for Highcharts native tooltips."
+    },
+    "showLegend": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Whether to show the native legend provided by Highcharts."
+    },
+    "subtitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the sub title of the chart. Optionall hide the sub title too. The purpose of setting text but hiding the sub title allows the\nsub title to still be included in any chart descritions read by screen readers."
+    },
+    "title": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the title of the chart. Optionall hide the title too. The purpose of setting text but hiding the title allows the\ntitle to still be included in any chart descritions read by screen readers."
+    },
+    "xAxisCategories": {
+      "type": "string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The data to be displayed on the x axis labels. This is useful when you do not have the x plot data in your series but need to set the tick labels on teh x axis."
+    },
+    "xAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the x axis of the chart. Optionall hide the x axis too. The purpose of setting text but hiding the x axis allows the\nx axis to still be included in any chart descritions read by screen readers."
+    },
+    "yAxisTitle": {
+      "type": "TitleConfig",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Configure the y axis of the chart. Optionall hide the y axis too. The purpose of setting text but hiding the y axis allows the\ny axis to still be included in any chart descritions read by screen readers."
+    },
+    "zoomingType": {
+      "type": "OptionsZoomTypeValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The type of zooming to enable on the chart. This will determine whether users can zoom in the x, y or both axis."
+    }
+  },
+  "LineSeries": {
+    "accessibility": {
+      "type": "SeriesAccessibilityOptionsObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Accessibility options for a series."
+    },
+    "color": {
+      "type": "string | GradientColorObject | PatternObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) The main color of the series. In line type series\nit applies to the line and the point markers unless otherwise specified.\nIn bar type series it applies to the bars unless a color is specified per\npoint. The default value is pulled from the `options.colors` array.\n\nIn styled mode, the color can be defined by the colorIndex option. Also,\nthe series color can be set with the `.highcharts-series`,\n`.highcharts-color-{n}`, `.highcharts-{type}-series` or\n`.highcharts-series-{n}` class, or individual classes given by the\n`className` option."
+    },
+    "dashStyle": {
+      "type": "DashStyleValue",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Name of the dash style to use for the graph, or\nfor some series types the outline of each shape.\n\nIn styled mode, the stroke dash-array can be set with the same classes as\nlisted under series.color."
+    },
+    "data": {
+      "type": "(\n  | number\n  | [string | number, number | null]\n  | PointOptionsObject\n  | null\n)[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) An array of data points for the series. For the\n`line` series type, points can be given in the following ways:\n\n1. An array of numerical values. In this case, the numerical values will\nbe interpreted as `y` options. The `x` values will be automatically\ncalculated, either starting at 0 and incremented by 1, or from\n`pointStart` and `pointInterval` given in the series options. If the axis\nhas categories, these will be used. Example: (see online documentation\nfor example)\n\n2. An array of arrays with 2 values. In this case, the values correspond\nto `x,y`. If the first value is a string, it is applied as the name of\nthe point, and the `x` value is inferred. (see online documentation for\nexample)\n\n3. An array of objects with named values. The following snippet shows\nonly a few settings, see the complete options set below. If the total\nnumber of data points exceeds the series' turboThreshold, this option is\nnot available. (see online documentation for example)\n\n**Note:** In TypeScript you have to extend `PointOptionsObject` with an\nadditional declaration to allow custom data types: ```ts declare module\n`highcharts` { interface PointOptionsObject { custom: Record<string,\n(boolean|number|string)>; } } ```"
+    },
+    "lineWidth": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Pixel width of the graph line."
+    },
+    "marker": {
+      "type": "PointMarkerOptionsObject",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock) Options for the point markers of line-like\nseries. Properties like `fillColor`, `lineColor` and `lineWidth` define\nthe visual appearance of the markers. Other series types, like column\nseries, don't have markers, but have visual options on the series level\ninstead.\n\nIn styled mode, the markers can be styled with the `.highcharts-point`,\n`.highcharts-point-hover` and `.highcharts-point-select` class names."
+    },
+    "name": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "(Highcharts, Highstock, Highmaps, Gantt) The name of the series as shown\nin the legend, tooltip etc."
+    }
+  }
+}
