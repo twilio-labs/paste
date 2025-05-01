@@ -1,5 +1,5 @@
 import type { HeadingProps, HeadingVariants } from "@twilio-paste/heading";
-import type { Space } from "@twilio-paste/style-props";
+import type { ListStyleType, Space } from "@twilio-paste/style-props";
 import type { TextProps } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
@@ -32,6 +32,14 @@ export interface BaseListProps extends HTMLPasteProps<"ol">, Pick<TextProps, "li
    * @memberof BaseListProps
    */
   element?: TextProps["element"];
+  /**
+   * Sets the list-style-type of the list. This is a shorthand for the CSS property: https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+   *
+   * @default null
+   * @type {ListStyleType}
+   * @memberof BaseListProps
+   */
+  listStyleType?: ListStyleType;
 }
 
 export type ListItemProps = HTMLPasteProps<"li"> & {
