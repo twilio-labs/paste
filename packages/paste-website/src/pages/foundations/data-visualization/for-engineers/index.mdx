@@ -1,7 +1,7 @@
 export const meta = {
-  title: "Data Visualization",
+  title: "Getting started",
   description: "An overview of integrating Highcharts with Paste's data visualization components, including setup, licensing, and chart context.",
-  slug: "/foundations/data-visualization/engineering/",
+  slug: "/foundations/data-visualization/for-engineers/",
 };
 
 import Image from "next/image";
@@ -66,8 +66,8 @@ Paste does not provide a license for Twilio usage. Licenses are acquired on an a
 ## Setup
 
 To ensure our components function correctly, some initial configuration is required in your project. This seciton will cover:
-- Storing and retrieving rendered chart objects.
 - Adding any additional modules required for additional functionality such as gauges, exporting etc.
+- Storing and retrieving rendered chart objects.
 
 You will need to include a component that retrieves the chart configuration from our [ChartProvider](/components/chart-provider)'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context.
 
@@ -135,7 +135,7 @@ const Chart: React.FC = () => {
 export const BaseChart = React.memo(Chart);
 ```
 
-## Chart context
+### Chart context
 
 We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the `BaseChart` to read and use.
 
