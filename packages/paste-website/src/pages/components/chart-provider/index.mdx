@@ -52,18 +52,18 @@ export const getStaticProps = async () => {
 
 Chart Provider is a wrapper around Highcharts that provides a consistent API for configuring an individual chart instance. This component has no visible elements and is an engineering asset only. It acts as a store for chart options and provides a context for managing chart state.
 
-We highly recommend using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) code inside the ChartProvider to ensure that the chart is rendered correctly and state is correctly stored.
+We highly recommend using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) code inside the Chart Provider to ensure that the chart is rendered correctly and state is correctly stored.
 
 ## Examples
 
 ### Custom charts
 
-You can use the `highchartsOptions` to create unsupported charts by passing the Higcharts config directly to the base chart without modification. We recommend using our wrappers for easier migration and a simpler way of accessing the rendered chart object for building custom interactions.
+You can use the `highchartsOptions` prop to create any currently unsupported charts by passing the Highcharts config directly to the base chart without modification. We recommend using our wrappers for easier migration and a simpler way of accessing the rendered chart object for building custom interactions.
 
 <Box marginBottom="space60">
   <Callout variant="warning">
     <CalloutHeading>Compatibility</CalloutHeading>
-    <CalloutText>If you build charts using the Highcharts API it will be unlikely that our Paste data visualization components will function correctly as they depend on helper functions and event tracking that we enrich the default options with.</CalloutText>
+    <CalloutText>If you build charts using the Highcharts API directly it will be unlikely that our Paste data visualization components will function correctly as they depend on helper functions and event tracking that we enrich the default options with.</CalloutText>
   </Callout>
 </Box>
 
