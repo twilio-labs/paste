@@ -166,7 +166,7 @@ Before designing a form you should:
 <UnorderedList>
   <ListItem>Don't ask for the same information twice in the same session. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry">WCAG</Anchor></ListItem>
   <ListItem>Provide accessible error identification and messaging. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification">WCAG</Anchor></ListItem>
-  <ListItem>Group related fields using fieldsets and legends with `FormSection` and `FormSectionHeading` from the <Anchor href="/components/form">Form layout component</Anchor>, which render an HTML fieldset and legend. Reference: <Anchor href="https://webaim.org/techniques/forms/controls">WebAIM</Anchor></ListItem>
+  <ListItem>Group related fields using fieldsets and legends with `FormSection` and `FormSectionHeading` from the <Anchor href="/components/form-layout">Form layout component</Anchor>, which render an HTML fieldset and legend. Reference: <Anchor href="https://webaim.org/techniques/forms/controls">WebAIM</Anchor></ListItem>
   <ListItem>The order in which form elements are presented on a webpage should be logical and meaningful. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG</Anchor></ListItem>
 </UnorderedList>
 
@@ -184,7 +184,7 @@ The different parts of a form are:
 
 <UnorderedList>
   <ListItem>
-  <strong><Anchor href="/components/form">Form layout component</Anchor></strong>: A wrapper layout component that sets layout and spacing between form elements.
+  <strong><Anchor href="/components/form-layout">Form layout component</Anchor></strong>: A wrapper layout component that sets layout and spacing between form elements.
   </ListItem>
   <ListItem>
     <strong>Form element</strong>: Any UI component in a form. Examples: <Anchor href="/components/input">Input</Anchor>, <Anchor href="/components/button">Button</Anchor>, <Anchor href="/components/callout">Callout</Anchor>.
@@ -214,7 +214,7 @@ The different parts of a form are:
   </THead>
   <TBody>
     <Tr verticalAlign="top">
-      <Td><Anchor href="/components/form">Form layout</Anchor></Td>
+      <Td><Anchor href="/components/form-layout">Form layout</Anchor></Td>
       <Td>Arranges a layout of form elements with preset spacing.</Td>
     </Tr>
     <Tr verticalAlign="top">
@@ -382,7 +382,7 @@ Use single-step forms for:
     Tasks that users can complete in one go without interruptions or needing external references.
   </ListItem>
   <ListItem>
-    Low cognitive load forms that require a maximum of 8 fields. For longer forms, use a <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d">Multi-step</Anchor> form or for settings, use the <Anchor href="/page-templates/settings">Settings</Anchor> template and divide the fields with In Page Navigation or Tabs.
+    Low cognitive load forms that require a maximum of 8 fields. For longer forms, use a <Anchor href="#multi-step-forms">Multi-step</Anchor> form or for settings, use the <Anchor href="/page-templates/settings">Settings</Anchor> template and divide the fields with In Page Navigation or Tabs.
   </ListItem>
 </UnorderedList>
 
@@ -659,7 +659,7 @@ Inline forms use our [Popover](/components/popover) component. Use Inline forms 
 ## Composition
 
 Designing a good form requires making decisions about composition, sequence, form elements, copy, and feedback. 
-Use the [Form layout component](/components/form) to arrange a layout of form elements with preset spacing.
+Use the [Form layout component](/components/form-layout) to arrange a layout of form elements with preset spacing.
 
 ### Number of form elements
 
@@ -705,7 +705,7 @@ When ordering your form, place fields in a logical order from a user’s perspec
 
 #### Organization: When to break into sections or new pages
 
-After determining the number of form fields, decide how to group them into sections, using `FormSection` from the [Form layout component](/components/form). If a form naturally breaks down into short sections, a [single step form](https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.3vpocpbk0gl7) is likely to be a good way to organize the form. When a form becomes long and has more than 8 questions that are only related by a few topics, [multi-step form](https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d) would be a better way to organize the form.
+After determining the number of form fields, decide how to group them into sections, using `FormSection` from the [Form layout component](/components/form-layout). If a form naturally breaks down into short sections, a [single step form](#single-step-or-page-forms) is likely to be a good way to organize the form. When a form becomes long and has more than 8 questions that are only related by a few topics, [multi-step form](#multi-step-forms) would be a better way to organize the form.
 
 ### Form field composition
 
