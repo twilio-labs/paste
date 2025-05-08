@@ -5,7 +5,7 @@ import { Stack } from "@twilio-paste/stack";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { ListItem, OrderedList, UnorderedList } from "../src";
+import { List, ListItem, OrderedList, UnorderedList } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -272,4 +272,124 @@ CustomUnorderedList.parameters = {
     // no need to a11y check customization
     disable: true,
   },
+};
+
+export const PrimitiveNestedUnorderedList = (): React.ReactNode => {
+  return (
+    <>
+      <List as="ul">
+        <ListItem>
+          Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+          API.
+        </ListItem>
+        <ListItem>
+          Proactively inform customers about account activity, purchase confirmations, and shipping notifications with
+          the
+          <i>Programmable Messaging API</i>.
+          <List as="ul">
+            <ListItem>
+              Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+              Messaging API.
+            </ListItem>
+            <ListItem>
+              Proactively inform customers about account activity, purchase confirmations, and shipping notifications
+              with the
+              <i>Programmable Messaging API</i>.
+              <List as="ul">
+                <ListItem>
+                  Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+                  Messaging API.
+                </ListItem>
+                <ListItem>
+                  Proactively inform customers about account activity, purchase confirmations, and shipping
+                  notifications with the
+                  <i>Programmable Messaging API</i>.
+                </ListItem>
+              </List>
+            </ListItem>
+          </List>
+        </ListItem>
+      </List>
+    </>
+  );
+};
+
+export const PrimitiveNestedOrderedList = (): React.ReactNode => {
+  return (
+    <>
+      <List as="ol">
+        <ListItem>
+          Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+          API.
+        </ListItem>
+        <ListItem>
+          Proactively inform customers about account activity, purchase confirmations, and shipping notifications with
+          the
+          <i>Programmable Messaging API</i>.
+          <List as="ol">
+            <ListItem>
+              Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+              Messaging API.
+            </ListItem>
+            <ListItem>
+              Proactively inform customers about account activity, purchase confirmations, and shipping notifications
+              with the
+              <i>Programmable Messaging API</i>.
+              <List as="ol">
+                <ListItem>
+                  Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+                  Messaging API.
+                </ListItem>
+                <ListItem>
+                  Proactively inform customers about account activity, purchase confirmations, and shipping
+                  notifications with the
+                  <i>Programmable Messaging API</i>.
+                </ListItem>
+              </List>
+            </ListItem>
+          </List>
+        </ListItem>
+      </List>
+    </>
+  );
+};
+
+export const PrimitiveNestedUnorderedDefinedSymbolsList = (): React.ReactNode => {
+  return (
+    <>
+      <List as="ul" listStyleType="circle">
+        <ListItem>
+          Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+          API.
+        </ListItem>
+        <ListItem>
+          Proactively inform customers about account activity, purchase confirmations, and shipping notifications with
+          the
+          <i>Programmable Messaging API</i>.
+          <List as="ul" listStyleType="decimal">
+            <ListItem>
+              Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+              Messaging API.
+            </ListItem>
+            <ListItem>
+              Proactively inform customers about account activity, purchase confirmations, and shipping notifications
+              with the
+              <i>Programmable Messaging API</i>.
+              <List as="ul" listStyleType="upper-roman">
+                <ListItem>
+                  Deliver critical time-sensitive messages to employees and customers at scale with the Programmable
+                  Messaging API.
+                </ListItem>
+                <ListItem>
+                  Proactively inform customers about account activity, purchase confirmations, and shipping
+                  notifications with the
+                  <i>Programmable Messaging API</i>.
+                </ListItem>
+              </List>
+            </ListItem>
+          </List>
+        </ListItem>
+      </List>
+    </>
+  );
 };
