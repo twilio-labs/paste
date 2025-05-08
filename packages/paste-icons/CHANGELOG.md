@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.1.0
+
+### Minor Changes
+
+- [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48) [#4303](https://github.com/twilio-labs/paste/pull/4303) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icons] added 2 new icons SplitIcon and RandomizeIcon
+
 ## 13.0.1
 
 ### Patch Changes
