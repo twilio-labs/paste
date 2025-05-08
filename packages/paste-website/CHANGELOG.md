@@ -1,5 +1,14 @@
 # @twilio-paste/website
 
+## 2.23.54
+
+### Patch Changes
+
+- Updated dependencies [[`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505), [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48), [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c)]:
+  - @twilio-paste/data-visualization-library@6.0.2
+  - @twilio-paste/icons@13.1.0
+  - @twilio-paste/card@10.2.0
+
 ## 2.23.53
 
 ### Patch Changes

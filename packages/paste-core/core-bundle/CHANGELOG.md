@@ -1,5 +1,21 @@
 # Change Log
 
+## 21.3.0
+
+### Minor Changes
+
+- [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48) [#4303](https://github.com/twilio-labs/paste/pull/4303) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icons] added 2 new icons SplitIcon and RandomizeIcon
+
+* [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c) [#4304](https://github.com/twilio-labs/paste/pull/4304) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Card]: add `fillWidth` prop to make card width stretch to the container width
+
+### Patch Changes
+
+- [`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505) [#4312](https://github.com/twilio-labs/paste/pull/4312) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization Library] update Highcharts native tooltip styles to align more closely with Paste styles including correctly setting the font family
+
+- Updated dependencies [[`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505), [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c)]:
+  - @twilio-paste/data-visualization-library@6.0.2
+  - @twilio-paste/card@10.2.0
+
 ## 21.2.0
 
 ### Minor Changes
