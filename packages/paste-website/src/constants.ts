@@ -48,6 +48,7 @@ export const SidebarCategoryRoutes = {
   FOUNDATIONS: "/foundations",
   CONTENT: "/foundations/content",
   FOUNDATIONS_LOCALIZATION: "/foundations/localization",
+  DATA_VISUALIZATION: "/foundations/data-visualization",
   PATTERNS: "/patterns",
   EXPERIENCES: "/experiences",
   COMPONENTS: "/components",
