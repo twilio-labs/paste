@@ -67,6 +67,7 @@ import {
 import {UnorderedList, OrderedList, ListItem} from '@twilio-paste/list'
 import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
 import { Blockquote, BlockquoteContent, BlockquoteCitation } from "@twilio-paste/blockquote";
+import {InlineCode} from '@twilio-paste/inline-code';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -166,7 +167,7 @@ Before designing a form you should:
 <UnorderedList>
   <ListItem>Don't ask for the same information twice in the same session. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry">WCAG</Anchor></ListItem>
   <ListItem>Provide accessible error identification and messaging. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification">WCAG</Anchor></ListItem>
-  <ListItem>Group related fields using fieldsets and legends with `FormSection` and `FormSectionHeading` from the <Anchor href="/components/form-layout">Form layout component</Anchor>, which render an HTML fieldset and legend. Reference: <Anchor href="https://webaim.org/techniques/forms/controls">WebAIM</Anchor></ListItem>
+  <ListItem>Group related fields using fieldsets and legends with <InlineCode>FormSection</InlineCode> and <InlineCode>FormSectionHeading</InlineCode> from the <Anchor href="/components/form-layout">Form layout component</Anchor>, which render an HTML fieldset and legend. Reference: <Anchor href="https://webaim.org/techniques/forms/controls">WebAIM</Anchor></ListItem>
   <ListItem>The order in which form elements are presented on a webpage should be logical and meaningful. Reference: <Anchor href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG</Anchor></ListItem>
 </UnorderedList>
 
@@ -818,10 +819,10 @@ The primary Button placement depends on the form type:
 
 <UnorderedList>
   <ListItem>
-    For <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.3vpocpbk0gl7">Single Step Forms</Anchor>, <Anchor href="/components/side-modal">Side Modals</Anchor>, <Anchor href="/components/side-panel">Side Panels</Anchor>, <Anchor href="/components/minimizable-dialog">Minimizable Dialogs</Anchor> and <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.7xhk5supgjav">Popover</Anchor> forms, keep the primary button left-aligned, and placed before secondary buttons for better scannability of the content and its related actions.
+    For <Anchor href="#single-step-or-page-forms">Single Step Forms</Anchor>, <Anchor href="/components/side-modal">Side Modals</Anchor>, <Anchor href="/components/side-panel">Side Panels</Anchor>, <Anchor href="/components/minimizable-dialog">Minimizable Dialogs</Anchor> and <Anchor href="#inline-forms">Popover</Anchor> forms, keep the primary button left-aligned, and placed before secondary buttons for better scannability of the content and its related actions.
   </ListItem>
   <ListItem>
-    For <Anchor href="https://docs.google.com/document/d/1sYcP_i_YTwYWWdjKDQfkIdMj1NqyZV5c_8k4BxrEYc0/edit?pli=1&tab=t.0#heading=h.yi4naptd6s8d">Multi-step Forms</Anchor> and <Anchor href="/page-templates/wizard">Wizards</Anchor>, keep the primary button right-aligned, placed after secondary buttons to indicate the direction of the form. Refer to our <Anchor href="/page-templates/wizard#actions-footer">Wizards action footer</Anchor> guidelines for additional guidance.
+    For <Anchor href="#multi-step-forms">Multi-step Forms</Anchor> and <Anchor href="/page-templates/wizard">Wizards</Anchor>, keep the primary button right-aligned, placed after secondary buttons to indicate the direction of the form. Refer to our <Anchor href="/page-templates/wizard#actions-footer">Wizards action footer</Anchor> guidelines for additional guidance.
   </ListItem>
 </UnorderedList>
 
