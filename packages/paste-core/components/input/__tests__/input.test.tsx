@@ -346,7 +346,7 @@ describe("Customization", () => {
     expect(renderedInputPrefix).toHaveStyleRule("background-color", "rgb(0, 20, 137)");
     expect(renderedInputSuffix).toHaveStyleRule("background-color", "rgb(0, 20, 137)");
     expect(renderedIncrement).toHaveStyleRule("background-color", "rgb(245, 240, 252)");
-    expect(renderedDecrement).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+    expect(renderedDecrement).toHaveStyleRule("background-color", "rgb(219, 19, 42)");
   });
 
   it("should add custom styles to Input with a custom element data attribute", (): void => {
@@ -388,7 +388,7 @@ describe("Customization", () => {
     expect(renderedInputPrefix).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
     expect(renderedInputSuffix).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
     expect(renderedIncrement).toHaveStyleRule("background-color", "rgb(245, 240, 252)");
-    expect(renderedDecrement).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+    expect(renderedDecrement).toHaveStyleRule("background-color", "rgb(219, 19, 42)");
   });
 
   it("should add custom styles to a Input variant with a custom element data attribute", (): void => {

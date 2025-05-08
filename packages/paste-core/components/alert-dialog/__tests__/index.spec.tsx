@@ -30,7 +30,7 @@ describe("Alert Dialog", () => {
   it("Should have a destructive button style when the destructive prop is included", () => {
     render(<DestructiveAlertDialog />, { wrapper: ThemeWrapper });
     const button = screen.getByRole("button", { name: "Delete" });
-    expect(button).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+    expect(button).toHaveStyleRule("background-color", "rgb(219, 19, 42)");
   });
 
   it("Should have a disabled destructive button style when the onConfirmDisabled prop is included", () => {

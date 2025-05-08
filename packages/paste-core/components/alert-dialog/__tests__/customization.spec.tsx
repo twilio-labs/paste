@@ -83,7 +83,7 @@ describe("Alert Dialog customization", () => {
   });
   it("should apply styles to Alert Dialog with custom element prop", () => {
     const { container } = render(<CustomizedDestructiveAlertDialog />);
-    expect(screen.getByTestId("destructive_alert_dialog")).toHaveStyleRule("background-color", "rgb(214, 31, 31)");
+    expect(screen.getByTestId("destructive_alert_dialog")).toHaveStyleRule("background-color", "rgb(219, 19, 42)");
     expect(container.querySelector('[data-paste-element="FOO_HEADER_WRAPPER"]')).toHaveStyleRule("border", "inherit");
     expect(screen.getByText("Alert Dialog")).toHaveStyleRule("background-color", "rgb(235, 244, 255)");
     expect(

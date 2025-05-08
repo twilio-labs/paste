@@ -42,7 +42,7 @@ describe("AccountSwitcher", () => {
       });
       expect(screen.getByRole("button", { name: "Switch accounts" })).toHaveStyleRule(
         "background-color",
-        "rgb(214, 31, 31)",
+        "rgb(219, 19, 42)",
       );
       expect(screen.getByRole("menu")).toHaveStyleRule("border-color", "rgb(117, 12, 12)");
       expect(screen.getByRole("menuitem", { name: "Account settings" })).toHaveStyleRule(
@@ -59,7 +59,7 @@ describe("AccountSwitcher", () => {
       });
       expect(screen.getByRole("button", { name: "Switch accounts" })).toHaveStyleRule(
         "background-color",
-        "rgb(214, 31, 31)",
+        "rgb(219, 19, 42)",
       );
       expect(screen.getByRole("menu")).toHaveStyleRule("border-color", "rgb(117, 12, 12)");
       expect(screen.getByRole("menuitem", { name: "Account settings" })).toHaveStyleRule(

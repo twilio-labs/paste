@@ -116,7 +116,7 @@ props:
     value: "{!palette-red-60}"
     comment: Background color used for error alerts and toasts.
   color-background-error-weakest:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-05}"
     comment: Weakest background color used for error alerts and toasts.
   color-background-required:
     value: "{!palette-red-50}"
@@ -176,7 +176,7 @@ props:
     value: "{!palette-red-20}"
     comment: Weaker background color used for destructive actions or highlights.
   color-background-destructive-weakest:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-05}"
     comment: Weakest background color used for destructive actions or highlights.
 
   # overlay backgrounds
@@ -221,6 +221,9 @@ props:
   color-background-body-elevation:
     value: "{!palette-gray-05}"
     comment: Elevation token for color-background-body elements.
+  color-background-body-elevation-primary:
+    value: "{!palette-blue-05}"
+    comment: Primary elevation token for color-background-body elements.
   color-background-weak-elevation:
     value: "{!palette-gray-05}"
     comment: Elevation token for color-background-weak elements.

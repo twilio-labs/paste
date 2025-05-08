@@ -16,7 +16,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: "colorTextInverse",
+  color: "colorTextInverseWeakest",
   textAlign: "left",
 });
 
@@ -24,6 +24,11 @@ const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: "colorTextInverseWeakest",
   textAlign: "left",
 });
+
+const linkSizeStyles = (size: keyof typeof SizeStyles): BoxStyleProps =>
+  merge(SizeStyles[size], {
+    borderRadius: "borderRadius20",
+  });
 
 const ButtonStyleMapping = {
   default: defaultStyles,
@@ -40,7 +45,7 @@ const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>
         width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps({ as, ...props })}
         {...ButtonStyleMapping[buttonState]}
-        {...SizeStyles[size]}
+        {...linkSizeStyles(size)}
       />
     );
   },

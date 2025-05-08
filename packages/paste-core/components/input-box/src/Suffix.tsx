@@ -33,8 +33,8 @@ const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(
       <Box
         alignItems="flex-start"
         backgroundColor={backgroundColor}
-        borderBottomRightRadius="borderRadius20"
-        borderTopRightRadius="borderRadius20"
+        borderBottomRightRadius="borderRadius30"
+        borderTopRightRadius="borderRadius30"
         display="flex"
         element={`${element}_SUFFIX`}
         lineHeight="lineHeight20"

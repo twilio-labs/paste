@@ -31,7 +31,7 @@ props:
     value: "{!palette-blue-30}"
     comment: Strong primary border color
   color-border-primary:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-55}"
     comment: Primary border color
   color-border-primary-weak:
     value: "{!palette-gray-80}"

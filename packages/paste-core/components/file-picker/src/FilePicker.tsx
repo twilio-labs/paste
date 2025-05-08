@@ -127,12 +127,12 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
             justifyContent="start"
             as="span"
             type="file"
-            borderRadius="borderRadius30"
+            borderRadius="borderRadius40"
             padding="space20"
             boxShadow="shadowBorder"
             backgroundColor="colorBackgroundBody"
             _focusSibling={{
-              borderRadius: "borderRadius30",
+              borderRadius: "borderRadius40",
               padding: "space20",
               boxShadow: "shadowFocus",
               backgroundColor: "colorBackgroundBody",

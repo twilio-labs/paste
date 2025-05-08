@@ -167,6 +167,18 @@ Use required indicators to show users which fields they must fill out.
 </>`}
 </LivePreview>
 
+### Optional Label
+
+Use `optional` prop to show users which fields are optional to fill out.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address_1" optional>Email address</Label>
+  <Input aria-describedby="email_help_text" id="email_address_1" name="email_address_1" type="email" placeholder="example@twilio.com" onChange={() => {}}/>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
+</>`}
+</LivePreview>
+
 ### Disabled Label
 
 Use the disabled prop if a the label is associated with a disabled form field to show users that they can't interact with the field.

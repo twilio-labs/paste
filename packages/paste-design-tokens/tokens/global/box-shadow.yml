@@ -39,7 +39,7 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-30}"
     comment: Weak shadow border for disabled inputs.
   shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-50}"
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-40}"
     comment: Shadow border for inputs.
   shadow-border-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-05} {!palette-gray-60}"
