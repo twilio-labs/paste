@@ -110,6 +110,13 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | 
   onChange?: OnChangeFunction;
   /**
    *
+   * @default true
+   * @type {boolean}
+   * @memberof ChatComposerProps
+   */
+  autoLink?: boolean;
+  /**
+   *
    * @default null
    * @type {React.MutableRefObject<LexicalEditor | null>}
    * @memberof ChatComposerProps
@@ -123,6 +130,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       children,
       element = "CHAT_COMPOSER",
       onChange,
+      autoLink = true,
       placeholder = "",
       initialValue,
       config,
@@ -188,7 +196,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
             />
             {onChange && <OnChangePlugin onChange={onChange} />}
             <HistoryPlugin />
-            <AutoLinkPlugin />
+            {autoLink && <AutoLinkPlugin />}
             <ToggleEditablePlugin disabled={disabled} />
             {editorInstanceRef && <EditorRefPlugin editorRef={editorInstanceRef} />}
             {children}
