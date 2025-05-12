@@ -135,9 +135,20 @@ const SiteSidebarNavigation = (): JSX.Element => {
           </SidebarAnchor>
           <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/word-list`}>Word list</SidebarAnchor>
         </NavigationDisclosure>
-        <SidebarAnchor href={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
-          Data visualization
-        </SidebarAnchor>
+        <NavigationDisclosure buttonText="Data visualization" categoryRoute={SidebarCategoryRoutes.DATA_VISUALIZATION}>
+          <SidebarAnchor href={SidebarCategoryRoutes.DATA_VISUALIZATION}>Overview</SidebarAnchor>
+          <NavigationDisclosure
+            buttonText="For engineers"
+            categoryRoute={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers`}
+          >
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers`}>
+              Getting started
+            </SidebarAnchor>
+            <SidebarAnchor href={`${SidebarCategoryRoutes.DATA_VISUALIZATION}/for-engineers/chart-types`}>
+              Chart types
+            </SidebarAnchor>
+          </NavigationDisclosure>
+        </NavigationDisclosure>
         <SidebarAnchor
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/elevation`}
           onClick={() =>
@@ -362,6 +373,32 @@ const SiteSidebarNavigation = (): JSX.Element => {
           }
           if (name === "Sidebar Navigation") {
             return null;
+          }
+          if (["Data Visualization"].includes(name)) {
+            return null;
+          }
+          if (name === "Chart Provider") {
+            return (
+              <NavigationDisclosure
+                buttonText="Data Visualization"
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: "Data Visualization",
+                  })
+                }
+              >
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/chart-provider`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/chart-provider`)}
+                >
+                  Chart Provider
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
           }
           return (
             <SidebarAnchor selected={selected} href={categoryRoute} key={slug}>

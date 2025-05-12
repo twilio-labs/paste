@@ -1,0 +1,157 @@
+export const meta = {
+  title: "Getting started",
+  description: "An overview of integrating Highcharts with Paste's data visualization components, including setup, licensing, and chart context.",
+  slug: "/foundations/data-visualization/for-engineers/",
+};
+
+import Image from "next/image";
+import Highcharts from "highcharts";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import HighchartsReact from "highcharts-react-official";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
+
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Anchor} from "@twilio-paste/anchor";
+
+import { SidebarCategoryRoutes } from "../../../../constants";
+import DefaultLayout from "../../../../layouts/DefaultLayout";
+import { getNavigationData } from "../../../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>In progress</CalloutHeading>
+    <CalloutText>As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
+  </Callout>
+</Box>
+
+Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in the Paste library.
+
+To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply consistent styles to the charts. Global styles will be set in the `BaseChart` using our existing hook.
+
+## Licensing
+
+Paste does not provide a license for Twilio usage. Licenses are acquired on an application level. For 2025, licenses have already been purchased for these applications:
+
+- Twilio Admin
+- Twilio Console
+- Twilio Flex
+- Twilio Segment
+- Twilio SendGrid
+ 
+If you want to use the Paste charting components in another application, you'll need to acquire a new license. If you're a Twilio employee and need further information, you can reach out to us via [GitHub discussions](https://github.com/twilio-labs/paste/discussions/new?category=q-a) or the Twilio Procurement team.
+
+## Setup
+
+To ensure our components function correctly, some initial configuration is required in your project. This seciton will cover:
+- Adding any additional modules required for additional functionality such as gauges, exporting etc.
+- Storing and retrieving rendered chart objects.
+
+You will need to include a component that retrieves the chart configuration from a [Chart Provider](/components/chart-provider)'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context.
+
+Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like Tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component.
+
+### BaseChart
+
+We recommend copying the below code and creating an instance of it in your application to use with our components. This component is designed to be reused across all charts. You do not need a new instance of this component for each chart.
+
+<Box marginBottom="space60">
+  <Callout variant="warning">
+    <CalloutHeading>Modules are subject to change</CalloutHeading>
+    <CalloutText>As we expand our supported charts you will need to maintain this file to include any required modules for the new charts or functionality of our components to work correctly. For example, you might change this line of code from this:</CalloutText>
+    <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);</InlineCode></CalloutText>
+    <CalloutText>To this:</CalloutText>
+    <CalloutText><InlineCode>applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule, HighchartsSankeyModule, ...);</InlineCode></CalloutText>
+  </Callout>
+</Box>
+
+```jsx
+import { ChartContext } from "@twilio-paste/core/chart-provider";
+import { Box } from "@twilio-paste/core/box";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/core/data-visualization-library";
+import * as Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import * as React from "react";
+
+const Chart: React.FC = () => {
+  // Load the accessibility module and any other modules you need.
+  applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
+  const chartRef = React.useRef<HTMLElement | null>(null);
+  const { options, setChart, setChartRef } = React.useContext(ChartContext);
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(usePasteHighchartsTheme(options));
+
+  React.useLayoutEffect(() => {
+    setChartOptions(Highcharts.merge(chartOptions, options));
+  }, [options]);
+
+  React.useEffect(() => {
+    if (chartRef.current) {
+      setChartRef(chartRef.current);
+    }
+  }, [chartRef.current]);
+
+  const callback = (chart: Highcharts.Chart) => {
+    // Ensure the chart has been rendered before setting it. This will cause issues in our components if the series is empty.
+    if (chart?.series?.length > 0) {
+      setChart(chart);
+    }
+  };
+
+  return (
+    <Box gridArea="base-chart" ref={chartRef} position="relative">
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={chartOptions}
+        constructorType={chartOptions.chart?.map ? "mapChart" : undefined}
+        updateArgs={[true, true, false]}
+        callback={callback}
+      />
+    </Box>
+  );
+};
+
+export const BaseChart = React.memo(Chart);
+```
+
+### Chart context
+
+We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the `BaseChart` to read and use.
+
+Each individual chart instance must be wrapped in a [Chart Provider](/components/chart-provider) which sets the initial configuration and applies chart-specific styles.
+
+An individual chart instance doesn't only contain a chart. It also contains chart titles, legends, tooltips, and any other component that's not part of the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements, but also any of our Paste components that interact with that chart and canvas.
+
+</content>
+
+</contentwrapper>
