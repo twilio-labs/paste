@@ -107,6 +107,7 @@ export { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 export { ClearEditorPlugin } from "@lexical/react/LexicalClearEditorPlugin";
 export { EditorRefPlugin } from "@lexical/react/LexicalEditorRefPlugin";
 export { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+export { LexicalTypeaheadMenuPlugin } from "@lexical/react/LexicalTypeaheadMenuPlugin";
 
 export type LexicalComposerProps = React.ComponentProps<typeof LexicalComposer>;
 export type OnChangeFunction = React.ComponentProps<typeof OnChangePlugin>["onChange"];
