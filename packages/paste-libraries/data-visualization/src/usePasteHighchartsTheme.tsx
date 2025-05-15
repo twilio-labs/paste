@@ -105,9 +105,15 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
       },
     },
     tooltip: {
-      backgroundColor: context.backgroundColors.colorBackground,
+      backgroundColor: context.backgroundColors.colorBackgroundBodyInverse,
+      borderColor: context.borderColors.colorBorderInverse,
+      borderWidth: context.borderWidths.borderWidth10,
+      borderRadius: context.radii.borderRadius30.replace("px", ""),
+      padding: 12,
       style: {
+        fontFamily: context.fonts.fontFamilyText,
         color: context.textColors.colorText,
+        fontSize: context.fontSizes.fontSize30,
       },
     },
     credits: {

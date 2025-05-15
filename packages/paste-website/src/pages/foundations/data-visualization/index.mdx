@@ -16,6 +16,7 @@ import { Text } from "@twilio-paste/text";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
 import { PageHeaderSeparator } from "@twilio-paste/page-header";
 import { Separator } from "@twilio-paste/separator";
+import {Anchor} from "@twilio-paste/anchor";
 
 import { ResponsiveImage } from "../../../components/ResponsiveImage";
 import { SidebarCategoryRoutes } from "../../../constants";
@@ -61,6 +62,15 @@ This foundation page was created to help establish a familiar and accessible use
 ## Getting started
 
 ### For engineers
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading as="h3">Paste chart support</CalloutHeading>
+    <CalloutText>
+      We're actively working on full charting support through a suite of Paste components designed to make it easy to build pre-styled, interactive charts. As we expand these capabilities, we will continue adding more examples and documentation in the <Anchor href="/foundations/data-visualization/for-engineers">For engineers</Anchor> section. We plan to roll out support for additional chart types over time and recommend using our components if they fit your current needs.
+    </CalloutText>
+  </Callout>
+</Box>
 
 The easiest way to use the data visualization tokens in your charts is to use `usePasteHighchartsTheme` from the [data visualization library package](/core/libraries/data-visualization) with [Highcharts](https://www.highcharts.com/). The `usePasteHighchartsTheme` hook takes an object of Highchart configurations and returns a new object with Paste colors and fonts.
 

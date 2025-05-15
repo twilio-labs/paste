@@ -11099,7 +11099,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/backend@workspace:apps/backend"
   dependencies:
-    supabase: ^2.6.8
+    supabase: ^2.8.1
   languageName: unknown
   linkType: soft
 
@@ -15772,6 +15772,7 @@ __metadata:
     "@twilio-paste/button-group": ^5.0.1
     "@twilio-paste/callout": ^5.0.1
     "@twilio-paste/card": ^10.1.0
+    "@twilio-paste/chart-provider": ^2.0.1
     "@twilio-paste/chat-composer": ^6.0.1
     "@twilio-paste/chat-log": ^6.0.1
     "@twilio-paste/checkbox": ^14.0.1
@@ -43345,9 +43346,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"supabase@npm:^2.6.8":
-  version: 2.8.1
-  resolution: "supabase@npm:2.8.1"
+"supabase@npm:^2.8.1":
+  version: 2.22.1
+  resolution: "supabase@npm:2.22.1"
   dependencies:
     bin-links: ^5.0.0
     https-proxy-agent: ^7.0.2
@@ -43355,7 +43356,7 @@ resolve@^2.0.0-next.3:
     tar: 7.4.3
   bin:
     supabase: bin/supabase
-  checksum: 10b240963da4263ad8d03e84b97939504f5690eb894a9ee8ae225d69c0b8f31a890e9e24e9d4b2757c714eb38addb6878f6e531f9f7279c22de50a991b8e7cd4
+  checksum: 2b12441bc6754b6b845e91765b2b7585aae7af944fb77d20f52e4894e70761650dfb148453c83a6eaee426bba5e2f28da2200e8f4f86a31fbc34dc70f35f4c84
   languageName: node
   linkType: hard
 
