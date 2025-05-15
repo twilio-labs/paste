@@ -1,5 +1,41 @@
 # Change Log
 
+## 21.3.0
+
+### Minor Changes
+
+- [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48) [#4303](https://github.com/twilio-labs/paste/pull/4303) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icons] added 2 new icons SplitIcon and RandomizeIcon
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Label] Update font weight, expose new prop for optional variant and fix require dot causing scrolling issue
+
+- [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c) [#4304](https://github.com/twilio-labs/paste/pull/4304) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Card]: add `fillWidth` prop to make card width stretch to the container width
+
+### Patch Changes
+
+- [`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505) [#4312](https://github.com/twilio-labs/paste/pull/4312) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization Library] update Highcharts native tooltip styles to align more closely with Paste styles including correctly setting the font family
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Base Radio Checkbox, Button, Combobox, File Picker, File Uploader, Input, Input Box, Menu, Select, Textarea, Visual Picker] Update styles of form related components
+
+- [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Update palette and new elevation token
+
+- Updated dependencies [[`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c)]:
+  - @twilio-paste/data-visualization-library@6.0.2
+  - @twilio-paste/base-radio-checkbox@14.0.2
+  - @twilio-paste/button@15.0.2
+  - @twilio-paste/checkbox@14.0.2
+  - @twilio-paste/combobox@17.0.2
+  - @twilio-paste/file-picker@5.0.2
+  - @twilio-paste/file-uploader@5.0.2
+  - @twilio-paste/input@10.0.2
+  - @twilio-paste/input-box@11.0.2
+  - @twilio-paste/menu@15.0.2
+  - @twilio-paste/select@13.0.2
+  - @twilio-paste/textarea@11.1.1
+  - @twilio-paste/visual-picker@3.0.2
+  - @twilio-paste/design-tokens@10.14.1
+  - @twilio-paste/label@14.1.0
+  - @twilio-paste/card@10.2.0
+
 ## 21.2.0
 
 ### Minor Changes
