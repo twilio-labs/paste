@@ -1,5 +1,28 @@
 # @twilio-paste/website
 
+## 2.23.54
+
+### Patch Changes
+
+- Updated dependencies [[`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c)]:
+  - @twilio-paste/data-visualization-library@6.0.2
+  - @twilio-paste/base-radio-checkbox@14.0.2
+  - @twilio-paste/button@15.0.2
+  - @twilio-paste/checkbox@14.0.2
+  - @twilio-paste/combobox@17.0.2
+  - @twilio-paste/file-picker@5.0.2
+  - @twilio-paste/file-uploader@5.0.2
+  - @twilio-paste/input@10.0.2
+  - @twilio-paste/input-box@11.0.2
+  - @twilio-paste/menu@15.0.2
+  - @twilio-paste/select@13.0.2
+  - @twilio-paste/textarea@11.1.1
+  - @twilio-paste/visual-picker@3.0.2
+  - @twilio-paste/design-tokens@10.14.1
+  - @twilio-paste/icons@13.1.0
+  - @twilio-paste/label@14.1.0
+  - @twilio-paste/card@10.2.0
+
 ## 2.23.53
 
 ### Patch Changes
