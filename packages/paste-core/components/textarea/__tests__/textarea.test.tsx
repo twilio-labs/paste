@@ -151,10 +151,10 @@ describe("Textarea customization", () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
-    expect(renderedTextAreaElement).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
-    expect(renderedTextAreaPrefix).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
-    expect(renderedTextAreaSuffix).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
+    expect(renderedTextArea).toHaveStyleRule("background-color", "rgb(254, 245, 245)");
+    expect(renderedTextAreaElement).toHaveStyleRule("background-color", "rgb(254, 245, 245)");
+    expect(renderedTextAreaPrefix).toHaveStyleRule("background-color", "rgb(254, 245, 245)");
+    expect(renderedTextAreaSuffix).toHaveStyleRule("background-color", "rgb(254, 245, 245)");
   });
 
   it("should set custom CSS for custom textarea", () => {
@@ -163,10 +163,10 @@ describe("Textarea customization", () => {
     const renderedTextAreaElement = container.querySelector('[data-paste-element="NEW_TEXTAREA_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="NEW_TEXTAREA_PREFIX"]');
     const renderedTextAreaSuffix = container.querySelector('[data-paste-element="NEW_TEXTAREA_SUFFIX"]');
-    expect(renderedTextArea).toHaveStyleRule("background-color", "rgb(254, 236, 236)");
-    expect(renderedTextAreaElement).toHaveStyleRule("color", "rgb(214, 31, 31)");
+    expect(renderedTextArea).toHaveStyleRule("background-color", "rgb(254, 245, 245)");
+    expect(renderedTextAreaElement).toHaveStyleRule("color", "rgb(219, 19, 42)");
     expect(renderedTextAreaPrefix).toHaveStyleRule("padding", "1.5rem");
-    expect(renderedTextAreaSuffix).toHaveStyleRule("border-left-color", "rgb(214, 31, 31)");
+    expect(renderedTextAreaSuffix).toHaveStyleRule("border-left-color", "rgb(219, 19, 42)");
   });
 
   it("should set custom CSS for custom textarea variant", () => {

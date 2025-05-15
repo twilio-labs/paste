@@ -21,7 +21,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: "colorTextPrimary",
+  color: "colorTextWeaker",
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {

@@ -142,7 +142,7 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
       appearance: "none",
       background: "transparent",
       border: "none",
-      borderRadius: "borderRadius20",
+      borderRadius: "borderRadius30",
       boxShadow: "none",
       color: "inherit",
       display: "block",

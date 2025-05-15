@@ -87,7 +87,7 @@ const baseStyles: BoxStyleProps = {
 };
 
 const disabledStyles: BoxStyleProps = {
-  backgroundColor: "colorBackgroundStrong",
+  backgroundColor: "colorBackground",
   borderStyle: "solid",
   borderColor: "colorBorderWeaker",
   cursor: "not-allowed",

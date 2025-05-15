@@ -484,7 +484,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
       <Combobox
         items={items}
         insertBefore={
-          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeaker" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }

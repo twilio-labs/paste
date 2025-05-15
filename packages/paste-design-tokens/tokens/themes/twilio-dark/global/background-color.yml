@@ -65,18 +65,6 @@ props:
     comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
 
   #elevation background
-  color-background-body-elevation:
-    value: "{!palette-gray-95}"
-    comment: Elevation token for color-background-body elements.
-  color-background-weak-elevation:
-    value: "{!palette-gray-100}"
-    comment: Elevation token for color-background-weak elements.
-  color-background-elevation:
-    value: "{!palette-gray-95}"
-    comment: Elevation token for color-background elements.
-  color-background-strong-elevation:
-    value: "{!palette-gray-90}"
-    comment: Elevation token for color-background-strong elements.
   color-background-inverse-weak-elevation:
     value: "{!palette-gray-100}"
     comment: Elevation token for color-background-inverse-weak elements.
