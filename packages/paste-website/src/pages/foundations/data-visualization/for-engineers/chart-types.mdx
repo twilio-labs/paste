@@ -1,0 +1,71 @@
+export const meta = {
+  title: "Chart types",
+  description: "Display the supported chart types for the Paste Data Visualization library with coded examples.",
+  slug: "/foundations/data-visualization/engineering/chart-types",
+};
+
+import Image from "next/image";
+import Highcharts from "highcharts";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import HighchartsReact from "highcharts-react-official";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
+
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { ChartProvider } from "@twilio-paste/chart-provider";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Anchor } from "@twilio-paste/anchor";
+
+import { SidebarCategoryRoutes } from "../../../../constants";
+import DefaultLayout from "../../../../layouts/DefaultLayout";
+import { getNavigationData } from "../../../../utils/api";
+import { CustomChartProviderExample } from "../../../../component-examples/data-visualization/ChartProviderExamples";
+import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>In progress</CalloutHeading>
+    <CalloutText>As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
+  </Callout>
+</Box>
+
+## Custom
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{CustomChartProviderExample}
+</LivePreview>
+
+</content>
+
+</contentwrapper>

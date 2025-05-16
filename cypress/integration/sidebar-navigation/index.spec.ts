@@ -1,9 +1,10 @@
 const sidebarNavigationDisclosures = [
   "introduction",
+  "foundations",
+  "data-visualization",
   "for-designers",
   "for-engineers",
   "contributing",
-  "foundations",
   "content",
   "patterns",
   "components",
@@ -34,9 +35,10 @@ describe("Sidebar navigation", () => {
       cy.get(`[data-cy="${contentSelector}"]`).as("currentContent");
       cy.get("@currentContent").should("have.css", "display", "none");
       cy.get("@currentContent").should("have.attr", "hidden", "hidden");
-
-      cy.get(`[data-cy="${buttonSelector}"]`).click().should("have.attr", "aria-expanded", "true");
-      cy.get("@currentContent").scrollIntoView().should("have.css", "display", "block");
+      cy.get(`[data-cy="${buttonSelector}"]`).click({ multiple: true }).should("have.attr", "aria-expanded", "true");
+      cy.get("@currentContent").each(($el) => {
+        cy.wrap($el).scrollIntoView().should("have.css", "display", "block");
+      });
     });
   });
 
@@ -44,7 +46,7 @@ describe("Sidebar navigation", () => {
     const buttonSelector = `${BASE}-button-${disclosureName}`;
 
     it(`should close the the "${disclosureName}" sidebar disclosure`, () => {
-      cy.get(`[data-cy="${buttonSelector}"]`).click().should("have.attr", "aria-expanded", "false");
+      cy.get(`[data-cy="${buttonSelector}"]`).click({ multiple: true }).should("have.attr", "aria-expanded", "false");
     });
   });
 });

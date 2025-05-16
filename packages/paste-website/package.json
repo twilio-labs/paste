@@ -50,6 +50,7 @@
     "@twilio-paste/button-group": "^5.0.1",
     "@twilio-paste/callout": "^5.0.1",
     "@twilio-paste/card": "^10.1.0",
+    "@twilio-paste/chart-provider": "^2.0.1",
     "@twilio-paste/chat-composer": "^6.0.1",
     "@twilio-paste/chat-log": "^6.0.1",
     "@twilio-paste/checkbox": "^14.0.1",

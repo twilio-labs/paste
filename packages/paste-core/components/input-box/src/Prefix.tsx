@@ -33,8 +33,8 @@ const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
       <Box
         alignItems="flex-start"
         backgroundColor={backgroundColor}
-        borderBottomLeftRadius="borderRadius20"
-        borderTopLeftRadius="borderRadius20"
+        borderBottomLeftRadius="borderRadius30"
+        borderTopLeftRadius="borderRadius30"
         display="flex"
         element={`${element}_PREFIX`}
         lineHeight="lineHeight20"

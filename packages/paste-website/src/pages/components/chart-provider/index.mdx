@@ -1,0 +1,77 @@
+import { ChartProvider } from '@twilio-paste/chart-provider';
+import { Box } from '@twilio-paste/box';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import packageJson from '@twilio-paste/chart-provider/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {ExamplesDataVizBaseChart as BaseChart} from '../../../component-examples/data-visualization/BaseChart';
+import {CustomChartProviderExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartProviderExamples';
+
+export const meta = {
+  title: 'Chart Provider',
+  package: '@twilio-paste/chart-provider',
+  description: packageJson.description,
+  slug: '/components/chart-provider/',
+};
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chart Provider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chart-provider',
+        storybookUrl: '/?path=/story/components-chartprovider', //TODO: Update this to the correct storybook URL
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{SimpleChartProviderExample}
+</LivePreview>
+
+## Guidelines
+
+## About Chart Provider
+
+Chart Provider is a wrapper around Highcharts that provides a consistent API for configuring an individual chart instance. This component has no visible elements and is an engineering asset only. It acts as a store for chart options and provides a context for managing chart state.
+
+We highly recommend using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) code inside the Chart Provider to ensure that the chart is rendered correctly and state is correctly stored.
+
+## Examples
+
+### Custom charts
+
+You can use the `highchartsOptions` prop to create any currently unsupported charts by passing the Highcharts config directly to the base chart without modification. We recommend using our wrappers for easier migration and a simpler way of accessing the rendered chart object for building custom interactions.
+
+<Box marginBottom="space60">
+  <Callout variant="warning">
+    <CalloutHeading>Compatibility</CalloutHeading>
+    <CalloutText>If you build charts using the Highcharts API directly it will be unlikely that our Paste data visualization components will function correctly as they depend on helper functions and event tracking that we enrich the default options with.</CalloutText>
+  </Callout>
+</Box>
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{CustomChartProviderExample}
+</LivePreview>
+
