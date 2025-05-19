@@ -4,7 +4,7 @@ import * as React from "react";
 import type { BaseListProps } from "./types";
 
 const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps>(
-  ({ as, children, element = "LIST", listStyleType = "disc", ...props }, ref) => {
+  ({ as, children, element = "LIST", listStyleType, ...props }, ref) => {
     return (
       <Text
         {...props}
