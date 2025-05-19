@@ -13286,6 +13286,7 @@ __metadata:
     "@twilio-paste/screen-reader-only": ^14.0.1
     "@twilio-paste/style-props": ^10.0.1
     "@twilio-paste/styling-library": ^4.0.1
+    "@twilio-paste/text": ^11.0.1
     "@twilio-paste/theme": ^12.0.1
     "@twilio-paste/types": ^7.0.1
     "@twilio-paste/uid-library": ^3.0.1
@@ -13306,6 +13307,7 @@ __metadata:
     "@twilio-paste/screen-reader-only": ^14.0.0
     "@twilio-paste/style-props": ^10.0.0
     "@twilio-paste/styling-library": ^4.0.0
+    "@twilio-paste/text": ^11.0.1
     "@twilio-paste/theme": ^12.0.0
     "@twilio-paste/types": ^7.0.0
     "@twilio-paste/uid-library": ^3.0.0

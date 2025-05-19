@@ -478,7 +478,7 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
         onFocus={action("handleFocus")}
         onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeaker" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
