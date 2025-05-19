@@ -1,12 +1,5 @@
 {
   "ChartProvider": {
-    "highchartsOptions": {
-      "type": "Options",
-      "defaultValue": "null",
-      "required": true,
-      "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -485,6 +478,13 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "highchartsOptions": {
+      "type": "Options",
+      "defaultValue": "null",
+      "required": false,
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "id": {
       "type": "string",
@@ -1574,8 +1574,8 @@
       "required": false,
       "externalProp": true
     },
-    "pasteOptions": {
-      "type": "never",
+    "options": {
+      "type": "ChartTypeOptions",
       "defaultValue": null,
       "required": false,
       "externalProp": false
