@@ -23,13 +23,15 @@ import { Anchor } from "@twilio-paste/anchor";
 import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
 import { getNavigationData } from "../../../../utils/api";
-import { CustomChartProviderExample } from "../../../../component-examples/data-visualization/ChartProviderExamples";
+import { CustomChartProviderExample, AreaTimeSeriesPanZoomExample, DefaultAreaExample, DefaultLineExample, LineTimeSeriesPanZoomExample, DefaultColumnExample, ColumnStackedNormalExample, ColumnStackedPercentExample, ColumnGroupedAxisExample } from "../../../../component-examples/data-visualization/ChartExamples";
 import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
+import {usdEurData} from "../../../../component-examples/data-visualization/usdEurData";
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
+  
   return {
     props: {
       navigationData,
@@ -56,8 +58,93 @@ export const getStaticProps = async () => {
   </Callout>
 </Box>
 
+## Line
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultLineExample}
+</LivePreview>
+
+### Zoom & Pan on Time-Based X Axis Line
+
+<LivePreview
+  scope={{ChartProvider, BaseChart, usdEurData}}
+  language="jsx"
+  noInline
+>
+{LineTimeSeriesPanZoomExample}
+</LivePreview>
+
+## Area
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultAreaExample}
+</LivePreview>
+
+### Zoom & Pan on Time-Based X Axis Area
+
+<LivePreview
+  scope={{ChartProvider, BaseChart, usdEurData}}
+  language="jsx"
+  noInline
+>
+{AreaTimeSeriesPanZoomExample}
+</LivePreview>
+
+## Column
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultColumnExample}
+</LivePreview>
+
+### Stacked - Normal with Data Labels
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{ColumnStackedNormalExample}
+</LivePreview>
+
+### Stacked - Percentage
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{ColumnStackedPercentExample}
+</LivePreview>
+
+### X Axis Categories Column
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{ColumnGroupedAxisExample}
+</LivePreview>
+
 ## Custom
 
+You can still use our chart wrappers and base components while leveraging raw Highcharts options instead of our predefined ones. This gives you the flexibility to build custom charts and include features that aren’t currently supported by our components.
+
+### Unsupported options
+
+The chart below demonstrates a combination of line and column series—this series type isn’t currently supported by our components. It also applies title styling using Highcharts options, which falls outside of what our components currently handle.
 <LivePreview
   scope={{ChartProvider, BaseChart}}
   language="jsx"
