@@ -1,0 +1,66 @@
+export const meta = {
+  title: "Accessibility",
+  description: "TBD",
+  slug: "/foundations/data-visualization/accessibility/",
+};
+
+import Image from "next/image";
+import Highcharts from "highcharts";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import HighchartsReact from "highcharts-react-official";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
+
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Anchor} from "@twilio-paste/anchor";
+
+import { SidebarCategoryRoutes } from "../../../../constants";
+import DefaultLayout from "../../../../layouts/DefaultLayout";
+import { getNavigationData } from "../../../../utils/api";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>In progress</CalloutHeading>
+    <CalloutText>As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
+  </Callout>
+</Box>
+
+Highcharts has an accessibility module which we recommend always enabling. If using our [BaseChart](foundations/data-visualization/for-engineers#basechart) implementation this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. Features that are offered are:
+- Announcement of chart meta data such as title, subtitle, and description
+- Allows keybaord navigation of series, points and legend items
+- Decribes series when focused
+
+
+</content>
+
+</contentwrapper>
