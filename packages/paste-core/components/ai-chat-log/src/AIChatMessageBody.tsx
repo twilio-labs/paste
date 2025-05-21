@@ -75,7 +75,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     },
     ref,
   ) => {
-    const { id } = React.useContext(AIMessageContext);
+    const { id, variant } = React.useContext(AIMessageContext);
     const [showAnimation] = React.useState(animated && children !== undefined);
     const animationSpeed = size === "fullScreen" ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
@@ -97,12 +97,17 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
-        maxWidth="100%"
+        maxWidth={variant === "user" ? (size === "fullScreen" ? "530px" : "260px") : "100%"}
         minWidth={0}
         element={element}
         ref={ref}
         whiteSpace="pre-wrap"
         id={id}
+        backgroundColor={variant === "user" ? "colorBackgroundWeakElevation" : "inherit"}
+        paddingTop={variant === "user" ? (size === "fullScreen" ? "space50" : "space30") : "space0"}
+        paddingBottom={variant === "user" ? "space20" : "space0"}
+        paddingX={variant === "user" ? "space40" : "space0"}
+        borderRadius={variant === "user" ? "borderRadius40" : "borderRadius0"}
       >
         {animatedChildren}
       </Box>
