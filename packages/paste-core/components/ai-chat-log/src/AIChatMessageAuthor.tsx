@@ -67,19 +67,21 @@ export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessag
         display="flex"
         alignItems="center"
         columnGap="space40"
-        fontWeight="fontWeightMedium"
+        fontWeight="fontWeightSemibold"
+        fontSize="fontSize20"
+        color="colorTextWeak"
       >
         {variant === "bot" ? (
           <Avatar
             name={children}
-            size="sizeIcon50"
+            size="sizeIcon30"
             color="decorative20"
             icon={ArtificialIntelligenceIcon}
             element={`${element}_BOT_AVATAR`}
           />
         ) : (
           <Avatar
-            size="sizeIcon50"
+            size="sizeIcon30"
             color="decorative30"
             element={`${element}_USER_AVATAR`}
             name={avatarName || children}
