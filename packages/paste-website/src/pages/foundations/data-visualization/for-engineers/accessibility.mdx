@@ -1,6 +1,6 @@
 export const meta = {
   title: "Accessibility",
-  description: "TBD",
+  description: "Explanation of accessibility features provided by the Highcharts module and how to customize them.",
   slug: "/foundations/data-visualization/accessibility/",
 };
 
@@ -82,7 +82,11 @@ The point and series will be passed to the `descriptionFormatter` to retrieve th
 
 ## Example
 
-Below is an example of a chart with custom descriptionFormatters for the series and point. The title and sub title are both specified but hidden. They will still be included in the screen reader announcements to give context to visually impaired users but not be visible on the chart.
+Below is an example of a chart with custom `descriptionFormatter` for the series and point. The title and sub title are both specified but hidden. They will still be included in the screen reader announcements to give context to visually impaired users but not be visible on the chart.
+
+If you inspect the rendered chart element you will see that an aria-label is applied to both the series and the point with the correct formatting provided in the config.
+- `aria-label="The series Installation has a total of 8 points"` is applied to the series.
+- `aria-label="The point 0 has a value of 43934"` is applied to the point.
 
 <LivePreview
   scope={{ChartProvider, BaseChart}}
