@@ -34,9 +34,6 @@ export const ExampleAIChatLog = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor avatarName="Gibby Ridki" avatarIcon={UserIcon} aria-label="You said at 2:36pm">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody size="default">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
@@ -140,7 +137,6 @@ export const ExampleAIChatLog = (): React.ReactNode => {
           </AIChatMessageActionGroup>
         </AIChatMessage>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
@@ -183,9 +179,6 @@ export const ExampleFullScreenAIChatLog = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor avatarName="Gibby Ridki" avatarIcon={UserIcon} aria-label="You said at 2:36pm">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody size="fullScreen">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
@@ -235,7 +228,6 @@ export const ExampleFullScreenAIChatLog = (): React.ReactNode => {
           </AIChatMessageActionGroup>
         </AIChatMessage>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
