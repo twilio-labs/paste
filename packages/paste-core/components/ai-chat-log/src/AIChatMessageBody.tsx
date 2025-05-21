@@ -60,6 +60,14 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageBodyProps
    */
   onAnimationEnd?: () => void;
+  /**
+   * The timestamp of the message
+   *
+   * @default undefined
+   * @type {string}
+   * @memberof AIChatMessageBodyProps
+   */
+  timestamp?: string;
 }
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
@@ -71,6 +79,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       animated = false,
       onAnimationEnd,
       onAnimationStart,
+      timestamp,
       ...props
     },
     ref,
@@ -112,6 +121,17 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         marginBottom={isFullScreen ? "space30" : "space0"}
       >
         {animatedChildren}
+        {timestamp && (
+          <Box
+            fontSize="fontSize20"
+            color="colorTextWeak"
+            marginTop={isFullScreen ? "space40" : "space20"}
+            element={`${element}_TIMESTAMP`}
+            textAlign={variant === "user" ? "right" : "left"}
+          >
+            {timestamp}
+          </Box>
+        )}
       </Box>
     );
   },
