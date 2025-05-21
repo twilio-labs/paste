@@ -11,10 +11,12 @@ import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import {
+  AIChatEvent,
   AIChatLog,
   AIChatMessage,
   AIChatMessageActionCard,
@@ -318,6 +320,87 @@ export const ExampleAIChatLogTimestamp = (): React.ReactNode => {
             </AIChatMessageActionCard>
           </AIChatMessageActionGroup>
         </AIChatMessage>
+      </AIChatLog>
+      <ChatComposer
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+        placeholder="Chat text"
+        ariaLabel="A placeholder chat composer"
+      >
+        <Box position="absolute" top="space30" right="space30">
+          <Button variant="primary_icon" size="reset">
+            <SendIcon decorative={false} title="Send message" />
+          </Button>
+        </Box>
+      </ChatComposer>
+    </>
+  );
+};
+
+export const ExampleAIChatLogEvent = (): React.ReactNode => {
+  return (
+    <>
+      <AIChatLog>
+        <AIChatEvent withSeparator>Day, Month DD・3:43pm</AIChatEvent>
+        <AIChatMessage variant="user">
+          <AIChatMessageBody timestamp="2:36pm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
+            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+            impedit repellat assumenda.
+          </AIChatMessageBody>
+        </AIChatMessage>
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+          <AIChatMessageBody timestamp="2:37pm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
+            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+            impedit repellat assumenda.
+            <Box marginTop="space50">
+              <ButtonGroup>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30007
+                </Button>
+                <Button variant="secondary" onClick={() => {}} size="rounded_small">
+                  30009
+                </Button>
+              </ButtonGroup>
+            </Box>
+          </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="secondary_icon" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="secondary_icon" size="reset" aria-label="this is not a helpful response">
+                <ThumbsDownIcon decorative={false} title="dislike result" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
+              <Button variant="secondary_icon" size="reset">
+                <RefreshIcon decorative />
+                Rewrite
+              </Button>
+              <Button variant="secondary_icon" size="reset">
+                <CopyIcon decorative />
+                Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
+        </AIChatMessage>
+        <AIChatEvent>
+          <Text color="colorTextWeak" fontSize="fontSize20" fontWeight="fontWeightSemibold" as="span">
+            Agent
+          </Text>
+          has joined the chat・3:43pm
+        </AIChatEvent>
       </AIChatLog>
       <ChatComposer
         config={{
