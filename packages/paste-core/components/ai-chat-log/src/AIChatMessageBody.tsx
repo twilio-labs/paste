@@ -90,6 +90,34 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     const animationSpeed = isFullScreen ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
 
+    const Styles: Record<string, BoxStyleProps> = {
+      bot: {
+        backgroundColor: "inherit",
+        paddingTop: "space0",
+        paddingBottom: "space0",
+        paddingX: "space0",
+        borderRadius: "borderRadius0",
+        maxWidth: "100%",
+      },
+      user: {
+        backgroundColor: "colorBackgroundWeakElevation",
+        paddingTop: isFullScreen ? "space50" : "space30",
+        paddingBottom: "space20",
+        paddingX: "space40",
+        borderRadius: "borderRadius40",
+        maxWidth: isFullScreen ? "530px" : "260px",
+      },
+      agent: {
+        backgroundColor: "colorBackgroundBody",
+        paddingTop: isFullScreen ? "space50" : "space30",
+        paddingBottom: "space20",
+        paddingX: "space40",
+        borderRadius: "borderRadius40",
+        maxWidth: isFullScreen ? "530px" : "260px",
+        boxShadow: "shadowElevation05",
+      },
+    };
+
     React.useEffect(() => {
       if (onAnimationStart && animated && isAnimating) {
         onAnimationStart();
@@ -107,18 +135,13 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
-        maxWidth={variant === "user" ? (isFullScreen ? "530px" : "260px") : "100%"}
         minWidth={0}
         element={element}
         ref={ref}
         whiteSpace="pre-wrap"
         id={id}
-        backgroundColor={variant === "user" ? "colorBackgroundWeakElevation" : "inherit"}
-        paddingTop={variant === "user" ? (isFullScreen ? "space50" : "space30") : "space0"}
-        paddingBottom={variant === "user" ? "space20" : "space0"}
-        paddingX={variant === "user" ? "space40" : "space0"}
-        borderRadius={variant === "user" ? "borderRadius40" : "borderRadius0"}
         marginBottom={isFullScreen ? "space30" : "space0"}
+        {...Styles[variant]}
       >
         {animatedChildren}
         {timestamp && (
@@ -127,7 +150,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
             color="colorTextWeak"
             marginTop={isFullScreen ? "space40" : "space20"}
             element={`${element}_TIMESTAMP`}
-            textAlign={variant === "user" ? "right" : "left"}
+            textAlign="right"
           >
             {timestamp}
           </Box>
