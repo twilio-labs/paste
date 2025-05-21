@@ -14,6 +14,7 @@ import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
 import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { ChartProvider } from "@twilio-paste/chart-provider";
 import { PageHeaderSeparator } from "@twilio-paste/page-header";
 import { Separator } from "@twilio-paste/separator";
 import { InlineCode } from "@twilio-paste/inline-code";
@@ -22,6 +23,8 @@ import { Anchor} from "@twilio-paste/anchor";
 import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
 import { getNavigationData } from "../../../../utils/api";
+import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
+import { SimpleChartAccessibilityExample } from "../../../../component-examples/data-visualization/ChartExamples";
 
 export default DefaultLayout;
 
@@ -55,11 +58,43 @@ export const getStaticProps = async () => {
   </Callout>
 </Box>
 
-Highcharts has an accessibility module which we recommend always enabling. If using our [BaseChart](foundations/data-visualization/for-engineers#basechart) implementation this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. Features that are offered are:
-- Announcement of chart meta data such as title, subtitle, and description
-- Allows keybaord navigation of series, points and legend items
-- Decribes series when focused
+Highcharts offers an accessibility module which we recommend always enabling. If using our [BaseChart](foundations/data-visualization/for-engineers#basechart) implementation this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. Features that are offered are:
+- Announces chart meta data such as title, subtitle, and description.
+- Allows keybaord navigation of series, points and legend items.
+- Decribes series when focused.
+- Describes points when focused.
+- Announces the legend item when focused and describes whether the series is hidden or shown.
+- Toggle series visibility via keyboard.
+- Switching from series the legend items announces they are used to toggle series along with title of chart.
 
+## Announcements
+
+The accessibility module provides announcements by default for the series and point formatters. These can be overriden by passing additional props. See below for more details. Note that the default formats are in English only and for any trnslations you would need to override them.
+
+- When switching points, announce the point index and x axis then value. 2 (point 2) x 3 (x axis = 3) 8105 (y value) Installation [series name].
+- When focusing on a series, announce series name, sereis position of total and how many points. e.g. Installation, line 1 of 2 with 8 data points.
+
+### Customizing Announcements
+
+To override the default announcements you can set the `accessibility` attribute in the support options of the [Chart Provider](components/chart-provider/api#charttypeoptions)
+
+The point and series will be passed to the `descriptionFormatter` to retrieve the correct values such as axis values and series names.
+
+## Example
+
+Below is an example of a chart with custom descriptionFormatters for the series and point. The title and sub title are both specified but hidden. They will still be included in the screen reader announcements to give context to visually impaired users but not be visible on the chart.
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+  {SimpleChartAccessibilityExample}
+</LivePreview>
+
+## Notes
+
+- When focusing on points the tooltip is not announced by screen readers. Instead the point description is read out. If you have key information in the tooltip be sure to include it in the `point.descriptionFormatter`.
 
 </content>
 

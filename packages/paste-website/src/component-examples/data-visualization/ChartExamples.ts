@@ -343,3 +343,50 @@ const ColumnGroupedAxisExample = () => {
 
 render(<ColumnGroupedAxisExample />);
 `.trim();
+
+export const SimpleChartAccessibilityExample = `
+const SimpleChartAccessibilityExample = () => {
+    const lineSeriesData = [
+        {
+            name: "Installation",
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
+        },
+        {
+            name: "Manufacturing",
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434],
+        },
+    ]
+
+    return (
+        <ChartProvider options={{
+                type: "line",
+                series: lineSeriesData,
+                title: {
+                    text: "Solar Employment Growth by Sector, 2010-2016",
+                    hide: true,
+                },
+                subtitle: {
+                    text: "Source: thesolarfoundation.com",
+                    hide: true,
+                },
+                accessibility: {
+                    description: "This is a line chart showing the solar employment growth by sector from 2010 to 2016.",
+                    point: {
+                        descriptionFormatter: function (point) {
+                            return "The point " + point.index + " has a value of " + point.y;
+                        },
+                    },
+                    series: {
+                        descriptionFormatter: function (series) {
+                            return "The series " + series.name + " has a total of " + series.points.length + " points";
+                        },
+                    },
+                },
+            }}>
+            <BaseChart />
+        </ChartProvider>
+    );
+};
+
+render(<SimpleChartAccessibilityExample />);
+`.trim();
