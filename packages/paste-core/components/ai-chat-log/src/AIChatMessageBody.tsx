@@ -3,6 +3,7 @@ import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { AILogContext, type AILogSizes } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 import { useAnimatedText } from "./utils";
 
@@ -31,11 +32,12 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
   /**
    * Use a larger font size and line height for fullscreen experiences.
    *
+   * @deprecated Use the `size` prop on the AIChatLog component instead.
    * @default "default"
-   * @type {"default" | "fullScreen"}
+   * @type {AILogSizes}
    * @memberof AIChatMessageBodyProps
    */
-  size?: "default" | "fullScreen";
+  size?: AILogSizes;
   /**
    * Whether the text should be animated with type writer effect
    *
@@ -60,6 +62,14 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageBodyProps
    */
   onAnimationEnd?: () => void;
+  /**
+   * The timestamp of the message
+   *
+   * @default undefined
+   * @type {string}
+   * @memberof AIChatMessageBodyProps
+   */
+  timestamp?: string;
 }
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
@@ -71,14 +81,45 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       animated = false,
       onAnimationEnd,
       onAnimationStart,
+      timestamp,
       ...props
     },
     ref,
   ) => {
-    const { id } = React.useContext(AIMessageContext);
+    const { id, variant } = React.useContext(AIMessageContext);
+    const { size: sizeContext } = React.useContext(AILogContext);
     const [showAnimation] = React.useState(animated && children !== undefined);
-    const animationSpeed = size === "fullScreen" ? 8 : 10;
+    const isFullScreen = size === "fullScreen" || sizeContext === "fullScreen";
+    const animationSpeed = isFullScreen ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
+
+    const Styles: Record<string, BoxStyleProps> = {
+      bot: {
+        backgroundColor: "inherit",
+        paddingTop: "space0",
+        paddingBottom: "space0",
+        paddingX: "space0",
+        borderRadius: "borderRadius0",
+        maxWidth: "100%",
+      },
+      user: {
+        backgroundColor: "colorBackgroundWeakElevation",
+        paddingTop: isFullScreen ? "space50" : "space30",
+        paddingBottom: "space20",
+        paddingX: "space40",
+        borderRadius: "borderRadius40",
+        maxWidth: isFullScreen ? "530px" : "260px",
+      },
+      agent: {
+        backgroundColor: "colorBackgroundBody",
+        paddingTop: isFullScreen ? "space50" : "space30",
+        paddingBottom: "space20",
+        paddingX: "space40",
+        borderRadius: "borderRadius40",
+        maxWidth: isFullScreen ? "530px" : "260px",
+        boxShadow: "shadowElevation05",
+      },
+    };
 
     React.useEffect(() => {
       if (onAnimationStart && animated && isAnimating) {
@@ -93,18 +134,30 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        {...Sizes[size]}
+        {...Sizes[sizeContext || size]}
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
-        maxWidth="100%"
         minWidth={0}
         element={element}
         ref={ref}
         whiteSpace="pre-wrap"
         id={id}
+        marginBottom={isFullScreen ? "space30" : "space0"}
+        {...Styles[variant]}
       >
         {animatedChildren}
+        {timestamp && (
+          <Box
+            fontSize="fontSize20"
+            color="colorTextWeak"
+            marginTop={isFullScreen ? "space40" : "space20"}
+            element={`${element}_TIMESTAMP`}
+            textAlign={variant === "bot" ? "left" : "right"}
+          >
+            {timestamp}
+          </Box>
+        )}
       </Box>
     );
   },
