@@ -37,7 +37,7 @@ export const ExampleAIChatLog = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageBody size="default">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -45,7 +45,7 @@ export const ExampleAIChatLog = (): React.ReactNode => {
         </AIChatMessage>
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody size="default">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -237,9 +237,9 @@ export const ExampleAIChatLogAgent = (): React.ReactNode => {
 export const ExampleFullScreenAIChatLog = (): React.ReactNode => {
   return (
     <>
-      <AIChatLog>
+      <AIChatLog size="fullScreen">
         <AIChatMessage variant="user">
-          <AIChatMessageBody size="fullScreen">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -247,7 +247,7 @@ export const ExampleFullScreenAIChatLog = (): React.ReactNode => {
         </AIChatMessage>
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody size="fullScreen">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -304,6 +304,23 @@ export const ExampleFullScreenAIChatLog = (): React.ReactNode => {
             />
           </AIChatMessageBody>
         </AIChatMessage>
+        <AIChatEvent>
+          <Text color="colorTextWeak" fontSize="fontSize20" fontWeight="fontWeightSemibold" as="span">
+            Agent
+          </Text>
+          has joined the chat・3:43pm
+        </AIChatEvent>
+
+        <AIChatMessage variant="agent">
+          <AIChatMessageAuthor avatarIcon={CommunityIcon} aria-label="Agent said">
+            Agent Name
+          </AIChatMessageAuthor>
+          <AIChatMessageBody timestamp="3:44pm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
+            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+            impedit repellat assumenda.
+          </AIChatMessageBody>
+        </AIChatMessage>
       </AIChatLog>
       <ChatComposer
         config={{
@@ -338,7 +355,7 @@ export const ExampleAIChatLogTimestamp = (): React.ReactNode => {
         </AIChatMessage>
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody>
+          <AIChatMessageBody timestamp="2:37pm">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -413,7 +430,7 @@ export const ExampleAIChatLogEvent = (): React.ReactNode => {
         </AIChatMessage>
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody>
+          <AIChatMessageBody timestamp="2:37pm">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -506,7 +523,7 @@ export const CustomizedExampleAIChatLog = (): React.ReactNode => {
           <AIChatMessageAuthor avatarName="Gibby Ridki" avatarIcon={UserIcon} aria-label="You said at 2:36pm">
             You
           </AIChatMessageAuthor>
-          <AIChatMessageBody size="default">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
@@ -514,7 +531,7 @@ export const CustomizedExampleAIChatLog = (): React.ReactNode => {
         </AIChatMessage>
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-          <AIChatMessageBody size="default">
+          <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.

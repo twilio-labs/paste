@@ -3,6 +3,7 @@ import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { AILogContext, type AILogSizes } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 import { useAnimatedText } from "./utils";
 
@@ -31,11 +32,12 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
   /**
    * Use a larger font size and line height for fullscreen experiences.
    *
+   * @deprecated Use the `size` prop on the AIChatLog component instead.
    * @default "default"
-   * @type {"default" | "fullScreen"}
+   * @type {AILogSizes}
    * @memberof AIChatMessageBodyProps
    */
-  size?: "default" | "fullScreen";
+  size?: AILogSizes;
   /**
    * Whether the text should be animated with type writer effect
    *
@@ -85,8 +87,9 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     ref,
   ) => {
     const { id, variant } = React.useContext(AIMessageContext);
+    const { size: sizeContext } = React.useContext(AILogContext);
     const [showAnimation] = React.useState(animated && children !== undefined);
-    const isFullScreen = size === "fullScreen";
+    const isFullScreen = size === "fullScreen" || sizeContext === "fullScreen";
     const animationSpeed = isFullScreen ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
 
@@ -131,7 +134,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        {...Sizes[size]}
+        {...Sizes[sizeContext || size]}
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
@@ -150,7 +153,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
             color="colorTextWeak"
             marginTop={isFullScreen ? "space40" : "space20"}
             element={`${element}_TIMESTAMP`}
-            textAlign="right"
+            textAlign={variant === "bot" ? "left" : "right"}
           >
             {timestamp}
           </Box>
