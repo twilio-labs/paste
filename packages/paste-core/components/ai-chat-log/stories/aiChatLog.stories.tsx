@@ -5,6 +5,7 @@ import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import { ChatComposer } from "@twilio-paste/chat-composer";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
@@ -15,7 +16,6 @@ import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
-import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
 import {
   AIChatEvent,
   AIChatLog,
