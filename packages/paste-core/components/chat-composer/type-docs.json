@@ -521,6 +521,12 @@
       "required": false,
       "externalProp": true
     },
+    "autoLink": {
+      "type": "boolean",
+      "defaultValue": true,
+      "required": false,
+      "externalProp": false
+    },
     "autoPlay": {
       "type": "boolean",
       "defaultValue": null,
