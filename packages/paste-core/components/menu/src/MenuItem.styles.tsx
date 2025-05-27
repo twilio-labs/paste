@@ -101,7 +101,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         {...variantStyles[variant]}
         _checked_hover={
           {
-            backgroundColor: "colorBackgroundWeak",
+            backgroundColor: "colorBackgroundWeakerElevation",
             color: variant === MenuItemVariants.DESTRUCTIVE ? "colorTextDestructive" : "colorTextPrimary",
             "& [data-paste-element='ICON']": {
               color: "colorTextIcon",
