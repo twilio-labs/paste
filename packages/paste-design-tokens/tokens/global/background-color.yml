@@ -227,6 +227,9 @@ props:
   color-background-weak-elevation:
     value: "{!palette-gray-05}"
     comment: Elevation token for color-background-weak elements.
+  color-background-weaker-elevation:
+    value: "{!palette-gray-05}"
+    comment: Elevation token for color-background-weaker elements.
   color-background-elevation:
     value: "{!palette-gray-15}"
     comment: Elevation token for color-background elements.
