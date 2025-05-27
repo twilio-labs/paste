@@ -93,30 +93,27 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     const animationSpeed = isFullScreen ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
 
+    const commonStyles: BoxStyleProps = {
+      paddingY: isFullScreen ? "space50" : "space30",
+      paddingX: "space40",
+      borderRadius: "borderRadius40",
+      maxWidth: isFullScreen ? "530px" : "260px",
+    };
+
     const Styles: Record<string, BoxStyleProps> = {
       bot: {
         backgroundColor: "inherit",
-        paddingTop: "space0",
-        paddingBottom: "space0",
-        paddingX: "space0",
+        padding: "space0",
         borderRadius: "borderRadius0",
         maxWidth: "100%",
       },
       user: {
+        ...commonStyles,
         backgroundColor: "colorBackgroundWeakElevation",
-        paddingTop: isFullScreen ? "space50" : "space30",
-        paddingBottom: "space40",
-        paddingX: "space40",
-        borderRadius: "borderRadius40",
-        maxWidth: isFullScreen ? "530px" : "260px",
       },
       agent: {
+        ...commonStyles,
         backgroundColor: "colorBackgroundBody",
-        paddingTop: isFullScreen ? "space50" : "space30",
-        paddingBottom: "space40",
-        paddingX: "space40",
-        borderRadius: "borderRadius40",
-        maxWidth: isFullScreen ? "530px" : "260px",
         boxShadow: "shadowElevation05",
       },
     };
