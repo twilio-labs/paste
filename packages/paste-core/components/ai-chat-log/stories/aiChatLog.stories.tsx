@@ -346,6 +346,7 @@ export const ExampleAIChatLogTimestamp = (): React.ReactNode => {
   return (
     <>
       <AIChatLog>
+        <AIChatEvent withSeparator>Wed, Apr 10・1:15pm</AIChatEvent>
         <AIChatMessage variant="user">
           <AIChatMessageBody timestamp="2:36pm">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
@@ -420,7 +421,7 @@ export const ExampleAIChatLogEvent = (): React.ReactNode => {
   return (
     <>
       <AIChatLog>
-        <AIChatEvent withSeparator>Day, Month DD・3:43pm</AIChatEvent>
+        <AIChatEvent withSeparator>Wed, Apr 10・3:43pm</AIChatEvent>
         <AIChatMessage variant="user">
           <AIChatMessageBody timestamp="2:36pm">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi

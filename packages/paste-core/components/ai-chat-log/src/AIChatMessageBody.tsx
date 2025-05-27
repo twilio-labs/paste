@@ -105,7 +105,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       user: {
         backgroundColor: "colorBackgroundWeakElevation",
         paddingTop: isFullScreen ? "space50" : "space30",
-        paddingBottom: "space20",
+        paddingBottom: "space40",
         paddingX: "space40",
         borderRadius: "borderRadius40",
         maxWidth: isFullScreen ? "530px" : "260px",
@@ -113,7 +113,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       agent: {
         backgroundColor: "colorBackgroundBody",
         paddingTop: isFullScreen ? "space50" : "space30",
-        paddingBottom: "space20",
+        paddingBottom: "space40",
         paddingX: "space40",
         borderRadius: "borderRadius40",
         maxWidth: isFullScreen ? "530px" : "260px",
@@ -151,7 +151,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
           <Box
             fontSize="fontSize20"
             color="colorTextWeak"
-            marginTop={isFullScreen ? "space40" : "space20"}
+            marginTop="space30"
             element={`${element}_TIMESTAMP`}
             textAlign={variant === "bot" ? "left" : "right"}
           >

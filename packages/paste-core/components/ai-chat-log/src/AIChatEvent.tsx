@@ -4,6 +4,8 @@ import { Separator } from "@twilio-paste/separator";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { AILogContext } from "./AILogContext";
+
 export interface AIChatEventProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**
@@ -26,6 +28,8 @@ export interface AIChatEventProps extends HTMLPasteProps<"div"> {
 
 export const AIChatEvent = React.forwardRef<HTMLDivElement, AIChatEventProps>(
   ({ children, element = "AI_CHAT_MESSAGE", withSeparator, ...props }, ref) => {
+    const { size } = React.useContext(AILogContext);
+
     return (
       <Box
         display="flex"
@@ -37,6 +41,7 @@ export const AIChatEvent = React.forwardRef<HTMLDivElement, AIChatEventProps>(
         fontWeight="fontWeightMedium"
         ref={ref}
         element={element}
+        marginY={size === "fullScreen" ? "space50" : "space0"}
         {...safelySpreadBoxProps(props)}
       >
         {withSeparator && (
