@@ -1,5 +1,8 @@
 import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 import { css, styled } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import { Truncate } from "@twilio-paste/truncate";
 import React from "react";
 
 import { TimelineGroupContext } from "./TimelineContext";
@@ -9,7 +12,18 @@ import type { TimelineItemProps } from "./types";
 
 const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
   (
-    { children, icon, timestamp, title, collapsible = false, collapsibleHeading, element = "TIMELINE_ITEM", ...props },
+    {
+      children,
+      icon,
+      timestamp,
+      title,
+      collapsible = false,
+      collapsibleHeading,
+      element = "TIMELINE_ITEM",
+      onClick,
+      disabled,
+      ...props
+    },
     ref,
   ) => {
     const isGrouped = React.useContext(TimelineGroupContext);
@@ -63,18 +77,39 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
           columnGap="space10"
           paddingBottom="space60"
         >
-          <Box
-            element={`${element}_TITLE`}
-            as="span"
-            color="colorText"
-            paddingY="space10"
-            fontWeight="fontWeightSemibold"
-            lineHeight="lineHeight20"
-            fontSize="fontSize30"
-            letterSpacing="-0.28px"
-          >
-            {title}
-          </Box>
+          {onClick ? (
+            <Button
+              element={`${element}_TITLE_INTERACTIVE`}
+              variant="reset"
+              size="reset"
+              onClick={onClick}
+              textDecoration="underline"
+              paddingY="space10"
+              fontWeight="fontWeightSemibold"
+              lineHeight="lineHeight20"
+              fontSize="fontSize30"
+              letterSpacing="-0.28px"
+              _hover={{ color: "colorTextLink" }}
+              _focus={{ color: "colorTextLink", boxShadow: "shadowFocus" }}
+              _disabled={{ color: "colorTextWeaker" }}
+              disabled={disabled}
+            >
+              <Truncate title={title}>{title}</Truncate>
+            </Button>
+          ) : (
+            <Box
+              element={`${element}_TITLE`}
+              as="span"
+              color="colorText"
+              paddingY="space10"
+              fontWeight="fontWeightSemibold"
+              lineHeight="lineHeight20"
+              fontSize="fontSize30"
+              letterSpacing="-0.28px"
+            >
+              {title}
+            </Box>
+          )}
 
           {collapsible ? (
             <TimelineItemCollapsible element={element} timestamp={timestamp ? timestamp : collapsibleHeading}>
@@ -94,7 +129,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                   {timestamp}
                 </Box>
               ) : null}
-              <Box element={`${element}_CONTENT`}>{children}</Box>
+              {children ? <Box element={`${element}_CONTENT`}>{children}</Box> : null}
             </>
           )}
         </Box>

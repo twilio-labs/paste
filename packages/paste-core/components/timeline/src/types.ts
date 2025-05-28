@@ -66,6 +66,24 @@ export type TimelineItemProps = {
    * @memberof TimelineItemProps
    */
   element?: BoxProps["element"];
+
+  /**
+   * Add an action to the timeline item.
+   *
+   * @default undefined
+   * @type {React.MouseEventHandler<HTMLButtonElement>}
+   * @memberof TimelineItemProps
+   */
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+
+  /**
+   * If true, the timeline item will be disabled
+   *
+   * @type {boolean}
+   * @memberof TimelineItemProps
+   * @default false
+   */
+  disabled?: boolean;
 } & HTMLPasteProps<"li">;
 
 export type TimelineItemIconProps = {

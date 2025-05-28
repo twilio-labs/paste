@@ -103,6 +103,38 @@ export const TimelineGrouped = (): React.ReactNode => {
   );
 };
 
+export const TimelineInteractive = (): React.ReactNode => {
+  return (
+    <Box maxWidth="200px">
+      <Timeline>
+        <TimelineItemGroup timestamp="Today – Wednesday, April 9, 2025">
+          <TimelineItem title="Invoice billing issue for March cycle resolved" timestamp="9:12 AM" onClick={() => {}} />
+          <TimelineItem
+            title="Clarification on service tier limits for standard accounts"
+            timestamp="11:26 AM"
+            onClick={() => {}}
+          />
+          <TimelineItem title="New user onboarding questions and setup steps" timestamp="1:45 PM" onClick={() => {}} />
+        </TimelineItemGroup>
+        <TimelineItemGroup timestamp="Yesterday – Tuesday, April 8, 2025">
+          <TimelineItem
+            title="Account verification delay and next steps discussed"
+            timestamp="10:15 AM"
+            onClick={() => {}}
+          />
+          <TimelineItem title="Custom domain setup assistance provided" timestamp="4:38 PM" onClick={() => {}} />
+          <TimelineItem
+            title="Request to add additional admins to workspace"
+            timestamp="6:09 PM"
+            onClick={() => {}}
+            disabled
+          />
+        </TimelineItemGroup>
+      </Timeline>
+    </Box>
+  );
+};
+
 const allItems = [
   { date: "August 10, 2024", text: "Event title" },
   { date: "August 11, 2024", text: "Event title" },
