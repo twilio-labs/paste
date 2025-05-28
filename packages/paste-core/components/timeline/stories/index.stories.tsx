@@ -105,7 +105,7 @@ export const TimelineGrouped = (): React.ReactNode => {
 
 export const TimelineInteractive = (): React.ReactNode => {
   return (
-    <Box maxWidth="200px">
+    <Box maxWidth="300px">
       <Timeline>
         <TimelineItemGroup timestamp="Today – Wednesday, April 9, 2025">
           <TimelineItem title="Invoice billing issue for March cycle resolved" timestamp="9:12 AM" onClick={() => {}} />

@@ -76,6 +76,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
           flexDirection="column"
           columnGap="space10"
           paddingBottom="space60"
+          width="100%"
         >
           {onClick ? (
             <Button
@@ -93,6 +94,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
               _focus={{ color: "colorTextLink", boxShadow: "shadowFocus" }}
               _disabled={{ color: "colorTextWeaker" }}
               disabled={disabled}
+              display="block"
             >
               <Truncate title={title}>{title}</Truncate>
             </Button>
