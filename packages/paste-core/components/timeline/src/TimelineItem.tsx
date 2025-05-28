@@ -1,7 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { css, styled } from "@twilio-paste/styling-library";
-import { Text } from "@twilio-paste/text";
 import { Truncate } from "@twilio-paste/truncate";
 import React from "react";
 
