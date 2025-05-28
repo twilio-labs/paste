@@ -7,7 +7,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {ExamplesDataVizBaseChart as BaseChart} from '../../../component-examples/data-visualization/BaseChart';
-import {CustomChartProviderExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartProviderExamples';
+import {CustomChartProviderExample, DefaultAreaExample, DefaultColumnExample, DefaultLineExample, SimpleChartProviderExample} from '../../../component-examples/data-visualization/ChartExamples';
 
 export const meta = {
   title: 'Chart Provider',
@@ -54,7 +54,51 @@ Chart Provider is a wrapper around Highcharts that provides a consistent API for
 
 We highly recommend using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) code inside the Chart Provider to ensure that the chart is rendered correctly and state is correctly stored.
 
+## Usage
+
+The Chart Provider accepts a single object that defines the chart to render. This can be passed either through the `options` prop for supported Paste charts or through the `highchartsOptions` prop to render custom charts using the full Highcharts API.
+
+Using our supported chart options gives engineers a more streamlined and intuitive API for building various chart types. We offer a set of base configuration options shared across all charts, along with additional options specific to certain chart types. This approach simplifies the often heavily nested Highcharts API, making it easier to configure charts with clearer and more approachable property names.
+
+For all chart configuration options you can check our code [here](https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/data-visualization/src/types.ts)
+
 ## Examples
+
+### Line Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/for-engineers/chart-types#line). To view the options available to configure this chart, references the [API](/components/chart-provider/api#linechartconfig).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultLineExample}
+</LivePreview>
+
+### Area Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/for-engineers/chart-types#area). To view the options available to configure this chart, references the [API](/components/chart-provider/api#areachartconfig).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+{DefaultAreaExample}
+</LivePreview>
+
+### Column Chart
+
+Below is an example where only the necessary options are deifned. More examples can be found [here](/foundations/data-visualization/for-engineers/chart-types#column). To view the options available to configure this chart, references the [API](/components/chart-provider/api#columnchartconfig).
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+language="jsx"
+  noInline
+>
+{DefaultColumnExample}
+</LivePreview>
 
 ### Custom charts
 
