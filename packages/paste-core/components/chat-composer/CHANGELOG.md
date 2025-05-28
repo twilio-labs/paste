@@ -1,5 +1,15 @@
 # @twilio-paste/chat-composer
 
+## 6.1.0
+
+### Minor Changes
+
+- [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7) [#4327](https://github.com/twilio-labs/paste/pull/4327) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] add prop `autoLink` which defaults to `true` to allow users to disable the AutoLink plugin
+
+### Patch Changes
+
+- [`16e8016a0`](https://github.com/twilio-labs/paste/commit/16e8016a0654601c8c12224603daa1ada56708db) [#4334](https://github.com/twilio-labs/paste/pull/4334) Thanks [@serifluous](https://github.com/serifluous)! - Visible changes in dark themes only. Redarkened color-background-weak and added color-background-weaker-elevation
+
 ## 6.0.2
 
 ### Patch Changes
