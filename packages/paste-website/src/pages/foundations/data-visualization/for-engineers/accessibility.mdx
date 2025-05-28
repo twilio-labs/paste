@@ -60,8 +60,8 @@ export const getStaticProps = async () => {
 
 Highcharts offers an accessibility module which we recommend always enabling. If using our [BaseChart](foundations/data-visualization/for-engineers#basechart) implementation this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. Features that are offered are:
 - Announces chart meta data such as title, subtitle, and description.
-- Allows keybaord navigation of series, points and legend items.
-- Decribes series when focused.
+- Allows keyboard navigation of series, points and legend items.
+- Describes series when focused.
 - Describes points when focused.
 - Announces the legend item when focused and describes whether the series is hidden or shown.
 - Toggle series visibility via keyboard.
@@ -69,7 +69,7 @@ Highcharts offers an accessibility module which we recommend always enabling. If
 
 ## Announcements
 
-The accessibility module provides announcements by default for the series and point formatters. These can be overriden by passing additional props. See below for more details. Note that the default formats are in English only and for any trnslations you would need to override them.
+The accessibility module provides announcements by default for the series and point formatters. These can be overridden by passing additional props. See below for more details. Note that the default formats are in English only and for any trnslations you would need to override them.
 
 - When switching points, announce the point index and x axis then value. 2 (point 2) x 3 (x axis = 3) 8105 (y value) Installation [series name].
 - When focusing on a series, announce series name, sereis position of total and how many points. e.g. Installation, line 1 of 2 with 8 data points.
