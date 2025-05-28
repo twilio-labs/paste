@@ -40,6 +40,7 @@ import {
   TimelineComposition,
   TimelineGrouped,
   TimelineIcon,
+  TimelineInteractiveTitle,
   TimelineStart,
   TimelineTimestamp,
 } from "../../../component-examples/TimelineExamples.ts";
@@ -203,6 +204,22 @@ However, for collapsible Timeline items, if no timestamp is provided, a heading 
   noInline
 >
   {TimelineGrouped}
+</LivePreview>
+
+### Timeline with interactive title
+
+Use the `onClick` prop on the `TimelineItem` to make the title interactive. This is useful when you want to provide additional context or actions related to the event.
+
+<LivePreview
+  scope={{
+    Timeline,
+    TimelineItem,
+    TimelineItemGroup,
+    Box,
+  }}
+  noInline
+>
+  {TimelineInteractiveTitle}
 </LivePreview>
 
 ## Timeline event loading
