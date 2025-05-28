@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7) [#4327](https://github.com/twilio-labs/paste/pull/4327) Thanks [@nkrantz](https://github.com/nkrantz)! - [Lexical] add export for the LexicalTypeaheadMenuPlugin plugin.
+
 ## 5.0.1
 
 ### Patch Changes
