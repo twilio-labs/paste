@@ -2194,6 +2194,13 @@
       "required": false,
       "externalProp": true
     },
+    "disabled": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "If true, the timeline item will be disabled"
+    },
     "draggable": {
       "type": "Booleanish",
       "defaultValue": null,
@@ -2433,10 +2440,11 @@
       "externalProp": true
     },
     "onClick": {
-      "type": "MouseEventHandler<HTMLLIElement>",
-      "defaultValue": null,
+      "type": "MouseEventHandler<HTMLButtonElement> &\n  MouseEventHandler<HTMLLIElement>",
+      "defaultValue": "undefined",
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "Add an action to the timeline item."
     },
     "onClickCapture": {
       "type": "MouseEventHandler<HTMLLIElement>",
@@ -3923,6 +3931,13 @@
       "required": false,
       "externalProp": true
     },
+    "disabled": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "If true, the timeline item will be disabled"
+    },
     "draggable": {
       "type": "Booleanish",
       "defaultValue": null,
@@ -4162,10 +4177,11 @@
       "externalProp": true
     },
     "onClick": {
-      "type": "MouseEventHandler<HTMLLIElement>",
-      "defaultValue": null,
+      "type": "MouseEventHandler<HTMLButtonElement> &\n  MouseEventHandler<HTMLLIElement>",
+      "defaultValue": "undefined",
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "Add an action to the timeline item."
     },
     "onClickCapture": {
       "type": "MouseEventHandler<HTMLLIElement>",
