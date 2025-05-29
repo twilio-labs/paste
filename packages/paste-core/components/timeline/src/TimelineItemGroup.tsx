@@ -30,7 +30,7 @@ export const TimelineItemGroup = React.forwardRef<HTMLLIElement, TimelineItemGro
           <TimelineItemIcon icon={icon} />
         </Box>
 
-        <Box element={`${element}_CONTENT_WRAPPER`}>
+        <Box element={`${element}_CONTENT_WRAPPER`} width="100%">
           <Box element={`${element}_TIMESTAMP`} marginTop="space10" marginBottom="space30">
             <DetailText element={`${element}_TIMESTAMP_DETAIL_TEXT`} marginTop="space0">
               {timestamp}
