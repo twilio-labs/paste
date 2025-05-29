@@ -91,6 +91,10 @@ Timelines can be used in different use cases, such as tracking milestones, monit
 
 <UnorderedList>
   <ListItem>
+    The toggle button when using the `collapsible` prop: `collapsible` TimelineItems use the <Anchor href="/components/summary-detail">Summary Detail</Anchor> component. The toggle button is labeled by the value of the `timestamp` prop. If the value is too verbose for a screen reader or not a clear label for the collapsed content, provide a helpful label for the button using the collapsibleLabelText prop on TimelineItem.
+  </ListItem>
+
+  <ListItem>
     Timeline is an ordered list (&lt;ol&gt;) and TimelineItem is a list item (&lt;li&gt;).
   </ListItem>
 
@@ -133,6 +137,26 @@ Use a basic Timeline as the default option to display a series of events that ne
 
 <LivePreview scope={{ Timeline, TimelineItem, StatusBadge, Box, Paragraph }} noInline>
   {TimelineBasic}
+</LivePreview>
+
+### Timeline with interactive title
+
+Use the `onClick` prop on the `TimelineItem` to make the title interactive. Use interactive titles only when the Timeline Event links to a specific moment in another view or surface.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutText>These titles should be used only when the event exists elsewhere and the user needs to be redirected to that exact point in time. If the event doesn't have a corresponding view, use a non-interactive title instead.</CalloutText>
+</Callout>
+
+<LivePreview
+  scope={{
+    Timeline,
+    TimelineItem,
+    TimelineItemGroup,
+    Box,
+  }}
+  noInline
+>
+  {TimelineInteractiveTitle}
 </LivePreview>
 
 ### Timeline with icons
@@ -204,22 +228,6 @@ However, for collapsible Timeline items, if no timestamp is provided, a heading 
   noInline
 >
   {TimelineGrouped}
-</LivePreview>
-
-### Timeline with interactive title
-
-Use the `onClick` prop on the `TimelineItem` to make the title interactive. This is useful when you want to provide additional context or actions related to the event.
-
-<LivePreview
-  scope={{
-    Timeline,
-    TimelineItem,
-    TimelineItemGroup,
-    Box,
-  }}
-  noInline
->
-  {TimelineInteractiveTitle}
 </LivePreview>
 
 ## Timeline event loading
