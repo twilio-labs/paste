@@ -3,6 +3,7 @@ import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { css, styled } from "@twilio-paste/styling-library";
 import { AILogContext, type AILogSizes } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 import { useAnimatedText } from "./utils";
@@ -72,6 +73,17 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
   timestamp?: string;
 }
 
+const StyledBox = styled(Box)(
+  css({
+    "& p:first-of-type": {
+      marginTop: "0",
+    },
+    "& p:last-of-type": {
+      marginBottom: "0",
+    },
+  }),
+);
+
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
   (
     {
@@ -129,7 +141,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     }, [isAnimating, showAnimation]);
 
     return (
-      <Box
+      <StyledBox
         {...safelySpreadBoxProps(props)}
         {...Sizes[sizeContext || size]}
         display="inline-block"
@@ -155,7 +167,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
             {timestamp}
           </Box>
         )}
-      </Box>
+      </StyledBox>
     );
   },
 );
