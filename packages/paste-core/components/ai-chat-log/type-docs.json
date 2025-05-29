@@ -11983,7 +11983,7 @@
       "defaultValue": false,
       "required": false,
       "externalProp": false,
-      "description": "The variant of the message to distiguish between user and bot messages"
+      "description": "If true, adds a separator on either side of the event message."
     }
   },
   "AIChatLog": {
