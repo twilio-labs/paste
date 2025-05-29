@@ -17,7 +17,7 @@ export interface AIChatEventProps extends HTMLPasteProps<"div"> {
    */
   element?: BoxElementProps["element"];
   /**
-   * The variant of the message to distiguish between user and bot messages
+   * If true, adds a separator on either side of the event message.
    *
    * @default false
    * @type Boolean
