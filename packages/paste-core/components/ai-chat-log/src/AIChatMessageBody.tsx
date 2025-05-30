@@ -1,9 +1,9 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import { css, styled } from "@twilio-paste/styling-library";
 import { AILogContext, type AILogSizes } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 import { useAnimatedText } from "./utils";
