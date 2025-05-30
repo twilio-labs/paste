@@ -113,7 +113,6 @@ export const SidePanelScroll: StoryFn = () => {
       variant: "user",
       content: (
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>Hi, I am getting errors codes when sending an SMS.</AIChatMessageBody>
         </AIChatMessage>
       ),
@@ -157,7 +156,6 @@ export const SidePanelScroll: StoryFn = () => {
       variant: "user",
       content: (
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="you said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>I am getting the error 30007 when attemptin to send a mass message.</AIChatMessageBody>
         </AIChatMessage>
       ),
@@ -255,7 +253,6 @@ export const SidePanelScroll: StoryFn = () => {
       content:
         messageDirection === "user" ? (
           <AIChatMessage variant="user">
-            <AIChatMessageAuthor aria-label="You said at 2:39pm">Gibby Radki</AIChatMessageAuthor>
             <AIChatMessageBody>{newMessage}</AIChatMessageBody>
           </AIChatMessage>
         ) : (

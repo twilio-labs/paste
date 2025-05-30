@@ -75,9 +75,6 @@ export const MessageGenerationError = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message filtered (30007)</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -118,9 +115,6 @@ export const AIActionClickError = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message filtered (30007)</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -168,9 +162,6 @@ export const ActionGroupError = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message body text</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -266,23 +257,18 @@ export const SendingMessageError = (): React.ReactNode => {
         </AIChatMessage>
 
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
-          <AIChatMessageBody>
-            Message body text
-            <AIChatMessageActionGroup>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                <HelpText marginTop="space0" variant="error">
-                  Message failed to send
-                </HelpText>
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <RepeatIcon decorative title="try again" />
-                  Try again
-                </Button>
-              </AIChatMessageActionCard>
-            </AIChatMessageActionGroup>
-          </AIChatMessageBody>
+          <AIChatMessageBody>Message body text</AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              <HelpText marginTop="space0" variant="error">
+                Message failed to send
+              </HelpText>
+              <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+                <RepeatIcon decorative title="try again" />
+                Try again
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
         </AIChatMessage>
       </AIChatLog>
       <Box marginTop="space70">
@@ -303,9 +289,6 @@ export const SystemError = (): React.ReactNode => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message body text</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">

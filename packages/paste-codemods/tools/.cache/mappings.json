@@ -6,6 +6,7 @@
   "AccountSwitcherItemRadio": "@twilio-paste/core/account-switcher",
   "AccountSwitcherSeparator": "@twilio-paste/core/account-switcher",
   "useAccountSwitcherState": "@twilio-paste/core/account-switcher",
+  "AIChatEvent": "@twilio-paste/core/ai-chat-log",
   "AIChatLog": "@twilio-paste/core/ai-chat-log",
   "AIChatLogger": "@twilio-paste/core/ai-chat-log",
   "AIChatMessage": "@twilio-paste/core/ai-chat-log",
