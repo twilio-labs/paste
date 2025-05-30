@@ -4,14 +4,17 @@ import { Button } from "@twilio-paste/button";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import {
   ChatComposer,
   ChatComposerActionGroup,
+  ChatComposerActionRow,
   ChatComposerAttachmentCard,
   ChatComposerAttachmentDescription,
   ChatComposerAttachmentGroup,
@@ -67,6 +70,34 @@ export const ContainedVariant: StoryFn = () => {
 };
 
 ContainedVariant.storyName = "Contained Variant";
+
+export const ContainedVariantActionRow: StoryFn = () => {
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
+      <ChatComposerActionGroup>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+       <ChatComposerActionRow>
+        <Button variant="secondary" size="circle_small">
+          <Box borderWidth="borderWidth10" borderColor="colorBorderWeaker" borderRadius="borderRadiusCircle">
+            <AttachIcon decorative={false} title="attach a file to your message" />
+          </Box>
+        </Button>
+        <Button variant="secondary" size="circle_small">
+          <EmojiIcon decorative={false} title="Action"/>
+        </Button>
+        <Button variant="secondary" size="circle_small">
+          <MoreIcon decorative={false} title="More actions"/>
+        </Button>
+      </ChatComposerActionRow>
+    </ChatComposerContainer>
+  );
+};
+
+ContainedVariantActionRow.storyName = "Contained Variant with Action Row";
 
 export const ContainedVariantWithAttachments: StoryFn = () => {
   return (

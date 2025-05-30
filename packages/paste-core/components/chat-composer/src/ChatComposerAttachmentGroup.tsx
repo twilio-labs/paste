@@ -43,6 +43,7 @@ export const ChatComposerAttachmentGroup = React.forwardRef<HTMLDivElement, Chat
         paddingBottom="space30"
         paddingX="space10"
         rowGap="space40"
+        marginTop="space50"
       >
         {children}
       </Box>
