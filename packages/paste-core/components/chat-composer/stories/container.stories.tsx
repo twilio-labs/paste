@@ -4,13 +4,18 @@ import { Button } from "@twilio-paste/button";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
-import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
-import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
+import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { AgentIcon } from "@twilio-paste/icons/src/AgentIcon";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { useTheme } from "@twilio-paste/theme";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
 import * as React from "react";
 
+import type { ChatComposerProps } from "../src";
 import {
   ChatComposer,
   ChatComposerActionGroup,
@@ -21,7 +26,8 @@ import {
   ChatComposerAttachmentLink,
   ChatComposerContainer,
 } from "../src";
-import type { ChatComposerProps } from "../src";
+
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 
 export default {
   title: "Components/Chat Composer/Container",
@@ -72,6 +78,9 @@ export const ContainedVariant: StoryFn = () => {
 ContainedVariant.storyName = "Contained Variant";
 
 export const ContainedVariantActionRow: StoryFn = () => {
+    const tooltip = useTooltipState();
+    const menu = useMenuState();
+    
   return (
     <ChatComposerContainer variant="contained">
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
@@ -86,12 +95,44 @@ export const ContainedVariantActionRow: StoryFn = () => {
             <AttachIcon decorative={false} title="attach a file to your message" />
           </Box>
         </Button>
-        <Button variant="secondary" size="circle_small">
-          <EmojiIcon decorative={false} title="Action"/>
-        </Button>
-        <Button variant="secondary" size="circle_small">
-          <MoreIcon decorative={false} title="More actions"/>
-        </Button>
+         <Tooltip
+          state={tooltip}
+          text="Chat history"
+        >
+          <Button variant="secondary" size="circle_small">
+            <EmojiIcon decorative={false} title="Chat history"/>
+          </Button>
+        </Tooltip>
+
+        <>
+          <MenuButton {...menu} variant="secondary" size="circle_small">
+             <MoreIcon decorative={false} title="More actions"/> 
+          </MenuButton>
+          <Menu {...menu} aria-label="Preferences">
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <HistoryIcon decorative color="colorTextIcon" /> Chat history
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <AgentIcon decorative color="colorTextIcon" /> Contact an agent
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <DocumentationIcon decorative color="colorTextIcon" /> Quick Start Guide
+              </Box>
+            </MenuItem>
+            <MenuSeparator {...menu} />
+            <MenuItem {...menu}>
+              Privacy Policy
+            </MenuItem>
+            <MenuItem {...menu}>
+              Terms of Service
+            </MenuItem>
+          </Menu>
+        </>
       </ChatComposerActionRow>
     </ChatComposerContainer>
   );
