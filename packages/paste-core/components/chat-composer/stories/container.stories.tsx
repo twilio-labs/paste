@@ -3,13 +3,14 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
 import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
 import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
-import { AgentIcon } from "@twilio-paste/icons/src/AgentIcon";
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { useTheme } from "@twilio-paste/theme";
 import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
@@ -27,7 +28,6 @@ import {
   ChatComposerContainer,
 } from "../src";
 
-import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 
 export default {
   title: "Components/Chat Composer/Container",
