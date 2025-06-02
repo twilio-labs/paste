@@ -1,6 +1,5 @@
 import type { StoryFn } from "@storybook/react";
 import {
-  AIChat,
   AIChatLogger,
   AIChatMessage,
   AIChatMessageActionCard,
@@ -43,10 +42,17 @@ import {
   LexicalEditor,
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import * as React from "react";
 import type { JSX } from "react";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 
-import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "../src";
+import { ChatComposer, ChatComposerActionGroup, ChatComposerActionRow, ChatComposerContainer } from "../src";
 
 export default {
   title: "Components/Chat Composer/LogsExperience",
@@ -349,6 +355,8 @@ export const AIChatLogComposer = (): React.ReactNode => {
   };
 
   const editorInstanceRef = React.useRef<LexicalEditor>(null);
+  const tooltip = useTooltipState();
+  const menu = useMenuState();
 
   return (
     <Box>
@@ -374,9 +382,6 @@ export const AIChatLogComposer = (): React.ReactNode => {
           <EnterKeySubmitPlugin onKeyDown={submitMessage} />
         </ChatComposer>
         <ChatComposerActionGroup>
-          <Button variant="secondary_icon" size="reset">
-            <AttachIcon decorative={false} title="attach a file to your message" />
-          </Button>
           <Button
             variant="primary_icon"
             size="reset"
@@ -388,6 +393,51 @@ export const AIChatLogComposer = (): React.ReactNode => {
             <SendIcon decorative={false} title="Send" />
           </Button>
         </ChatComposerActionGroup>
+        <ChatComposerActionRow>
+          <Button variant="secondary" size="circle_small">
+            <Box borderWidth="borderWidth10" borderColor="colorBorderWeaker" borderRadius="borderRadiusCircle">
+              <AttachIcon decorative={false} title="attach a file to your message" />
+            </Box>
+          </Button>
+           <Tooltip
+            state={tooltip}
+            text="Chat history"
+          >
+            <Button variant="secondary" size="circle_small">
+              <EmojiIcon decorative={false} title="Chat history"/>
+            </Button>
+          </Tooltip>
+  
+          <>
+            <MenuButton {...menu} variant="secondary" size="circle_small">
+               <MoreIcon decorative={false} title="More actions"/> 
+            </MenuButton>
+            <Menu {...menu} aria-label="Preferences">
+              <MenuItem {...menu}>
+                <Box display="flex" alignItems="center" columnGap="space20">
+                  <HistoryIcon decorative color="colorTextIcon" /> Chat history
+                </Box>
+              </MenuItem>
+              <MenuItem {...menu}>
+                <Box display="flex" alignItems="center" columnGap="space20">
+                  <AgentIcon decorative color="colorTextIcon" /> Contact an agent
+                </Box>
+              </MenuItem>
+              <MenuItem {...menu}>
+                <Box display="flex" alignItems="center" columnGap="space20">
+                  <DocumentationIcon decorative color="colorTextIcon" /> Quick Start Guide
+                </Box>
+              </MenuItem>
+              <MenuSeparator {...menu} />
+              <MenuItem {...menu}>
+                Privacy Policy
+              </MenuItem>
+              <MenuItem {...menu}>
+                Terms of Service
+              </MenuItem>
+            </Menu>
+          </>
+        </ChatComposerActionRow>
       </ChatComposerContainer>
     </Box>
   );
