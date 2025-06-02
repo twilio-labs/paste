@@ -14,7 +14,7 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
 import {
-  Chat,
+  type Chat,
   ChatAttachment,
   ChatAttachmentDescription,
   ChatAttachmentLink,
@@ -28,8 +28,13 @@ import {
   ChatMessageMetaItem,
   useChatLogger,
 } from "@twilio-paste/chat-log";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
+import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
@@ -42,15 +47,10 @@ import {
   LexicalEditor,
   useLexicalComposerContext,
 } from "@twilio-paste/lexical-library";
-import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
 import * as React from "react";
 import type { JSX } from "react";
-import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
-import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
-import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
-import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
-import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 
 import { ChatComposer, ChatComposerActionGroup, ChatComposerActionRow, ChatComposerContainer } from "../src";
 
@@ -399,18 +399,15 @@ export const AIChatLogComposer = (): React.ReactNode => {
               <AttachIcon decorative={false} title="attach a file to your message" />
             </Box>
           </Button>
-           <Tooltip
-            state={tooltip}
-            text="Chat history"
-          >
+          <Tooltip state={tooltip} text="Chat history">
             <Button variant="secondary" size="circle_small">
-              <EmojiIcon decorative={false} title="Chat history"/>
+              <EmojiIcon decorative={false} title="Chat history" />
             </Button>
           </Tooltip>
-  
+
           <>
             <MenuButton {...menu} variant="secondary" size="circle_small">
-               <MoreIcon decorative={false} title="More actions"/> 
+              <MoreIcon decorative={false} title="More actions" />
             </MenuButton>
             <Menu {...menu} aria-label="Preferences">
               <MenuItem {...menu}>
@@ -429,12 +426,8 @@ export const AIChatLogComposer = (): React.ReactNode => {
                 </Box>
               </MenuItem>
               <MenuSeparator {...menu} />
-              <MenuItem {...menu}>
-                Privacy Policy
-              </MenuItem>
-              <MenuItem {...menu}>
-                Terms of Service
-              </MenuItem>
+              <MenuItem {...menu}>Privacy Policy</MenuItem>
+              <MenuItem {...menu}>Terms of Service</MenuItem>
             </Menu>
           </>
         </ChatComposerActionRow>

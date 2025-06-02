@@ -28,7 +28,6 @@ import {
   ChatComposerContainer,
 } from "../src";
 
-
 export default {
   title: "Components/Chat Composer/Container",
   component: ChatComposer,
@@ -78,9 +77,9 @@ export const ContainedVariant: StoryFn = () => {
 ContainedVariant.storyName = "Contained Variant";
 
 export const ContainedVariantActionRow: StoryFn = () => {
-    const tooltip = useTooltipState();
-    const menu = useMenuState();
-    
+  const tooltip = useTooltipState();
+  const menu = useMenuState();
+
   return (
     <ChatComposerContainer variant="contained">
       <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
@@ -89,24 +88,21 @@ export const ContainedVariantActionRow: StoryFn = () => {
           <SendIcon decorative={false} title="Send" />
         </Button>
       </ChatComposerActionGroup>
-       <ChatComposerActionRow>
+      <ChatComposerActionRow>
         <Button variant="secondary" size="circle_small">
           <Box borderWidth="borderWidth10" borderColor="colorBorderWeaker" borderRadius="borderRadiusCircle">
             <AttachIcon decorative={false} title="attach a file to your message" />
           </Box>
         </Button>
-         <Tooltip
-          state={tooltip}
-          text="Chat history"
-        >
+        <Tooltip state={tooltip} text="Chat history">
           <Button variant="secondary" size="circle_small">
-            <EmojiIcon decorative={false} title="Chat history"/>
+            <EmojiIcon decorative={false} title="Chat history" />
           </Button>
         </Tooltip>
 
         <>
           <MenuButton {...menu} variant="secondary" size="circle_small">
-             <MoreIcon decorative={false} title="More actions"/> 
+            <MoreIcon decorative={false} title="More actions" />
           </MenuButton>
           <Menu {...menu} aria-label="Preferences">
             <MenuItem {...menu}>
@@ -125,12 +121,8 @@ export const ContainedVariantActionRow: StoryFn = () => {
               </Box>
             </MenuItem>
             <MenuSeparator {...menu} />
-            <MenuItem {...menu}>
-              Privacy Policy
-            </MenuItem>
-            <MenuItem {...menu}>
-              Terms of Service
-            </MenuItem>
+            <MenuItem {...menu}>Privacy Policy</MenuItem>
+            <MenuItem {...menu}>Terms of Service</MenuItem>
           </Menu>
         </>
       </ChatComposerActionRow>
