@@ -77,7 +77,8 @@ export const ContainedVariant: StoryFn = () => {
 ContainedVariant.storyName = "Contained Variant";
 
 export const ContainedVariantActionRow: StoryFn = () => {
-  const tooltip = useTooltipState();
+  const tooltip1 = useTooltipState();
+  const tooltip2 = useTooltipState();
   const menu = useMenuState();
 
   return (
@@ -89,12 +90,12 @@ export const ContainedVariantActionRow: StoryFn = () => {
         </Button>
       </ChatComposerActionGroup>
       <ChatComposerActionRow>
-        <Button variant="secondary" size="circle_small">
-          <Box borderWidth="borderWidth10" borderColor="colorBorderWeaker" borderRadius="borderRadiusCircle">
+        <Tooltip state={tooltip1} text="Attach">
+          <Button variant="secondary" size="circle_small">
             <AttachIcon decorative={false} title="attach a file to your message" />
-          </Box>
-        </Button>
-        <Tooltip state={tooltip} text="Chat history">
+          </Button>
+        </Tooltip>
+        <Tooltip state={tooltip2} text="Emoji">
           <Button variant="secondary" size="circle_small">
             <EmojiIcon decorative={false} title="Chat history" />
           </Button>
