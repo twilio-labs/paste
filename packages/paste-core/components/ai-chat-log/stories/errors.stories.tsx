@@ -168,7 +168,7 @@ export const ActionGroupError = (): React.ReactNode => {
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
             Message body text
-            <Box marginTop="space50">
+            <Box marginTop="space50" marginBottom="space40">
               <SummaryDetail>
                 <SummaryDetailHeading>
                   <SummaryDetailToggleButton aria-label="BOOP" />
