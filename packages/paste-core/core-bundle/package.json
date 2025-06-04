@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "21.3.0",
+  "version": "21.4.0",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@twilio-paste/account-switcher": "^4.0.1",
-    "@twilio-paste/ai-chat-log": "^2.0.1",
+    "@twilio-paste/ai-chat-log": "^2.1.0",
     "@twilio-paste/alert": "^15.0.1",
     "@twilio-paste/alert-dialog": "^10.0.1",
     "@twilio-paste/anchor": "^13.0.1",
@@ -175,7 +175,7 @@
     "@twilio-paste/textarea": "^11.1.1",
     "@twilio-paste/theme": "^12.0.1",
     "@twilio-paste/time-picker": "^7.0.1",
-    "@twilio-paste/timeline": "^2.0.1",
+    "@twilio-paste/timeline": "^2.1.0",
     "@twilio-paste/toast": "^13.0.1",
     "@twilio-paste/tooltip": "^13.0.1",
     "@twilio-paste/tooltip-primitive": "^3.0.1",
