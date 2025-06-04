@@ -17,7 +17,7 @@ const ExampleAIChatLog: React.FC<React.PropsWithChildren> = () => (
       <AIChatMessageAuthor aria-label="AI said" data-testid="author">
         Good Bot
       </AIChatMessageAuthor>
-      <AIChatMessageBody size="default">Lorem ipsum dolor.</AIChatMessageBody>
+      <AIChatMessageBody>Lorem ipsum dolor.</AIChatMessageBody>
       <AIChatMessageActionGroup data-testid="action_group">
         <AIChatMessageActionCard aria-label="action" data-testid="action">
           Is this helpful?
@@ -34,9 +34,7 @@ const CustomExampleAIChatLog: React.FC<React.PropsWithChildren> = () => (
       <AIChatMessageAuthor aria-label="AI said" data-testid="author" element="FOO_AI_CHAT_MESSAGE_AUTHOR">
         Good Bot
       </AIChatMessageAuthor>
-      <AIChatMessageBody size="default" element="FOO_AI_CHAT_MESSAGE_BODY">
-        Lorem ipsum dolor.
-      </AIChatMessageBody>
+      <AIChatMessageBody element="FOO_AI_CHAT_MESSAGE_BODY">Lorem ipsum dolor.</AIChatMessageBody>
       <AIChatMessageActionGroup data-testid="action_group" element="FOO_AI_CHAT_MESSAGE_ACTION_GROUP">
         <AIChatMessageActionCard
           aria-label="Feedback form"

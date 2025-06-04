@@ -6,6 +6,7 @@ import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { AILogContext } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 
 export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
@@ -57,6 +58,8 @@ export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
 export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessageAuthorProps>(
   ({ children, element = "AI_CHAT_MESSAGE_AUTHOR", avatarName, avatarIcon, avatarSrc, ...props }, ref) => {
     const { variant } = React.useContext(AIMessageContext);
+    const { size } = React.useContext(AILogContext);
+    const isFullScreen = size === "fullScreen";
 
     return (
       <Box
@@ -67,19 +70,21 @@ export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessag
         display="flex"
         alignItems="center"
         columnGap="space40"
-        fontWeight="fontWeightMedium"
+        fontWeight="fontWeightSemibold"
+        fontSize={isFullScreen ? "fontSize30" : "fontSize20"}
+        color="colorTextWeak"
       >
         {variant === "bot" ? (
           <Avatar
             name={children}
-            size="sizeIcon50"
+            size="sizeIcon30"
             color="decorative20"
             icon={ArtificialIntelligenceIcon}
             element={`${element}_BOT_AVATAR`}
           />
         ) : (
           <Avatar
-            size="sizeIcon50"
+            size="sizeIcon30"
             color="decorative30"
             element={`${element}_USER_AVATAR`}
             name={avatarName || children}

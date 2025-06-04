@@ -51,7 +51,7 @@ export const AIMessageBody = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageBody size="default">
+        <AIChatMessageBody>
           Use <InlineCode>size=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
         </AIChatMessageBody>
       </AIChatMessage>
@@ -68,7 +68,7 @@ export const AIMessageBodyWithParagraphs = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageBody size="default">
+        <AIChatMessageBody>
           <p>
             Use <InlineCode>size=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
           </p>

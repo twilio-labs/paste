@@ -103,7 +103,6 @@ export const getStaticProps = async () => {
 >
   {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody>
       What does the SMS delivery error code 30003 mean?
     </AIChatMessageBody>
@@ -192,13 +191,11 @@ The `AIChatMessageBody` component has two sizes, `size="default"` and `size="ful
 >
   {`<AIChatLog>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody size="default">
       I'm a message that should be displayed in compact elements
     </AIChatMessageBody>
   </AIChatMessage>
   <AIChatMessage variant="user">
-    <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
     <AIChatMessageBody size="fullScreen">
       I'm a message that will be displayed in full screen width
     </AIChatMessageBody>
@@ -249,6 +246,7 @@ Actions can still be added in `AIChatMessageBody` which are returned from the AI
     Button,
     ButtonGroup,
     Paragraph,
+    Box
   }}
   language="jsx"
   noInline
@@ -354,6 +352,7 @@ This example combines all the separate features displayed previously into one ex
     ThumbsDownIcon,
     ThumbsUpIcon,
     Paragraph,
+    Box,
   }}
   language="jsx"
   noInline

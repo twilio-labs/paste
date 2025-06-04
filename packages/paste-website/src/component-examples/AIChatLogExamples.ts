@@ -20,7 +20,6 @@ const BasicMessage = () => {
   return (
     <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Radki">You</AIChatMessageAuthor>
           <AIChatMessageBody>
             I would like some information on twilio error codes for undelivered messages
           </AIChatMessageBody>
@@ -76,17 +75,19 @@ const MessageWithFeedback = () => {
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
           <Paragraph>Below is a list of actions that can be taken with flex wrapping supported:</Paragraph>
-          <ButtonGroup>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}} >
-              View Logs
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              Run Diagnostics
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              Submit Bug Report
-            </Button>
-          </ButtonGroup>
+          <Box paddingY="space50">
+            <ButtonGroup>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}} >
+                View Logs
+              </Button>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+                Run Diagnostics
+              </Button>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+                Submit Bug Report
+              </Button>
+            </ButtonGroup>
+          </Box>
         </AIChatMessageBody>
       </AIChatMessage>
     </AIChatLog>
@@ -139,7 +140,6 @@ const AIChatLogExample = () => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said" avatarName="Gibby Radki">You</AIChatMessageAuthor>
         <AIChatMessageBody>
           Hi, I'm getting errors codes when sending an SMS.
         </AIChatMessageBody>
@@ -148,17 +148,19 @@ const AIChatLogExample = () => {
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
           <Paragraph>Error codes can be returned from various parts of the process. What error codes are you encountering?</Paragragh>
-          <ButtonGroup>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}} >
-              21608
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              30007
-            </Button>
-            <Button variant="secondary" size="rounded_small" onClick={() => {}}>
-              30009
-            </Button>
-          </ButtonGroup>
+          <Box marginTop="space50">
+            <ButtonGroup>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}} >
+                21608
+              </Button>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+                30007
+              </Button>
+              <Button variant="secondary" size="rounded_small" onClick={() => {}}>
+                30009
+              </Button>
+            </ButtonGroup>
+          </Box>
         </AIChatMessageBody>
       </AIChatMessage>
       <AIChatMessage variant="bot">
@@ -179,9 +181,6 @@ const AIChatLogExample = () => {
         </AIChatMessageActionGroup>
       </AIChatMessage>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said" bot avatarName="Gibby Radki">
-          You
-        </AIChatMessageAuthor>
         <AIChatMessageBody>
           No, how do I verify it?
         </AIChatMessageBody>
@@ -212,7 +211,6 @@ const aiChatFactory = ([ message, variant, metaLabel, meta ]) => {
     variant,
     content: (
       <AIChatMessage variant={variant}>
-         <AIChatMessageAuthor aria-label={metaLabel + time} avatarName={variant === 'bot' ? undefined : "Gibby Radki"}>{meta}</AIChatMessageAuthor>
           <AIChatMessageBody>
             {message}
           </AIChatMessageBody>
@@ -315,9 +313,6 @@ const MessageGenerationError = () => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message filtered (30007)</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -379,9 +374,6 @@ const AIActionClickError = () => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message filtered (30007)</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -450,9 +442,6 @@ const ActionGroupError = () => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message body text</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -470,30 +459,29 @@ const ActionGroupError = () => {
                 <SummaryDetailContent>Data Content</SummaryDetailContent>
               </SummaryDetail>
             </Box>
-
-            <AIChatMessageActionGroup>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                Is this helpful?
-                <Button variant="reset" size="reset" aria-label="this is a helpful response">
-                  <ThumbsUpIcon decorative={false} title="like result" />
-                </Button>
-                <Button variant="reset" size="reset" aria-label="this is not a helpful response">
-                  <ThumbsDownIcon decorative={false} title="dislike result" />
-                </Button>
-              </AIChatMessageActionCard>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <RefreshIcon decorative title="dislike result" />
-                  Regenerate
-                </Button>
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <CopyIcon decorative title="dislike result" />
-                  Copy
-                </Button>
-              </AIChatMessageActionCard>
-            </AIChatMessageActionGroup>
-            <HelpText variant="error">The action couldn’t be completed. Please try again.</HelpText>
           </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="reset" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="reset" size="reset" aria-label="this is not a helpful response">
+                <ThumbsDownIcon decorative={false} title="dislike result" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+                <RefreshIcon decorative title="dislike result" />
+                Regenerate
+              </Button>
+              <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+                <CopyIcon decorative title="dislike result" />
+                Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
+          <HelpText variant="error">The action couldn’t be completed. Please try again.</HelpText>
         </AIChatMessage>
       </AIChatLog>
       <Box marginTop="space70">
@@ -567,23 +555,20 @@ const SendingMessageError = () => {
         </AIChatMessage>
 
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>
             Message body text
-            <AIChatMessageActionGroup>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                <HelpText marginTop="space0" variant="error">
-                  Message failed to send
-                </HelpText>
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <RepeatIcon decorative title="try again" />
-                  Try again
-                </Button>
-              </AIChatMessageActionCard>
-            </AIChatMessageActionGroup>
           </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+           <AIChatMessageActionCard aria-label="Feedback form">
+             <HelpText marginTop="space0" variant="error">
+               Message failed to send
+             </HelpText>
+             <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+               <RepeatIcon decorative title="try again" />
+               Try again
+             </Button>
+           </AIChatMessageActionCard>
+         </AIChatMessageActionGroup>
         </AIChatMessage>
       </AIChatLog>
       <Box marginTop="space70">
@@ -625,9 +610,6 @@ const SystemError = () => {
     <>
       <AIChatLog>
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm" avatarName="Gibby Ridki">
-            You
-          </AIChatMessageAuthor>
           <AIChatMessageBody>Message body text</AIChatMessageBody>
         </AIChatMessage>
         <AIChatMessage variant="bot">
@@ -647,29 +629,28 @@ const SystemError = () => {
                 <SummaryDetailContent>Data Content</SummaryDetailContent>
               </SummaryDetail>
             </Box>
-
-            <AIChatMessageActionGroup>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                Is this helpful?
-                <Button variant="reset" size="reset" aria-label="this is a helpful response">
-                  <ThumbsUpIcon decorative={false} title="like result" />
-                </Button>
-                <Button variant="reset" size="reset" aria-label="this is not a helpful response">
-                  <ThumbsDownIcon decorative={false} title="dislike result" />
-                </Button>
-              </AIChatMessageActionCard>
-              <AIChatMessageActionCard aria-label="Feedback form">
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <RefreshIcon decorative title="dislike result" />
-                  Regenerate
-                </Button>
-                <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
-                  <CopyIcon decorative title="dislike result" />
-                  Copy
-                </Button>
-              </AIChatMessageActionCard>
-            </AIChatMessageActionGroup>
           </AIChatMessageBody>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="reset" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="reset" size="reset" aria-label="this is not a helpful response">
+                <ThumbsDownIcon decorative={false} title="dislike result" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+                <RefreshIcon decorative title="dislike result" />
+                Regenerate
+              </Button>
+              <Button variant="secondary_icon" aria-label="this is not a helpful response" size="reset">
+                <CopyIcon decorative title="dislike result" />
+                Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
         </AIChatMessage>
       </AIChatLog>
       <Box marginTop="space70">
