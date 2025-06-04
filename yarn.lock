@@ -15271,7 +15271,9 @@ __metadata:
     "@twilio-paste/detail-text": ^4.0.1
     "@twilio-paste/disclosure-primitive": ^3.0.1
     "@twilio-paste/icons": ^13.0.1
+    "@twilio-paste/paragraph": ^11.0.1
     "@twilio-paste/reakit-library": ^3.0.1
+    "@twilio-paste/skeleton-loader": ^7.0.1
     "@twilio-paste/spinner": ^15.0.1
     "@twilio-paste/stack": ^9.0.1
     "@twilio-paste/style-props": ^10.0.1
@@ -15279,6 +15281,7 @@ __metadata:
     "@twilio-paste/summary-detail": ^2.0.1
     "@twilio-paste/text": ^11.0.1
     "@twilio-paste/theme": ^12.0.1
+    "@twilio-paste/truncate": ^15.0.1
     "@twilio-paste/types": ^7.0.1
     "@twilio-paste/uid-library": ^3.0.1
     "@types/react": ^19.0.8
@@ -15299,7 +15302,9 @@ __metadata:
     "@twilio-paste/detail-text": ^4.0.0
     "@twilio-paste/disclosure-primitive": ^3.0.0
     "@twilio-paste/icons": ^13.0.0
+    "@twilio-paste/paragraph": ^11.0.1
     "@twilio-paste/reakit-library": ^3.0.0
+    "@twilio-paste/skeleton-loader": ^7.0.1
     "@twilio-paste/spinner": ^15.0.0
     "@twilio-paste/stack": ^9.0.0
     "@twilio-paste/style-props": ^10.0.0
@@ -15307,6 +15312,7 @@ __metadata:
     "@twilio-paste/summary-detail": ^2.0.0
     "@twilio-paste/text": ^11.0.0
     "@twilio-paste/theme": ^12.0.0
+    "@twilio-paste/truncate": ^15.0.1
     "@twilio-paste/types": ^7.0.0
     "@twilio-paste/uid-library": ^3.0.0
     "@types/react": ^17.0.2 || ^18.0.27 || ^19.0.0
