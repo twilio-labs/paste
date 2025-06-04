@@ -112,7 +112,7 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
       padding: 12,
       style: {
         fontFamily: context.fonts.fontFamilyText,
-        color: context.textColors.colorText,
+        color: context.textColors.colorTextInverse,
         fontSize: context.fontSizes.fontSize30,
       },
     },
