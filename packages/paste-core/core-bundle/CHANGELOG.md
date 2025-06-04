@@ -1,5 +1,19 @@
 # Change Log
 
+## 21.4.0
+
+### Minor Changes
+
+- [`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f) [#4336](https://github.com/twilio-labs/paste/pull/4336) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Timeline] add a new prop called `onClick` to `TimelineItem` that makes the title interactive
+
+* [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149) [#4331](https://github.com/twilio-labs/paste/pull/4331) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Update styles of AI Chat Log, add new props, add event component. Deprecates `size` prop from `AIChatMessageBody` and move it to `AIChatLog`
+
+### Patch Changes
+
+- Updated dependencies [[`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f), [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149)]:
+  - @twilio-paste/timeline@2.1.0
+  - @twilio-paste/ai-chat-log@2.1.0
+
 ## 21.3.0
 
 ### Minor Changes
