@@ -12,3 +12,5 @@ export { ChatComposerAttachmentDescription } from "./ChatComposerAttachmentDescr
 export type { ChatComposerAttachmentDescriptionProps } from "./ChatComposerAttachmentDescription";
 export { ChatComposerAttachmentLink } from "./ChatComposerAttachmentLink";
 export type { ChatComposerAttachmentLinkProps } from "./ChatComposerAttachmentLink";
+export { ChatComposerActionRow } from "./ChatComposerActionRow";
+export type { ChatComposerActionRowProps } from "./ChatComposerActionRow";

@@ -3,22 +3,30 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
 import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
+import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import { useTheme } from "@twilio-paste/theme";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
 import * as React from "react";
 
+import type { ChatComposerProps } from "../src";
 import {
   ChatComposer,
   ChatComposerActionGroup,
+  ChatComposerActionRow,
   ChatComposerAttachmentCard,
   ChatComposerAttachmentDescription,
   ChatComposerAttachmentGroup,
   ChatComposerAttachmentLink,
   ChatComposerContainer,
 } from "../src";
-import type { ChatComposerProps } from "../src";
 
 export default {
   title: "Components/Chat Composer/Container",
@@ -67,6 +75,144 @@ export const ContainedVariant: StoryFn = () => {
 };
 
 ContainedVariant.storyName = "Contained Variant";
+
+export const ContainedVariantActionRow: StoryFn = () => {
+  const tooltip1 = useTooltipState();
+  const tooltip2 = useTooltipState();
+  const menu = useMenuState();
+
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
+      <ChatComposerActionGroup>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+      <ChatComposerActionRow>
+        <Tooltip state={tooltip1} text="Attach">
+          <Button variant="secondary" size="circle_small">
+            <AttachIcon decorative={false} title="attach a file to your message" />
+          </Button>
+        </Tooltip>
+        <Tooltip state={tooltip2} text="Emoji">
+          <Button variant="secondary" size="circle_small">
+            <EmojiIcon decorative={false} title="Chat history" />
+          </Button>
+        </Tooltip>
+
+        <>
+          <MenuButton {...menu} variant="secondary" size="circle_small">
+            <MoreIcon decorative={false} title="More actions" />
+          </MenuButton>
+          <Menu {...menu} aria-label="Preferences">
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <HistoryIcon decorative color="colorTextIcon" /> Chat history
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <AgentIcon decorative color="colorTextIcon" /> Contact an agent
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <DocumentationIcon decorative color="colorTextIcon" /> Quick Start Guide
+              </Box>
+            </MenuItem>
+            <MenuSeparator {...menu} />
+            <MenuItem {...menu}>Privacy Policy</MenuItem>
+            <MenuItem {...menu}>Terms of Service</MenuItem>
+          </Menu>
+        </>
+      </ChatComposerActionRow>
+    </ChatComposerContainer>
+  );
+};
+
+ContainedVariantActionRow.storyName = "Contained Variant with Action Row";
+
+export const ContainedVariantActionRowWithAttachment: StoryFn = () => {
+  const tooltip1 = useTooltipState();
+  const tooltip2 = useTooltipState();
+  const menu = useMenuState();
+
+  return (
+    <ChatComposerContainer variant="contained">
+      <ChatComposer config={defaultConfig} ariaLabel="Basic chat composer" placeholder="Type here..." />
+      <ChatComposerActionGroup>
+        <Button variant="primary_icon" size="reset">
+          <SendIcon decorative={false} title="Send" />
+        </Button>
+      </ChatComposerActionGroup>
+      <ChatComposerActionRow>
+        <Tooltip state={tooltip1} text="Attach">
+          <Button variant="secondary" size="circle_small">
+            <AttachIcon decorative={false} title="attach a file to your message" />
+          </Button>
+        </Tooltip>
+        <Tooltip state={tooltip2} text="Emoji">
+          <Button variant="secondary" size="circle_small">
+            <EmojiIcon decorative={false} title="Chat history" />
+          </Button>
+        </Tooltip>
+
+        <>
+          <MenuButton {...menu} variant="secondary" size="circle_small">
+            <MoreIcon decorative={false} title="More actions" />
+          </MenuButton>
+          <Menu {...menu} aria-label="Preferences">
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <HistoryIcon decorative color="colorTextIcon" /> Chat history
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <AgentIcon decorative color="colorTextIcon" /> Contact an agent
+              </Box>
+            </MenuItem>
+            <MenuItem {...menu}>
+              <Box display="flex" alignItems="center" columnGap="space20">
+                <DocumentationIcon decorative color="colorTextIcon" /> Quick Start Guide
+              </Box>
+            </MenuItem>
+            <MenuSeparator {...menu} />
+            <MenuItem {...menu}>Privacy Policy</MenuItem>
+            <MenuItem {...menu}>Terms of Service</MenuItem>
+          </Menu>
+        </>
+      </ChatComposerActionRow>
+      <ChatComposerAttachmentGroup>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+        <ChatComposerAttachmentCard onDismiss={() => {}} attachmentIcon={<DownloadIcon decorative />}>
+          <ChatComposerAttachmentLink href="www.google.com">Document-FINAL.doc</ChatComposerAttachmentLink>
+          <ChatComposerAttachmentDescription>123 MB</ChatComposerAttachmentDescription>
+        </ChatComposerAttachmentCard>
+      </ChatComposerAttachmentGroup>
+    </ChatComposerContainer>
+  );
+};
 
 export const ContainedVariantWithAttachments: StoryFn = () => {
   return (
