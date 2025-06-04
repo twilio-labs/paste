@@ -19,7 +19,7 @@ export const ChatComposerActionRow = React.forwardRef<HTMLDivElement, ChatCompos
       {...safelySpreadBoxProps(props)}
       element={element}
       ref={ref}
-      gridArea="2/2"
+      gridRow="2"
       gridColumn="1/-1"
       display="inline-flex"
       alignSelf="end"
