@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/ai-chat-log",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "category": "data display",
   "status": "production",
   "description": "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot.",
