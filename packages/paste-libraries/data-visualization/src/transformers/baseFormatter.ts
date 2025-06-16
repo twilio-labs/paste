@@ -25,7 +25,10 @@ export const handleBaseChartOptionsFormatting = ({
   const context = React.useContext(ThemeContext) as ThemeShape;
 
   return {
-    accessibility,
+    accessibility: {
+      enabled: true,
+      ...accessibility,
+    },
     chart: {
       resetZoomButton: {
         theme: {

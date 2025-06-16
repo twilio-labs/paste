@@ -390,3 +390,37 @@ const SimpleChartAccessibilityExample = () => {
 
 render(<SimpleChartAccessibilityExample />);
 `.trim();
+
+export const SimpleChartAccessibilityDefaultExample = `
+const SimpleChartAccessibilityDefaultExample = () => {
+    const lineSeriesData = [
+        {
+            name: "Installation",
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
+        },
+        {
+            name: "Manufacturing",
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434],
+        },
+    ]
+
+    return (
+        <ChartProvider options={{
+                type: "line",
+                series: lineSeriesData,
+                title: {
+                    text: "Solar Employment Growth by Sector, 2010-2016",
+                    hide: true,
+                },
+                subtitle: {
+                    text: "Source: thesolarfoundation.com",
+                    hide: true,
+                }
+            }}>
+            <BaseChart />
+        </ChartProvider>
+    );
+};
+
+render(<SimpleChartAccessibilityDefaultExample />);
+`.trim();

@@ -24,7 +24,7 @@ import { SidebarCategoryRoutes } from "../../../../constants";
 import DefaultLayout from "../../../../layouts/DefaultLayout";
 import { getNavigationData } from "../../../../utils/api";
 import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
-import { SimpleChartAccessibilityExample } from "../../../../component-examples/data-visualization/ChartExamples";
+import { SimpleChartAccessibilityExample, SimpleChartAccessibilityDefaultExample } from "../../../../component-examples/data-visualization/ChartExamples";
 
 export default DefaultLayout;
 
@@ -58,7 +58,7 @@ export const getStaticProps = async () => {
   </Callout>
 </Box>
 
-Highcharts offers an accessibility module which we recommend always enabling. If using our [BaseChart](foundations/data-visualization/for-engineers#basechart) implementation, this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. More information on this module can be found on [Highcharts docs](https://www.highcharts.com/docs/accessibility/accessibility-module). Features that are offered are:
+Highcharts offers an accessibility module which we recommend always enabling. If using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) implementation, this is taken care of. It provides many useful features that help visually impaired users interact and understand charts. More information on this module can be found on [Highcharts docs](https://www.highcharts.com/docs/accessibility/accessibility-module). Features that are offered are:
 - Announces chart metadata such as title, subtitle, and description.
 - Allows keyboard navigation of series, points, and legend items.
 - Describes series when focused.
@@ -76,9 +76,20 @@ The accessibility module provides announcements by default for the series and po
 
 ### Customizing announcements
 
-To override the default announcements you can set the `accessibility` attribute in the support options of the [Chart Provider](components/chart-provider/api#charttypeoptions)
+To override the default announcements you can set the `accessibility` attribute in the support options of the [Chart Provider](/components/chart-provider/api#charttypeoptions)
 
 The point and series will be passed to the `descriptionFormatter` to retrieve the correct values, such as axis values and series names.
+
+Below is an example where we have not overriden the default announcements to understand the base features.
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+  {SimpleChartAccessibilityDefaultExample}
+</LivePreview>
+
 
 ## Custom example
 
