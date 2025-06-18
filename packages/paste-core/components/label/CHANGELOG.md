@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.0
+
+### Minor Changes
+
+- [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Label] Update font weight, expose new prop for optional variant and fix require dot causing scrolling issue
+
 ## 14.0.1
 
 ### Patch Changes

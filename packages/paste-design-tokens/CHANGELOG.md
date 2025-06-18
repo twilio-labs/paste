@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.14.1
+
+### Patch Changes
+
+- [`16e8016a0`](https://github.com/twilio-labs/paste/commit/16e8016a0654601c8c12224603daa1ada56708db) [#4334](https://github.com/twilio-labs/paste/pull/4334) Thanks [@serifluous](https://github.com/serifluous)! - Visible changes in dark themes only. Redarkened color-background-weak and added color-background-weaker-elevation
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Update palette and new elevation token
+
 ## 10.14.0
 
 ### Minor Changes

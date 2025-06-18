@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.2.0
+
+### Minor Changes
+
+- [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c) [#4304](https://github.com/twilio-labs/paste/pull/4304) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Card]: add `fillWidth` prop to make card width stretch to the container width
+
 ## 10.1.0
 
 ### Minor Changes

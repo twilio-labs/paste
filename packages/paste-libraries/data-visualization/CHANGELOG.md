@@ -1,5 +1,11 @@
 # @twilio-paste/data-visualization-library
 
+## 6.0.2
+
+### Patch Changes
+
+- [`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505) [#4312](https://github.com/twilio-labs/paste/pull/4312) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization Library] update Highcharts native tooltip styles to align more closely with Paste styles including correctly setting the font family
+
 ## 6.0.1
 
 ### Patch Changes

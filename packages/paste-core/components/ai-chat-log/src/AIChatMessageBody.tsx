@@ -1,8 +1,10 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { AILogContext, type AILogSizes } from "./AILogContext";
 import { AIMessageContext } from "./AIMessageContext";
 import { useAnimatedText } from "./utils";
 
@@ -31,11 +33,12 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
   /**
    * Use a larger font size and line height for fullscreen experiences.
    *
+   * @deprecated Use the `size` prop on the AIChatLog component instead.
    * @default "default"
-   * @type {"default" | "fullScreen"}
+   * @type {AILogSizes}
    * @memberof AIChatMessageBodyProps
    */
-  size?: "default" | "fullScreen";
+  size?: AILogSizes;
   /**
    * Whether the text should be animated with type writer effect
    *
@@ -60,7 +63,26 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageBodyProps
    */
   onAnimationEnd?: () => void;
+  /**
+   * The timestamp of the message
+   *
+   * @default undefined
+   * @type {string}
+   * @memberof AIChatMessageBodyProps
+   */
+  timestamp?: string;
 }
+
+const StyledBox = styled(Box)(
+  css({
+    "& p:first-of-type": {
+      marginTop: "0",
+    },
+    "& p:last-of-type": {
+      marginBottom: "0",
+    },
+  }),
+);
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
   (
@@ -71,14 +93,42 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
       animated = false,
       onAnimationEnd,
       onAnimationStart,
+      timestamp,
       ...props
     },
     ref,
   ) => {
-    const { id } = React.useContext(AIMessageContext);
+    const { id, variant } = React.useContext(AIMessageContext);
+    const { size: sizeContext } = React.useContext(AILogContext);
     const [showAnimation] = React.useState(animated && children !== undefined);
-    const animationSpeed = size === "fullScreen" ? 8 : 10;
+    const isFullScreen = size === "fullScreen" || sizeContext === "fullScreen";
+    const animationSpeed = isFullScreen ? 8 : 10;
     const { animatedChildren, isAnimating } = useAnimatedText(children, animationSpeed, showAnimation);
+
+    const commonStyles: BoxStyleProps = {
+      paddingY: isFullScreen ? "space50" : "space30",
+      paddingX: "space40",
+      borderRadius: "borderRadius40",
+      maxWidth: isFullScreen ? "530px" : "260px",
+    };
+
+    const Styles: Record<string, BoxStyleProps> = {
+      bot: {
+        backgroundColor: "inherit",
+        padding: "space0",
+        borderRadius: "borderRadius0",
+        maxWidth: "100%",
+      },
+      user: {
+        ...commonStyles,
+        backgroundColor: "colorBackgroundWeakElevation",
+      },
+      agent: {
+        ...commonStyles,
+        backgroundColor: "colorBackgroundBody",
+        boxShadow: "shadowElevation05",
+      },
+    };
 
     React.useEffect(() => {
       if (onAnimationStart && animated && isAnimating) {
@@ -91,21 +141,33 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
     }, [isAnimating, showAnimation]);
 
     return (
-      <Box
+      <StyledBox
         {...safelySpreadBoxProps(props)}
-        {...Sizes[size]}
+        {...Sizes[sizeContext || size]}
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
-        maxWidth="100%"
         minWidth={0}
         element={element}
         ref={ref}
         whiteSpace="pre-wrap"
         id={id}
+        marginBottom={isFullScreen ? "space30" : "space0"}
+        {...Styles[variant]}
       >
         {animatedChildren}
-      </Box>
+        {timestamp && (
+          <Box
+            fontSize="fontSize20"
+            color="colorTextWeak"
+            marginTop="space30"
+            element={`${element}_TIMESTAMP`}
+            textAlign={variant === "bot" ? "left" : "right"}
+          >
+            {timestamp}
+          </Box>
+        )}
+      </StyledBox>
     );
   },
 );

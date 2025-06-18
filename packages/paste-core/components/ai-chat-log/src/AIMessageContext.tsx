@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export type AIMessageVariants = "bot" | "user";
+export type AIMessageVariants = "bot" | "user" | "agent";
 
 export interface AIMessageContextProps {
   variant: AIMessageVariants;
