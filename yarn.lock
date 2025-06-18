@@ -12199,7 +12199,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/data-visualization-library@^6.0.2, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
+"@twilio-paste/data-visualization-library@^6.0.1, @twilio-paste/data-visualization-library@^6.0.2, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization"
   dependencies:
