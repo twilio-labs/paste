@@ -1,5 +1,11 @@
 # @twilio-paste/ai-chat-log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149) [#4331](https://github.com/twilio-labs/paste/pull/4331) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Update styles of AI Chat Log, add new props, add event component. Deprecates `size` prop from `AIChatMessageBody` and move it to `AIChatLog`
+
 ## 2.0.1
 
 ### Patch Changes
