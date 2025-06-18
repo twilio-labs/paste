@@ -84,10 +84,16 @@ function extractPropertiesOfTypeName(
 
     let typeName = (typeStatement as any).name.getText() as string;
 
+    // Doesn't pick up the data visualization types of they don't end in props. They are not component props so making an exception we can reuse.
+    const skipPropFiltering = process.argv.find((arg => arg === "--skipPropsNameRule"));
+
     if (typeName.endsWith("Props")) {
       typeName = typeName.replace(/Props$/, "");
       results[typeName] = sortByRequiredProperties(properties);
-    } else {
+    } else if(skipPropFiltering){
+      results[typeName] = sortByRequiredProperties(properties);
+    }
+    else {
       log("Omitting type", `\`${typeName}\``);
     }
   }
