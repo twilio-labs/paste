@@ -21,3 +21,8 @@ export { AIChatLogger } from "./AIChatLogger";
 export type { AIChatLoggerProps } from "./AIChatLogger";
 
 export type { AIMessageVariants } from "./AIMessageContext";
+
+export { AIChatMessageSource } from "./AIChatMessageSource";
+export type { AIChatMessageSourceProps } from "./AIChatMessageSource";
+export { AIChatMessageSourceLink } from "./AIChatMessageSourceLink";
+export type { AIChatMessageSourceLinkProps } from "./AIChatMessageSourceLink";
