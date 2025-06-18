@@ -1,5 +1,11 @@
 # @twilio-paste/data-visualization-library
 
+## 6.1.0
+
+### Minor Changes
+
+- [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245) [#4318](https://github.com/twilio-labs/paste/pull/4318) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data visualization library] added helper functions and types to provide support for creating highcharts options for supported chart types
+
 ## 6.0.2
 
 ### Patch Changes

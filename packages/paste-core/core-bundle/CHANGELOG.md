@@ -1,5 +1,28 @@
 # Change Log
 
+## 21.4.0
+
+### Minor Changes
+
+- [`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f) [#4336](https://github.com/twilio-labs/paste/pull/4336) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Timeline] add a new prop called `onClick` to `TimelineItem` that makes the title interactive
+
+* [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95) [#4339](https://github.com/twilio-labs/paste/pull/4339) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Chat Composer] add `ChatComposerActionRow` to render below `ChatComposer`
+
+- [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149) [#4331](https://github.com/twilio-labs/paste/pull/4331) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Update styles of AI Chat Log, add new props, add event component. Deprecates `size` prop from `AIChatMessageBody` and move it to `AIChatLog`
+
+* [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245) [#4318](https://github.com/twilio-labs/paste/pull/4318) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data visualization library] added helper functions and types to provide support for creating highcharts options for supported chart types
+
+- [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245) [#4318](https://github.com/twilio-labs/paste/pull/4318) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Chart Provider] added the ability to use options for supported chart types
+
+### Patch Changes
+
+- Updated dependencies [[`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f), [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95), [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149), [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245), [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245)]:
+  - @twilio-paste/timeline@2.1.0
+  - @twilio-paste/chat-composer@6.2.0
+  - @twilio-paste/ai-chat-log@2.1.0
+  - @twilio-paste/data-visualization-library@6.1.0
+  - @twilio-paste/chart-provider@2.1.0
+
 ## 21.3.0
 
 ### Minor Changes
