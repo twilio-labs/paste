@@ -1,5 +1,53 @@
 # Change Log
 
+## 21.3.0
+
+### Minor Changes
+
+- [`c7734a359`](https://github.com/twilio-labs/paste/commit/c7734a3592c3d04e57f1c092f2843915fce73d48) [#4303](https://github.com/twilio-labs/paste/pull/4303) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Icons] added 2 new icons SplitIcon and RandomizeIcon
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Label] Update font weight, expose new prop for optional variant and fix require dot causing scrolling issue
+
+- [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c) [#4304](https://github.com/twilio-labs/paste/pull/4304) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Card]: add `fillWidth` prop to make card width stretch to the container width
+
+* [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7) [#4327](https://github.com/twilio-labs/paste/pull/4327) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] add prop `autoLink` which defaults to `true` to allow users to disable the AutoLink plugin
+
+- [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7) [#4327](https://github.com/twilio-labs/paste/pull/4327) Thanks [@nkrantz](https://github.com/nkrantz)! - [Lexical] add export for the LexicalTypeaheadMenuPlugin plugin.
+
+### Patch Changes
+
+- [`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505) [#4312](https://github.com/twilio-labs/paste/pull/4312) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization Library] update Highcharts native tooltip styles to align more closely with Paste styles including correctly setting the font family
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Base Radio Checkbox, Button, Combobox, File Picker, File Uploader, Input, Input Box, Menu, Select, Textarea, Visual Picker] Update styles of form related components
+
+- [`16e8016a0`](https://github.com/twilio-labs/paste/commit/16e8016a0654601c8c12224603daa1ada56708db) [#4334](https://github.com/twilio-labs/paste/pull/4334) Thanks [@serifluous](https://github.com/serifluous)! - Visible changes in dark themes only. Redarkened color-background-weak and added color-background-weaker-elevation
+
+* [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Design Tokens] Update palette and new elevation token
+
+- [`cddfffdd4`](https://github.com/twilio-labs/paste/commit/cddfffdd4cae5d899cf8490013de315218a07941) [#4320](https://github.com/twilio-labs/paste/pull/4320) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [List] removed the default listStyleType on the primitive List component to inherit CSS nesting styling
+
+- Updated dependencies [[`bf5666048`](https://github.com/twilio-labs/paste/commit/bf56660483b91ead10f7a5bffb1ac28fe128b505), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`16e8016a0`](https://github.com/twilio-labs/paste/commit/16e8016a0654601c8c12224603daa1ada56708db), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825), [`2e469921a`](https://github.com/twilio-labs/paste/commit/2e469921a54d96f714da4ed568d85eb53642784c), [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7), [`cddfffdd4`](https://github.com/twilio-labs/paste/commit/cddfffdd4cae5d899cf8490013de315218a07941), [`404eeec61`](https://github.com/twilio-labs/paste/commit/404eeec6110f4a1f2f413cf10de16b3055c798f7)]:
+  - @twilio-paste/data-visualization-library@6.0.2
+  - @twilio-paste/base-radio-checkbox@14.0.2
+  - @twilio-paste/button@15.0.2
+  - @twilio-paste/checkbox@14.0.2
+  - @twilio-paste/combobox@17.0.2
+  - @twilio-paste/file-picker@5.0.2
+  - @twilio-paste/file-uploader@5.0.2
+  - @twilio-paste/input@10.0.2
+  - @twilio-paste/input-box@11.0.2
+  - @twilio-paste/menu@15.0.2
+  - @twilio-paste/select@13.0.2
+  - @twilio-paste/textarea@11.1.1
+  - @twilio-paste/visual-picker@3.0.2
+  - @twilio-paste/chat-composer@6.1.0
+  - @twilio-paste/topbar@2.0.2
+  - @twilio-paste/design-tokens@10.14.1
+  - @twilio-paste/label@14.1.0
+  - @twilio-paste/card@10.2.0
+  - @twilio-paste/list@9.0.2
+  - @twilio-paste/lexical-library@5.1.0
+
 ## 21.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+- [`cddfffdd4`](https://github.com/twilio-labs/paste/commit/cddfffdd4cae5d899cf8490013de315218a07941) [#4320](https://github.com/twilio-labs/paste/pull/4320) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [List] removed the default listStyleType on the primitive List component to inherit CSS nesting styling
+
 ## 9.0.1
 
 ### Patch Changes

@@ -7857,5 +7857,14 @@
       "externalProp": false,
       "description": "Responsive style prop of Size Tokens for the CSS `width` property"
     }
+  },
+  "ChatComposerActionRow": {
+    "element": {
+      "type": "string",
+      "defaultValue": "'CHAT_COMPOSER_ACTION_GROUP'",
+      "required": false,
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
+    }
   }
 }

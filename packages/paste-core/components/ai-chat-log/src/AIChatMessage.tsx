@@ -46,6 +46,7 @@ export const AIChatMessage = React.forwardRef<HTMLDivElement, AIChatMessageProps
           rowGap="space40"
           ref={ref}
           element={element}
+          alignItems={variant === "user" ? "flex-end" : "inherit"}
           {...safelySpreadBoxProps(props)}
         >
           {children}

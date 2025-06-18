@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/list",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "category": "typography",
   "status": "production",
   "description": "A List is a set of text objects in a bulleted or numbered format.",
@@ -46,7 +46,7 @@
     "@twilio-paste/box": "^11.0.1",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^9.0.1",
-    "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/design-tokens": "^10.14.1",
     "@twilio-paste/heading": "^12.0.1",
     "@twilio-paste/style-props": "^10.0.1",
     "@twilio-paste/styling-library": "^4.0.1",

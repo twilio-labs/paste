@@ -767,7 +767,7 @@
       "description": "Responsive prop for the CSS `background-attachment` property"
     },
     "backgroundColor": {
-      "type": "\"none\" | \"inherit\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyElevation\" | \"colorBackgroundBodyElevationPrimary\" | \"colorBackgroundBodyInverse\" | ... 67 more ... | { ...; }",
+      "type": "\"none\" | \"inherit\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyElevation\" | \"colorBackgroundBodyElevationPrimary\" | \"colorBackgroundBodyInverse\" | ... 68 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

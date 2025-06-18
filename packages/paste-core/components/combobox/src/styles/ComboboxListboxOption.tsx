@@ -72,7 +72,7 @@ const getVirtualStyles = (startHeight: number): Record<string, unknown> => ({
 
 function getBackgroundColor(highlightedProp?: boolean, selectedProp?: boolean): BackgroundColor {
   if (highlightedProp && selectedProp) {
-    return "colorBackgroundWeak";
+    return "colorBackgroundWeakerElevation";
   }
   if (highlightedProp || selectedProp) {
     return "colorBackgroundBodyElevationPrimary";

@@ -1,5 +1,11 @@
 # @twilio-paste/file-picker
 
+## 5.0.2
+
+### Patch Changes
+
+- [`6040893c0`](https://github.com/twilio-labs/paste/commit/6040893c0b7c8c0e2d61d14d2278de2b9829a825) [#4311](https://github.com/twilio-labs/paste/pull/4311) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Base Radio Checkbox, Button, Combobox, File Picker, File Uploader, Input, Input Box, Menu, Select, Textarea, Visual Picker] Update styles of form related components
+
 ## 5.0.1
 
 ### Patch Changes

@@ -41,7 +41,6 @@ export const UseChatLogger: StoryFn = () => {
       variant: "user",
       content: (
         <AIChatMessage variant="user">
-          <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
           <AIChatMessageBody>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
