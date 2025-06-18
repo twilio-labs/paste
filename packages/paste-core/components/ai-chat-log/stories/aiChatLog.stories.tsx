@@ -11,7 +11,13 @@ import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
 import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
-import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import {
+  SummaryDetail,
+  SummaryDetailContent,
+  SummaryDetailHeading,
+  SummaryDetailHeadingContent,
+  SummaryDetailToggleButton,
+} from "@twilio-paste/summary-detail";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
@@ -25,6 +31,8 @@ import {
   AIChatMessageAuthor,
   AIChatMessageBody,
   AIChatMessageLoading,
+  AIChatMessageSource,
+  AIChatMessageSourceLink,
 } from "../src";
 
 export default {
@@ -213,6 +221,101 @@ export const ExampleAIChatLogAgent = (): React.ReactNode => {
             iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
             impedit repellat assumenda.
           </AIChatMessageBody>
+        </AIChatMessage>
+      </AIChatLog>
+      <ChatComposer
+        config={{
+          namespace: "customer-chat",
+          onError: (e) => {
+            throw e;
+          },
+        }}
+        placeholder="Chat text"
+        ariaLabel="A placeholder chat composer"
+      >
+        <Box position="absolute" top="space30" right="space30">
+          <Button variant="primary_icon" size="reset">
+            <SendIcon decorative={false} title="Send message" />
+          </Button>
+        </Box>
+      </ChatComposer>
+    </>
+  );
+};
+
+export const ExampleAIChatLogSources = (): React.ReactNode => {
+  return (
+    <>
+      <AIChatLog>
+        <AIChatMessage variant="user">
+          <AIChatMessageBody timestamp="3:42pm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
+            iure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+            impedit repellat assumenda.
+          </AIChatMessageBody>
+        </AIChatMessage>
+
+        <AIChatEvent>
+          <Text color="colorTextWeak" fontSize="fontSize20" fontWeight="fontWeightSemibold" as="span">
+            Agent
+          </Text>
+          has joined the chat・3:43pm
+        </AIChatEvent>
+
+        <AIChatMessage variant="agent">
+          <AIChatMessageAuthor avatarIcon={CommunityIcon} aria-label="Agent said">
+            Agent Name
+          </AIChatMessageAuthor>
+          <AIChatMessageBody timestamp="3:44pm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
+            iure adipisci facilis exercitationem officiis dolorem laborum<AIChatMessageSource>1</AIChatMessageSource>,
+            ex fugiat quisquam itaque, earum sit nesciunt impedit repellat assumenda.
+            <AIChatMessageSource>2</AIChatMessageSource>
+          </AIChatMessageBody>
+          <SummaryDetail>
+            <SummaryDetailHeading>
+              <SummaryDetailToggleButton aria-label="BOOP" />
+              <SummaryDetailHeadingContent>
+                <Text as="p" fontWeight="fontWeightSemibold">
+                  Sources
+                </Text>
+              </SummaryDetailHeadingContent>
+            </SummaryDetailHeading>
+            <SummaryDetailContent>
+              <Box display="flex" flexDirection="column" rowGap="space20">
+                <AIChatMessageSourceLink number="1" url="#">
+                  Source title
+                </AIChatMessageSourceLink>
+                <AIChatMessageSourceLink number="2" url="#">
+                  Source title
+                </AIChatMessageSourceLink>
+                <AIChatMessageSourceLink number="3" url="#">
+                  Source title
+                </AIChatMessageSourceLink>
+              </Box>
+            </SummaryDetailContent>
+          </SummaryDetail>
+          <AIChatMessageActionGroup>
+            <AIChatMessageActionCard aria-label="Feedback form">
+              Is this helpful?
+              <Button variant="secondary_icon" size="reset" aria-label="this is a helpful response">
+                <ThumbsUpIcon decorative={false} title="like result" />
+              </Button>
+              <Button variant="secondary_icon" size="reset" aria-label="this is not a helpful response">
+                <ThumbsDownIcon decorative={false} title="dislike result" />
+              </Button>
+            </AIChatMessageActionCard>
+            <AIChatMessageActionCard aria-label="Rewrite and copy buttons">
+              <Button variant="secondary_icon" size="reset">
+                <RefreshIcon decorative />
+                Rewrite
+              </Button>
+              <Button variant="secondary_icon" size="reset">
+                <CopyIcon decorative />
+                Copy
+              </Button>
+            </AIChatMessageActionCard>
+          </AIChatMessageActionGroup>
         </AIChatMessage>
       </AIChatLog>
       <ChatComposer
