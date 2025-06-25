@@ -127,6 +127,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
           backgroundColor={getBackgroundColor(highlighted, selected)}
           paddingY="space40"
           transition="background-color 150ms ease, color 150ms ease"
+          element={`${element}_LIST_ITEM_CHILD`}
           {...VariantStyles[variant]}
         >
           <Box as="span">
