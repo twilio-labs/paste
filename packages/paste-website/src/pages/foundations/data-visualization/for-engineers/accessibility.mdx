@@ -1,0 +1,116 @@
+export const meta = {
+  title: "Accessibility",
+  description: "Explanation of accessibility features provided by the Highcharts module and how to customize them.",
+  slug: "/foundations/data-visualization/accessibility/",
+};
+
+import Image from "next/image";
+import Highcharts from "highcharts";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import HighchartsReact from "highcharts-react-official";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/data-visualization-library";
+
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { ChartProvider } from "@twilio-paste/chart-provider";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Anchor} from "@twilio-paste/anchor";
+
+import { SidebarCategoryRoutes } from "../../../../constants";
+import DefaultLayout from "../../../../layouts/DefaultLayout";
+import { getNavigationData } from "../../../../utils/api";
+import { ExamplesDataVizBaseChart as BaseChart } from "../../../../component-examples/data-visualization/BaseChart";
+import { SimpleChartAccessibilityExample, SimpleChartAccessibilityDefaultExample } from "../../../../component-examples/data-visualization/ChartExamples";
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+<Box marginBottom="space60">
+  <Callout variant="neutral">
+    <CalloutHeading>In progress</CalloutHeading>
+    <CalloutText>As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a <Anchor showExternal={true} href="https://github.com/twilio-labs/paste/discussions/new?category=general">GitHub discussion</Anchor> for any feedback or requests.</CalloutText>
+  </Callout>
+</Box>
+
+Highcharts offers an accessibility module which we recommend always enabling. If using our [BaseChart](/foundations/data-visualization/for-engineers#basechart) implementation, this is taken care of. It provides many useful features that help visually impaired users interact with and understand charts. More information on this module can be found on [Highcharts docs](https://www.highcharts.com/docs/accessibility/accessibility-module). Features that are offered are:
+- Announces chart metadata such as title, subtitle, and description.
+- Allows keyboard navigation of series, points, and legend items.
+- Describes series when focused.
+- Describes points when focused.
+- Announces the legend item when focused and describes whether the series is hidden or shown.
+- Toggles series visibility via keyboard.
+- When switching from a series to the legend, legend items announce that they are used to toggle series, along with the title of chart.
+
+## Screen reader announcements
+
+The accessibility module provides announcements by default for the series and point formatters. These can be overridden by passing additional props. See below for more details. Note that the default formats are in English only - any translations would need to be overridden.
+
+- When switching points, announce the point index, _x_-axis, value, and series name. Example: "2, _x_ 3, 8105, Installation", which means it is the 2nd point in the series, with _x_-axis = 3, and a value of 8105 (_y_-axis) in the series "Installation".
+- When focusing on a series, announce the series name, series position of total, and how many points. Example: "Installation, line 1 of 2 with 8 data points."
+
+### Customizing announcements
+
+To override the default announcements you can set the `accessibility` attribute in the support options of the [Chart Provider](/components/chart-provider/api#charttypeoptions)
+
+The point and series will be passed to the `descriptionFormatter` to retrieve the correct values, such as axis values and series names.
+
+Below is an example where we have not overridden the default announcements to understand the base features.
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+  {SimpleChartAccessibilityDefaultExample}
+</LivePreview>
+
+
+## Custom example
+
+Below is an example of a chart with custom `descriptionFormatter` for the series and point. The title and sub title are both specified but hidden. They will still be included in the screen reader announcements to give context to visually impaired users but not be visible on the chart.
+
+If you inspect the rendered chart element you will see that an aria-label is applied to both the series and the point with the correct formatting provided in the config.
+- `aria-label="The series Installation has a total of 8 points"` is applied to the series.
+- `aria-label="The point 0 has a value of 43934"` is applied to the point.
+
+<LivePreview
+  scope={{ChartProvider, BaseChart}}
+  language="jsx"
+  noInline
+>
+  {SimpleChartAccessibilityExample}
+</LivePreview>
+
+## Notes
+
+- When focusing on points, the tooltip is not announced by screen readers. Instead the point description is read out. If you have key information in the tooltip, be sure to include it in the `point.descriptionFormatter`.
+
+</content>
+
+</contentwrapper>
