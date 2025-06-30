@@ -290,6 +290,7 @@ export const SITEMAP = [
   "/foundations/data-visualization/",
   "/foundations/data-visualization/for-engineers/",
   "/foundations/data-visualization/for-engineers/chart-types/",
+  "/foundations/data-visualization/for-engineers/accessibility/",
   "/foundations/spacing-and-layout/",
   "/foundations/typography/",
   "/inclusive-design/",

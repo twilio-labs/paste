@@ -19,11 +19,16 @@ export const handleBaseChartOptionsFormatting = ({
   pointFormatter: userPointFormatter,
   enableCredits = false,
   isAnimated = true,
+  accessibility,
   ...rest
 }: BaseChartOptions): Highcharts.Options => {
   const context = React.useContext(ThemeContext) as ThemeShape;
 
   return {
+    accessibility: {
+      enabled: true,
+      ...accessibility,
+    },
     chart: {
       resetZoomButton: {
         theme: {
