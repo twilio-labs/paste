@@ -10791,7 +10791,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/ai-chat-log@^2.0.1, @twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log":
+"@twilio-paste/ai-chat-log@^2.0.1, @twilio-paste/ai-chat-log@^2.1.0, @twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log"
   dependencies:
@@ -11507,7 +11507,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chart-provider@^2.0.1, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
+"@twilio-paste/chart-provider@^2.0.1, @twilio-paste/chart-provider@^2.1.0, @twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chart-provider@workspace:packages/paste-core/components/chart-provider"
   dependencies:
@@ -11515,7 +11515,7 @@ __metadata:
     "@twilio-paste/box": ^11.0.1
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^9.0.1
-    "@twilio-paste/data-visualization-library": ^6.0.1
+    "@twilio-paste/data-visualization-library": ^6.1.0
     "@twilio-paste/design-tokens": ^10.13.0
     "@twilio-paste/style-props": ^10.0.1
     "@twilio-paste/styling-library": ^4.0.1
@@ -11547,7 +11547,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/chat-composer@^6.1.0, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
+"@twilio-paste/chat-composer@^6.1.0, @twilio-paste/chat-composer@^6.2.0, @twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/chat-composer@workspace:packages/paste-core/components/chat-composer"
   dependencies:
@@ -11816,7 +11816,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^21.0.0
+    "@twilio-paste/core": ^21.4.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -11858,7 +11858,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox@^17.0.2, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
+"@twilio-paste/combobox@^17.0.2, @twilio-paste/combobox@^17.0.3, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
@@ -11937,12 +11937,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^21.0.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^21.0.0, @twilio-paste/core@^21.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
     "@twilio-paste/account-switcher": ^4.0.1
-    "@twilio-paste/ai-chat-log": ^2.0.1
+    "@twilio-paste/ai-chat-log": ^2.1.0
     "@twilio-paste/alert": ^15.0.1
     "@twilio-paste/alert-dialog": ^10.0.1
     "@twilio-paste/anchor": ^13.0.1
@@ -11958,20 +11958,20 @@ __metadata:
     "@twilio-paste/button-group": ^5.0.1
     "@twilio-paste/callout": ^5.0.1
     "@twilio-paste/card": ^10.2.0
-    "@twilio-paste/chart-provider": ^2.0.1
-    "@twilio-paste/chat-composer": ^6.1.0
+    "@twilio-paste/chart-provider": ^2.1.0
+    "@twilio-paste/chat-composer": ^6.2.0
     "@twilio-paste/chat-log": ^6.0.1
     "@twilio-paste/checkbox": ^14.0.2
     "@twilio-paste/clipboard-copy-library": ^4.0.1
     "@twilio-paste/code-block": ^6.0.1
     "@twilio-paste/code-editor-library": ^3.0.1
     "@twilio-paste/color-contrast-utils": ^5.0.0
-    "@twilio-paste/combobox": ^17.0.2
+    "@twilio-paste/combobox": ^17.0.3
     "@twilio-paste/combobox-primitive": ^3.0.1
     "@twilio-paste/corner-ornament": ^2.0.1
     "@twilio-paste/customization": ^9.0.1
     "@twilio-paste/data-grid": ^9.0.2
-    "@twilio-paste/data-visualization-library": ^6.0.2
+    "@twilio-paste/data-visualization-library": ^6.1.0
     "@twilio-paste/date-picker": ^7.0.1
     "@twilio-paste/description-list": ^5.0.1
     "@twilio-paste/design-tokens": ^10.14.1
@@ -12046,7 +12046,7 @@ __metadata:
     "@twilio-paste/textarea": ^11.1.1
     "@twilio-paste/theme": ^12.0.1
     "@twilio-paste/time-picker": ^7.0.1
-    "@twilio-paste/timeline": ^2.0.1
+    "@twilio-paste/timeline": ^2.1.0
     "@twilio-paste/toast": ^13.0.1
     "@twilio-paste/tooltip": ^13.0.1
     "@twilio-paste/tooltip-primitive": ^3.0.1
@@ -12199,7 +12199,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/data-visualization-library@^6.0.1, @twilio-paste/data-visualization-library@^6.0.2, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
+"@twilio-paste/data-visualization-library@^6.0.2, @twilio-paste/data-visualization-library@^6.1.0, @twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/data-visualization-library@workspace:packages/paste-libraries/data-visualization"
   dependencies:
@@ -15261,7 +15261,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/timeline@^2.0.1, @twilio-paste/timeline@workspace:packages/paste-core/components/timeline":
+"@twilio-paste/timeline@^2.0.1, @twilio-paste/timeline@^2.1.0, @twilio-paste/timeline@workspace:packages/paste-core/components/timeline":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/timeline@workspace:packages/paste-core/components/timeline"
   dependencies:
