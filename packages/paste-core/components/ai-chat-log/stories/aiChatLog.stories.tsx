@@ -19,6 +19,7 @@ import {
 import { DetailText } from "@twilio-paste/detail-text";
 import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
+import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
@@ -63,7 +64,6 @@ import { useTheme } from "@twilio-paste/theme";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
 import {
   AIChatEvent,
   AIChatLog,
