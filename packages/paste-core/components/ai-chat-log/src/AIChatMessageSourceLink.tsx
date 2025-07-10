@@ -47,7 +47,7 @@ export const AIChatMessageSourceLink = React.forwardRef<HTMLDivElement, AIChatMe
         <Box as="span" marginLeft="space10">
           {children}
         </Box>
-        <Anchor href={url} showExternal marginLeft="space10">
+        <Anchor href={url} showExternal marginLeft="space20">
           Source with url
         </Anchor>
       </Box>
