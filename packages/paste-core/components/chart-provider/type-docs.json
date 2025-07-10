@@ -1575,7 +1575,7 @@
       "externalProp": true
     },
     "options": {
-      "type": "any",
+      "type": "ChartTypeOptions",
       "defaultValue": null,
       "required": false,
       "externalProp": false

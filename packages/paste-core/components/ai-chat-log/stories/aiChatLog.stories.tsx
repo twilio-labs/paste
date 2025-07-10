@@ -5,7 +5,12 @@ import { Box } from "@twilio-paste/box";
 import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { ChatComposer, ChatComposerActionGroup, ChatComposerContainer } from "@twilio-paste/chat-composer";
+import {
+  ChatComposer,
+  ChatComposerActionGroup,
+  ChatComposerActionRow,
+  ChatComposerContainer,
+} from "@twilio-paste/chat-composer";
 import { Checkbox } from "@twilio-paste/checkbox";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import {
@@ -19,12 +24,16 @@ import {
 import { DetailText } from "@twilio-paste/detail-text";
 import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
 import { Heading } from "@twilio-paste/heading";
+import { AgentIcon } from "@twilio-paste/icons/esm/AgentIcon";
 import { ArrowBackIcon } from "@twilio-paste/icons/esm/ArrowBackIcon";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
+import { EmojiIcon } from "@twilio-paste/icons/esm/EmojiIcon";
 import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
+import { HistoryIcon } from "@twilio-paste/icons/esm/HistoryIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { RefreshIcon } from "@twilio-paste/icons/esm/RefreshIcon";
@@ -35,6 +44,7 @@ import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
 import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
 import {
   PageHeader,
   PageHeaderActions,
@@ -61,6 +71,7 @@ import {
 } from "@twilio-paste/summary-detail";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
@@ -380,6 +391,53 @@ export const ExampleAIChatLogSources = (): React.ReactNode => {
   );
 };
 
+const ChatComposerRow = (): React.ReactNode => {
+  const tooltip1 = useTooltipState();
+  const tooltip2 = useTooltipState();
+  const menu = useMenuState();
+
+  return (
+    <ChatComposerActionRow>
+      <Tooltip state={tooltip1} text="Attach">
+        <Button variant="secondary" size="circle_small">
+          <AttachIcon decorative={false} title="attach a file to your message" />
+        </Button>
+      </Tooltip>
+      <Tooltip state={tooltip2} text="Emoji">
+        <Button variant="secondary" size="circle_small">
+          <EmojiIcon decorative={false} title="Chat history" />
+        </Button>
+      </Tooltip>
+
+      <>
+        <MenuButton {...menu} variant="secondary" size="circle_small">
+          <MoreIcon decorative={false} title="More actions" />
+        </MenuButton>
+        <Menu {...menu} aria-label="Preferences">
+          <MenuItem {...menu}>
+            <Box display="flex" alignItems="center" columnGap="space20">
+              <HistoryIcon decorative color="colorTextIcon" /> Chat history
+            </Box>
+          </MenuItem>
+          <MenuItem {...menu}>
+            <Box display="flex" alignItems="center" columnGap="space20">
+              <AgentIcon decorative color="colorTextIcon" /> Contact an agent
+            </Box>
+          </MenuItem>
+          <MenuItem {...menu}>
+            <Box display="flex" alignItems="center" columnGap="space20">
+              <DocumentationIcon decorative color="colorTextIcon" /> Quick Start Guide
+            </Box>
+          </MenuItem>
+          <MenuSeparator {...menu} />
+          <MenuItem {...menu}>Privacy Policy</MenuItem>
+          <MenuItem {...menu}>Terms of Service</MenuItem>
+        </Menu>
+      </>
+    </ChatComposerActionRow>
+  );
+};
+
 export const ExampleAIChatLogSidePanel = (): React.ReactNode => {
   const searchInput = useUID();
   const pillState = useFormPillState();
@@ -506,13 +564,11 @@ export const ExampleAIChatLogSidePanel = (): React.ReactNode => {
                 ariaLabel="A basic chat composer"
               />
               <ChatComposerActionGroup>
-                <Button variant="secondary_icon" size="reset" onClick={() => setShowSource(true)}>
-                  <AttachIcon decorative={false} title="attach files to the message" />
-                </Button>
                 <Button variant="primary_icon" size="reset">
                   <SendIcon decorative={false} title="Send" />
                 </Button>
               </ChatComposerActionGroup>
+              <ChatComposerRow />
             </ChatComposerContainer>
           </SidePanelFooter>
         )}
@@ -662,6 +718,127 @@ export const ExampleAIChatLogSidePanel = (): React.ReactNode => {
               </DataGridBody>
             </DataGrid>
           </Box>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+
+export const ExampleAIChatFullScreen = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel label="intelligent assistant ai bot side panel">
+        <SidePanelHeader>
+          <Box display="flex" alignItems="center" columnGap="space30">
+            <Heading as="h3" variant="heading30" marginBottom="space0">
+              Sources
+            </Heading>
+          </Box>
+        </SidePanelHeader>
+        <SidePanelBody>
+          <Box width="100%">
+            <Box display="flex" flexDirection="column" rowGap="space50">
+              <AIChatMessageSourceLink number="1" url="#">
+                Source title
+              </AIChatMessageSourceLink>
+              <AIChatMessageSourceLink number="2" url="#">
+                Source title
+              </AIChatMessageSourceLink>
+              <AIChatMessageSourceLink number="3" url="#">
+                Source title
+              </AIChatMessageSourceLink>
+              <AIChatMessageSourceLink number="4" url="#">
+                Source title with a very long title that should wrap to the next line
+              </AIChatMessageSourceLink>
+            </Box>
+          </Box>
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingX="space50" paddingTop="space130" paddingBottom="space160">
+          <AIChatLog>
+            <AIChatMessage variant="bot">
+              <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
+              <AIChatMessageBody>Hello, what can I help you with?</AIChatMessageBody>
+            </AIChatMessage>
+            <AIChatMessage variant="user">
+              <AIChatMessageBody>Hi! Can you help me with my user interface?</AIChatMessageBody>
+            </AIChatMessage>
+            <AIChatMessage variant="bot">
+              <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
+              Of course! What do you need help with?
+            </AIChatMessage>
+            <AIChatMessage variant="bot">
+              <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
+              <AIChatMessageBody>
+                I&apos;m happy to help with any questions you have about user interfaces, accessibility, or the Twilio
+                Paste design system. Just ask!
+              </AIChatMessageBody>
+            </AIChatMessage>
+            <AIChatMessage variant="user">
+              <AIChatMessageBody>My question is about the Switch component.</AIChatMessageBody>
+            </AIChatMessage>
+            <AIChatMessage variant="bot">
+              <AIChatMessageAuthor aria-label="ai said">Good Bot</AIChatMessageAuthor>
+              <AIChatMessageBody>
+                A <Anchor href="https://paste.twilio.design/components/switch">Switch</Anchor> is an interactive binary
+                control. What other information about the Paste Switch component can I help with?
+              </AIChatMessageBody>
+              <SummaryDetail>
+                <SummaryDetailHeading>
+                  <SummaryDetailToggleButton aria-label="BOOP" />
+                  <SummaryDetailHeadingContent>
+                    <Text as="p" fontWeight="fontWeightSemibold">
+                      Sources
+                    </Text>
+                  </SummaryDetailHeadingContent>
+                </SummaryDetailHeading>
+                <SummaryDetailContent>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    rowGap="space20"
+                    marginBottom="space30"
+                    fontSize="fontSize20"
+                  >
+                    <AIChatMessageSourceLink number="1" url="#">
+                      Source title
+                    </AIChatMessageSourceLink>
+                    <AIChatMessageSourceLink number="2" url="#">
+                      Source title
+                    </AIChatMessageSourceLink>
+                    <AIChatMessageSourceLink number="3" url="#">
+                      Source title
+                    </AIChatMessageSourceLink>
+                  </Box>
+                  <Button variant="secondary" onClick={() => setIsOpen(true)}>
+                    View all sources
+                  </Button>
+                </SummaryDetailContent>
+              </SummaryDetail>
+            </AIChatMessage>
+          </AIChatLog>
+          <ChatComposerContainer variant="contained">
+            <ChatComposer
+              maxHeight="size10"
+              config={{
+                namespace: "customer-chat",
+                onError: (e) => {
+                  throw e;
+                },
+              }}
+              placeholder="Chat text"
+              ariaLabel="A basic chat composer"
+            />
+            <ChatComposerActionGroup>
+              <Button variant="primary_icon" size="reset">
+                <SendIcon decorative={false} title="Send" />
+              </Button>
+            </ChatComposerActionGroup>
+            <ChatComposerRow />
+          </ChatComposerContainer>
         </Box>
       </SidePanelPushContentWrapper>
     </SidePanelContainer>
