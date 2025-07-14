@@ -1,7 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
 import * as React from "react";
 
-import { CustomElementName, DefaultElementName } from "../stories/ProductSwitcher.customization.stories";
+import { CustomElementName, DefaultElementName, WithoutProductIcons } from "../stories/ProductSwitcher.customization.stories";
 import { ProductSwitcherMenu } from "../stories/ProductSwitcher.stories";
 
 describe("ProductSwitcher", () => {
@@ -62,5 +62,23 @@ describe("ProductSwitcher", () => {
         "underline",
       );
     });
+  });
+});
+describe("customization of productIcon", () => {
+  it("should render product icon if set", async () => {
+    await act(async () => {
+      render(<DefaultElementName />);
+    });
+    const menuItem = screen.getByRole("menuitemradio", { name: "Twilio SMS, Voice & Video" });
+    const imgChildren = Array.from(menuItem.querySelectorAll('[role="img"]'));
+    expect(imgChildren).toHaveLength(2);
+  });
+  it("should not render product icon if none is set", async () => {
+    await act(async () => {
+      render(<WithoutProductIcons />);
+    });
+    const menuItem = screen.getByRole("menuitemradio", { name: "Twilio SMS, Voice & Video" });
+    const imgChildren = Array.from(menuItem.querySelectorAll('[role="img"]'));
+    expect(imgChildren).toHaveLength(1);
   });
 });

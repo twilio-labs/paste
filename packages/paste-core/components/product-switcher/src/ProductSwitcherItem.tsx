@@ -24,10 +24,10 @@ export interface ProductSwitcherItemProps extends Omit<MenuItemRadioProps, "vari
    * Icon to use for the ProductSwitcherItem. Use a Paste Icon.
    *
    * @default 'PRODUCT_SWITCHER_ITEM'
-   * @type {NonNullable<React.ReactNode>}
+   * @type {React.ReactNode}
    * @memberof ProductSwitcherItemProps
    */
-  productIcon: NonNullable<React.ReactNode>;
+  productIcon?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider.
    *
@@ -43,7 +43,7 @@ const ProductSwitcherItem = React.forwardRef<HTMLDivElement, ProductSwitcherItem
     return (
       <MenuItemRadio element={element} {...props} ref={ref}>
         <Box display="flex" flexDirection="row" columnGap="space50" alignItems="center">
-          <Box color="colorTextIcon">{productIcon}</Box>
+          {productIcon && <Box color="colorTextIcon">{productIcon}</Box>}
           <Box>
             <Text as="span" display="block">
               {productName}
