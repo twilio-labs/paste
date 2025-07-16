@@ -178,13 +178,7 @@ export const WithoutProductIcons: StoryFn = () => {
   const productSwitcher = useProductSwitcherState({ visible: true });
   const [product, setProduct] = React.useState("twilio");
   return (
-    <CustomizationProvider
-      elements={{
-        FOO: { backgroundColor: "colorBackgroundPrimary", color: "colorTextWeakest" },
-        BAR: { borderColor: "colorBorderDestructiveStrong" },
-        BAZ: { textDecoration: "underline" },
-      }}
-    >
+    <>
       <ProductSwitcherButton {...productSwitcher} element="FOO" i18nButtonLabel="Switch products" />
       <ProductSwitcher {...productSwitcher} element="BAR" aria-label="Avaiable accounts">
         <ProductSwitcherItem
@@ -248,6 +242,6 @@ export const WithoutProductIcons: StoryFn = () => {
           productStrapline="Admin center"
         />
       </ProductSwitcher>
-    </CustomizationProvider>
+    </>
   );
 };
