@@ -2026,13 +2026,6 @@
       "externalProp": true,
       "description": "Moves focus to the previous item."
     },
-    "productIcon": {
-      "type": "NonNullable<ReactNode>",
-      "defaultValue": "'PRODUCT_SWITCHER_ITEM'",
-      "required": true,
-      "externalProp": false,
-      "description": "Icon to use for the ProductSwitcherItem. Use a Paste Icon."
-    },
     "productName": {
       "type": "string",
       "defaultValue": null,
@@ -3882,6 +3875,13 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "productIcon": {
+      "type": "string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+      "defaultValue": "'PRODUCT_SWITCHER_ITEM'",
+      "required": false,
+      "externalProp": false,
+      "description": "Icon to use for the ProductSwitcherItem. Use a Paste Icon."
     },
     "property": {
       "type": "string",

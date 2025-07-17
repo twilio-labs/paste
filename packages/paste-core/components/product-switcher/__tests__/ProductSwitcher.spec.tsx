@@ -1,7 +1,11 @@
 import { act, render, screen } from "@testing-library/react";
 import * as React from "react";
 
-import { CustomElementName, DefaultElementName, WithoutProductIcons } from "../stories/ProductSwitcher.customization.stories";
+import {
+  CustomElementName,
+  DefaultElementName,
+  WithoutProductIcons
+} from "../stories/ProductSwitcher.customization.stories";
 import { ProductSwitcherMenu } from "../stories/ProductSwitcher.stories";
 
 describe("ProductSwitcher", () => {
