@@ -4,7 +4,7 @@ import * as React from "react";
 import {
   CustomElementName,
   DefaultElementName,
-  WithoutProductIcons
+  WithoutProductIcons,
 } from "../stories/ProductSwitcher.customization.stories";
 import { ProductSwitcherMenu } from "../stories/ProductSwitcher.stories";
 
