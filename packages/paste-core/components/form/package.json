@@ -3,7 +3,7 @@
   "version": "12.0.1",
   "category": "layout",
   "status": "production",
-  "description": "A form groups related form elements that allow users to input information or configure options.",
+  "description": "A Form Layout standardizes spacing among form elements.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
