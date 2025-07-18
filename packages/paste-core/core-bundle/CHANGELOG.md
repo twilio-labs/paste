@@ -1,5 +1,39 @@
 # Change Log
 
+## 21.4.0
+
+### Minor Changes
+
+- [`a88fdab49`](https://github.com/twilio-labs/paste/commit/a88fdab497bd2acd53781957f663135db0fbd53c) [#4335](https://github.com/twilio-labs/paste/pull/4335) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data Visualization Library] added the ability to set accessibility options
+
+* [`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f) [#4336](https://github.com/twilio-labs/paste/pull/4336) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Timeline] add a new prop called `onClick` to `TimelineItem` that makes the title interactive
+
+- [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95) [#4339](https://github.com/twilio-labs/paste/pull/4339) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Chat Composer] add `ChatComposerActionRow` to render below `ChatComposer`
+
+* [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149) [#4331](https://github.com/twilio-labs/paste/pull/4331) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Update styles of AI Chat Log, add new props, add event component. Deprecates `size` prop from `AIChatMessageBody` and move it to `AIChatLog`
+
+- [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245) [#4318](https://github.com/twilio-labs/paste/pull/4318) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Data visualization library] added helper functions and types to provide support for creating highcharts options for supported chart types
+
+* [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245) [#4318](https://github.com/twilio-labs/paste/pull/4318) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Chart Provider] added the ability to use options for supported chart types
+
+### Patch Changes
+
+- [`637362e10`](https://github.com/twilio-labs/paste/commit/637362e106d4008a82a4bc90197cb37df610f6bc) [#4359](https://github.com/twilio-labs/paste/pull/4359) Thanks [@simpixelated](https://github.com/simpixelated)! - [ProductSwitcherItem] made productIcon optional
+
+* [`c0eff2ddc`](https://github.com/twilio-labs/paste/commit/c0eff2ddc326bba633ebe9e03814d5a494ee66d2) [#4354](https://github.com/twilio-labs/paste/pull/4354) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Select] fixed an issue where unmounted select component does not use the correct variant styling
+
+- [`098085f69`](https://github.com/twilio-labs/paste/commit/098085f69b06508d7f937562e219e27337a46bdc) [#4348](https://github.com/twilio-labs/paste/pull/4348) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Combobx] add element name for Combobox List Item child
+
+- Updated dependencies [[`a88fdab49`](https://github.com/twilio-labs/paste/commit/a88fdab497bd2acd53781957f663135db0fbd53c), [`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f), [`637362e10`](https://github.com/twilio-labs/paste/commit/637362e106d4008a82a4bc90197cb37df610f6bc), [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95), [`c0eff2ddc`](https://github.com/twilio-labs/paste/commit/c0eff2ddc326bba633ebe9e03814d5a494ee66d2), [`098085f69`](https://github.com/twilio-labs/paste/commit/098085f69b06508d7f937562e219e27337a46bdc), [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149), [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245), [`3705495c7`](https://github.com/twilio-labs/paste/commit/3705495c77495f732db1c4796c610d7862f2c245)]:
+  - @twilio-paste/data-visualization-library@6.1.0
+  - @twilio-paste/timeline@2.1.0
+  - @twilio-paste/product-switcher@4.0.2
+  - @twilio-paste/chat-composer@6.2.0
+  - @twilio-paste/select@13.0.3
+  - @twilio-paste/combobox@17.0.3
+  - @twilio-paste/ai-chat-log@2.1.0
+  - @twilio-paste/chart-provider@2.1.0
+
 ## 21.3.0
 
 ### Minor Changes

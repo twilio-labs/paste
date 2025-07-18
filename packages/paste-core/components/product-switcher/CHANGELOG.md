@@ -1,5 +1,11 @@
 # @twilio-paste/product-switcher
 
+## 4.0.2
+
+### Patch Changes
+
+- [`637362e10`](https://github.com/twilio-labs/paste/commit/637362e106d4008a82a4bc90197cb37df610f6bc) [#4359](https://github.com/twilio-labs/paste/pull/4359) Thanks [@simpixelated](https://github.com/simpixelated)! - [ProductSwitcherItem] made productIcon optional
+
 ## 4.0.1
 
 ### Patch Changes

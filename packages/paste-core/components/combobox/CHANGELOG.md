@@ -1,5 +1,11 @@
 # Change Log
 
+## 17.0.3
+
+### Patch Changes
+
+- [`098085f69`](https://github.com/twilio-labs/paste/commit/098085f69b06508d7f937562e219e27337a46bdc) [#4348](https://github.com/twilio-labs/paste/pull/4348) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Combobx] add element name for Combobox List Item child
+
 ## 17.0.2
 
 ### Patch Changes
