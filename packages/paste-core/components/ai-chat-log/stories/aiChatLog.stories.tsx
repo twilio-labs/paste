@@ -315,10 +315,8 @@ export const ExampleAIChatLogSources = (): React.ReactNode => {
           has joined the chat・3:43pm
         </AIChatEvent>
 
-        <AIChatMessage variant="agent">
-          <AIChatMessageAuthor avatarIcon={CommunityIcon} aria-label="Agent said">
-            Agent Name
-          </AIChatMessageAuthor>
+        <AIChatMessage variant="bot">
+          <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody timestamp="3:44pm">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi
             iure adipisci facilis exercitationem officiis dolorem laborum<AIChatMessageSource>1</AIChatMessageSource>,
