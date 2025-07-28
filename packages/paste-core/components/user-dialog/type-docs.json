@@ -1800,7 +1800,7 @@
       "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
     },
     "icon": {
-      "type": "FC<any>",
+      "type": "FC<PropsWithChildren<GenericIconProps>>",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

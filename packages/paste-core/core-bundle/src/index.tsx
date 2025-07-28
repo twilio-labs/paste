@@ -35,6 +35,7 @@ export * from "@twilio-paste/example-text";
 export * from "@twilio-paste/file-picker";
 export * from "@twilio-paste/file-uploader";
 export * from "@twilio-paste/flex";
+export * from "@twilio-paste/footnote";
 export * from "@twilio-paste/form";
 export * from "@twilio-paste/form-pill-group";
 export * from "@twilio-paste/grid";

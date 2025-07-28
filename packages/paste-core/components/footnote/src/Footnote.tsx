@@ -46,6 +46,7 @@ const Footnote = React.forwardRef<HTMLDivElement, FootnoteProps>(
         <Box {...safelySpreadBoxProps(props)} ref={ref} element={element} as="sup">
           <Tooltip element={`${element}_TOOLTIP`} text={tooltipText}>
             <Button
+              element={`${element}_TOOLTIP_BUTTON`}
               variant="reset"
               {...footnoteStyles}
               size="reset"

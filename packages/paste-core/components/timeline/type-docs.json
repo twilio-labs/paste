@@ -2227,7 +2227,7 @@
       "externalProp": true
     },
     "icon": {
-      "type": "FC<any>",
+      "type": "FC<PropsWithChildren<GenericIconProps>>",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -3964,7 +3964,7 @@
       "externalProp": true
     },
     "icon": {
-      "type": "FC<any>",
+      "type": "FC<PropsWithChildren<GenericIconProps>>",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
