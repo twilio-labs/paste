@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/footnote",
-  "version": "14.0.1",
-  "category": "user input",
+  "version": "1.0.0",
+  "category": "data display",
   "status": "production",
-  "description": "Help Text is paired with a form element to give users information to prevent or correct formatting errors.",
+  "description": "A Footnote is an inline number that is used within main text to reference related information such as a citation.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
