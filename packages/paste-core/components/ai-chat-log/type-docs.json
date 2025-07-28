@@ -5541,7 +5541,7 @@
       "externalProp": true
     },
     "avatarIcon": {
-      "type": "FC<PropsWithChildren<GenericIconProps>>",
+      "type": "FC<any>",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

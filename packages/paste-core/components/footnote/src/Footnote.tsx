@@ -39,7 +39,7 @@ const footnoteStyles: BoxStyleProps = {
   fontVariantNumeric: "normal",
 };
 
-const Footnote = React.forwardRef<HTMLSupElement, FootnoteProps>(
+const Footnote = React.forwardRef<HTMLDivElement, FootnoteProps>(
   ({ children, element = "FOOTNOTE", tooltipText, ...props }, ref) => {
     if (tooltipText) {
       return (
