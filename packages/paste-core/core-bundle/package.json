@@ -116,6 +116,7 @@
     "@twilio-paste/file-picker": "^5.0.2",
     "@twilio-paste/file-uploader": "^5.0.2",
     "@twilio-paste/flex": "^9.0.1",
+    "@twilio-paste/footnote": "^0.0.0",
     "@twilio-paste/form": "^12.0.1",
     "@twilio-paste/form-pill-group": "^9.0.1",
     "@twilio-paste/grid": "^9.0.1",

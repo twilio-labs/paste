@@ -132,6 +132,7 @@
   "FileUploaderItemTitle": "@twilio-paste/core/file-uploader",
   "FileUploaderItemsList": "@twilio-paste/core/file-uploader",
   "FileUploaderLabel": "@twilio-paste/core/file-uploader",
+  "Footnote": "@twilio-paste/core/footnote",
   "Form": "@twilio-paste/core/form",
   "FormActions": "@twilio-paste/core/form",
   "FormControl": "@twilio-paste/core/form",

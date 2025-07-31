@@ -1,162 +1,5 @@
 {
-  "Text": {
-    "as": {
-      "type": "keyof IntrinsicElements",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false,
-      "description": "Controls the HTML element that that will be rendered in the DOM."
-    },
-    "_active": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_after": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_before": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_checked": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_disabled": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_even": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_expanded": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_first": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_focus": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_focusWithin": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_grabbed": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_hover": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_invalid": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_last": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_mixed": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_notFirst": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_notLast": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_odd": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_pressed": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_readOnly": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_selected": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_selected_focus": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_selected_focusVisible": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_selected_hover": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "_visited": {
-      "type": "TextStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
+  "Footnote": {
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -563,40 +406,6 @@
       "required": false,
       "externalProp": true
     },
-    "bottom": {
-      "type": "Bottom<TLengthStyledSystem> | (Bottom<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Bottom<TLengthStyledSystem> | undefined; [x: number]: Bottom<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `bottom` property"
-    },
-    "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottom\" | \"shadowBorderBottomBrand10Strong\" | \"shadowBorderBottomBrand20Strong\" | \"shadowBorderBottomBrand30Strong\" | ... 87 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of BoxShadow tokens for the CSS `box-shadow` property"
-    },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrand\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 57 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Text Color tokens for the CSS `color` property"
-    },
-    "columnGap": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `column-gap` property"
-    },
     "content": {
       "type": "string",
       "defaultValue": null,
@@ -615,13 +424,6 @@
       "required": false,
       "externalProp": true
     },
-    "cursor": {
-      "type": "Cursor",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop of CSS cursor value"
-    },
     "dangerouslySetInnerHTML": {
       "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
@@ -633,13 +435,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "dateTime": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Same as HTML"
     },
     "defaultChecked": {
       "type": "boolean",
@@ -659,13 +454,6 @@
       "required": false,
       "externalProp": true
     },
-    "display": {
-      "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of CSS display values"
-    },
     "draggable": {
       "type": "Booleanish",
       "defaultValue": null,
@@ -674,10 +462,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'FOOTNOTE'",
       "required": false,
       "externalProp": false,
-      "description": "Used to set a custom element name for customization."
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
       "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
@@ -685,52 +473,11 @@
       "required": false,
       "externalProp": true
     },
-    "fontFamily": {
-      "type": "\"inherit\" | \"fontFamilyCode\" | \"fontFamilyDisplay\" | \"fontFamilyText\" | \"fontFamilyTextChineseSimplified\" | \"fontFamilyTextChineseTraditional\" | \"fontFamilyTextJapanese\" | \"fontFamilyTextKorean\" | (FontFamilyOptions | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Family tokens for the CSS `font-family` property"
-    },
-    "fontSize": {
-      "type": "\"inherit\" | \"fontSize10\" | \"fontSize20\" | \"fontSize30\" | \"fontSize40\" | \"fontSize50\" | \"fontSize60\" | \"fontSize70\" | \"fontSize80\" | \"fontSize90\" | \"fontSize100\" | \"fontSize110\" | ... 6 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Size tokens for the CSS `font-size` property"
-    },
-    "fontStyle": {
-      "type": "| FontStyle\n  | (FontStyle | null | undefined)[]\n  | { [x: string]: FontStyle | undefined; [x: number]: FontStyle | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `font-style` property"
-    },
-    "fontVariantNumeric": {
-      "type": "| FontVariantNumeric\n  | (FontVariantNumeric | null | undefined)[]\n  | {\n      [x: string]: FontVariantNumeric | undefined\n      [x: number]: FontVariantNumeric | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "fontWeight": {
-      "type": "\"inherit\" | \"fontWeightLight\" | \"fontWeightNormal\" | \"fontWeightMedium\" | \"fontWeightSemibold\" | \"fontWeightBold\" | \"fontWeightExtrabold\" | (FontWeightOptions | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Font Weight tokens for the CSS `font-weight` property"
-    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "href": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Same as HTML"
     },
     "id": {
       "type": "string",
@@ -756,13 +503,6 @@
       "required": false,
       "externalProp": true,
       "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
-    },
-    "inset": {
-      "type": "Inset<TLengthStyledSystem> | (Inset<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Inset<TLengthStyledSystem> | undefined; [x: number]: Inset<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `inset` property"
     },
     "is": {
       "type": "string",
@@ -801,102 +541,17 @@
       "required": false,
       "externalProp": true
     },
+    "key": {
+      "type": "Key",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "lang": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "left": {
-      "type": "Left<TLengthStyledSystem> | (Left<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Left<TLengthStyledSystem> | undefined; [x: number]: Left<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `left` property"
-    },
-    "letterSpacing": {
-      "type": "LetterSpacing<0 | (string & {})> | (LetterSpacing<0 | (string & {})> | null | undefined)[] | { [x: string]: LetterSpacing<0 | (string & {})> | undefined; [x: number]: LetterSpacing<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `letter-spacing` property"
-    },
-    "lineHeight": {
-      "type": "\"inherit\" | \"unset\" | \"lineHeight0\" | \"lineHeight05\" | \"lineHeight10\" | \"lineHeight20\" | \"lineHeight30\" | \"lineHeight40\" | \"lineHeight50\" | \"lineHeight60\" | \"lineHeight70\" | ... 8 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of Line Height tokens for the CSS `line-height` property"
-    },
-    "listStyleImage": {
-      "type": "| ListStyleImage\n  | (ListStyleImage | null | undefined)[]\n  | {\n      [x: string]: ListStyleImage | undefined\n      [x: number]: ListStyleImage | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-image` property"
-    },
-    "listStylePosition": {
-      "type": "| ListStylePosition\n  | (ListStylePosition | null | undefined)[]\n  | {\n      [x: string]: ListStylePosition | undefined\n      [x: number]: ListStylePosition | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-position` property"
-    },
-    "listStyleType": {
-      "type": "| ListStyleType\n  | (ListStyleType | null | undefined)[]\n  | {\n      [x: string]: ListStyleType | undefined\n      [x: number]: ListStyleType | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-type` property"
-    },
-    "margin": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin` property"
-    },
-    "marginBottom": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-bottom` property"
-    },
-    "marginLeft": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-left` property"
-    },
-    "marginRight": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-right` property"
-    },
-    "marginTop": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-top` property"
-    },
-    "marginX": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-left` and `margin-right` properties"
-    },
-    "marginY": {
-      "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 39 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `margin-top` and `margin-bottom` properties"
     },
     "nonce": {
       "type": "string",
@@ -1912,87 +1567,6 @@
       "required": false,
       "externalProp": true
     },
-    "outline": {
-      "type": "Outline<0 | (string & {})>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop of CSS outline value"
-    },
-    "overflow": {
-      "type": "| Overflow\n  | (Overflow | null | undefined)[]\n  | { [x: string]: Overflow | undefined; [x: number]: Overflow | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "overflowWrap": {
-      "type": "| OverflowWrap\n  | (OverflowWrap | null | undefined)[]\n  | {\n      [x: string]: OverflowWrap | undefined\n      [x: number]: OverflowWrap | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `overflow-wrap` property"
-    },
-    "overflowX": {
-      "type": "| OverflowX\n  | (OverflowX | null | undefined)[]\n  | { [x: string]: OverflowX | undefined; [x: number]: OverflowX | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "overflowY": {
-      "type": "| OverflowY\n  | (OverflowY | null | undefined)[]\n  | { [x: string]: OverflowY | undefined; [x: number]: OverflowY | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "padding": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding` property"
-    },
-    "paddingBottom": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-bottom` property"
-    },
-    "paddingLeft": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-left` property"
-    },
-    "paddingRight": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-right` property"
-    },
-    "paddingTop": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-top` property"
-    },
-    "paddingX": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-left` and `padding-right` properties"
-    },
-    "paddingY": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of Space tokens for the CSS `padding-top` and `padding-bottom` properties"
-    },
     "popover": {
       "type": "\"\" | \"auto\" | \"manual\"",
       "defaultValue": null,
@@ -2010,13 +1584,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "position": {
-      "type": "| Position\n  | (Position | null | undefined)[]\n  | { [x: string]: Position | undefined; [x: number]: Position | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `position` property"
     },
     "prefix": {
       "type": "string",
@@ -2040,8 +1607,7 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false,
-      "description": "Same as HTML"
+      "externalProp": true
     },
     "resource": {
       "type": "string",
@@ -2061,24 +1627,11 @@
       "required": false,
       "externalProp": true
     },
-    "right": {
-      "type": "Right<TLengthStyledSystem> | (Right<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Right<TLengthStyledSystem> | undefined; [x: number]: Right<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop for the CSS `right` property"
-    },
     "role": {
       "type": "AriaRole",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "rowGap": {
-      "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 38 more ... | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "security": {
       "type": "string",
@@ -2094,12 +1647,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2122,74 +1669,18 @@
       "required": false,
       "externalProp": true
     },
-    "target": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Same as HTML"
-    },
-    "textAlign": {
-      "type": "| TextAlign\n  | (TextAlign | null | undefined)[]\n  | { [x: string]: TextAlign | undefined; [x: number]: TextAlign | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-align` property"
-    },
-    "textDecoration": {
-      "type": "TextDecoration<0 | (string & {})> | (TextDecoration<0 | (string & {})> | null | undefined)[] | { [x: string]: TextDecoration<0 | (string & {})> | undefined; [x: number]: TextDecoration<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-decoration` property"
-    },
-    "textOverflow": {
-      "type": "| TextOverflow\n  | (TextOverflow | null | undefined)[]\n  | {\n      [x: string]: TextOverflow | undefined\n      [x: number]: TextOverflow | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-overflow` property"
-    },
-    "textShadow": {
-      "type": "StyleReset",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop for the CSS `text-shadow` property"
-    },
-    "textTransform": {
-      "type": "| TextTransform\n  | (TextTransform | null | undefined)[]\n  | {\n      [x: string]: TextTransform | undefined\n      [x: number]: TextTransform | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `text-transform` property. Avoid using this prop if possible, as it can have implications for screen readers and internationalization."
-    },
     "title": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
-    "top": {
-      "type": "Top<TLengthStyledSystem> | (Top<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Top<TLengthStyledSystem> | undefined; [x: number]: Top<...> | undefined; }",
-      "defaultValue": null,
+    "tooltipText": {
+      "type": "string",
+      "defaultValue": "undefined",
       "required": false,
       "externalProp": false,
-      "description": "Responsive prop for the CSS `top` property"
-    },
-    "transition": {
-      "type": "Transition<string & {}>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop of CSS transition value"
-    },
-    "transitionDelay": {
-      "type": "TransitionDelay<string & {}>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Style prop of CSS transition-delay value"
+      "description": "The text to display in the tooltip."
     },
     "translate": {
       "type": "\"yes\" | \"no\"",
@@ -2209,53 +1700,11 @@
       "required": false,
       "externalProp": true
     },
-    "variant": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Used to style custom variants via customization."
-    },
-    "verticalAlign": {
-      "type": "VerticalAlign<0 | (string & {})> | (VerticalAlign<0 | (string & {})> | null | undefined)[] | { [x: string]: VerticalAlign<0 | (string & {})> | undefined; [x: number]: VerticalAlign<...> | undefined; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop of CSS vertical-align values"
-    },
     "vocab": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "whiteSpace": {
-      "type": "| WhiteSpace\n  | (WhiteSpace | null | undefined)[]\n  | { [x: string]: WhiteSpace | undefined; [x: number]: WhiteSpace | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `white-space` property"
-    },
-    "wordBreak": {
-      "type": "| WordBreak\n  | (WordBreak | null | undefined)[]\n  | { [x: string]: WordBreak | undefined; [x: number]: WordBreak | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `word-break` property"
-    },
-    "wordWrap": {
-      "type": "| WordWrap\n  | (WordWrap | null | undefined)[]\n  | { [x: string]: WordWrap | undefined; [x: number]: WordWrap | undefined }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `word-wrap` property"
-    },
-    "zIndex": {
-      "type": "\"zIndex0\" | \"zIndex10\" | \"zIndex20\" | \"zIndex30\" | \"zIndex40\" | \"zIndex50\" | \"zIndex60\" | \"zIndex70\" | \"zIndex80\" | \"zIndex90\" | (\"zIndex0\" | \"zIndex10\" | \"zIndex20\" | \"zIndex30\" | ... 6 more ... | null)[] | { ...; }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive prop of ZIndex tokens for the CSS `z-index` property"
     }
   }
 }
