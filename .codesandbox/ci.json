@@ -49,6 +49,7 @@
     "/packages/paste-core/components/file-picker",
     "/packages/paste-core/components/file-uploader",
     "/packages/paste-core/layout/flex",
+    "/packages/paste-core/components/footnote",
     "/packages/paste-core/components/form",
     "/packages/paste-core/components/form-pill-group",
     "/packages/paste-core/layout/grid",

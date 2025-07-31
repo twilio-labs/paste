@@ -173,6 +173,9 @@ props:
     comment: Right shadow border for hover status of vertical tabs on inverse backgrounds
 
   # Bottom borders
+  shadow-border-bottom:
+    value: "{!offset-0} {!offset-05} {!offset-0} {!offset-0} {!palette-gray-40}"
+    comment: Bottom shadow border for elements.
   shadow-border-bottom-primary:
     value: "{!offset-0} {!offset-05} {!offset-0} {!palette-blue-55}"
     comment: Bottom shadow border for primary status
