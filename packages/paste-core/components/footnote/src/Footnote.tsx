@@ -16,10 +16,18 @@ export interface FootnoteProps extends HTMLPasteProps<"sup"> {
   element?: BoxProps["element"];
   /**
    * The text to display in the tooltip.
+   *
+   * @default undefined
+   * @type {string | undefined}
+   * @memberof FootnoteProps
    */
   tooltipText?: string;
   /**
    * The content of the footnote, which must be a string.
+   *
+   * @default undefined
+   * @type {string}
+   * @memberof FootnoteProps
    */
   children: string;
 }

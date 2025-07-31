@@ -1677,7 +1677,7 @@
     },
     "tooltipText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "undefined",
       "required": false,
       "externalProp": false,
       "description": "The text to display in the tooltip."

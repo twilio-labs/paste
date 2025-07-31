@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/footnote",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "category": "data display",
   "status": "production",
   "description": "A Footnote is an inline number that is used within main text to reference related information such as a citation.",
