@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.0.3
+
+### Patch Changes
+
+- [`c0eff2ddc`](https://github.com/twilio-labs/paste/commit/c0eff2ddc326bba633ebe9e03814d5a494ee66d2) [#4354](https://github.com/twilio-labs/paste/pull/4354) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Select] fixed an issue where unmounted select component does not use the correct variant styling
+
 ## 13.0.2
 
 ### Patch Changes
