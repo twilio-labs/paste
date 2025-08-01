@@ -11101,7 +11101,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/backend@workspace:apps/backend"
   dependencies:
-    supabase: ^2.8.1
+    supabase: ^2.31.3
   languageName: unknown
   linkType: soft
 
@@ -43411,9 +43411,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"supabase@npm:^2.8.1":
-  version: 2.22.1
-  resolution: "supabase@npm:2.22.1"
+"supabase@npm:^2.31.3":
+  version: 2.33.0
+  resolution: "supabase@npm:2.33.0"
   dependencies:
     bin-links: ^5.0.0
     https-proxy-agent: ^7.0.2
@@ -43421,7 +43421,7 @@ resolve@^2.0.0-next.3:
     tar: 7.4.3
   bin:
     supabase: bin/supabase
-  checksum: 2b12441bc6754b6b845e91765b2b7585aae7af944fb77d20f52e4894e70761650dfb148453c83a6eaee426bba5e2f28da2200e8f4f86a31fbc34dc70f35f4c84
+  checksum: 01731cfaa32b84401b1558525530f11f8c42fe73bbdce729f067acca5a9e894cf0f3f0c1335e13e45f37a95061861bfe0e2c77eb07306de3f68b6f5e10e38b88
   languageName: node
   linkType: hard
 
