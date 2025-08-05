@@ -15858,7 +15858,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "AI_CHAT_MESSAGE",
+      "defaultValue": "AI_CHAT_MESSAGE_SOURCE",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
@@ -17573,7 +17573,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "AI_CHAT_MESSAGE",
+      "defaultValue": "AI_CHAT_MESSAGE_SOURCE_LINK",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
