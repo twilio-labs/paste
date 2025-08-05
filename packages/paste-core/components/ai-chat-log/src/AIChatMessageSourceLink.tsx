@@ -9,7 +9,7 @@ export interface AIChatMessageSourceLinkProps extends HTMLPasteProps<"div"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default "AI_CHAT_MESSAGE"
+   * @default "AI_CHAT_MESSAGE_SOURCE_LINK"
    * @type {BoxProps["element"]}
    * @memberof AIChatMessageSourceLinkProps
    */

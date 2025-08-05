@@ -10803,6 +10803,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^9.0.1
     "@twilio-paste/design-tokens": ^10.15.0
+    "@twilio-paste/footnote": ^1.0.0
     "@twilio-paste/icons": ^13.0.1
     "@twilio-paste/screen-reader-only": ^14.0.1
     "@twilio-paste/separator": ^9.0.1
@@ -10830,6 +10831,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^9.0.0
     "@twilio-paste/design-tokens": ^10.3.0
+    "@twilio-paste/footnote": ^0.0.0
     "@twilio-paste/icons": ^13.0.0
     "@twilio-paste/screen-reader-only": ^14.0.0
     "@twilio-paste/separator": ^9.0.1
