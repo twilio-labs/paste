@@ -70,19 +70,6 @@ Use a checkbox to present a user with a binary (e.g. on/off) choice that is part
 - Checkbox must have a visible label. 
 - When displaying additional content based on checking a checkbox, be sure that the new content appears after the checkbox so that it is naturally discoverable by assistive technology users.
 
-### Checkbox
-
-Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the [Switch component](/components/switch).
-
-#### Accessibility
-
-- A checkbox must have a visible label that is in close proximity to the control
-- HTML checkboxes don't natively support the `required` attribute. In cases where a checkbox is required to be checked:
-  - Display a required indicator
-  - Ensure the label text includes wording that successfully describes the requirement to the user that they should check the box
-- When in an error state, display an inline error message below the checkbox or checkbox group that clearly describes the error along with an icon that depicts the severity.
-- When displaying additional content based on checking a checkbox, be sure that the new content appears after the checkbox so that it is naturally discoverable by assistive technology users.
-
 ## Controlled vs. uncontrolled checkboxes
 
 Checkbox can either be controlled, meaning there is an external state that determines if the checkbox is checked or not, or uncontrolled, meaning the checkbox manages its own state.
@@ -109,7 +96,7 @@ A checkbox is always displayed next to a visible label.
   {checkedCheckbox}
 </LivePreview>
 
-### Checkbox with help text
+### Checkbox with Help Text
 
 Use Checkbox with Help Text in cases where the checkbox requires additional context. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
 <LivePreview scope={{Checkbox}} language="jsx">
@@ -118,7 +105,7 @@ Use Checkbox with Help Text in cases where the checkbox requires additional cont
 </Checkbox>`}
 </LivePreview>
 
-### Required checkbox
+### Required Checkbox
 
 Use the `required` prop to show a required indicator alongside the label when a checkbox is required to be checked. Ensure the label text includes wording that successfully describes the requirement to the user that they should check the box.
 
@@ -140,7 +127,7 @@ You can provide additional information about an individual item by adding a non-
 
 ## Checkbox Group examples
 
-### Basic checkbox group
+### Basic Checkbox Group
 
 Group related checkboxes using a common group component. The group legend should come first to clearly describe the set of options.
 
@@ -158,9 +145,9 @@ Group related checkboxes using a common group component. The group legend should
 </CheckboxGroup>`}
 </LivePreview>
 
-### Checkbox group with help text
+### Checkbox Group with Help Text
 
-Use help text to give more context about a Checkbox group. In order to maintain styling consistency, be sure to use the helpText prop here instead of using the Help Text component. Individual checkboxes can also include their own help text if needed.
+Use Help Text to give more context about a Checkbox Group. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component. Individual checkboxes can also include their own help text if needed.
 
 <LivePreview scope={{Checkbox, CheckboxGroup, Anchor, Text}} language="jsx">
   {`<CheckboxGroup
@@ -319,7 +306,7 @@ Use a disabled checkbox group to indicate that all options cannot be interacted 
 </CheckboxGroup>`}
 </LivePreview>
 
-### Checkbox group with an error
+### Checkbox Group with an error
 
 If the selected options don't pass the group validation requirements, use the `errorText` prop to show an error message.
 
