@@ -23,7 +23,6 @@ export const BOX_PROPS_TO_BLOCK = [
   ...GRID_PROPS,
   ...TYPOGRAPHY_PROPS,
   ...Object.keys(PseudoPropStyles),
-  "className",
   "style",
 ];
 
