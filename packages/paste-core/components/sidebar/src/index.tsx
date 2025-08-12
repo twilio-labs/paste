@@ -35,6 +35,7 @@ export {
   SidebarNavigationDisclosure,
   useSidebarNavigationDisclosureState,
 } from "./navigation/SidebarNavigationDisclosure";
+export type { DisclosureProps as SidebarNavigationDisclosureProps } from "./navigation/SidebarNavigationDisclosure";
 // renaming for the sake of documenting the API
 export type {
   SidebarNavigationDisclosureInitialStateProps,
