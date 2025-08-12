@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.15.0
+
+### Minor Changes
+
+- [`849f52da1`](https://github.com/twilio-labs/paste/commit/849f52da189cb8ef626a67128dc464b7ff308ccb) [#4370](https://github.com/twilio-labs/paste/pull/4370) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Tokens] add shadow-border-bottom
+
 ## 10.14.1
 
 ### Patch Changes

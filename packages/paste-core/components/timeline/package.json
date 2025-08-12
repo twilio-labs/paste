@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/timeline",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "category": "layout",
   "status": "production",
   "description": "A Timeline is a visual representation of events displayed in chronological order.",
@@ -57,12 +57,12 @@
   "devDependencies": {
     "@twilio-paste/anchor": "^13.0.1",
     "@twilio-paste/animation-library": "^3.0.1",
-    "@twilio-paste/box": "^11.0.1",
+    "@twilio-paste/box": "^11.0.2",
     "@twilio-paste/button": "^15.0.1",
     "@twilio-paste/card": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^9.0.1",
-    "@twilio-paste/design-tokens": "^10.11.0",
+    "@twilio-paste/design-tokens": "^10.15.0",
     "@twilio-paste/detail-text": "^4.0.1",
     "@twilio-paste/disclosure-primitive": "^3.0.1",
     "@twilio-paste/icons": "^13.0.1",

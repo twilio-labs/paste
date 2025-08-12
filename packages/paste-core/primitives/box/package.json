@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/box",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "category": "layout",
   "status": "production",
   "description": "The Box primitive is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.",
@@ -45,7 +45,7 @@
     "@twilio-paste/animation-library": "^3.0.1",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^9.0.1",
-    "@twilio-paste/design-tokens": "^10.11.1",
+    "@twilio-paste/design-tokens": "^10.15.0",
     "@twilio-paste/style-props": "^10.0.1",
     "@twilio-paste/styling-library": "^4.0.1",
     "@twilio-paste/theme": "^12.0.1",

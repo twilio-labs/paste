@@ -1,5 +1,11 @@
 # @twilio-paste/sidebar
 
+## 2.1.0
+
+### Minor Changes
+
+- [`1ce483766`](https://github.com/twilio-labs/paste/commit/1ce48376600ded9ecd236a1e9d24d182eb0d68d2) [#4375](https://github.com/twilio-labs/paste/pull/4375) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] export type for SidebarNavigationDisclosureContent
+
 ## 2.0.1
 
 ### Patch Changes
