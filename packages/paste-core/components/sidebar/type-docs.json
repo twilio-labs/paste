@@ -17280,6 +17280,41 @@
       "externalProp": true
     }
   },
+  "Disclosure": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "element": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "state": {
+      "type": "DisclosureStateReturn",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
   "SidebarNavigationDisclosureInitialState": {
     "animated": {
       "type": "number | boolean",
