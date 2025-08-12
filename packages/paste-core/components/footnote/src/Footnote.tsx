@@ -34,11 +34,14 @@ export interface FootnoteProps extends HTMLPasteProps<"sup"> {
 
 const footnoteStyles: BoxStyleProps = {
   display: "inline-block",
-  backgroundColor: "colorBackground",
+  backgroundColor: "colorBackgroundBodyElevation",
   paddingY: "space20",
   paddingX: "space30",
   borderRadius: "borderRadiusCircle",
   height: "sizeIcon40",
+  minWidth: "sizeIcon40",
+  textAlign: "center",
+  verticalAlign: "middle",
   flexShrink: 0,
   color: "colorTextWeak",
   fontSize: "fontSize20",
