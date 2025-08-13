@@ -255,9 +255,12 @@ export interface MultiselectComboboxProps
   /**
    * Callback function for after an item is selected or deselected
    *
+   * If `state` prop is passed, `UseMultiSelectPrimitiveStateChange<Item>` is the type for the `newSelectedItems` callback param
+   *
+   * If `state` prop isn't passed, `any[]` is the type for the `newSelectedItems` callback param
    * @memberof MultiselectComboboxProps
    */
-  onSelectedItemsChange?: (newSelectedItems: UseMultiSelectPrimitiveStateChange<Item>) => void;
+  onSelectedItemsChange?: (newSelectedItems: any[] | UseMultiSelectPrimitiveStateChange<Item>) => void;
   /**
    * Hidden helper text for screen readers
    *
