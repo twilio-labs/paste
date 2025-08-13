@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.0.2
+
+### Patch Changes
+
+- [`098c2bbfb`](https://github.com/twilio-labs/paste/commit/098c2bbfbbba136499d73fcfafae9c407ab6f483) [#4374](https://github.com/twilio-labs/paste/pull/4374) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] remove `className` from `BOX_PROPS_TO_BLOCK` so that `safelySpreadBoxProps` doesn't strip away usage of `styled`. Necessary for One Console chrome team to customize certain components. `styled` should not be used by other teams and `className` should not be used at all with Paste components.
+
 ## 11.0.1
 
 ### Patch Changes

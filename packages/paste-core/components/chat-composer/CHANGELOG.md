@@ -1,5 +1,11 @@
 # @twilio-paste/chat-composer
 
+## 6.2.0
+
+### Minor Changes
+
+- [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95) [#4339](https://github.com/twilio-labs/paste/pull/4339) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Chat Composer] add `ChatComposerActionRow` to render below `ChatComposer`
+
 ## 6.1.0
 
 ### Minor Changes

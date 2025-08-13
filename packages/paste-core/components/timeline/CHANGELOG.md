@@ -1,5 +1,11 @@
 # @twilio-paste/timeline
 
+## 2.1.0
+
+### Minor Changes
+
+- [`793258bbf`](https://github.com/twilio-labs/paste/commit/793258bbf2165e9d0566dac6ef265db5c2d9319f) [#4336](https://github.com/twilio-labs/paste/pull/4336) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Timeline] add a new prop called `onClick` to `TimelineItem` that makes the title interactive
+
 ## 2.0.1
 
 ### Patch Changes

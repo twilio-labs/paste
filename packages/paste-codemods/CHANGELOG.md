@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- [`849f52da1`](https://github.com/twilio-labs/paste/commit/849f52da189cb8ef626a67128dc464b7ff308ccb) [#4370](https://github.com/twilio-labs/paste/pull/4370) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Codemods] add Footnote component
+
+* [`f1c859cb3`](https://github.com/twilio-labs/paste/commit/f1c859cb3aaf39fef4caaaa441654df0abe76d95) [#4339](https://github.com/twilio-labs/paste/pull/4339) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Chat Composer] add `ChatComposerActionRow` to render below `ChatComposer`
+
+- [`219e25c1b`](https://github.com/twilio-labs/paste/commit/219e25c1bfa7001ee9d19a3a3c74b6de4d680149) [#4331](https://github.com/twilio-labs/paste/pull/4331) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Update styles of AI Chat Log, add new props, add event component. Deprecates `size` prop from `AIChatMessageBody` and move it to `AIChatLog`
+
 ## 0.16.0
 
 ### Minor Changes
