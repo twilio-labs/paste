@@ -33,7 +33,7 @@
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^9.0.0",
     "@twilio-paste/design-tokens": "^10.3.0",
-    "@twilio-paste/footnote": "^0.0.0",
+    "@twilio-paste/footnote": "^1.0.0",
     "@twilio-paste/icons": "^13.0.0",
     "@twilio-paste/keyboard-key": "^2.0.0",
     "@twilio-paste/reakit-library": "^3.0.0",
