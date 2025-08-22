@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/side-panel",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "category": "layout",
   "status": "production",
   "description": "Side Panel is a container that pushes the main page content when open.",

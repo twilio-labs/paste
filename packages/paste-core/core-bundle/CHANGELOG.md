@@ -1,5 +1,24 @@
 # Change Log
 
+## 21.5.0
+
+### Minor Changes
+
+- [`e9c40b331`](https://github.com/twilio-labs/paste/commit/e9c40b3319096baa3a54af4aa3d73cb43c567727) [#4356](https://github.com/twilio-labs/paste/pull/4356) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] add new `AIChatMessageSourceLink` component and new stories
+
+### Patch Changes
+
+- [`e9c40b331`](https://github.com/twilio-labs/paste/commit/e9c40b3319096baa3a54af4aa3d73cb43c567727) [#4356](https://github.com/twilio-labs/paste/pull/4356) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [AI Chat Log] Add new stories
+
+* [`e9c40b331`](https://github.com/twilio-labs/paste/commit/e9c40b3319096baa3a54af4aa3d73cb43c567727) [#4356](https://github.com/twilio-labs/paste/pull/4356) Thanks [@PixeledCode](https://github.com/PixeledCode)! - [Footnote] add min width
+
+- [`b58cfd06a`](https://github.com/twilio-labs/paste/commit/b58cfd06ac8b92feb85caf3ae1ff412e1cf3830e) [#4378](https://github.com/twilio-labs/paste/pull/4378) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Fix bug where rendering side panel closed would flash a right margin while breakpointindex was undefined.
+
+- Updated dependencies [[`e9c40b331`](https://github.com/twilio-labs/paste/commit/e9c40b3319096baa3a54af4aa3d73cb43c567727), [`b58cfd06a`](https://github.com/twilio-labs/paste/commit/b58cfd06ac8b92feb85caf3ae1ff412e1cf3830e), [`e9c40b331`](https://github.com/twilio-labs/paste/commit/e9c40b3319096baa3a54af4aa3d73cb43c567727)]:
+  - @twilio-paste/footnote@1.0.1
+  - @twilio-paste/side-panel@2.0.2
+  - @twilio-paste/ai-chat-log@2.2.0
+
 ## 21.4.0
 
 ### Minor Changes

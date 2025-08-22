@@ -1,5 +1,11 @@
 # @twilio-paste/side-panel
 
+## 2.0.2
+
+### Patch Changes
+
+- [`b58cfd06a`](https://github.com/twilio-labs/paste/commit/b58cfd06ac8b92feb85caf3ae1ff412e1cf3830e) [#4378](https://github.com/twilio-labs/paste/pull/4378) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Fix bug where rendering side panel closed would flash a right margin while breakpointindex was undefined.
+
 ## 2.0.1
 
 ### Patch Changes
