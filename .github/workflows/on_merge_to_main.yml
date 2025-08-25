@@ -125,7 +125,7 @@ jobs:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run Chromatic
-        uses: chromaui/action@v10
+        uses: chromaui/action@v13
         with:
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
