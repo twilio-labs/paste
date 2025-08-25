@@ -10791,7 +10791,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/ai-chat-log@^2.1.0, @twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log":
+"@twilio-paste/ai-chat-log@^2.1.0, @twilio-paste/ai-chat-log@^2.2.0, @twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/ai-chat-log@workspace:packages/paste-core/components/ai-chat-log"
   dependencies:
@@ -10803,7 +10803,7 @@ __metadata:
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^9.0.1
     "@twilio-paste/design-tokens": ^10.15.0
-    "@twilio-paste/footnote": ^1.0.0
+    "@twilio-paste/footnote": ^1.0.1
     "@twilio-paste/icons": ^13.0.1
     "@twilio-paste/keyboard-key": ^2.0.0
     "@twilio-paste/reakit-library": ^3.0.0
@@ -11826,7 +11826,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^21.4.0
+    "@twilio-paste/core": ^21.5.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -11947,12 +11947,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^21.0.0, @twilio-paste/core@^21.4.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^21.0.0, @twilio-paste/core@^21.5.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
     "@twilio-paste/account-switcher": ^4.0.1
-    "@twilio-paste/ai-chat-log": ^2.1.0
+    "@twilio-paste/ai-chat-log": ^2.2.0
     "@twilio-paste/alert": ^15.0.1
     "@twilio-paste/alert-dialog": ^10.0.1
     "@twilio-paste/anchor": ^13.0.1
@@ -11996,7 +11996,7 @@ __metadata:
     "@twilio-paste/file-picker": ^5.0.2
     "@twilio-paste/file-uploader": ^5.0.2
     "@twilio-paste/flex": ^9.0.1
-    "@twilio-paste/footnote": ^1.0.0
+    "@twilio-paste/footnote": ^1.0.1
     "@twilio-paste/form": ^12.0.1
     "@twilio-paste/form-pill-group": ^9.0.1
     "@twilio-paste/grid": ^9.0.1
@@ -12038,7 +12038,7 @@ __metadata:
     "@twilio-paste/separator": ^9.0.1
     "@twilio-paste/sibling-box": ^10.0.1
     "@twilio-paste/side-modal": ^5.0.1
-    "@twilio-paste/side-panel": ^2.0.1
+    "@twilio-paste/side-panel": ^2.0.2
     "@twilio-paste/sidebar": ^2.1.0
     "@twilio-paste/skeleton-loader": ^7.0.1
     "@twilio-paste/slider": ^4.0.1
@@ -12795,7 +12795,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/footnote@^1.0.0, @twilio-paste/footnote@workspace:packages/paste-core/components/footnote":
+"@twilio-paste/footnote@^1.0.1, @twilio-paste/footnote@workspace:packages/paste-core/components/footnote":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/footnote@workspace:packages/paste-core/components/footnote"
   dependencies:
@@ -14540,7 +14540,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/side-panel@^2.0.1, @twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel":
+"@twilio-paste/side-panel@^2.0.1, @twilio-paste/side-panel@^2.0.2, @twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/side-panel@workspace:packages/paste-core/components/side-panel"
   dependencies:
