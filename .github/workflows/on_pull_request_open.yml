@@ -22,7 +22,7 @@ jobs:
 
       - name: Auto contribution labeler
         if: ${{ steps.teamAffiliation.outputs.isTeamMember == 'false' }}
-        uses: actions/labeler@v5
+        uses: actions/labeler@v6
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/opened-pr-contribution-labeler.yml
