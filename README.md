@@ -8,7 +8,7 @@
 
 ## Usage
 
-For usage guidelines, please see our [documentation website](https://paste.twilio.design).
+For usage guidelines, please see our [documentation](https://github.com/twilio-labs/paste/tree/main/packages/paste-website/src/pages).
 
 ## Developing on Paste
 

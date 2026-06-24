@@ -1,6 +1,8 @@
 import { Box } from "@twilio-paste/box";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
+import {Alert} from "@twilio-paste/alert";
+import { Anchor } from "@twilio-paste/anchor";
 import type { JSX } from "react";
 
 import { BouncyAnchor } from "./BouncyAnchor";
@@ -23,6 +25,9 @@ const HomeHero = (): JSX.Element => {
           element="HOME_HERO_LEFT_SIDE"
         >
           <Box display="flex" flexDirection="column" rowGap="space50">
+            <Alert variant="warning">
+              <strong>paste.twilio.design is being retired on 30th June, 2026.</strong> After this date you can continue to use Paste. Our documentation can be found by visiting <Anchor href="https://github.com/twilio-labs/paste">the Github project</Anchor>.
+            </Alert>
             <DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
               Paste
             </DisplayHeading>
