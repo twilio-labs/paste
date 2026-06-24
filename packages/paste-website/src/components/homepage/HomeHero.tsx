@@ -1,7 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
-import {Alert} from "@twilio-paste/alert";
+import { Alert } from "@twilio-paste/alert";
 import { Anchor } from "@twilio-paste/anchor";
 import type { JSX } from "react";
 
