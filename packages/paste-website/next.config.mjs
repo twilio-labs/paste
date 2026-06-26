@@ -1,20 +1,21 @@
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
+import { createRequire } from "node:module";
+
 import nextBundleAnalyzer from "@next/bundle-analyzer";
-import nextMdx from "@next/mdx";
 import remarkGfm from "remark-gfm";
 
 import headingsPlugin from "./plugins/remark-headings-plugin.mjs";
 
+const __dir = dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+
+// Resolve plugin absolute paths for Turbopack (which needs serializable values)
+const remarkGfmPath = require.resolve("remark-gfm");
+const headingsPluginPath = resolve(__dir, "./plugins/remark-headings-plugin.mjs");
+
 const withBundleAnalyzer = nextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
-});
-
-const withMDX = nextMdx({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm, headingsPlugin],
-    rehypePlugins: [],
-    providerImportSource: "@mdx-js/react",
-  },
 });
 
 /** @type {import('next').NextConfig} */
@@ -23,6 +24,29 @@ const nextConfig = {
   reactStrictMode: true,
   compiler: {
     emotion: true,
+  },
+  /*
+   * NOTE: To use webpack for MDX support, run: next dev --webpack
+   * Turbopack is incompatible with @next/mdx + custom plugins
+   */
+  turbopack: {
+    root: dirname(dirname(__dir)), // Point to monorepo root for Next.js package resolution
+  },
+  webpack: (config, { defaultLoaders }) => {
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: [
+        defaultLoaders.babel,
+        {
+          loader: "@next/mdx/mdx-js-loader",
+          options: {
+            remarkPlugins: [remarkGfm, headingsPlugin],
+            rehypePlugins: [],
+          },
+        },
+      ],
+    });
+    return config;
   },
   // https://vercel.com/docs/edge-network/redirects#configuration-redirects
   async redirects() {
@@ -83,4 +107,4 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(withMDX(nextConfig));
+export default withBundleAnalyzer(nextConfig);
