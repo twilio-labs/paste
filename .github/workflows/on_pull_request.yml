@@ -29,7 +29,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -82,7 +82,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -91,7 +91,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -133,7 +133,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -142,7 +142,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -185,7 +185,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -235,7 +235,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -284,7 +284,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -293,7 +293,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -333,7 +333,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -342,7 +342,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -404,7 +404,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -413,7 +413,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
@@ -430,7 +430,7 @@ jobs:
         run: echo "version=$(yarn playwright --version)" >> $GITHUB_OUTPUT
 
       - name: Cache playwright binaries
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: playwright-cache
         with:
           path: "~/.cache/ms-playwright"
@@ -472,7 +472,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -481,7 +481,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         id: node_modules_cache_id
         with:
           path: |
