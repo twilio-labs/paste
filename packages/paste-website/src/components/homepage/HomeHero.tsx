@@ -26,7 +26,7 @@ const HomeHero = (): JSX.Element => {
         >
           <Box display="flex" flexDirection="column" rowGap="space50">
             <Alert variant="warning">
-              <strong>paste.twilio.design is being retired on 30th June, 2026.</strong> After this date you can continue to use Paste. Our documentation can be found by visiting <Anchor href="https://github.com/twilio-labs/paste">the Github project</Anchor>.
+              The <strong>paste.twilio.design</strong> website will be retired on <strong>July 31, 2026</strong>.<br/>After this date, you can continue to use <strong>Paste</strong>. Our documentation will remain available in the <Anchor href="https://github.com/twilio-labs/paste">GitHub project</Anchor>.
             </Alert>
             <DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
               Paste
