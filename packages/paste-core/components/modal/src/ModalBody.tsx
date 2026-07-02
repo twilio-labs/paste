@@ -19,13 +19,13 @@ const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
   ({ children, element = "MODAL_BODY", ...props }, ref) => {
     return (
       <Box
-        {...safelySpreadBoxProps(props)}
         overflowY="auto"
         paddingX="space90"
         paddingY="space10"
         as="div"
         element={element}
         ref={ref}
+        {...safelySpreadBoxProps(props)}
       >
         {children}
       </Box>
