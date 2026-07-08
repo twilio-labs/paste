@@ -1,4 +1,3 @@
-import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 import { useWindowSize } from "@twilio-paste/utils";
@@ -9,12 +8,10 @@ import "react-github-button/assets/style.css";
 
 import { PASTE_DOCS_TOPBAR } from "../../../constants";
 import { ContactUsMenu } from "../../ContactUsMenu";
-import { AssistantLink } from "./AssistantLink";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { FigmaButton } from "./FigmaButton";
 import { HamburgerToggle } from "./HamburgerToggle";
 import { SiteHeaderLogo } from "./SiteHeaderLogo";
-import { SiteHeaderSearch } from "./SiteHeaderSearch";
 
 export const SiteHeader: React.FC<{
   sidebarMobileCollapsed: boolean;
@@ -28,9 +25,6 @@ export const SiteHeader: React.FC<{
       </TopbarActions>
       {breakpointIndex === 0 ? (
         <TopbarActions display={["flex", "none"]}>
-          <Box minWidth="150px" data-cy="paste-docsearch-container" id="paste-docs-search-input">
-            <SiteHeaderSearch />
-          </Box>
           <Button
             aria-label="Open main navigation"
             variant="secondary"
@@ -43,10 +37,6 @@ export const SiteHeader: React.FC<{
         </TopbarActions>
       ) : (
         <TopbarActions display={["none", "flex"]}>
-          <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
-            <SiteHeaderSearch />
-          </Box>
-          <AssistantLink />
           <ContactUsMenu />
           <DarkModeToggle />
           <FigmaButton />

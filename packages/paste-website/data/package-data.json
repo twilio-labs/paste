@@ -1,0 +1,750 @@
+{
+  "allPasteComponent": [
+    {
+      "name": "@twilio-paste/anchor",
+      "status": "production",
+      "version": "13.0.1",
+      "description": "An Anchor is text that navigates the user from one webpage to another."
+    },
+    {
+      "name": "@twilio-paste/account-switcher",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "An Account Switcher is a stylized Menu Badge with a list of actions related to a user's accounts."
+    },
+    {
+      "name": "@twilio-paste/alert",
+      "status": "production",
+      "version": "15.0.1",
+      "description": "An Alert is a banner that notifies users to high-priority or time-sensitive information."
+    },
+    {
+      "name": "@twilio-paste/alert-dialog",
+      "status": "production",
+      "version": "10.0.1",
+      "description": "An Alert Dialog is a page overlay that displays critical information, blocks interaction with the page, and only closes after an action is performed."
+    },
+    {
+      "name": "@twilio-paste/avatar",
+      "status": "production",
+      "version": "10.0.1",
+      "description": "An Avatar is a graphical representation of a user or entity and an Avatar Group is a collection of Avatars."
+    },
+    {
+      "name": "@twilio-paste/badge",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A Badge is a visual text label that describes an attribute of an object."
+    },
+    {
+      "name": "@twilio-paste/base-radio-checkbox",
+      "status": "production",
+      "version": "14.0.2",
+      "description": "A shared base component for radio and checks"
+    },
+    {
+      "name": "@twilio-paste/button",
+      "status": "production",
+      "version": "15.0.2",
+      "description": "A Button is a clickable element which communicates that users can trigger an action."
+    },
+    {
+      "name": "@twilio-paste/blockquote",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "A Blockquote is a stylized text wrapper for a quotation and source."
+    },
+    {
+      "name": "@twilio-paste/breadcrumb",
+      "status": "production",
+      "version": "12.0.1",
+      "description": "A Breadcrumb is text that shows navigation hierarchy and lets users navigate a nested path of pages."
+    },
+    {
+      "name": "@twilio-paste/button-group",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "A Button Group is a component used to render groups of Buttons."
+    },
+    {
+      "name": "@twilio-paste/chart-provider",
+      "status": "beta",
+      "version": "2.1.0",
+      "description": "Chart Provider is a data visualization component used to wrap an individual chart to store and share state to child charting elements."
+    },
+    {
+      "name": "@twilio-paste/callout",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "A Callout is a banner that highlights important information on a page."
+    },
+    {
+      "name": "@twilio-paste/chat-log",
+      "status": "alpha",
+      "version": "6.0.1",
+      "description": "Chat log is a collection of components that allow users to read a series of messages over time."
+    },
+    {
+      "name": "@twilio-paste/card",
+      "status": "production",
+      "version": "10.2.0",
+      "description": "A Card is a styled container that groups related content and actions."
+    },
+    {
+      "name": "@twilio-paste/chat-composer",
+      "status": "production",
+      "version": "6.2.0",
+      "description": "A Chat Composer is an input made for users to type rich chat messages."
+    },
+    {
+      "name": "@twilio-paste/combobox",
+      "status": "production",
+      "version": "17.0.3",
+      "description": "A Combobox is a styled dropdown form element that allows users to either type a value or select a value from a list."
+    },
+    {
+      "name": "@twilio-paste/date-picker",
+      "status": "production",
+      "version": "7.0.1",
+      "description": "A Date Picker is a form element used to select a date."
+    },
+    {
+      "name": "@twilio-paste/code-block",
+      "status": "production",
+      "version": "6.0.1",
+      "description": "A Code Block is a component used to display readable blocks of code."
+    },
+    {
+      "name": "@twilio-paste/corner-ornament",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament."
+    },
+    {
+      "name": "@twilio-paste/data-grid",
+      "status": "alpha",
+      "version": "9.0.2",
+      "description": "A data grid is an interactive table used for working with a large collection of data in a scannable way."
+    },
+    {
+      "name": "@twilio-paste/display-heading",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "Display heading is large, expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes."
+    },
+    {
+      "name": "@twilio-paste/checkbox",
+      "status": "production",
+      "version": "14.0.2",
+      "description": "A Checkbox is a form element that enables a binary choice and a Checkbox Group is a collection of Checkboxes."
+    },
+    {
+      "name": "@twilio-paste/detail-text",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "Detail text is typography used for short pieces of secondary text content."
+    },
+    {
+      "name": "@twilio-paste/ai-chat-log",
+      "status": "production",
+      "version": "2.2.0",
+      "description": "An AI Chat Log is a collection of AI Chat components for displaying conversations between a human and an AI bot."
+    },
+    {
+      "name": "@twilio-paste/description-list",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "A Description List is a set or sets of terms and their definitions, or details, used to display data."
+    },
+    {
+      "name": "@twilio-paste/example-text",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "Example Text is a stylized text wrapper that distinguishes user input examples from body text."
+    },
+    {
+      "name": "@twilio-paste/editable-code-block",
+      "status": "alpha",
+      "version": "3.0.1",
+      "description": "An Editable Code Block is a text field that allows users to enter formatted code."
+    },
+    {
+      "name": "@twilio-paste/display-pill-group",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A Display Pill Group is a set of Pills used to visually represent a collection of entities outside of form-based UIs."
+    },
+    {
+      "name": "@twilio-paste/file-picker",
+      "status": "production",
+      "version": "5.0.2",
+      "description": "A File Picker is a form element used to upload files."
+    },
+    {
+      "name": "@twilio-paste/file-uploader",
+      "status": "production",
+      "version": "5.0.2",
+      "description": "A file uploader is a form element used to upload multiple files."
+    },
+    {
+      "name": "@twilio-paste/form",
+      "status": "production",
+      "version": "12.0.1",
+      "description": "A form groups related form elements that allow users to input information or configure options."
+    },
+    {
+      "name": "@twilio-paste/form-pill-group",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A Form Pill Group is an editable set of Pills that represent a collection of selectable or removable objects."
+    },
+    {
+      "name": "@twilio-paste/footnote",
+      "status": "production",
+      "version": "1.0.1",
+      "description": "A Footnote is an inline number that is used within main text to reference related information such as a citation."
+    },
+    {
+      "name": "@twilio-paste/in-page-navigation",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "In Page Navigation is a set of links that lets users navigate between related pages."
+    },
+    {
+      "name": "@twilio-paste/heading",
+      "status": "production",
+      "version": "12.0.1",
+      "description": "A Heading is text that gives hierarchical structure to a page."
+    },
+    {
+      "name": "@twilio-paste/disclosure",
+      "status": "production",
+      "version": "13.0.1",
+      "description": "A Disclosure is a collapsible accordion that gives hierarchy to a page."
+    },
+    {
+      "name": "@twilio-paste/help-text",
+      "status": "production",
+      "version": "14.0.1",
+      "description": "Help Text is paired with a form element to give users information to prevent or correct formatting errors."
+    },
+    {
+      "name": "@twilio-paste/inline-control-group",
+      "status": "production",
+      "version": "14.0.1",
+      "description": "A base component for creating input groups"
+    },
+    {
+      "name": "@twilio-paste/input",
+      "status": "production",
+      "version": "10.0.2",
+      "description": "An Input is a form element that lets users enter one of various types of text on a single line."
+    },
+    {
+      "name": "@twilio-paste/input-box",
+      "status": "production",
+      "version": "11.0.2",
+      "description": "Visual box around every Paste input type"
+    },
+    {
+      "name": "@twilio-paste/inline-code",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "An inline code component visually distinguishes pieces of texts as fragments of code."
+    },
+    {
+      "name": "@twilio-paste/list",
+      "status": "production",
+      "version": "9.0.2",
+      "description": "A List is a set of text objects in a bulleted or numbered format."
+    },
+    {
+      "name": "@twilio-paste/menu",
+      "status": "production",
+      "version": "15.0.2",
+      "description": "A Menu is a button that presents a list of items that users can choose to trigger an action."
+    },
+    {
+      "name": "@twilio-paste/keyboard-key",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "A Keyboard Key distinguishes a keyboard command or shortcut from other text."
+    },
+    {
+      "name": "@twilio-paste/label",
+      "status": "production",
+      "version": "14.1.0",
+      "description": "A Label is text that provides a visible and accessible name to a form element."
+    },
+    {
+      "name": "@twilio-paste/meter",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "Meter is a visual representation of a numerical value within a known range."
+    },
+    {
+      "name": "@twilio-paste/page-header",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "Page Header is a layout component that wraps all top-level components on a page."
+    },
+    {
+      "name": "@twilio-paste/modal",
+      "status": "production",
+      "version": "17.0.1",
+      "description": "A Modal is a page overlay that displays information and blocks interaction with the page until an action is taken or the Modal is dismissed."
+    },
+    {
+      "name": "@twilio-paste/minimizable-dialog",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "A dialog that can be minimized."
+    },
+    {
+      "name": "@twilio-paste/popover",
+      "status": "production",
+      "version": "14.0.1",
+      "description": "A Popover is a page overlay triggered by a button that displays additional interactive content."
+    },
+    {
+      "name": "@twilio-paste/pagination",
+      "status": "production",
+      "version": "8.0.1",
+      "description": "Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages."
+    },
+    {
+      "name": "@twilio-paste/paragraph",
+      "status": "production",
+      "version": "11.0.1",
+      "description": "A Paragraph is a block of text."
+    },
+    {
+      "name": "@twilio-paste/radio-button-group",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time."
+    },
+    {
+      "name": "@twilio-paste/product-switcher",
+      "status": "production",
+      "version": "4.0.2",
+      "description": "A Product Switcher is an opinionated Menu that presents a list of Twilio products that a user has access to and can switch between."
+    },
+    {
+      "name": "@twilio-paste/progress-steps",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task."
+    },
+    {
+      "name": "@twilio-paste/radio-group",
+      "status": "production",
+      "version": "14.0.1",
+      "description": "A Radio Group is a form element that lets users select a single choice from a list of at least two options."
+    },
+    {
+      "name": "@twilio-paste/select",
+      "status": "production",
+      "version": "13.0.3",
+      "description": "A Select is an unstyled dropdown form element that allows users to select a value from a list."
+    },
+    {
+      "name": "@twilio-paste/progress-bar",
+      "status": "alpha",
+      "version": "2.0.1",
+      "description": "A Progress Bar communicates the completion status of a process or task."
+    },
+    {
+      "name": "@twilio-paste/screen-reader-only",
+      "status": "production",
+      "version": "14.0.1",
+      "description": "Screen Reader Only is a utility that visually hides content to provide an accessible experience for users of assistive technology."
+    },
+    {
+      "name": "@twilio-paste/side-modal",
+      "status": "production",
+      "version": "5.0.1",
+      "description": "A modal that stays on the side of the screen."
+    },
+    {
+      "name": "@twilio-paste/sidebar",
+      "status": "alpha",
+      "version": "2.1.0",
+      "description": "Sidebar contains navigation controls that rest on the left side of the screen."
+    },
+    {
+      "name": "@twilio-paste/separator",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A Separator is a line that creates visual and semantic separation between UI elements or sections."
+    },
+    {
+      "name": "@twilio-paste/skeleton-loader",
+      "status": "production",
+      "version": "7.0.1",
+      "description": "A Skeleton Loader is a visual placeholder that gives users a hint of what type of information will be loaded on a page."
+    },
+    {
+      "name": "@twilio-paste/slider",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "A Slider is a draggable input that allows a user to select an imprecise numerical value within a range."
+    },
+    {
+      "name": "@twilio-paste/spinner",
+      "status": "production",
+      "version": "15.0.1",
+      "description": "A Spinner is an animation that communicates a loading state to users."
+    },
+    {
+      "name": "@twilio-paste/summary-detail",
+      "status": "production",
+      "version": "2.0.1",
+      "description": "A Summary Detail is a collapsible container that can be used to hide or show content."
+    },
+    {
+      "name": "@twilio-paste/table",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A Table is a collection of information displayed across columns and rows."
+    },
+    {
+      "name": "@twilio-paste/side-panel",
+      "status": "production",
+      "version": "2.0.2",
+      "description": "Side Panel is a container that pushes the main page content when open."
+    },
+    {
+      "name": "@twilio-paste/textarea",
+      "status": "production",
+      "version": "11.1.1",
+      "description": "A Textarea is a form element that allows users to enter text on multiple lines."
+    },
+    {
+      "name": "@twilio-paste/time-picker",
+      "status": "production",
+      "version": "7.0.1",
+      "description": "A Time Picker is a form element used to select a time."
+    },
+    {
+      "name": "@twilio-paste/toast",
+      "status": "production",
+      "version": "13.0.1",
+      "description": "A Toast is an animated, temporary banner that communicates an immediate and direct response to a user action."
+    },
+    {
+      "name": "@twilio-paste/timeline",
+      "status": "production",
+      "version": "2.1.0",
+      "description": "A Timeline is a visual representation of events displayed in chronological order."
+    },
+    {
+      "name": "@twilio-paste/tabs",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "Tabs are labeled controls that allow users to switch between multiple views within a page."
+    },
+    {
+      "name": "@twilio-paste/topbar",
+      "status": "alpha",
+      "version": "2.0.2",
+      "description": "Topbar contains application-wide controls that rest at the top of the screen."
+    },
+    {
+      "name": "@twilio-paste/truncate",
+      "status": "production",
+      "version": "15.0.1",
+      "description": "Truncate is a wrapper that shortens a string of text that overflows a defined area."
+    },
+    {
+      "name": "@twilio-paste/tooltip",
+      "status": "production",
+      "version": "13.0.1",
+      "description": "A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state."
+    },
+    {
+      "name": "@twilio-paste/switch",
+      "status": "production",
+      "version": "6.0.1",
+      "description": "A switch is an interactive binary control."
+    },
+    {
+      "name": "@twilio-paste/status",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "A Status component communicates the status of a process or connectivity to an application or service."
+    },
+    {
+      "name": "@twilio-paste/user-dialog",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "User dialog is a menu that contains user profile-related actions."
+    },
+    {
+      "name": "@twilio-paste/visual-picker",
+      "status": "production",
+      "version": "3.0.2",
+      "description": "Visual Picker is a stylistically enhanced checkbox or radio selection element."
+    }
+  ],
+  "allPasteDesignTokensPackage": [
+    {
+      "name": "@twilio-paste/design-tokens",
+      "status": null,
+      "version": "10.15.0",
+      "description": "Paste Design System Tokens package with a number of different formats for Web, Mobile, and Sketch."
+    }
+  ],
+  "allPasteLayout": [
+    {
+      "name": "@twilio-paste/flex",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A primitive component that can be used to build flexbox based elements and layouts."
+    },
+    {
+      "name": "@twilio-paste/grid",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A flex-based horizontal grid system used to build layouts."
+    },
+    {
+      "name": "@twilio-paste/aspect-ratio",
+      "status": "production",
+      "version": "11.0.1",
+      "description": ""
+    },
+    {
+      "name": "@twilio-paste/media-object",
+      "status": "production",
+      "version": "11.0.1",
+      "description": "Media Object is a layout utility that allows an image or figure to be positioned horizontally next to some form of content."
+    },
+    {
+      "name": "@twilio-paste/stack",
+      "status": "production",
+      "version": "9.0.1",
+      "description": "A horizontal and vertical flow component used to create space between components."
+    }
+  ],
+  "allPasteLibraries": [
+    {
+      "name": "@twilio-paste/animation-library",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "Paste's animation library of choice."
+    },
+    {
+      "name": "@twilio-paste/clipboard-copy-library",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "A library that allows the user to copy text with the click of a button."
+    },
+    {
+      "name": "@twilio-paste/code-editor-library",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "A library to display and make changes to large blocks of code."
+    },
+    {
+      "name": "@twilio-paste/react-spectrum-library",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "React Spectrum Library is a collection of tools that help you build adaptive, accessible, and robust user experiences."
+    },
+    {
+      "name": "@twilio-paste/dropdown-library",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "A library to build dropdowns."
+    },
+    {
+      "name": "@twilio-paste/data-visualization-library",
+      "status": "production",
+      "version": "6.1.0",
+      "description": "A library that helps theme data visualizations with Paste tokens."
+    },
+    {
+      "name": "@twilio-paste/reakit-library",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "The reakit third-party library."
+    },
+    {
+      "name": "@twilio-paste/lexical-library",
+      "status": "production",
+      "version": "5.1.0",
+      "description": "The Lexical third party library."
+    },
+    {
+      "name": "@twilio-paste/react-textarea-autosize-library",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "textarea component for React which grows with content"
+    },
+    {
+      "name": "@twilio-paste/syntax-highlighter-library",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "A code block syntax highlighter for making code examples readable."
+    },
+    {
+      "name": "@twilio-paste/styling-library",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "Custom CSS-in-JS wrapper library for use in Paste."
+    },
+    {
+      "name": "@twilio-paste/uid-library",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "A library to generate unique IDs for use in user interfaces such as forms."
+    }
+  ],
+  "allPastePrimitive": [
+    {
+      "name": "@twilio-paste/box",
+      "status": "production",
+      "version": "11.0.2",
+      "description": "The Box primitive is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components."
+    },
+    {
+      "name": "@twilio-paste/combobox-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible basis upon which to build a combobox."
+    },
+    {
+      "name": "@twilio-paste/disclosure-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An accessible disclosure primitive for controlling the visibility of a content section."
+    },
+    {
+      "name": "@twilio-paste/listbox-primitive",
+      "status": "production",
+      "version": "4.0.1",
+      "description": "An unstyled and accessible basis upon which to build listboxes."
+    },
+    {
+      "name": "@twilio-paste/menu-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible basis upon which to build Menus."
+    },
+    {
+      "name": "@twilio-paste/modal-dialog-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible basis upon which to build Modal Dialogs."
+    },
+    {
+      "name": "@twilio-paste/non-modal-dialog-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible base upon which to build a non-modal dialog."
+    },
+    {
+      "name": "@twilio-paste/sibling-box",
+      "status": "production",
+      "version": "10.0.1",
+      "description": "A primitive used to extend box and create components that style siblings"
+    },
+    {
+      "name": "@twilio-paste/text",
+      "status": "production",
+      "version": "11.0.1",
+      "description": "The Text component is a primitive of the system and can output any supported text style provided by our design tokens. Coupled with Box, it underpins most of our components."
+    },
+    {
+      "name": "@twilio-paste/tabs-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible basis upon which to style a tabset."
+    },
+    {
+      "name": "@twilio-paste/tooltip-primitive",
+      "status": "production",
+      "version": "3.0.1",
+      "description": "An unstyled and accessible basis upon which to style a tooltip."
+    }
+  ],
+  "allPasteThemePackage": [
+    {
+      "name": "@twilio-paste/theme",
+      "status": null,
+      "version": "12.0.1",
+      "description": "Paste Design System Theme Package which provides support for APIs to theme UIs and components."
+    },
+    {
+      "name": "@twilio-paste/theme-designer",
+      "status": null,
+      "version": "0.2.38"
+    }
+  ],
+  "allPastePattern": [
+    {
+      "status": "production",
+      "Feature": "Button vs Anchor"
+    },
+    {
+      "status": "production",
+      "Feature": "Confirmation"
+    },
+    {
+      "status": "production",
+      "Feature": "Create"
+    },
+    {
+      "status": "production",
+      "Feature": "Data export"
+    },
+    {
+      "status": "production",
+      "Feature": "Delete"
+    },
+    {
+      "status": "production",
+      "Feature": "Empty state"
+    },
+    {
+      "status": "production",
+      "Feature": "Error state"
+    },
+    {
+      "status": "production",
+      "Feature": "Filter"
+    },
+    {
+      "status": "production",
+      "Feature": "Form"
+    },
+    {
+      "status": "production",
+      "Feature": "Notifications and feedback"
+    },
+    {
+      "status": "production",
+      "Feature": "Object status"
+    },
+    {
+      "status": "production",
+      "Feature": "Pricing"
+    },
+    {
+      "status": "production",
+      "Feature": "Privacy"
+    }
+  ],
+  "allPastePageTemplate": [],
+  "allPasteExperience": [
+    {
+      "status": "production",
+      "Feature": "Artificial Intelligence"
+    },
+    {
+      "status": "production",
+      "Feature": "Navigation"
+    }
+  ]
+}

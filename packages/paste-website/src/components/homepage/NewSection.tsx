@@ -17,9 +17,6 @@ const NewSection: React.FC = (): React.ReactElement<HTMLElement> => {
         rowGap="space40"
         element="NEW_SECTION"
       >
-        <WhatsNew href="/assistant">
-          Try out <Anchor href="/assistant">Paste Assistant,</Anchor> our AI-powered Design System chat bot
-        </WhatsNew>
         <WhatsNew href="/core/changelog">
           Read about our <Anchor href="/core/changelog">latest release</Anchor>
         </WhatsNew>

@@ -12,11 +12,10 @@ import {
 } from "@twilio-paste/page-header";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
-import Head from "next/head";
 import * as React from "react";
 
 import { STORYBOOK_DOMAIN, SidebarCategoryRoutes } from "../../../constants";
-import { getCategoryNameFromRoute, getNameFromPackageName, useOpengraphServiceUrl } from "../../../utils/RouteUtils";
+import { getCategoryNameFromRoute } from "../../../utils/RouteUtils";
 import GithubIcon from "../../icons/GithubIcon";
 import StorybookIcon from "../../icons/StorybookIcon";
 import { PackageStatusLegend } from "../package-status-legend";
@@ -62,7 +61,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   engineerCommitteeReview,
   figmaStatus,
   githubUrl,
-  packageName,
+  packageName: _packageName,
   packageStatus,
   storybookUrl,
   url,
@@ -72,11 +71,6 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   children,
 }) => {
   const theme = useTheme();
-
-  const ogImagePath = packageName
-    ? `${categoryRoute.replace("/", "")}/${getNameFromPackageName(packageName)}`
-    : undefined;
-  const openGraphServiceUrl = ogImagePath ? useOpengraphServiceUrl(ogImagePath) : null;
 
   const shouldShowSecondary = version || githubUrl || storybookUrl || productSuitability;
   const sharedIconStyles = {
@@ -89,9 +83,6 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
 
   const categoryName = getCategoryNameFromRoute(categoryRoute);
   const isFoundations = categoryRoute === SidebarCategoryRoutes.FOUNDATIONS;
-  const shouldHavePreview = [SidebarCategoryRoutes.COMPONENTS, SidebarCategoryRoutes.PRIMITIVES].includes(
-    categoryRoute,
-  );
   const showPackageStatus = [
     SidebarCategoryRoutes.COMPONENTS,
     SidebarCategoryRoutes.PATTERNS,
@@ -100,11 +91,6 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
 
   return (
     <PageHeader>
-      {openGraphServiceUrl && shouldHavePreview && (
-        <Head>
-          <meta property="og:image" content={openGraphServiceUrl} />
-        </Head>
-      )}
       {shouldShowBreadcrumbs && (
         <PageHeaderSetting>
           <Breadcrumb>

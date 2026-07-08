@@ -18,17 +18,6 @@ export function useLocationSearch(): string {
   return hasWindowObject() ? window.location.search : "";
 }
 
-export function useLocationOrigin(): string {
-  const origin = hasWindowObject() ? window.location.origin : "";
-  // By default, assume the origin is our own domain
-  return origin || "https://paste.twilio.design";
-}
-
-export function useOpengraphServiceUrl(path: string): string {
-  const origin = useLocationOrigin();
-  return `${origin}/api/component-og-image/?componentRequested=${path}`;
-}
-
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"
 export function getNameFromPackageName(packageName: string): string {
   return packageName?.replace(PASTE_PACKAGE_PREFIX, "");
