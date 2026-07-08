@@ -1,0 +1,47 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[639],{15780:(e,t,a)=>{"use strict";a.d(t,{A:()=>p});var n=a(72387),i=a(95669),o=a.n(i),r=a(81278);a(55729);var s=a(10511),c=a(43084),l=a(63437),h=a(38992);let u={h1:()=>null},p=({children:e,meta:t,navigationData:a})=>{let i=t.title?`${t.title} - ${h.DZ.TITLE}`:h.DZ.TITLE,p=t.description||h.DZ.DESCRIPTION,d=(0,r.useRouter)();return(0,n.FD)(l.T,{navigationData:a,children:[(0,n.FD)(o(),{children:[(0,n.Y)("title",{children:i}),(0,n.Y)("link",{rel:"canonical",href:`https://paste.twilio.design${d.pathname}`}),(0,n.Y)("meta",{name:"description",content:p},"description")]}),(0,n.Y)(s.s,{children:(0,n.Y)(c.Q,{componentOverrides:t.package?u:{},children:e})})]})}},20844:(e,t,a)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/foundations/data-visualization/for-engineers",function(){return a(84299)}])},84299:(e,t,a)=>{"use strict";a.r(t),a.d(t,{__N_SSG:()=>p,default:()=>v,getStaticProps:()=>g,mdxHeadings:()=>y,meta:()=>d}),a(55729);var n=a(11885);a(8588),a(69402),a(76955),a(76393);var i=a(76127),o=a(54652),r=a(97215),s=a(28019),c=a(17377),l=a(4073),h=a(38992),u=a(15780),p=!0;let d={title:"Getting started",description:"An overview of integrating Highcharts with Paste's data visualization components, including setup, licensing, and chart context.",slug:"/foundations/data-visualization/for-engineers/"},g=async()=>({props:{navigationData}}),y=[{value:"Introduction",depth:2},{value:"Licensing",depth:2},{value:"Setup",depth:2},{value:"BaseChart",depth:3},{value:"Chart context",depth:3}],m=e=>function(t){return console.warn("Component "+e+" was not imported, exported, or provided by MDXProvider as global scope"),(0,n.yg)("div",t)},f=m("GenericHeader"),w=m("PageAside"),T={meta:d,getStaticProps:g,mdxHeadings:y},x=u.A;function v({components:e,...t}){return(0,n.yg)(x,{...T,...t,components:e,mdxType:"MDXLayout"},(0,n.yg)(f,{name:d.title,description:d.description,categoryRoute:h.t4.FOUNDATIONS,mdxType:"GenericHeader"},(0,n.yg)(r.iD,{mdxType:"PageHeaderSeparator"},(0,n.yg)(s.w,{orientation:"horizontal",mdxType:"Separator"}))),(0,n.yg)("contentwrapper",null,(0,n.yg)(w,{data:y,mdxType:"PageAside"}),(0,n.yg)("content",null,(0,n.yg)("h2",null,"Introduction"),(0,n.yg)(i.az,{marginBottom:"space60",mdxType:"Box"},(0,n.yg)(o.Pq,{variant:"neutral",mdxType:"Callout"},(0,n.yg)(o.v,{mdxType:"CalloutHeading"},"In progress"),(0,n.yg)(o.wz,{mdxType:"CalloutText"},"As our current data visualization offerings are in progress, these guidelines may change. We will update these pages when new features are supported. Please raise a ",(0,n.yg)(l.Mz,{showExternal:!0,href:"https://github.com/twilio-labs/paste/discussions/new?category=general",mdxType:"Anchor"},"GitHub discussion")," for any feedback or requests."))),(0,n.yg)("p",null,"Our charting components are designed to work seamlessly with Highcharts. However, due to licensing restrictions, we cannot include Highcharts directly in the Paste library."),(0,n.yg)("p",null,"To address this, we have created components and wrappers that simplify the Highcharts API. These tools expose various props, allowing you to configure charts through a streamlined and user-friendly interface. The props are transformed into objects that Highcharts can interpret, and our components automatically apply consistent styles to the charts. Global styles will be set in the ",(0,n.yg)("inlineCode",{parentName:"p"},"BaseChart")," using our existing hook."),(0,n.yg)("h2",null,"Licensing"),(0,n.yg)("p",null,"Paste does not provide a license for Twilio usage. Licenses are acquired on an application level. For 2025, licenses have already been purchased for these applications:"),(0,n.yg)("ul",null,(0,n.yg)("li",{parentName:"ul"},"Twilio Admin"),(0,n.yg)("li",{parentName:"ul"},"Twilio Console"),(0,n.yg)("li",{parentName:"ul"},"Twilio Flex"),(0,n.yg)("li",{parentName:"ul"},"Twilio Segment"),(0,n.yg)("li",{parentName:"ul"},"Twilio SendGrid")),(0,n.yg)("p",null,"If you want to use the Paste charting components in another application, you'll need to acquire a new license. If you're a Twilio employee and need further information, you can reach out to us via ",(0,n.yg)("a",{parentName:"p",href:"https://github.com/twilio-labs/paste/discussions/new?category=q-a"},"GitHub discussions")," or the Twilio Procurement team."),(0,n.yg)("h2",null,"Setup"),(0,n.yg)("p",null,"To ensure our components function correctly, some initial configuration is required in your project. This seciton will cover:"),(0,n.yg)("ul",null,(0,n.yg)("li",{parentName:"ul"},"Adding any additional modules required for additional functionality such as gauges, exporting etc."),(0,n.yg)("li",{parentName:"ul"},"Storing and retrieving rendered chart objects.")),(0,n.yg)("p",null,"You will need to include a component that retrieves the chart configuration from a ",(0,n.yg)("a",{parentName:"p",href:"/components/chart-provider"},"Chart Provider"),"'s context and passes it to Highcharts. This component must also capture the rendered chart and store it in the Chart Provider context."),(0,n.yg)("p",null,"Storing the rendered chart is essential for several reasons. It allows us to determine the positioning of elements relative to the screen, enabling the placement of components like Tooltips. Additionally, it facilitates triggering update functions on the chart for interactions such as zooming or toggling the visibility of series through a legend component."),(0,n.yg)("h3",null,"BaseChart"),(0,n.yg)("p",null,"We recommend copying the below code and creating an instance of it in your application to use with our components. This component is designed to be reused across all charts. You do not need a new instance of this component for each chart."),(0,n.yg)(i.az,{marginBottom:"space60",mdxType:"Box"},(0,n.yg)(o.Pq,{variant:"warning",mdxType:"Callout"},(0,n.yg)(o.v,{mdxType:"CalloutHeading"},"Modules are subject to change"),(0,n.yg)(o.wz,{mdxType:"CalloutText"},"As we expand our supported charts you will need to maintain this file to include any required modules for the new charts or functionality of our components to work correctly. For example, you might change this line of code from this:"),(0,n.yg)(o.wz,{mdxType:"CalloutText"},(0,n.yg)(c.R,{mdxType:"InlineCode"},"applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);")),(0,n.yg)(o.wz,{mdxType:"CalloutText"},"To this:"),(0,n.yg)(o.wz,{mdxType:"CalloutText"},(0,n.yg)(c.R,{mdxType:"InlineCode"},"applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule, HighchartsSankeyModule, ...);")))),(0,n.yg)("pre",null,(0,n.yg)("code",{parentName:"pre",className:"language-jsx"},`import { ChartContext } from "@twilio-paste/core/chart-provider";
+import { Box } from "@twilio-paste/core/box";
+import { applyPasteHighchartsModules, usePasteHighchartsTheme } from "@twilio-paste/core/data-visualization-library";
+import * as Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartsAccessibilityModule from "highcharts/modules/accessibility";
+import * as React from "react";
+
+const Chart: React.FC = () => {
+  // Load the accessibility module and any other modules you need.
+  applyPasteHighchartsModules(Highcharts, HighchartsAccessibilityModule);
+  const chartRef = React.useRef<HTMLElement | null>(null);
+  const { options, setChart, setChartRef } = React.useContext(ChartContext);
+  const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>(usePasteHighchartsTheme(options));
+
+  React.useLayoutEffect(() => {
+    setChartOptions(Highcharts.merge(chartOptions, options));
+  }, [options]);
+
+  React.useEffect(() => {
+    if (chartRef.current) {
+      setChartRef(chartRef.current);
+    }
+  }, [chartRef.current]);
+
+  const callback = (chart: Highcharts.Chart) => {
+    // Ensure the chart has been rendered before setting it. This will cause issues in our components if the series is empty.
+    if (chart?.series?.length > 0) {
+      setChart(chart);
+    }
+  };
+
+  return (
+    <Box gridArea="base-chart" ref={chartRef} position="relative">
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={chartOptions}
+        constructorType={chartOptions.chart?.map ? "mapChart" : undefined}
+        updateArgs={[true, true, false]}
+        callback={callback}
+      />
+    </Box>
+  );
+};
+
+export const BaseChart = React.memo(Chart);
+`)),(0,n.yg)("h3",null,"Chart context"),(0,n.yg)("p",null,"We use React Context to store the rendered chart object to use in our components. When talking about the chart context we do not only mean the rendered object but also the initial configuration. You will need to pass data to the context for the ",(0,n.yg)("inlineCode",{parentName:"p"},"BaseChart")," to read and use."),(0,n.yg)("p",null,"Each individual chart instance must be wrapped in a ",(0,n.yg)("a",{parentName:"p",href:"/components/chart-provider"},"Chart Provider")," which sets the initial configuration and applies chart-specific styles."),(0,n.yg)("p",null,"An individual chart instance doesn't only contain a chart. It also contains chart titles, legends, tooltips, and any other component that's not part of the chart canvas. In simpler terms, it is a container that wraps not only the Highcharts elements, but also any of our Paste components that interact with that chart and canvas."))))}v.isMDXComponent=!0}},e=>{e.O(0,[3876,1623,1387,6428,5264,1931,9134,8182,636,6593,8792],()=>e(e.s=20844)),_N_E=e.O()}]);

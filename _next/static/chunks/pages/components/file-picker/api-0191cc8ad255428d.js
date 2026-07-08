@@ -1,0 +1,17 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2817],{3176:(e,t,i)=>{"use strict";i.r(t),i.d(t,{__N_SSG:()=>r,default:()=>u,getStaticProps:()=>n,mdxHeadings:()=>p,meta:()=>l}),i(55729);var a=i(11885),o=i(40615),r=!0;let l={title:"File Picker - API",package:"@twilio-paste/file-picker",description:"A File Picker is a form element used to upload files.",slug:"/components/file-picker/api"},n=async()=>({props:{data:{...packageJson,...feature},componentApi,mdxHeadings:[...p,...componentApiTocData],navigationData,pageHeaderData:{categoryRoute:SidebarCategoryRoutes.COMPONENTS,githubUrl:"https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker",storybookUrl:"/?path=/story/components-file-picker--default"}}}),p=[{value:"Installation",depth:2},{value:"Usage",depth:2},{value:"Props",depth:2}],s=function(e){return console.warn("Component PropsTable was not imported, exported, or provided by MDXProvider as global scope"),(0,a.yg)("div",e)},c={meta:l,getStaticProps:n,mdxHeadings:p},d=o.A;function u({components:e,...t}){return(0,a.yg)(d,{...c,...t,components:e,mdxType:"MDXLayout"},(0,a.yg)("h2",null,"Installation"),(0,a.yg)("pre",null,(0,a.yg)("code",{parentName:"pre",className:"language-bash"},`yarn add @twilio-paste/file-picker - or - yarn add @twilio-paste/core
+`)),(0,a.yg)("h2",null,"Usage"),(0,a.yg)("pre",null,(0,a.yg)("code",{parentName:"pre",className:"language-jsx"},`import {FilePicker, FilePickerButton} from '@twilio-paste/core/file-picker';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const MyFilePicker = () => (
+  <>
+    <Label htmlFor="foo" required>
+      Profile photo
+    </Label>
+    <FilePicker id="foo" required aria-describedby="foo_text">
+      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+    </FilePicker>
+    <HelpText id="foo_text">Upload an image</HelpText>
+  </>
+);
+`)),(0,a.yg)("h2",null,"Props"),(0,a.yg)(s,{componentApi:t.componentApi,mdxType:"PropsTable"}))}u.isMDXComponent=!0},40615:(e,t,i)=>{"use strict";i.d(t,{A:()=>h});var a=i(72387),o=i(76127),r=i(95669),l=i.n(r),n=i(81278);i(55729);var p=i(10511),s=i(43084),c=i(10732),d=i(62887),u=i(63437),m=i(38992);let g={h1:()=>null},h=({children:e,meta:t,navigationData:i,data:r,mdxHeadings:h,pageHeaderData:{categoryRoute:k,githubUrl:f,storybookUrl:y}})=>{let P=t.title?`${t.title} - ${m.DZ.TITLE}`:m.DZ.TITLE,b=t.description||m.DZ.DESCRIPTION,T=(0,n.useRouter)();return(0,a.FD)(u.T,{navigationData:i,children:[(0,a.FD)(l(),{children:[(0,a.Y)("title",{children:P}),(0,a.Y)("link",{rel:"canonical",href:`https://paste.twilio.design${T.pathname}`}),(0,a.Y)("meta",{name:"description",content:b},"description")]}),(0,a.FD)(p.s,{children:[(0,a.Y)(d.c,{categoryRoute:k,githubUrl:f,storybookUrl:y,data:r}),(0,a.FD)(o.az,{element:"CONTENT_WRAPPER",as:"div",display:["block","block","flex"],children:[(0,a.Y)(c.i,{data:h}),(0,a.Y)(o.az,{element:"CONTENT",as:"div",maxWidth:"size70",minWidth:"0",children:(0,a.Y)(s.Q,{componentOverrides:t.package?g:{},children:e})})]})]})]})}},50899:(e,t,i)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/file-picker/api",function(){return i(3176)}])}},e=>{e.O(0,[1623,1387,6428,1931,9134,8182,636,6593,8792],()=>e(e.s=50899)),_N_E=e.O()}]);

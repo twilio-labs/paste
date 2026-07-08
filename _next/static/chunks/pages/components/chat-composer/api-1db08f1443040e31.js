@@ -1,0 +1,16 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3641],{2844:(e,t,a)=>{"use strict";a.r(t),a.d(t,{__N_SSG:()=>n,default:()=>m,getStaticProps:()=>p,mdxHeadings:()=>i,meta:()=>s}),a(55729);var o=a(11885),r=a(40615),n=!0;let s={title:"Chat Composer",package:"@twilio-paste/chat-composer",description:"A Chat Composer is an input made for users to type rich chat messages.",slug:"/components/chat-composer/api"},p=async()=>({props:{data:{...packageJson,...feature},componentApi,mdxHeadings:[...i,...componentApiTocData],navigationData,pageHeaderData:{categoryRoute:SidebarCategoryRoutes.COMPONENTS,githubUrl:"https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer",storybookUrl:"/?path=/story/components-chat-composer--default"}}}),i=[{value:"Installation",depth:2},{value:"Usage",depth:2},{value:"Props",depth:2}],c=function(e){return console.warn("Component PropsTable was not imported, exported, or provided by MDXProvider as global scope"),(0,o.yg)("div",e)},l={meta:s,getStaticProps:p,mdxHeadings:i},d=r.A;function m({components:e,...t}){return(0,o.yg)(d,{...l,...t,components:e,mdxType:"MDXLayout"},(0,o.yg)("h2",null,"Installation"),(0,o.yg)("pre",null,(0,o.yg)("code",{parentName:"pre",className:"language-bash"},`yarn add @twilio-paste/chat-composer - or - yarn add @twilio-paste/core
+`)),(0,o.yg)("h2",null,"Usage"),(0,o.yg)("pre",null,(0,o.yg)("code",{parentName:"pre",className:"language-jsx"},`import { ChatComposer } from "@twilio-paste/core/chat-composer";
+
+export const BasicChatComposer = () => (
+  <ChatComposer
+    config={{
+      namespace: "customer-chat",
+      onError: (e) => {
+        throw e;
+      },
+    }}
+    ariaLabel="A basic chat composer"
+    placeholder="Chat text"
+  />
+);
+`)),(0,o.yg)("h2",null,"Props"),(0,o.yg)(c,{componentApi:t.componentApi,mdxType:"PropsTable"}))}m.isMDXComponent=!0},26295:(e,t,a)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/chat-composer/api",function(){return a(2844)}])},40615:(e,t,a)=>{"use strict";a.d(t,{A:()=>g});var o=a(72387),r=a(76127),n=a(95669),s=a.n(n),p=a(81278);a(55729);var i=a(10511),c=a(43084),l=a(10732),d=a(62887),m=a(63437),h=a(38992);let u={h1:()=>null},g=({children:e,meta:t,navigationData:a,data:n,mdxHeadings:g,pageHeaderData:{categoryRoute:y,githubUrl:C,storybookUrl:b}})=>{let T=t.title?`${t.title} - ${h.DZ.TITLE}`:h.DZ.TITLE,N=t.description||h.DZ.DESCRIPTION,D=(0,p.useRouter)();return(0,o.FD)(m.T,{navigationData:a,children:[(0,o.FD)(s(),{children:[(0,o.Y)("title",{children:T}),(0,o.Y)("link",{rel:"canonical",href:`https://paste.twilio.design${D.pathname}`}),(0,o.Y)("meta",{name:"description",content:N},"description")]}),(0,o.FD)(i.s,{children:[(0,o.Y)(d.c,{categoryRoute:y,githubUrl:C,storybookUrl:b,data:n}),(0,o.FD)(r.az,{element:"CONTENT_WRAPPER",as:"div",display:["block","block","flex"],children:[(0,o.Y)(l.i,{data:g}),(0,o.Y)(r.az,{element:"CONTENT",as:"div",maxWidth:"size70",minWidth:"0",children:(0,o.Y)(c.Q,{componentOverrides:t.package?u:{},children:e})})]})]})]})}}},e=>{e.O(0,[1623,1387,6428,1931,9134,8182,636,6593,8792],()=>e(e.s=26295)),_N_E=e.O()}]);

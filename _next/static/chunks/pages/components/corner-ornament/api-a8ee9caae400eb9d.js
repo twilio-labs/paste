@@ -1,0 +1,17 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4316],{4505:(e,n,r)=>{"use strict";r.r(n),r.d(n,{__N_SSG:()=>o,default:()=>m,getStaticProps:()=>s,mdxHeadings:()=>p,meta:()=>i}),r(55729);var a=r(11885),t=r(40615),o=!0;let i={title:"Corner Ornament",package:"@twilio-paste/corner-ornament",description:"Corner Ornament is a container used to apply a cutout to a base component and position another element as its ornament.",slug:"/components/corner-ornament/api"},s=async()=>({props:{data:{...packageJson,...feature},componentApi,mdxHeadings:[...p,...componentApiTocData],navigationData,pageHeaderData:{categoryRoute:SidebarCategoryRoutes.COMPONENTS,githubUrl:"https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/corner-ornament",storybookUrl:"/?path=/story/components-corner-ornament--supported-badge"}}}),p=[{value:"Installation",depth:2},{value:"Usage",depth:2},{value:"Props",depth:2}],l=function(e){return console.warn("Component PropsTable was not imported, exported, or provided by MDXProvider as global scope"),(0,a.yg)("div",e)},c={meta:i,getStaticProps:s,mdxHeadings:p},d=t.A;function m({components:e,...n}){return(0,a.yg)(d,{...c,...n,components:e,mdxType:"MDXLayout"},(0,a.yg)("h2",null,"Installation"),(0,a.yg)("pre",null,(0,a.yg)("code",{parentName:"pre",className:"language-bash"},`yarn add @twilio-paste/corner-ornament - or - yarn add @twilio-paste/core
+`)),(0,a.yg)("h2",null,"Usage"),(0,a.yg)("pre",null,(0,a.yg)("code",{parentName:"pre",className:"language-jsx"},`import { CornerOrnament, CornerOrnamentBase, CornerOrnamentContainer } from '@twilio-paste/core/corner-ornament';
+
+export const Example = () => {
+  return (
+    <CornerOrnamentContainer cornerOrnamentType="badge" size="sizeIcon80">
+      <CornerOrnamentBase>
+        // Your ornament base here
+      </CornerOrnamentBase>
+      <CornerOrnament>
+        <ScreenReaderOnly>{Your accessible reader value here}</ScreenReaderOnly>
+        // Your corner ornament here
+      </CornerOrnament>
+    </CornerOrnamentContainer>
+  );
+};
+`)),(0,a.yg)("h2",null,"Props"),(0,a.yg)(l,{componentApi:n.componentApi,mdxType:"PropsTable"}))}m.isMDXComponent=!0},40615:(e,n,r)=>{"use strict";r.d(n,{A:()=>h});var a=r(72387),t=r(76127),o=r(95669),i=r.n(o),s=r(81278);r(55729);var p=r(10511),l=r(43084),c=r(10732),d=r(62887),m=r(63437),u=r(38992);let g={h1:()=>null},h=({children:e,meta:n,navigationData:r,data:o,mdxHeadings:h,pageHeaderData:{categoryRoute:y,githubUrl:C,storybookUrl:O}})=>{let b=n.title?`${n.title} - ${u.DZ.TITLE}`:u.DZ.TITLE,T=n.description||u.DZ.DESCRIPTION,N=(0,s.useRouter)();return(0,a.FD)(m.T,{navigationData:r,children:[(0,a.FD)(i(),{children:[(0,a.Y)("title",{children:b}),(0,a.Y)("link",{rel:"canonical",href:`https://paste.twilio.design${N.pathname}`}),(0,a.Y)("meta",{name:"description",content:T},"description")]}),(0,a.FD)(p.s,{children:[(0,a.Y)(d.c,{categoryRoute:y,githubUrl:C,storybookUrl:O,data:o}),(0,a.FD)(t.az,{element:"CONTENT_WRAPPER",as:"div",display:["block","block","flex"],children:[(0,a.Y)(c.i,{data:h}),(0,a.Y)(t.az,{element:"CONTENT",as:"div",maxWidth:"size70",minWidth:"0",children:(0,a.Y)(l.Q,{componentOverrides:n.package?g:{},children:e})})]})]})]})}},93837:(e,n,r)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/corner-ornament/api",function(){return r(4505)}])}},e=>{e.O(0,[1623,1387,6428,1931,9134,8182,636,6593,8792],()=>e(e.s=93837)),_N_E=e.O()}]);

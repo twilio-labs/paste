@@ -1,0 +1,16 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2954],{13111:(e,t,a)=>{"use strict";a.r(t),a.d(t,{__N_SSG:()=>i,default:()=>u,getStaticProps:()=>d,mdxHeadings:()=>r,meta:()=>n}),a(55729);var o=a(11885),l=a(40615),i=!0;let n={title:"Editable CodeBlock - API",package:"@twilio-paste/editable-code-block",description:"An Editable Code Block is a text field that allows users to enter formatted code.",slug:"/components/editable-code-block/api"},d=async()=>({props:{data:{...packageJson,...feature},componentApi,mdxHeadings:[...r,...componentApiTocData],navigationData,pageHeaderData:{categoryRoute:SidebarCategoryRoutes.COMPONENTS,githubUrl:"https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block",storybookUrl:"/?path=/story/components-editable-code-block--default"}}}),r=[{value:"Installation",depth:2},{value:"Usage",depth:2},{value:"Props",depth:2}],c=function(e){return console.warn("Component PropsTable was not imported, exported, or provided by MDXProvider as global scope"),(0,o.yg)("div",e)},p={meta:n,getStaticProps:d,mdxHeadings:r},s=l.A;function u({components:e,...t}){return(0,o.yg)(s,{...p,...t,components:e,mdxType:"MDXLayout"},(0,o.yg)("h2",null,"Installation"),(0,o.yg)("pre",null,(0,o.yg)("code",{parentName:"pre",className:"language-bash"},`yarn add @twilio-paste/editable-code-block - or - yarn add @twilio-paste/core
+`)),(0,o.yg)("h2",null,"Usage"),(0,o.yg)("pre",null,(0,o.yg)("code",{parentName:"pre",className:"language-jsx"},`import {
+  EditableCodeBlockHeader,
+  EditableCodeBlockWrapper,
+  EditableCodeBlock,
+} from '@twilio-paste/core/editable-code-block';
+
+const Component = () => {
+  return (
+    <EditableCodeBlockWrapper>
+      <EditableCodeBlockHeader>My cool example</EditableCodeBlockHeader>
+      <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+    </EditableCodeBlockWrapper>
+  );
+};
+`)),(0,o.yg)("h2",null,"Props"),(0,o.yg)(c,{componentApi:t.componentApi,mdxType:"PropsTable"}))}u.isMDXComponent=!0},40615:(e,t,a)=>{"use strict";a.d(t,{A:()=>m});var o=a(72387),l=a(76127),i=a(95669),n=a.n(i),d=a(81278);a(55729);var r=a(10511),c=a(43084),p=a(10732),s=a(62887),u=a(63437),b=a(38992);let g={h1:()=>null},m=({children:e,meta:t,navigationData:a,data:i,mdxHeadings:m,pageHeaderData:{categoryRoute:h,githubUrl:k,storybookUrl:y}})=>{let E=t.title?`${t.title} - ${b.DZ.TITLE}`:b.DZ.TITLE,C=t.description||b.DZ.DESCRIPTION,T=(0,d.useRouter)();return(0,o.FD)(u.T,{navigationData:a,children:[(0,o.FD)(n(),{children:[(0,o.Y)("title",{children:E}),(0,o.Y)("link",{rel:"canonical",href:`https://paste.twilio.design${T.pathname}`}),(0,o.Y)("meta",{name:"description",content:C},"description")]}),(0,o.FD)(r.s,{children:[(0,o.Y)(s.c,{categoryRoute:h,githubUrl:k,storybookUrl:y,data:i}),(0,o.FD)(l.az,{element:"CONTENT_WRAPPER",as:"div",display:["block","block","flex"],children:[(0,o.Y)(p.i,{data:m}),(0,o.Y)(l.az,{element:"CONTENT",as:"div",maxWidth:"size70",minWidth:"0",children:(0,o.Y)(c.Q,{componentOverrides:t.package?g:{},children:e})})]})]})]})}},71533:(e,t,a)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/components/editable-code-block/api",function(){return a(13111)}])}},e=>{e.O(0,[1623,1387,6428,1931,9134,8182,636,6593,8792],()=>e(e.s=71533)),_N_E=e.O()}]);
