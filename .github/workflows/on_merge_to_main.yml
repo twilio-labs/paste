@@ -21,7 +21,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 20.5.x
 
@@ -89,7 +89,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 20.5.x
 
