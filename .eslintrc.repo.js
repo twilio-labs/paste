@@ -8,7 +8,6 @@ module.exports = {
   // - src files in packages as they need to be linted with the context of their local package.json file to make no-extraneous-dependencies work
   // - standalone apps or websites
   // - vs-code extensions
-  // - cypress
   ignorePatterns: [
     "packages/**/src",
     "packages/paste-theme-designer",
@@ -16,7 +15,6 @@ module.exports = {
     "packages/paste-website",
     "templates/paste-nextjs-template",
     "apps/vs-code-intellisense",
-    "cypress",
   ],
   rules: {
     "import/no-extraneous-dependencies": [
