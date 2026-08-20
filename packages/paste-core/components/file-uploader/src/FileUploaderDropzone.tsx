@@ -5,7 +5,7 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FileUploaderContext } from "./FileUploaderContext";
-import { arrayToCsv } from "./utils";
+import { arrayToCsv, isValidMimeType } from "./utils";
 
 export interface FileUploaderDropzoneProps
   extends Omit<
@@ -180,6 +180,15 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
 
       setFileInputKey((prev) => prev + 1);
       setDragActive(false);
+
+      if (event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+        for (let file of event.dataTransfer.files) {
+        if (!isValidMimeType(file.type, acceptedMimeTypes)) {
+          console.warn(`File type not accepted: ${file.type}`);
+          return;
+        }
+      }
+      }
 
       if (onDrop) {
         onDrop(event);
