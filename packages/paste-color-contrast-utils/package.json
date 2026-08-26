@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "color-combos": "1.0.12",
-    "lodash": "4.17.21"
+    "lodash": "4.18.1"
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^10.0.0"

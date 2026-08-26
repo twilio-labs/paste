@@ -31,7 +31,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-terser": "^2.0.1",
     "gulp-theo": "2.0.1",
-    "lodash": "4.17.21",
+    "lodash": "4.18.1",
     "through2": "^4.0.2"
   }
 }
