@@ -22,7 +22,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "lodash": "4.17.21"
+    "lodash": "4.18.1"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^3.0.0",
