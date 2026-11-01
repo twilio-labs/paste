@@ -65,7 +65,7 @@ jobs:
           git config --global user.name "PasteBot"
 
       - name: "Create Pull Request or Publish to npm"
-        uses: changesets/action@v1
+        uses: changesets/action@v2.1.2
         with:
           version: yarn version
           publish: yarn release
