@@ -201,6 +201,21 @@ describe("Combobox", () => {
   });
 
   describe("Render", () => {
+    it("ignores option selection after the open Combobox becomes disabled", async () => {
+      const onSelectedItemChange = jest.fn();
+      const props = { items, labelText: "Component", initialSelectedItem: "Alert", onSelectedItemChange };
+      const { rerender } = render(<Combobox {...props} />, { wrapper: ThemeWrapper });
+      const input = screen.getByRole("textbox");
+      userEvent.click(input);
+
+      rerender(<Combobox {...props} disabled />);
+      expect(input).toBeDisabled();
+      userEvent.click(await screen.findByRole("option", { name: "Anchor" }));
+
+      expect(onSelectedItemChange).not.toHaveBeenCalled();
+      expect(input).toHaveValue("Alert");
+    });
+
     it("should render a combobox with aria attributes", () => {
       render(<ComboboxMock />, { wrapper: ThemeWrapper });
       const renderedCombobox = screen.getByRole("combobox");

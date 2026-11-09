@@ -71,6 +71,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
   ) => {
     const parentRef = React.useRef<HTMLElement>(null);
     const helpTextId = useUID();
+    const effectiveDisabledItems = disabled ? items : disabledItems;
     const { width } = useWindowSize();
 
     // gets the dimensions of the inputBox to position the listbox
@@ -100,7 +101,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       state,
       getA11yStatusMessage,
       getA11ySelectionMessage,
-      disabledItems,
+      disabledItems: effectiveDisabledItems,
     });
 
     if (
@@ -189,7 +190,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               element={element}
               getItemProps={getItemProps}
               highlightedIndex={highlightedIndex}
-              disabledItems={disabledItems}
+              disabledItems={effectiveDisabledItems}
               optionTemplate={optionTemplate}
               groupItemsBy={groupItemsBy}
               groupLabelTemplate={groupLabelTemplate}
